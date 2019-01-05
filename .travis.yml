@@ -28,17 +28,17 @@ before_install:
   # Remove XDebug.
   - phpenv config-rm xdebug.ini || true
 
-  # Stage FileEye to get dependencies.
+  # Stage MimeMap to get dependencies.
   - |
       if [[ ! -f $FILEEYE_STAGING_DIR/vendor/autoload.php ]]; then
         mkdir -p $FILEEYE_STAGING_DIR
         cp -r $TRAVIS_BUILD_DIR $FILEEYE_STAGING_DIR
-        cd $FILEEYE_STAGING_DIR/FileEye
+        cd $FILEEYE_STAGING_DIR/MimeMap
         composer install --no-interaction --no-progress --no-suggest
       fi
   # Copy staged /vendor to running path.
   - mkdir -p $TRAVIS_BUILD_DIR/vendor
-  - cp -r $FILEEYE_STAGING_DIR/FileEye/vendor $TRAVIS_BUILD_DIR
+  - cp -r $FILEEYE_STAGING_DIR/MimeMap/vendor $TRAVIS_BUILD_DIR
   - cd $TRAVIS_BUILD_DIR
 
 install:

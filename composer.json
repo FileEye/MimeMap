@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "FileEye\\MimeMap": "src/"
+            "FileEye\\MimeMap\\": "src/"
         }
     },
     "autoload-dev": {
@@ -23,5 +23,5 @@
             "FileEye\\MimeMap\\Test\\": "tests/"
         }
     },
-    "bin": ["bin/exifeye"]
+    "bin": ["bin/fileeye-mimemap"]
 }
