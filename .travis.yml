@@ -1,0 +1,58 @@
+language: php
+sudo: false
+
+php:
+  - 5.4
+  #- 5.5
+  #- 5.6
+  #- 7.0
+  #- 7.1
+  #- 7.2
+  #- 7.3
+  #- nightly
+
+env:
+  global:
+    - FILEEYE_STAGING_DIR="$HOME/exifeye_staging"
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - php: nightly
+
+cache:
+  directories:
+    - $FILEEYE_STAGING_DIR
+
+before_install:
+  # Remove XDebug.
+  - phpenv config-rm xdebug.ini || true
+
+  # Stage FileEye to get dependencies.
+  - |
+      if [[ ! -f $FILEEYE_STAGING_DIR/vendor/autoload.php ]]; then
+        mkdir -p $FILEEYE_STAGING_DIR
+        cp -r $TRAVIS_BUILD_DIR $FILEEYE_STAGING_DIR
+        cd $FILEEYE_STAGING_DIR/FileEye
+        composer install --no-interaction --no-progress --no-suggest
+      fi
+  # Copy staged /vendor to running path.
+  - mkdir -p $TRAVIS_BUILD_DIR/vendor
+  - cp -r $FILEEYE_STAGING_DIR/FileEye/vendor $TRAVIS_BUILD_DIR
+  - cd $TRAVIS_BUILD_DIR
+
+install:
+  #- php bin/fileeye --version
+
+script:
+  # Remove the comment to the line below during development, to let TravisCI
+  # re-compile the extensions PHP file.
+  - php bin/exifeye compile
+
+  - if [ "$TRAVIS_PHP_VERSION" == "7.1" ]; then ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1; fi
+  - ./vendor/bin/phpunit ./test
+
+notifications:
+  email:
+    on_success: never
+    on_failure: never
