@@ -1,5 +1,10 @@
 #!/usr/bin/env php
 <?php
+
+use FileEye\MimeMap\Type\Extension;
+
+require_once dirname(__FILE__) . '/../vendor/autoload.php';
+
 /**
  * The apache httpd project contains the most-complete list
  * of file extension to mime type mapping on the planet.
@@ -23,7 +28,7 @@ writeCode($code);
 
 function writeCode($code)
 {
-    $file = __DIR__ . '/../MIME/Type/Extension.php';
+    $file = __DIR__ . '/../src/Type/Extension.php';
     $new = preg_replace(
         '#public \$extensionToType = array\(.+?\);#s',
         "public \$extensionToType = array(\n"
@@ -64,8 +69,7 @@ function generateCodeFromMap($map)
 
 function addExistingMap($map)
 {
-    require_once __DIR__ . '/../MIME/Type/Extension.php';
-    $mte = new MIME_Type_Extension();
+    $mte = new Extension();
 
     $new = count($map);
     $own = 0;
@@ -149,5 +153,3 @@ function logMsg($msg)
 {
     file_put_contents('php://stderr', $msg . "\n");
 }
-
-?>
