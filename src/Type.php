@@ -31,23 +31,6 @@ class Type
     protected $parameters = [];
 
     /**
-     * List of valid media types.
-     * A media type is the string in front of the slash.
-     * The media type of "text/xml" would be "text".
-     *
-     * @var array
-     */
-    protected $validMediaTypes = [
-        'text',
-        'image',
-        'audio',
-        'video',
-        'application',
-        'multipart',
-        'message'
-    ];
-
-    /**
      * Constructor.
      *
      * If $type is set, if will be parsed and the appropriate class vars set.
@@ -160,28 +143,28 @@ class Type
             if ($escaped) {
                 if ($incomment == 0) {
                     $newstring .= $string[$n];
-                } else if ($comment !== null) {
+                } elseif ($comment !== null) {
                     $comment .= $string[$n];
                 }
                 $escaped = false;
-            } else if ($string[$n] == '\\') {
+            } elseif ($string[$n] == '\\') {
                 $escaped = true;
-            } else if (!$inquote && $incomment > 0 && $string[$n] == ')') {
+            } elseif (!$inquote && $incomment > 0 && $string[$n] == ')') {
                 $incomment--;
                 if ($incomment == 0 && $comment !== null) {
                     $comment .= ' ';
                 }
-            } else if (!$inquote && $string[$n] == '(') {
+            } elseif (!$inquote && $string[$n] == '(') {
                 $incomment++;
-            } else if ($string[$n] == '"') {
+            } elseif ($string[$n] == '"') {
                 if ($inquote) {
                     $inquote = false;
                 } else {
                     $inquote = true;
                 }
-            } else if ($incomment == 0) {
+            } elseif ($incomment == 0) {
                 $newstring .= $string[$n];
-            } else if ($comment !== null) {
+            } elseif ($comment !== null) {
                 $comment .= $string[$n];
             }
         }

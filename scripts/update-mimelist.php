@@ -30,10 +30,10 @@ function writeCode($code)
 {
     $file = __DIR__ . '/../src/Type/Extension.php';
     $new = preg_replace(
-        '#public \$extensionToType = array\(.+?\);#s',
-        "public \$extensionToType = array(\n"
+        '#protected \$extensionToType = \[.+?\];#s',
+        "protected \$extensionToType = [\n"
         . $code
-        . "    );",
+        . "    ];",
         file_get_contents($file)
     );
     file_put_contents($file, $new);

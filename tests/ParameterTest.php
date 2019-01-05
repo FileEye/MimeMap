@@ -54,5 +54,3 @@ class ParameterTest extends TestCase
         );
     }
 }
-
-?>

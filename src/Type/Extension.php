@@ -1,6 +1,8 @@
 <?php
 namespace FileEye\MimeMap\Type;
 
+use FileEye\MimeMap\Type;
+
 /**
  * Class for mapping file extensions to MIME types.
  */
@@ -21,7 +23,7 @@ class Extension
      *
      * @var array
      */
-    public $extensionToType = array(
+    protected $extensionToType = [
         'ez'         => 'application/andrew-inset',
         'aw'         => 'application/applixware',
         'atom'       => 'application/atom+xml',
@@ -1008,7 +1010,7 @@ class Extension
         'movie'      => 'video/x-sgi-movie',
         'smv'        => 'video/x-smv',
         'ice'        => 'x-conference/x-cooltalk',
-    );
+    ];
 
 
 
@@ -1035,6 +1037,15 @@ class Extension
     }
 
 
+    /**
+     * Return the MIME-type to file extension map.
+     *
+     * @return array
+     */
+    public function getMap()
+    {
+        return $this->extensionToType;
+    }
 
     /**
      * Return default MIME-type for the specified extension.
@@ -1045,15 +1056,13 @@ class Extension
      */
     public function getExtension($type)
     {
-        include_once 'MIME/Type.php';
         // Strip parameters and comments.
-        $type = MIME_Type::getMedia($type) . '/' . MIME_Type::getSubType($type);
+        $type = Type::getMedia($type) . '/' . Type::getSubType($type);
 
         $extension = array_search($type, $this->extensionToType);
         if ($extension === false) {
-            return PEAR::raiseError("Sorry, couldn't determine extension.");
+            throw new \RuntimeException("Sorry, couldn't determine extension.");
         }
         return $extension;
     }
 }
-?>

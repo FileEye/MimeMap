@@ -11,21 +11,21 @@ class Parameter
      *
      * @var string
      */
-    public $name;
+    protected $name;
 
     /**
      * Parameter value
      *
      * @var string
      */
-    public $value;
+    protected $value;
 
     /**
      * Parameter comment
      *
      * @var string
      */
-    public $comment;
+    protected $comment;
 
 
     /**
@@ -48,7 +48,7 @@ class Parameter
      *
      * @return void
      */
-    function parse($param)
+    public function parse($param)
     {
         $comment = '';
         $param   = MIME_Type::stripComments($param, $comment);

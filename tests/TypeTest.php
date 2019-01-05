@@ -11,17 +11,17 @@ class TypeTest extends TestCase
         $mt = new Type();
         $mt->parse('application/ogg;description=Hello there!;asd=fgh');
         $this->assertEquals('application', $mt->media);
-        $this->assertEquals('ogg'        , $mt->subType);
+        $this->assertEquals('ogg', $mt->subType);
 
-        $params = array(
-            'description' => array('Hello there!', ''),
-            'asd' => array('fgh', '')
-        );
+        $params = [
+            'description' => ['Hello there!', ''],
+            'asd' => ['fgh', ''],
+        ];
         $this->assertEquals(2, count($mt->parameters));
         foreach ($params as $name => $param) {
             $this->assertTrue(isset($mt->parameters[$name]));
             $this->assertInstanceOf('MIME_Type_Parameter', $mt->parameters[$name]);
-            $this->assertEquals($name,     $mt->parameters[$name]->name);
+            $this->assertEquals($name, $mt->parameters[$name]->name);
             $this->assertEquals($param[0], $mt->parameters[$name]->value);
             $this->assertEquals($param[1], $mt->parameters[$name]->comment);
         }
@@ -48,27 +48,15 @@ class TypeTest extends TestCase
 
     public function testGetParameters()
     {
-        $this->assertEquals(
-            array(),
-            Type::getParameters('text/plain')
-        );
-        //rest is tested in testParse()
+        $this->assertEquals([],Type::getParameters('text/plain'));
+        // The rest is tested in testParse().
     }
 
     public function testStripParameters()
     {
-        $this->assertEquals(
-            'text/plain',
-            Type::stripParameters('text/plain')
-        );
-        $this->assertEquals(
-            'text/plain',
-            Type::stripParameters('text/plain;asd=def')
-        );
-        $this->assertEquals(
-            'text/plain',
-            Type::stripParameters('text/plain;asd=def;ghj=jkl')
-        );
+        $this->assertEquals('text/plain', Type::stripParameters('text/plain'));
+        $this->assertEquals('text/plain', Type::stripParameters('text/plain;asd=def'));
+        $this->assertEquals('text/plain', Type::stripParameters('text/plain;asd=def;ghj=jkl'));
     }
 
     public function testStripComments()
@@ -81,18 +69,14 @@ class TypeTest extends TestCase
     public function testStripCommentsEscaped()
     {
         $comment = '';
-        $this->assertEquals(
-            'def', Type::stripComments('(\)abc)def(\))', $comment)
-        );
+        $this->assertEquals('def', Type::stripComments('(\)abc)def(\))', $comment));
         $this->assertEquals(')abc )', $comment);
     }
 
     public function testStripCommentsEscapedString()
     {
         $comment = false;
-        $this->assertEquals(
-            'foo', Type::stripComments('\\foo(abc)', $comment)
-        );
+        $this->assertEquals('foo', Type::stripComments('\\foo(abc)', $comment));
         $this->assertEquals('abc', $comment);
     }
 
@@ -105,10 +89,7 @@ class TypeTest extends TestCase
     public function testStripCommentsParameterComment()
     {
         $comment = '';
-        $this->assertEquals(
-            'def',
-            Type::stripComments('(abc)def(ghi)', $comment)
-        );
+        $this->assertEquals('def', Type::stripComments('(abc)def(ghi)', $comment));
         $this->assertEquals('abc ghi', $comment);
     }
 
@@ -133,10 +114,7 @@ class TypeTest extends TestCase
         $this->assertEquals('text/xml', $mt->get());
 
         $mt = new Type('text/xml; this="is"; a="parameter" (with a comment)');
-        $this->assertEquals(
-            'text/xml; this="is"; a="parameter" (with a comment)',
-            $mt->get()
-        );
+        $this->assertEquals('text/xml; this="is"; a="parameter" (with a comment)', $mt->get());
     }
 
     public function testIsExperimental()
@@ -160,7 +138,8 @@ class TypeTest extends TestCase
         $this->assertFalse(Type::isWildcard('text/plain'));
     }
 
-    public function testWildcardMatch() {
+    public function testWildcardMatch()
+     {
         $this->assertTrue(Type::wildcardMatch('*/*', 'image/png'));
         $this->assertTrue(Type::wildcardMatch('image/*', 'image/png'));
         $this->assertFalse(Type::wildcardMatch('image/*', 'text/plain'));
@@ -198,54 +177,33 @@ class TypeTest extends TestCase
     public function testComments()
     {
         $type = new Type('(UTF-8 Plain Text) text / plain ; charset = utf-8');
-        $this->assertEquals(
-            'text/plain; charset="utf-8"', $type->get()
-        );
+        $this->assertEquals('text/plain; charset="utf-8"', $type->get());
 
         $type = new Type('text (Text) / plain ; charset = utf-8');
-        $this->assertEquals(
-            'text/plain; charset="utf-8"', $type->get()
-        );
+        $this->assertEquals('text/plain; charset="utf-8"', $type->get());
 
         $type = new Type('text / (Plain) plain ; charset = utf-8');
-        $this->assertEquals(
-            'text/plain; charset="utf-8"', $type->get()
-        );
+        $this->assertEquals('text/plain; charset="utf-8"', $type->get());
 
         $type = new Type('text / plain (Plain Text) ; charset = utf-8');
-        $this->assertEquals(
-            'text/plain; charset="utf-8"', $type->get()
-        );
+        $this->assertEquals('text/plain; charset="utf-8"', $type->get());
 
         $type = new Type('text / plain ; (Charset=utf-8) charset = utf-8');
-        $this->assertEquals(
-            'text/plain; charset="utf-8" (Charset=utf-8)', $type->get()
-        );
+        $this->assertEquals('text/plain; charset="utf-8" (Charset=utf-8)', $type->get());
 
         $type = new Type('text / plain ; charset (Charset) = utf-8');
-        $this->assertEquals(
-            'text/plain; charset="utf-8" (Charset)', $type->get()
-        );
+        $this->assertEquals('text/plain; charset="utf-8" (Charset)', $type->get());
 
         $type = new Type('text / plain ; charset = (UTF8) utf-8');
-        $this->assertEquals(
-            'text/plain; charset="utf-8" (UTF8)', $type->get()
-        );
+        $this->assertEquals('text/plain; charset="utf-8" (UTF8)', $type->get());
 
         $type = new Type('text / plain ; charset = utf-8 (UTF-8 Plain Text)');
-        $this->assertEquals(
-            'text/plain; charset="utf-8" (UTF-8 Plain Text)', $type->get()
-        );
+        $this->assertEquals('text/plain; charset="utf-8" (UTF-8 Plain Text)', $type->get());
 
         $type = new Type('application/x-foobar;description="bbgh(kdur"');
-        $this->assertEquals(
-            'application/x-foobar; description="bbgh(kdur"', $type->get()
-        );
+        $this->assertEquals('application/x-foobar; description="bbgh(kdur"', $type->get());
 
         $type = new Type('application/x-foobar;description="a \"quoted string\""');
-        $this->assertEquals(
-            'application/x-foobar; description="a \"quoted string\""', $type->get()
-        );
-
+        $this->assertEquals('application/x-foobar; description="a \"quoted string\""', $type->get());
     }
 }
