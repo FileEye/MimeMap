@@ -5,7 +5,7 @@ MimeMap is a fork of [PEAR MIME_Type](https://github.com/pear/MIME_Type). See al
 the [contributors](https://github.com/pear/MIME_Type/graphs/contributors).
 
 
-## Features:
+## Features
 
 - Map file extensions to MIME types and vice-versa
 - Parse MIME types
