@@ -75,7 +75,7 @@ function addExistingMap($map)
     $own = 0;
     $same = 0;
     $updated = 0;
-    foreach ($mte->extensionToType as $ext => $type) {
+    foreach ($mte->getMap() as $ext => $type) {
         if (isset($map[$ext])) {
             --$new;
             if ($map[$ext] != $type) {
