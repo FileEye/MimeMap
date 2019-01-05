@@ -37,7 +37,7 @@ code repository:
 ```
     $ ./scripts/update-mimelist.php
     ...
-    785 new, 28 updated, 168 same, 5 own, 986 total
+    785 new, 28 updated, 168 same, 5 own, 986 total 
     Code updated
 ```
 
