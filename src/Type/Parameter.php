@@ -1,30 +1,10 @@
 <?php
-/* vim: set expandtab tabstop=4 shiftwidth=4: */
-/**
- * Part of MIME_Type
- *
- * PHP version 4 and 5
- *
- * @category File
- * @package  MIME_Type
- * @author   Ian Eure <ieure@php.net>
- * @license  http://www.gnu.org/copyleft/lesser.html LGPL
- * @link     http://pear.php.net/package/MIME_Type
- */
-
 namespace FileEye\MimeMap\Type;
 
 /**
  * Class for working with MIME type parameters
- *
- * @category File
- * @package  MIME_Type
- * @author   Ian Eure <ieure@php.net>
- * @license  http://www.gnu.org/copyleft/lesser.html LGPL
- * @version  Release: @version@
- * @link     http://pear.php.net/package/MIME_Type
  */
-class MIME_Type_Parameter
+class Parameter
 {
     /**
      * Parameter name
@@ -164,4 +144,3 @@ class MIME_Type_Parameter
         return $val;
     }
 }
-?>

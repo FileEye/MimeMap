@@ -1,30 +1,10 @@
 <?php
-/* vim: set expandtab tabstop=4 shiftwidth=4: */
-/**
- * Part of MIME_Type
- *
- * PHP version 4 and 5
- *
- * @category File
- * @package  MIME_Type
- * @author   Christian Schmidt <schmidt@php.net>
- * @license  http://www.gnu.org/copyleft/lesser.html LGPL
- * @link     http://pear.php.net/package/MIME_Type
- */
-
 namespace FileEye\MimeMap\Type;
 
 /**
  * Class for mapping file extensions to MIME types.
- *
- * @category MIME
- * @package  MIME_Type
- * @author   Christian Schmidt <schmidt@php.net>
- * @license  http://www.gnu.org/copyleft/lesser.html LGPL
- * @version  Release: @version@
- * @link     http://pear.php.net/package/MIME_Type
  */
-class MIME_Type_Extension
+class Extension
 {
     /**
      * Mapping between file extension and MIME type.

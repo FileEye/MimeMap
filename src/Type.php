@@ -2,6 +2,8 @@
 
 namespace FileEye\MimeMap;
 
+use FileEye\MimeMap\Type\Parameter;
+
 /**
  * Class for working with MIME types
  */
@@ -72,11 +74,10 @@ class Type
     {
         $this->media      = $this->getMedia($type);
         $this->subType    = $this->getSubType($type);
-        $this->parameters = array();
+        $this->parameters = [];
         if (static::hasParameters($type)) {
-            include_once 'MIME/Type/Parameter.php';
             foreach (static::getParameters($type) as $param) {
-                $param = new MIME_Type_Parameter($param);
+                $param = new Parameter($param);
                 $this->parameters[$param->name] = $param;
             }
         }
@@ -110,7 +111,7 @@ class Type
      */
     public static function getParameters($type)
     {
-        $params = array();
+        $params = [];
         $tmp    = explode(';', $type);
         for ($i = 1; $i < count($tmp); $i++) {
             $params[] = trim($tmp[$i]);
@@ -361,5 +362,4 @@ class Type
     {
         unset($this->parameters[$name]);
     }
-
 }
