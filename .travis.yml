@@ -46,13 +46,12 @@ install:
 
 script:
   # Remove the comment to the line below during development, to let TravisCI
-  # re-compile the extensions PHP file.
+  # re-compile the extensions PHùP file.
   #- php bin/exifeye compile
   - ./scripts/update-mimelist.php
-  - cat src/Type/Extension.php
 
   - if [ "$TRAVIS_PHP_VERSION" == "7.1" ]; then ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1; fi
-  - ./vendor/bin/phpunit ./test
+  - ./vendor/bin/phpunit ./tests
 
 notifications:
   email:
