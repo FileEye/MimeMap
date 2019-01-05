@@ -1,56 +1,32 @@
 <?php
-/* vim: set expandtab tabstop=4 shiftwidth=4: */
-/**
- * Part of MIME_Type
- *
- * PHP version 4 and 5
- *
- * @category File
- * @package  MIME_Type
- * @author   Ian Eure <ieure@php.net>
- * @license  http://www.gnu.org/copyleft/lesser.html LGPL
- * @link     http://pear.php.net/package/MIME_Type
- */
 
 namespace FileEye\MimeMap;
 
-$_fileCmd = &PEAR::getStaticProperty('MIME_Type', 'fileCmd');
-$_fileCmd = 'file';
-
 /**
  * Class for working with MIME types
- *
- * @category MIME
- * @package  MIME_Type
- * @author   Ian Eure <ieure@php.net>
- * @license  http://www.gnu.org/copyleft/lesser.html LGPL
- * @version  Release: @version@
- * @link     http://pear.php.net/package/MIME_Type
- *
- * @method string autoDetect($file, $params = false) Autodetect a file's MIME-type (can be called statically and on an MIME_Type object)
  */
-class MIME_Type
+class Type
 {
     /**
      * The MIME media type
      *
      * @var string
      */
-    public $media = '';
+    protected $media = '';
 
     /**
      * The MIME media sub-type
      *
      * @var string
      */
-    public $subType = '';
+    protected $subType = '';
 
     /**
      * Optional MIME parameters
      *
      * @var array
      */
-    public $parameters = array();
+    protected $parameters = [];
 
     /**
      * List of valid media types.
@@ -59,7 +35,7 @@ class MIME_Type
      *
      * @var array
      */
-    public $validMediaTypes = array(
+    protected $validMediaTypes = [
         'text',
         'image',
         'audio',
@@ -67,44 +43,7 @@ class MIME_Type
         'application',
         'multipart',
         'message'
-    );
-
-    /**
-     * If the finfo functions shall be used when they are available
-     *
-     * @var boolean
-     */
-    public $useFinfo = true;
-
-    /**
-     * If mime_content_type shall be used when available
-     *
-     * @var boolean
-     */
-    public $useMimeContentType = true;
-
-    /**
-     * If the file command shall be used when available
-     *
-     * @var boolean
-     */
-    public $useFileCmd = true;
-
-    /**
-     * If the in-built file extension detection shall be used
-     *
-     * @var boolean
-     */
-    public $useExtension = true;
-
-    /**
-     * Path to the "magic" file database.
-     * If NULL, the default one is used
-     *
-     * @var string
-     */
-    public $magicFile = null;
-
+    ];
 
     /**
      * Constructor.
@@ -123,48 +62,6 @@ class MIME_Type
     }
 
     /**
-     * Make "autoDetect" method available.
-     *
-     * @param string $method    Method to call. Only "autoDetect" supported.
-     * @param array  $arguments Function parameters.
-     *
-     * @return string MIME type
-     */
-    public function __call($method, $arguments)
-    {
-        if ($method !== 'autoDetect') {
-            return trigger_error(
-                'Call to undefined method MIME_TYPE::' . $method . '()',
-                E_USER_ERROR
-            );
-        }
-        $type = call_user_func_array(array($this, '_autoDetect'), $arguments);
-        $this->parse($type);
-        return $type;
-    }
-
-    /**
-     * Make "autoDetect" method available statically.
-     *
-     * @param string $method    Method to call. Only "autoDetect" supported.
-     * @param array  $arguments Function parameters.
-     *
-     * @return string MIME type
-     */
-    public static function __callStatic($method, $arguments)
-    {
-        if ($method !== 'autoDetect') {
-            return trigger_error(
-                'Call to undefined method MIME_TYPE::' . $method . '()',
-                E_USER_ERROR
-            );
-        }
-
-        $mt = new MIME_Type();
-        return call_user_func_array(array($mt, '_autoDetect'), $arguments);
-    }
-
-    /**
      * Parse a mime-type and set the class variables.
      *
      * @param string $type MIME type to parse
@@ -173,16 +70,12 @@ class MIME_Type
      */
     public function parse($type)
     {
-        if ($type instanceof PEAR_Error) {
-            return false;
-        }
-
         $this->media      = $this->getMedia($type);
         $this->subType    = $this->getSubType($type);
         $this->parameters = array();
-        if (MIME_Type::hasParameters($type)) {
+        if (static::hasParameters($type)) {
             include_once 'MIME/Type/Parameter.php';
-            foreach (MIME_Type::getParameters($type) as $param) {
+            foreach (static::getParameters($type) as $param) {
                 $param = new MIME_Type_Parameter($param);
                 $this->parameters[$param->name] = $param;
             }
@@ -302,6 +195,7 @@ class MIME_Type
 
     /**
      * Get a MIME type's media
+     *
      * Note: 'media' refers to the portion before the first slash
      *
      * @param string $type MIME type to get media of
@@ -311,7 +205,7 @@ class MIME_Type
     public static function getMedia($type)
     {
         $tmp = explode('/', $type);
-        return strtolower(trim(MIME_Type::stripComments($tmp[0], $null)));
+        return strtolower(trim(static::stripComments($tmp[0], $null)));
     }
 
 
@@ -329,7 +223,7 @@ class MIME_Type
             return null;
         }
         $tmp = explode(';', $tmp[1]);
-        return strtolower(trim(MIME_Type::stripComments($tmp[0], $null)));
+        return strtolower(trim(static::stripComments($tmp[0], $null)));
     }
 
 
@@ -364,8 +258,8 @@ class MIME_Type
      */
     public static function isExperimental($type)
     {
-        if (substr(MIME_Type::getMedia($type), 0, 2) == 'x-'
-            || substr(MIME_Type::getSubType($type), 0, 2) == 'x-'
+        if (substr(static::getMedia($type), 0, 2) == 'x-'
+            || substr(static::getSubType($type), 0, 2) == 'x-'
         ) {
             return true;
         }
@@ -384,7 +278,7 @@ class MIME_Type
      */
     public static function isVendor($type)
     {
-        if (substr(MIME_Type::getSubType($type), 0, 4) == 'vnd.') {
+        if (substr(static::getSubType($type), 0, 4) == 'vnd.') {
             return true;
         }
         return false;
@@ -400,7 +294,7 @@ class MIME_Type
      */
     public static function isWildcard($type)
     {
-        if ($type == '*/*' || MIME_Type::getSubtype($type) == '*') {
+        if ($type == '*/*' || static::getSubtype($type) == '*') {
             return true;
         }
         return false;
@@ -420,7 +314,7 @@ class MIME_Type
      */
     public static function wildcardMatch($card, $type)
     {
-        if (!MIME_Type::isWildcard($card)) {
+        if (!static::isWildcard($card)) {
             return false;
         }
 
@@ -428,7 +322,7 @@ class MIME_Type
             return true;
         }
 
-        if (MIME_Type::getMedia($card) == MIME_Type::getMedia($type)) {
+        if (static::getMedia($card) == static::getMedia($type)) {
             return true;
         }
 
@@ -468,129 +362,4 @@ class MIME_Type
         unset($this->parameters[$name]);
     }
 
-    /**
-     * Autodetect a file's MIME-type
-     *
-     * @param string $file   Path to the file to get the type of
-     * @param bool   $params Append MIME parameters if true
-     *
-     * @return string $file's MIME-type on success, PEAR_Error otherwise
-     *
-     * @since 1.3.0
-     *
-     * @internal Tries to use fileinfo extension at first. If that
-     *  does not work, mime_magic is used. If this is also not available
-     *  or does not succeed, "file" command is tried to be executed with
-     *  System_Command. When that fails, too, then we use our in-built
-     *  extension-to-mimetype-mapping list.
-     */
-    protected function _autoDetect($file, $params = false)
-    {
-        // Sanity checks
-        if (!file_exists($file)) {
-            return PEAR::raiseError("File \"$file\" doesn't exist");
-        }
-
-        if (!is_readable($file)) {
-            return PEAR::raiseError("File \"$file\" is not readable");
-        }
-
-        if ($this->useFinfo && function_exists('finfo_file')) {
-            $finfo = finfo_open(FILEINFO_MIME, $this->magicFile);
-            if ($finfo) {
-                $type  = finfo_file($finfo, $file);
-                finfo_close($finfo);
-                if ($type !== false && $type !== '') {
-                    return MIME_Type::_handleDetection($type, $params);
-                }
-            }
-        }
-
-        if ($this->useMimeContentType && function_exists('mime_content_type')) {
-            $type = mime_content_type($file);
-            if ($type !== false && $type !== '') {
-                return MIME_Type::_handleDetection($type, $params);
-            }
-        }
-
-        if ($this->useFileCmd) {
-            @include_once 'System/Command.php';
-            if (class_exists('System_Command')) {
-                $type = $this->_fileAutoDetect($file);
-                if ($type !== false && $type !== '') {
-                    return MIME_Type::_handleDetection($type, $params);
-                }
-            }
-        }
-
-        if ($this->useExtension) {
-            include_once 'MIME/Type/Extension.php';
-            $mte = new MIME_Type_Extension();
-            return $mte->getMIMEType($file);
-        }
-
-        return PEAR::raiseError("Sorry, couldn't determine file type.");
-    }
-
-
-    /**
-     * Handles a detected MIME type and modifies it if necessary.
-     *
-     * @param string $type   MIME Type of a file
-     * @param bool   $params Append MIME parameters if true
-     *
-     * @return string $file's MIME-type on success, PEAR_Error otherwise
-     */
-    protected static function _handleDetection($type, $params)
-    {
-        // _fileAutoDetect() may have returned an error.
-        if (PEAR::isError($type)) {
-            return $type;
-        }
-
-        // Don't return an empty string
-        if (!$type || !strlen($type)) {
-            return PEAR::raiseError("Sorry, couldn't determine file type.");
-        }
-
-        // Strip parameters if present & requested
-        if (MIME_Type::hasParameters($type) && !$params) {
-            $type = MIME_Type::stripParameters($type);
-        }
-
-        return $type;
-    }
-
-
-    /**
-     * Autodetect a file's MIME-type with 'file' and System_Command
-     *
-     * @param string $file Path to the file to get the type of
-     *
-     * @return string $file's MIME-type
-     *
-     * @since 1.0.0beta1
-     */
-    protected function _fileAutoDetect($file)
-    {
-        $cmd   = new System_Command();
-        $magic = '';
-
-        // Make sure we have the 'file' command.
-        $fileCmd = PEAR::getStaticProperty('MIME_Type', 'fileCmd');
-        if (!$cmd->which($fileCmd)) {
-            unset($cmd);
-            return PEAR::raiseError("Can't find file command \"{$fileCmd}\"");
-        }
-        if (strlen($this->magicFile)) {
-            $magic = '--magic-file ' . escapeshellarg($this->magicFile);
-        }
-
-        $cmd->pushCommand($fileCmd, $magic, "-bi " . escapeshellarg($file));
-        $res = $cmd->execute();
-        unset($cmd);
-
-        return $res;
-    }
 }
-?>

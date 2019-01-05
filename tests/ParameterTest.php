@@ -1,7 +1,10 @@
 <?php
-require_once 'MIME/Type/Parameter.php';
+namespace FileEye\MimeMap\test;
 
-class MIME_Type_ParameterTest extends PHPUnit_Framework_TestCase
+use FileEye\MimeMap\Type\Parameter;
+use PHPUnit\Framework\TestCase;
+
+class ParameterTest extends TestCase
 {
     public function testHasComment()
     {

@@ -1,12 +1,15 @@
 <?php
-require_once 'MIME/Type/Extension.php';
+namespace FileEye\MimeMap\test;
+
+use FileEye\MimeMap\Type\Extension;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test class for MIME_Type_Extension.
  *
  * @author Christian Weiske <cweiske@php.net
  */
-class MIME_Type_ExtensionTest extends PHPUnit_Framework_TestCase
+class ExtensionTest extends TestCase
 {
     /**
      * @var    MIME_Type_Extension
