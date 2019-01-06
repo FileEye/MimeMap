@@ -14,21 +14,21 @@ class Type
      *
      * @var string
      */
-    protected $media = '';
+    public $media = '';
 
     /**
      * The MIME media sub-type
      *
      * @var string
      */
-    protected $subType = '';
+    public $subType = '';
 
     /**
      * Optional MIME parameters
      *
      * @var array
      */
-    protected $parameters = [];
+    public $parameters = [];
 
     /**
      * Constructor.
