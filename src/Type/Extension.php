@@ -1023,19 +1023,12 @@ class Extension
      */
     public function getMIMEType($file)
     {
-        $extension = substr(strrchr($file, '.'), 1);
-        if ($extension === false) {
-            return PEAR::raiseError("File has no extension.");
-        }
-
         $extension = strtolower($extension);
         if (!isset($this->extensionToType[$extension])) {
-            return PEAR::raiseError("Sorry, couldn't determine file type.");
+            throw new \RuntimeException("Sorry, couldn't determine file type.");
         }
-
         return $this->extensionToType[$extension];
     }
-
 
     /**
      * Return the MIME-type to file extension map.
