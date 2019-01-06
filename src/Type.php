@@ -2,8 +2,6 @@
 
 namespace FileEye\MimeMap;
 
-use FileEye\MimeMap\Type\Parameter;
-
 /**
  * Class for working with MIME types
  */

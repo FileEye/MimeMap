@@ -1,7 +1,6 @@
 <?php
-namespace FileEye\MimeMap\Type;
 
-use FileEye\MimeMap\Type;
+namespace FileEye\MimeMap;
 
 /**
  * Class for working with MIME type parameters

@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-use FileEye\MimeMap\Type\Extension;
+use FileEye\MimeMap\Extension;
 
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 

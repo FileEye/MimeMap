@@ -1,7 +1,8 @@
 <?php
+
 namespace FileEye\MimeMap\test;
 
-use FileEye\MimeMap\Type\Extension;
+use FileEye\MimeMap\Extension;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -12,7 +13,7 @@ use PHPUnit\Framework\TestCase;
 class ExtensionTest extends TestCase
 {
     /**
-     * @var \FileEye\MimeMap\Type\Extension
+     * @var \FileEye\MimeMap\Extension
      */
     protected $mte;
 

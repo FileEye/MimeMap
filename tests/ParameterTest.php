@@ -1,8 +1,9 @@
 <?php
+
 namespace FileEye\MimeMap\test;
 
 use FileEye\MimeMap\Type;
-use FileEye\MimeMap\Type\Parameter;
+use FileEye\MimeMap\Parameter;
 use PHPUnit\Framework\TestCase;
 
 class ParameterTest extends TestCase
