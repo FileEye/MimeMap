@@ -1,4 +1,7 @@
 # MimeMap
+
+[![Build Status](https://secure.travis-ci.org/FileEye/MimeMap.png?branch=master)](https://travis-ci.org/FileEye/MimeMap)
+
 A PHP library to work with MIME types and their related file extensions.
 
 
@@ -49,6 +52,5 @@ Note that in comparison with PEAR's MIME_Type, this library has a different scop
 mainly focused on finding the mapping between each MIME type and its generally
 accepted file extensions.
 All the features that allow detecting the MIME type of a file are removed. The
-[symfony/http-foundation](https://github.com/symfony/http-foundation) and its
-[MimeTypeGuesser](https://api.symfony.com/master/Symfony/Component/HttpFoundation/File/MimeType/MimeTypeGuesser.html) API are the most commonly used components to cover that use case
-currently.
+[symfony/http-foundation](https://github.com/symfony/http-foundation) library and its
+[MimeTypeGuesser](https://api.symfony.com/master/Symfony/Component/HttpFoundation/File/MimeType/MimeTypeGuesser.html) API are the suggested components to cover that use case.
