@@ -197,11 +197,9 @@ class Type
     /**
      * Get a MIME type's subtype
      *
-     * @param string $type MIME type to get subtype of
-     *
      * @return string $type's subtype, null if invalid mime type
      */
-    public static function getSubType($type)
+    public static function getSubType()
     {
         return $this->subType;
     }
