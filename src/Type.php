@@ -325,7 +325,7 @@ class Type
      */
     public function addParameter($name, $value, $comment = false)
     {
-        $tmp = new MIME_Type_Parameter();
+        $tmp = new Parameter();
 
         $tmp->name               = $name;
         $tmp->value              = $value;
