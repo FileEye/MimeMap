@@ -48,7 +48,7 @@ class TypeTest extends TestCase
 
     public function testGetParameters()
     {
-        $this->assertEquals([],Type::getParameters('text/plain'));
+        $this->assertEquals([], Type::getParameters('text/plain'));
         // The rest is tested in testParse().
     }
 
@@ -139,7 +139,7 @@ class TypeTest extends TestCase
     }
 
     public function testWildcardMatch()
-     {
+    {
         $this->assertTrue(Type::wildcardMatch('*/*', 'image/png'));
         $this->assertTrue(Type::wildcardMatch('image/*', 'image/png'));
         $this->assertFalse(Type::wildcardMatch('image/*', 'text/plain'));
