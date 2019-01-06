@@ -53,7 +53,14 @@ class Type
         $tmp = explode('/', $type);
         $this->media = strtolower(trim(static::stripComments($tmp[0], $null)));
 
-        $this->subType    = $this->getSubType($type);
+        // SubType.
+        $tmp = explode('/', $type);
+        if (!isset($tmp[1])) {
+            $this->subType = null;
+        }
+        $tmp = explode(';', $tmp[1]);
+        $this->subType = strtolower(trim(static::stripComments($tmp[0], $null)));
+
         $this->parameters = [];
         if (static::hasParameters($type)) {
             foreach (static::getParameters($type) as $param) {
@@ -196,12 +203,7 @@ class Type
      */
     public static function getSubType($type)
     {
-        $tmp = explode('/', $type);
-        if (!isset($tmp[1])) {
-            return null;
-        }
-        $tmp = explode(';', $tmp[1]);
-        return strtolower(trim(static::stripComments($tmp[0], $null)));
+        return $this->subType;
     }
 
 
@@ -230,14 +232,12 @@ class Type
      * Note: Experimental types are denoted by a leading 'x-' in the media or
      *       subtype, e.g. text/x-vcard or x-world/x-vrml.
      *
-     * @param string $type MIME type to check
-     *
-     * @return boolean true if $type is experimental, false otherwise
+     * @return boolean true if type is experimental, false otherwise
      */
-    public static function isExperimental($type)
+    public function isExperimental()
     {
-        if (substr(static::getMedia($type), 0, 2) == 'x-'
-            || substr(static::getSubType($type), 0, 2) == 'x-'
+        if (substr($this->getMedia(), 0, 2) == 'x-'
+            || substr($this->getSubType(), 0, 2) == 'x-'
         ) {
             return true;
         }
@@ -250,13 +250,11 @@ class Type
      *
      * Note: Vendor types are denoted with a leading 'vnd. in the subtype.
      *
-     * @param string $type MIME type to check
-     *
-     * @return boolean true if $type is a vendor type, false otherwise
+     * @return boolean true if type is a vendor type, false otherwise
      */
-    public static function isVendor($type)
+    public function isVendor()
     {
-        if (substr(static::getSubType($type), 0, 4) == 'vnd.') {
+        if (substr($this->getSubType(), 0, 4) == 'vnd.') {
             return true;
         }
         return false;
@@ -266,13 +264,11 @@ class Type
     /**
      * Is this a wildcard type?
      *
-     * @param string $type MIME type to check
-     *
-     * @return boolean true if $type is a wildcard, false otherwise
+     * @return boolean true if type is a wildcard, false otherwise
      */
-    public static function isWildcard($type)
+    public function isWildcard()
     {
-        if ($type == '*/*' || static::getSubtype($type) == '*') {
+        if (($this->getMedia() === '*' && $this->getSubtype() === '*') || $this->getSubtype() === '*') {
             return true;
         }
         return false;

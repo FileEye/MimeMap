@@ -1049,7 +1049,9 @@ class Extension
     public function getExtension($type)
     {
         // Strip parameters and comments.
-        $type = Type::getMedia($type) . '/' . Type::getSubType($type);
+        // xxx
+        $xxx = new Type($type)
+        $type = $xxx->getMedia() . '/' . $xxx->getSubType();
 
         $extension = array_search($type, $this->extensionToType);
         if ($extension === false) {

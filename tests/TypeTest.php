@@ -10,10 +10,9 @@ class TypeTest extends TestCase
 {
     public function testParse()
     {
-        $mt = new Type();
-        $mt->parse('application/ogg;description=Hello there!;asd=fgh');
-        $this->assertEquals('application', $mt->media);
-        $this->assertEquals('ogg', $mt->subType);
+        $mt = new Type('application/ogg;description=Hello there!;asd=fgh');
+        $this->assertEquals('application', $mt->getMedia());
+        $this->assertEquals('ogg', $mt->getSubType());
 
         $params = [
             'description' => ['Hello there!', ''],
@@ -31,11 +30,10 @@ class TypeTest extends TestCase
 
     public function testParseAgain()
     {
-        $mt = new Type();
-        $mt->parse('application/ogg;description=Hello there!;asd=fgh');
+        $mt = new Type('application/ogg;description=Hello there!;asd=fgh');
         $this->assertEquals(2, count($mt->parameters));
 
-        $mt->parse('text/plain;hello=there!');
+        $mt = new Type('text/plain;hello=there!');
         $this->assertEquals(1, count($mt->parameters));
     }
 
@@ -104,10 +102,10 @@ class TypeTest extends TestCase
 
     public function testGetSubType()
     {
-        $this->assertEquals('plain', Type::getSubType('text/plain'));
-        $this->assertEquals('ogg', Type::getSubType('application/ogg'));
-        $this->assertEquals('*', Type::getSubType('*/*'));
-        $this->assertEquals('plain', Type::getSubType('text/plain;a=b'));
+        $this->assertEquals('plain', (new Type('text/plain'))->getSubType());
+        $this->assertEquals('ogg', (new Type('application/ogg'))->getSubType());
+        $this->assertEquals('*', (new Type('*/*'))->getSubType());
+        $this->assertEquals('plain', (new Type('text/plain;a=b'))->getSubType());
     }
 
     public function testGet()
