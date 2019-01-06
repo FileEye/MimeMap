@@ -119,23 +119,23 @@ class TypeTest extends TestCase
 
     public function testIsExperimental()
     {
-        $this->assertTrue(Type::isExperimental('text/x-test'));
-        $this->assertTrue(Type::isExperimental('image/X-test'));
-        $this->assertFalse(Type::isExperimental('text/plain'));
+        $this->assertTrue((new Type('text/x-test'))->isExperimental());
+        $this->assertTrue((new Type('image/X-test'))->isExperimental());
+        $this->assertFalse((new Type('text/plain'))->isExperimental());
     }
 
     public function testIsVendor()
     {
-        $this->assertTrue(Type::isVendor('application/vnd.openoffice'));
-        $this->assertFalse(Type::isVendor('application/vendor.openoffice'));
-        $this->assertFalse(Type::isVendor('vnd/fsck'));
+        $this->assertTrue((new Type('application/vnd.openoffice'))->isVendor());
+        $this->assertFalse((new Type('application/vendor.openoffice'))->isVendor());
+        $this->assertFalse((new Type('vnd/fsck'))->isVendor());
     }
 
     public function testIsWildcard()
     {
-        $this->assertTrue(Type::isWildcard('*/*'));
-        $this->assertTrue(Type::isWildcard('image/*'));
-        $this->assertFalse(Type::isWildcard('text/plain'));
+        $this->assertTrue((new Type('*/*'))->isWildcard());
+        $this->assertTrue((new Type('image/*'))->isWildcard());
+        $this->assertFalse((new Type('text/plain'))->isWildcard());
     }
 
     public function testWildcardMatch()

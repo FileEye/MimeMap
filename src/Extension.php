@@ -1050,7 +1050,7 @@ class Extension
     {
         // Strip parameters and comments.
         // xxx
-        $xxx = new Type($type)
+        $xxx = new Type($type);
         $type = $xxx->getMedia() . '/' . $xxx->getSubType();
 
         $extension = array_search($type, $this->extensionToType);
