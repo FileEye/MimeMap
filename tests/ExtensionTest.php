@@ -27,38 +27,19 @@ class ExtensionTest extends TestCase
 
     public function testGetMIMEType()
     {
-        $this->assertEquals('text/plain', $this->mte->getMIMEType('a.txt'));
-        $this->assertEquals('text/plain', $this->mte->getMIMEType('/path/to/a.txt'));
-        $this->assertEquals('image/png', $this->mte->getMIMEType('a.png'));
-        $this->assertEquals('application/vnd.oasis.opendocument.text', $this->mte->getMIMEType('a.odt'));
+        $this->assertEquals('text/plain', $this->mte->getMIMEType('txt'));
+        $this->assertEquals('image/png', $this->mte->getMIMEType('png'));
+        $this->assertEquals('application/vnd.oasis.opendocument.text', $this->mte->getMIMEType('odt'));
     }
 
     public function testGetMIMETypeUppercase()
     {
-        $this->assertEquals('text/plain', $this->mte->getMIMEType('a.TXT'));
-    }
-
-    public function testGetMIMETypeFullPath()
-    {
-        $this->assertEquals('text/plain', $this->mte->getMIMEType('/path/to/a.txt'));
-        $this->assertEquals('text/plain', $this->mte->getMIMEType('C:\\Programs\\blubbr.txt'));
-    }
-
-    public function testGetMIMETypeNoExtension()
-    {
-        $this->assertInstanceOf('PEAR_Error', $this->mte->getMIMEType('file'));
-        $this->assertInstanceOf('PEAR_Error', $this->mte->getMIMEType('blubbr'));
-    }
-
-    public function testGetMIMETypeFullPathNoExtension()
-    {
-        $this->assertInstanceOf('PEAR_Error', $this->mte->getMIMEType('/path/to/file'));
-        $this->assertInstanceOf('PEAR_Error', $this->mte->getMIMEType('C:\\Programs\\blubbr'));
+        $this->assertEquals('text/plain', $this->mte->getMIMEType('TXT'));
     }
 
     public function testGetMIMETypeUnknownExtension()
     {
-        $this->assertInstanceOf('PEAR_Error', $this->mte->getMIMEType('file.ohmygodthatisnoextension'));
+        $this->assertInstanceOf('PEAR_Error', $this->mte->getMIMEType('ohmygodthatisnoextension'));
     }
 
     public function testGetExtension()
