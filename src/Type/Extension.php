@@ -1012,8 +1012,6 @@ class Extension
         'ice'        => 'x-conference/x-cooltalk',
     ];
 
-
-
     /**
      * Autodetect a file's MIME-type.
      *
@@ -1021,7 +1019,7 @@ class Extension
      *
      * @return string $file's MIME-type on success, PEAR_Error otherwise
      */
-    public function getMIMEType($file)
+    public function getMIMEType($extension)
     {
         $extension = strtolower($extension);
         if (!isset($this->extensionToType[$extension])) {
