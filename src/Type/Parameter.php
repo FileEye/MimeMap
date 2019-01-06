@@ -1,6 +1,8 @@
 <?php
 namespace FileEye\MimeMap\Type;
 
+use FileEye\MimeMap\Type;
+
 /**
  * Class for working with MIME type parameters
  */
@@ -27,7 +29,6 @@ class Parameter
      */
     protected $comment;
 
-
     /**
      * Constructor.
      *
@@ -51,12 +52,11 @@ class Parameter
     public function parse($param)
     {
         $comment = '';
-        $param   = MIME_Type::stripComments($param, $comment);
+        $param   = Type::stripComments($param, $comment);
         $this->name    = $this->getAttribute($param);
         $this->value   = $this->getValue($param);
         $this->comment = $comment;
     }
-
 
     /**
      * Get a parameter attribute (e.g. name)
@@ -70,7 +70,6 @@ class Parameter
         $tmp = explode('=', $param);
         return trim($tmp[0]);
     }
-
 
     /**
      * Get a parameter value
@@ -91,7 +90,6 @@ class Parameter
         return $value;
     }
 
-
     /**
      * Get a parameter comment
      *
@@ -110,7 +108,6 @@ class Parameter
         return trim($comment, '() ');
     }
 
-
     /**
      * Does this parameter have a comment?
      *
@@ -126,7 +123,6 @@ class Parameter
         }
         return false;
     }
-
 
     /**
      * Get a string representation of this parameter
