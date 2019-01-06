@@ -22,7 +22,7 @@ class TypeTest extends TestCase
         $this->assertEquals(2, count($mt->parameters));
         foreach ($params as $name => $param) {
             $this->assertTrue(isset($mt->parameters[$name]));
-            $this->assertInstanceOf('FileEye\MimeMap\Parameter', $mt->parameters[$name]);
+            $this->assertInstanceOf('FileEye\MimeMap\TypeParameter', $mt->parameters[$name]);
             $this->assertEquals($name, $mt->parameters[$name]->name);
             $this->assertEquals($param[0], $mt->parameters[$name]->value);
             $this->assertEquals($param[1], $mt->parameters[$name]->comment);

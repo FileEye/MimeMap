@@ -5,7 +5,7 @@ namespace FileEye\MimeMap;
 /**
  * Class for working with MIME type parameters
  */
-class Parameter
+class TypeParameter
 {
     /**
      * Parameter name

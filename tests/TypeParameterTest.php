@@ -3,20 +3,20 @@
 namespace FileEye\MimeMap\test;
 
 use FileEye\MimeMap\Type;
-use FileEye\MimeMap\Parameter;
+use FileEye\MimeMap\TypeParameter;
 use PHPUnit\Framework\TestCase;
 
-class ParameterTest extends TestCase
+class TypeParameterTest extends TestCase
 {
     public function testHasComment()
     {
         $this->assertTrue(
-            Parameter::hasComment(
+            TypeParameter::hasComment(
                 'a="parameter" (with a comment)'
             )
         );
         $this->assertTrue(
-            Parameter::hasComment(
+            TypeParameter::hasComment(
                 'param=foo(with a comment)'
             )
         );
@@ -25,12 +25,12 @@ class ParameterTest extends TestCase
     public function testHasCommentNegative()
     {
         $this->assertFalse(
-            Parameter::hasComment(
+            TypeParameter::hasComment(
                 'a="parameter"'
             )
         );
         $this->assertFalse(
-            Parameter::hasComment(
+            TypeParameter::hasComment(
                 'foo=bar'
             )
         );
@@ -40,7 +40,7 @@ class ParameterTest extends TestCase
     {
         $this->assertEquals(
             'with a comment',
-            Parameter::getComment(
+            TypeParameter::getComment(
                 'a="parameter" (with a comment)'
             )
         );
@@ -50,7 +50,7 @@ class ParameterTest extends TestCase
     {
         $this->assertEquals(
             '',
-            Parameter::getComment(
+            TypeParameter::getComment(
                 'a="parameter"'
             )
         );

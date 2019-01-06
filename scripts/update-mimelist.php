@@ -28,7 +28,7 @@ writeCode($code);
 
 function writeCode($code)
 {
-    $file = __DIR__ . '/../src/Type/Extension.php';
+    $file = __DIR__ . '/../src/Extension.php';
     $new = preg_replace(
         '#protected \$extensionToType = \[.+?\];#s',
         "protected \$extensionToType = [\n"

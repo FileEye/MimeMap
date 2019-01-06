@@ -58,7 +58,7 @@ class Type
         $this->parameters = [];
         if (static::hasParameters($type)) {
             foreach (static::getParameters($type) as $param) {
-                $param = new Parameter($param);
+                $param = new TypeParameter($param);
                 $this->parameters[$param->name] = $param;
             }
         }
@@ -323,7 +323,7 @@ class Type
      */
     public function addParameter($name, $value, $comment = false)
     {
-        $tmp = new Parameter();
+        $tmp = new TypeParameter();
 
         $tmp->name               = $name;
         $tmp->value              = $value;
