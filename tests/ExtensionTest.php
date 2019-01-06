@@ -37,9 +37,12 @@ class ExtensionTest extends TestCase
         $this->assertEquals('text/plain', $this->mte->getMIMEType('TXT'));
     }
 
+    /**
+     * @expectedException RuntimeException
+     */
     public function testGetMIMETypeUnknownExtension()
     {
-        $this->assertInstanceOf('PEAR_Error', $this->mte->getMIMEType('ohmygodthatisnoextension'));
+        $this->assertNull($this->mte->getMIMEType('ohmygodthatisnoextension'));
     }
 
     public function testGetExtension()
@@ -48,11 +51,25 @@ class ExtensionTest extends TestCase
         $this->assertEquals('csv', $this->mte->getExtension('text/csv'));
     }
 
-    public function testGetExtensionFail()
+    /**
+     * @expectedException RuntimeException
+     * @dataProvider getExtensionFailProvider
+     */
+    public function testGetExtensionFail($type)
     {
-        $this->assertInstanceOf('PEAR_Error', $this->mte->getExtension(null));
-        $this->assertInstanceOf('PEAR_Error', $this->mte->getExtension(''));
-        $this->assertInstanceOf('PEAR_Error', $this->mte->getExtension('n'));
-        $this->assertInstanceOf('PEAR_Error', $this->mte->getExtension('n/n'));
+        $this->assertNull($this->mte->getExtension($type));
+    }
+
+    /**
+     * Data provider for testGetExtensionFail.
+     */
+    public function getExtensionFailProvider()
+    {
+        return [
+            [null],
+            [''],
+            ['n'],
+            ['n/n'],
+        ];
     }
 }
