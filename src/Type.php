@@ -49,17 +49,18 @@ class Type
      */
     protected function parse($type)
     {
-        // Media.
         $tmp = explode('/', $type);
+
+        // Media.
         $this->media = strtolower(trim(static::stripComments($tmp[0], $null)));
 
         // SubType.
-        $tmp = explode('/', $type);
         if (!isset($tmp[1])) {
             $this->subType = null;
+        } else {
+            $tmp_s = explode(';', $tmp[1]);
+            $this->subType = strtolower(trim(static::stripComments($tmp_s[0], $null)));
         }
-        $tmp = explode(';', $tmp[1]);
-        $this->subType = strtolower(trim(static::stripComments($tmp[0], $null)));
 
         $this->parameters = [];
         if (static::hasParameters($type)) {
