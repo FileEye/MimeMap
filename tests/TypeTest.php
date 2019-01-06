@@ -97,9 +97,9 @@ class TypeTest extends TestCase
 
     public function testGetMedia()
     {
-        $this->assertEquals('text', Type::getMedia('text/plain'));
-        $this->assertEquals('application', Type::getMedia('application/ogg'));
-        $this->assertEquals('*', Type::getMedia('*/*'));
+        $this->assertEquals('text', (new Type('text/plain'))->getMedia());
+        $this->assertEquals('application', (new Type('application/ogg'))->getMedia());
+        $this->assertEquals('*', (new Type('*/*'))->getMedia());
     }
 
     public function testGetSubType()

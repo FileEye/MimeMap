@@ -12,36 +12,32 @@ class Type
      *
      * @var string
      */
-    public $media = '';
+    protected $media = '';
 
     /**
      * The MIME media sub-type
      *
      * @var string
      */
-    public $subType = '';
+    protected $subType = '';
 
     /**
      * Optional MIME parameters
      *
      * @var array
      */
-    public $parameters = [];
+    protected $parameters = [];
 
     /**
      * Constructor.
      *
-     * If $type is set, if will be parsed and the appropriate class vars set.
-     * If not, you get an empty class.
-     * This is useful, but not quite as useful as parsing a type.
+     * The type string will be parsed and the appropriate class vars set.
      *
      * @param string $type MIME type
      */
-    public function __construct($type = false)
+    public function __construct($type)
     {
-        if ($type) {
-            $this->parse($type);
-        }
+        $this->parse($type);
     }
 
     /**
@@ -51,9 +47,12 @@ class Type
      *
      * @return boolean True if the type has been parsed, false if not
      */
-    public function parse($type)
+    protected function parse($type)
     {
-        $this->media      = $this->getMedia($type);
+        // Media.
+        $tmp = explode('/', $type);
+        $this->media = strtolower(trim(static::stripComments($tmp[0], $null)));
+
         $this->subType    = $this->getSubType($type);
         $this->parameters = [];
         if (static::hasParameters($type)) {
@@ -180,14 +179,11 @@ class Type
      *
      * Note: 'media' refers to the portion before the first slash
      *
-     * @param string $type MIME type to get media of
-     *
      * @return string $type's media
      */
-    public static function getMedia($type)
+    public function getMedia()
     {
-        $tmp = explode('/', $type);
-        return strtolower(trim(static::stripComments($tmp[0], $null)));
+        return $this->media;
     }
 
 
