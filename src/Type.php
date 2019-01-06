@@ -199,7 +199,7 @@ class Type
      *
      * @return string $type's subtype, null if invalid mime type
      */
-    public static function getSubType()
+    public function getSubType()
     {
         return $this->subType;
     }
