@@ -13,21 +13,21 @@ class Parameter
      *
      * @var string
      */
-    protected $name;
+    public $name;
 
     /**
      * Parameter value
      *
      * @var string
      */
-    protected $value;
+    public $value;
 
     /**
      * Parameter comment
      *
      * @var string
      */
-    protected $comment;
+    public $comment;
 
     /**
      * Constructor.
