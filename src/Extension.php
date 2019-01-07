@@ -1038,25 +1038,4 @@ class Extension
     {
         return $this->extensionToType;
     }
-
-    /**
-     * Return default MIME-type for the specified extension.
-     *
-     * @param string $type MIME-type
-     *
-     * @return string A file extension without leading period.
-     */
-    public function getExtension($type)
-    {
-        // Strip parameters and comments.
-        // xxx
-        $xxx = new Type($type);
-        $type = $xxx->getMedia() . '/' . $xxx->getSubType();
-
-        $extension = array_search($type, $this->extensionToType);
-        if ($extension === false) {
-            throw new \RuntimeException("Sorry, couldn't determine extension.");
-        }
-        return $extension;
-    }
 }

@@ -45,32 +45,4 @@ class ExtensionTest extends TestCase
     {
         $this->assertNull($this->mte->getMIMEType('ohmygodthatisnoextension'));
     }
-
-    public function testGetExtension()
-    {
-        $this->assertEquals('atom', $this->mte->getExtension('application/atom+xml'));
-        $this->assertEquals('csv', $this->mte->getExtension('text/csv'));
-    }
-
-    /**
-     * @expectedException RuntimeException
-     * @dataProvider getExtensionFailProvider
-     */
-    public function testGetExtensionFail($type)
-    {
-        $this->assertNull($this->mte->getExtension($type));
-    }
-
-    /**
-     * Data provider for testGetExtensionFail.
-     */
-    public function getExtensionFailProvider()
-    {
-        return [
-            [null],
-            [''],
-            ['n'],
-            ['n/n'],
-        ];
-    }
 }
