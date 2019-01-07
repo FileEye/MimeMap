@@ -140,14 +140,14 @@ class TypeTest extends TestCase
 
     public function testWildcardMatch()
     {
-        $this->assertTrue(Type::wildcardMatch('*/*', 'image/png'));
-        $this->assertTrue(Type::wildcardMatch('image/*', 'image/png'));
-        $this->assertFalse(Type::wildcardMatch('image/*', 'text/plain'));
+        $this->assertTrue((new Type('image/png'))->wildcardMatch('*/*'));
+        $this->assertTrue((new Type('image/png'))->wildcardMatch('image/*'));
+        $this->assertFalse((new Type('text/plain'))->wildcardMatch('image/*'));
     }
 
     public function testWildcardMatchNoWildcard()
     {
-        $this->assertFalse(Type::wildcardMatch('image/foo', 'image/png'));
+        $this->assertFalse((new Type('image/png'))->wildcardMatch('image/foo'));
     }
 
     public function testAddParameter()

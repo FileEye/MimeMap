@@ -267,6 +267,7 @@ class Type
      */
     public function isWildcard()
     {
+        // xxx also if a subtype can be submatched i.e. vnd.ms-excel.*
         if (($this->getMedia() === '*' && $this->getSubtype() === '*') || $this->getSubtype() === '*') {
             return true;
         }
@@ -278,24 +279,26 @@ class Type
      * Perform a wildcard match on a MIME type
      *
      * Example:
-     * MIME_Type::wildcardMatch('image/*', 'image/png')
+     * $type = new Type('image/png');
+     * $type->wildcardMatch('image/*');
      *
      * @param string $card Wildcard to check against
-     * @param string $type MIME type to check
      *
      * @return boolean true if there was a match, false otherwise
      */
-    public static function wildcardMatch($card, $type)
+    public function wildcardMatch($card)
     {
-        if (!static::isWildcard($card)) {
+        $match_type = new static($card);
+
+        if (!$match_type->isWildcard()) {
             return false;
         }
 
-        if ($card == '*/*') {
+        if ($match_type->getMedia() === '*' && $match_type->getSubType() === '*') {
             return true;
         }
 
-        if (static::getMedia($card) == static::getMedia($type)) {
+        if ($match_type->getMedia() === $this->getMedia()) {
             return true;
         }
 
