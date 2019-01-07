@@ -52,14 +52,7 @@ class TypeTest extends TestCase
         // The rest is tested in testParse().
     }
 
-    public function testStripParameters()
-    {
-        $this->assertEquals('text/plain', Type::stripParameters('text/plain'));
-        $this->assertEquals('text/plain', Type::stripParameters('text/plain;asd=def'));
-        $this->assertEquals('text/plain', Type::stripParameters('text/plain;asd=def;ghj=jkl'));
-    }
-
-    public function testStripComments()
+/*    public function testStripComments()
     {
         $this->assertEquals('def', Type::stripComments('(abc)def(ghi)', $null));
         $this->assertEquals('def', Type::stripComments('(abc)def', $null));
@@ -92,7 +85,7 @@ class TypeTest extends TestCase
         $this->assertEquals('def', Type::stripComments('(abc)def(ghi)', $comment));
         $this->assertEquals('abc ghi', $comment);
     }
-
+*/
     public function testGetMedia()
     {
         $this->assertEquals('text', (new Type('text/plain'))->getMedia());

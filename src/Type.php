@@ -8,18 +8,32 @@ namespace FileEye\MimeMap;
 class Type
 {
     /**
-     * The MIME media type
+     * The MIME media type.
      *
      * @var string
      */
-    protected $media = '';
+    protected $media;
 
     /**
-     * The MIME media sub-type
+     * The MIME media type comment.
      *
      * @var string
      */
-    protected $subType = '';
+    protected $mediaComment;
+
+    /**
+     * The MIME media sub-type.
+     *
+     * @var string
+     */
+    protected $subType;
+
+    /**
+     * The MIME media sub-type comment.
+     *
+     * @var string
+     */
+    protected $subTypeComment;
 
     /**
      * Optional MIME parameters
@@ -52,16 +66,15 @@ class Type
         $tmp = explode('/', $type);
 
         // Media.
-        $this->media = strtolower(trim(static::stripComments($tmp[0], $null)));
+        list($this->media, $this->mediaComment) = $this->splitComment($tmp[0]);
 
         // SubType.
-        if (!isset($tmp[1])) {
-            $this->subType = null;
-        } else {
+        if (isset($tmp[1])) {
             $tmp_s = explode(';', $tmp[1]);
-            $this->subType = strtolower(trim(static::stripComments($tmp_s[0], $null)));
+            list($this->subType, $this->subTypeComment) = $this->splitComment($tmp_s[0]);
         }
 
+        // Parameters.
         if (strstr($type, ';')) {
             $tmp_p = explode(';', $type);
             $cnt_p = count($tmp_p);
@@ -72,7 +85,6 @@ class Type
         }
     }
 
-
     /**
      * Does this type have any parameters?
      *
@@ -82,7 +94,6 @@ class Type
     {
         return (bool) $this->parameters;
     }
-
 
     /**
      * Get a MIME type's parameters
@@ -95,33 +106,14 @@ class Type
         return $this->parameters;
     }
 
-
-    /**
-     * Strip parameters from a MIME type string.
-     *
-     * @param string $type MIME type string
-     *
-     * @return string MIME type with parameters removed
-     */
-    public static function stripParameters($type)
-    {
-        if (strstr($type, ';')) {
-            return substr($type, 0, strpos($type, ';'));
-        }
-        return $type;
-    }
-
-
     /**
      * Removes comments from a media type, subtype or parameter.
      *
      * @param string $string  String to strip comments from
-     * @param string $comment Comment is stored in there.
-     *                        Do not set it to NULL if you want the comment.
      *
      * @return string String without comments
      */
-    public static function stripComments($string, &$comment)
+    protected function splitComment($string)
     {
         if (strpos($string, '(') === false) {
             return $string;
@@ -166,33 +158,50 @@ class Type
             $comment = trim($comment);
         }
 
-        return $newstring;
+        return [strtolower(trim($newstring)), $comment];
     }
 
-
     /**
-     * Get a MIME type's media
+     * Get a MIME type's media.
      *
-     * Note: 'media' refers to the portion before the first slash
+     * Note: 'media' refers to the portion before the first slash.
      *
-     * @return string Type's media
+     * @return string Type's media.
      */
     public function getMedia()
     {
         return $this->media;
     }
 
+    /**
+     * Get a MIME type's media comment.
+     *
+     * @return string Type's media comment.
+     */
+    public function getMediaComment()
+    {
+        return $this->mediaComment;
+    }
 
     /**
-     * Get a MIME type's subtype
+     * Get a MIME type's subtype.
      *
-     * @return string Type's subtype, null if invalid mime type
+     * @return string Type's subtype, null if invalid mime type.
      */
     public function getSubType()
     {
         return $this->subType;
     }
 
+    /**
+     * Get a MIME type's subtype comment.
+     *
+     * @return string Type's subtype comment, null if invalid mime type.
+     */
+    public function getSubTypeComment()
+    {
+        return $this->subTypeComment;
+    }
 
     /**
      * Create a textual MIME type from object values
@@ -212,7 +221,6 @@ class Type
         return $type;
     }
 
-
     /**
      * Is this type experimental?
      *
@@ -231,7 +239,6 @@ class Type
         return false;
     }
 
-
     /**
      * Is this a vendor MIME type?
      *
@@ -247,7 +254,6 @@ class Type
         return false;
     }
 
-
     /**
      * Is this a wildcard type?
      *
@@ -261,7 +267,6 @@ class Type
         }
         return false;
     }
-
 
     /**
      * Perform a wildcard match on a MIME type
@@ -293,7 +298,6 @@ class Type
         return false;
     }
 
-
     /**
      * Add a parameter to this type
      *
@@ -313,7 +317,6 @@ class Type
         $this->parameters[$name] = $tmp;
     }
 
-
     /**
      * Remove a parameter from this type
      *
@@ -327,7 +330,7 @@ class Type
     }
 
     /**
-     * Return default MIME-type for the specified extension.
+     * Return default file extension.
      *
      * @return string A file extension without leading period.
      */
