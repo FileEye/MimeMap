@@ -18,37 +18,37 @@ class TypeTest extends TestCase
             'description' => ['Hello there!', ''],
             'asd' => ['fgh', ''],
         ];
-        $this->assertEquals(2, count($mt->parameters));
+        $this->assertCount(2, $mt->getParameters());
         foreach ($params as $name => $param) {
-            $this->assertTrue(isset($mt->parameters[$name]));
-            $this->assertInstanceOf('FileEye\MimeMap\TypeParameter', $mt->parameters[$name]);
-            $this->assertEquals($name, $mt->parameters[$name]->name);
-            $this->assertEquals($param[0], $mt->parameters[$name]->value);
-            $this->assertEquals($param[1], $mt->parameters[$name]->comment);
+            $this->assertTrue(isset($mt->getParameters()[$name]));
+            $this->assertInstanceOf('FileEye\MimeMap\TypeParameter', $mt->getParameters()[$name]);
+            $this->assertEquals($name, $mt->getParameters()[$name]->name);
+            $this->assertEquals($param[0], $mt->getParameters()[$name]->value);
+            $this->assertEquals($param[1], $mt->getParameters()[$name]->comment);
         }
     }
 
     public function testParseAgain()
     {
         $mt = new Type('application/ogg;description=Hello there!;asd=fgh');
-        $this->assertEquals(2, count($mt->parameters));
+        $this->assertCount(2, $mt->getParameters());
 
         $mt = new Type('text/plain;hello=there!');
-        $this->assertEquals(1, count($mt->parameters));
+        $this->assertCount(1, $mt->getParameters());
     }
 
     public function testHasParameters()
     {
-        $this->assertFalse(Type::hasParameters('text/plain'));
-        $this->assertFalse(Type::hasParameters('text/*'));
-        $this->assertFalse(Type::hasParameters('*/*'));
-        $this->assertTrue(Type::hasParameters('text/xml;description=test'));
-        $this->assertTrue(Type::hasParameters('text/xml;one=test;two=three'));
+        $this->assertFalse((new Type('text/plain'))->hasParameters());
+        $this->assertFalse((new Type('text/*'))->hasParameters());
+        $this->assertFalse((new Type('*/*'))->hasParameters());
+        $this->assertTrue((new Type('text/xml;description=test'))->hasParameters());
+        $this->assertTrue((new Type('text/xml;one=test;two=three'))->hasParameters());
     }
 
     public function testGetParameters()
     {
-        $this->assertEquals([], Type::getParameters('text/plain'));
+        $this->assertEquals([], (new Type('text/plain'))->getParameters());
         // The rest is tested in testParse().
     }
 

@@ -45,7 +45,7 @@ class Type
      *
      * @param string $type MIME type to parse
      *
-     * @return boolean True if the type has been parsed, false if not
+     * @return void
      */
     protected function parse($type)
     {
@@ -62,49 +62,38 @@ class Type
             $this->subType = strtolower(trim(static::stripComments($tmp_s[0], $null)));
         }
 
-        $this->parameters = [];
-        if (static::hasParameters($type)) {
+        if (strstr($type, ';')) {
             foreach (static::getParameters($type) as $param) {
                 $param = new TypeParameter($param);
                 $this->parameters[$param->name] = $param;
             }
+            $tmp    = explode(';', $type);
+            for ($i = 1; $i < count($tmp); $i++) {
+                $params[] = trim($tmp[$i]);
+            }
         }
-
-        return true;
     }
 
 
     /**
      * Does this type have any parameters?
      *
-     * @param string $type MIME type to check
-     *
-     * @return boolean true if $type has parameters, false otherwise
+     * @return boolean true if type has parameters, false otherwise
      */
-    public static function hasParameters($type)
+    public function hasParameters()
     {
-        if (strstr($type, ';')) {
-            return true;
-        }
-        return false;
+        return (bool) $this->parameters;
     }
 
 
     /**
      * Get a MIME type's parameters
      *
-     * @param string $type MIME type to get parameters of
-     *
-     * @return array $type's parameters
+     * @return array Type's parameters
      */
-    public static function getParameters($type)
+    public function getParameters()
     {
-        $params = [];
-        $tmp    = explode(';', $type);
-        for ($i = 1; $i < count($tmp); $i++) {
-            $params[] = trim($tmp[$i]);
-        }
-        return $params;
+      return $this->parameters;
     }
 
 
@@ -187,7 +176,7 @@ class Type
      *
      * Note: 'media' refers to the portion before the first slash
      *
-     * @return string $type's media
+     * @return string Type's media
      */
     public function getMedia()
     {
@@ -198,7 +187,7 @@ class Type
     /**
      * Get a MIME type's subtype
      *
-     * @return string $type's subtype, null if invalid mime type
+     * @return string Type's subtype, null if invalid mime type
      */
     public function getSubType()
     {
