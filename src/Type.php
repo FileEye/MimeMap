@@ -63,13 +63,11 @@ class Type
         }
 
         if (strstr($type, ';')) {
-            foreach (static::getParameters($type) as $param) {
-                $param = new TypeParameter($param);
+            $tmp_p = explode(';', $type);
+            $cnt_p = count($tmp_p);
+            for ($i = 1; $i < $cnt_p; $i++) {
+                $param = new TypeParameter(trim($tmp_p[$i]));
                 $this->parameters[$param->name] = $param;
-            }
-            $tmp    = explode(';', $type);
-            for ($i = 1; $i < count($tmp); $i++) {
-                $params[] = trim($tmp[$i]);
             }
         }
     }
@@ -94,7 +92,7 @@ class Type
     // xxx add getParameter
     public function getParameters()
     {
-      return $this->parameters;
+        return $this->parameters;
     }
 
 
