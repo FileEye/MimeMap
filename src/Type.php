@@ -91,6 +91,7 @@ class Type
      *
      * @return array Type's parameters
      */
+    // xxx add getParameter
     public function getParameters()
     {
       return $this->parameters;
