@@ -201,7 +201,7 @@ class Type
      *
      * @return string MIME type string
      */
-    public function toString())
+    public function toString()
     {
         $type = strtolower($this->media . '/' . $this->subType);
         if (count($this->parameters)) {
@@ -340,7 +340,7 @@ class Type
         if ($extension === false) {
             throw new \RuntimeException("Sorry, couldn't determine extension.");
         }
-        
+
         return $extension;
     }
 }
