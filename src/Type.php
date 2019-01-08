@@ -68,20 +68,22 @@ class Type
         preg_match($re, $type, $matches);
 
         // Media.
-        list($this->media, $this->mediaComment) = $this->splitComment(isset($matches[1]) ? $matches[1] : $matches[0]);
+        list($this->media, $this->mediaComment) = $this->splitComment(isset($matches[1]) ? $matches[1] : $type);
 
-        // SubType.
-        if ($matches[2]) {
+        // SubType and Parameters are separated by a semicolon ';'.
+        if (isset($matches[2])) {
             $parts = explode(';', $matches[2]);
+            
+            // SubType.
             list($this->subType, $this->subTypeComment) = $this->splitComment($parts[0]);
-        }
 
-        // Parameters.
-        if (isset($tmp_s[1])) {
-            $cnt_p = count($tmp_s);
-            for ($i = 1; $i < $cnt_p; $i++) {
-                $param = new TypeParameter(trim($tmp_p[$i]));
-                $this->parameters[$param->name] = $param;
+            // Parameters.
+            if (isset($parts[1])) {
+                $cnt_p = count($parts);
+                for ($i = 1; $i < $cnt_p; $i++) {
+                    $param = new TypeParameter(trim($parts[$i]));
+                    $this->parameters[$param->name] = $param;
+                }
             }
         }
     }
@@ -108,11 +110,12 @@ class Type
     }
 
     /**
-     * Removes comments from a media type, subtype or parameter.
+     * Splits comments from a media type, subtype or parameter.
      *
-     * @param string $string  String to strip comments from
+     * @param string $string  String to split comments from
      *
-     * @return string String without comments
+     * @return string[]
+     *   An array with uncommented string and the comment.
      */
     protected function splitComment($string)
     {
