@@ -33,6 +33,32 @@ class TypeTest extends TestCase
                 false,
                 [],
             ],
+            'text/plain;a=b' => [
+                'text/plain;a=b',
+                'text/plain; a="b"',
+                ['text', null],
+                ['plain', null],
+                true,
+                [
+                  'a' => ['b', ''],
+                ],
+            ],
+            'application/ogg' => [
+                'application/ogg',
+                'application/ogg',
+                ['application', null],
+                ['ogg', null],
+                false,
+                [],
+            ],
+            '*/*' => [
+                '*',
+                '*',
+                ['*', null],
+                ['*', null],
+                false,
+                [],
+            ],
             '(UTF-8 Plain Text) text / plain ; charset = utf-8' => [
                 '(UTF-8 Plain Text) text / plain ; charset = utf-8',
                 'text/plain; charset="utf-8"',
@@ -83,21 +109,56 @@ class TypeTest extends TestCase
                   'charset' => ['utf-8', 'Charset=utf-8'],
                 ],
             ],
-/*
-        $type = new Type('text / plain ; charset (Charset) = utf-8');
-        $this->assertEquals('text/plain; charset="utf-8" (Charset)', $type->toString());
-
-        $type = new Type('text / plain ; charset = (UTF8) utf-8');
-        $this->assertEquals('text/plain; charset="utf-8" (UTF8)', $type->toString());
-
-        $type = new Type('text / plain ; charset = utf-8 (UTF-8 Plain Text)');
-        $this->assertEquals('text/plain; charset="utf-8" (UTF-8 Plain Text)', $type->toString());
-
-        $type = new Type('application/x-foobar;description="bbgh(kdur"');
-        $this->assertEquals('application/x-foobar; description="bbgh(kdur"', $type->toString());
-
-        $type = new Type('application/x-foobar;description="a \"quoted string\""');
-        $this->assertEquals('application/x-foobar; description="a \"quoted string\""', $type->toString());*/
+            'text / plain ; charset (Charset) = utf-8' => [
+                'text / plain ; charset (Charset) = utf-8',
+                'text/plain; charset="utf-8" (Charset)',
+                ['text', null],
+                ['plain', null],
+                true,
+                [
+                  'charset' => ['utf-8', 'Charset'],
+                ],
+            ],
+            'text / plain ; charset = (UTF8) utf-8' => [
+                'text / plain ; charset = (UTF8) utf-8',
+                'text/plain; charset="utf-8" (UTF8)',
+                ['text', null],
+                ['plain', null],
+                true,
+                [
+                  'charset' => ['utf-8', 'UTF8'],
+                ],
+            ],
+            'text / plain ; charset = utf-8 (UTF-8 Plain Text)' => [
+                'text / plain ; charset = utf-8 (UTF-8 Plain Text)',
+                'text/plain; charset="utf-8" (UTF-8 Plain Text)',
+                ['text', null],
+                ['plain', null],
+                true,
+                [
+                  'charset' => ['utf-8', 'UTF-8 Plain Text'],
+                ],
+            ],
+            'application/x-foobar;description="bbgh(kdur"' => [
+                'application/x-foobar;description="bbgh(kdur"',
+                'application/x-foobar; description="bbgh(kdur"',
+                ['application', null],
+                ['x-foobar', null],
+                true,
+                [
+                  'description' => ['bbgh(kdur', ''],
+                ],
+            ],
+            'application/x-foobar;description="a \"quoted string\""' => [
+                'application/x-foobar;description="a \"quoted string\""',
+                'application/x-foobar; description="a \"quoted string\""',
+                ['application', null],
+                ['x-foobar', null],
+                true,
+                [
+                  'description' => ['bbgh(kdur', ''],
+                ],
+            ],
         ];
     }
 
@@ -107,19 +168,19 @@ class TypeTest extends TestCase
     public function testParse($type, $expectedToString, array $expectedMedia, array $expectedSubType, $expectedHasParameters, array $expectedParameters)
     {
         $mt = new Type($type);
-        $this->assertEquals($expectedToString, $mt->toString());
-        $this->assertEquals($expectedMedia[0], $mt->getMedia());
-        $this->assertEquals($expectedMedia[1], $mt->getMediaComment());
-        $this->assertEquals($expectedSubType[0], $mt->getSubType());
-        $this->assertEquals($expectedSubType[1], $mt->getSubTypeComment());
-        $this->assertEquals($expectedHasParameters, $mt->hasParameters());
+        $this->assertSame($expectedToString, $mt->toString());
+        $this->assertSame($expectedMedia[0], $mt->getMedia());
+        $this->assertSame($expectedMedia[1], $mt->getMediaComment());
+        $this->assertSame($expectedSubType[0], $mt->getSubType());
+        $this->assertSame($expectedSubType[1], $mt->getSubTypeComment());
+        $this->assertSame($expectedHasParameters, $mt->hasParameters());
         $this->assertCount(count($expectedParameters), $mt->getParameters());
         foreach ($expectedParameters as $name => $param) {
             $this->assertTrue(isset($mt->getParameters()[$name]));
             $this->assertInstanceOf('FileEye\MimeMap\TypeParameter', $mt->getParameters()[$name]);
-            $this->assertEquals($name, $mt->getParameters()[$name]->name);
-            $this->assertEquals($param[0], $mt->getParameters()[$name]->value);
-            $this->assertEquals($param[1], $mt->getParameters()[$name]->comment);
+            $this->assertSame($name, $mt->getParameters()[$name]->name);
+            $this->assertSame($param[0], $mt->getParameters()[$name]->value);
+            $this->assertSame($param[1], $mt->getParameters()[$name]->comment);
         }
     }
 
@@ -175,18 +236,6 @@ class TypeTest extends TestCase
         $this->assertEquals('abc ghi', $comment);
     }
 */
-    public function testGetMedia()
-    {
-        $this->assertEquals('*', (new Type('*/*'))->getMedia());
-    }
-
-    public function testGetSubType()
-    {
-        $this->assertEquals('plain', (new Type('text/plain'))->getSubType());
-        $this->assertEquals('ogg', (new Type('application/ogg'))->getSubType());
-        $this->assertEquals('*', (new Type('*/*'))->getSubType());
-        $this->assertEquals('plain', (new Type('text/plain;a=b'))->getSubType());
-    }
 
     public function testToString()
     {
