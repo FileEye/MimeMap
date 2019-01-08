@@ -25,6 +25,51 @@ class TypeTest extends TestCase
                   'asd' => ['fgh', ''],
                 ],
             ],
+            '(UTF-8 Plain Text) text / plain ; charset = utf-8' => [
+                '(UTF-8 Plain Text) text / plain ; charset = utf-8',
+                'text/plain; charset="utf-8"',
+                'text',
+                'plain',
+                true,
+                [
+                  'charset' => ['utf-8', ''],
+                ],
+            ],
+            'text (Text) / plain ; charset = utf-8' => [
+                'text (Text) / plain ; charset = utf-8',
+                'text/plain; charset="utf-8"',
+                'text',
+                'plain',
+                true,
+                [
+                  'charset' => ['utf-8', ''],
+                ],
+            ],
+
+/*
+        $type = new Type('text / (Plain) plain ; charset = utf-8');
+        $this->assertEquals('text/plain; charset="utf-8"', $type->toString());
+
+        $type = new Type('text / plain (Plain Text) ; charset = utf-8');
+        $this->assertEquals('text/plain; charset="utf-8"', $type->toString());
+
+        $type = new Type('text / plain ; (Charset=utf-8) charset = utf-8');
+        $this->assertEquals('text/plain; charset="utf-8" (Charset=utf-8)', $type->toString());
+
+        $type = new Type('text / plain ; charset (Charset) = utf-8');
+        $this->assertEquals('text/plain; charset="utf-8" (Charset)', $type->toString());
+
+        $type = new Type('text / plain ; charset = (UTF8) utf-8');
+        $this->assertEquals('text/plain; charset="utf-8" (UTF8)', $type->toString());
+
+        $type = new Type('text / plain ; charset = utf-8 (UTF-8 Plain Text)');
+        $this->assertEquals('text/plain; charset="utf-8" (UTF-8 Plain Text)', $type->toString());
+
+        $type = new Type('application/x-foobar;description="bbgh(kdur"');
+        $this->assertEquals('application/x-foobar; description="bbgh(kdur"', $type->toString());
+
+        $type = new Type('application/x-foobar;description="a \"quoted string\""');
+        $this->assertEquals('application/x-foobar; description="a \"quoted string\""', $type->toString());*/
         ];
     }
 
@@ -34,6 +79,7 @@ class TypeTest extends TestCase
     public function testParse($type, $expectedToString, $expectedMedia, $expectedSubType, $expectedHasParameters, $expectedParameters)
     {
         $mt = new Type($type);
+        $this->assertEquals($expectedToString, $mt->toString());
         $this->assertEquals($expectedMedia, $mt->getMedia());
         $this->assertEquals($expectedSubType, $mt->getSubType());
         $this->assertEquals($expectedHasParameters, $mt->hasParameters());
@@ -184,39 +230,6 @@ class TypeTest extends TestCase
         $this->assertNotContains('foo=', $res);
         $this->assertNotContains('bar', $res);
         $this->assertContains('baz=', $res);
-    }
-
-    public function testComments()
-    {
-        $type = new Type('(UTF-8 Plain Text) text / plain ; charset = utf-8');
-        $this->assertEquals('text/plain; charset="utf-8"', $type->toString());
-
-        $type = new Type('text (Text) / plain ; charset = utf-8');
-        $this->assertEquals('text/plain; charset="utf-8"', $type->toString());
-
-        $type = new Type('text / (Plain) plain ; charset = utf-8');
-        $this->assertEquals('text/plain; charset="utf-8"', $type->toString());
-
-        $type = new Type('text / plain (Plain Text) ; charset = utf-8');
-        $this->assertEquals('text/plain; charset="utf-8"', $type->toString());
-
-        $type = new Type('text / plain ; (Charset=utf-8) charset = utf-8');
-        $this->assertEquals('text/plain; charset="utf-8" (Charset=utf-8)', $type->toString());
-
-        $type = new Type('text / plain ; charset (Charset) = utf-8');
-        $this->assertEquals('text/plain; charset="utf-8" (Charset)', $type->toString());
-
-        $type = new Type('text / plain ; charset = (UTF8) utf-8');
-        $this->assertEquals('text/plain; charset="utf-8" (UTF8)', $type->toString());
-
-        $type = new Type('text / plain ; charset = utf-8 (UTF-8 Plain Text)');
-        $this->assertEquals('text/plain; charset="utf-8" (UTF-8 Plain Text)', $type->toString());
-
-        $type = new Type('application/x-foobar;description="bbgh(kdur"');
-        $this->assertEquals('application/x-foobar; description="bbgh(kdur"', $type->toString());
-
-        $type = new Type('application/x-foobar;description="a \"quoted string\""');
-        $this->assertEquals('application/x-foobar; description="a \"quoted string\""', $type->toString());
     }
 
     public function testGetDefaultExtension()
