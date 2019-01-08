@@ -52,8 +52,8 @@ class TypeTest extends TestCase
                 [],
             ],
             '*/*' => [
-                '*',
-                '*',
+                '*/*',
+                '*/*',
                 ['*', null],
                 ['*', null],
                 false,

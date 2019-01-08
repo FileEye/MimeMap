@@ -66,7 +66,7 @@ class Type
         // Media and SubType are separated by a slash '/'.
         $re = '/(.*)\/(.*)/';
         preg_match($re, $type, $matches);
-dump($matches);
+
         // Media.
         list($this->media, $this->mediaComment) = $this->splitComment(isset($matches[1]) ? $matches[1] : $type);
 
