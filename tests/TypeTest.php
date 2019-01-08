@@ -59,6 +59,38 @@ class TypeTest extends TestCase
                 false,
                 [],
             ],
+            'null' => [
+                null,
+                '*/*',
+                ['*', null],
+                ['*', null],
+                false,
+                [],
+            ],
+            'empty string' => [
+                '',
+                '*/*',
+                ['*', null],
+                ['*', null],
+                false,
+                [],
+            ],
+            'n' => [
+                'n',
+                'n',
+                ['n', null],
+                ['*', null],
+                false,
+                [],
+            ],
+            'n/n' => [
+                'n/n',
+                'n/n',
+                ['n', null],
+                ['n', null],
+                false,
+                [],
+            ],
             '(UTF-8 Plain Text) text / plain ; charset = utf-8' => [
                 '(UTF-8 Plain Text) text / plain ; charset = utf-8',
                 'text/plain; charset="utf-8"',
@@ -159,6 +191,38 @@ class TypeTest extends TestCase
                   'description' => ['a "quoted string"', ''],
                 ],
             ],
+            'text/xml;description=test' => [
+                'text/xml;description=test',
+                'text/xml; description="test"',
+                ['text', null],
+                ['xml', null],
+                true,
+                [
+                  'description' => ['test', ''],
+                ],
+            ],
+            'text/xml;one=test;two=three' => [
+                'text/xml;one=test;two=three',
+                'text/xml; one="test"; two="three"',
+                ['text', null],
+                ['xml', null],
+                true,
+                [
+                  'one' => ['test', ''],
+                  'two' => ['three', ''],
+                ],
+            ],
+            'text/xml; this="is"; a="parameter" (with a comment)' => [
+                'text/xml; this="is"; a="parameter" (with a comment)',
+                'text/xml; this="is"; a="parameter" (with a comment)',
+                ['text', null],
+                ['xml', null],
+                true,
+                [
+                  'this' => ['is', ''],
+                  'a' => ['parameter', 'with a comment'],
+                ],
+            ],
         ];
     }
 
@@ -191,15 +255,6 @@ class TypeTest extends TestCase
 
         $mt = new Type('text/plain;hello=there!');
         $this->assertCount(1, $mt->getParameters());
-    }
-
-    public function testHasParameters()
-    {
-        $this->assertFalse((new Type('text/plain'))->hasParameters());
-        $this->assertFalse((new Type('text/*'))->hasParameters());
-        $this->assertFalse((new Type('*/*'))->hasParameters());
-        $this->assertTrue((new Type('text/xml;description=test'))->hasParameters());
-        $this->assertTrue((new Type('text/xml;one=test;two=three'))->hasParameters());
     }
 
 /*    public function testStripComments()
@@ -236,15 +291,6 @@ class TypeTest extends TestCase
         $this->assertEquals('abc ghi', $comment);
     }
 */
-
-    public function testToString()
-    {
-        $mt = new Type('text/xml');
-        $this->assertEquals('text/xml', $mt->toString());
-
-        $mt = new Type('text/xml; this="is"; a="parameter" (with a comment)');
-        $this->assertEquals('text/xml; this="is"; a="parameter" (with a comment)', $mt->toString());
-    }
 
     public function testIsExperimental()
     {
