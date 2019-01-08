@@ -66,10 +66,9 @@ class Type
         // Media and SubType are separated by a slash '/'.
         $re = '/(.*)\/(.*)/';
         preg_match($re, $type, $matches);
-dump($type);
-dump($matches);
+
         // Media.
-        list($this->media, $this->mediaComment) = $this->splitComment($matches[1]);
+        list($this->media, $this->mediaComment) = $this->splitComment(isset($matches[1]) ? $matches[1] : $matches[0]);
 
         // SubType.
         if ($matches[2]) {
@@ -117,52 +116,6 @@ dump($matches);
      */
     protected function splitComment($string)
     {
-/*        if (strpos($string, '(') === false) {
-            return $string;
-        }
-
-        $inquote   = false;
-        $escaped   = false;
-        $incomment = 0;
-        $newstring = '';
-        $comment = '';
-
-        for ($n = 0; $n < strlen($string); $n++) {
-            if ($escaped) {
-                if ($incomment == 0) {
-                    $newstring .= $string[$n];
-                } elseif ($comment !== null) {
-                    $comment .= $string[$n];
-                }
-                $escaped = false;
-            } elseif ($string[$n] == '\\') {
-                $escaped = true;
-            } elseif (!$inquote && $incomment > 0 && $string[$n] == ')') {
-                $incomment--;
-                if ($incomment == 0 && $comment !== null) {
-                    $comment .= ' ';
-                }
-            } elseif (!$inquote && $string[$n] == '(') {
-                $incomment++;
-            } elseif ($string[$n] == '"') {
-                if ($inquote) {
-                    $inquote = false;
-                } else {
-                    $inquote = true;
-                }
-            } elseif ($incomment == 0) {
-                $newstring .= $string[$n];
-            } elseif ($comment !== null) {
-                $comment .= $string[$n];
-            }
-        }
-
-        if ($comment !== null) {
-            $comment = trim($comment);
-        }
-
-        return [strtolower(trim($newstring)), $comment];*/
-
         // Comment.
         $re = '/\((.*)\)/';
         preg_match($re, $string, $matches);
@@ -172,9 +125,8 @@ dump($matches);
         if ($comment !== null) {
             $re = '/(.*)\(.*\)(.*)/';
             preg_match($re, $string, $matches);
-            $main = $matches[1] . $matches[2];
-        }
-        else {
+            $main = (isset($matches[1]) ? $matches[1] : '') . (isset($matches[2]) ? $matches[2] : '');
+        } else {
             $main = $string;
         }
 
