@@ -63,21 +63,22 @@ class Type
      */
     protected function parse($type)
     {
-        $tmp = explode('/', $type);
+        // Media and SubType are separated by a slash '/'.
+        $re = '/(.*)\/(.*)/';
+        preg_match_all($re, $type, $matches, PREG_SET_ORDER, 0);
 
         // Media.
-        list($this->media, $this->mediaComment) = $this->splitComment($tmp[0]);
+        list($this->media, $this->mediaComment) = $this->splitComment($matches[1]);
 
         // SubType.
-        if (isset($tmp[1])) {
-            $tmp_s = explode(';', $tmp[1]);
-            list($this->subType, $this->subTypeComment) = $this->splitComment($tmp_s[0]);
+        if ($matches[2]) {
+            $parts = explode(';', $matches[2]);
+            list($this->subType, $this->subTypeComment) = $this->splitComment($parts[0]);
         }
 
         // Parameters.
-        if (strstr($type, ';')) {
-            $tmp_p = explode(';', $type);
-            $cnt_p = count($tmp_p);
+        if (isset($tmp_s[1])) {
+            $cnt_p = count($tmp_s);
             for ($i = 1; $i < $cnt_p; $i++) {
                 $param = new TypeParameter(trim($tmp_p[$i]));
                 $this->parameters[$param->name] = $param;
@@ -115,7 +116,7 @@ class Type
      */
     protected function splitComment($string)
     {
-        if (strpos($string, '(') === false) {
+/*        if (strpos($string, '(') === false) {
             return $string;
         }
 
@@ -159,7 +160,24 @@ class Type
             $comment = trim($comment);
         }
 
-        return [strtolower(trim($newstring)), $comment];
+        return [strtolower(trim($newstring)), $comment];*/
+
+        // Comment.
+        $re = '/\((.*)\)/';
+        preg_match_all($re, $string, $matches, PREG_SET_ORDER, 0);
+        $comment = isset($matches[1]) ? $matches[1] : null;
+
+        // Main.
+        if ($comment !== null) {
+            $re = '/(.*)\(.*\)(.*)/';
+            preg_match_all($re, $string, $matches, PREG_SET_ORDER, 0);
+            $main = $matches[1] . $matches[2];
+        }
+        else {
+            $main = $string;
+        }
+
+        return [strtolower(trim($main)), $comment];
     }
 
     /**
