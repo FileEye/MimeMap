@@ -38,7 +38,7 @@ class Type
     /**
      * Optional MIME parameters
      *
-     * @var array
+     * @var TypeParameter[]
      */
     protected $parameters = [];
 
@@ -101,12 +101,23 @@ class Type
     /**
      * Get a MIME type's parameters
      *
-     * @return array Type's parameters
+     * @return TypeParameter[] Type's parameters
      */
-    // xxx add getParameter
     public function getParameters()
     {
         return $this->parameters;
+    }
+
+    /**
+     * Get a MIME type's parameter
+     *
+     * @param string $name Parameter name
+     *
+     * @return TypeParameter|null
+     */
+    public function getParameter($name)
+    {
+        return isset($this->parameters[$name]) ? $this->parameters[$name] : null;
     }
 
     /**
