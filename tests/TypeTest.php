@@ -21,8 +21,8 @@ class TypeTest extends TestCase
                 ['ogg', null],
                 true,
                 [
-                  'description' => ['Hello there!', ''],
-                  'asd' => ['fgh', ''],
+                  'description' => ['Hello there!', null],
+                  'asd' => ['fgh', null],
                 ],
             ],
             'text/plain' => [
@@ -40,7 +40,7 @@ class TypeTest extends TestCase
                 ['plain', null],
                 true,
                 [
-                  'a' => ['b', ''],
+                  'a' => ['b', null],
                 ],
             ],
             'application/ogg' => [
@@ -61,8 +61,8 @@ class TypeTest extends TestCase
             ],
             'null' => [
                 null,
-                '',
-                ['', null],
+                null,
+                [null, null],
                 [null, null],
                 false,
                 [],
@@ -98,7 +98,7 @@ class TypeTest extends TestCase
                 ['plain', null],
                 true,
                 [
-                  'charset' => ['utf-8', ''],
+                  'charset' => ['utf-8', null],
                 ],
             ],
             'text (Text) / plain ; charset = utf-8' => [
@@ -108,7 +108,7 @@ class TypeTest extends TestCase
                 ['plain', null],
                 true,
                 [
-                  'charset' => ['utf-8', ''],
+                  'charset' => ['utf-8', null],
                 ],
             ],
             'text / (Plain) plain ; charset = utf-8' => [
@@ -118,7 +118,7 @@ class TypeTest extends TestCase
                 ['plain', 'Plain'],
                 true,
                 [
-                  'charset' => ['utf-8', ''],
+                  'charset' => ['utf-8', null],
                 ],
             ],
             'text / plain (Plain Text) ; charset = utf-8' => [
@@ -128,7 +128,7 @@ class TypeTest extends TestCase
                 ['plain', 'Plain Text'],
                 true,
                 [
-                  'charset' => ['utf-8', ''],
+                  'charset' => ['utf-8', null],
                 ],
             ],
             'text / plain ; (Charset=utf-8) charset = utf-8' => [
@@ -178,7 +178,7 @@ class TypeTest extends TestCase
                 ['x-foobar', null],
                 true,
                 [
-                  'description' => ['bbgh(kdur', ''],
+                  'description' => ['bbgh(kdur', null],
                 ],
             ],
             'application/x-foobar;description="a \"quoted string\""' => [
@@ -188,7 +188,7 @@ class TypeTest extends TestCase
                 ['x-foobar', null],
                 true,
                 [
-                  'description' => ['a "quoted string"', ''],
+                  'description' => ['a "quoted string"', null],
                 ],
             ],
             'text/xml;description=test' => [
@@ -198,7 +198,7 @@ class TypeTest extends TestCase
                 ['xml', null],
                 true,
                 [
-                  'description' => ['test', ''],
+                  'description' => ['test', null],
                 ],
             ],
             'text/xml;one=test;two=three' => [
@@ -208,8 +208,8 @@ class TypeTest extends TestCase
                 ['xml', null],
                 true,
                 [
-                  'one' => ['test', ''],
-                  'two' => ['three', ''],
+                  'one' => ['test', null],
+                  'two' => ['three', null],
                 ],
             ],
             'text/xml; this="is"; a="parameter" (with a comment)' => [
@@ -219,7 +219,7 @@ class TypeTest extends TestCase
                 ['xml', null],
                 true,
                 [
-                  'this' => ['is', ''],
+                  'this' => ['is', null],
                   'a' => ['parameter', 'with a comment'],
                 ],
             ],
