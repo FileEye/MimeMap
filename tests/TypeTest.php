@@ -61,7 +61,7 @@ class TypeTest extends TestCase
             ],
             'null' => [
                 null,
-                null,
+                '',
                 [null, null],
                 [null, null],
                 false,
@@ -243,8 +243,8 @@ class TypeTest extends TestCase
             $this->assertTrue(isset($mt->getParameters()[$name]));
             $this->assertInstanceOf('FileEye\MimeMap\TypeParameter', $mt->getParameter($name));
             $this->assertSame($name, $mt->getParameter($name)->name);
-            $this->assertSame($param[0], $mt->getParameters($name)->value);
-            $this->assertSame($param[1], $mt->getParameters($name)->comment);
+            $this->assertSame($param[0], $mt->getParameter($name)->value);
+            $this->assertSame($param[1], $mt->getParameter($name)->comment);
         }
     }
 
