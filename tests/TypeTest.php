@@ -8,18 +8,37 @@ use PHPUnit\Framework\TestCase;
 
 class TypeTest extends TestCase
 {
-    public function testParse()
+    /**
+     * Data provider for testParse.
+     */
+    public function parseProvider()
     {
-        $mt = new Type('application/ogg;description=Hello there!;asd=fgh');
-        $this->assertEquals('application', $mt->getMedia());
-        $this->assertEquals('ogg', $mt->getSubType());
-
-        $params = [
-            'description' => ['Hello there!', ''],
-            'asd' => ['fgh', ''],
+        return [
+            'application/ogg;description=Hello there!;asd=fgh' => [
+                'application/ogg;description=Hello there!;asd=fgh',
+                'application/ogg;description=Hello there!;asd=fgh',
+                'application',
+                'ogg',
+                true,
+                [
+                  'description' => ['Hello there!', ''],
+                  'asd' => ['fgh', ''],
+                ],
+            ],
         ];
-        $this->assertCount(2, $mt->getParameters());
-        foreach ($params as $name => $param) {
+    }
+
+    /**
+     * @dataProvider parseProvider
+     */
+    public function testParse($type, $expectedToString, $expectedMedia, $expectedSubType, $expectedHasParameters, $expectedParameters)
+    {
+        $mt = new Type($type);
+        $this->assertEquals($expectedMedia, $mt->getMedia());
+        $this->assertEquals($expectedSubType, $mt->getSubType());
+        $this->assertEquals($expectedHasParameters, $mt->hasParameters());
+        $this->assertCount(count($expectedParameters), $mt->getParameters());
+        foreach ($expectedParameters as $name => $param) {
             $this->assertTrue(isset($mt->getParameters()[$name]));
             $this->assertInstanceOf('FileEye\MimeMap\TypeParameter', $mt->getParameters()[$name]);
             $this->assertEquals($name, $mt->getParameters()[$name]->name);
