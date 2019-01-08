@@ -61,17 +61,17 @@ class TypeTest extends TestCase
             ],
             'null' => [
                 null,
-                '*/*',
-                ['*', null],
-                ['*', null],
+                '',
+                ['', null],
+                [null, null],
                 false,
                 [],
             ],
             'empty string' => [
                 '',
-                '*/*',
-                ['*', null],
-                ['*', null],
+                '',
+                ['', null],
+                [null, null],
                 false,
                 [],
             ],
@@ -79,7 +79,7 @@ class TypeTest extends TestCase
                 'n',
                 'n',
                 ['n', null],
-                ['*', null],
+                [null, null],
                 false,
                 [],
             ],
@@ -332,10 +332,10 @@ class TypeTest extends TestCase
         $res = $mt->toString();
         $this->assertContains('foo=', $res);
         $this->assertContains('bar', $res);
-
         $this->assertContains('baz=', $res);
         $this->assertContains('val', $res);
         $this->assertContains('(this is a comment)', $res);
+        $this->assertSame('image/png; foo="bar"; baz="val" (this is a comment)', $res);
     }
 
     public function testRemoveParameter()
@@ -347,21 +347,13 @@ class TypeTest extends TestCase
         $this->assertNotContains('foo=', $res);
         $this->assertNotContains('bar', $res);
         $this->assertContains('baz=', $res);
+        $this->assertSame('image/png; baz="val" (this is a comment)', $res);
     }
 
     public function testGetDefaultExtension()
     {
         $this->assertEquals('atom', (new Type('application/atom+xml'))->getDefaultExtension());
         $this->assertEquals('csv', (new Type('text/csv'))->getDefaultExtension());
-    }
-
-    /**
-     * @expectedException RuntimeException
-     * @dataProvider getDefaultExtensionFailProvider
-     */
-    public function testGetDefaultExtensionFail($type)
-    {
-        $this->assertNull((new Type($type))->getDefaultExtension());
     }
 
     /**
@@ -375,5 +367,14 @@ class TypeTest extends TestCase
             ['n'],
             ['n/n'],
         ];
+    }
+
+    /**
+     * @expectedException RuntimeException
+     * @dataProvider getDefaultExtensionFailProvider
+     */
+    public function testGetDefaultExtensionFail($type)
+    {
+        $this->assertNull((new Type($type))->getDefaultExtension());
     }
 }
