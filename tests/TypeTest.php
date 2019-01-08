@@ -16,20 +16,28 @@ class TypeTest extends TestCase
         return [
             'application/ogg;description=Hello there!;asd=fgh' => [
                 'application/ogg;description=Hello there!;asd=fgh',
-                'application/ogg;description=Hello there!;asd=fgh',
-                'application',
-                'ogg',
+                'application/ogg; description="Hello there!"; asd="fgh"',
+                ['application', null],
+                ['ogg', null],
                 true,
                 [
                   'description' => ['Hello there!', ''],
                   'asd' => ['fgh', ''],
                 ],
             ],
+            'text/plain' => [
+                'text/plain',
+                'text/plain',
+                ['text', null],
+                ['plain', null],
+                false,
+                [],
+            ],
             '(UTF-8 Plain Text) text / plain ; charset = utf-8' => [
                 '(UTF-8 Plain Text) text / plain ; charset = utf-8',
                 'text/plain; charset="utf-8"',
-                'text',
-                'plain',
+                ['text', 'UTF-8 Plain Text'],
+                ['plain', null],
                 true,
                 [
                   'charset' => ['utf-8', ''],
@@ -38,24 +46,44 @@ class TypeTest extends TestCase
             'text (Text) / plain ; charset = utf-8' => [
                 'text (Text) / plain ; charset = utf-8',
                 'text/plain; charset="utf-8"',
-                'text',
-                'plain',
+                ['text', 'Text'],
+                ['plain', null],
                 true,
                 [
                   'charset' => ['utf-8', ''],
                 ],
             ],
-
+            'text / (Plain) plain ; charset = utf-8' => [
+                'text / (Plain) plain ; charset = utf-8',
+                'text/plain; charset="utf-8"',
+                ['text', null],
+                ['plain', 'Plain'],
+                true,
+                [
+                  'charset' => ['utf-8', ''],
+                ],
+            ],
+            'text / plain (Plain Text) ; charset = utf-8' => [
+                'text / plain (Plain Text) ; charset = utf-8',
+                'text/plain; charset="utf-8"',
+                ['text', null],
+                ['plain', 'Plain Text'],
+                true,
+                [
+                  'charset' => ['utf-8', ''],
+                ],
+            ],
+            'text / plain ; (Charset=utf-8) charset = utf-8' => [
+                'text / plain ; (Charset=utf-8) charset = utf-8',
+                'text/plain; charset="utf-8" (Charset=utf-8)',
+                ['text', null],
+                ['plain', null],
+                true,
+                [
+                  'charset' => ['utf-8', 'Charset=utf-8'],
+                ],
+            ],
 /*
-        $type = new Type('text / (Plain) plain ; charset = utf-8');
-        $this->assertEquals('text/plain; charset="utf-8"', $type->toString());
-
-        $type = new Type('text / plain (Plain Text) ; charset = utf-8');
-        $this->assertEquals('text/plain; charset="utf-8"', $type->toString());
-
-        $type = new Type('text / plain ; (Charset=utf-8) charset = utf-8');
-        $this->assertEquals('text/plain; charset="utf-8" (Charset=utf-8)', $type->toString());
-
         $type = new Type('text / plain ; charset (Charset) = utf-8');
         $this->assertEquals('text/plain; charset="utf-8" (Charset)', $type->toString());
 
@@ -76,12 +104,14 @@ class TypeTest extends TestCase
     /**
      * @dataProvider parseProvider
      */
-    public function testParse($type, $expectedToString, $expectedMedia, $expectedSubType, $expectedHasParameters, $expectedParameters)
+    public function testParse($type, $expectedToString, array $expectedMedia, array $expectedSubType, $expectedHasParameters, array $expectedParameters)
     {
         $mt = new Type($type);
         $this->assertEquals($expectedToString, $mt->toString());
-        $this->assertEquals($expectedMedia, $mt->getMedia());
-        $this->assertEquals($expectedSubType, $mt->getSubType());
+        $this->assertEquals($expectedMedia[0], $mt->getMedia());
+        $this->assertEquals($expectedMedia[1], $mt->getMediaComment());
+        $this->assertEquals($expectedSubType[0], $mt->getSubType());
+        $this->assertEquals($expectedSubType[1], $mt->getSubTypeComment());
         $this->assertEquals($expectedHasParameters, $mt->hasParameters());
         $this->assertCount(count($expectedParameters), $mt->getParameters());
         foreach ($expectedParameters as $name => $param) {
@@ -109,12 +139,6 @@ class TypeTest extends TestCase
         $this->assertFalse((new Type('*/*'))->hasParameters());
         $this->assertTrue((new Type('text/xml;description=test'))->hasParameters());
         $this->assertTrue((new Type('text/xml;one=test;two=three'))->hasParameters());
-    }
-
-    public function testGetParameters()
-    {
-        $this->assertEquals([], (new Type('text/plain'))->getParameters());
-        // The rest is tested in testParse().
     }
 
 /*    public function testStripComments()
@@ -153,8 +177,6 @@ class TypeTest extends TestCase
 */
     public function testGetMedia()
     {
-        $this->assertEquals('text', (new Type('text/plain'))->getMedia());
-        $this->assertEquals('application', (new Type('application/ogg'))->getMedia());
         $this->assertEquals('*', (new Type('*/*'))->getMedia());
     }
 
