@@ -65,7 +65,7 @@ class Type
     {
         // Media and SubType are separated by a slash '/'.
         $re = '/(.*)\/(.*)/';
-        preg_match_all($re, $type, $matches, PREG_SET_ORDER, 0);
+        preg_match($re, $type, $matches);
 dump($type);
 dump($matches);
         // Media.
@@ -165,13 +165,13 @@ dump($matches);
 
         // Comment.
         $re = '/\((.*)\)/';
-        preg_match_all($re, $string, $matches, PREG_SET_ORDER, 0);
+        preg_match($re, $string, $matches);
         $comment = isset($matches[1]) ? $matches[1] : null;
 
         // Main.
         if ($comment !== null) {
             $re = '/(.*)\(.*\)(.*)/';
-            preg_match_all($re, $string, $matches, PREG_SET_ORDER, 0);
+            preg_match($re, $string, $matches);
             $main = $matches[1] . $matches[2];
         }
         else {
