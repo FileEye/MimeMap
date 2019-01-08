@@ -187,6 +187,9 @@ class Type
      */
     public function toString()
     {
+        if (is_null($this->subType)) {
+            return $this->media;
+        }
         $type = strtolower($this->media . '/' . $this->subType);
         if (count($this->parameters)) {
             foreach ($this->parameters as $key => $null) {

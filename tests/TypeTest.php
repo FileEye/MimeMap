@@ -156,7 +156,7 @@ class TypeTest extends TestCase
                 ['x-foobar', null],
                 true,
                 [
-                  'description' => ['bbgh(kdur', ''],
+                  'description' => ['a "quoted string"', ''],
                 ],
             ],
         ];
