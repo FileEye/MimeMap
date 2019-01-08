@@ -123,6 +123,7 @@ class Type
         $escaped   = false;
         $incomment = 0;
         $newstring = '';
+        $comment = '';
 
         for ($n = 0; $n < strlen($string); $n++) {
             if ($escaped) {
