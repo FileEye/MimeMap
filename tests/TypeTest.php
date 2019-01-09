@@ -223,9 +223,9 @@ class TypeTest extends TestCase
                   'a' => ['parameter', 'with a comment'],
                 ],
             ],
-            'text/plain; charset="utf-8" (UTF8)' => [
-                'text/plain; charset="utf-8" (UTF\/8)',
-                'text/plain; charset="utf-8" (UTF\/8)',
+            'text/plain; charset="utf-8" (UTF\\/8)' => [
+                'text/plain; charset="utf-8" (UTF\\/8)',
+                'text/plain; charset="utf-8" (UTF\\/8)',
                 ['text', null],
                 ['plain', null],
                 true,

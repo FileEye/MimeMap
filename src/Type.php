@@ -64,7 +64,7 @@ class Type
     protected function parse($type)
     {
         // Media and SubType are separated by a slash '/'.
-        $re = '/(.*)\/(.*)/';
+        $re = '/(.*[^\\\\])\/(.*)/';
         preg_match($re, $type, $matches);
 
         // Media.
@@ -144,7 +144,7 @@ class Type
             $main = $string;
         }
 
-        return [strtolower(trim($main)), $comment];
+        return [empty($main) ? $main : strtolower(trim($main)), $comment];
     }
 
     /**
@@ -198,7 +198,6 @@ class Type
      */
     public function toString()
     {
-dump($this);
         if (is_null($this->subType)) {
             return $this->media;
         }
