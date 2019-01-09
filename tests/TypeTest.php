@@ -271,7 +271,7 @@ class TypeTest extends TestCase
             */
             'text/(abc)def(ghi)' => [
                 'text/(abc)def(ghi)',
-                'text/def (abc ghi)',
+                'text/def',
                 ['text', null],
                 ['def', 'abc ghi'],
                 false,
@@ -279,7 +279,7 @@ class TypeTest extends TestCase
             ],
             'text/(abc)def' => [
                 'text/(abc)def',
-                'text/def (abc)',
+                'text/def',
                 ['text', null],
                 ['def', 'abc'],
                 false,
@@ -287,7 +287,7 @@ class TypeTest extends TestCase
             ],
             'text/def(ghi)' => [
                 'text/def(ghi)',
-                'text/def (ghi)',
+                'text/def',
                 ['text', null],
                 ['def', 'ghi'],
                 false,
