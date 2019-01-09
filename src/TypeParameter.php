@@ -191,7 +191,8 @@ class TypeParameter
     {
         $val = $this->name . '="' . str_replace('"', '\\"', $this->value) . '"';
         if ($this->comment) {
-            $val .= ' (' . $this->comment . ')';
+            $comment = str_replace('/', '\\/', $this->comment);
+            $val .= ' (' . $comment . ')';
         }
         return $val;
     }
