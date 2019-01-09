@@ -143,7 +143,7 @@ class Type
         } else {
             $main = $string;
         }
-dump([$main, $comment]);
+
         return [strtolower(trim($main)), $comment];
     }
 
@@ -198,6 +198,7 @@ dump([$main, $comment]);
      */
     public function toString()
     {
+dump($this);
         if (is_null($this->subType)) {
             return $this->media;
         }
