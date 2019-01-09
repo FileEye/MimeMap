@@ -223,6 +223,7 @@ class TypeTest extends TestCase
                   'a' => ['parameter', 'with a comment'],
                 ],
             ],
+            // Various edge cases.
             'text/plain; charset="utf-8" (UTF\\/8)' => [
                 'text/plain; charset="utf-8" (UTF\\/8)',
                 'text/plain; charset="utf-8" (UTF\\/8)',
@@ -232,6 +233,65 @@ class TypeTest extends TestCase
                 [
                   'charset' => ['utf-8', 'UTF/8'],
                 ],
+            ],
+
+            /*    public function testStripComments()
+                {
+                    $this->assertEquals('def', Type::stripComments('(abc)def(ghi)', $null));
+                    $this->assertEquals('def', Type::stripComments('(abc)def', $null));
+                    $this->assertEquals('def', Type::stripComments('def(ghi)', $null));
+                }
+
+                public function testStripCommentsEscaped()
+                {
+                    $comment = '';
+                    $this->assertEquals('def', Type::stripComments('(\)abc)def(\))', $comment));
+                    $this->assertEquals(')abc )', $comment);
+                }
+
+                public function testStripCommentsEscapedString()
+                {
+                    $comment = false;
+                    $this->assertEquals('foo', Type::stripComments('\\foo(abc)', $comment));
+                    $this->assertEquals('abc', $comment);
+                }
+
+                public function testStripCommentsQuoted()
+                {
+                    $this->assertEquals('def', Type::stripComments('(a"bc)def")def', $null));
+                    $this->assertEquals('(abc)def', Type::stripComments('"(abc)def"', $null));
+                }
+
+                public function testStripCommentsParameterComment()
+                {
+                    $comment = '';
+                    $this->assertEquals('def', Type::stripComments('(abc)def(ghi)', $comment));
+                    $this->assertEquals('abc ghi', $comment);
+                }
+            */
+            'text/(abc)def(ghi)' => [
+                'text/(abc)def(ghi)',
+                'text/def (abc ghi)',
+                ['text', null],
+                ['def', 'abc ghi'],
+                false,
+                [],
+            ],
+            'text/(abc)def' => [
+                'text/(abc)def',
+                'text/def (abc)',
+                ['text', null],
+                ['def', 'abc'],
+                false,
+                [],
+            ],
+            'text/def(ghi)' => [
+                'text/def(ghi)',
+                'text/def (ghi)',
+                ['text', null],
+                ['def', 'ghi'],
+                false,
+                [],
             ],
         ];
     }
@@ -266,41 +326,6 @@ class TypeTest extends TestCase
         $mt = new Type('text/plain;hello=there!');
         $this->assertCount(1, $mt->getParameters());
     }
-
-/*    public function testStripComments()
-    {
-        $this->assertEquals('def', Type::stripComments('(abc)def(ghi)', $null));
-        $this->assertEquals('def', Type::stripComments('(abc)def', $null));
-        $this->assertEquals('def', Type::stripComments('def(ghi)', $null));
-    }
-
-    public function testStripCommentsEscaped()
-    {
-        $comment = '';
-        $this->assertEquals('def', Type::stripComments('(\)abc)def(\))', $comment));
-        $this->assertEquals(')abc )', $comment);
-    }
-
-    public function testStripCommentsEscapedString()
-    {
-        $comment = false;
-        $this->assertEquals('foo', Type::stripComments('\\foo(abc)', $comment));
-        $this->assertEquals('abc', $comment);
-    }
-
-    public function testStripCommentsQuoted()
-    {
-        $this->assertEquals('def', Type::stripComments('(a"bc)def")def', $null));
-        $this->assertEquals('(abc)def', Type::stripComments('"(abc)def"', $null));
-    }
-
-    public function testStripCommentsParameterComment()
-    {
-        $comment = '';
-        $this->assertEquals('def', Type::stripComments('(abc)def(ghi)', $comment));
-        $this->assertEquals('abc ghi', $comment);
-    }
-*/
 
     public function testIsExperimental()
     {
