@@ -61,7 +61,7 @@ class TypeTest extends TestCase
             ],
             'null' => [
                 null,
-                '',
+                null,
                 [null, null],
                 [null, null],
                 false,

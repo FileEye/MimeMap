@@ -73,7 +73,7 @@ class Type
         // SubType and Parameters are separated by a semicolon ';'.
         if (isset($matches[2])) {
             $parts = explode(';', $matches[2]);
-            
+
             // SubType.
             list($this->subType, $this->subTypeComment) = $this->splitComment($parts[0]);
 
@@ -143,7 +143,7 @@ class Type
         } else {
             $main = $string;
         }
-
+dump([$main, $comment]);
         return [strtolower(trim($main)), $comment];
     }
 

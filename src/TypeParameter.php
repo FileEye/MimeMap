@@ -54,7 +54,7 @@ class TypeParameter
         $param   = static::stripComments($param, $comment);
         $this->name    = $this->getAttribute($param);
         $this->value   = $this->getValue($param);
-        $this->comment = $comment;
+        $this->comment = $comment !== '' ? $comment : null;
     }
 
     /**
