@@ -77,7 +77,14 @@ if ($this->media === 'appf') {
 dump($parts);
 $re = '/(?<!\\\\);/';
 preg_match_all($re, $matches[2], $mx, PREG_OFFSET_CAPTURE);
-dump($mx);
+dump($mx[0]);
+$mmx = [];
+$xoff = 0;
+foreach ($mx[0] as $segm) {
+    $mmx[] = substr($matches[2], $xoff, $segm[1] - $xoff);
+    $xoff = $segm[1] + 1; 
+}
+dump($mmx);
 }
 
             // SubType.
