@@ -33,86 +33,13 @@ class TypeParameter
      *
      * @param string $param MIME parameter to parse, if set.
      */
-    public function __construct($param = false)
+    public function __construct($name, $value, $comment = null)
     {
-        if ($param) {
-            $this->parse($param);
-        }
+        $this->name = $name;
+        $this->value = $value;
+        $this->comment = $comment;
     }
 
-
-    /**
-     * Parse a MIME type parameter and set object fields
-     *
-     * @param string $param MIME type parameter to parse
-     *
-     * @return void
-     */
-    public function parse($param)
-    {
-        $comment = '';
-        $param   = static::stripComments($param, $comment);
-        $this->name    = $this->getAttribute($param);
-        $this->value   = $this->getValue($param);
-        $this->comment = $comment !== '' ? $comment : null;
-    }
-
-    /**
-     * Removes comments from a media type, subtype or parameter.
-     *
-     * @param string $string  String to strip comments from
-     * @param string $comment Comment is stored in there.
-     *                        Do not set it to NULL if you want the comment.
-     *
-     * @return string String without comments
-     */
-    public static function stripComments($string, &$comment)
-    {
-        if (strpos($string, '(') === false) {
-            return $string;
-        }
-
-        $inquote   = false;
-        $escaped   = false;
-        $incomment = 0;
-        $newstring = '';
-
-        for ($n = 0; $n < strlen($string); $n++) {
-            if ($escaped) {
-                if ($incomment == 0) {
-                    $newstring .= $string[$n];
-                } elseif ($comment !== null) {
-                    $comment .= $string[$n];
-                }
-                $escaped = false;
-            } elseif ($string[$n] == '\\') {
-                $escaped = true;
-            } elseif (!$inquote && $incomment > 0 && $string[$n] == ')') {
-                $incomment--;
-                if ($incomment == 0 && $comment !== null) {
-                    $comment .= ' ';
-                }
-            } elseif (!$inquote && $string[$n] == '(') {
-                $incomment++;
-            } elseif ($string[$n] == '"') {
-                if ($inquote) {
-                    $inquote = false;
-                } else {
-                    $inquote = true;
-                }
-            } elseif ($incomment == 0) {
-                $newstring .= $string[$n];
-            } elseif ($comment !== null) {
-                $comment .= $string[$n];
-            }
-        }
-
-        if ($comment !== null) {
-            $comment = trim($comment);
-        }
-
-        return $newstring;
-    }
 
     /**
      * Get a parameter attribute (e.g. name)
