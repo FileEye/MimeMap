@@ -73,7 +73,7 @@ class Type
         // SubType and Parameters are separated by a semicolon ';'.
         if (isset($matches[2])) {
             //$parts = explode(';', $matches[2]);
-if ($this->media === 'appf') {
+/*if ($this->media === 'appf') {
 dump($parts);
 $re = '/(?<!\\\\);/';
 preg_match_all($re, $matches[2], $mx, PREG_OFFSET_CAPTURE);
@@ -85,7 +85,7 @@ foreach ($mx[0] as $segm) {
     $xoff = $segm[1] + 1; 
 }
 dump($mmx);
-}
+}*/
             $re = '/(?<!\\\\);/';
             preg_match_all($re, $matches[2], $mx, PREG_OFFSET_CAPTURE);
             $parts = [];
