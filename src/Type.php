@@ -104,7 +104,7 @@ class Type
             $cnt_p = count($parts);
             for ($i = 1; $i < $cnt_p; $i++) {
                 $p_comment = '';
-                $param = static::stripComments(TypeParameter(trim($parts[$i])), $p_comment);
+                $param = static::stripComments(trim($parts[$i]), $p_comment);
                 $p_name = TypeParameter::getAttribute($param);
                 $p_val = TypeParameter::getValue($param);
                 $this->addParameter($p_name, $p_val, $p_comment);
