@@ -6,7 +6,7 @@ namespace FileEye\MimeMap;
  * Class for mapping file extensions to MIME types.
  */
 class TypeExtensionMap
-{  
+{
     /**
      * Returns the MIME type to file extension map.
      *
