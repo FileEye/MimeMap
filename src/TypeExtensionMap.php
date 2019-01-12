@@ -6,7 +6,17 @@ namespace FileEye\MimeMap;
  * Class for mapping file extensions to MIME types.
  */
 class TypeExtensionMap
-{
+{  
+    /**
+     * Returns the MIME type to file extension map.
+     *
+     * @return array
+     */
+    public function get()
+    {
+        return static::$extensionToType;
+    }
+
     /**
      * Mapping between file extensions and MIME types.
      *
@@ -7252,14 +7262,4 @@ class TypeExtensionMap
   ),
 );
     // phpcs:enable
-
-    /**
-     * Returns the MIME type to file extension map.
-     *
-     * @return array
-     */
-    public function get()
-    {
-        return static::$extensionToType;
-    }
 }
