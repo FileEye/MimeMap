@@ -107,7 +107,7 @@ class Type
                 $param = static::stripComments(trim($parts[$i]), $p_comment);
                 $p_name = static::getAttribute($param);
                 $p_val = static::getValue($param);
-                $this->addParameter($p_name, $p_val, $p_comment !== '' ?: null);
+                $this->addParameter($p_name, $p_val, $p_comment !== '' ? $p_comment : null);
             }
         }
     }

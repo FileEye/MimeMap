@@ -326,9 +326,9 @@ class TypeTest extends TestCase
         foreach ($expectedParameters as $name => $param) {
             $this->assertTrue(isset($mt->getParameters()[$name]));
             $this->assertInstanceOf('FileEye\MimeMap\TypeParameter', $mt->getParameter($name));
-            $this->assertSame($name, $mt->getParameter($name)->name);
-            $this->assertSame($param[0], $mt->getParameter($name)->value);
-            $this->assertSame($param[1], $mt->getParameter($name)->comment);
+            $this->assertSame($name, $mt->getParameter($name)->getName());
+            $this->assertSame($param[0], $mt->getParameter($name)->getValue());
+            $this->assertSame($param[1], $mt->getParameter($name)->getComment());
         }
     }
 
