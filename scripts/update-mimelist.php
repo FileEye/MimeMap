@@ -17,15 +17,13 @@ if ($argc >= 2) {
 }
 
 //which MIME type to choose if an extension has several
-$duplicateResolution = [
+/*$duplicateResolution = [
     'sub' => 'text/vnd.dvb.subtitle',
     'wmz' => 'application/x-msmetafile',
-];
+];*/
 
 $map  = loadMapFromUrl($url);
 //$map  = addExistingMap($map);
-//$code = generateCodeFromMap($map);
-//writeCode($code);
 writeCode($map);
 
 function writeCode($code)
@@ -38,33 +36,6 @@ function writeCode($code)
     );
     file_put_contents($file, $new);
     logMsg('Code updated');
-}
-
-/**
- * Generate PHP source code suitable for a class property array definition
- *
- * @return string PHP code for array($code)
- */
-function generateCodeFromMap($map)
-{
-    asort($map);
-    $lens = array_map(
-        function($value) {
-            return strlen($value);
-        },
-        array_keys($map)
-    );
-    $maxlen = max($lens);
-
-    $code = '';
-    foreach ($map as $ext => $type) {
-        $code .= sprintf(
-            "        %s=> '%s',\n",
-            str_pad("'" . $ext . "'", $maxlen + 2),
-            $type
-        );
-    }
-    return $code;
 }
 
 function addExistingMap($map)
