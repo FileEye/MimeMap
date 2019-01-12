@@ -86,18 +86,15 @@ class Type
     protected function parseSubType($sub_type)
     {
         // SubType and Parameters are separated by semicolons ';'.
-        dump($sub_type);
         $re = '/(?<!\\\\);/';
         preg_match_all($re, $sub_type, $matches, PREG_OFFSET_CAPTURE);
-        dump($matches);
         $parts = [];
         $parts_offset = 0;
-        foreach ($matches as $segment) {
+        foreach ($matches[0] as $segment) {
             $parts[] = substr($sub_type, $parts_offset, $segment[1] - $parts_offset);
             $parts_offset = $segment[1] + 1;
         }
         $parts[] = substr($sub_type, $parts_offset);
-        dump($parts);
 
         // SubType.
         list($this->subType, $this->subTypeComment) = $this->splitComment($parts[0]);
