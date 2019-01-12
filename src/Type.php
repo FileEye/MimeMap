@@ -88,6 +88,7 @@ class Type
         // SubType and Parameters are separated by semicolons ';'.
         $re = '/(?<!\\\\);/';
         preg_match($re, $sub_type, $matches, PREG_OFFSET_CAPTURE);
+        dump($matches);
         $parts = [];
         $parts_offset = 0;
         foreach ($matches as $segment) {
@@ -95,6 +96,7 @@ class Type
             $parts_offset = $segment[1] + 1;
         }
         $parts[] = substr($sub_type, $parts_offset);
+        dump($parts);
 
         // SubType.
         list($this->subType, $this->subTypeComment) = $this->splitComment($parts[0]);
@@ -110,7 +112,6 @@ class Type
                 $this->addParameter($p_name, $p_val, $p_comment);
             }
         }
-dump($this);
     }
 
     /**
