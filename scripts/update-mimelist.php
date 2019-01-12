@@ -23,16 +23,17 @@ $duplicateResolution = [
 ];
 
 $map  = loadMapFromUrl($url);
-$map  = addExistingMap($map);
-$code = generateCodeFromMap($map);
-writeCode($code);
+//$map  = addExistingMap($map);
+//$code = generateCodeFromMap($map);
+//writeCode($code);
+writeCode($map);
 
 function writeCode($code)
 {
     $file = __DIR__ . '/../src/TypeExtensionMap.php';
     $new = preg_replace(
         '#protected static \$extensionToType = \[.+?\];#s',
-        "protected static \$extensionToType = [\n" . $code . "    ];",
+        "protected static \$extensionToType = \n" . var_export($code, true)) . ";",
         file_get_contents($file)
     );
     file_put_contents($file, $new);
@@ -104,16 +105,9 @@ function addExistingMap($map)
     return $map;
 }
 
-/**
- * @return array Key is the file extension, value is the MIME type.
- *               Unsorted.
- */
 function loadMapFromUrl($url)
 {
-    global $duplicateResolution;
-
     $map = [];
-    $mapx = [];
     $lines = file($url);
     if ($lines === false) {
         logMsg('Error loading URL: ' . $url);
@@ -128,27 +122,10 @@ function loadMapFromUrl($url)
         $type = array_shift($parts);
         $extensions = $parts;
         foreach ($extensions as $ext) {
-            if (isset($map[$ext])) {
-                if (isset($duplicateResolution[$ext])) {
-                    //force the type to our wishes
-                    $type = $duplicateResolution[$ext];
-                } else {
-                    logMsg(
-                        sprintf(
-                            'Duplicate extension: %s for %s and %s',
-                            $ext, $map[$ext], $type
-                        )
-                    );
-                    logMsg('Add it to $duplicateResolution array');
-                    exit(1);
-                }
-            }
-            $map[$ext] = $type;
-            $mapx['types'][$type][] = $ext;
-            $mapx['extensions'][$ext][] = $type;
+            $map['types'][$type][] = $ext;
+            $map['extensions'][$ext][] = $type;
         }
     }
-dump($mapx);
     return $map;
 }
 
