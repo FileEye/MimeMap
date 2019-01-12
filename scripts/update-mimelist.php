@@ -17,10 +17,10 @@ if ($argc >= 2) {
 }
 
 //which MIME type to choose if an extension has several
-$duplicateResolution = array(
+$duplicateResolution = [
     'sub' => 'text/vnd.dvb.subtitle',
     'wmz' => 'application/x-msmetafile',
-);
+];
 
 $map  = loadMapFromUrl($url);
 $map  = addExistingMap($map);
@@ -31,10 +31,8 @@ function writeCode($code)
 {
     $file = __DIR__ . '/../src/TypeExtensionMap.php';
     $new = preg_replace(
-        '#protected \$extensionToType = \[.+?\];#s',
-        "protected \$extensionToType = [\n"
-        . $code
-        . "    ];",
+        '#protected static \$extensionToType = \[.+?\];#s',
+        "protected static \$extensionToType = [\n" . $code . "    ];",
         file_get_contents($file)
     );
     file_put_contents($file, $new);
@@ -114,7 +112,8 @@ function loadMapFromUrl($url)
 {
     global $duplicateResolution;
 
-    $map = array();
+    $map = [];
+    $mapx = [];
     $lines = file($url);
     if ($lines === false) {
         logMsg('Error loading URL: ' . $url);
@@ -145,8 +144,11 @@ function loadMapFromUrl($url)
                 }
             }
             $map[$ext] = $type;
+            $mapx['types'][$type][] = $ext;
+            $mapx['extensions'][$ext][] = $type;
         }
     }
+dump($mapx);
     return $map;
 }
 
