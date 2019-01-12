@@ -130,6 +130,12 @@ class Type
      */
     protected function splitComment($string)
     {
+// \((?:(?:\\\\)+|(?:[^\(\\]|\\\)?)*)\)
+//$re = '/\((?:(?:\\\\\\\\)+|(?:[^\(\\\\]|\\\\\)?)*)\)/';
+//$str = '(asas)def(ghi)nn;nn(s\\"ss)';
+
+
+
         // Comment.
         $re = '/\((.*)\)/';
         preg_match($re, $string, $matches);
