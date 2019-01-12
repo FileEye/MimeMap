@@ -18,9 +18,9 @@ class Extension
     {
         $map = new TypeExtensionMap();
         $extension = strtolower($extension);
-        if (!isset($map->get()[$extension])) {
+        if (!isset($map->get()['extensions'][$extension])) {
             throw new \RuntimeException("Sorry, couldn't determine file type.");
         }
-        return $map->get()[$extension];
+        return $map->get()['extensions'][$extension][0];
     }
 }
