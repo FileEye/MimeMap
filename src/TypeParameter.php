@@ -12,21 +12,21 @@ class TypeParameter
      *
      * @var string
      */
-    public $name;
+    protected $name;
 
     /**
      * Parameter value
      *
      * @var string
      */
-    public $value;
+    protected $value;
 
     /**
      * Parameter comment
      *
      * @var string
      */
-    public $comment;
+    protected $comment;
 
     /**
      * Constructor.
@@ -41,79 +41,51 @@ class TypeParameter
     }
 
     /**
-     * Get a parameter attribute (e.g. name)
+     * Gets the parameter name.
      *
-     * @param string $param MIME type parameter
-     *
-     * @return string Attribute name
+     * @return string Name
      */
-    public static function getAttribute($param)
+    public function getName()
     {
-        $tmp = explode('=', $param);
-        return trim($tmp[0]);
+        return $this->name;
     }
 
     /**
-     * Get a parameter value
-     *
-     * @param string $param MIME type parameter
+     * Gets the parameter value.
      *
      * @return string Value
      */
-    public static function getValue($param)
+    public function getValue()
     {
-        $tmp = explode('=', $param, 2);
-        $value = $tmp[1];
-        $value = trim($value);
-        if ($value[0] == '"' && $value[strlen($value)-1] == '"') {
-            $value = substr($value, 1, -1);
-        }
-        $value = str_replace('\\"', '"', $value);
-        return $value;
-    }
-
-    /**
-     * Get a parameter comment
-     *
-     * @param string $param MIME type parameter
-     *
-     * @return string Parameter comment
-     * @see    hasComment()
-     */
-    public static function getComment($param)
-    {
-        $cs = strpos($param, '(');
-        if ($cs === false) {
-            return null;
-        }
-        $comment = substr($param, $cs);
-        return trim($comment, '() ');
+        return $this->value;
     }
 
     /**
      * Does this parameter have a comment?
      *
-     * @param string $param MIME type parameter
-     *
-     * @return boolean true if $param has a comment, false otherwise
-     * @static
+     * @return boolean true if param has a comment, false otherwise.
      */
-    public static function hasComment($param)
+    public function hasComment()
     {
-        if (strstr($param, '(')) {
-            return true;
-        }
-        return false;
+        return (bool) $this->comment;
     }
 
     /**
-     * Get a string representation of this parameter
+     * Gets the parameter comment.
      *
-     * This function performs the oppsite of parse()
-     *
-     * @return string String representation of parameter
+     * @return string Parameter comment.
      */
-    public function get()
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * Gets a string representation of this parameter.
+     *
+     * @return string String representation of parameter.
+     */
+    public function toString()
     {
         $val = $this->name . '="' . str_replace('"', '\\"', $this->value) . '"';
         if ($this->comment) {

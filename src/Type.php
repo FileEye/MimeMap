@@ -105,9 +105,9 @@ class Type
             for ($i = 1; $i < $cnt_p; $i++) {
                 $p_comment = '';
                 $param = static::stripComments(trim($parts[$i]), $p_comment);
-                $p_name = TypeParameter::getAttribute($param);
-                $p_val = TypeParameter::getValue($param);
-                $this->addParameter($p_name, $p_val, $p_comment);
+                $p_name = static::getAttribute($param);
+                $p_val = static::getValue($param);
+                $this->addParameter($p_name, $p_val, $p_comment !== '' ?: null);
             }
         }
     }
@@ -166,11 +166,39 @@ class Type
             $comment = trim($comment);
         }
 
-        if ($comment === '') {
-            $comment = null;
-        }
-
         return $newstring;
+    }
+
+    /**
+     * Get a parameter attribute (e.g. name)
+     *
+     * @param string $param MIME type parameter
+     *
+     * @return string Attribute name
+     */
+    public static function getAttribute($param)
+    {
+        $tmp = explode('=', $param);
+        return trim($tmp[0]);
+    }
+
+    /**
+     * Get a parameter value
+     *
+     * @param string $param MIME type parameter
+     *
+     * @return string Value
+     */
+    public static function getValue($param)
+    {
+        $tmp = explode('=', $param, 2);
+        $value = $tmp[1];
+        $value = trim($value);
+        if ($value[0] == '"' && $value[strlen($value)-1] == '"') {
+            $value = substr($value, 1, -1);
+        }
+        $value = str_replace('\\"', '"', $value);
+        return $value;
     }
 
     /**
@@ -295,7 +323,7 @@ class Type
         $type = strtolower($this->media . '/' . $this->subType);
         if (count($this->parameters)) {
             foreach ($this->parameters as $key => $null) {
-                $type .= '; ' . $this->parameters[$key]->get();
+                $type .= '; ' . $this->parameters[$key]->toString();
             }
         }
         return $type;
