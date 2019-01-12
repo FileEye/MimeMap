@@ -166,6 +166,10 @@ class Type
             $comment = trim($comment);
         }
 
+        if ($comment === '') {
+            $comment = null;
+        }
+
         return $newstring;
     }
 

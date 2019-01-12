@@ -40,7 +40,6 @@ class TypeParameter
         $this->comment = $comment;
     }
 
-
     /**
      * Get a parameter attribute (e.g. name)
      *
