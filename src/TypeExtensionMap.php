@@ -22,6 +22,7 @@ class TypeExtensionMap
      *
      * @var array
      */
+    // phpcs:disable
     protected static $extensionToType = [
         'ez'         => 'application/andrew-inset',
         'aw'         => 'application/applixware',
@@ -1012,6 +1013,7 @@ class TypeExtensionMap
         'smv'        => 'video/x-smv',
         'ice'        => 'x-conference/x-cooltalk',
     ];
+    // phpcs:enable
 
     /**
      * Returns the MIME type to file extension map.
