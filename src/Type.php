@@ -110,6 +110,7 @@ class Type
                 $this->addParameter($p_name, $p_val, $p_comment);
             }
         }
+dump($this);
     }
 
     /**
