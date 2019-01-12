@@ -30,8 +30,8 @@ function writeCode($code)
 {
     $file = __DIR__ . '/../src/TypeExtensionMap.php';
     $new = preg_replace(
-        '#protected static \$extensionToType = \[.+?\];#s',
-        "protected static \$extensionToType = \n" . var_export($code, true) . ";",
+        '#protected static \$extensionToType = (.+?);#s',
+        "protected static \$extensionToType = " . var_export($code, true) . ";",
         file_get_contents($file)
     );
     file_put_contents($file, $new);
