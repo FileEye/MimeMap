@@ -70,22 +70,103 @@ class Type
         // Media.
         list($this->media, $this->mediaComment) = $this->splitComment(isset($matches[1]) ? $matches[1] : $type);
 
-        // SubType and Parameters are separated by a semicolon ';'.
+        // SubType.
         if (isset($matches[2])) {
-            $parts = explode(';', $matches[2]);
+            $this->parseSubType($matches[2]);
+        }
+    }
 
-            // SubType.
-            list($this->subType, $this->subTypeComment) = $this->splitComment($parts[0]);
+    /**
+     * Parse the sub-type part of the type and set the class variables.
+     *
+     * @param string $sub_type
+     *
+     * @return void
+     */
+    protected function parseSubType($sub_type)
+    {
+        // SubType and Parameters are separated by semicolons ';'.
+        $re = '/(?<!\\\\);/';
+        preg_match($re, $sub_type, $matches, PREG_OFFSET_CAPTURE);
+        $parts = [];
+        $parts_offset = 0;
+        foreach ($matches as $segment) {
+            $parts[] = substr($sub_type, $parts_offset, $segment[1] - $parts_offset);
+            $parts_offset = $segment[1] + 1;
+        }
+        $parts[] = substr($sub_type, $parts_offset);
 
-            // Parameters.
-            if (isset($parts[1])) {
-                $cnt_p = count($parts);
-                for ($i = 1; $i < $cnt_p; $i++) {
-                    $param = new TypeParameter(trim($parts[$i]));
-                    $this->parameters[$param->name] = $param;
-                }
+        // SubType.
+        list($this->subType, $this->subTypeComment) = $this->splitComment($parts[0]);
+
+        // Parameters.
+        if (isset($parts[1])) {
+            $cnt_p = count($parts);
+            for ($i = 1; $i < $cnt_p; $i++) {
+                $p_comment = '';
+                $param = static::stripComments(trim($parts[$i]), $p_comment);
+                $p_name = TypeParameter::getAttribute($param);
+                $p_val = TypeParameter::getValue($param);
+                $this->addParameter($p_name, $p_val, $p_comment);
             }
         }
+    }
+
+    /**
+     * Removes comments from a media type, subtype or parameter.
+     *
+     * @param string $string  String to strip comments from
+     * @param string $comment Comment is stored in there.
+     *                        Do not set it to NULL if you want the comment.
+     *
+     * @return string String without comments
+     */
+    public static function stripComments($string, &$comment)
+    {
+        if (strpos($string, '(') === false) {
+            return $string;
+        }
+
+        $inquote   = false;
+        $escaped   = false;
+        $incomment = 0;
+        $newstring = '';
+
+        for ($n = 0; $n < strlen($string); $n++) {
+            if ($escaped) {
+                if ($incomment == 0) {
+                    $newstring .= $string[$n];
+                } elseif ($comment !== null) {
+                    $comment .= $string[$n];
+                }
+                $escaped = false;
+            } elseif ($string[$n] == '\\') {
+                $escaped = true;
+            } elseif (!$inquote && $incomment > 0 && $string[$n] == ')') {
+                $incomment--;
+                if ($incomment == 0 && $comment !== null) {
+                    $comment .= ' ';
+                }
+            } elseif (!$inquote && $string[$n] == '(') {
+                $incomment++;
+            } elseif ($string[$n] == '"') {
+                if ($inquote) {
+                    $inquote = false;
+                } else {
+                    $inquote = true;
+                }
+            } elseif ($incomment == 0) {
+                $newstring .= $string[$n];
+            } elseif ($comment !== null) {
+                $comment .= $string[$n];
+            }
+        }
+
+        if ($comment !== null) {
+            $comment = trim($comment);
+        }
+
+        return $newstring;
     }
 
     /**
@@ -296,20 +377,15 @@ class Type
     /**
      * Add a parameter to this type
      *
-     * @param string $name    Attribute name
-     * @param string $value   Attribute value
+     * @param string $name    Parameter name
+     * @param string $value   Parameter value
      * @param string $comment Comment for this parameter
      *
      * @return void
      */
-    public function addParameter($name, $value, $comment = false)
+    public function addParameter($name, $value, $comment = null)
     {
-        $tmp = new TypeParameter();
-
-        $tmp->name               = $name;
-        $tmp->value              = $value;
-        $tmp->comment            = $comment;
-        $this->parameters[$name] = $tmp;
+        $this->parameters[$name] = new TypeParameter($name, $value, $comment);
     }
 
     /**

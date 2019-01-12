@@ -234,6 +234,20 @@ class TypeTest extends TestCase
                   'charset' => ['utf-8', 'UTF/8'],
                 ],
             ],
+            'appf/xml; a=b; b="parameter" (with\\; a comment)   ;c=d;  e=f (\\;) ;   g=h   ' => [
+                'appf/xml; a=b; b="parameter" (with\\; a comment)   ;c=d;  e=f (\\;) ;   g=h   ',
+                'appf/xml; a="b"; b="parameter" (with\\; a comment); c="d"; e="f" (\\;); g="h"',
+                ['appf', null],
+                ['xml', null],
+                true,
+                [
+                  'a' => ['b', null],
+                  'b' => ['parameter', 'with; a comment'],
+                  'c' => ['d', null],
+                  'e' => ['f', ';'],
+                  'g' => ['h', null],
+                ],
+            ],
 
             /*    public function testStripComments()
                 {
