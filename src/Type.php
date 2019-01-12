@@ -86,6 +86,7 @@ class Type
     protected function parseSubType($sub_type)
     {
         // SubType and Parameters are separated by semicolons ';'.
+        dump($sub_type);
         $re = '/(?<!\\\\);/';
         preg_match($re, $sub_type, $matches, PREG_OFFSET_CAPTURE);
         dump($matches);
