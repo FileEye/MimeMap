@@ -97,6 +97,8 @@ function loadMapFromUrl($url)
             $map['extensions'][$ext][] = $type;
         }
     }
+    ksort($map['types']);
+    ksort($map['extensions']);
     return $map;
 }
 
