@@ -96,20 +96,32 @@ class Type
         }
         $parts[] = substr($sub_type, $parts_offset);
 
-        // SubType.
+        // SubType part.
         list($this->subType, $this->subTypeComment) = $this->splitComment($parts[0]);
 
-        // Parameters.
+        // Loops through the parameter parts.
         if (isset($parts[1])) {
             $cnt_p = count($parts);
             for ($i = 1; $i < $cnt_p; $i++) {
-                $p_comment = '';
-                $param = static::stripComments(trim($parts[$i]), $p_comment);
-                $p_name = static::getAttribute($param);
-                $p_val = static::getValue($param);
-                $this->addParameter($p_name, $p_val, $p_comment !== '' ? $p_comment : null);
+                $this->parseParameter($parts[$i]);
             }
         }
+    }
+
+    /**
+     * Parse a parameter part of the type and set the class variables.
+     *
+     * @param string $parameter
+     *
+     * @return void
+     */
+    protected function parseParameter($parameter)
+    {
+        $p_comment = '';
+        $param = static::stripComments(trim($parameter), $p_comment);
+        $p_name = static::getAttribute($param);
+        $p_val = static::getValue($param);
+        $this->addParameter($p_name, $p_val, $p_comment !== '' ? $p_comment : null);
     }
 
     /**
