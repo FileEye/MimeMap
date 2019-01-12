@@ -454,7 +454,7 @@ class Type
         // Strip parameters and comments.
         $type = $this->getMedia() . '/' . $this->getSubType();
 
-        $extension = array_search($type, (new Extension())->getMap());
+        $extension = array_search($type, (new TypeExtensionMap())->get());
         if ($extension === false) {
             throw new \RuntimeException("Sorry, couldn't determine extension.");
         }

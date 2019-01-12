@@ -3,26 +3,26 @@
 namespace FileEye\MimeMap;
 
 /**
- * Class for working with MIME type parameters
+ * Class for working with MIME type parameters.
  */
 class TypeParameter
 {
     /**
-     * Parameter name
+     * Parameter name.
      *
      * @var string
      */
     protected $name;
 
     /**
-     * Parameter value
+     * Parameter value.
      *
      * @var string
      */
     protected $value;
 
     /**
-     * Parameter comment
+     * Parameter comment.
      *
      * @var string
      */
@@ -31,7 +31,9 @@ class TypeParameter
     /**
      * Constructor.
      *
-     * @param string $param MIME parameter to parse, if set.
+     * @param string $name    Parameter name.
+     * @param string $value   Parameter value.
+     * @param string $comment Comment for this parameter.
      */
     public function __construct($name, $value, $comment = null)
     {
@@ -43,7 +45,7 @@ class TypeParameter
     /**
      * Gets the parameter name.
      *
-     * @return string Name
+     * @return string Name.
      */
     public function getName()
     {
@@ -53,7 +55,7 @@ class TypeParameter
     /**
      * Gets the parameter value.
      *
-     * @return string Value
+     * @return string Value.
      */
     public function getValue()
     {

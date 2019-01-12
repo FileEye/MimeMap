@@ -2,6 +2,7 @@
 <?php
 
 use FileEye\MimeMap\Extension;
+use FileEye\MimeMap\TypeExtensionMap;
 
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 
@@ -28,7 +29,7 @@ writeCode($code);
 
 function writeCode($code)
 {
-    $file = __DIR__ . '/../src/Extension.php';
+    $file = __DIR__ . '/../src/TypeExtensionMap.php';
     $new = preg_replace(
         '#protected \$extensionToType = \[.+?\];#s',
         "protected \$extensionToType = [\n"
@@ -75,7 +76,7 @@ function addExistingMap($map)
     $own = 0;
     $same = 0;
     $updated = 0;
-    foreach ($mte->getMap() as $ext => $type) {
+    foreach ($mte->get() as $ext => $type) {
         if (isset($map[$ext])) {
             --$new;
             if ($map[$ext] != $type) {

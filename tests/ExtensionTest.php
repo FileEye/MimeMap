@@ -28,14 +28,14 @@ class ExtensionTest extends TestCase
 
     public function testGetMIMEType()
     {
-        $this->assertEquals('text/plain', $this->mte->getMIMEType('txt'));
-        $this->assertEquals('image/png', $this->mte->getMIMEType('png'));
-        $this->assertEquals('application/vnd.oasis.opendocument.text', $this->mte->getMIMEType('odt'));
+        $this->assertEquals('text/plain', $this->mte->getDefaultType('txt'));
+        $this->assertEquals('image/png', $this->mte->getDefaultType('png'));
+        $this->assertEquals('application/vnd.oasis.opendocument.text', $this->mte->getDefaultType('odt'));
     }
 
     public function testGetMIMETypeUppercase()
     {
-        $this->assertEquals('text/plain', $this->mte->getMIMEType('TXT'));
+        $this->assertEquals('text/plain', $this->mte->getDefaultType('TXT'));
     }
 
     /**
@@ -43,6 +43,6 @@ class ExtensionTest extends TestCase
      */
     public function testGetMIMETypeUnknownExtension()
     {
-        $this->assertNull($this->mte->getMIMEType('ohmygodthatisnoextension'));
+        $this->assertNull($this->mte->getDefaultType('ohmygodthatisnoextension'));
     }
 }
