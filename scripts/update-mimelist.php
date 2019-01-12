@@ -70,7 +70,7 @@ function generateCodeFromMap($map)
 
 function addExistingMap($map)
 {
-    $mte = new Extension();
+    $mte = new TypeExtensionMap();
 
     $new = count($map);
     $own = 0;
