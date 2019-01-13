@@ -46,8 +46,6 @@ function addExistingMap($map)
 {
     $current_map = (new TypeExtensionMap())->get();
 
-    $current_map_string = var_export($current_map, true);
-    $map_string = var_export($map, true);
     $factory = new Factory;
     $comparator = $factory->getComparatorFor($current_map['types'], $map['types']);
     try {
@@ -56,8 +54,11 @@ function addExistingMap($map)
         exit(0);
     } catch (ComparisonFailure $failure) {
         logMsg('Changes to MIME types mapping:');
+        $current_map_string = var_export($current_map['types'], true);
+        $map_string = var_export($map['types'], true);
         $differ = new Differ(new UnifiedDiffOutputBuilder("--- Removed\n+++ Added\n"));
-        logMsg($differ->diff($failure->getExpectedAsString(), $failure->getActualAsString()));
+//        logMsg($differ->diff($failure->getExpectedAsString(), $failure->getActualAsString()));
+        logMsg($differ->diff($current_map_string, $map_string));
     }
     return $map;
 }
