@@ -45,6 +45,9 @@ function writeCode($code)
 function addExistingMap($map)
 {
     $current_map = (new TypeExtensionMap())->get();
+
+    $current_map_string = var_export($current_map, true);
+    $map_string = var_export($map, true);
     $factory = new Factory;
     $comparator = $factory->getComparatorFor($current_map['types'], $map['types']);
     try {
