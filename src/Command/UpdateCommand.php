@@ -25,12 +25,14 @@ class UpdateCommand extends Command
             ->addArgument(
                 'source-url',
                 InputArgument::OPTIONAL,
-                'URL of the source map'
+                'URL of the source map',
+                MapUpdater::DEFAULT_URL
             )
             ->addArgument(
                 'output-file',
                 InputArgument::OPTIONAL,
-                'Path to the directory of the mapper class PHP file'
+                'Path to the directory of the mapper class PHP file',
+                MapUpdater::DEFAULT_CODE_FILE_PATH
             )
         ;
     }
@@ -46,12 +48,9 @@ class UpdateCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $url = $input->getArgument('source-url') ?: MapUpdater::DEFAULT_URL;
-        $output_file = $input->getArgument('output-file') ?: MapUpdater::DEFAULT_CODE_FILE_PATH;
-
         $updater = new MapUpdater();
         try {
-            $new_map = $updater->loadMapFromUrl($url);
+            $new_map = $updater->loadMapFromUrl($input->getArgument('source-url'));
         } catch (\RuntimeException $e) {
             $output->writeln('<error>' . $e->getMessage() . '</error>');
             exit(2);
@@ -65,7 +64,7 @@ class UpdateCommand extends Command
             $output->writeln('Changes to MIME types mapping:');
             $output->writeln($e->getMessage());
         }
-        $updater->writeMapToCodeFile($new_map);
+        $updater->writeMapToCodeFile($new_map, $input->getArgument('output-file'));
         $output->writeln('<comment>Code updated.</comment>');
     }
 }
