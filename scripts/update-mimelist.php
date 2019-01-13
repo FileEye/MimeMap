@@ -11,7 +11,8 @@ require_once dirname(__FILE__) . '/../vendor/autoload.php';
  * of file extension to mime type mapping on the planet.
  * We use it to update our own list.
  */
-$url = 'http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=co';
+//$url = 'http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=co';
+$url = 'http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?revision=1506674&view=co';
 if ($argc >= 2) {
     $url = $argv[1];
 }
