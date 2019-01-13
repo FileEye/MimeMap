@@ -51,7 +51,7 @@ class MapUpdater
         return $map;
     }
 
-    public function compareMap($current_map, $new_map)
+    public function compareMaps($current_map, $new_map)
     {
         $factory = new Factory;
         $comparator = $factory->getComparatorFor($current_map['types'], $map['types']);
