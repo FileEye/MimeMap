@@ -42,7 +42,7 @@ function writeCode($code)
 
 function addExistingMap($map)
 {
-    $current_map = (new TypeExtensionMap())->get;
+    $current_map = (new TypeExtensionMap())->get();
 
     $factory = new Factory;
     $comparator = $factory->getComparatorFor($current_map, $map);
