@@ -120,10 +120,6 @@ class TypeExtensionMap
     array (
       0 => 'pfr',
     ),
-    'application/font-woff' => 
-    array (
-      0 => 'woff',
-    ),
     'application/gml+xml' => 
     array (
       0 => 'gml',
@@ -2156,10 +2152,6 @@ class TypeExtensionMap
     array (
       0 => 'psf',
     ),
-    'application/x-font-otf' => 
-    array (
-      0 => 'otf',
-    ),
     'application/x-font-pcf' => 
     array (
       0 => 'pcf',
@@ -2167,11 +2159,6 @@ class TypeExtensionMap
     'application/x-font-snf' => 
     array (
       0 => 'snf',
-    ),
-    'application/x-font-ttf' => 
-    array (
-      0 => 'ttf',
-      1 => 'ttc',
     ),
     'application/x-font-type1' => 
     array (
@@ -2542,7 +2529,8 @@ class TypeExtensionMap
     ),
     'audio/mp4' => 
     array (
-      0 => 'mp4a',
+      0 => 'm4a',
+      1 => 'mp4a',
     ),
     'audio/mpeg' => 
     array (
@@ -2690,6 +2678,26 @@ class TypeExtensionMap
     'chemical/x-xyz' => 
     array (
       0 => 'xyz',
+    ),
+    'font/collection' => 
+    array (
+      0 => 'ttc',
+    ),
+    'font/otf' => 
+    array (
+      0 => 'otf',
+    ),
+    'font/ttf' => 
+    array (
+      0 => 'ttf',
+    ),
+    'font/woff' => 
+    array (
+      0 => 'woff',
+    ),
+    'font/woff2' => 
+    array (
+      0 => 'woff2',
     ),
     'image/bmp' => 
     array (
@@ -4937,6 +4945,10 @@ class TypeExtensionMap
     array (
       0 => 'application/vnd.apple.mpegurl',
     ),
+    'm4a' => 
+    array (
+      0 => 'audio/mp4',
+    ),
     'm4u' => 
     array (
       0 => 'video/vnd.mpegurl',
@@ -5499,7 +5511,7 @@ class TypeExtensionMap
     ),
     'otf' => 
     array (
-      0 => 'application/x-font-otf',
+      0 => 'font/otf',
     ),
     'otg' => 
     array (
@@ -6512,11 +6524,11 @@ class TypeExtensionMap
     ),
     'ttc' => 
     array (
-      0 => 'application/x-font-ttf',
+      0 => 'font/collection',
     ),
     'ttf' => 
     array (
-      0 => 'application/x-font-ttf',
+      0 => 'font/ttf',
     ),
     'ttl' => 
     array (
@@ -6897,7 +6909,11 @@ class TypeExtensionMap
     ),
     'woff' => 
     array (
-      0 => 'application/font-woff',
+      0 => 'font/woff',
+    ),
+    'woff2' => 
+    array (
+      0 => 'font/woff2',
     ),
     'wpd' => 
     array (
