@@ -11,5 +11,5 @@ use Symfony\Component\Console\Application;
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $application = new Application('fileeye-mimemap', Version::get());
-$application->add(new Update());
+$application->add(new UpdateCommand());
 $application->run();

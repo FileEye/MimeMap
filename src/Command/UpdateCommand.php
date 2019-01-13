@@ -11,7 +11,7 @@ use FileEye\MimeMap\MapUpdater;
 /**
  * A Symfony application command to update the MIME type to extension map.
  */
-class Update extends Command
+class UpdateCommand extends Command
 {
     /**
      * {@inheritdoc}
@@ -19,7 +19,7 @@ class Update extends Command
     protected function configure()
     {
         $this
-            ->setName('compile')
+            ->setName('update')
             ->setDescription('Updates the MIME-type-to-extension map.')
             ->addArgument(
                 'source-url',
@@ -52,20 +52,20 @@ class Update extends Command
         try {
             $new_map = $updater->loadMapFromUrl($url);
         } catch (\RuntimeException $e) {
-            logMsg('No changes to mapping.');
-            logMsg($e->getMessage());
+            $output->writeln('<error>' . $e->getMessage() . '</error>');
+            exit(2);
         }
         $current_map = (new TypeExtensionMap())->get();
         try {
             $updater->compareMaps($current_map, $new_map);
-            logMsg('No changes to mapping.');
+            $output->writeln('<info>No changes to mapping.</info>');
             exit(0);
         } catch (\RuntimeException $e) {
-            logMsg('Changes to MIME types mapping:');
-            logMsg($e->getMessage());
+            $output->writeln('Changes to MIME types mapping:');
+            $output->writeln($e->getMessage());
         }
         $updater->writeMapToCodeFile($new_map);
-        logMsg('Code updated');
+        $output->writeln('<comment>Code updated.</comment>');
 
     }
 }
