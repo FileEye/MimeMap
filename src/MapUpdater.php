@@ -54,15 +54,15 @@ class MapUpdater
     public function compareMaps($current_map, $new_map)
     {
         $factory = new Factory;
-        $comparator = $factory->getComparatorFor($current_map['types'], $map['types']);
+        $comparator = $factory->getComparatorFor($current_map['types'], $new_map['types']);
         try {
-            $comparator->assertEquals($current_map['types'], $map['types']);
+            $comparator->assertEquals($current_map['types'], $new_map['types']);
             return true;
         } catch (ComparisonFailure $failure) {
             $current_map_string = var_export($current_map['types'], true);
-            $map_string = var_export($map['types'], true);
+            $new_map_string = var_export($new_map['types'], true);
             $differ = new Differ(new UnifiedDiffOutputBuilder("--- Removed\n+++ Added\n"));
-            throw new \RuntimeException($differ->diff($current_map_string, $map_string));
+            throw new \RuntimeException($differ->diff($current_map_string, $new_map_string));
         }
     }
 
