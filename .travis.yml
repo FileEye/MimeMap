@@ -47,9 +47,7 @@ install:
 script:
   # Remove the comment to the line below during development, to let TravisCI
   # re-compile the extensions PHP file.
-  #- php bin/fileeye-mimemap update
-  - ./scripts/update-mimelist.php
-  #- cat ./src/TypeExtensionMap.php
+  - php bin/fileeye-mimemap
 
   - if [ "$TRAVIS_PHP_VERSION" == "7.1" ]; then ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1; fi
   - ./vendor/bin/phpunit ./tests

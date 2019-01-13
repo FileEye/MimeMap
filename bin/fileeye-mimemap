@@ -1,0 +1,47 @@
+#!/usr/bin/env php
+<?php
+
+use FileEye\MimeMap\MapUpdater;
+use FileEye\MimeMap\TypeExtensionMap;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+function logMsg($msg)
+{
+    file_put_contents('php://stderr', $msg . "\n");
+}
+
+/**
+ * MAIN.
+ */
+
+if ($argc >= 2) {
+    $url = $argv[1];
+} else {
+    $url = MapUpdater::DEFAULT_URL;
+}
+
+//which MIME type to choose if an extension has several
+/*$duplicateResolution = [
+    'sub' => 'text/vnd.dvb.subtitle',
+    'wmz' => 'application/x-msmetafile',
+];*/
+
+$updater = new MapUpdater();
+try {
+    $new_map = $updater->loadMapFromUrl($url);
+} catch (\RuntimeException $e) {
+    logMsg('No changes to mapping.');
+    logMsg($e->getMessage());
+}
+$current_map = (new TypeExtensionMap())->get();
+try {
+    $updater->compareMaps($current_map, $new_map);
+    logMsg('No changes to mapping.');
+    exit(0);
+} catch (\RuntimeException $e) {
+    logMsg('Changes to MIME types mapping:');
+    logMsg($e->getMessage());
+}
+$updater->writeMapToCodeFile($map);
+logMsg('Code updated');
