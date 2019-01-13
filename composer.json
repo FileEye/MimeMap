@@ -10,6 +10,7 @@
     "require-dev": {
         "phpunit/phpunit": "*",
         "squizlabs/php_codesniffer": "*",
+        "sebastian/comparator": "*",
         "symfony/console": "*",
         "symfony/var-dumper": "*",
         "symfony/yaml": "*"

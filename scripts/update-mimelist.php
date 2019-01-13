@@ -3,6 +3,8 @@
 
 use FileEye\MimeMap\Extension;
 use FileEye\MimeMap\TypeExtensionMap;
+use SebastianBergmann\Comparator\Factory;
+use SebastianBergmann\Comparator\ComparisonFailure;
 
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 
@@ -11,8 +13,7 @@ require_once dirname(__FILE__) . '/../vendor/autoload.php';
  * of file extension to mime type mapping on the planet.
  * We use it to update our own list.
  */
-//$url = 'http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=co';
-$url = 'http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?revision=1506674&view=co';
+$url = 'http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=co';
 if ($argc >= 2) {
     $url = $argv[1];
 }
@@ -24,7 +25,7 @@ if ($argc >= 2) {
 ];*/
 
 $map  = loadMapFromUrl($url);
-//$map  = addExistingMap($map);
+$map  = addExistingMap($map);
 writeCode($map);
 
 function writeCode($code)
@@ -41,9 +42,13 @@ function writeCode($code)
 
 function addExistingMap($map)
 {
-    $mte = new TypeExtensionMap();
+    $current_map = (new TypeExtensionMap())->get;
 
-    $new = count($map);
+    $factory = new Factory;
+    $comparator = $factory->getComparatorFor($current_map, $map);
+    $comparator->assertEquals($current_map, $map);
+
+/*    $new = count($map);
     $own = 0;
     $same = 0;
     $updated = 0;
@@ -73,7 +78,7 @@ function addExistingMap($map)
             '%d new, %d updated, %d same, %d own, %d total',
             $new, $updated, $same, $own, count($map)
         )
-    );
+    );*/
     return $map;
 }
 
