@@ -26,7 +26,7 @@ class MapUpdater
      */
     const DEFAULT_CODE_FILE_PATH = __DIR__ . 'TypeExtensionMap.php';
 
-    public function loadMapFromUrl($url = static::DEFAULT_URL)
+    public function loadMapFromUrl($url = MapUpdater::DEFAULT_URL)
     {
         $map = [];
         $lines = file($url);
@@ -51,7 +51,7 @@ class MapUpdater
         return $map;
     }
 
-    function compareMap($current_map, $new_map)
+    public function compareMap($current_map, $new_map)
     {
         $factory = new Factory;
         $comparator = $factory->getComparatorFor($current_map['types'], $map['types']);
@@ -66,7 +66,7 @@ class MapUpdater
         }
     }
 
-    function writeMapToCodeFile($map, $file = static::DEFAULT_CODE_FILE_PATH)
+    public function writeMapToCodeFile($map, $file = MapUpdater::DEFAULT_CODE_FILE_PATH)
     {
         $new = preg_replace(
             '#protected static \$extensionToType = (.+?);#s',
