@@ -1,47 +1,15 @@
 #!/usr/bin/env php
 <?php
+/**
+ * A Symfony CLI utility application for MimeMap.
+ */
 
-use FileEye\MimeMap\MapUpdater;
-use FileEye\MimeMap\TypeExtensionMap;
+use FileEye\MimeMap\Command\Update;
+use FileEye\MimeMap\Version;
+use Symfony\Component\Console\Application;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-function logMsg($msg)
-{
-    file_put_contents('php://stderr', $msg . "\n");
-}
-
-/**
- * MAIN.
- */
-
-if ($argc >= 2) {
-    $url = $argv[1];
-} else {
-    $url = MapUpdater::DEFAULT_URL;
-}
-
-//which MIME type to choose if an extension has several
-/*$duplicateResolution = [
-    'sub' => 'text/vnd.dvb.subtitle',
-    'wmz' => 'application/x-msmetafile',
-];*/
-
-$updater = new MapUpdater();
-try {
-    $new_map = $updater->loadMapFromUrl($url);
-} catch (\RuntimeException $e) {
-    logMsg('No changes to mapping.');
-    logMsg($e->getMessage());
-}
-$current_map = (new TypeExtensionMap())->get();
-try {
-    $updater->compareMaps($current_map, $new_map);
-    logMsg('No changes to mapping.');
-    exit(0);
-} catch (\RuntimeException $e) {
-    logMsg('Changes to MIME types mapping:');
-    logMsg($e->getMessage());
-}
-$updater->writeMapToCodeFile($new_map);
-logMsg('Code updated');
+$application = new Application('fileeye-mimemap', Version::get());
+$application->add(new Update());
+$application->run();

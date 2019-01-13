@@ -11,7 +11,7 @@ use FileEye\MimeMap\MapUpdater;
 /**
  * A Symfony application command to update the MIME type to extension map.
  */
-class UpdateCommand extends Command
+class Update extends Command
 {
     /**
      * {@inheritdoc}
@@ -34,12 +34,20 @@ class UpdateCommand extends Command
         ;
     }
 
+    // xx which MIME type to choose if an extension has several
+    /*$duplicateResolution = [
+        'sub' => 'text/vnd.dvb.subtitle',
+        'wmz' => 'application/x-msmetafile',
+    ];*/
+
     /**
      * {@inheritdoc}
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-//        $updater->update($input->getArgument('source-url'), $input->getArgument('output-file'));
+        $url = $input->getArgument('source-url') ?: MapUpdater::DEFAULT_URL;
+        $output_file = $input->getArgument('output-file') ?: MapUpdater::DEFAULT_CODE_FILE_PATH;
+
         $updater = new MapUpdater();
         try {
             $new_map = $updater->loadMapFromUrl($url);

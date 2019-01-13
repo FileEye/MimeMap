@@ -24,7 +24,7 @@ class MapUpdater
     /**
      * The defualt file where to write the map as PHP code.
      */
-    const DEFAULT_CODE_FILE_PATH = __DIR__ . 'TypeExtensionMap.php';
+    const DEFAULT_CODE_FILE_PATH = __DIR__ . '/TypeExtensionMap.php';
 
     public function loadMapFromUrl($url = MapUpdater::DEFAULT_URL)
     {
