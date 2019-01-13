@@ -47,9 +47,8 @@ function addExistingMap($map)
     $current_map = (new TypeExtensionMap())->get();
     $factory = new Factory;
     $comparator = $factory->getComparatorFor($current_map, $map);
-    $comparator->assertEquals($current_map, $map);
     try {
-        $comparator->assertEquals($date1, $date2);
+        $comparator->assertEquals($current_map, $map);
         logMsg('No changes to mapping.');
         exit(0);
     } catch (ComparisonFailure $failure) {
