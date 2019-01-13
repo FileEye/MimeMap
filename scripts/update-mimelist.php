@@ -5,6 +5,8 @@ use FileEye\MimeMap\Extension;
 use FileEye\MimeMap\TypeExtensionMap;
 use SebastianBergmann\Comparator\Factory;
 use SebastianBergmann\Comparator\ComparisonFailure;
+use SebastianBergmann\Diff\Differ;
+use SebastianBergmann\Diff\Output\UnifiedDiffOutputBuilder;
 
 require_once dirname(__FILE__) . '/../vendor/autoload.php';
 
@@ -43,42 +45,18 @@ function writeCode($code)
 function addExistingMap($map)
 {
     $current_map = (new TypeExtensionMap())->get();
-
     $factory = new Factory;
     $comparator = $factory->getComparatorFor($current_map, $map);
     $comparator->assertEquals($current_map, $map);
-
-/*    $new = count($map);
-    $own = 0;
-    $same = 0;
-    $updated = 0;
-    foreach ($mte->get() as $ext => $type) {
-        if (isset($map[$ext])) {
-            --$new;
-            if ($map[$ext] != $type) {
-                logMsg(
-                    sprintf(
-                        'Update: %s changed from %s to %s',
-                        $ext, $type, $map[$ext]
-                    )
-                );
-                ++$updated;
-            } else {
-                ++$same;
-            }
-        } else {
-            $map[$ext] = $type;
-            logMsg("Added existing own type: $ext for $type");
-            ++$own;
-        }
+    try {
+        $comparator->assertEquals($date1, $date2);
+        logMsg('No changes to mapping.');
+        exit(0);
+    } catch (ComparisonFailure $failure) {
+        logMsg('Changes to mapping:');
+        $differ = new Differ(new UnifiedDiffOutputBuilder("\n--- Expected\n+++ Actual\n"));
+        logMsg($differ->diff($failure->getExpectedAsString(), $failure->getActualAsString()));
     }
-
-    logMsg(
-        sprintf(
-            '%d new, %d updated, %d same, %d own, %d total',
-            $new, $updated, $same, $own, count($map)
-        )
-    );*/
     return $map;
 }
 
