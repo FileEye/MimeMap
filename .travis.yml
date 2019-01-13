@@ -44,7 +44,6 @@ before_install:
 
 install:
   - php bin/fileeye-mimemap --version
-  - php bin/fileeye-mimemap
 
 script:
   # Remove the comment to the line below during development, to let TravisCI

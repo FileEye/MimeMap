@@ -4,7 +4,7 @@
  * A Symfony CLI utility application for MimeMap.
  */
 
-use FileEye\MimeMap\Command\Update;
+use FileEye\MimeMap\Command\UpdateCommand;
 use FileEye\MimeMap\Version;
 use Symfony\Component\Console\Application;
 
