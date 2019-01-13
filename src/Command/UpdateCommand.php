@@ -56,7 +56,7 @@ class UpdateCommand extends Command
             logMsg('Changes to MIME types mapping:');
             logMsg($e->getMessage());
         }
-        $updater->writeMapToCodeFile($map);
+        $updater->writeMapToCodeFile($new_map);
         logMsg('Code updated');
 
     }
