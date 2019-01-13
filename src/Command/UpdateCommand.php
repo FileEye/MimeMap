@@ -7,6 +7,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use FileEye\MimeMap\MapUpdater;
+use FileEye\MimeMap\TypeExtensionMap;
 
 /**
  * A Symfony application command to update the MIME type to extension map.
@@ -66,6 +67,5 @@ class UpdateCommand extends Command
         }
         $updater->writeMapToCodeFile($new_map);
         $output->writeln('<comment>Code updated.</comment>');
-
     }
 }
