@@ -31,7 +31,9 @@ class TypeParameter
     /**
      * Constructor.
      *
-     * @param string $param MIME parameter to parse, if set.
+     * @param string $name    Parameter name
+     * @param string $value   Parameter value
+     * @param string $comment Comment for this parameter
      */
     public function __construct($name, $value, $comment = null)
     {
