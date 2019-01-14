@@ -64,7 +64,17 @@ class Type
     protected function parse($type)
     {
         // Media and SubType are separated by a slash '/'.
-        $re = '/(.*[^\\\\])\/(.*)/';
+        $sub = $this->parseStringPart($type, 0, '/');
+
+        if (!$sub['delimiter_matched']) {
+            throw new MalformedTypeException('Slash \'/\' to separate media type and subtype not found');
+        }
+
+        $this->media = strtolower($sub['string']);
+        $this->mediaComment = $sub['comment'];
+        $this->parseSubType(substr($type, $sub['end_offset'] + 1));
+
+/*        $re = '/(.*[^\\\\])\/(.*)/';
         preg_match($re, $type, $matches);
 
         // Media.
@@ -73,7 +83,7 @@ class Type
         // SubType.
         if (isset($matches[2])) {
             $this->parseSubType($matches[2]);
-        }
+        }*/
     }
 
     /**
@@ -123,6 +133,64 @@ class Type
         $p_val = static::getValue($param);
         $this->addParameter($p_name, $p_val, $p_comment !== '' ? $p_comment : null);
     }
+
+
+
+
+
+    protected function parseStringPart($string, $offset, $delimiter)
+    {
+        $inquote   = false;
+        $escaped   = false;
+        $incomment = 0;
+        $newstring = '';
+        $comment = '';
+
+        for ($n = $offset; $n < strlen($string); $n++) {
+            if ($string[$n] === $delimiter && !$escaped && !$inquote && $incomment === 0) {
+                break;
+            }
+            if ($escaped) {
+                if ($incomment == 0) {
+                    $newstring .= $string[$n];
+                } elseif ($comment !== null) {
+                    $comment .= $string[$n];
+                }
+                $escaped = false;
+            } elseif ($string[$n] == '\\') {
+                $escaped = true;
+            } elseif (!$inquote && $incomment > 0 && $string[$n] == ')') {
+                $incomment--;
+                if ($incomment == 0 && $comment !== null) {
+                    $comment .= ' ';
+                }
+            } elseif (!$inquote && $string[$n] == '(') {
+                $incomment++;
+            } elseif ($string[$n] == '"') {
+                if ($inquote) {
+                    $inquote = false;
+                } else {
+                    $inquote = true;
+                }
+            } elseif ($incomment == 0) {
+                $newstring .= $string[$n];
+            } elseif ($comment !== null) {
+                $comment .= $string[$n];
+            }
+        }
+
+        $comment = trim($comment);
+
+        return [
+          'string' => $newstring !== '' ? trim($newstring) : null,
+          'comment' => $comment !== '' ? trim($comment) : null,
+          'delimiter_matched' => $string[$n] === $delimiter,
+          'end_offset' => $n,
+        ];
+    }
+
+
+
 
     /**
      * Removes comments from a media type, subtype or parameter.
