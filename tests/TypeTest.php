@@ -314,12 +314,14 @@ class TypeTest extends TestCase
             'null' => [null],
             'empty string' => [''],
             'n' => ['n'],
+            'no media' => ['/n'],
+            'no sub type' => ['n/'],
         ];
     }
 
     /**
      * @dataProvider parseMalformedProvider
-     * @expectedException \FileEye\MimeMap\MalformedTypeExcpetion
+     * @expectedException \FileEye\MimeMap\MalformedTypeException
      */
     public function testParseMalformed($type)
     {
@@ -405,9 +407,6 @@ class TypeTest extends TestCase
     public function getDefaultExtensionFailProvider()
     {
         return [
-            [null],
-            [''],
-            ['n'],
             ['n/n'],
         ];
     }

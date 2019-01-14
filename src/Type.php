@@ -66,6 +66,9 @@ class Type
         // Media and SubType are separated by a slash '/'.
         $sub = $this->parseStringPart($type, 0, '/');
 
+        if (!$sub['string']) {
+            throw new MalformedTypeException('Media type not found');
+        }
         if (!$sub['delimiter_matched']) {
             throw new MalformedTypeException('Slash \'/\' to separate media type and subtype not found');
         }
@@ -73,17 +76,6 @@ class Type
         $this->media = strtolower($sub['string']);
         $this->mediaComment = $sub['comment'];
         $this->parseSubType(substr($type, $sub['end_offset'] + 1));
-
-/*        $re = '/(.*[^\\\\])\/(.*)/';
-        preg_match($re, $type, $matches);
-
-        // Media.
-        list($this->media, $this->mediaComment) = $this->splitComment(isset($matches[1]) ? $matches[1] : $type);
-
-        // SubType.
-        if (isset($matches[2])) {
-            $this->parseSubType($matches[2]);
-        }*/
     }
 
     /**
@@ -96,7 +88,16 @@ class Type
     protected function parseSubType($sub_type)
     {
         // SubType and Parameters are separated by semicolons ';'.
-        $re = '/(?<!\\\\);/';
+        $sub = $this->parseStringPart($type, 0, ';');
+
+        if (!$sub['string']) {
+            throw new MalformedTypeException('Media subtype not found');
+        }
+
+        $this->subType = strtolower($sub['string']);
+        $this->subTypeComment = $sub['comment'];
+
+/*        $re = '/(?<!\\\\);/';
         preg_match_all($re, $sub_type, $matches, PREG_OFFSET_CAPTURE);
         $parts = [];
         $parts_offset = 0;
@@ -115,7 +116,7 @@ class Type
             for ($i = 1; $i < $cnt_p; $i++) {
                 $this->parseParameter($parts[$i]);
             }
-        }
+        }*/
     }
 
     /**
