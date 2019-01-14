@@ -248,14 +248,14 @@ class TypeTest extends TestCase
                 false,
                 [],
             ],
-            'text/plain;a=(\)abc)def(\))' => [
-                'text/plain;a=(\)abc)def(\))',
-                'text/plain; a="def" (\)abc \))',
+            'text/plain;a=(\)abc)def(\()' => [
+                'text/plain;a=(\)abc)def(\()',
+                'text/plain; a="def" (\)abc \()',
                 ['text', null],
                 ['plain', null],
                 true,
                 [
-                  'a' => ['def', ')abc )'],
+                  'a' => ['def', '\)abc \('],
                 ],
             ],
             'text/plain;a=\\foo(abc)' => [

@@ -137,15 +137,18 @@ class Type
             if ($escaped) {
                 if ($incomment == 0) {
                     $newstring .= $string[$n];
-                } elseif ($comment !== null) {
+                } else {
                     $comment .= $string[$n];
                 }
                 $escaped = false;
             } elseif ($string[$n] == '\\') {
+                if ($incomment > 0) {
+                    $comment .= $string[$n];
+                }
                 $escaped = true;
             } elseif (!$inquote && $incomment > 0 && $string[$n] == ')') {
                 $incomment--;
-                if ($incomment == 0 && $comment !== null) {
+                if ($incomment == 0) {
                     $comment .= ' ';
                 }
             } elseif (!$inquote && $string[$n] == '(') {
@@ -158,7 +161,7 @@ class Type
                 }
             } elseif ($incomment == 0) {
                 $newstring .= $string[$n];
-            } elseif ($comment !== null) {
+            } else {
                 $comment .= $string[$n];
             }
         }
