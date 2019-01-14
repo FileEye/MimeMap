@@ -24,7 +24,12 @@ class MapUpdater
     /**
      * The defualt file where to write the map as PHP code.
      */
-    const DEFAULT_CODE_FILE_PATH = __DIR__ . '/TypeExtensionMap.php';
+    const DEFAULT_CODE_FILE_NAME = 'TypeExtensionMap.php';
+
+    public static function getDefaultCodeFilePath()
+    {
+        return dirname(__FILE__) . '/' . static::DEFAULT_CODE_FILE_NAME;
+    }
 
     public function loadMapFromUrl($url = MapUpdater::DEFAULT_URL)
     {
@@ -66,7 +71,7 @@ class MapUpdater
         }
     }
 
-    public function writeMapToCodeFile($map, $file = MapUpdater::DEFAULT_CODE_FILE_PATH)
+    public function writeMapToCodeFile($map, $file)
     {
         $new = preg_replace(
             '#protected static \$extensionToType = (.+?);#s',

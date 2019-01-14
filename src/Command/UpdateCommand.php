@@ -32,7 +32,7 @@ class UpdateCommand extends Command
                 'output-file',
                 InputArgument::OPTIONAL,
                 'Path to the directory of the mapper class PHP file',
-                MapUpdater::DEFAULT_CODE_FILE_PATH
+                MapUpdater::getDefaultCodeFilePath()
             )
         ;
     }
