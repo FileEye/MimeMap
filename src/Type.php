@@ -97,6 +97,13 @@ class Type
         $this->subType = strtolower($sub['string']);
         $this->subTypeComment = $sub['comment'];
 
+        // Loops through the parameter.
+        while ($sub['delimiter_matched']) {
+            $sub = $this->parseStringPart($sub_type, $sub['end_offset'] + 1, ';');
+            $p_name = static::getAttribute($sub_type['string']);
+            $p_val = static::getValue($sub_type['string']);
+            $this->addParameter($p_name, $p_val, $sub['comment']);
+        }
 /*        $re = '/(?<!\\\\);/';
         preg_match_all($re, $sub_type, $matches, PREG_OFFSET_CAPTURE);
         $parts = [];
@@ -422,9 +429,7 @@ class Type
      */
     public function isExperimental()
     {
-        if (substr($this->getMedia(), 0, 2) == 'x-'
-            || substr($this->getSubType(), 0, 2) == 'x-'
-        ) {
+        if (substr($this->getMedia(), 0, 2) == 'x-' || substr($this->getSubType(), 0, 2) == 'x-') {
             return true;
         }
         return false;

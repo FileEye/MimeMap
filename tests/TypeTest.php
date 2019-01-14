@@ -316,6 +316,8 @@ class TypeTest extends TestCase
             'n' => ['n'],
             'no media' => ['/n'],
             'no sub type' => ['n/'],
+            'no comment closing bracket a' => ['image (open ()/*'],
+            'no comment closing bracket b' => ['image / * (open (())'],
         ];
     }
 
