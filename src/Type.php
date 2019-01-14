@@ -100,8 +100,8 @@ class Type
         // Loops through the parameter.
         while ($sub['delimiter_matched']) {
             $sub = $this->parseStringPart($sub_type, $sub['end_offset'] + 1, ';');
-            $p_name = static::getAttribute($sub_type['string']);
-            $p_val = static::getValue($sub_type['string']);
+            $p_name = static::getAttribute($sub['string']);
+            $p_val = static::getValue($sub['string']);
             $this->addParameter($p_name, $p_val, $sub['comment']);
         }
 /*        $re = '/(?<!\\\\);/';
