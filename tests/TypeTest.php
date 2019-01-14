@@ -248,41 +248,6 @@ class TypeTest extends TestCase
                   'g' => ['h', null],
                 ],
             ],
-
-            /*    public function testStripComments()
-                {
-                    $this->assertEquals('def', Type::stripComments('(abc)def(ghi)', $null));
-                    $this->assertEquals('def', Type::stripComments('(abc)def', $null));
-                    $this->assertEquals('def', Type::stripComments('def(ghi)', $null));
-                }
-
-                public function testStripCommentsEscaped()
-                {
-                    $comment = '';
-                    $this->assertEquals('def', Type::stripComments('(\)abc)def(\))', $comment));
-                    $this->assertEquals(')abc )', $comment);
-                }
-
-                public function testStripCommentsEscapedString()
-                {
-                    $comment = false;
-                    $this->assertEquals('foo', Type::stripComments('\\foo(abc)', $comment));
-                    $this->assertEquals('abc', $comment);
-                }
-
-                public function testStripCommentsQuoted()
-                {
-                    $this->assertEquals('def', Type::stripComments('(a"bc)def")def', $null));
-                    $this->assertEquals('(abc)def', Type::stripComments('"(abc)def"', $null));
-                }
-
-                public function testStripCommentsParameterComment()
-                {
-                    $comment = '';
-                    $this->assertEquals('def', Type::stripComments('(abc)def(ghi)', $comment));
-                    $this->assertEquals('abc ghi', $comment);
-                }
-            */
             'text/(abc)def(ghi)' => [
                 'text/(abc)def(ghi)',
                 'text/def',
@@ -307,6 +272,38 @@ class TypeTest extends TestCase
                 false,
                 [],
             ],
+            'text/(\)abc)def(\))' => [
+                'text/(\)abc)def(\))',
+                'text/def (\)abc \))',
+                ['text', null],
+                ['def', ')abc )'],
+                false,
+                [],
+            ],
+            'text/\\foo(abc)' => [
+                'text/\\foo(abc)',
+                'text/foo (abc)',
+                ['text', null],
+                ['foo', 'abc'],
+                false,
+                [],
+            ],
+            'text/(a"bc)def")def' => [
+                'text/(a"bc)def")def',
+                'text/def (a"bc)def")',
+                ['text', null],
+                ['def', 'a"bc)def"'],
+                false,
+                [],
+            ],
+            'text/"(abc)def"' => [
+                'text/"(abc)def"',
+                'text/???")',
+                ['text', null],
+                ['def', '???'],
+                false,
+                [],
+            ],
         ];
     }
 
@@ -326,9 +323,9 @@ class TypeTest extends TestCase
         foreach ($expectedParameters as $name => $param) {
             $this->assertTrue(isset($mt->getParameters()[$name]));
             $this->assertInstanceOf('FileEye\MimeMap\TypeParameter', $mt->getParameter($name));
-            $this->assertSame($name, $mt->getParameter($name)->name);
-            $this->assertSame($param[0], $mt->getParameter($name)->value);
-            $this->assertSame($param[1], $mt->getParameter($name)->comment);
+            $this->assertSame($name, $mt->getParameter($name)->getName());
+            $this->assertSame($param[0], $mt->getParameter($name)->getValue());
+            $this->assertSame($param[1], $mt->getParameter($name)->getComment());
         }
     }
 

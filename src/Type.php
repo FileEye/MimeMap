@@ -87,29 +87,41 @@ class Type
     {
         // SubType and Parameters are separated by semicolons ';'.
         $re = '/(?<!\\\\);/';
-        preg_match($re, $sub_type, $matches, PREG_OFFSET_CAPTURE);
+        preg_match_all($re, $sub_type, $matches, PREG_OFFSET_CAPTURE);
         $parts = [];
         $parts_offset = 0;
-        foreach ($matches as $segment) {
+        foreach ($matches[0] as $segment) {
             $parts[] = substr($sub_type, $parts_offset, $segment[1] - $parts_offset);
             $parts_offset = $segment[1] + 1;
         }
         $parts[] = substr($sub_type, $parts_offset);
 
-        // SubType.
+        // SubType part.
         list($this->subType, $this->subTypeComment) = $this->splitComment($parts[0]);
 
-        // Parameters.
+        // Loops through the parameter parts.
         if (isset($parts[1])) {
             $cnt_p = count($parts);
             for ($i = 1; $i < $cnt_p; $i++) {
-                $p_comment = '';
-                $param = static::stripComments(trim($parts[$i]), $p_comment);
-                $p_name = TypeParameter::getAttribute($param);
-                $p_val = TypeParameter::getValue($param);
-                $this->addParameter($p_name, $p_val, $p_comment);
+                $this->parseParameter($parts[$i]);
             }
         }
+    }
+
+    /**
+     * Parse a parameter part of the type and set the class variables.
+     *
+     * @param string $parameter
+     *
+     * @return void
+     */
+    protected function parseParameter($parameter)
+    {
+        $p_comment = '';
+        $param = static::stripComments(trim($parameter), $p_comment);
+        $p_name = static::getAttribute($param);
+        $p_val = static::getValue($param);
+        $this->addParameter($p_name, $p_val, $p_comment !== '' ? $p_comment : null);
     }
 
     /**
@@ -170,6 +182,38 @@ class Type
     }
 
     /**
+     * Get a parameter attribute (e.g. name)
+     *
+     * @param string $param MIME type parameter
+     *
+     * @return string Attribute name
+     */
+    public static function getAttribute($param)
+    {
+        $tmp = explode('=', $param);
+        return trim($tmp[0]);
+    }
+
+    /**
+     * Get a parameter value
+     *
+     * @param string $param MIME type parameter
+     *
+     * @return string Value
+     */
+    public static function getValue($param)
+    {
+        $tmp = explode('=', $param, 2);
+        $value = $tmp[1];
+        $value = trim($value);
+        if ($value[0] == '"' && $value[strlen($value)-1] == '"') {
+            $value = substr($value, 1, -1);
+        }
+        $value = str_replace('\\"', '"', $value);
+        return $value;
+    }
+
+    /**
      * Does this type have any parameters?
      *
      * @return boolean true if type has parameters, false otherwise
@@ -211,6 +255,12 @@ class Type
      */
     protected function splitComment($string)
     {
+// \((?:(?:\\\\)+|(?:[^\(\\]|\\\)?)*)\)
+//$re = '/\((?:(?:\\\\\\\\)+|(?:[^\(\\\\]|\\\\\)?)*)\)/';
+//$str = '(asas)def(ghi)nn;nn(s\\"ss)';
+
+
+
         // Comment.
         $re = '/\((.*)\)/';
         preg_match($re, $string, $matches);
@@ -285,7 +335,7 @@ class Type
         $type = strtolower($this->media . '/' . $this->subType);
         if (count($this->parameters)) {
             foreach ($this->parameters as $key => $null) {
-                $type .= '; ' . $this->parameters[$key]->get();
+                $type .= '; ' . $this->parameters[$key]->toString();
             }
         }
         return $type;
@@ -404,11 +454,10 @@ class Type
         // Strip parameters and comments.
         $type = $this->getMedia() . '/' . $this->getSubType();
 
-        $extension = array_search($type, (new Extension())->getMap());
-        if ($extension === false) {
+        $map = new TypeExtensionMap();
+        if (!isset($map->get()['types'][$type])) {
             throw new \RuntimeException("Sorry, couldn't determine extension.");
         }
-
-        return $extension;
+        return $map->get()['types'][$type][0];
     }
 }
