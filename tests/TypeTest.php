@@ -200,9 +200,9 @@ class TypeTest extends TestCase
                 ],
             ],
             // Various edge cases.
-            'text/plain; charset="utf-8" (UTF\\/8)' => [
-                'text/plain; charset="utf-8" (UTF\\/8)',
-                'text/plain; charset="utf-8" (UTF\\/8)',
+            'text/plain; charset="utf-8" (UTF/8)' => [
+                'text/plain; charset="utf-8" (UTF/8)',
+                'text/plain; charset="utf-8" (UTF/8)',
                 ['text', null],
                 ['plain', null],
                 true,
@@ -210,9 +210,9 @@ class TypeTest extends TestCase
                   'charset' => ['utf-8', 'UTF/8'],
                 ],
             ],
-            'appf/xml; a=b; b="parameter" (with\\; a comment)   ;c=d;  e=f (\\;) ;   g=h   ' => [
-                'appf/xml; a=b; b="parameter" (with\\; a comment)   ;c=d;  e=f (\\;) ;   g=h   ',
-                'appf/xml; a="b"; b="parameter" (with\\; a comment); c="d"; e="f" (\\;); g="h"',
+            'appf/xml; a=b; b="parameter" (with; a comment)   ;c=d;  e=f (;) ;   g=h   ' => [
+                'appf/xml; a=b; b="parameter" (with; a comment)   ;c=d;  e=f (;) ;   g=h   ',
+                'appf/xml; a="b"; b="parameter" (with; a comment); c="d"; e="f" (;); g="h"',
                 ['appf', null],
                 ['xml', null],
                 true,
@@ -248,37 +248,45 @@ class TypeTest extends TestCase
                 false,
                 [],
             ],
-            'text/(\)abc)def(\))' => [
-                'text/(\)abc)def(\))',
-                'text/def (\)abc \))',
+            'text/plain;a=(\)abc)def(\))' => [
+                'text/plain;a=(\)abc)def(\))',
+                'text/plain; a="def" (\)abc \))',
                 ['text', null],
-                ['def', ')abc )'],
-                false,
-                [],
+                ['plain', null],
+                true,
+                [
+                  'a' => ['def', ')abc )'],
+                ],
             ],
-            'text/\\foo(abc)' => [
-                'text/\\foo(abc)',
-                'text/foo (abc)',
+            'text/plain;a=\\foo(abc)' => [
+                'text/plain;a=\\foo(abc)',
+                'text/plain; a="foo" (abc)',
                 ['text', null],
-                ['foo', 'abc'],
-                false,
-                [],
+                ['plain', null],
+                true,
+                [
+                  'a' => ['foo', 'abc'],
+                ],
             ],
-            'text/(a"bc)def")def' => [
-                'text/(a"bc)def")def',
-                'text/def (a"bc)def")',
+            'text/plain;a=(a"bc)def")def' => [
+                'text/plain;a=(a"bc)def")def',
+                'text/plain; a="def" (a"bc)def")',
                 ['text', null],
-                ['def', 'a"bc)def"'],
-                false,
-                [],
+                ['plain', null],
+                true,
+                [
+                  'a' => ['def', 'a"bc)def"'],
+                ],
             ],
-            'text/"(abc)def"' => [
-                'text/"(abc)def"',
-                'text/???")',
+            'text/plain;a="(abc)def"' => [
+                'text/plain;a="(abc)def"',
+                'text/plain; a="(abc)def"',
                 ['text', null],
-                ['def', '???'],
-                false,
-                [],
+                ['plain', null],
+                true,
+                [
+                  'a' => ['(abc)def', null],
+                ],
             ],
         ];
     }

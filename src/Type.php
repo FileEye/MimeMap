@@ -104,48 +104,24 @@ class Type
             $p_val = static::getValue($sub['string']);
             $this->addParameter($p_name, $p_val, $sub['comment']);
         }
-/*        $re = '/(?<!\\\\);/';
-        preg_match_all($re, $sub_type, $matches, PREG_OFFSET_CAPTURE);
-        $parts = [];
-        $parts_offset = 0;
-        foreach ($matches[0] as $segment) {
-            $parts[] = substr($sub_type, $parts_offset, $segment[1] - $parts_offset);
-            $parts_offset = $segment[1] + 1;
-        }
-        $parts[] = substr($sub_type, $parts_offset);
-
-        // SubType part.
-        list($this->subType, $this->subTypeComment) = $this->splitComment($parts[0]);
-
-        // Loops through the parameter parts.
-        if (isset($parts[1])) {
-            $cnt_p = count($parts);
-            for ($i = 1; $i < $cnt_p; $i++) {
-                $this->parseParameter($parts[$i]);
-            }
-        }*/
     }
 
     /**
-     * Parse a parameter part of the type and set the class variables.
+     * Parses a part of the content MIME type string.
      *
-     * @param string $parameter
+     * Splits string and comment until a delimiter is found.
      *
-     * @return void
+     * @param string $string     Input string.
+     * @param int $offset        Offset to start parsing from.
+     * @param string $delimiter  Stop parsing when delimiter found.
+     *
+     * @return array An array with the following keys:
+     *   'string' - the uncommented part of $string
+     *   'comment' - the comment part of $string
+     *   'delimiter_matched' - true if a $delimiter stopped the parsing, false
+     *                         otherwise
+     *   'end_offset' - the last position parsed in $string.
      */
-    protected function parseParameter($parameter)
-    {
-        $p_comment = '';
-        $param = static::stripComments(trim($parameter), $p_comment);
-        $p_name = static::getAttribute($param);
-        $p_val = static::getValue($param);
-        $this->addParameter($p_name, $p_val, $p_comment !== '' ? $p_comment : null);
-    }
-
-
-
-
-
     protected function parseStringPart($string, $offset, $delimiter)
     {
         $inquote   = false;
@@ -197,66 +173,6 @@ class Type
           'delimiter_matched' => isset($string[$n]) ? ($string[$n] === $delimiter) : false,
           'end_offset' => $n,
         ];
-    }
-
-
-
-
-    /**
-     * Removes comments from a media type, subtype or parameter.
-     *
-     * @param string $string  String to strip comments from
-     * @param string $comment Comment is stored in there.
-     *                        Do not set it to NULL if you want the comment.
-     *
-     * @return string String without comments
-     */
-    public static function stripComments($string, &$comment)
-    {
-        if (strpos($string, '(') === false) {
-            return $string;
-        }
-
-        $inquote   = false;
-        $escaped   = false;
-        $incomment = 0;
-        $newstring = '';
-
-        for ($n = 0; $n < strlen($string); $n++) {
-            if ($escaped) {
-                if ($incomment == 0) {
-                    $newstring .= $string[$n];
-                } elseif ($comment !== null) {
-                    $comment .= $string[$n];
-                }
-                $escaped = false;
-            } elseif ($string[$n] == '\\') {
-                $escaped = true;
-            } elseif (!$inquote && $incomment > 0 && $string[$n] == ')') {
-                $incomment--;
-                if ($incomment == 0 && $comment !== null) {
-                    $comment .= ' ';
-                }
-            } elseif (!$inquote && $string[$n] == '(') {
-                $incomment++;
-            } elseif ($string[$n] == '"') {
-                if ($inquote) {
-                    $inquote = false;
-                } else {
-                    $inquote = true;
-                }
-            } elseif ($incomment == 0) {
-                $newstring .= $string[$n];
-            } elseif ($comment !== null) {
-                $comment .= $string[$n];
-            }
-        }
-
-        if ($comment !== null) {
-            $comment = trim($comment);
-        }
-
-        return $newstring;
     }
 
     /**
@@ -321,39 +237,6 @@ class Type
     public function getParameter($name)
     {
         return isset($this->parameters[$name]) ? $this->parameters[$name] : null;
-    }
-
-    /**
-     * Splits comments from a media type, subtype or parameter.
-     *
-     * @param string $string  String to split comments from
-     *
-     * @return string[]
-     *   An array with uncommented string and the comment.
-     */
-    protected function splitComment($string)
-    {
-// \((?:(?:\\\\)+|(?:[^\(\\]|\\\)?)*)\)
-//$re = '/\((?:(?:\\\\\\\\)+|(?:[^\(\\\\]|\\\\\)?)*)\)/';
-//$str = '(asas)def(ghi)nn;nn(s\\"ss)';
-
-
-
-        // Comment.
-        $re = '/\((.*)\)/';
-        preg_match($re, $string, $matches);
-        $comment = isset($matches[1]) ? $matches[1] : null;
-
-        // Main.
-        if ($comment !== null) {
-            $re = '/(.*)\(.*\)(.*)/';
-            preg_match($re, $string, $matches);
-            $main = (isset($matches[1]) ? $matches[1] : '') . (isset($matches[2]) ? $matches[2] : '');
-        } else {
-            $main = $string;
-        }
-
-        return [empty($main) ? $main : strtolower(trim($main)), $comment];
     }
 
     /**
