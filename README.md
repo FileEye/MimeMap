@@ -42,7 +42,7 @@ code repository:
     Code updated
 ```
 
-The file ```MIME/Type/Extension.php``` will be changed now.
+The file ```src/TypeExtensionMap.php``` will be changed now.
 
 
 ## Credits

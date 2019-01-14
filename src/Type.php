@@ -2,48 +2,56 @@
 
 namespace FileEye\MimeMap;
 
-use FileEye\MimeMap\Type\Parameter;
-
 /**
  * Class for working with MIME types
  */
 class Type
 {
     /**
-     * The MIME media type
+     * The MIME media type.
      *
      * @var string
      */
-    public $media = '';
+    protected $media;
 
     /**
-     * The MIME media sub-type
+     * The MIME media type comment.
      *
      * @var string
      */
-    public $subType = '';
+    protected $mediaComment;
+
+    /**
+     * The MIME media sub-type.
+     *
+     * @var string
+     */
+    protected $subType;
+
+    /**
+     * The MIME media sub-type comment.
+     *
+     * @var string
+     */
+    protected $subTypeComment;
 
     /**
      * Optional MIME parameters
      *
-     * @var array
+     * @var TypeParameter[]
      */
-    public $parameters = [];
+    protected $parameters = [];
 
     /**
      * Constructor.
      *
-     * If $type is set, if will be parsed and the appropriate class vars set.
-     * If not, you get an empty class.
-     * This is useful, but not quite as useful as parsing a type.
+     * The type string will be parsed and the appropriate class vars set.
      *
      * @param string $type MIME type
      */
-    public function __construct($type = false)
+    public function __construct($type)
     {
-        if ($type) {
-            $this->parse($type);
-        }
+        $this->parse($type);
     }
 
     /**
@@ -51,165 +59,234 @@ class Type
      *
      * @param string $type MIME type to parse
      *
-     * @return boolean True if the type has been parsed, false if not
+     * @return void
      */
-    public function parse($type)
+    protected function parse($type)
     {
-        $this->media      = $this->getMedia($type);
-        $this->subType    = $this->getSubType($type);
-        $this->parameters = [];
-        if (static::hasParameters($type)) {
-            foreach (static::getParameters($type) as $param) {
-                $param = new Parameter($param);
-                $this->parameters[$param->name] = $param;
-            }
+        // Media and SubType are separated by a slash '/'.
+        $sub = $this->parseStringPart($type, 0, '/');
+
+        if (!$sub['string']) {
+            throw new MalformedTypeException('Media type not found');
+        }
+        if (!$sub['delimiter_matched']) {
+            throw new MalformedTypeException('Slash \'/\' to separate media type and subtype not found');
         }
 
-        return true;
+        $this->media = strtolower($sub['string']);
+        $this->mediaComment = $sub['comment'];
+        $this->parseSubType(substr($type, $sub['end_offset'] + 1));
     }
 
-
     /**
-     * Does this type have any parameters?
+     * Parse the sub-type part of the type and set the class variables.
      *
-     * @param string $type MIME type to check
+     * @param string $sub_type
      *
-     * @return boolean true if $type has parameters, false otherwise
+     * @return void
      */
-    public static function hasParameters($type)
+    protected function parseSubType($sub_type)
     {
-        if (strstr($type, ';')) {
-            return true;
+        // SubType and Parameters are separated by semicolons ';'.
+        $sub = $this->parseStringPart($sub_type, 0, ';');
+
+        if (!$sub['string']) {
+            throw new MalformedTypeException('Media subtype not found');
         }
-        return false;
+
+        $this->subType = strtolower($sub['string']);
+        $this->subTypeComment = $sub['comment'];
+
+        // Loops through the parameter.
+        while ($sub['delimiter_matched']) {
+            $sub = $this->parseStringPart($sub_type, $sub['end_offset'] + 1, ';');
+            $p_name = static::getAttribute($sub['string']);
+            $p_val = static::getValue($sub['string']);
+            $this->addParameter($p_name, $p_val, $sub['comment']);
+        }
     }
 
-
     /**
-     * Get a MIME type's parameters
+     * Parses a part of the content MIME type string.
      *
-     * @param string $type MIME type to get parameters of
+     * Splits string and comment until a delimiter is found.
      *
-     * @return array $type's parameters
+     * @param string $string     Input string.
+     * @param int $offset        Offset to start parsing from.
+     * @param string $delimiter  Stop parsing when delimiter found.
+     *
+     * @return array An array with the following keys:
+     *   'string' - the uncommented part of $string
+     *   'comment' - the comment part of $string
+     *   'delimiter_matched' - true if a $delimiter stopped the parsing, false
+     *                         otherwise
+     *   'end_offset' - the last position parsed in $string.
      */
-    public static function getParameters($type)
+    protected function parseStringPart($string, $offset, $delimiter)
     {
-        $params = [];
-        $tmp    = explode(';', $type);
-        for ($i = 1; $i < count($tmp); $i++) {
-            $params[] = trim($tmp[$i]);
-        }
-        return $params;
-    }
-
-
-    /**
-     * Strip parameters from a MIME type string.
-     *
-     * @param string $type MIME type string
-     *
-     * @return string MIME type with parameters removed
-     */
-    public static function stripParameters($type)
-    {
-        if (strstr($type, ';')) {
-            return substr($type, 0, strpos($type, ';'));
-        }
-        return $type;
-    }
-
-
-    /**
-     * Removes comments from a media type, subtype or parameter.
-     *
-     * @param string $string  String to strip comments from
-     * @param string $comment Comment is stored in there.
-     *                        Do not set it to NULL if you want the comment.
-     *
-     * @return string String without comments
-     */
-    public static function stripComments($string, &$comment)
-    {
-        if (strpos($string, '(') === false) {
-            return $string;
-        }
-
         $inquote   = false;
         $escaped   = false;
         $incomment = 0;
         $newstring = '';
+        $comment = '';
 
-        for ($n = 0; $n < strlen($string); $n++) {
+        for ($n = $offset; $n < strlen($string); $n++) {
+            if ($string[$n] === $delimiter && !$escaped && !$inquote && $incomment === 0) {
+                break;
+            }
             if ($escaped) {
                 if ($incomment == 0) {
                     $newstring .= $string[$n];
-                } elseif ($comment !== null) {
+                } else {
                     $comment .= $string[$n];
                 }
                 $escaped = false;
             } elseif ($string[$n] == '\\') {
+                if ($incomment > 0) {
+                    $comment .= $string[$n];
+                }
                 $escaped = true;
             } elseif (!$inquote && $incomment > 0 && $string[$n] == ')') {
                 $incomment--;
-                if ($incomment == 0 && $comment !== null) {
+                if ($incomment == 0) {
                     $comment .= ' ';
                 }
             } elseif (!$inquote && $string[$n] == '(') {
                 $incomment++;
             } elseif ($string[$n] == '"') {
-                if ($inquote) {
-                    $inquote = false;
+                if ($incomment > 0) {
+                    $comment .= $string[$n];
                 } else {
-                    $inquote = true;
+                    if ($inquote) {
+                        $inquote = false;
+                    } else {
+                        $inquote = true;
+                    }
                 }
             } elseif ($incomment == 0) {
                 $newstring .= $string[$n];
-            } elseif ($comment !== null) {
+            } else {
                 $comment .= $string[$n];
             }
         }
 
-        if ($comment !== null) {
-            $comment = trim($comment);
+        if ($incomment > 0) {
+            throw new MalformedTypeException('Comment closing bracket missing: ' . $comment);
         }
 
-        return $newstring;
+        return [
+          'string' => empty($newstring) ? null : trim($newstring),
+          'comment' => empty($comment) ? null : trim($comment),
+          'delimiter_matched' => isset($string[$n]) ? ($string[$n] === $delimiter) : false,
+          'end_offset' => $n,
+        ];
     }
 
-
     /**
-     * Get a MIME type's media
+     * Get a parameter attribute (e.g. name)
      *
-     * Note: 'media' refers to the portion before the first slash
+     * @param string $param MIME type parameter
      *
-     * @param string $type MIME type to get media of
-     *
-     * @return string $type's media
+     * @return string Attribute name
      */
-    public static function getMedia($type)
+    public static function getAttribute($param)
     {
-        $tmp = explode('/', $type);
-        return strtolower(trim(static::stripComments($tmp[0], $null)));
+        $tmp = explode('=', $param);
+        return trim($tmp[0]);
     }
 
-
     /**
-     * Get a MIME type's subtype
+     * Get a parameter value
      *
-     * @param string $type MIME type to get subtype of
+     * @param string $param MIME type parameter
      *
-     * @return string $type's subtype, null if invalid mime type
+     * @return string Value
      */
-    public static function getSubType($type)
+    public static function getValue($param)
     {
-        $tmp = explode('/', $type);
-        if (!isset($tmp[1])) {
-            return null;
+        $tmp = explode('=', $param, 2);
+        $value = $tmp[1];
+        $value = trim($value);
+        if ($value[0] == '"' && $value[strlen($value)-1] == '"') {
+            $value = substr($value, 1, -1);
         }
-        $tmp = explode(';', $tmp[1]);
-        return strtolower(trim(static::stripComments($tmp[0], $null)));
+        $value = str_replace('\\"', '"', $value);
+        return $value;
     }
 
+    /**
+     * Does this type have any parameters?
+     *
+     * @return boolean true if type has parameters, false otherwise
+     */
+    public function hasParameters()
+    {
+        return (bool) $this->parameters;
+    }
+
+    /**
+     * Get a MIME type's parameters
+     *
+     * @return TypeParameter[] Type's parameters
+     */
+    public function getParameters()
+    {
+        return $this->parameters;
+    }
+
+    /**
+     * Get a MIME type's parameter
+     *
+     * @param string $name Parameter name
+     *
+     * @return TypeParameter|null
+     */
+    public function getParameter($name)
+    {
+        return isset($this->parameters[$name]) ? $this->parameters[$name] : null;
+    }
+
+    /**
+     * Get a MIME type's media.
+     *
+     * Note: 'media' refers to the portion before the first slash.
+     *
+     * @return string Type's media.
+     */
+    public function getMedia()
+    {
+        return $this->media;
+    }
+
+    /**
+     * Get a MIME type's media comment.
+     *
+     * @return string Type's media comment.
+     */
+    public function getMediaComment()
+    {
+        return $this->mediaComment;
+    }
+
+    /**
+     * Get a MIME type's subtype.
+     *
+     * @return string Type's subtype, null if invalid mime type.
+     */
+    public function getSubType()
+    {
+        return $this->subType;
+    }
+
+    /**
+     * Get a MIME type's subtype comment.
+     *
+     * @return string Type's subtype comment, null if invalid mime type.
+     */
+    public function getSubTypeComment()
+    {
+        return $this->subTypeComment;
+    }
 
     /**
      * Create a textual MIME type from object values
@@ -218,17 +295,19 @@ class Type
      *
      * @return string MIME type string
      */
-    public function get()
+    public function toString()
     {
+        if (is_null($this->subType)) {
+            return $this->media;
+        }
         $type = strtolower($this->media . '/' . $this->subType);
         if (count($this->parameters)) {
             foreach ($this->parameters as $key => $null) {
-                $type .= '; ' . $this->parameters[$key]->get();
+                $type .= '; ' . $this->parameters[$key]->toString();
             }
         }
         return $type;
     }
-
 
     /**
      * Is this type experimental?
@@ -236,103 +315,88 @@ class Type
      * Note: Experimental types are denoted by a leading 'x-' in the media or
      *       subtype, e.g. text/x-vcard or x-world/x-vrml.
      *
-     * @param string $type MIME type to check
-     *
-     * @return boolean true if $type is experimental, false otherwise
+     * @return boolean true if type is experimental, false otherwise
      */
-    public static function isExperimental($type)
+    public function isExperimental()
     {
-        if (substr(static::getMedia($type), 0, 2) == 'x-'
-            || substr(static::getSubType($type), 0, 2) == 'x-'
-        ) {
+        if (substr($this->getMedia(), 0, 2) == 'x-' || substr($this->getSubType(), 0, 2) == 'x-') {
             return true;
         }
         return false;
     }
-
 
     /**
      * Is this a vendor MIME type?
      *
      * Note: Vendor types are denoted with a leading 'vnd. in the subtype.
      *
-     * @param string $type MIME type to check
-     *
-     * @return boolean true if $type is a vendor type, false otherwise
+     * @return boolean true if type is a vendor type, false otherwise
      */
-    public static function isVendor($type)
+    public function isVendor()
     {
-        if (substr(static::getSubType($type), 0, 4) == 'vnd.') {
+        if (substr($this->getSubType(), 0, 4) == 'vnd.') {
             return true;
         }
         return false;
     }
-
 
     /**
      * Is this a wildcard type?
      *
-     * @param string $type MIME type to check
-     *
-     * @return boolean true if $type is a wildcard, false otherwise
+     * @return boolean true if type is a wildcard, false otherwise
      */
-    public static function isWildcard($type)
+    public function isWildcard()
     {
-        if ($type == '*/*' || static::getSubtype($type) == '*') {
+        // xxx also if a subtype can be submatched i.e. vnd.ms-excel.*
+        if (($this->getMedia() === '*' && $this->getSubtype() === '*') || $this->getSubtype() === '*') {
             return true;
         }
         return false;
     }
-
 
     /**
      * Perform a wildcard match on a MIME type
      *
      * Example:
-     * MIME_Type::wildcardMatch('image/*', 'image/png')
+     * $type = new Type('image/png');
+     * $type->wildcardMatch('image/*');
      *
      * @param string $card Wildcard to check against
-     * @param string $type MIME type to check
      *
      * @return boolean true if there was a match, false otherwise
      */
-    public static function wildcardMatch($card, $type)
+    public function wildcardMatch($card)
     {
-        if (!static::isWildcard($card)) {
+        $match_type = new static($card);
+
+        if (!$match_type->isWildcard()) {
             return false;
         }
 
-        if ($card == '*/*') {
+        if ($match_type->getMedia() === '*' && $match_type->getSubType() === '*') {
             return true;
         }
 
-        if (static::getMedia($card) == static::getMedia($type)) {
+        if ($match_type->getMedia() === $this->getMedia()) {
             return true;
         }
 
         return false;
     }
 
-
     /**
      * Add a parameter to this type
      *
-     * @param string $name    Attribute name
-     * @param string $value   Attribute value
+     * @param string $name    Parameter name
+     * @param string $value   Parameter value
      * @param string $comment Comment for this parameter
      *
      * @return void
      */
-    public function addParameter($name, $value, $comment = false)
+    public function addParameter($name, $value, $comment = null)
     {
-        $tmp = new Parameter();
-
-        $tmp->name               = $name;
-        $tmp->value              = $value;
-        $tmp->comment            = $comment;
-        $this->parameters[$name] = $tmp;
+        $this->parameters[$name] = new TypeParameter($name, $value, $comment);
     }
-
 
     /**
      * Remove a parameter from this type
@@ -344,5 +408,22 @@ class Type
     public function removeParameter($name)
     {
         unset($this->parameters[$name]);
+    }
+
+    /**
+     * Return default file extension.
+     *
+     * @return string A file extension without leading period.
+     */
+    public function getDefaultExtension()
+    {
+        // Strip parameters and comments.
+        $type = $this->getMedia() . '/' . $this->getSubType();
+
+        $map = new TypeExtensionMap();
+        if (!isset($map->get()['types'][$type])) {
+            throw new \RuntimeException("Sorry, couldn't determine extension.");
+        }
+        return $map->get()['types'][$type][0];
     }
 }

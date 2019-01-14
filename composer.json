@@ -3,13 +3,15 @@
     "type": "library",
     "description": "A PHP library to work with MIME types and file extensions.",
     "homepage": "https://github.com/FileEye/MimeMap",
-    "license": "LGPL-2.1-or-later",
+    "license": "LGPL-3.0-or-later",
     "require": {
         "php": ">=5.4"
     },
     "require-dev": {
         "phpunit/phpunit": "*",
         "squizlabs/php_codesniffer": "*",
+        "sebastian/comparator": "*",
+        "sebastian/diff": "*",
         "symfony/console": "*",
         "symfony/var-dumper": "*",
         "symfony/yaml": "*"
