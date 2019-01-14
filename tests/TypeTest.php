@@ -268,14 +268,14 @@ class TypeTest extends TestCase
                   'a' => ['foo', 'abc'],
                 ],
             ],
-            'text/plain;a=(a"bc)def")def' => [
-                'text/plain;a=(a"bc)def")def',
-                'text/plain; a="def" (a"bc)def")',
+            'text/plain;a=(a"bc\)def")def' => [
+                'text/plain;a=(a"bc\)def")def',
+                'text/plain; a="def" (a"bc\)def")',
                 ['text', null],
                 ['plain', null],
                 true,
                 [
-                  'a' => ['def', 'a"bc)def"'],
+                  'a' => ['def', 'a"bc\)def"'],
                 ],
             ],
             'text/plain;a="(abc)def"' => [
