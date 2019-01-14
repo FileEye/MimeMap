@@ -154,10 +154,14 @@ class Type
             } elseif (!$inquote && $string[$n] == '(') {
                 $incomment++;
             } elseif ($string[$n] == '"') {
-                if ($inquote) {
-                    $inquote = false;
+                if ($incomment > 0) {
+                    $comment .= $string[$n];
                 } else {
-                    $inquote = true;
+                    if ($inquote) {
+                        $inquote = false;
+                    } else {
+                        $inquote = true;
+                    }
                 }
             } elseif ($incomment == 0) {
                 $newstring .= $string[$n];
