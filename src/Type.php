@@ -88,7 +88,7 @@ class Type
     protected function parseSubType($sub_type)
     {
         // SubType and Parameters are separated by semicolons ';'.
-        $sub = $this->parseStringPart($type, 0, ';');
+        $sub = $this->parseStringPart($sub_type, 0, ';');
 
         if (!$sub['string']) {
             throw new MalformedTypeException('Media subtype not found');
