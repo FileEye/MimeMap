@@ -59,30 +59,6 @@ class TypeTest extends TestCase
                 false,
                 [],
             ],
-            'null' => [
-                null,
-                null,
-                [null, null],
-                [null, null],
-                false,
-                [],
-            ],
-            'empty string' => [
-                '',
-                '',
-                ['', null],
-                [null, null],
-                false,
-                [],
-            ],
-            'n' => [
-                'n',
-                'n',
-                ['n', null],
-                [null, null],
-                false,
-                [],
-            ],
             'n/n' => [
                 'n/n',
                 'n/n',
@@ -327,6 +303,27 @@ class TypeTest extends TestCase
             $this->assertSame($param[0], $mt->getParameter($name)->getValue());
             $this->assertSame($param[1], $mt->getParameter($name)->getComment());
         }
+    }
+
+    /**
+     * Data provider for testParseMalformed.
+     */
+    public function parseMalformedProvider()
+    {
+        return [
+            'null' => [null],
+            'empty string' => [''],
+            'n' => ['n'],
+        ];
+    }
+
+    /**
+     * @dataProvider parseMalformedProvider
+     * @expectedException \FileEye\MimeMap\MalformedTypeExcpetion
+     */
+    public function testParseMalformed($type)
+    {
+        $mt = new Type($type);
     }
 
     public function testParseAgain()

@@ -186,7 +186,7 @@ class Type
         return [
           'string' => empty($newstring) ? null : trim($newstring),
           'comment' => empty($comment) ? null : trim($comment),
-          'delimiter_matched' => $string[$n] === $delimiter,
+          'delimiter_matched' => isset($string[$n]) ? ($string[$n] === $delimiter) : false,
           'end_offset' => $n,
         ];
     }
