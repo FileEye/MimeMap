@@ -179,11 +179,13 @@ class Type
             }
         }
 
-        $comment = trim($comment);
+        if ($incomment > 0) {
+            throw new MalformedTypeException('Comment closing bracket missing: ' . $comment);
+        }
 
         return [
-          'string' => $newstring !== '' ? trim($newstring) : null,
-          'comment' => $comment !== '' ? trim($comment) : null,
+          'string' => empty($newstring) ? null : trim($newstring),
+          'comment' => empty($comment) ? null : trim($comment),
           'delimiter_matched' => $string[$n] === $delimiter,
           'end_offset' => $n,
         ];
