@@ -297,7 +297,6 @@ class TypeTest extends TestCase
     public function testParse($type, $expectedToString, array $expectedMedia, array $expectedSubType, $expectedHasParameters, array $expectedParameters)
     {
         $mt = new Type($type);
-        $this->assertSame($expectedToString, $mt->toString());
         $this->assertSame($expectedMedia[0], $mt->getMedia());
         $this->assertSame($expectedMedia[1], $mt->getMediaComment());
         $this->assertSame($expectedSubType[0], $mt->getSubType());
@@ -311,6 +310,7 @@ class TypeTest extends TestCase
             $this->assertSame($param[0], $mt->getParameter($name)->getValue());
             $this->assertSame($param[1], $mt->getParameter($name)->getComment());
         }
+        $this->assertSame($expectedToString, $mt->toString());
     }
 
     /**
