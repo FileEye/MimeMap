@@ -5,7 +5,7 @@ namespace FileEye\MimeMap;
 /**
  * Class for mapping file extensions to MIME types.
  */
-class TypeExtensionMap
+class MapHandler
 {
     /**
      * Returns the MIME type to file extension map.
@@ -17,15 +17,18 @@ class TypeExtensionMap
         return TypeExtensionMap::$extensionToType;
     }
 
-    public function getMimeTypes() {
+    public function getMimeTypes()
+    {
         return array_keys($this->get()['types']);
     }
 
-    public function getExtensions() {
+    public function getExtensions()
+    {
         return array_keys($this->get()['extensions']);
     }
     
-    public function addMapping($mimetype, $extension) {
+    public function addMapping($mimetype, $extension)
+    {
         $extension = strtolower($extension);
         if (!in_array($mimetype, $this->mapping['mimetypes'])) {
             $this->mapping['mimetypes'][] = $mimetype;
@@ -36,24 +39,26 @@ class TypeExtensionMap
         return $this;
     }
    
-    public function removeMapping($extension) {
+    public function removeMapping($extension)
+    {
         $extension = strtolower($extension);
         if (isset($this->mapping['extensions'][$extension])) {
             unset($this->mapping['extensions'][$extension]);
-            return TRUE;
+            return true;
         }
-        return FALSE;
+        return false;
     }
    
-    public function removeMimeType($mimetype) {
+    public function removeMimeType($mimetype)
+    {
         if (!in_array($mimetype, $this->mapping['mimetypes'])) {
-            return FALSE;
+            return false;
         }
         foreach ($this->getExtensionsForMimeType($mimetype) as $extension) {
             $this->removeMapping($extension);
         }
         $key = array_search($mimetype, $this->mapping['mimetypes']);
         unset($this->mapping['mimetypes'][$key]);
-        return TRUE;
+        return true;
     }
 }
