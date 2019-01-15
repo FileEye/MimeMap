@@ -14,7 +14,7 @@ class MapHandler
      */
     public function get()
     {
-        return TypeExtensionMap::$extensionToType;
+        return TypeExtensionMap::$map;
     }
 
     public function getMimeTypes()
