@@ -74,8 +74,8 @@ class MapUpdater
     public function writeMapToCodeFile($map, $file)
     {
         $new = preg_replace(
-            '#protected static \$extensionToType = (.+?);#s',
-            "protected static \$extensionToType = " . var_export($map, true) . ";",
+            '#public static \$map = (.+?);#s',
+            "public static \$map = " . var_export($map, true) . ";",
             file_get_contents($file)
         );
         file_put_contents($file, $new);

@@ -7,7 +7,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use FileEye\MimeMap\MapUpdater;
-use FileEye\MimeMap\TypeExtensionMap;
+use FileEye\MimeMap\MapHandler;
 
 /**
  * A Symfony application command to update the MIME type to extension map.
@@ -55,7 +55,7 @@ class UpdateCommand extends Command
             $output->writeln('<error>' . $e->getMessage() . '</error>');
             exit(2);
         }
-        $current_map = (new TypeExtensionMap())->get();
+        $current_map = (new MapHandler())->get();
         try {
             $updater->compareMaps($current_map, $new_map);
             $output->writeln('<info>No changes to mapping.</info>');

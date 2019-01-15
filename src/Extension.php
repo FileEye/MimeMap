@@ -16,7 +16,7 @@ class Extension
      */
     public function getDefaultType($extension)
     {
-        $map = new TypeExtensionMap();
+        $map = new MapHandler();
         $extension = strtolower($extension);
         if (!isset($map->get()['extensions'][$extension])) {
             throw new \RuntimeException("Sorry, couldn't determine file type.");
