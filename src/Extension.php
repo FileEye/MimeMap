@@ -19,7 +19,7 @@ class Extension
         $map = new MapHandler();
         $extension = strtolower($extension);
         if (!isset($map->get()['extensions'][$extension])) {
-            throw new \RuntimeException("Sorry, couldn't determine file type.");
+            return 'application/octet-stream';
         }
         return $map->get()['extensions'][$extension][0];
     }

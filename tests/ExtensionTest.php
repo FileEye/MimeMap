@@ -34,12 +34,9 @@ class ExtensionTest extends TestCase
         $this->assertEquals('text/plain', $this->mte->getDefaultType('TXT'));
     }
 
-    /**
-     * @expectedException RuntimeException
-     */
     public function testGetMIMETypeUnknownExtension()
     {
-        $this->assertNull($this->mte->getDefaultType('ohmygodthatisnoextension'));
+        $this->assertSame('application/octet-stream', $this->mte->getDefaultType('ohmygodthatisnoextension'));
     }
 
     // xx move to its own test
@@ -56,6 +53,6 @@ class ExtensionTest extends TestCase
         $map = new MapHandler();
         $this->assertSame('text/plain', $this->mte->getDefaultType('txt'));
         $map->removeMapping('text/plain', 'txt');
-        $this->assertSame('text/plain', $this->mte->getDefaultType('txt'));
+        $this->assertSame('application/octet-stream', $this->mte->getDefaultType('txt'));
     }
 }
