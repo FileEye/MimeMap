@@ -46,7 +46,7 @@ class MapHandler
         } else {
             $this->map['extensions'][$extension][] = $type;
         }
-
+dump($this->map);
         return $this;
     }
 
@@ -76,6 +76,7 @@ class MapHandler
             }
         }
 
+dump($this->map);
         return $ret;
     }
 
