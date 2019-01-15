@@ -1,7 +1,8 @@
 <?php
+
 namespace FileEye\MimeMap\test;
 
-use FileEye\MimeMap\Type\Extension;
+use FileEye\MimeMap\Extension;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -12,7 +13,7 @@ use PHPUnit\Framework\TestCase;
 class ExtensionTest extends TestCase
 {
     /**
-     * @var \FileEye\MimeMap\Type\Extension
+     * @var \FileEye\MimeMap\Extension
      */
     protected $mte;
 
@@ -27,14 +28,14 @@ class ExtensionTest extends TestCase
 
     public function testGetMIMEType()
     {
-        $this->assertEquals('text/plain', $this->mte->getMIMEType('txt'));
-        $this->assertEquals('image/png', $this->mte->getMIMEType('png'));
-        $this->assertEquals('application/vnd.oasis.opendocument.text', $this->mte->getMIMEType('odt'));
+        $this->assertEquals('text/plain', $this->mte->getDefaultType('txt'));
+        $this->assertEquals('image/png', $this->mte->getDefaultType('png'));
+        $this->assertEquals('application/vnd.oasis.opendocument.text', $this->mte->getDefaultType('odt'));
     }
 
     public function testGetMIMETypeUppercase()
     {
-        $this->assertEquals('text/plain', $this->mte->getMIMEType('TXT'));
+        $this->assertEquals('text/plain', $this->mte->getDefaultType('TXT'));
     }
 
     /**
@@ -42,34 +43,6 @@ class ExtensionTest extends TestCase
      */
     public function testGetMIMETypeUnknownExtension()
     {
-        $this->assertNull($this->mte->getMIMEType('ohmygodthatisnoextension'));
-    }
-
-    public function testGetExtension()
-    {
-        $this->assertEquals('atom', $this->mte->getExtension('application/atom+xml'));
-        $this->assertEquals('csv', $this->mte->getExtension('text/csv'));
-    }
-
-    /**
-     * @expectedException RuntimeException
-     * @dataProvider getExtensionFailProvider
-     */
-    public function testGetExtensionFail($type)
-    {
-        $this->assertNull($this->mte->getExtension($type));
-    }
-
-    /**
-     * Data provider for testGetExtensionFail.
-     */
-    public function getExtensionFailProvider()
-    {
-        return [
-            [null],
-            [''],
-            ['n'],
-            ['n/n'],
-        ];
+        $this->assertNull($this->mte->getDefaultType('ohmygodthatisnoextension'));
     }
 }
