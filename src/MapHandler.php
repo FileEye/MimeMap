@@ -59,7 +59,7 @@ class MapHandler
         $ret = false;
 
         // Remove entry from 'types'.
-        if (!isset($this->map['types'][$type])) {
+        if (isset($this->map['types'][$type])) {
 dump($this->map['types'][$type]);
             $key = array_search($extension, $this->map['types'][$type]);
 dump($key);
@@ -71,7 +71,7 @@ dump($this->map['types'][$type]);
         }
 
         // Remove entry from 'extensions'.
-        if (!isset($this->map['extensions'][$extension])) {
+        if (isset($this->map['extensions'][$extension])) {
 dump($this->map['extensions'][$extension]);
             $key = array_search($type, $this->map['extensions'][$extension]);
 dump($key);
