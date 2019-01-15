@@ -6,11 +6,6 @@ use FileEye\MimeMap\Extension;
 use FileEye\MimeMap\MapHandler;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Test class for MIME_Type_Extension.
- *
- * @author Christian Weiske <cweiske@php.net
- */
 class ExtensionTest extends TestCase
 {
     /**
@@ -52,7 +47,7 @@ class ExtensionTest extends TestCase
     public function testAddMapping()
     {
         $map = new MapHandler();
-        $map->addMapping('bingo/bongo', 'bngbng')
+        $map->addMapping('bingo/bongo', 'bngbng');
         $this->assertSame('bingo/bongo', $this->mte->getDefaultType('bngbng'));
     }
 
@@ -60,7 +55,7 @@ class ExtensionTest extends TestCase
     {
         $map = new MapHandler();
         $this->assertSame('text/plain', $this->mte->getDefaultType('txt'));
-        $map->removeMapping('text/plain', 'txt')
+        $map->removeMapping('text/plain', 'txt');
         $this->assertSame('text/plain', $this->mte->getDefaultType('txt'));
     }
 }
