@@ -3,6 +3,7 @@
 namespace FileEye\MimeMap\test;
 
 use FileEye\MimeMap\Extension;
+use FileEye\MimeMap\MapHandler;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -44,5 +45,22 @@ class ExtensionTest extends TestCase
     public function testGetMIMETypeUnknownExtension()
     {
         $this->assertNull($this->mte->getDefaultType('ohmygodthatisnoextension'));
+    }
+
+    // xx move to its own test
+
+    public function testAddMapping()
+    {
+        $map = new MapHandler();
+        $map->addMapping('bingo/bongo', 'bngbng')
+        $this->assertSame('bingo/bongo', $this->mte->getDefaultType('bngbng'));
+    }
+
+    public function testRemoveMapping()
+    {
+        $map = new MapHandler();
+        $this->assertSame('text/plain', $this->mte->getDefaultType('txt'));
+        $map->removeMapping('text/plain', 'txt')
+        $this->assertSame('text/plain', $this->mte->getDefaultType('txt'));
     }
 }
