@@ -3,12 +3,27 @@
 namespace FileEye\MimeMap;
 
 /**
- * Class for mapping file extensions to MIME types.
+ * Class for managing the type-to-extension map.
  */
 class MapHandler
 {
+    /**
+     * Mapping between file extensions and MIME types.
+     *
+     * The array has two main keys, 'types' that maps MIME types to file
+     * extensions, and 'extensions' that map file extensions to MIME types.
+     *
+     * @var array
+     */
     protected $map;
 
+    /**
+     * Constructor.
+     *
+     * @param array $map
+     *   (Optional) The mapping to be used for this instance. If null, the
+     *   default map will be used.
+     */
     public function __construct(array $map = null)
     {
         if (is_null($map)) {
@@ -18,21 +33,44 @@ class MapHandler
         }
     }
 
+    /**
+     * Returns the map associated with this instance.
+     *
+     * @return array
+     */
     public function get()
     {
         return $this->map;
     }
 
+    /**
+     * Sorts the map.
+     *
+     * @return $this
+     */
     public function sort()
     {
         ksort($this->map['types']);
         ksort($this->map['extensions']);
+        return $this;
     }
 
+    /**
+     * Adds a type-to-extension mapping.
+     *
+     * Checks that no duplicate entries are made.
+     *
+     * @param string $type
+     *   A MIME type.
+     * @param string $extension
+     *   A file extension.
+     *
+     * @return $this
+     */
     public function addMapping($type, $extension)
     {
         $type = strtolower($type);
-        $extension = strtolower($extension);
+        $extension = (string) strtolower($extension);
 
         // Add entry to 'types'.
         if (!isset($this->map['types'][$type])) {
@@ -55,10 +93,21 @@ class MapHandler
         return $this;
     }
 
+    /**
+     * Removes a type-to-extension mapping.
+     *
+     * @param string $type
+     *   A MIME type.
+     * @param string $extension
+     *   A file extension.
+     *
+     * @return bool
+     *   true if the mapping was removed, false if the mapping was not present.
+     */
     public function removeMapping($type, $extension)
     {
         $type = strtolower($type);
-        $extension = strtolower($extension);
+        $extension = (string) strtolower($extension);
 
         $ret = false;
 
@@ -99,6 +148,15 @@ class MapHandler
         return $ret;
     }
 
+    /**
+     * Removes the entire mapping of a type.
+     *
+     * @param string $type
+     *   A MIME type.
+     *
+     * @return bool
+     *   true if the mapping was removed, false if the type was not present.
+     */
     public function removeType($type)
     {
         $type = strtolower($type);
@@ -112,10 +170,22 @@ class MapHandler
         return true;
     }
 
+    /**
+     * Changes the default extension for a MIME type.
+     *
+     * @param string $type
+     *   A MIME type.
+     * @param string $extension
+     *   A file extension.
+     *
+     * @throws MappingException if no mapping found.
+     *
+     * @return $this
+     */
     public function setTypeDefaultExtension($type, $extension)
     {
         $type = strtolower($type);
-        $extension = strtolower($extension);
+        $extension = (string) strtolower($extension);
 
         if (!isset($this->map['types'][$type])) {
             throw new MappingException('Cannot set ' . $extension . ' as default extension for type ' . $type . ', type not defined');
@@ -132,12 +202,25 @@ class MapHandler
             $tmp[] = $v;
         }
         $this->map['types'][$type] = $tmp;
+        return $this;
     }
 
+    /**
+     * Changes the default MIME type for a file extension.
+     *
+     * @param string $extension
+     *   A file extension.
+     * @param string $type
+     *   A MIME type.
+     *
+     * @throws MappingException if no mapping found.
+     *
+     * @return $this
+     */
     public function setExtensionDefaultType($extension, $type)
     {
         $type = strtolower($type);
-        $extension = strtolower($extension);
+        $extension = (string) strtolower($extension);
 
         if (!isset($this->map['extensions'][$extension])) {
             throw new MappingException('Cannot set ' . $type . ' as default type for extension ' . $extension . ', extension not defined');
@@ -154,5 +237,6 @@ class MapHandler
             $tmp[] = $v;
         }
         $this->map['extensions'][$extension] = $tmp;
+        return $this;
     }
 }
