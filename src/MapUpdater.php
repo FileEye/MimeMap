@@ -48,7 +48,7 @@ class MapUpdater
             $extensions = $parts;
             foreach ($extensions as $ext) {
                 $map['types'][$type][] = $ext;
-                $map['extensions'][$ext][] = $type;
+                $map['extensions'][(string) $ext][] = $type;
             }
         }
         return $map;
