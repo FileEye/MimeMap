@@ -56,8 +56,13 @@ class MapHandler
         if (isset($this->map['types'][$type])) {
             $key = array_search($extension, $this->map['types'][$type]);
             if ($key !== false) {
-                unset($this->map['types'][$type][$key]);
                 $ret = true;
+                unset($this->map['types'][$type][$key]);
+                $tmp = [];
+                foreach ($this->map['types'][$type] as $v) {
+                    $tmp[] = $v;
+                }
+                $this->map['types'][$type] = $tmp;
                 if (empty($this->map['types'][$type])) {
                     unset($this->map['types'][$type]);
                 }
@@ -68,8 +73,13 @@ class MapHandler
         if (isset($this->map['extensions'][$extension])) {
             $key = array_search($type, $this->map['extensions'][$extension]);
             if ($key !== false) {
-                unset($this->map['extensions'][$extension][$key]);
                 $ret = true;
+                unset($this->map['extensions'][$extension][$key]);
+                $tmp = [];
+                foreach ($this->map['extensions'][$extension] as $v) {
+                    $tmp[] = $v;
+                }
+                $this->map['extensions'][$extension] = $tmp;
                 if (empty($this->map['extensions'][$extension])) {
                     unset($this->map['extensions'][$extension]);
                 }

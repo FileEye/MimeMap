@@ -20,7 +20,7 @@ class MapHandlerTest extends TestCase
 
         // Adding an already existing mapping should not duplicate entries.
         $map->addMapping('bingo/bongo', 'bngbng');
-        $this->assertSame('[bngbng]', (new Type('bingo/bongo'))->getExtensions());
+        $this->assertSame(['bngbng'], (new Type('bingo/bongo'))->getExtensions());
         $this->assertSame(['bingo/bongo'], (new Extension('bngbng'))->getTypes());
     }
 
