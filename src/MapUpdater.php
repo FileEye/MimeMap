@@ -56,16 +56,16 @@ class MapUpdater
         return $map;
     }
 
-    public function compareMaps($current_map, $new_map)
+    public function compareMaps($current_map, $new_map, $key)
     {
         $factory = new Factory;
-        $comparator = $factory->getComparatorFor($current_map['types'], $new_map['types']);
+        $comparator = $factory->getComparatorFor($current_map[$key], $new_map[$key]);
         try {
-            $comparator->assertEquals($current_map['types'], $new_map['types']);
+            $comparator->assertEquals($current_map[$key], $new_map[$key]);
             return true;
         } catch (ComparisonFailure $failure) {
-            $current_map_string = var_export($current_map['types'], true);
-            $new_map_string = var_export($new_map['types'], true);
+            $current_map_string = var_export($current_map[$key], true);
+            $new_map_string = var_export($new_map[$key], true);
             $differ = new Differ(new UnifiedDiffOutputBuilder("--- Removed\n+++ Added\n"));
             throw new \RuntimeException($differ->diff($current_map_string, $new_map_string));
         }

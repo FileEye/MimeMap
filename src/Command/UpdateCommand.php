@@ -57,15 +57,26 @@ class UpdateCommand extends Command
         $new_map->addMapping('bingo/bongo', 'bngbng');
 
         $current_map = new MapHandler();
+        $write = false;
         try {
-            $updater->compareMaps($current_map->get(), $new_map->get());
-            $output->writeln('<info>No changes to mapping.</info>');
-            exit(0);
+            $updater->compareMaps($current_map->get(), $new_map->get(), 'types');
         } catch (\RuntimeException $e) {
             $output->writeln('Changes to MIME types mapping:');
             $output->writeln($e->getMessage());
+            $write = true;
         }
-        $updater->writeMapToCodeFile($new_map, $input->getArgument('output-file'));
-        $output->writeln('<comment>Code updated.</comment>');
+        try {
+            $updater->compareMaps($current_map->get(), $new_map->get(), 'extensions');
+        } catch (\RuntimeException $e) {
+            $output->writeln('Changes to extensions mapping:');
+            $output->writeln($e->getMessage());
+            $write = true;
+        }
+        if ($write) {
+            $updater->writeMapToCodeFile($new_map, $input->getArgument('output-file'));
+            $output->writeln('<comment>Code updated.</comment>');
+        } else {
+            $output->writeln('<info>No changes to mapping.</info>');
+        }
     }
 }
