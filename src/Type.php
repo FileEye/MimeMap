@@ -425,7 +425,7 @@ class Type
             if ($strict) {
                 throw new MappingException('MIME type ' . $type . ' not found in map');
             } else {
-                return [];
+                return [null];
             }
         }
         return $map->get()['types'][$type];

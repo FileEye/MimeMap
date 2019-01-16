@@ -42,10 +42,10 @@ class MapHandlerTest extends TestCase
 
         $map->removeType('text/plain');
 
-        $this->assertSame(['txt'], (new Type('text/plain'))->getExtensions(false));
-        $this->assertSame('txt', (new Type('text/plain'))->getDefaultExtension(false));
-        $this->assertSame(['application/octet-stream'], (new Extension('txt'))->getTypes(false));
-        $this->assertSame('text/plain', (new Extension('txt'))->getDefaultType(false));
+        $this->assertSame([], (new Type('text/plain'))->getExtensions(false));
+        $this->assertSame(null, (new Type('text/plain'))->getDefaultExtension(false));
+        $this->assertSame(['application/octet-stream'], (new Extension('DEf'))->getTypes(false));
+        $this->assertSame('application/octet-stream', (new Extension('DeF'))->getDefaultType(false));
     }
 
     public function testSetExtensionDefaultType()
