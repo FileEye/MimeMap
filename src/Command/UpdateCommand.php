@@ -54,6 +54,7 @@ class UpdateCommand extends Command
         // xx
         $new_map->setExtensionDefaultType('sub', 'text/vnd.dvb.subtitle');
         $new_map->setExtensionDefaultType('wmz', 'application/x-msmetafile');
+        $new_map->addMapping('bingo/bongo', 'bngbng');
 
         $current_map = new MapHandler();
         try {
