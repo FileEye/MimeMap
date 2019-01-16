@@ -74,7 +74,7 @@ class UpdateCommand extends Command
             $write = true;
         }
         if ($write) {
-            $updater->writeMapToCodeFile($new_map, $input->getArgument('output-file'));
+            $updater->writeMapToCodeFile($new_map->get(), $input->getArgument('output-file'));
             $output->writeln('<comment>Code updated.</comment>');
         } else {
             $output->writeln('<info>No changes to mapping.</info>');
