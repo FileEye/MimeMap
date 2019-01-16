@@ -28,6 +28,7 @@ class MapHandlerTest extends TestCase
 
     public function testAdd()
     {
+        // Adding a new type with a new extension.
         $this->map->addMapping('bingo/bongo', 'bngbng');
         $this->assertSame(['bngbng'], (new Type('bingo/bongo'))->getExtensions());
         $this->assertSame('bngbng', (new Type('bingo/bongo'))->getDefaultExtension());
@@ -38,6 +39,16 @@ class MapHandlerTest extends TestCase
         $this->map->addMapping('bingo/bongo', 'bngbng');
         $this->assertSame(['bngbng'], (new Type('bingo/bongo'))->getExtensions());
         $this->assertSame(['bingo/bongo'], (new Extension('bngbng'))->getTypes());
+
+        // Adding another extension to existing type.
+        $this->map->addMapping('bingo/bongo', 'bigbog');
+        $this->assertSame(['bngbng', 'bigbog'], (new Type('bingo/bongo'))->getExtensions());
+        $this->assertSame(['bingo/bongo'], (new Extension('bigbog'))->getTypes());
+
+        // Adding another type to existing extension.
+        $this->map->addMapping('boing/being', 'bngbng');
+        $this->assertSame(['bngbng'], (new Type('boing/being'))->getExtensions());
+        $this->assertSame(['bingo/bongo', 'boing/being'], (new Extension('bngbng'))->getTypes());
     }
 
     public function testRemove()
@@ -47,21 +58,24 @@ class MapHandlerTest extends TestCase
         $this->assertSame(['text/plain'], (new Extension('txt'))->getTypes());
         $this->assertSame('text/plain', (new Extension('txt'))->getDefaultType());
 
+        // Remove an existing type-extension pair.
         $this->assertTrue($this->map->removeMapping('text/plain', 'txt'));
-
         $this->assertSame(['text', 'conf', 'def', 'list', 'log', 'in'], (new Type('text/plain'))->getExtensions());
         $this->assertSame('text', (new Type('text/plain'))->getDefaultExtension());
         $this->assertSame(['application/octet-stream'], (new Extension('txt'))->getTypes(false));
         $this->assertSame('application/octet-stream', (new Extension('txt'))->getDefaultType(false));
 
-        $this->assertTrue($this->map->removeType('text/plain'));
+        // Try removing a non-existing extension.
+        $this->assertFalse($this->map->removeMapping('text/plain', 'axx'));
 
+        // Remove an existing type.
+        $this->assertTrue($this->map->removeType('text/plain'));
         $this->assertSame([], (new Type('text/plain'))->getExtensions(false));
         $this->assertSame(null, (new Type('text/plain'))->getDefaultExtension(false));
         $this->assertSame(['application/octet-stream'], (new Extension('DEf'))->getTypes(false));
         $this->assertSame('application/octet-stream', (new Extension('DeF'))->getDefaultType(false));
 
-        $this->assertFalse($this->map->removeMapping('text/plain', 'axx'));
+        // Try removing a non-existing type.
         $this->assertFalse($this->map->removeType('axx/axx'));
     }
 

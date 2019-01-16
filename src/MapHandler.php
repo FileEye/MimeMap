@@ -126,6 +126,46 @@ class MapHandler
     }
 
     /**
+     * Sets a value as the default for an entry.
+     *
+     * @param string $key
+     *   The main array key.
+     * @param string $entry
+     *   The sub array key.
+     * @param string $value
+     *   The value.
+     *
+     * @throws MappingException if no mapping found.
+     *
+     * @return $this
+     */
+    protected function setValueAsDefault($key, $entry, $value)
+    {
+        // Throw exception if no entry.
+        if (!isset($this->map[$key][$entry])) {
+            throw new MappingException("Cannot set '{$value}' as default for '{$entry}', '{$entry}' not defined");
+        }
+
+        // Throw exception if no entry-value pair.
+        $k = array_search($value, $this->map[$key][$entry]);
+        if ($k === false) {
+            throw new MappingException("Cannot set '{$value}' as default for '{$entry}', '{$value}' not associated to '{$entry}'");
+        }
+
+        // Move value to top of array and resequence the rest.
+        $tmp = [$value];
+        foreach ($this->map[$key][$entry] as $kk => $v) {
+            if ($kk === $k) {
+                continue;
+            }
+            $tmp[] = $v;
+        }
+        $this->map[$key][$entry] = $tmp;
+
+        return $this;
+    }
+
+    /**
      * Adds a type-to-extension mapping.
      *
      * @param string $type
@@ -218,22 +258,7 @@ class MapHandler
         $type = strtolower($type);
         $extension = (string) strtolower($extension);
 
-        if (!isset($this->map['types'][$type])) {
-            throw new MappingException('Cannot set ' . $extension . ' as default extension for type ' . $type . ', type not defined');
-        }
-        $key = array_search($extension, $this->map['types'][$type]);
-        if ($key === false) {
-            throw new MappingException('Cannot set ' . $extension . ' as default extension for type ' . $type . ', extension not associated to this type');
-        }
-        $tmp = [$extension];
-        foreach ($this->map['types'][$type] as $k => $v) {
-            if ($k === $key) {
-                continue;
-            }
-            $tmp[] = $v;
-        }
-        $this->map['types'][$type] = $tmp;
-        return $this;
+        return $this->setValueAsDefault('types', $type, $extension);
     }
 
     /**
@@ -253,21 +278,6 @@ class MapHandler
         $type = strtolower($type);
         $extension = (string) strtolower($extension);
 
-        if (!isset($this->map['extensions'][$extension])) {
-            throw new MappingException('Cannot set ' . $type . ' as default type for extension ' . $extension . ', extension not defined');
-        }
-        $key = array_search($type, $this->map['extensions'][$extension]);
-        if ($key === false) {
-            throw new MappingException('Cannot set ' . $type . ' as default type for extension ' . $extension . ', type not associated to this extension');
-        }
-        $tmp = [$type];
-        foreach ($this->map['extensions'][$extension] as $k => $v) {
-            if ($k === $key) {
-                continue;
-            }
-            $tmp[] = $v;
-        }
-        $this->map['extensions'][$extension] = $tmp;
-        return $this;
+        return $this->setValueAsDefault('extensions', $extension, $type);
     }
 }
