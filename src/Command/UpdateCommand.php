@@ -7,7 +7,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use FileEye\MimeMap\MapUpdater;
-use FileEye\MimeMap\TypeExtensionMap;
+use FileEye\MimeMap\MapHandler;
 
 /**
  * A Symfony application command to update the MIME type to extension map.
@@ -37,12 +37,6 @@ class UpdateCommand extends Command
         ;
     }
 
-    // xx which MIME type to choose if an extension has several
-    /*$duplicateResolution = [
-        'sub' => 'text/vnd.dvb.subtitle',
-        'wmz' => 'application/x-msmetafile',
-    ];*/
-
     /**
      * {@inheritdoc}
      */
@@ -50,21 +44,39 @@ class UpdateCommand extends Command
     {
         $updater = new MapUpdater();
         try {
-            $new_map = $updater->loadMapFromUrl($input->getArgument('source-url'));
+            $new_map_array = $updater->loadMapFromUrl($input->getArgument('source-url'));
+            $new_map = new MapHandler($new_map_array);
         } catch (\RuntimeException $e) {
             $output->writeln('<error>' . $e->getMessage() . '</error>');
             exit(2);
         }
-        $current_map = (new TypeExtensionMap())->get();
+
+        // xx
+        $new_map->setExtensionDefaultType('sub', 'text/vnd.dvb.subtitle');
+        $new_map->setExtensionDefaultType('wmz', 'application/x-msmetafile');
+        $new_map->sort();
+
+        $current_map = new MapHandler();
+        $write = false;
         try {
-            $updater->compareMaps($current_map, $new_map);
-            $output->writeln('<info>No changes to mapping.</info>');
-            exit(0);
+            $updater->compareMaps($current_map->get(), $new_map->get(), 'types');
         } catch (\RuntimeException $e) {
             $output->writeln('Changes to MIME types mapping:');
             $output->writeln($e->getMessage());
+            $write = true;
         }
-        $updater->writeMapToCodeFile($new_map, $input->getArgument('output-file'));
-        $output->writeln('<comment>Code updated.</comment>');
+        try {
+            $updater->compareMaps($current_map->get(), $new_map->get(), 'extensions');
+        } catch (\RuntimeException $e) {
+            $output->writeln('Changes to extensions mapping:');
+            $output->writeln($e->getMessage());
+            $write = true;
+        }
+        if ($write) {
+            $updater->writeMapToCodeFile($new_map->get(), $input->getArgument('output-file'));
+            $output->writeln('<comment>Code updated.</comment>');
+        } else {
+            $output->writeln('<info>No changes to mapping.</info>');
+        }
     }
 }
