@@ -23,6 +23,12 @@ class MapHandler
         return $this->map;
     }
 
+    public function sort()
+    {
+        ksort($this->map['types']);
+        ksort($this->map['extensions']);
+    }
+
     public function addMapping($type, $extension)
     {
         $type = strtolower($type);

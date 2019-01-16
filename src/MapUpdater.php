@@ -51,12 +51,10 @@ class MapUpdater
                 $map['extensions'][$ext][] = $type;
             }
         }
-        ksort($map['types']);
-        ksort($map['extensions']);
         return $map;
     }
 
-    public function compareMaps($current_map, $new_map, $key)
+    public function compareMaps(array $current_map, array $new_map, $key)
     {
         $factory = new Factory;
         $comparator = $factory->getComparatorFor($current_map[$key], $new_map[$key]);
