@@ -37,12 +37,6 @@ class UpdateCommand extends Command
         ;
     }
 
-    // xx which MIME type to choose if an extension has several
-    /*$duplicateResolution = [
-        'sub' => 'text/vnd.dvb.subtitle',
-        'wmz' => 'application/x-msmetafile',
-    ];*/
-
     /**
      * {@inheritdoc}
      */
@@ -50,14 +44,20 @@ class UpdateCommand extends Command
     {
         $updater = new MapUpdater();
         try {
-            $new_map = $updater->loadMapFromUrl($input->getArgument('source-url'));
+            $new_map_array = $updater->loadMapFromUrl($input->getArgument('source-url'));
+            $new_map = new MapHandler($new_map_array);
         } catch (\RuntimeException $e) {
             $output->writeln('<error>' . $e->getMessage() . '</error>');
             exit(2);
         }
-        $current_map = (new MapHandler())->get();
+
+        // xx
+        $new_map->setExtensionDefaultType('sub', 'text/vnd.dvb.subtitle');
+        $new_map->setExtensionDefaultType('wmz', 'application/x-msmetafile');
+
+        $current_map = new MapHandler();
         try {
-            $updater->compareMaps($current_map, $new_map);
+            $updater->compareMaps($current_map->get(), $new_map->get());
             $output->writeln('<info>No changes to mapping.</info>');
             exit(0);
         } catch (\RuntimeException $e) {

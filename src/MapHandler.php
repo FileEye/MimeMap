@@ -9,9 +9,9 @@ class MapHandler
 {
     protected $map;
 
-    public function __construct()
+    public function __construct(array $map = null)
     {
-        $this->map = &TypeExtensionMap::$map;
+        $this->map = $map ?: &TypeExtensionMap::$map;
     }
 
     public function get()
