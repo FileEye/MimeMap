@@ -56,30 +56,6 @@ class MapHandler
     }
 
     /**
-     * Adds a type-to-extension mapping.
-     *
-     * @param string $type
-     *   A MIME type.
-     * @param string $extension
-     *   A file extension.
-     *
-     * @return $this
-     */
-    public function addMapping($type, $extension)
-    {
-        $type = strtolower($type);
-        $extension = (string) strtolower($extension);
-
-        // Add entry to 'types'.
-        $this->addMapEntry('types', $type, $extension);
-
-        // Add entry to 'extensions'.
-        $this->addMapEntry('extensions', $extension, $type);
-
-        return $this;
-    }
-
-    /**
      * Adds an entry to the map.
      *
      * Checks that no duplicate entries are made.
@@ -106,6 +82,74 @@ class MapHandler
     }
 
     /**
+     * Removes an entry from the map.
+     *
+     * @param string $key
+     *   The main array key.
+     * @param string $entry
+     *   The sub array key.
+     * @param string $value
+     *   The value.
+     *
+     * @return bool
+     *   true if the entry was removed, false if the entry was not present.
+     */
+    protected function removeMapEntry($key, $entry, $value)
+    {
+        // Return false if no entry.
+        if (!isset($this->map[$key][$entry])) {
+            return false;
+        }
+
+        // Return false if no value.
+        $k = array_search($value, $this->map[$key][$entry]);
+        if ($k === false) {
+            return false;
+        }
+
+        // Remove the map entry.
+        unset($this->map[$key][$entry][$k]);
+
+        // Remove the entry itself if no more values.
+        if (empty($this->map[$key][$entry])) {
+            unset($this->map[$key][$entry]);
+        } else {
+            // Resequence the remaining values.
+            $tmp = [];
+            foreach ($this->map[$key][$entry] as $v) {
+                $tmp[] = $v;
+            }
+            $this->map[$key][$entry] = $tmp;
+        }
+
+        return true;
+    }
+
+    /**
+     * Adds a type-to-extension mapping.
+     *
+     * @param string $type
+     *   A MIME type.
+     * @param string $extension
+     *   A file extension.
+     *
+     * @return $this
+     */
+    public function addMapping($type, $extension)
+    {
+        $type = strtolower($type);
+        $extension = (string) strtolower($extension);
+
+        // Add entry to 'types'.
+        $this->addMapEntry('types', $type, $extension);
+
+        // Add entry to 'extensions'.
+        $this->addMapEntry('extensions', $extension, $type);
+
+        return $this;
+    }
+
+    /**
      * Removes a type-to-extension mapping.
      *
      * @param string $type
@@ -121,43 +165,13 @@ class MapHandler
         $type = strtolower($type);
         $extension = (string) strtolower($extension);
 
-        $ret = false;
-
         // Remove entry from 'types'.
-        if (isset($this->map['types'][$type])) {
-            $key = array_search($extension, $this->map['types'][$type]);
-            if ($key !== false) {
-                $ret = true;
-                unset($this->map['types'][$type][$key]);
-                $tmp = [];
-                foreach ($this->map['types'][$type] as $v) {
-                    $tmp[] = $v;
-                }
-                $this->map['types'][$type] = $tmp;
-                if (empty($this->map['types'][$type])) {
-                    unset($this->map['types'][$type]);
-                }
-            }
-        }
+        $type_ret = $this->removeMapEntry('types', $type, $extension);
 
         // Remove entry from 'extensions'.
-        if (isset($this->map['extensions'][$extension])) {
-            $key = array_search($type, $this->map['extensions'][$extension]);
-            if ($key !== false) {
-                $ret = true;
-                unset($this->map['extensions'][$extension][$key]);
-                $tmp = [];
-                foreach ($this->map['extensions'][$extension] as $v) {
-                    $tmp[] = $v;
-                }
-                $this->map['extensions'][$extension] = $tmp;
-                if (empty($this->map['extensions'][$extension])) {
-                    unset($this->map['extensions'][$extension]);
-                }
-            }
-        }
+        $extension_ret = $this->removeMapEntry('extensions', $extension, $type);
 
-        return $ret;
+        return $type_ret && $extension_ret;
     }
 
     /**
@@ -173,12 +187,17 @@ class MapHandler
     {
         $type = strtolower($type);
 
+        // Return false if type is not found.
         if (!isset($this->map['types'][$type])) {
             return false;
         }
+
+        // Loop through all the associated extensions and remove them. This
+        // is also removing the type itself when the last extension is removed.
         foreach ($this->map['types'][$type] as $extension) {
             $this->removeMapping($type, $extension);
         }
+
         return true;
     }
 
