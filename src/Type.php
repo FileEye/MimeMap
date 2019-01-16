@@ -412,7 +412,8 @@ class Type
 
     public function getDefaultExtension($strict = true)
     {
-        return $this->getExtensions($strict)[0];
+        $extensions = $this->getExtensions($strict);
+        return isset($extensions[0]) ? $extensions[0] : null;
     }
 
     public function getExtensions($strict = true)
@@ -425,7 +426,7 @@ class Type
             if ($strict) {
                 throw new MappingException('MIME type ' . $type . ' not found in map');
             } else {
-                return [null];
+                return [];
             }
         }
         return $map->get()['types'][$type];
