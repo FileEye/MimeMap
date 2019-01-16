@@ -30,8 +30,8 @@ class ExtensionTest extends TestCase
 
     public function testGetTypes()
     {
-        $this->assertSame(['image/vnd.dvb.subtitle', 'text/vnd.dvb.subtitle'], (new Extension('sub'))->getTypes());
-        $this->assertSame(['image/vnd.dvb.subtitle', 'text/vnd.dvb.subtitle'], (new Extension('sUb'))->getTypes());
+        $this->assertSame(['text/vnd.dvb.subtitle', 'image/vnd.dvb.subtitle'], (new Extension('sub'))->getTypes());
+        $this->assertSame(['text/vnd.dvb.subtitle', 'image/vnd.dvb.subtitle'], (new Extension('sUb'))->getTypes());
     }
 
     /**

@@ -51,9 +51,9 @@ class MapHandlerTest extends TestCase
     public function testSetExtensionDefaultType()
     {
         $map = new MapHandler();
-        $this->assertSame(['image/vnd.dvb.subtitle', 'text/vnd.dvb.subtitle'], (new Extension('sub'))->getTypes());
-        $map->setExtensionDefaultType('SUB', 'text/vnd.dvb.subtitle');
-        $this->assertSame(['text/vnd.dvb.subtitle', 'image/vnd.dvb.subtitle'], (new Extension('SUB'))->getTypes());
+        $this->assertSame(['text/vnd.dvb.subtitle', 'image/vnd.dvb.subtitle'], (new Extension('sub'))->getTypes());
+        $map->setExtensionDefaultType('SUB', 'image/vnd.dvb.subtitle');
+        $this->assertSame(['image/vnd.dvb.subtitle', 'text/vnd.dvb.subtitle'], (new Extension('SUB'))->getTypes());
     }
 
     public function testSetTypeDefaultExtension()
