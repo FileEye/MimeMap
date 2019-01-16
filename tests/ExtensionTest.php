@@ -43,7 +43,7 @@ class ExtensionTest extends TestCase
         $this->assertSame(['application/octet-stream'], (new Extension('ohmygodthatisnoextension'))->getTypes());
     }
 
-    public function testGetNoStrictDefaultTypeUnknownExtension()
+    public function testGetNoStrictTypesUnknownExtension()
     {
         $this->assertSame(['application/octet-stream'], (new Extension('ohmygodthatisnoextension'))->getTypes(false));
     }
