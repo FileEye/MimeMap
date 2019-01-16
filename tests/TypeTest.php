@@ -421,7 +421,7 @@ class TypeTest extends TestCase
     }
 
     /**
-     * @expectedException RuntimeException
+     * @expectedException \FileEye\MimeMap\MappingException
      * @dataProvider getDefaultExtensionFailProvider
      */
     public function testGetDefaultExtensionFail($type)

@@ -4,6 +4,7 @@ namespace FileEye\MimeMap\test;
 
 use FileEye\MimeMap\Extension;
 use FileEye\MimeMap\MapHandler;
+use FileEye\MimeMap\Type;
 use PHPUnit\Framework\TestCase;
 
 class ExtensionTest extends TestCase
@@ -72,5 +73,21 @@ class ExtensionTest extends TestCase
         $map->removeType('text/plain');
         $this->assertSame(['application/octet-stream'], (new Extension('text'))->getTypes(false));
         $this->assertSame('application/octet-stream', (new Extension('text'))->getDefaultType(false));
+    }
+
+    public function testSetExtensionDefaultType()
+    {
+        $map = new MapHandler();
+        $this->assertSame(['image/vnd.dvb.subtitle', 'text/vnd.dvb.subtitle'], (new Extension('sub'))->getTypes());
+        $map->setExtensionDefaultType('SUB',  'text/vnd.dvb.subtitle');
+        $this->assertSame(['text/vnd.dvb.subtitle', 'image/vnd.dvb.subtitle'], (new Extension('SUB'))->getTypes());
+    }
+
+    public function testSetTypeDefaultExtension()
+    {
+        $map = new MapHandler();
+        $this->assertSame(['jpeg'], (new Type('image/jpeg'))->getExtensions());
+        $map->setTypeDefaultExtension('image/jpeg', 'jpg');
+        $this->assertSame(['jpg'], (new Type('image/jpeg'))->getExtensions());
     }
 }

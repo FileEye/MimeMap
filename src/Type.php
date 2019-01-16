@@ -410,20 +410,24 @@ class Type
         unset($this->parameters[$name]);
     }
 
-    /**
-     * Return default file extension.
-     *
-     * @return string A file extension without leading period.
-     */
-    public function getDefaultExtension()
+    public function getDefaultExtension($strict = true)
     {
-        // Strip parameters and comments.
+        return $this->getExtensions($strict)[0];
+    }
+
+    public function getExtensions($strict = true)
+    {
+        // xx use tostring here
         $type = $this->getMedia() . '/' . $this->getSubType();
 
         $map = new MapHandler();
         if (!isset($map->get()['types'][$type])) {
-            throw new \RuntimeException("Sorry, couldn't determine extension.");
+            if ($strict) {
+                throw new MappingException('MIME type ' . $type . ' not found in map');
+            } else {
+                return [];
+            }
         }
-        return $map->get()['types'][$type][0];
+        return $map->get()['types'][$type];
     }
 }

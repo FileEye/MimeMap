@@ -19,32 +19,27 @@ class MapHandler
         return $this->map;
     }
 
-    public function getMimeTypes()
-    {
-        return array_keys($this->get()['types']);
-    }
-
-    public function getExtensions()
-    {
-        return array_keys($this->get()['extensions']);
-    }
-
     public function addMapping($type, $extension)
     {
+        $type = strtolower($type);
         $extension = strtolower($extension);
 
         // Add entry to 'types'.
         if (!isset($this->map['types'][$type])) {
             $this->map['types'][$type] = [$extension];
         } else {
-            $this->map['types'][$type][] = $extension;
+            if (array_search($extension, $this->map['types'][$type]) === false) {
+                $this->map['types'][$type][] = $extension;
+            }
         }
 
         // Add entry to 'extensions'.
         if (!isset($this->map['extensions'][$extension])) {
             $this->map['extensions'][$extension] = [$type];
         } else {
-            $this->map['extensions'][$extension][] = $type;
+            if (array_search($type, $this->map['extensions'][$extension]) === false) {
+                $this->map['extensions'][$extension][] = $type;
+            }
         }
 
         return $this;
@@ -52,6 +47,7 @@ class MapHandler
 
     public function removeMapping($type, $extension)
     {
+        $type = strtolower($type);
         $extension = strtolower($extension);
 
         $ret = false;
@@ -85,6 +81,8 @@ class MapHandler
 
     public function removeType($type)
     {
+        $type = strtolower($type);
+
         if (!isset($this->map['types'][$type])) {
             return false;
         }
@@ -92,5 +90,49 @@ class MapHandler
             $this->removeMapping($type, $extension);
         }
         return true;
+    }
+
+    public function setTypeDefaultExtension($type, $extension)
+    {
+        $type = strtolower($type);
+        $extension = strtolower($extension);
+
+        if (!isset($this->map['types'][$type])) {
+            throw new MappingException('Cannot set ' . $extension . ' as default extension for type ' . $type . ', type not defined');
+        }
+        $key = array_search($extension, $this->map['types'][$type]);
+        if ($key === false) {
+            throw new MappingException('Cannot set ' . $extension . ' as default extension for type ' . $type . ', extension not associated to this type');
+        }
+        $tmp = [$extension];
+        foreach ($this->map['types'][$type] as $k => $v) {
+            if ($k === $key) {
+                continue;
+            }
+            $tmp[] = $v;
+        }
+        $this->map['types'][$type] = $tmp;
+    }
+
+    public function setExtensionDefaultType($extension, $type)
+    {
+        $type = strtolower($type);
+        $extension = strtolower($extension);
+
+        if (!isset($this->map['extensions'][$extension])) {
+            throw new MappingException('Cannot set ' . $type . ' as default type for extension ' . $extension . ', extension not defined');
+        }
+        $key = array_search($type, $this->map['extensions'][$extension]);
+        if ($key === false) {
+            throw new MappingException('Cannot set ' . $type . ' as default type for extension ' . $extension . ', type not associated to this extension');
+        }
+        $tmp = [$type];
+        foreach ($this->map['extensions'][$extension] as $k => $v) {
+            if ($k === $key) {
+                continue;
+            }
+            $tmp[] = $v;
+        }
+        $this->map['extensions'][$extension] = $tmp;
     }
 }
