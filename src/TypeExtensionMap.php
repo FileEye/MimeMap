@@ -6329,8 +6329,8 @@ class TypeExtensionMap
     ),
     'sub' =>
     array (
-      0 => 'image/vnd.dvb.subtitle',
-      1 => 'text/vnd.dvb.subtitle',
+      0 => 'text/vnd.dvb.subtitle',
+      1 => 'image/vnd.dvb.subtitle',
     ),
     'sus' =>
     array (
@@ -6898,8 +6898,8 @@ class TypeExtensionMap
     ),
     'wmz' =>
     array (
-      0 => 'application/x-ms-wmz',
-      1 => 'application/x-msmetafile',
+      0 => 'application/x-msmetafile',
+      1 => 'application/x-ms-wmz',
     ),
     'woff' =>
     array (
