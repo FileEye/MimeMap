@@ -58,8 +58,6 @@ class MapHandler
     /**
      * Adds a type-to-extension mapping.
      *
-     * Checks that no duplicate entries are made.
-     *
      * @param string $type
      *   A MIME type.
      * @param string $extension
@@ -73,23 +71,37 @@ class MapHandler
         $extension = (string) strtolower($extension);
 
         // Add entry to 'types'.
-        if (!isset($this->map['types'][$type])) {
-            $this->map['types'][$type] = [$extension];
-        } else {
-            if (array_search($extension, $this->map['types'][$type]) === false) {
-                $this->map['types'][$type][] = $extension;
-            }
-        }
+        $this->addMapEntry('types', $type, $extension);
 
         // Add entry to 'extensions'.
-        if (!isset($this->map['extensions'][$extension])) {
-            $this->map['extensions'][$extension] = [$type];
+        $this->addMapEntry('extensions', $extension, $type);
+
+        return $this;
+    }
+
+    /**
+     * Adds an entry to the map.
+     *
+     * Checks that no duplicate entries are made.
+     *
+     * @param string $key
+     *   The main array key.
+     * @param string $entry
+     *   The sub array key.
+     * @param string $value
+     *   The value to add.
+     *
+     * @return $this
+     */
+    protected function addMapEntry($key, $entry, $value)
+    {
+        if (!isset($this->map[$key][$entry])) {
+            $this->map[$key][$entry] = [$value];
         } else {
-            if (array_search($type, $this->map['extensions'][$extension]) === false) {
-                $this->map['extensions'][$extension][] = $type;
+            if (array_search($value, $this->map[$key][$entry]) === false) {
+                $this->map[$key][$entry][] = $value;
             }
         }
-
         return $this;
     }
 
