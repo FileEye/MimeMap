@@ -3,7 +3,6 @@
 namespace FileEye\MimeMap\test;
 
 use FileEye\MimeMap\Type;
-use FileEye\MimeMap\Parameter;
 use PHPUnit\Framework\TestCase;
 
 class TypeTest extends TestCase
@@ -422,7 +421,7 @@ class TypeTest extends TestCase
     }
 
     /**
-     * @expectedException RuntimeException
+     * @expectedException \FileEye\MimeMap\MappingException
      * @dataProvider getDefaultExtensionFailProvider
      */
     public function testGetDefaultExtensionFail($type)
