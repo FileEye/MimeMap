@@ -11,7 +11,11 @@ class MapHandler
 
     public function __construct(array $map = null)
     {
-        $this->map = $map ?: &TypeExtensionMap::$map;
+        if (is_null($map)) {
+            $this->map = &TypeExtensionMap::$map;
+        } else {
+            $this->map = $map;
+        }
     }
 
     public function get()
