@@ -85,7 +85,7 @@ class MapHandler
 
     public function removeType($type)
     {
-        if (isset($this->map['types'][$type])) {
+        if (!isset($this->map['types'][$type])) {
             return false;
         }
         foreach ($this->map['types'][$type] as $extension) {

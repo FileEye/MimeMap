@@ -57,7 +57,7 @@ class ExtensionTest extends TestCase
         $this->assertSame('bingo/bongo', (new Extension('bngbng'))->getDefaultType());
         $this->assertSame(['bingo/bongo'], (new Extension('bngbng'))->getTypes());
 
-        // Adding an already existing mapping should duplicate entries.
+        // Adding an already existing mapping should not duplicate entries.
         $map->addMapping('bingo/bongo', 'bngbng');
         $this->assertSame(['bingo/bongo'], (new Extension('bngbng'))->getTypes());
     }
@@ -70,6 +70,7 @@ class ExtensionTest extends TestCase
         $this->assertSame('application/octet-stream', (new Extension('txt'))->getDefaultType(false));
         $this->assertSame('text/plain', (new Extension('text'))->getDefaultType());
         $map->removeType('text/plain');
+        $this->assertSame(['application/octet-stream'], (new Extension('text'))->getTypes(false));
         $this->assertSame('application/octet-stream', (new Extension('text'))->getDefaultType(false));
     }
 }

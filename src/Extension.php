@@ -21,7 +21,7 @@ class Extension
      */
     public function __construct($extension)
     {
-        $this->extension = $extension;
+        $this->extension = strtolower($extension);
     }
 
     /**
@@ -56,7 +56,6 @@ class Extension
     public function getTypes($strict = true)
     {
         $map = new MapHandler();
-        $extension = strtolower($this->extension);
         if (!isset($map->get()['extensions'][$this->extension])) {
             if ($strict) {
                 throw new MappingException('No MIME type mapped to extension ' . $this->extension);
