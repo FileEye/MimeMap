@@ -83,16 +83,14 @@ class MapHandler
         return $ret;
     }
 
-    public function removeMimeType($type)
+    public function removeType($type)
     {
-        if (!in_array($type, $this->mapping['mimetypes'])) {
+        if (isset($this->map['types'][$type])) {
             return false;
         }
-        foreach ($this->getExtensionsForMimeType($type) as $extension) {
-            $this->removeMapping($extension);
+        foreach ($this->map['types'][$type] as $extension) {
+            $this->removeMapping($type, $extension);
         }
-        $key = array_search($type, $this->mapping['mimetypes']);
-        unset($this->mapping['mimetypes'][$key]);
         return true;
     }
 }

@@ -8,35 +8,44 @@ use PHPUnit\Framework\TestCase;
 
 class ExtensionTest extends TestCase
 {
+    public function testGetDefaultType()
+    {
+        $this->assertSame('text/plain', (new Extension('txt'))->getDefaultType());
+        $this->assertSame('text/plain', (new Extension('TXT'))->getDefaultType());
+        $this->assertSame('image/png', (new Extension('png'))->getDefaultType());
+        $this->assertSame('application/vnd.oasis.opendocument.text', (new Extension('odt'))->getDefaultType());
+    }
+
     /**
-     * @var \FileEye\MimeMap\Extension
+     * @expectedException \FileEye\MimeMap\MappingException
      */
-    protected $mte;
+    public function testGetStrictDefaultTypeUnknownExtension()
+    {
+        $this->assertSame('application/octet-stream', (new Extension('ohmygodthatisnoextension'))->getDefaultType());
+    }
+
+    public function testGetNoStrictDefaultTypeUnknownExtension()
+    {
+        $this->assertSame('application/octet-stream', (new Extension('ohmygodthatisnoextension'))->getDefaultType(false));
+    }
+
+    public function testGetTypes()
+    {
+        $this->assertSame(['image/vnd.dvb.subtitle', 'text/vnd.dvb.subtitle'], (new Extension('sub'))->getTypes());
+        $this->assertSame(['image/vnd.dvb.subtitle', 'text/vnd.dvb.subtitle'], (new Extension('sUb'))->getTypes());
+    }
 
     /**
-     * Sets up the fixture, for example, opens a network connection.
-     * This method is called before a test is executed.
+     * @expectedException \FileEye\MimeMap\MappingException
      */
-    protected function setUp()
+    public function testGetStrictTypesUnknownExtension()
     {
-        $this->mte = new Extension();
+        $this->assertSame(['application/octet-stream'], (new Extension('ohmygodthatisnoextension'))->getTypes());
     }
 
-    public function testGetMIMEType()
+    public function testGetNoStrictDefaultTypeUnknownExtension()
     {
-        $this->assertEquals('text/plain', $this->mte->getDefaultType('txt'));
-        $this->assertEquals('image/png', $this->mte->getDefaultType('png'));
-        $this->assertEquals('application/vnd.oasis.opendocument.text', $this->mte->getDefaultType('odt'));
-    }
-
-    public function testGetMIMETypeUppercase()
-    {
-        $this->assertEquals('text/plain', $this->mte->getDefaultType('TXT'));
-    }
-
-    public function testGetMIMETypeUnknownExtension()
-    {
-        $this->assertSame('application/octet-stream', $this->mte->getDefaultType('ohmygodthatisnoextension'));
+        $this->assertSame(['application/octet-stream'], (new Extension('ohmygodthatisnoextension'))->getTypes(false));
     }
 
     // xx move to its own test
@@ -45,14 +54,22 @@ class ExtensionTest extends TestCase
     {
         $map = new MapHandler();
         $map->addMapping('bingo/bongo', 'bngbng');
-        $this->assertSame('bingo/bongo', $this->mte->getDefaultType('bngbng'));
+        $this->assertSame('bingo/bongo', (new Extension('bngbng'))->getDefaultType());
+        $this->assertSame(['bingo/bongo'], (new Extension('bngbng'))->getTypes());
+
+        // Adding an already existing mapping should duplicate entries.
+        $map->addMapping('bingo/bongo', 'bngbng');
+        $this->assertSame(['bingo/bongo'], (new Extension('bngbng'))->getTypes());
     }
 
     public function testRemoveMapping()
     {
         $map = new MapHandler();
-        $this->assertSame('text/plain', $this->mte->getDefaultType('txt'));
+        $this->assertSame('text/plain', (new Extension('txt'))->getDefaultType());
         $map->removeMapping('text/plain', 'txt');
-        $this->assertSame('application/octet-stream', $this->mte->getDefaultType('txt'));
+        $this->assertSame('application/octet-stream', (new Extension('txt'))->getDefaultType(false));
+        $this->assertSame('text/plain', (new Extension('text'))->getDefaultType());
+        $map->removeType('text/plain');
+        $this->assertSame('application/octet-stream', (new Extension('text'))->getDefaultType(false));
     }
 }
