@@ -80,8 +80,6 @@ class MapUpdaterTest extends TestCase
         $this->assertContains('text/plain', $content);
         $this->assertContains('bing/bong', $content);
         $this->assertContains('binbon', $content);
-        $map_a = null;
-        $map_b = null;
         $this->fileSystem->remove(__DIR__ . '/../../src/Tests/MiniMap.php');
     }
 
