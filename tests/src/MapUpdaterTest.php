@@ -70,7 +70,7 @@ class MapUpdaterTest extends TestCase
 
     public function testWriteMapToCodeFile()
     {
-        $this->fileSystem->copy(__DIR__ . '/../../../src/Tests/MiniMap.php.test', __DIR__ . '/../../../src/Tests/MiniMap.php');
+        $this->fileSystem->copy(__DIR__ . '/../../src/Tests/MiniMap.php.test', __DIR__ . '/../../src/Tests/MiniMap.php');
         MapHandler::setDefaultMapClass('\FileEye\MimeMap\Tests\MiniMap');
         $map_a = new MapHandler();
         $this->assertNotContains('text/plain', file_get_contents($map_a->getMapFileName()));
@@ -80,6 +80,6 @@ class MapUpdaterTest extends TestCase
         $map_a = null;
         $map_b = null;
         $this->assertSame('text/plain', (new Extension('txt'))->getDefaultType());
-        $this->fileSystem->remove(__DIR__ . '/../../../src/Tests/MiniMap.php');
+        $this->fileSystem->remove(__DIR__ . '/../../src/Tests/MiniMap.php');
     }
 }
