@@ -85,12 +85,14 @@ class TypeParameter
     /**
      * Gets a string representation of this parameter.
      *
+     * @param int $format The format of the output string.
+     *
      * @return string String representation of parameter.
      */
-    public function toString()
+    public function toString($format = Type::FULL_TEXT)
     {
         $val = $this->name . '="' . str_replace('"', '\\"', $this->value) . '"';
-        if ($this->comment) {
+        if ($format > Type::FULL_TEXT && $this->comment) {
             $val .= ' (' . $this->comment . ')';
         }
         return $val;
