@@ -2,14 +2,14 @@ language: php
 sudo: false
 
 php:
-  - 5.4
-  - 5.5
-  - 5.6
-  - 7.0
-  - 7.1
-  - 7.2
+  #- 5.4
+  #- 5.5
+  #- 5.6
+  #- 7.0
+  #- 7.1
+  #- 7.2
   - 7.3
-  - nightly
+  #- nightly
 
 env:
   global:
@@ -23,7 +23,7 @@ matrix:
 
 cache:
   directories:
-    #- $FILEEYE_STAGING_DIR
+    - $FILEEYE_STAGING_DIR
 
 before_install:
   # Remove XDebug.
@@ -44,10 +44,11 @@ before_install:
 
 install:
   - php bin/fileeye-mimemap --version
+  - php bin/fileeye-mimemap update --help
 
 script:
   # Let TravisCI re-compile the PHP map file.
-  - php bin/fileeye-mimemap update $APACHE_MIMETYPE_URL
+  - php bin/fileeye-mimemap update --source=$APACHE_MIMETYPE_URL
 
   - if [ "$TRAVIS_PHP_VERSION" == "7.1" ]; then ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1; fi
   - ./vendor/bin/phpunit ./tests
