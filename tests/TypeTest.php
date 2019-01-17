@@ -1,167 +1,395 @@
 <?php
+
 namespace FileEye\MimeMap\test;
 
 use FileEye\MimeMap\Type;
-use FileEye\MimeMap\Type\Parameter;
 use PHPUnit\Framework\TestCase;
 
 class TypeTest extends TestCase
 {
-    public function testParse()
+    /**
+     * Data provider for testParse.
+     */
+    public function parseProvider()
     {
-        $mt = new Type();
-        $mt->parse('application/ogg;description=Hello there!;asd=fgh');
-        $this->assertEquals('application', $mt->media);
-        $this->assertEquals('ogg', $mt->subType);
-
-        $params = [
-            'description' => ['Hello there!', ''],
-            'asd' => ['fgh', ''],
+        return [
+            'application/ogg;description=Hello there!;asd=fgh' => [
+                'application/ogg;description=Hello there!;asd=fgh',
+                'application/ogg; description="Hello there!"; asd="fgh"',
+                ['application', null],
+                ['ogg', null],
+                true,
+                [
+                  'description' => ['Hello there!', null],
+                  'asd' => ['fgh', null],
+                ],
+            ],
+            'text/plain' => [
+                'text/plain',
+                'text/plain',
+                ['text', null],
+                ['plain', null],
+                false,
+                [],
+            ],
+            'text/plain;a=b' => [
+                'text/plain;a=b',
+                'text/plain; a="b"',
+                ['text', null],
+                ['plain', null],
+                true,
+                [
+                  'a' => ['b', null],
+                ],
+            ],
+            'application/ogg' => [
+                'application/ogg',
+                'application/ogg',
+                ['application', null],
+                ['ogg', null],
+                false,
+                [],
+            ],
+            '*/*' => [
+                '*/*',
+                '*/*',
+                ['*', null],
+                ['*', null],
+                false,
+                [],
+            ],
+            'n/n' => [
+                'n/n',
+                'n/n',
+                ['n', null],
+                ['n', null],
+                false,
+                [],
+            ],
+            '(UTF-8 Plain Text) text / plain ; charset = utf-8' => [
+                '(UTF-8 Plain Text) text / plain ; charset = utf-8',
+                'text/plain; charset="utf-8"',
+                ['text', 'UTF-8 Plain Text'],
+                ['plain', null],
+                true,
+                [
+                  'charset' => ['utf-8', null],
+                ],
+            ],
+            'text (Text) / plain ; charset = utf-8' => [
+                'text (Text) / plain ; charset = utf-8',
+                'text/plain; charset="utf-8"',
+                ['text', 'Text'],
+                ['plain', null],
+                true,
+                [
+                  'charset' => ['utf-8', null],
+                ],
+            ],
+            'text / (Plain) plain ; charset = utf-8' => [
+                'text / (Plain) plain ; charset = utf-8',
+                'text/plain; charset="utf-8"',
+                ['text', null],
+                ['plain', 'Plain'],
+                true,
+                [
+                  'charset' => ['utf-8', null],
+                ],
+            ],
+            'text / plain (Plain Text) ; charset = utf-8' => [
+                'text / plain (Plain Text) ; charset = utf-8',
+                'text/plain; charset="utf-8"',
+                ['text', null],
+                ['plain', 'Plain Text'],
+                true,
+                [
+                  'charset' => ['utf-8', null],
+                ],
+            ],
+            'text / plain ; (Charset=utf-8) charset = utf-8' => [
+                'text / plain ; (Charset=utf-8) charset = utf-8',
+                'text/plain; charset="utf-8" (Charset=utf-8)',
+                ['text', null],
+                ['plain', null],
+                true,
+                [
+                  'charset' => ['utf-8', 'Charset=utf-8'],
+                ],
+            ],
+            'text / plain ; charset (Charset) = utf-8' => [
+                'text / plain ; charset (Charset) = utf-8',
+                'text/plain; charset="utf-8" (Charset)',
+                ['text', null],
+                ['plain', null],
+                true,
+                [
+                  'charset' => ['utf-8', 'Charset'],
+                ],
+            ],
+            'text / plain ; charset = (UTF8) utf-8' => [
+                'text / plain ; charset = (UTF8) utf-8',
+                'text/plain; charset="utf-8" (UTF8)',
+                ['text', null],
+                ['plain', null],
+                true,
+                [
+                  'charset' => ['utf-8', 'UTF8'],
+                ],
+            ],
+            'text / plain ; charset = utf-8 (UTF-8 Plain Text)' => [
+                'text / plain ; charset = utf-8 (UTF-8 Plain Text)',
+                'text/plain; charset="utf-8" (UTF-8 Plain Text)',
+                ['text', null],
+                ['plain', null],
+                true,
+                [
+                  'charset' => ['utf-8', 'UTF-8 Plain Text'],
+                ],
+            ],
+            'application/x-foobar;description="bbgh(kdur"' => [
+                'application/x-foobar;description="bbgh(kdur"',
+                'application/x-foobar; description="bbgh(kdur"',
+                ['application', null],
+                ['x-foobar', null],
+                true,
+                [
+                  'description' => ['bbgh(kdur', null],
+                ],
+            ],
+            'application/x-foobar;description="a \"quoted string\""' => [
+                'application/x-foobar;description="a \"quoted string\""',
+                'application/x-foobar; description="a \"quoted string\""',
+                ['application', null],
+                ['x-foobar', null],
+                true,
+                [
+                  'description' => ['a "quoted string"', null],
+                ],
+            ],
+            'text/xml;description=test' => [
+                'text/xml;description=test',
+                'text/xml; description="test"',
+                ['text', null],
+                ['xml', null],
+                true,
+                [
+                  'description' => ['test', null],
+                ],
+            ],
+            'text/xml;one=test;two=three' => [
+                'text/xml;one=test;two=three',
+                'text/xml; one="test"; two="three"',
+                ['text', null],
+                ['xml', null],
+                true,
+                [
+                  'one' => ['test', null],
+                  'two' => ['three', null],
+                ],
+            ],
+            'text/xml; this="is"; a="parameter" (with a comment)' => [
+                'text/xml; this="is"; a="parameter" (with a comment)',
+                'text/xml; this="is"; a="parameter" (with a comment)',
+                ['text', null],
+                ['xml', null],
+                true,
+                [
+                  'this' => ['is', null],
+                  'a' => ['parameter', 'with a comment'],
+                ],
+            ],
+            // Various edge cases.
+            'text/plain; charset="utf-8" (UTF/8)' => [
+                'text/plain; charset="utf-8" (UTF/8)',
+                'text/plain; charset="utf-8" (UTF/8)',
+                ['text', null],
+                ['plain', null],
+                true,
+                [
+                  'charset' => ['utf-8', 'UTF/8'],
+                ],
+            ],
+            'appf/xml; a=b; b="parameter" (with; a comment)   ;c=d;  e=f (;) ;   g=h   ' => [
+                'appf/xml; a=b; b="parameter" (with; a comment)   ;c=d;  e=f (;) ;   g=h   ',
+                'appf/xml; a="b"; b="parameter" (with; a comment); c="d"; e="f" (;); g="h"',
+                ['appf', null],
+                ['xml', null],
+                true,
+                [
+                  'a' => ['b', null],
+                  'b' => ['parameter', 'with; a comment'],
+                  'c' => ['d', null],
+                  'e' => ['f', ';'],
+                  'g' => ['h', null],
+                ],
+            ],
+            'text/(abc)def(ghi)' => [
+                'text/(abc)def(ghi)',
+                'text/def',
+                ['text', null],
+                ['def', 'abc ghi'],
+                false,
+                [],
+            ],
+            'text/(abc)def' => [
+                'text/(abc)def',
+                'text/def',
+                ['text', null],
+                ['def', 'abc'],
+                false,
+                [],
+            ],
+            'text/def(ghi)' => [
+                'text/def(ghi)',
+                'text/def',
+                ['text', null],
+                ['def', 'ghi'],
+                false,
+                [],
+            ],
+            'text/plain;a=(\)abc)def(\()' => [
+                'text/plain;a=(\)abc)def(\()',
+                'text/plain; a="def" (\)abc \()',
+                ['text', null],
+                ['plain', null],
+                true,
+                [
+                  'a' => ['def', '\)abc \('],
+                ],
+            ],
+            'text/plain;a=\\foo(abc)' => [
+                'text/plain;a=\\foo(abc)',
+                'text/plain; a="foo" (abc)',
+                ['text', null],
+                ['plain', null],
+                true,
+                [
+                  'a' => ['foo', 'abc'],
+                ],
+            ],
+            'text/plain;a=(a"bc\)def")def' => [
+                'text/plain;a=(a"bc\)def")def',
+                'text/plain; a="def" (a"bc\)def")',
+                ['text', null],
+                ['plain', null],
+                true,
+                [
+                  'a' => ['def', 'a"bc\)def"'],
+                ],
+            ],
+            'text/plain;a="(abc)def"' => [
+                'text/plain;a="(abc)def"',
+                'text/plain; a="(abc)def"',
+                ['text', null],
+                ['plain', null],
+                true,
+                [
+                  'a' => ['(abc)def', null],
+                ],
+            ],
         ];
-        $this->assertEquals(2, count($mt->parameters));
-        foreach ($params as $name => $param) {
-            $this->assertTrue(isset($mt->parameters[$name]));
-            $this->assertInstanceOf('FileEye\MimeMap\Type\Parameter', $mt->parameters[$name]);
-            $this->assertEquals($name, $mt->parameters[$name]->name);
-            $this->assertEquals($param[0], $mt->parameters[$name]->value);
-            $this->assertEquals($param[1], $mt->parameters[$name]->comment);
+    }
+
+    /**
+     * @dataProvider parseProvider
+     */
+    public function testParse($type, $expectedToString, array $expectedMedia, array $expectedSubType, $expectedHasParameters, array $expectedParameters)
+    {
+        $mt = new Type($type);
+        $this->assertSame($expectedMedia[0], $mt->getMedia());
+        $this->assertSame($expectedMedia[1], $mt->getMediaComment());
+        $this->assertSame($expectedSubType[0], $mt->getSubType());
+        $this->assertSame($expectedSubType[1], $mt->getSubTypeComment());
+        $this->assertSame($expectedHasParameters, $mt->hasParameters());
+        $this->assertCount(count($expectedParameters), $mt->getParameters());
+        foreach ($expectedParameters as $name => $param) {
+            $this->assertTrue(isset($mt->getParameters()[$name]));
+            $this->assertInstanceOf('FileEye\MimeMap\TypeParameter', $mt->getParameter($name));
+            $this->assertSame($name, $mt->getParameter($name)->getName());
+            $this->assertSame($param[0], $mt->getParameter($name)->getValue());
+            $this->assertSame($param[1], $mt->getParameter($name)->getComment());
         }
+        $this->assertSame($expectedToString, $mt->toString());
+    }
+
+    /**
+     * Data provider for testParseMalformed.
+     */
+    public function parseMalformedProvider()
+    {
+        return [
+            'null' => [null],
+            'empty string' => [''],
+            'n' => ['n'],
+            'no media' => ['/n'],
+            'no sub type' => ['n/'],
+            'no comment closing bracket a' => ['image (open ()/*'],
+            'no comment closing bracket b' => ['image / * (open (())'],
+        ];
+    }
+
+    /**
+     * @dataProvider parseMalformedProvider
+     * @expectedException \FileEye\MimeMap\MalformedTypeException
+     */
+    public function testParseMalformed($type)
+    {
+        $mt = new Type($type);
     }
 
     public function testParseAgain()
     {
-        $mt = new Type();
-        $mt->parse('application/ogg;description=Hello there!;asd=fgh');
-        $this->assertEquals(2, count($mt->parameters));
+        $mt = new Type('application/ogg;description=Hello there!;asd=fgh');
+        $this->assertCount(2, $mt->getParameters());
 
-        $mt->parse('text/plain;hello=there!');
-        $this->assertEquals(1, count($mt->parameters));
-    }
-
-    public function testHasParameters()
-    {
-        $this->assertFalse(Type::hasParameters('text/plain'));
-        $this->assertFalse(Type::hasParameters('text/*'));
-        $this->assertFalse(Type::hasParameters('*/*'));
-        $this->assertTrue(Type::hasParameters('text/xml;description=test'));
-        $this->assertTrue(Type::hasParameters('text/xml;one=test;two=three'));
-    }
-
-    public function testGetParameters()
-    {
-        $this->assertEquals([], Type::getParameters('text/plain'));
-        // The rest is tested in testParse().
-    }
-
-    public function testStripParameters()
-    {
-        $this->assertEquals('text/plain', Type::stripParameters('text/plain'));
-        $this->assertEquals('text/plain', Type::stripParameters('text/plain;asd=def'));
-        $this->assertEquals('text/plain', Type::stripParameters('text/plain;asd=def;ghj=jkl'));
-    }
-
-    public function testStripComments()
-    {
-        $this->assertEquals('def', Type::stripComments('(abc)def(ghi)', $null));
-        $this->assertEquals('def', Type::stripComments('(abc)def', $null));
-        $this->assertEquals('def', Type::stripComments('def(ghi)', $null));
-    }
-
-    public function testStripCommentsEscaped()
-    {
-        $comment = '';
-        $this->assertEquals('def', Type::stripComments('(\)abc)def(\))', $comment));
-        $this->assertEquals(')abc )', $comment);
-    }
-
-    public function testStripCommentsEscapedString()
-    {
-        $comment = false;
-        $this->assertEquals('foo', Type::stripComments('\\foo(abc)', $comment));
-        $this->assertEquals('abc', $comment);
-    }
-
-    public function testStripCommentsQuoted()
-    {
-        $this->assertEquals('def', Type::stripComments('(a"bc)def")def', $null));
-        $this->assertEquals('(abc)def', Type::stripComments('"(abc)def"', $null));
-    }
-
-    public function testStripCommentsParameterComment()
-    {
-        $comment = '';
-        $this->assertEquals('def', Type::stripComments('(abc)def(ghi)', $comment));
-        $this->assertEquals('abc ghi', $comment);
-    }
-
-    public function testGetMedia()
-    {
-        $this->assertEquals('text', Type::getMedia('text/plain'));
-        $this->assertEquals('application', Type::getMedia('application/ogg'));
-        $this->assertEquals('*', Type::getMedia('*/*'));
-    }
-
-    public function testGetSubType()
-    {
-        $this->assertEquals('plain', Type::getSubType('text/plain'));
-        $this->assertEquals('ogg', Type::getSubType('application/ogg'));
-        $this->assertEquals('*', Type::getSubType('*/*'));
-        $this->assertEquals('plain', Type::getSubType('text/plain;a=b'));
-    }
-
-    public function testGet()
-    {
-        $mt = new Type('text/xml');
-        $this->assertEquals('text/xml', $mt->get());
-
-        $mt = new Type('text/xml; this="is"; a="parameter" (with a comment)');
-        $this->assertEquals('text/xml; this="is"; a="parameter" (with a comment)', $mt->get());
+        $mt = new Type('text/plain;hello=there!');
+        $this->assertCount(1, $mt->getParameters());
     }
 
     public function testIsExperimental()
     {
-        $this->assertTrue(Type::isExperimental('text/x-test'));
-        $this->assertTrue(Type::isExperimental('image/X-test'));
-        $this->assertFalse(Type::isExperimental('text/plain'));
+        $this->assertTrue((new Type('text/x-test'))->isExperimental());
+        $this->assertTrue((new Type('image/X-test'))->isExperimental());
+        $this->assertFalse((new Type('text/plain'))->isExperimental());
     }
 
     public function testIsVendor()
     {
-        $this->assertTrue(Type::isVendor('application/vnd.openoffice'));
-        $this->assertFalse(Type::isVendor('application/vendor.openoffice'));
-        $this->assertFalse(Type::isVendor('vnd/fsck'));
+        $this->assertTrue((new Type('application/vnd.openoffice'))->isVendor());
+        $this->assertFalse((new Type('application/vendor.openoffice'))->isVendor());
+        $this->assertFalse((new Type('vnd/fsck'))->isVendor());
     }
 
     public function testIsWildcard()
     {
-        $this->assertTrue(Type::isWildcard('*/*'));
-        $this->assertTrue(Type::isWildcard('image/*'));
-        $this->assertFalse(Type::isWildcard('text/plain'));
+        $this->assertTrue((new Type('*/*'))->isWildcard());
+        $this->assertTrue((new Type('image/*'))->isWildcard());
+        $this->assertFalse((new Type('text/plain'))->isWildcard());
     }
 
     public function testWildcardMatch()
     {
-        $this->assertTrue(Type::wildcardMatch('*/*', 'image/png'));
-        $this->assertTrue(Type::wildcardMatch('image/*', 'image/png'));
-        $this->assertFalse(Type::wildcardMatch('image/*', 'text/plain'));
+        $this->assertTrue((new Type('image/png'))->wildcardMatch('*/*'));
+        $this->assertTrue((new Type('image/png'))->wildcardMatch('image/*'));
+        $this->assertFalse((new Type('text/plain'))->wildcardMatch('image/*'));
     }
 
     public function testWildcardMatchNoWildcard()
     {
-        $this->assertFalse(Type::wildcardMatch('image/foo', 'image/png'));
+        $this->assertFalse((new Type('image/png'))->wildcardMatch('image/foo'));
     }
 
     public function testAddParameter()
     {
         $mt = new Type('image/png; foo=bar');
         $mt->addParameter('baz', 'val', 'this is a comment');
-        $res = $mt->get();
+        $res = $mt->toString();
         $this->assertContains('foo=', $res);
         $this->assertContains('bar', $res);
-
         $this->assertContains('baz=', $res);
         $this->assertContains('val', $res);
         $this->assertContains('(this is a comment)', $res);
+        $this->assertSame('image/png; foo="bar"; baz="val" (this is a comment)', $res);
     }
 
     public function testRemoveParameter()
@@ -169,42 +397,35 @@ class TypeTest extends TestCase
         $mt = new Type('image/png; foo=bar');
         $mt->addParameter('baz', 'val', 'this is a comment');
         $mt->removeParameter('foo');
-        $res = $mt->get();
+        $res = $mt->toString();
         $this->assertNotContains('foo=', $res);
         $this->assertNotContains('bar', $res);
         $this->assertContains('baz=', $res);
+        $this->assertSame('image/png; baz="val" (this is a comment)', $res);
     }
 
-    public function testComments()
+    public function testGetDefaultExtension()
     {
-        $type = new Type('(UTF-8 Plain Text) text / plain ; charset = utf-8');
-        $this->assertEquals('text/plain; charset="utf-8"', $type->get());
+        $this->assertEquals('atom', (new Type('application/atom+xml'))->getDefaultExtension());
+        $this->assertEquals('csv', (new Type('text/csv'))->getDefaultExtension());
+    }
 
-        $type = new Type('text (Text) / plain ; charset = utf-8');
-        $this->assertEquals('text/plain; charset="utf-8"', $type->get());
+    /**
+     * Data provider for testGetDefaultExtensionFail.
+     */
+    public function getDefaultExtensionFailProvider()
+    {
+        return [
+            ['n/n'],
+        ];
+    }
 
-        $type = new Type('text / (Plain) plain ; charset = utf-8');
-        $this->assertEquals('text/plain; charset="utf-8"', $type->get());
-
-        $type = new Type('text / plain (Plain Text) ; charset = utf-8');
-        $this->assertEquals('text/plain; charset="utf-8"', $type->get());
-
-        $type = new Type('text / plain ; (Charset=utf-8) charset = utf-8');
-        $this->assertEquals('text/plain; charset="utf-8" (Charset=utf-8)', $type->get());
-
-        $type = new Type('text / plain ; charset (Charset) = utf-8');
-        $this->assertEquals('text/plain; charset="utf-8" (Charset)', $type->get());
-
-        $type = new Type('text / plain ; charset = (UTF8) utf-8');
-        $this->assertEquals('text/plain; charset="utf-8" (UTF8)', $type->get());
-
-        $type = new Type('text / plain ; charset = utf-8 (UTF-8 Plain Text)');
-        $this->assertEquals('text/plain; charset="utf-8" (UTF-8 Plain Text)', $type->get());
-
-        $type = new Type('application/x-foobar;description="bbgh(kdur"');
-        $this->assertEquals('application/x-foobar; description="bbgh(kdur"', $type->get());
-
-        $type = new Type('application/x-foobar;description="a \"quoted string\""');
-        $this->assertEquals('application/x-foobar; description="a \"quoted string\""', $type->get());
+    /**
+     * @expectedException \FileEye\MimeMap\MappingException
+     * @dataProvider getDefaultExtensionFailProvider
+     */
+    public function testGetDefaultExtensionFail($type)
+    {
+        $this->assertNull((new Type($type))->getDefaultExtension());
     }
 }

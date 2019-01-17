@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php
+/**
+ * A Symfony CLI utility application for MimeMap.
+ */
+
+use FileEye\MimeMap\Command\UpdateCommand;
+use FileEye\MimeMap\Version;
+use Symfony\Component\Console\Application;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$application = new Application('fileeye-mimemap', Version::get());
+$application->add(new UpdateCommand());
+$application->run();
