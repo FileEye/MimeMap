@@ -38,6 +38,8 @@ class MapUpdaterTest extends TestCase
             ],
         ];
         $this->assertSame($expected, $map->get());
+        $this->assertSame(['image/jpeg', 'text/plain'], $map->listTypes());
+        $this->assertSame(['jpeg', 'jpg', 'jpe', 'txt'], $map->listExtensions());
     }
 
     /**
