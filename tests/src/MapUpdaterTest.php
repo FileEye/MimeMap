@@ -55,10 +55,10 @@ class MapUpdaterTest extends TestCase
     /**
      * @expectedException \RuntimeException
      */
-     public function testCompareMapsNotEqual()
-     {
-         $map_a = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
-         $map_b = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/some.mime-types.txt');
-         $this->updater->compareMaps($map_a, $map_b, 'types');
-     }
+    public function testCompareMapsNotEqual()
+    {
+        $map_a = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
+        $map_b = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/some.mime-types.txt');
+        $this->updater->compareMaps($map_a, $map_b, 'types');
+    }
 }

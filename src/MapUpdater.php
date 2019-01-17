@@ -47,9 +47,6 @@ class MapUpdater
     {
         $map = new MapHandler([]);
         $lines = file($source_file);
-/*        if ($lines === false) {
-            throw new \RuntimeException('Error loading file from ' . $source_file);
-        }*/
         foreach ($lines as $line) {
             if ($line{0} == '#') {
                 continue;
@@ -61,7 +58,7 @@ class MapUpdater
                 $map->addMapping($type, $extension);
             }
         }
-        if (emtpy($map->get())) {
+        if (empty($map->get())) {
             throw new \RuntimeException('No data found in file ' . $source_file);
         }
         return $map;

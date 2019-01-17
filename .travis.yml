@@ -14,8 +14,8 @@ php:
 env:
   global:
     - FILEEYE_STAGING_DIR="$HOME/fileeye_staging"
-    #- APACHE_MIMETYPE_URL="http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=co"
-    - APACHE_MIMETYPE_URL="/viewvc/httpd/httpd/trunk/docs/conf/mime.types"
+    - APACHE_MIMETYPE_URL="http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=co"
+    
 matrix:
   fast_finish: true
   allow_failures:
