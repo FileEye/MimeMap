@@ -19,7 +19,7 @@ class MapUpdater
      * extension to mime type mapping on the planet. We use it to update our
      * own list.
      */
-    const DEFAULT_URL = 'http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=co';
+    const DEFAULT_SOURCE_FILE = 'http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=co';
 
     /**
      * The default file where to write the map as PHP code.
@@ -31,12 +31,24 @@ class MapUpdater
         return dirname(__FILE__) . '/' . static::DEFAULT_CODE_FILE_NAME;
     }
 
-    public function loadMapFromUrl($url = MapUpdater::DEFAULT_URL)
+    /**
+     * Creates a new type-to-extension map reading from a file.
+     *
+     * @param string $source_file
+     *   (Optional) the source file. Defaults to the Apache source bind_textdomain_codeset
+     *   repository file where MIME types and file extensions are associated.
+     *
+     * @throws \RuntimeException if file I/O error occurs.
+     *
+     * @return MapHandler
+     *   The map handler with the new map.
+     */
+    public function createMapFromSourceFile($source_file = MapUpdater::DEFAULT_SOURCE_FILE)
     {
-        $map = [];
-        $lines = file($url);
+        $map = new MapHandler([]);
+        $lines = file($source_file);
         if ($lines === false) {
-            throw new \RuntimeException('Error loading URL: ' . $url);
+            throw new \RuntimeException('Error loading file from ' . $source_file);
         }
         foreach ($lines as $line) {
             if ($line{0} == '#') {
@@ -45,10 +57,8 @@ class MapUpdater
             $line = preg_replace("#\\s+#", ' ', trim($line));
             $parts = explode(' ', $line);
             $type = array_shift($parts);
-            $extensions = $parts;
-            foreach ($extensions as $ext) {
-                $map['types'][$type][] = $ext;
-                $map['extensions'][(string) $ext][] = $type;
+            foreach ($parts as $extension) {
+                $map->addMapping($type, $extension);
             }
         }
         return $map;

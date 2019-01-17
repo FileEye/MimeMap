@@ -26,7 +26,7 @@ class UpdateCommand extends Command
                 'source-url',
                 InputArgument::OPTIONAL,
                 'URL of the source map',
-                MapUpdater::DEFAULT_URL
+                MapUpdater::DEFAULT_SOURCE_FILE
             )
             ->addArgument(
                 'output-file',
@@ -44,16 +44,15 @@ class UpdateCommand extends Command
     {
         $updater = new MapUpdater();
         try {
-            $new_map_array = $updater->loadMapFromUrl($input->getArgument('source-url'));
-            $new_map = new MapHandler($new_map_array);
+            $new_map = $updater->createMapFromSourceFile($input->getArgument('source-url'))
         } catch (\RuntimeException $e) {
             $output->writeln('<error>' . $e->getMessage() . '</error>');
             exit(2);
         }
 
         // xx
-        $new_map->setExtensionDefaultType('sub', 'text/vnd.dvb.subtitle');
-        $new_map->setExtensionDefaultType('wmz', 'application/x-msmetafile');
+        //$new_map->setExtensionDefaultType('sub', 'text/vnd.dvb.subtitle');
+        //$new_map->setExtensionDefaultType('wmz', 'application/x-msmetafile');
         $new_map->sort();
 
         $current_map = new MapHandler();
