@@ -84,8 +84,12 @@ class MapUpdater
         } catch (ComparisonFailure $failure) {
             $old_string = var_export($old[$section], true);
             $new_string = var_export($new[$section], true);
-            $differ = new Differ(new UnifiedDiffOutputBuilder("--- Removed\n+++ Added\n"));
-            throw new \RuntimeException($differ->diff($old_string, $new_string));
+            if (PHP_VERSION_ID >= 70000) {
+                $differ = new Differ(new UnifiedDiffOutputBuilder("--- Removed\n+++ Added\n"));
+                throw new \RuntimeException($differ->diff($old_string, $new_string));
+            } else {
+                throw new \RuntimeException(' ');
+            }
         }
     }
 
