@@ -12,7 +12,7 @@ class TypeExtensionMap
      *
      * @return $string
      */
-    public static getFileName() {
+    public static function getFileName() {
         return __FILE__;
     }
 
