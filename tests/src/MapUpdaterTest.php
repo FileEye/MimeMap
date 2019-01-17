@@ -15,10 +15,12 @@ use PHPUnit\Framework\TestCase;
 class MapUpdaterTest extends TestCase
 {
     protected $updater;
+    protected $fileSystem;
 
     public function setUp()
     {
         $this->updater = new MapUpdater();
+        $this->fileSystem = new Filesystem();
     }
 
     public function testCreateMapFromSourceFile()
