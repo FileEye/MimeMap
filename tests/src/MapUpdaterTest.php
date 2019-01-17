@@ -79,7 +79,6 @@ class MapUpdaterTest extends TestCase
         $this->assertContains('text/plain', file_get_contents($map_a->getMapFileName()));
         $map_a = null;
         $map_b = null;
-        $this->assertSame('text/plain', (new Extension('txt'))->getDefaultType());
         $this->fileSystem->remove(__DIR__ . '/../../src/Tests/MiniMap.php');
     }
 }
