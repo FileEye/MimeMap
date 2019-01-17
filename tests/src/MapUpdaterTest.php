@@ -2,6 +2,7 @@
 
 namespace FileEye\MimeMap\test;
 
+use FileEye\MimeMap\Extension;
 use FileEye\MimeMap\MapHandler;
 use FileEye\MimeMap\MapUpdater;
 use PHPUnit\Framework\TestCase;
@@ -67,8 +68,10 @@ class MapUpdaterTest extends TestCase
     public function testWriteMapToCodeFile()
     {
         MapHandler::setDefaultMapClass('\FileEye\MimeMap\Tests\MiniMap');
+        $this->assertSame('application/octet-stream', (new Extension('txt'))->getDefaultType(false));
         $map_a = new MapHandler();
         $map_b = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
         $this->updater->writeMapToCodeFile($map_b, $map_a->getMapFileName());
+        $this->assertSame('text/plain', (new Extension('txt'))->getDefaultType());
     }
 }

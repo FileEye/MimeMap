@@ -12,7 +12,8 @@ class MiniMap
      *
      * @return $string
      */
-    public static function getFileName() {
+    public static function getFileName()
+    {
         return __FILE__;
     }
 
