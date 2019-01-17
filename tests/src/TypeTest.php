@@ -293,7 +293,7 @@ class TypeTest extends TestCase
                 'appf/xml; a=b; b="parameter" (with; a comment)   ;c=d;  e=f (;) ;   g=h   ',
                 [
                   'appf/xml',
-                  'appf/xml; a="b"; b="parameter"; c="d"; e="f; g="h"',
+                  'appf/xml; a="b"; b="parameter"; c="d"; e="f"; g="h"',
                   'appf/xml; a="b"; b="parameter" (with; a comment); c="d"; e="f" (;); g="h"',
                 ],
                 ['appf', null],
@@ -497,7 +497,7 @@ class TypeTest extends TestCase
     {
         $mt = new Type('image/png; foo=bar');
         $mt->addParameter('baz', 'val', 'this is a comment');
-        $res = $mt->toString();
+        $res = $mt->toString(Type::FULL_TEXT_WITH_COMMENTS);
         $this->assertContains('foo=', $res);
         $this->assertContains('bar', $res);
         $this->assertContains('baz=', $res);
@@ -511,7 +511,7 @@ class TypeTest extends TestCase
         $mt = new Type('image/png; foo=bar');
         $mt->addParameter('baz', 'val', 'this is a comment');
         $mt->removeParameter('foo');
-        $res = $mt->toString();
+        $res = $mt->toString(Type::FULL_TEXT_WITH_COMMENTS);
         $this->assertNotContains('foo=', $res);
         $this->assertNotContains('bar', $res);
         $this->assertContains('baz=', $res);
