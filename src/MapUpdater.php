@@ -22,13 +22,18 @@ class MapUpdater
     const DEFAULT_SOURCE_FILE = 'http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=co';
 
     /**
-     * Default file with override commands to be executed.
+     * Returns the default file with override commands to be executed.
      *
      * The YAML file provides an array of calls to MapHandler methods to be
      * executed sequentially. Each entry indicates the method to be invoked and
      * the arguments to be passed in.
+     *
+     * @return string
      */
-    const DEFAULT_OVERRIDE_FILE = __DIR__ . '/../resources/overrides.yml';
+    public static function getDefaultOverrideFile()
+    {
+        return __DIR__ . '/../resources/overrides.yml';
+    }
 
     /**
      * Creates a new type-to-extension map reading from a file.
