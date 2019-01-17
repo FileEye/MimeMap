@@ -65,7 +65,7 @@ class MapUpdaterTest extends TestCase
 
     public function testWriteMapToCodeFile()
     {
-        MapHandler::setDefaultMapClass('FileEye\MimeMap\test\TestMap\MiniMap');
+        MapHandler::setDefaultMapClass('\FileEye\MimeMap\Tests\MiniMap');
         $map_a = new MapHandler();
         $map_b = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
         $this->updater->writeMapToCodeFile(dirname(__FILE__) . '/TestMap/MiniMap.php');
