@@ -35,7 +35,7 @@ class UpdateCommand extends Command
                 null,
                 InputOption::VALUE_REQUIRED,
                 'URL or filename of the override commands to execute',
-                MapUpdater::DEFAULT_OVERRIDE_FILE
+                MapUpdater::getDefaultOverrideFile()
             )
             ->addOption(
                 'class',
