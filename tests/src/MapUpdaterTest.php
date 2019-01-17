@@ -38,18 +38,27 @@ class MapUpdaterTest extends TestCase
     /**
      * @expectedException \RuntimeException
      */
-    public function testCreateMapFromSourceFileError()
+    public function testCreateMapFromSourceFileZeroLines()
     {
-      $map = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/missing-file');
-      $this->assertNull($map->get());
+        $map = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/zero.mime-types.txt');
+        $this->assertNull($map->get());
+    }
+
+    public function testCompareMapsEqual()
+    {
+        $map_a = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
+        $map_b = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
+        $this->assertTrue($this->updater->compareMaps($map_a, $map_b, 'types'));
+        $this->assertTrue($this->updater->compareMaps($map_a, $map_b, 'extensions'));
     }
 
     /**
      * @expectedException \RuntimeException
      */
-    public function testCreateMapFromSourceFileZeroLines()
-    {
-      $map = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/zero.mime-types.txt');
-      $this->assertNull($map->get());
-    }
+     public function testCompareMapsNotEqual()
+     {
+         $map_a = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
+         $map_b = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/some.mime-types.txt');
+         $this->updater->compareMaps($map_a, $map_b, 'types');
+     }
 }
