@@ -8,6 +8,21 @@ namespace FileEye\MimeMap;
 class MapHandler
 {
     /**
+     * The default map PHP class.
+     */
+    const DEFAULT_MAP_CLASS = '\FileEye\MimeMap\TypeExtensionMap';
+
+    /**
+     * The map class to use.
+     *
+     * It's static so it can be overridden by ::setDefaultMapClass and any new
+     * instance take the overriden setting.
+     *
+     * @var string
+     */
+    protected static $mapClass = MapHandler::DEFAULT_MAP_CLASS;
+
+    /**
      * Mapping between file extensions and MIME types.
      *
      * The array has two main keys, 'types' that maps MIME types to file
@@ -16,6 +31,16 @@ class MapHandler
      * @var array
      */
     protected $map;
+
+    /**
+     * Sets a map class as default for new instances.
+     *
+     * @param string $class A FQCN.
+     */
+    public static function setDefaultMapClass($class)
+    {
+        static::$mapClass = $class;
+    }
 
     /**
      * Constructor.
@@ -27,10 +52,22 @@ class MapHandler
     public function __construct(array $map = null)
     {
         if (is_null($map)) {
-            $this->map = &TypeExtensionMap::$map;
+            $map_class = static::$mapClass;
+            $this->map = &$map_class::$map;
         } else {
             $this->map = $map;
         }
+    }
+
+    /**
+     * Returns the filename of the PHP file where the map is loaded from.
+     *
+     * @return string
+     */
+    public function getMapFileName()
+    {
+        $map_class = static::$mapClass;
+        return $map_class::getFileName();
     }
 
     /**

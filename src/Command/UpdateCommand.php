@@ -6,6 +6,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Yaml\Yaml;
 use FileEye\MimeMap\MapUpdater;
 use FileEye\MimeMap\MapHandler;
 
@@ -26,13 +27,7 @@ class UpdateCommand extends Command
                 'source-url',
                 InputArgument::OPTIONAL,
                 'URL of the source map',
-                MapUpdater::DEFAULT_URL
-            )
-            ->addArgument(
-                'output-file',
-                InputArgument::OPTIONAL,
-                'Path to the directory of the mapper class PHP file',
-                MapUpdater::getDefaultCodeFilePath()
+                MapUpdater::DEFAULT_SOURCE_FILE
             )
         ;
     }
@@ -42,38 +37,44 @@ class UpdateCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $current_map = new MapHandler();
         $updater = new MapUpdater();
+
+        // Loads the map from the source file.
         try {
-            $new_map_array = $updater->loadMapFromUrl($input->getArgument('source-url'));
-            $new_map = new MapHandler($new_map_array);
+            $new_map = $updater->createMapFromSourceFile($input->getArgument('source-url'));
         } catch (\RuntimeException $e) {
             $output->writeln('<error>' . $e->getMessage() . '</error>');
             exit(2);
         }
 
         // xx
-        $new_map->setExtensionDefaultType('sub', 'text/vnd.dvb.subtitle');
-        $new_map->setExtensionDefaultType('wmz', 'application/x-msmetafile');
-        $new_map->sort();
+        $content = file_get_contents(dirname(__FILE__) . '/../../resources/overrides.yml');
+        $commands = Yaml::parse($content);
+        foreach ($commands as $command) {
+            call_user_func_array([$new_map, $command[0]], $command[1]);
+        }
 
-        $current_map = new MapHandler();
+        // Check if anything got changed.
         $write = false;
         try {
-            $updater->compareMaps($current_map->get(), $new_map->get(), 'types');
+            $updater->compareMaps($current_map, $new_map, 'types');
         } catch (\RuntimeException $e) {
-            $output->writeln('Changes to MIME types mapping:');
+            $output->writeln('<comment>Changes to MIME types mapping:</comment>');
             $output->writeln($e->getMessage());
             $write = true;
         }
         try {
-            $updater->compareMaps($current_map->get(), $new_map->get(), 'extensions');
+            $updater->compareMaps($current_map, $new_map, 'extensions');
         } catch (\RuntimeException $e) {
-            $output->writeln('Changes to extensions mapping:');
+            $output->writeln('<comment>Changes to extensions mapping:</comment>');
             $output->writeln($e->getMessage());
             $write = true;
         }
+
+        // If changed, save the new map to the PHP file.
         if ($write) {
-            $updater->writeMapToCodeFile($new_map->get(), $input->getArgument('output-file'));
+            $updater->writeMapToCodeFile($new_map, $current_map->getMapFileName());
             $output->writeln('<comment>Code updated.</comment>');
         } else {
             $output->writeln('<info>No changes to mapping.</info>');
