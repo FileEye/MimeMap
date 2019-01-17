@@ -4,6 +4,3 @@
 -
     - setExtensionDefaultType
     - [wmz, application/x-msmetafile]
--
-    - addMapping
-    - [bingooi/boingooi, bxxbgn]
