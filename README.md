@@ -3,9 +3,9 @@
 [![Build Status](https://secure.travis-ci.org/FileEye/MimeMap.png?branch=master)](https://travis-ci.org/FileEye/MimeMap)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/FileEye/MimeMap/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/FileEye/MimeMap/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/FileEye/MimeMap/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/FileEye/MimeMap/?branch=master)
-[![Latest Stable Version](https://poser.pugx.org/fileeye/mimemap/version)](https://packagist.org/packages/fileeye/mimemap)
-[![Total Downloads](https://poser.pugx.org/fileeye/mimemap/downloads)](https://packagist.org/packages/fileeye/mimemap)
-[![Latest Unstable Version](https://poser.pugx.org/fileeye/mimemap/v/unstable)](//packagist.org/packages/fileeye/mimemap)
+[![Latest Stable Version](https://poser.pugx.org/fileeye/mimemap/v/stable)](https://packagist.org/packages/fileeye/mimemap)[![Total Downloads](https://poser.pugx.org/fileeye/mimemap/downloads)](https://packagist.org/packages/fileeye/mimemap)
+[![Latest Unstable Version](https://poser.pugx.org/fileeye/mimemap/v/unstable)](https://packagist.org/packages/fileeye/mimemap)
+[![License](https://poser.pugx.org/fileeye/mimemap/license)](https://packagist.org/packages/fileeye/mimemap)
 
 A PHP library to handle MIME Content-Type fields and their related file extensions.
 
