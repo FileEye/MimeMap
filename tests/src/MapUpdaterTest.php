@@ -74,7 +74,7 @@ class MapUpdaterTest extends TestCase
         $map_a = new MapHandler();
         $this->assertNotContains('text/plain', file_get_contents($map_a->getMapFileName()));
         $map_b = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
-        $this->updater->applyOverrides($map_b, [['addMapping'], ['bing/bong', 'binbon']]);
+        $this->updater->applyOverrides($map_b, [['addMapping', ['bing/bong', 'binbon']]]);
         $this->updater->writeMapToCodeFile($map_b, $map_a->getMapFileName());
         $content = file_get_contents($map_a->getMapFileName());
         $this->assertContains('text/plain', $content);
