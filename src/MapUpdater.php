@@ -48,7 +48,8 @@ class MapUpdater
                 $map->addMapping($type, $extension);
             }
         }
-        if (empty($map->get())) {
+        $map_array = $map->get();
+        if (empty($map_array)) {
             throw new \RuntimeException('No data found in file ' . $source_file);
         }
         return $map;
