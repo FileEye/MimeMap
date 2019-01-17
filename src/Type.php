@@ -317,12 +317,36 @@ class Type
         unset($this->parameters[$name]);
     }
 
+    /**
+     * Returns the MIME type's preferred file extension.
+     *
+     * @param bool $strict
+     *   (Optional) if true a MappingException is thrown when no mapping is
+     *   found, if false it returns null as a default.
+     *   Defaults to true.
+     *
+     * @throws MappingException if no mapping found and $strict is true.
+     *
+     * @return string
+     */
     public function getDefaultExtension($strict = true)
     {
         $extensions = $this->getExtensions($strict);
         return isset($extensions[0]) ? $extensions[0] : null;
     }
 
+    /**
+     * Returns all the file extensions related to the MIME type.
+     *
+     * @param bool $strict
+     *   (Optional) if true a MappingException is thrown when no mapping is
+     *   found, if false it returns an empty array as a default.
+     *   Defaults to true.
+     *
+     * @throws MappingException if no mapping found and $strict is true.
+     *
+     * @return string[]
+     */
     public function getExtensions($strict = true)
     {
         $type = $this->toString(static::SHORT_TEXT);

@@ -1,6 +1,6 @@
 build:
   environment:
-    php: '7.1'    
+    php: '7.1'
   tests:
     override:
       -
@@ -8,6 +8,10 @@ build:
         coverage:
           file: build/logs/clover.xml
           format: clover
+
+filter:
+    excluded_paths:
+        - "src/Command"
 
 checks:
     php:
