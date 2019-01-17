@@ -70,6 +70,7 @@ class MapUpdaterTest extends TestCase
         MapHandler::setDefaultMapClass('\FileEye\MimeMap\Tests\MiniMap');
         $this->assertSame('application/octet-stream', (new Extension('txt'))->getDefaultType(false));
         $map_a = new MapHandler();
+        $this->assertNotContains('text/plain', file_get_contents($map_a->getMapFileName()));
         $map_b = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
         $this->updater->writeMapToCodeFile($map_b, $map_a->getMapFileName());
         if (function_exists('opcache_reset')) {
@@ -87,6 +88,6 @@ class MapUpdaterTest extends TestCase
         if (function_exists('xcache_clear_cache')) {
             xcache_clear_cache();
         }
-        $this->assertSame('text/plain', (new Extension('txt'))->getDefaultType());
+        $this->assertContains('text/plain', file_get_contents($map_a->getMapFileName()));
     }
 }
