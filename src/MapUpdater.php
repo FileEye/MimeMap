@@ -46,6 +46,9 @@ class MapUpdater
     public function createMapFromSourceFile($source_file = MapUpdater::DEFAULT_SOURCE_FILE)
     {
         $map = new MapHandler([]);
+        if (!file_exists($source_file)) {
+            throw new \RuntimeException('Cannot access file ' . $source_file);
+        }
         $lines = file($source_file);
         if ($lines === false) {
             throw new \RuntimeException('Error loading file from ' . $source_file);

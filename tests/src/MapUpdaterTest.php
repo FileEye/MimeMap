@@ -20,7 +20,19 @@ class MapUpdaterTest extends TestCase
     public function testCreateMapFromSourceFile()
     {
         $map = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
-        $this->assertSame(['aaa/aaa'], $map->get());
+        $expected = [
+            'types' => [
+                'image/jpeg' => ['jpeg', 'jpg', 'jpe'],
+                'text/plain' => ['txt'],
+            ],
+            'extensions' => [
+                'jpeg' => ['image/jpeg'],
+                'jpg' => ['image/jpeg'],
+                'jpe' => ['image/jpeg'],
+                'txt' => ['text/plain'],
+            ],
+        ];
+        $this->assertSame($expected, $map->get());
     }
 
     /**
@@ -29,6 +41,15 @@ class MapUpdaterTest extends TestCase
     public function testCreateMapFromSourceFileError()
     {
       $map = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/missing-file');
+      $this->assertNull($map->get());
+    }
+
+    /**
+     * @expectedException \RuntimeException
+     */
+    public function testCreateMapFromSourceFileZeroLines()
+    {
+      $map = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/zero.mime-types.txt');
       $this->assertNull($map->get());
     }
 }
