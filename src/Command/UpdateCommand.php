@@ -58,11 +58,12 @@ class UpdateCommand extends Command
         $new_map->setExtensionDefaultType('wmz', 'application/x-msmetafile');
         $new_map->sort();
 
+        // Check if anything got changed.
         $write = false;
         try {
             $updater->compareMaps($current_map, $new_map, 'types');
         } catch (\RuntimeException $e) {
-            $output->writeln('<comment>Changes to MIME types mapping:'</comment>);
+            $output->writeln('<comment>Changes to MIME types mapping:</comment>');
             $output->writeln($e->getMessage());
             $write = true;
         }
@@ -74,8 +75,9 @@ class UpdateCommand extends Command
             $write = true;
         }
 
+        // If changed, save the new map to the PHP file.
         if ($write) {
-            $updater->writeMapToCodeFile($new_map->get(), $input->getArgument('output-file'));
+            $updater->writeMapToCodeFile($new_map, $input->getArgument('output-file'));
             $output->writeln('<comment>Code updated.</comment>');
         } else {
             $output->writeln('<info>No changes to mapping.</info>');
