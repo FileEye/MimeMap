@@ -325,7 +325,7 @@ class Type
 
     public function getExtensions($strict = true)
     {
-        $type = $this->toString(static::SHORT_TEXT));
+        $type = $this->toString(static::SHORT_TEXT);
 
         $map = new MapHandler();
         if (!isset($map->get()['types'][$type])) {
