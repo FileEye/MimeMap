@@ -86,7 +86,7 @@ class MapUpdater
         $old = $old_map->get();
         $new = $new_map->get();
 
-        $comparator = new ArrayComparatory();
+        $comparator = new ArrayComparator();
         try {
             $comparator->assertEquals($old[$section], $new[$section]);
             return true;
@@ -98,13 +98,23 @@ class MapUpdater
         }
     }
 
-    public function writeMapToCodeFile($map, $file)
+    /**
+     * Updates the map at a destination PHP file.
+     *
+     * @param MapHandler $map
+     *   The map.
+     * @param string $section
+     *   The destination PHP file.
+     *
+     * @return void
+     */
+    public function writeMapToCodeFile(MapHandler $map, $output_file)
     {
-        $new = preg_replace(
+        $content = preg_replace(
             '#public static \$map = (.+?);#s',
-            "public static \$map = " . var_export($map, true) . ";",
-            file_get_contents($file)
+            "public static \$map = " . var_export($map->get(), true) . ";",
+            file_get_contents($output_file)
         );
-        file_put_contents($file, $new);
+        file_put_contents($output_file, $content);
     }
 }

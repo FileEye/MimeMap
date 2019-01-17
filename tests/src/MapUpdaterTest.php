@@ -2,6 +2,7 @@
 
 namespace FileEye\MimeMap\test;
 
+use FileEye\MimeMap\MapHandler;
 use FileEye\MimeMap\MapUpdater;
 use PHPUnit\Framework\TestCase;
 
@@ -60,5 +61,13 @@ class MapUpdaterTest extends TestCase
         $map_a = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
         $map_b = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/some.mime-types.txt');
         $this->updater->compareMaps($map_a, $map_b, 'types');
+    }
+
+    public function testWriteMapToCodeFile()
+    {
+        MapHandler::setDefaultMapClass('\FileEye\MimeMap\test\TestMap\MiniMap');
+        $map_a = new MapHandler();
+        $map_b = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
+        $this->updater->writeMapToCodeFile(dirname(__FILE__) . '/TestMap/MiniMap.php');
     }
 }

@@ -42,7 +42,10 @@ class UpdateCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $current_map = new MapHandler();
         $updater = new MapUpdater();
+
+        // Loads the map from the source file.
         try {
             $new_map = $updater->createMapFromSourceFile($input->getArgument('source-url'));
         } catch (\RuntimeException $e) {
@@ -55,22 +58,22 @@ class UpdateCommand extends Command
         $new_map->setExtensionDefaultType('wmz', 'application/x-msmetafile');
         $new_map->sort();
 
-        $current_map = new MapHandler();
         $write = false;
         try {
             $updater->compareMaps($current_map, $new_map, 'types');
         } catch (\RuntimeException $e) {
-            $output->writeln('Changes to MIME types mapping:');
+            $output->writeln('<comment>Changes to MIME types mapping:'</comment>);
             $output->writeln($e->getMessage());
             $write = true;
         }
         try {
             $updater->compareMaps($current_map, $new_map, 'extensions');
         } catch (\RuntimeException $e) {
-            $output->writeln('Changes to extensions mapping:');
+            $output->writeln('<comment>Changes to extensions mapping:</comment>');
             $output->writeln($e->getMessage());
             $write = true;
         }
+
         if ($write) {
             $updater->writeMapToCodeFile($new_map->get(), $input->getArgument('output-file'));
             $output->writeln('<comment>Code updated.</comment>');
