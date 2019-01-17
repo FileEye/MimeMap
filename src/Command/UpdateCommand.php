@@ -55,7 +55,7 @@ class UpdateCommand extends Command
 
         // xx
         $new_map->setExtensionDefaultType('sub', 'text/vnd.dvb.subtitle');
-        $new_map->setExtensionDefaultType('wmz', 'application/x-msmetafile');
+        //$new_map->setExtensionDefaultType('wmz', 'application/x-msmetafile');
         $new_map->sort();
 
         // Check if anything got changed.
