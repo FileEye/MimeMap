@@ -20,7 +20,7 @@ class Type
     /**
      * Full format with comments [e.g. image/jpeg; p="1" (comment)] for strings.
      */
-    const FULL_TEXT = 1;
+    const FULL_TEXT_WITH_COMMENTS = 2;
 
     /**
      * The MIME media type.
@@ -325,8 +325,7 @@ class Type
 
     public function getExtensions($strict = true)
     {
-        // xx use tostring here
-        $type = $this->getMedia() . '/' . $this->getSubType();
+        $type = $this->toString(static::SHORT_TEXT));
 
         $map = new MapHandler();
         if (!isset($map->get()['types'][$type])) {
