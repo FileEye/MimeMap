@@ -93,6 +93,26 @@ class MapHandler
     }
 
     /**
+     * Lists all the MIME types defined in the map.
+     *
+     * @return string[]
+     */
+    public function listTypes()
+    {
+        return array_keys($this->map['types']);
+    }
+
+    /**
+     * Lists all the extensions defined in the map.
+     *
+     * @return string[]
+     */
+    public function listExtensions()
+    {
+        return array_keys($this->map['extensions']);
+    }
+
+    /**
      * Adds an entry to the map.
      *
      * Checks that no duplicate entries are made.
