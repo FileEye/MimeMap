@@ -22,7 +22,7 @@ class MapUpdater
     const DEFAULT_URL = 'http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=co';
 
     /**
-     * The defualt file where to write the map as PHP code.
+     * The default file where to write the map as PHP code.
      */
     const DEFAULT_CODE_FILE_NAME = 'TypeExtensionMap.php';
 
