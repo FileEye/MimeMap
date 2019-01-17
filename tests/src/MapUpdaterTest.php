@@ -84,4 +84,9 @@ class MapUpdaterTest extends TestCase
         $map_b = null;
         $this->fileSystem->remove(__DIR__ . '/../../src/Tests/MiniMap.php');
     }
+
+    public function testGetDefaultOverrideFile()
+    {
+        $this->assertContains('overrides.yml', MapUpdater::getDefaultOverrideFile());
+    }
 }
