@@ -55,7 +55,7 @@ class UpdateCommand extends Command
         }
 
         // xx
-        $commands = Yaml::parseFile('../../resources/overrides.yml');
+        $commands = Yaml::parseFile(__DIR__ . '/../../resources/overrides.yml');
 dump($commands);
         //$new_map->setExtensionDefaultType('sub', 'text/vnd.dvb.subtitle');
         //$new_map->setExtensionDefaultType('', '');

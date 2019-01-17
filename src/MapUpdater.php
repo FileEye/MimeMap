@@ -2,8 +2,8 @@
 
 namespace FileEye\MimeMap;
 
-use SebastianBergmann\Comparator\ArrayComparator;
 use SebastianBergmann\Comparator\ComparisonFailure;
+use SebastianBergmann\Comparator\Factory;
 use SebastianBergmann\Diff\Differ;
 use SebastianBergmann\Diff\Output\UnifiedDiffOutputBuilder;
 
@@ -86,7 +86,8 @@ class MapUpdater
         $old = $old_map->get();
         $new = $new_map->get();
 
-        $comparator = new ArrayComparator();
+        $factory = new Factory;
+        $comparator = $factory->getComparatorFor($old[$section], $new[$section]);
         try {
             $comparator->assertEquals($old[$section], $new[$section]);
             return true;
