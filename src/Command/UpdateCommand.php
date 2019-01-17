@@ -29,12 +29,6 @@ class UpdateCommand extends Command
                 'URL of the source map',
                 MapUpdater::DEFAULT_SOURCE_FILE
             )
-            ->addArgument(
-                'output-file',
-                InputArgument::OPTIONAL,
-                'Path to the directory of the mapper class PHP file',
-                MapUpdater::getDefaultCodeFilePath()
-            )
         ;
     }
 
@@ -83,7 +77,7 @@ class UpdateCommand extends Command
 
         // If changed, save the new map to the PHP file.
         if ($write) {
-            $updater->writeMapToCodeFile($new_map, $input->getArgument('output-file'));
+            $updater->writeMapToCodeFile($new_map, $current_map->getMapFileName());
             $output->writeln('<comment>Code updated.</comment>');
         } else {
             $output->writeln('<info>No changes to mapping.</info>');

@@ -22,16 +22,6 @@ class MapUpdater
     const DEFAULT_SOURCE_FILE = 'http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=co';
 
     /**
-     * The default file where to write the map as PHP code.
-     */
-    const DEFAULT_CODE_FILE_NAME = 'TypeExtensionMap.php';
-
-    public static function getDefaultCodeFilePath()
-    {
-        return dirname(__FILE__) . '/' . static::DEFAULT_CODE_FILE_NAME;
-    }
-
-    /**
      * Creates a new type-to-extension map reading from a file.
      *
      * @param string $source_file
