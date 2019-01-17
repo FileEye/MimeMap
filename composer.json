@@ -23,7 +23,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "FileEye\\MimeMap\\Test\\": "tests/"
+            "FileEye\\MimeMap\\Test\\": "tests/src/"
         }
     },
     "bin": ["bin/fileeye-mimemap"]

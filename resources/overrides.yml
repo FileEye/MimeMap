@@ -1,0 +1,6 @@
+-
+    - setExtensionDefaultType
+    - [sub, text/vnd.dvb.subtitle]
+-
+    - setExtensionDefaultType
+    - [wmz, application/x-msmetafile]
