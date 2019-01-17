@@ -52,6 +52,7 @@ class UpdateCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        MapHandler::setDefaultMapClass($input->getOption('class'));
         $current_map = new MapHandler();
         $updater = new MapUpdater();
 

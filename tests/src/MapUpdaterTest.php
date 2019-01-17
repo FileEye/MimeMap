@@ -2,7 +2,7 @@
 
 namespace FileEye\MimeMap\test;
 
-use Symfony\Component\Filesystem;
+use Symfony\Component\Filesystem\Filesystem;
 use FileEye\MimeMap\Extension;
 use FileEye\MimeMap\MapHandler;
 use FileEye\MimeMap\MapUpdater;
