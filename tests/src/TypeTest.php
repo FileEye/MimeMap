@@ -165,7 +165,7 @@ class TypeTest extends TestCase
                 [
                   'text/plain',
                   'text/plain; charset="utf-8"',
-                  'text/plain; charset="utf-8" (Charset=utf-8)',
+                  'text/plain; charset="utf-8" (Charset)',
                 ],
                 ['text', null],
                 ['plain', null],
@@ -179,7 +179,7 @@ class TypeTest extends TestCase
                 [
                   'text/plain',
                   'text/plain; charset="utf-8"',
-                  'text/plain; charset="utf-8" (Charset=utf-8)',
+                  'text/plain; charset="utf-8" (UTF8)',
                 ],
                 ['text', null],
                 ['plain', null],
@@ -193,7 +193,7 @@ class TypeTest extends TestCase
                 [
                   'text/plain',
                   'text/plain; charset="utf-8"',
-                  'text/plain; charset="utf-8" (Charset=utf-8)',
+                  'text/plain; charset="utf-8" (UTF-8 Plain Text)',
                 ],
                 ['text', null],
                 ['plain', null],
@@ -220,8 +220,8 @@ class TypeTest extends TestCase
                 'application/x-foobar;description="a \"quoted string\""',
                 [
                   'application/x-foobar',
-                  'application/x-foobar; description="bbgh(kdur"',
-                  'application/x-foobar; description="bbgh(kdur"',
+                  'application/x-foobar; description="a \"quoted string\""',
+                  'application/x-foobar; description="a \"quoted string\""',
                 ],
                 ['application', null],
                 ['x-foobar', null],
@@ -233,9 +233,9 @@ class TypeTest extends TestCase
             'text/xml;description=test' => [
                 'text/xml;description=test',
                 [
-                  'application/x-foobar',
-                  'application/x-foobar; description="bbgh(kdur"',
-                  'application/x-foobar; description="bbgh(kdur"',
+                  'text/xml',
+                  'text/xml; description="test"',
+                  'text/xml; description="test"',
                 ],
                 ['text', null],
                 ['xml', null],
@@ -247,9 +247,9 @@ class TypeTest extends TestCase
             'text/xml;one=test;two=three' => [
                 'text/xml;one=test;two=three',
                 [
-                  'application/x-foobar',
-                  'application/x-foobar; description="bbgh(kdur"',
-                  'application/x-foobar; description="bbgh(kdur"',
+                  'text/xml',
+                  'text/xml; one="test"; two="three"',
+                  'text/xml; one="test"; two="three"',
                 ],
                 ['text', null],
                 ['xml', null],
@@ -262,9 +262,9 @@ class TypeTest extends TestCase
             'text/xml; this="is"; a="parameter" (with a comment)' => [
                 'text/xml; this="is"; a="parameter" (with a comment)',
                 [
-                  'application/x-foobar',
-                  'application/x-foobar; description="bbgh(kdur"',
-                  'application/x-foobar; description="bbgh(kdur"',
+                  'text/xml',
+                  'text/xml; this="is"; a="parameter"',
+                  'text/xml; this="is"; a="parameter" (with a comment)',
                 ],
                 ['text', null],
                 ['xml', null],
@@ -278,9 +278,9 @@ class TypeTest extends TestCase
             'text/plain; charset="utf-8" (UTF/8)' => [
                 'text/plain; charset="utf-8" (UTF/8)',
                 [
-                  'application/x-foobar',
-                  'application/x-foobar; description="bbgh(kdur"',
-                  'application/x-foobar; description="bbgh(kdur"',
+                  'text/plain',
+                  'text/plain; charset="utf-8"',
+                  'text/plain; charset="utf-8" (UTF/8)',
                 ],
                 ['text', null],
                 ['plain', null],
@@ -292,9 +292,9 @@ class TypeTest extends TestCase
             'appf/xml; a=b; b="parameter" (with; a comment)   ;c=d;  e=f (;) ;   g=h   ' => [
                 'appf/xml; a=b; b="parameter" (with; a comment)   ;c=d;  e=f (;) ;   g=h   ',
                 [
-                  'application/x-foobar',
-                  'application/x-foobar; description="bbgh(kdur"',
-                  'application/x-foobar; description="bbgh(kdur"',
+                  'appf/xml',
+                  'appf/xml; a="b"; b="parameter"; c="d"; e="f; g="h"',
+                  'appf/xml; a="b"; b="parameter" (with; a comment); c="d"; e="f" (;); g="h"',
                 ],
                 ['appf', null],
                 ['xml', null],
@@ -310,9 +310,9 @@ class TypeTest extends TestCase
             'text/(abc)def(ghi)' => [
                 'text/(abc)def(ghi)',
                 [
-                  'application/x-foobar',
-                  'application/x-foobar; description="bbgh(kdur"',
-                  'application/x-foobar; description="bbgh(kdur"',
+                  'text/def',
+                  'text/def',
+                  'text/def (abc ghi)',
                 ],
                 ['text', null],
                 ['def', 'abc ghi'],
@@ -322,9 +322,9 @@ class TypeTest extends TestCase
             'text/(abc)def' => [
                 'text/(abc)def',
                 [
-                  'application/x-foobar',
-                  'application/x-foobar; description="bbgh(kdur"',
-                  'application/x-foobar; description="bbgh(kdur"',
+                  'text/def',
+                  'text/def',
+                  'text/def (abc)',
                 ],
                 ['text', null],
                 ['def', 'abc'],
@@ -334,9 +334,9 @@ class TypeTest extends TestCase
             'text/def(ghi)' => [
                 'text/def(ghi)',
                 [
-                  'application/x-foobar',
-                  'application/x-foobar; description="bbgh(kdur"',
-                  'application/x-foobar; description="bbgh(kdur"',
+                  'text/def',
+                  'text/def',
+                  'text/def (ghi)',
                 ],
                 ['text', null],
                 ['def', 'ghi'],
@@ -346,9 +346,9 @@ class TypeTest extends TestCase
             'text/plain;a=(\)abc)def(\()' => [
                 'text/plain;a=(\)abc)def(\()',
                 [
-                  'application/x-foobar',
-                  'application/x-foobar; description="bbgh(kdur"',
-                  'application/x-foobar; description="bbgh(kdur"',
+                  'text/plain',
+                  'text/plain; a="def"',
+                  'text/plain; a="def" (\)abc \()',
                 ],
                 ['text', null],
                 ['plain', null],
@@ -360,9 +360,9 @@ class TypeTest extends TestCase
             'text/plain;a=\\foo(abc)' => [
                 'text/plain;a=\\foo(abc)',
                 [
-                  'application/x-foobar',
-                  'application/x-foobar; description="bbgh(kdur"',
-                  'application/x-foobar; description="bbgh(kdur"',
+                  'text/plain',
+                  'text/plain; a="foo"',
+                  'text/plain; a="foo" (abc)',
                 ],
                 ['text', null],
                 ['plain', null],
@@ -374,9 +374,9 @@ class TypeTest extends TestCase
             'text/plain;a=(a"bc\)def")def' => [
                 'text/plain;a=(a"bc\)def")def',
                 [
-                  'application/x-foobar',
-                  'application/x-foobar; description="bbgh(kdur"',
-                  'application/x-foobar; description="bbgh(kdur"',
+                  'text/plain',
+                  'text/plain; a="def"',
+                  'text/plain; a="def" (a"bc\)def")',
                 ],
                 ['text', null],
                 ['plain', null],
@@ -388,9 +388,9 @@ class TypeTest extends TestCase
             'text/plain;a="(abc)def"' => [
                 'text/plain;a="(abc)def"',
                 [
-                  'application/x-foobar',
-                  'application/x-foobar; description="bbgh(kdur"',
-                  'application/x-foobar; description="bbgh(kdur"',
+                  'text/plain',
+                  'text/plain; a="(abc)def"',
+                  'text/plain; a="(abc)def"',
                 ],
                 ['text', null],
                 ['plain', null],
