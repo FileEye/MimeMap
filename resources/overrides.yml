@@ -10,9 +10,3 @@
 -
     - setExtensionDefaultType
     - [wmz, application/x-msmetafile]
--
-    - removeType
-    - [text/plain]
--
-    - addMapping
-    - [bar/foo, beserk]

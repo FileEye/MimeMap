@@ -41,7 +41,7 @@ class UpdateCommand extends Command
                 'class',
                 null,
                 InputOption::VALUE_REQUIRED,
-                'URL or filename of the source map',
+                'The Fully Qualified Class Name of the PHP class storing the map',
                 MapHandler::DEFAULT_MAP_CLASS
             )
         ;

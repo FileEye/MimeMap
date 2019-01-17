@@ -12,6 +12,7 @@
         "squizlabs/php_codesniffer": "*",
         "sebastian/comparator": "*",
         "sebastian/diff": "*",
+        "symfony/filesystem": "*",
         "symfony/framework-bundle": "*",
         "symfony/console": "*",
         "symfony/var-dumper": "*",

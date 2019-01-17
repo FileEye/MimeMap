@@ -2,6 +2,7 @@
 
 namespace FileEye\MimeMap\test;
 
+use Symfony\Component\Filesystem;
 use FileEye\MimeMap\Extension;
 use FileEye\MimeMap\MapHandler;
 use FileEye\MimeMap\MapUpdater;
@@ -67,27 +68,16 @@ class MapUpdaterTest extends TestCase
 
     public function testWriteMapToCodeFile()
     {
+        $this->fileSystem->copy(__DIR__ . '/../../../src/Tests/MiniMap.php.test', __DIR__ . '/../../../src/Tests/MiniMap.php');
         MapHandler::setDefaultMapClass('\FileEye\MimeMap\Tests\MiniMap');
-        $this->assertSame('application/octet-stream', (new Extension('txt'))->getDefaultType(false));
         $map_a = new MapHandler();
         $this->assertNotContains('text/plain', file_get_contents($map_a->getMapFileName()));
         $map_b = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
         $this->updater->writeMapToCodeFile($map_b, $map_a->getMapFileName());
-        if (function_exists('opcache_reset')) {
-            opcache_reset();
-        }
-        if (function_exists('apc_clear_cache')) {
-            apc_clear_cache();
-        }
-        if (function_exists('apcu_clear_cache')) {
-            apcu_clear_cache();
-        }
-        if (function_exists('wincache_ucache_clear')) {
-            wincache_ucache_clear();
-        }
-        if (function_exists('xcache_clear_cache')) {
-            xcache_clear_cache();
-        }
         $this->assertContains('text/plain', file_get_contents($map_a->getMapFileName()));
+        $map_a = null;
+        $map_b = null;
+        $this->assertSame('text/plain', (new Extension('txt'))->getDefaultType());
+        $this->fileSystem->remove(__DIR__ . '/../../../src/Tests/MiniMap.php');
     }
 }
