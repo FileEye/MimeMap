@@ -6,6 +6,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Yaml\Yaml;
 use FileEye\MimeMap\MapUpdater;
 use FileEye\MimeMap\MapHandler;
 
@@ -54,9 +55,14 @@ class UpdateCommand extends Command
         }
 
         // xx
-        $new_map->setExtensionDefaultType('sub', 'text/vnd.dvb.subtitle');
-        //$new_map->setExtensionDefaultType('wmz', 'application/x-msmetafile');
-        $new_map->sort();
+        $commands = [
+            ['setExtensionDefaultType', ['sub', 'text/vnd.dvb.subtitle']],
+            ['setExtensionDefaultType', ['wmz', 'application/x-msmetafile']],
+        ];
+dump(Yaml::dump($commands));
+        //$new_map->setExtensionDefaultType('sub', 'text/vnd.dvb.subtitle');
+        //$new_map->setExtensionDefaultType('', '');
+        //$new_map->sort();
 
         // Check if anything got changed.
         $write = false;
