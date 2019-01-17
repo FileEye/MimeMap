@@ -64,18 +64,23 @@ class MapUpdater
         return $map;
     }
 
-    public function compareMaps(array $current_map, array $new_map, $key)
+    public function compareMaps(MapHandler $old_map, MapHandler $new_map, $key)
     {
+        $old_map->sort();
+        $new_map->sort();
+        $old = $old_map->get();
+        $new = $new_map->get();
+
         $factory = new Factory;
-        $comparator = $factory->getComparatorFor($current_map[$key], $new_map[$key]);
+        $comparator = $factory->getComparatorFor($old[$key], $new[$key]);
         try {
-            $comparator->assertEquals($current_map[$key], $new_map[$key]);
+            $comparator->assertEquals($old[$key], $new[$key]);
             return true;
         } catch (ComparisonFailure $failure) {
-            $current_map_string = var_export($current_map[$key], true);
-            $new_map_string = var_export($new_map[$key], true);
+            $old_string = var_export($old[$key], true);
+            $new_string = var_export($new[$key], true);
             $differ = new Differ(new UnifiedDiffOutputBuilder("--- Removed\n+++ Added\n"));
-            throw new \RuntimeException($differ->diff($current_map_string, $new_map_string));
+            throw new \RuntimeException($differ->diff($old_string, $new_string));
         }
     }
 

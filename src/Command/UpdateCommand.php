@@ -44,7 +44,7 @@ class UpdateCommand extends Command
     {
         $updater = new MapUpdater();
         try {
-            $new_map = $updater->createMapFromSourceFile($input->getArgument('source-url'))
+            $new_map = $updater->createMapFromSourceFile($input->getArgument('source-url'));
         } catch (\RuntimeException $e) {
             $output->writeln('<error>' . $e->getMessage() . '</error>');
             exit(2);
@@ -58,14 +58,14 @@ class UpdateCommand extends Command
         $current_map = new MapHandler();
         $write = false;
         try {
-            $updater->compareMaps($current_map->get(), $new_map->get(), 'types');
+            $updater->compareMaps($current_map, $new_map, 'types');
         } catch (\RuntimeException $e) {
             $output->writeln('Changes to MIME types mapping:');
             $output->writeln($e->getMessage());
             $write = true;
         }
         try {
-            $updater->compareMaps($current_map->get(), $new_map->get(), 'extensions');
+            $updater->compareMaps($current_map, $new_map, 'extensions');
         } catch (\RuntimeException $e) {
             $output->writeln('Changes to extensions mapping:');
             $output->writeln($e->getMessage());
