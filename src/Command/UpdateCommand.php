@@ -3,7 +3,7 @@
 namespace FileEye\MimeMap\Command;
 
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Yaml\Yaml;
@@ -22,12 +22,27 @@ class UpdateCommand extends Command
     {
         $this
             ->setName('update')
-            ->setDescription('Updates the MIME-type-to-extension map.')
-            ->addArgument(
-                'source-url',
-                InputArgument::OPTIONAL,
-                'URL of the source map',
+            ->setDescription('Updates the MIME-type-to-extension map. Reads the source file specified by --source, applies any overrides specified in the file at --override, then writes the map to the PHP file where the PHP --class is defined.')
+            ->addOption(
+                'source',
+                null,
+                InputOption::VALUE_REQUIRED,
+                'URL or filename of the source map',
                 MapUpdater::DEFAULT_SOURCE_FILE
+            )
+            ->addOption(
+                'override',
+                null,
+                InputOption::VALUE_REQUIRED,
+                'URL or filename of the override commands to execute',
+                MapUpdater::getDefaultOverrideFile()
+            )
+            ->addOption(
+                'class',
+                null,
+                InputOption::VALUE_REQUIRED,
+                'The Fully Qualified Class Name of the PHP class storing the map',
+                MapHandler::DEFAULT_MAP_CLASS
             )
         ;
     }
@@ -37,22 +52,25 @@ class UpdateCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        MapHandler::setDefaultMapClass($input->getOption('class'));
         $current_map = new MapHandler();
         $updater = new MapUpdater();
 
         // Loads the map from the source file.
         try {
-            $new_map = $updater->createMapFromSourceFile($input->getArgument('source-url'));
+            $new_map = $updater->createMapFromSourceFile($input->getOption('source'));
         } catch (\RuntimeException $e) {
             $output->writeln('<error>' . $e->getMessage() . '</error>');
             exit(2);
         }
 
-        // xx
-        $content = file_get_contents(dirname(__FILE__) . '/../../resources/overrides.yml');
-        $commands = Yaml::parse($content);
-        foreach ($commands as $command) {
-            call_user_func_array([$new_map, $command[0]], $command[1]);
+        // Applies the overrides.
+        try {
+            $content = file_get_contents($input->getOption('override'));
+            $updater->applyOverrides($new_map, Yaml::parse($content));
+        } catch (\Exception $e) {
+            $output->writeln('<error>' . $e->getMessage() . '</error>');
+            exit(2);
         }
 
         // Check if anything got changed.
@@ -60,14 +78,14 @@ class UpdateCommand extends Command
         try {
             $updater->compareMaps($current_map, $new_map, 'types');
         } catch (\RuntimeException $e) {
-            $output->writeln('<comment>Changes to MIME types mapping:</comment>');
+            $output->writeln('<comment>Changes to MIME types mapping</comment>');
             $output->writeln($e->getMessage());
             $write = true;
         }
         try {
             $updater->compareMaps($current_map, $new_map, 'extensions');
         } catch (\RuntimeException $e) {
-            $output->writeln('<comment>Changes to extensions mapping:</comment>');
+            $output->writeln('<comment>Changes to extensions mapping</comment>');
             $output->writeln($e->getMessage());
             $write = true;
         }

@@ -448,7 +448,7 @@ class TypeTest extends TestCase
      */
     public function testParseMalformed($type)
     {
-        $mt = new Type($type);
+        new Type($type);
     }
 
     public function testParseAgain()
@@ -508,8 +508,7 @@ class TypeTest extends TestCase
 
     public function testRemoveParameter()
     {
-        $mt = new Type('image/png; foo=bar');
-        $mt->addParameter('baz', 'val', 'this is a comment');
+        $mt = new Type('image/png; foo=bar;baz=val(this is a comment)');
         $mt->removeParameter('foo');
         $res = $mt->toString(Type::FULL_TEXT_WITH_COMMENTS);
         $this->assertNotContains('foo=', $res);

@@ -2,7 +2,7 @@
 
 namespace FileEye\MimeMap\test;
 
-use FileEye\MimeMap\Extension;
+use Symfony\Component\Filesystem\Filesystem;
 use FileEye\MimeMap\MapHandler;
 use FileEye\MimeMap\MapUpdater;
 use PHPUnit\Framework\TestCase;
@@ -14,10 +14,12 @@ use PHPUnit\Framework\TestCase;
 class MapUpdaterTest extends TestCase
 {
     protected $updater;
+    protected $fileSystem;
 
     public function setUp()
     {
         $this->updater = new MapUpdater();
+        $this->fileSystem = new Filesystem();
     }
 
     public function testCreateMapFromSourceFile()
@@ -67,27 +69,22 @@ class MapUpdaterTest extends TestCase
 
     public function testWriteMapToCodeFile()
     {
+        $this->fileSystem->copy(__DIR__ . '/../../src/Tests/MiniMap.php.test', __DIR__ . '/../../src/Tests/MiniMap.php');
         MapHandler::setDefaultMapClass('\FileEye\MimeMap\Tests\MiniMap');
-        $this->assertSame('application/octet-stream', (new Extension('txt'))->getDefaultType(false));
         $map_a = new MapHandler();
         $this->assertNotContains('text/plain', file_get_contents($map_a->getMapFileName()));
         $map_b = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
+        $this->updater->applyOverrides($map_b, [['addMapping', ['bing/bong', 'binbon']]]);
         $this->updater->writeMapToCodeFile($map_b, $map_a->getMapFileName());
-        if (function_exists('opcache_reset')) {
-            opcache_reset();
-        }
-        if (function_exists('apc_clear_cache')) {
-            apc_clear_cache();
-        }
-        if (function_exists('apcu_clear_cache')) {
-            apcu_clear_cache();
-        }
-        if (function_exists('wincache_ucache_clear')) {
-            wincache_ucache_clear();
-        }
-        if (function_exists('xcache_clear_cache')) {
-            xcache_clear_cache();
-        }
-        $this->assertContains('text/plain', file_get_contents($map_a->getMapFileName()));
+        $content = file_get_contents($map_a->getMapFileName());
+        $this->assertContains('text/plain', $content);
+        $this->assertContains('bing/bong', $content);
+        $this->assertContains('binbon', $content);
+        $this->fileSystem->remove(__DIR__ . '/../../src/Tests/MiniMap.php');
+    }
+
+    public function testGetDefaultOverrideFile()
+    {
+        $this->assertContains('overrides.yml', MapUpdater::getDefaultOverrideFile());
     }
 }
