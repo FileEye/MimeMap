@@ -10,7 +10,7 @@ class MiniMap
     /**
      * Returns this file's full qualified filename.
      *
-     * @return $string
+     * @return string
      */
     public static function getFileName()
     {

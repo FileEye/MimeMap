@@ -99,7 +99,7 @@ class MapUpdater
      *
      * @param MapHandler $map
      *   The map.
-     * @param string $section
+     * @param string $output_file
      *   The destination PHP file.
      *
      * @return void
