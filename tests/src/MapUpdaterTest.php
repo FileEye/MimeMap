@@ -72,6 +72,9 @@ class MapUpdaterTest extends TestCase
         $map_a = new MapHandler();
         $map_b = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
         $this->updater->writeMapToCodeFile($map_b, $map_a->getMapFileName());
+        opcache_reset();
+        apc_clear_cache();
+        apcu_clear_cache();
         $this->assertSame('text/plain', (new Extension('txt'))->getDefaultType());
     }
 }
