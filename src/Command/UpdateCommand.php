@@ -55,11 +55,8 @@ class UpdateCommand extends Command
         }
 
         // xx
-        $commands = [
-            ['setExtensionDefaultType', ['sub', 'text/vnd.dvb.subtitle']],
-            ['setExtensionDefaultType', ['wmz', 'application/x-msmetafile']],
-        ];
-dump(Yaml::dump($commands));
+        $commands = Yaml::parseFile('../../resources/overrides.yml');
+dump($commands);
         //$new_map->setExtensionDefaultType('sub', 'text/vnd.dvb.subtitle');
         //$new_map->setExtensionDefaultType('', '');
         //$new_map->sort();
