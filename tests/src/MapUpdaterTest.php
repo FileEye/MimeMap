@@ -7,6 +7,7 @@ use FileEye\MimeMap\MapUpdater;
 use PHPUnit\Framework\TestCase;
 
 /**
+ * @coversDefaultClass \FileEye\MimeMap\MapUpdater
  * @backupStaticAttributes enabled
  */
 class MapUpdaterTest extends TestCase
@@ -68,6 +69,6 @@ class MapUpdaterTest extends TestCase
         MapHandler::setDefaultMapClass('\FileEye\MimeMap\Tests\MiniMap');
         $map_a = new MapHandler();
         $map_b = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
-        $this->updater->writeMapToCodeFile(dirname(__FILE__) . '/TestMap/MiniMap.php');
+        $this->updater->writeMapToCodeFile($map_b, $map_a->getMapFileName());
     }
 }

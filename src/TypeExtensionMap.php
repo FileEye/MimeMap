@@ -8,6 +8,15 @@ namespace FileEye\MimeMap;
 class TypeExtensionMap
 {
     /**
+     * Returns this file's full qualified filename.
+     *
+     * @return $string
+     */
+    public static getFileName() {
+        return __FILE__;
+    }
+
+    /**
      * Mapping between file extensions and MIME types.
      *
      * The array has two main keys, 'types' that maps MIME types to file

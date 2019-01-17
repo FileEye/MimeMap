@@ -60,6 +60,17 @@ class MapHandler
     }
 
     /**
+     * Returns the filename of the PHP file where the map is loaded from.
+     *
+     * @return string
+     */
+    public function getMapFileName()
+    {
+        $map_class = static::$mapClass;
+        return $map_class::getFileName();
+    }
+
+    /**
      * Returns the map associated with this instance.
      *
      * @return array
