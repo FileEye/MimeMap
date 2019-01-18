@@ -8,11 +8,11 @@ namespace FileEye\MimeMap;
 class TypeExtensionMap extends AbstractMap
 {
     /**
-     * Returns this file's full qualified filename.
+     * Returns this file's fully qualified filename.
      *
      * @return string
      */
-    public static function getFileName()
+    public function getFileName()
     {
         return __FILE__;
     }
