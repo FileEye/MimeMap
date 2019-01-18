@@ -84,6 +84,35 @@ abstract class AbstractMap
     }
 
     /**
+     * Gets the content of an entry from the 'extensions' array.
+     *
+     * @param string $extension The extension to be found.
+     *
+     * @return string[] The mapped MIME types.
+     */
+    public function getExtension($extension)
+    {
+        $res = $this->getMapEntry('extensions', $extension);
+        return $res ?: [];
+    }
+
+    /**
+     * Gets the content of an entry of the map.
+     *
+     * @param string $key
+     *   The main array key.
+     * @param string $entry
+     *   The sub array key.
+     *
+     * @return mixed|null
+     *   The value of the entry, or null if missing.
+     */
+    protected function getMapEntry($key, $entry)
+    {
+        return isset(static::$map[$key][$entry]) ? static::$map[$key][$entry] : null;
+    }
+
+    /**
      * Adds an entry to the map.
      *
      * Checks that no duplicate entries are made.

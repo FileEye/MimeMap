@@ -55,14 +55,14 @@ class Extension
      */
     public function getTypes($strict = true)
     {
-        $map = new MapHandler();
-        if (!isset($map->get()['extensions'][$this->extension])) {
+        $types = (new MapHandler())->getMap()->getExtension($this->extension);
+        if (empty($types)) {
             if ($strict) {
                 throw new MappingException('No MIME type mapped to extension ' . $this->extension);
             } else {
                 return ['application/octet-stream'];
             }
         }
-        return $map->get()['extensions'][$this->extension];
+        return $types;
     }
 }
