@@ -373,7 +373,7 @@ class Type
         $types = [];
         if (!$this->isWildcard()) {
             if ($map_handler->getMap()->hasType($subject)) {
-                $types[] = $map_handler->getMap()->getType($subject);
+                $types[] = $subject;
             }
         } else {
             foreach ($map_handler->getMap()->listTypes($subject) as $t) {
