@@ -279,7 +279,10 @@ class Type
             return false;
         }
 
-        $wildcard_re = str_replace('*', '.*', $wildcard_type->toString(static::SHORT_TEXT));
+        $wildcard_re = strtr($wildcard_type->toString(static::SHORT_TEXT), [
+            '/' => '\\/',
+            '*' => '.*',
+        ]);
         $subject = $wildcard_type->toString(static::SHORT_TEXT);
 dump([$wildcard_re, $subject]);
 
