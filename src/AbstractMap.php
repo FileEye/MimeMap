@@ -146,7 +146,7 @@ abstract class AbstractMap
      */
     protected function getMapEntry($key, $entry)
     {
-dump([$key, $entry]):
+dump([$key, $entry]);
         return isset(static::$map[$key][$entry]) ? static::$map[$key][$entry] : null;
     }
 
