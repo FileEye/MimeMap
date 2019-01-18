@@ -335,7 +335,7 @@ class Type
         if (!$this->isWildcard()) {
             $proceed = isset($map->get()['types'][$subject]);
         } else {
-            $proceed = (count($map->listTypes($subject)) !== 1);
+            $proceed = count($map->listTypes($subject)) === 1;
         }
 
         if (!$proceed) {
