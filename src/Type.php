@@ -387,11 +387,12 @@ class Type
 dump($types);
         $extensions = [];
         foreach ($types as $t) {
-            foreach ($t as $e) {
+            foreach ($map->get()['types'][$t] as $e) {
                 $extensions[$e] = $e;
             }
         }
 
+dump($extensions);
         return array_keys($extensions);
     }
 }
