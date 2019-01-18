@@ -532,7 +532,10 @@ class TypeTest extends TestCase
     public function getDefaultExtensionFailProvider()
     {
         return [
+            ['*/*'],
             ['n/n'],
+            ['image/*'],
+            ['application/java*'],
         ];
     }
 

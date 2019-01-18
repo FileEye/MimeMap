@@ -284,7 +284,7 @@ class Type
             '*' => '.*',
         ]);
         $subject = $this->toString(static::SHORT_TEXT);
-
+dump([$wildcard_re, $subject]);
         return preg_match("/$wildcard_re/", $subject) === 1;
     }
 
@@ -329,7 +329,7 @@ class Type
     public function getDefaultExtension($strict = true)
     {
         if ($this->isWildcard()) {
-            throw new MappingException('Cannot determine default extension for multiple types ' . $type . ' selected');
+            throw new MappingException('Cannot determine single default extension when multiple types selected: ' . $type);
         }
 
         $extensions = $this->getExtensions($strict);
