@@ -283,8 +283,7 @@ class Type
             '/' => '\\/',
             '*' => '.*',
         ]);
-        $subject = $wildcard_type->toString(static::SHORT_TEXT);
-dump([$wildcard_re, $subject]);
+        $subject = $this->toString(static::SHORT_TEXT);
 
         return preg_match("/$wildcard_re/", $subject) === 1;
     }
@@ -329,6 +328,10 @@ dump([$wildcard_re, $subject]);
      */
     public function getDefaultExtension($strict = true)
     {
+        if ($this->isWildcard()) {
+            throw new MappingException('Cannot determine default extension for multiple types ' . $type . ' selected');
+        }
+
         $extensions = $this->getExtensions($strict);
         return isset($extensions[0]) ? $extensions[0] : null;
     }
@@ -347,16 +350,28 @@ dump([$wildcard_re, $subject]);
      */
     public function getExtensions($strict = true)
     {
-        $type = $this->toString(static::SHORT_TEXT);
-
         $map = new MapHandler();
-        if (!isset($map->get()['types'][$type])) {
-            if ($strict) {
-                throw new MappingException('MIME type ' . $type . ' not found in map');
-            } else {
-                return [];
+
+        $types = [];
+        if ($this->isWildcard()) {
+            throw new MappingException('Cannot determine default extension for multiple types ' . $type . ' selected');
+        } else {
+            $type = $this->toString(static::SHORT_TEXT);
+            if (!isset($map->get()['types'][$type])) {
+                if ($strict) {
+                    throw new MappingException('MIME type ' . $type . ' not found in map');
+                } else {
+                    return [];
+                }
             }
+            $types[] = $type;
         }
-        return $map->get()['types'][$type];
+
+        $extensions = [];
+        foreach ($types as $t) {
+            $extensions += $map->get()['types'][$t];
+        }
+
+        return $extensions;
     }
 }
