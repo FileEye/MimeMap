@@ -138,8 +138,8 @@ class MapUpdater
     public function writeMapToCodeFile(MapHandler $map, $output_file)
     {
         $content = preg_replace(
-            '#public static \$map = (.+?);#s',
-            "public static \$map = " . var_export($map->get(), true) . ";",
+            '#protected static \$map = (.+?);#s',
+            "protected static \$map = " . var_export($map->get(), true) . ";",
             file_get_contents($output_file)
         );
         file_put_contents($output_file, $content);

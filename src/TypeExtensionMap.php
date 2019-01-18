@@ -5,7 +5,7 @@ namespace FileEye\MimeMap;
 /**
  * Class for mapping file extensions to MIME types.
  */
-class TypeExtensionMap
+class TypeExtensionMap extends AbstractMap
 {
     /**
      * Returns this file's full qualified filename.
@@ -37,7 +37,7 @@ class TypeExtensionMap
      * @var array
      */
     // phpcs:disable
-    public static $map = array (
+    protected static $map = array (
   'types' =>
   array (
     'application/andrew-inset' =>
