@@ -284,7 +284,7 @@ class Type
             '*' => '.*',
         ]);
         $subject = $this->toString(static::SHORT_TEXT);
-dump([$wildcard_re, $subject]);
+
         return preg_match("/$wildcard_re/", $subject) === 1;
     }
 
@@ -328,16 +328,24 @@ dump([$wildcard_re, $subject]);
      */
     public function getDefaultExtension($strict = true)
     {
-        if ($this->isWildcard()) {
-            throw new MappingException('Cannot determine single default extension when multiple types selected: ' . $this->toString(static::SHORT_TEXT));
+        $extensions = $this->getExtensions(false);
+
+        if (empty($extensions)) {
+            if ($strict) {
+                throw new MappingException('Cannot determine default extension for type: ' . $this->toString(static::SHORT_TEXT));
+            } else {
+                return null;
+            }
         }
 
-        $extensions = $this->getExtensions($strict);
-        return isset($extensions[0]) ? $extensions[0] : null;
+        return $extensions[0];
     }
 
     /**
-     * Returns all the file extensions related to the MIME type.
+     * Returns all the file extensions related to the MIME type(s).
+     *
+     * If the current type is a wildcard, than all extensions of all the
+     * types matching the wildcard will be returned.
      *
      * @param bool $strict
      *   (Optional) if true a MappingException is thrown when no mapping is
@@ -351,22 +359,36 @@ dump([$wildcard_re, $subject]);
     public function getExtensions($strict = true)
     {
         $map = new MapHandler();
+        $subject = $this->toString(static::SHORT_TEXT);
 
+        // Find all types.
         $types = [];
-        if ($this->isWildcard()) {
-            throw new MappingException('Cannot determine default extension for multiple types ' . $type . ' selected');
+        if (!$this->isWildcard()) {
+            if (isset($map->get()['types'][$subject])) {
+                $types[] = $subject;
+            }
         } else {
-            $type = $this->toString(static::SHORT_TEXT);
-            if (!isset($map->get()['types'][$type])) {
-                if ($strict) {
-                    throw new MappingException('MIME type ' . $type . ' not found in map');
-                } else {
-                    return [];
+            $wildcard_re = strtr($subject, [
+                '/' => '\\/',
+                '*' => '.*',
+            ]);
+            foreach ($map->listTypes() as $t) {
+                if (preg_match("/$wildcard_re/", $t) === 1) {
+                    $types[] = $t;
                 }
             }
-            $types[] = $type;
         }
 
+        // No types found, throw exception or return emtpy array.
+        if (empty($types)) {
+            if ($strict) {
+                throw new MappingException('No MIME type found for ' . $type . ' in map');
+            } else {
+                return [];
+            }
+        }
+
+        // Build the array of extensions.
         $extensions = [];
         foreach ($types as $t) {
             $extensions += $map->get()['types'][$t];

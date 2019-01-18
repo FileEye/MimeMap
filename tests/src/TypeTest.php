@@ -520,6 +520,15 @@ class TypeTest extends TestCase
         $this->assertSame('image/png; baz="val" (this is a comment)', $res);
     }
 
+    public function testGetExtensions()
+    {
+        $this->assertEquals(['atom'], (new Type('application/atom+xml'))->getExtensions());
+        $this->assertEquals(['jar', 'ser', 'class', 'js'], (new Type('application/java*'))->getExtensions());
+        $this->assertEquals(['jar', 'ser', 'class'], (new Type('application/java-*'))->getExtensions());
+        $this->assertEquals([], (new Type('application/a000'))->getExtensions(false));
+        $this->assertEquals([], (new Type('application/a000-*'))->getExtensions(false));
+    }
+
     public function testGetDefaultExtension()
     {
         $this->assertEquals('atom', (new Type('application/atom+xml'))->getDefaultExtension());
