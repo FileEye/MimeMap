@@ -107,7 +107,7 @@ class MapHandler
             return $list;
         } else {
             $re = strtr($match, ['/' => '\\/', '*' => '.*']);
-            return array_filter($list, function($v) {
+            return array_filter($list, function($v) use($re) {
                 return preg_match("/$re/", $v) === 1;
             });
         }
