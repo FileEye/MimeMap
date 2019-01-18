@@ -368,14 +368,9 @@ class Type
                 $types[] = $subject;
             }
         } else {
-            $wildcard_re = strtr($subject, [
-                '/' => '\\/',
-                '*' => '.*',
-            ]);
-            foreach ($map->listTypes() as $t) {
-                if (preg_match("/$wildcard_re/", $t) === 1) {
-                    $types[] = $t;
-                }
+dump([$subject, $map->listTypes($subject)]);
+            foreach ($map->listTypes($subject) as $t) {
+                $types[] = $t;
             }
         }
 

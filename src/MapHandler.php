@@ -95,11 +95,22 @@ class MapHandler
     /**
      * Lists all the MIME types defined in the map.
      *
+     * @param string $match (Optional) a match wildcard to limit the list.
+     *
      * @return string[]
      */
-    public function listTypes()
+    public function listTypes($match = null)
     {
-        return array_keys($this->map['types']);
+        $list = array_keys($this->map['types']);
+
+        if (is_null($match)) {
+            return $list;
+        } else {
+            $re = strtr($match, ['/' => '\\/', '*' => '.*']);
+            return array_filter($list, function($v) {
+                return preg_match("/$re/", $v) === 1
+            });
+        }
     }
 
     /**
