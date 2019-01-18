@@ -331,8 +331,14 @@ class Type
         $map = new MapHandler();
         $subject = $this->toString(static::SHORT_TEXT);
 
-dump([$subject, $map->listTypes($subject)]);
-        if (count($map->listTypes($subject)) !== 1) {
+        $proceed = false;
+        if (!$this->isWildcard()) {
+            $proceed = isset($map->get()[$types][$subject]);
+        } else {
+            $proceed = (count($map->listTypes($subject)) !== 1);
+        }
+
+        if (!$proceed) {
             if ($strict) {
                 throw new MappingException('Cannot determine default extension for type: ' . $this->toString(static::SHORT_TEXT));
             } else {
