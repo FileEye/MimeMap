@@ -84,6 +84,43 @@ abstract class AbstractMap
     }
 
     /**
+     * Determines if an entry exists form the 'types' array.
+     *
+     * @param string $type The type to be found.
+     *
+     * @return bool
+     */
+    public function hasType($type)
+    {
+        return (bool) $this->getType($type);
+    }
+
+    /**
+     * Gets the content of an entry from the 'types' array.
+     *
+     * @param string $type The extension to be found.
+     *
+     * @return string[] The mapped file extensions.
+     */
+    public function getType($type)
+    {
+        $res = $this->getMapEntry('types', $type);
+        return $res ?: [];
+    }
+
+    /**
+     * Determines if an entry exists form the 'extensions' array.
+     *
+     * @param string $extension The extension to be found.
+     *
+     * @return bool
+     */
+    public function hasExtension($extension)
+    {
+        return (bool) $this->getExtension($extension);
+    }
+
+    /**
      * Gets the content of an entry from the 'extensions' array.
      *
      * @param string $extension The extension to be found.
