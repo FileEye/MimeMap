@@ -16,7 +16,7 @@ class MapHandlerTest extends TestCase
 
     public function setUp()
     {
-        $this->map = new MapHandler();
+        $this->map = (new MapHandler())->getMap();
     }
 
     public function testSort()
