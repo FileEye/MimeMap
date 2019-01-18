@@ -254,8 +254,7 @@ class Type
      */
     public function isWildcard()
     {
-        // xxx also if a subtype can be submatched i.e. vnd.ms-excel.*
-        if (($this->getMedia() === '*' && $this->getSubtype() === '*') || $this->getSubtype() === '*') {
+        if (($this->getMedia() === '*' && $this->getSubtype() === '*') || strpos($this->getSubtype(), '*') !== false) {
             return true;
         }
         return false;
@@ -268,27 +267,23 @@ class Type
      * $type = new Type('image/png');
      * $type->wildcardMatch('image/*');
      *
-     * @param string $card Wildcard to check against
+     * @param string $wildcard Wildcard to check against
      *
      * @return boolean true if there was a match, false otherwise
      */
-    public function wildcardMatch($card)
+    public function wildcardMatch($wildcard)
     {
-        $match_type = new static($card);
+        $wildcard_type = new static($wildcard);
 
-        if (!$match_type->isWildcard()) {
+        if (!$wildcard_type->isWildcard()) {
             return false;
         }
 
-        if ($match_type->getMedia() === '*' && $match_type->getSubType() === '*') {
-            return true;
-        }
+        $wildcard_re = str_replace('*', '.*', $wildcard_type->toString(static::SHORT_TEXT), 2);
+        $subject = $wildcard_type->toString(static::SHORT_TEXT);
+dump([$wildcard_re, $subject]);
 
-        if ($match_type->getMedia() === $this->getMedia()) {
-            return true;
-        }
-
-        return false;
+        return preg_match("/$wildcard_re/", $subject) === 1;
     }
 
     /**

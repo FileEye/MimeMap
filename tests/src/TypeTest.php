@@ -479,6 +479,9 @@ class TypeTest extends TestCase
         $this->assertTrue((new Type('*/*'))->isWildcard());
         $this->assertTrue((new Type('image/*'))->isWildcard());
         $this->assertFalse((new Type('text/plain'))->isWildcard());
+
+        $this->assertTrue((new Type('application/java*'))->isWildcard());
+        $this->assertTrue((new Type('application/java-*'))->isWildcard());
     }
 
     public function testWildcardMatch()
@@ -486,11 +489,11 @@ class TypeTest extends TestCase
         $this->assertTrue((new Type('image/png'))->wildcardMatch('*/*'));
         $this->assertTrue((new Type('image/png'))->wildcardMatch('image/*'));
         $this->assertFalse((new Type('text/plain'))->wildcardMatch('image/*'));
-    }
-
-    public function testWildcardMatchNoWildcard()
-    {
         $this->assertFalse((new Type('image/png'))->wildcardMatch('image/foo'));
+
+        $this->assertTrue((new Type('application/javascript'))->isWildcard('application/java*'));
+        $this->assertTrue((new Type('application/java-serialized-object'))->isWildcard('application/java-*'));
+        $this->assertFalse((new Type('application/javascript'))->isWildcard('application/java-*'));
     }
 
     public function testAddParameter()
