@@ -384,6 +384,7 @@ class Type
         }
 
         // Build the array of extensions.
+dump($types);
         $extensions = [];
         foreach ($types as $t) {
             foreach ($t as $e) {
