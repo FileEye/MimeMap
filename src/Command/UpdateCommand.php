@@ -3,9 +3,10 @@
 namespace FileEye\MimeMap\Command;
 
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Yaml\Yaml;
 use FileEye\MimeMap\MapUpdater;
 use FileEye\MimeMap\MapHandler;
 
@@ -21,18 +22,27 @@ class UpdateCommand extends Command
     {
         $this
             ->setName('update')
-            ->setDescription('Updates the MIME-type-to-extension map.')
-            ->addArgument(
-                'source-url',
-                InputArgument::OPTIONAL,
-                'URL of the source map',
-                MapUpdater::DEFAULT_URL
+            ->setDescription('Updates the MIME-type-to-extension map. Reads the source file specified by --source, applies any overrides specified in the file at --override, then writes the map to the PHP file where the PHP --class is defined.')
+            ->addOption(
+                'source',
+                null,
+                InputOption::VALUE_REQUIRED,
+                'URL or filename of the source map',
+                MapUpdater::DEFAULT_SOURCE_FILE
             )
-            ->addArgument(
-                'output-file',
-                InputArgument::OPTIONAL,
-                'Path to the directory of the mapper class PHP file',
-                MapUpdater::getDefaultCodeFilePath()
+            ->addOption(
+                'override',
+                null,
+                InputOption::VALUE_REQUIRED,
+                'URL or filename of the override commands to execute',
+                MapUpdater::getDefaultOverrideFile()
+            )
+            ->addOption(
+                'class',
+                null,
+                InputOption::VALUE_REQUIRED,
+                'The Fully Qualified Class Name of the PHP class storing the map',
+                MapHandler::DEFAULT_MAP_CLASS
             )
         ;
     }
@@ -42,38 +52,47 @@ class UpdateCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        MapHandler::setDefaultMapClass($input->getOption('class'));
+        $current_map = new MapHandler();
         $updater = new MapUpdater();
+
+        // Loads the map from the source file.
         try {
-            $new_map_array = $updater->loadMapFromUrl($input->getArgument('source-url'));
-            $new_map = new MapHandler($new_map_array);
+            $new_map = $updater->createMapFromSourceFile($input->getOption('source'));
         } catch (\RuntimeException $e) {
             $output->writeln('<error>' . $e->getMessage() . '</error>');
             exit(2);
         }
 
-        // xx
-        $new_map->setExtensionDefaultType('sub', 'text/vnd.dvb.subtitle');
-        $new_map->setExtensionDefaultType('wmz', 'application/x-msmetafile');
-        $new_map->sort();
+        // Applies the overrides.
+        try {
+            $content = file_get_contents($input->getOption('override'));
+            $updater->applyOverrides($new_map, Yaml::parse($content));
+        } catch (\Exception $e) {
+            $output->writeln('<error>' . $e->getMessage() . '</error>');
+            exit(2);
+        }
 
-        $current_map = new MapHandler();
+        // Check if anything got changed.
         $write = false;
         try {
-            $updater->compareMaps($current_map->get(), $new_map->get(), 'types');
+            $updater->compareMaps($current_map, $new_map, 'types');
         } catch (\RuntimeException $e) {
-            $output->writeln('Changes to MIME types mapping:');
+            $output->writeln('<comment>Changes to MIME types mapping</comment>');
             $output->writeln($e->getMessage());
             $write = true;
         }
         try {
-            $updater->compareMaps($current_map->get(), $new_map->get(), 'extensions');
+            $updater->compareMaps($current_map, $new_map, 'extensions');
         } catch (\RuntimeException $e) {
-            $output->writeln('Changes to extensions mapping:');
+            $output->writeln('<comment>Changes to extensions mapping</comment>');
             $output->writeln($e->getMessage());
             $write = true;
         }
+
+        // If changed, save the new map to the PHP file.
         if ($write) {
-            $updater->writeMapToCodeFile($new_map->get(), $input->getArgument('output-file'));
+            $updater->writeMapToCodeFile($new_map, $current_map->getMapFileName());
             $output->writeln('<comment>Code updated.</comment>');
         } else {
             $output->writeln('<info>No changes to mapping.</info>');

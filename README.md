@@ -3,6 +3,10 @@
 [![Build Status](https://secure.travis-ci.org/FileEye/MimeMap.png?branch=master)](https://travis-ci.org/FileEye/MimeMap)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/FileEye/MimeMap/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/FileEye/MimeMap/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/FileEye/MimeMap/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/FileEye/MimeMap/?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/fileeye/mimemap/v/stable)](https://packagist.org/packages/fileeye/mimemap)
+[![Total Downloads](https://poser.pugx.org/fileeye/mimemap/downloads)](https://packagist.org/packages/fileeye/mimemap)
+[![Latest Unstable Version](https://poser.pugx.org/fileeye/mimemap/v/unstable)](https://packagist.org/packages/fileeye/mimemap)
+[![License](https://poser.pugx.org/fileeye/mimemap/license)](https://packagist.org/packages/fileeye/mimemap)
 
 A PHP library to handle MIME Content-Type fields and their related file extensions.
 
@@ -40,6 +44,56 @@ $ composer require fileeye/mimemap
 
 ## Usage
 
+1. You have a MIME type, and want to get the file extensions normally associated
+to it:
+
+```php
+use FileEye\MimeMap\Type;
+...
+
+    $type = new Type('image/jpeg');
+
+    $type_extensions = $type->getExtensions();
+    // will return ['jpeg', 'jpg', 'jpe']
+
+    $default_extension = $type->getDefaultExtension();
+    // will return 'jpeg'
+```
+
+2. Viceversa, you have a file extensions, and want to get the MIME type normally
+associated to it:
+
+```php
+use FileEye\MimeMap\Extension;
+...
+
+    $ext = new Extension('wmz');
+
+    $ext_types = $ext->getTypes();
+    // will return ['application/x-msmetafile', 'application/x-ms-wmz']
+
+    $default_type = $ext->getDefaultExtension();
+    // will return 'application/x-msmetafile'
+```
+
+3. You have a raw MIME Content-Type string and want to add a parameter:
+
+```php
+use FileEye\MimeMap\Type;
+...
+
+    $type = new Type('text / (Unstructured text)  plain  ; charset = (UTF8, not ASCII) utf-8');
+    $type->addParameter('lang', 'it', 'Italian');
+
+    echo $type->toString(Type::SHORT_TEXT);
+    // will print 'text/plain'
+
+    echo $type->toString(Type::FULL_TEXT);
+    // will print 'text/plain; charset="utf-8"; lang="it"'
+
+    echo $type->toString(Type::FULL_TEXT_WITH_COMMENTS);
+    // will print 'text/plain (Unstructured text); charset="utf-8" (UTF8, not ASCII), lang="it" (Italian)'
+```
 
 ## Development
 
@@ -50,5 +104,5 @@ The built-in extension-to-type mapping list can be updated from Apache's source
 code repository:
 
 ```
-    $ .vendor/bin/fileeye-mimemap update
+$ .vendor/bin/fileeye-mimemap update
 ```

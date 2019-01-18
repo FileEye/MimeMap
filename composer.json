@@ -12,6 +12,7 @@
         "squizlabs/php_codesniffer": "*",
         "sebastian/comparator": "*",
         "sebastian/diff": "*",
+        "symfony/filesystem": "*",
         "symfony/console": "*",
         "symfony/var-dumper": "*",
         "symfony/yaml": "*"
@@ -23,7 +24,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "FileEye\\MimeMap\\Test\\": "tests/"
+            "FileEye\\MimeMap\\Test\\": "tests/src/"
         }
     },
     "bin": ["bin/fileeye-mimemap"]

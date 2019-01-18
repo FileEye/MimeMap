@@ -8,6 +8,21 @@ namespace FileEye\MimeMap;
 class Type
 {
     /**
+     * Short format [e.g. image/jpeg] for strings.
+     */
+    const SHORT_TEXT = 0;
+
+    /**
+     * Full format [e.g. image/jpeg; p="1"] for strings.
+     */
+    const FULL_TEXT = 1;
+
+    /**
+     * Full format with comments [e.g. image/jpeg; p="1" (comment)] for strings.
+     */
+    const FULL_TEXT_WITH_COMMENTS = 2;
+
+    /**
      * The MIME media type.
      *
      * @var string
@@ -64,31 +79,20 @@ class Type
     protected function parse($type)
     {
         // Media and SubType are separated by a slash '/'.
-        $sub = $this->parseStringPart($type, 0, '/');
+        $media = Parser::parseStringPart($type, 0, '/');
 
-        if (!$sub['string']) {
+        if (!$media['string']) {
             throw new MalformedTypeException('Media type not found');
         }
-        if (!$sub['delimiter_matched']) {
+        if (!$media['delimiter_matched']) {
             throw new MalformedTypeException('Slash \'/\' to separate media type and subtype not found');
         }
 
-        $this->media = strtolower($sub['string']);
-        $this->mediaComment = $sub['comment'];
-        $this->parseSubType(substr($type, $sub['end_offset'] + 1));
-    }
+        $this->media = strtolower($media['string']);
+        $this->mediaComment = $media['comment'];
 
-    /**
-     * Parse the sub-type part of the type and set the class variables.
-     *
-     * @param string $sub_type
-     *
-     * @return void
-     */
-    protected function parseSubType($sub_type)
-    {
         // SubType and Parameters are separated by semicolons ';'.
-        $sub = $this->parseStringPart($sub_type, 0, ';');
+        $sub = Parser::parseStringPart($type, $media['end_offset'] + 1, ';');
 
         if (!$sub['string']) {
             throw new MalformedTypeException('Media subtype not found');
@@ -99,119 +103,16 @@ class Type
 
         // Loops through the parameter.
         while ($sub['delimiter_matched']) {
-            $sub = $this->parseStringPart($sub_type, $sub['end_offset'] + 1, ';');
-            $p_name = static::getAttribute($sub['string']);
-            $p_val = static::getValue($sub['string']);
+            $sub = Parser::parseStringPart($type, $sub['end_offset'] + 1, ';');
+            $tmp = explode('=', $sub['string'], 2);
+            $p_name = trim($tmp[0]);
+            $p_val = trim($tmp[1]);
+            if ($p_val[0] == '"' && $p_val[strlen($p_val) - 1] == '"') {
+                $p_val = substr($p_val, 1, -1);
+            }
+            $p_val = str_replace('\\"', '"', $p_val);
             $this->addParameter($p_name, $p_val, $sub['comment']);
         }
-    }
-
-    /**
-     * Parses a part of the content MIME type string.
-     *
-     * Splits string and comment until a delimiter is found.
-     *
-     * @param string $string     Input string.
-     * @param int $offset        Offset to start parsing from.
-     * @param string $delimiter  Stop parsing when delimiter found.
-     *
-     * @return array An array with the following keys:
-     *   'string' - the uncommented part of $string
-     *   'comment' - the comment part of $string
-     *   'delimiter_matched' - true if a $delimiter stopped the parsing, false
-     *                         otherwise
-     *   'end_offset' - the last position parsed in $string.
-     */
-    protected function parseStringPart($string, $offset, $delimiter)
-    {
-        $inquote   = false;
-        $escaped   = false;
-        $incomment = 0;
-        $newstring = '';
-        $comment = '';
-
-        for ($n = $offset; $n < strlen($string); $n++) {
-            if ($string[$n] === $delimiter && !$escaped && !$inquote && $incomment === 0) {
-                break;
-            }
-            if ($escaped) {
-                if ($incomment == 0) {
-                    $newstring .= $string[$n];
-                } else {
-                    $comment .= $string[$n];
-                }
-                $escaped = false;
-            } elseif ($string[$n] == '\\') {
-                if ($incomment > 0) {
-                    $comment .= $string[$n];
-                }
-                $escaped = true;
-            } elseif (!$inquote && $incomment > 0 && $string[$n] == ')') {
-                $incomment--;
-                if ($incomment == 0) {
-                    $comment .= ' ';
-                }
-            } elseif (!$inquote && $string[$n] == '(') {
-                $incomment++;
-            } elseif ($string[$n] == '"') {
-                if ($incomment > 0) {
-                    $comment .= $string[$n];
-                } else {
-                    if ($inquote) {
-                        $inquote = false;
-                    } else {
-                        $inquote = true;
-                    }
-                }
-            } elseif ($incomment == 0) {
-                $newstring .= $string[$n];
-            } else {
-                $comment .= $string[$n];
-            }
-        }
-
-        if ($incomment > 0) {
-            throw new MalformedTypeException('Comment closing bracket missing: ' . $comment);
-        }
-
-        return [
-          'string' => empty($newstring) ? null : trim($newstring),
-          'comment' => empty($comment) ? null : trim($comment),
-          'delimiter_matched' => isset($string[$n]) ? ($string[$n] === $delimiter) : false,
-          'end_offset' => $n,
-        ];
-    }
-
-    /**
-     * Get a parameter attribute (e.g. name)
-     *
-     * @param string $param MIME type parameter
-     *
-     * @return string Attribute name
-     */
-    public static function getAttribute($param)
-    {
-        $tmp = explode('=', $param);
-        return trim($tmp[0]);
-    }
-
-    /**
-     * Get a parameter value
-     *
-     * @param string $param MIME type parameter
-     *
-     * @return string Value
-     */
-    public static function getValue($param)
-    {
-        $tmp = explode('=', $param, 2);
-        $value = $tmp[1];
-        $value = trim($value);
-        if ($value[0] == '"' && $value[strlen($value)-1] == '"') {
-            $value = substr($value, 1, -1);
-        }
-        $value = str_replace('\\"', '"', $value);
-        return $value;
     }
 
     /**
@@ -293,17 +194,23 @@ class Type
      *
      * This function performs the opposite function of parse().
      *
+     * @param int $format The format of the output string.
+     *
      * @return string MIME type string
      */
-    public function toString()
+    public function toString($format = Type::FULL_TEXT)
     {
-        if (is_null($this->subType)) {
-            return $this->media;
+        $type = strtolower($this->media);
+        if ($format > Type::FULL_TEXT && isset($this->mediaComment)) {
+            $type .= ' (' .  $this->mediaComment . ')';
         }
-        $type = strtolower($this->media . '/' . $this->subType);
-        if (count($this->parameters)) {
-            foreach ($this->parameters as $key => $null) {
-                $type .= '; ' . $this->parameters[$key]->toString();
+        $type .= '/' . strtolower($this->subType);
+        if ($format > Type::FULL_TEXT && isset($this->subTypeComment)) {
+            $type .= ' (' .  $this->subTypeComment . ')';
+        }
+        if ($format > Type::SHORT_TEXT && count($this->parameters)) {
+            foreach ($this->parameters as $parameter) {
+                $type .= '; ' . $parameter->toString($format);
             }
         }
         return $type;
@@ -410,16 +317,39 @@ class Type
         unset($this->parameters[$name]);
     }
 
+    /**
+     * Returns the MIME type's preferred file extension.
+     *
+     * @param bool $strict
+     *   (Optional) if true a MappingException is thrown when no mapping is
+     *   found, if false it returns null as a default.
+     *   Defaults to true.
+     *
+     * @throws MappingException if no mapping found and $strict is true.
+     *
+     * @return string
+     */
     public function getDefaultExtension($strict = true)
     {
         $extensions = $this->getExtensions($strict);
         return isset($extensions[0]) ? $extensions[0] : null;
     }
 
+    /**
+     * Returns all the file extensions related to the MIME type.
+     *
+     * @param bool $strict
+     *   (Optional) if true a MappingException is thrown when no mapping is
+     *   found, if false it returns an empty array as a default.
+     *   Defaults to true.
+     *
+     * @throws MappingException if no mapping found and $strict is true.
+     *
+     * @return string[]
+     */
     public function getExtensions($strict = true)
     {
-        // xx use tostring here
-        $type = $this->getMedia() . '/' . $this->getSubType();
+        $type = $this->toString(static::SHORT_TEXT);
 
         $map = new MapHandler();
         if (!isset($map->get()['types'][$type])) {
