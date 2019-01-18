@@ -328,9 +328,10 @@ class Type
      */
     public function getDefaultExtension($strict = true)
     {
-        $extensions = $this->getExtensions(false);
+        $map = new MapHandler();
+        $subject = $this->toString(static::SHORT_TEXT);
 
-        if (empty($extensions)) {
+        if (count($map->listTypes($subject)) !== 1) {
             if ($strict) {
                 throw new MappingException('Cannot determine default extension for type: ' . $this->toString(static::SHORT_TEXT));
             } else {
@@ -338,7 +339,7 @@ class Type
             }
         }
 
-        return $extensions[0];
+        return $this->getExtensions()[0];
     }
 
     /**
@@ -368,7 +369,6 @@ class Type
                 $types[] = $subject;
             }
         } else {
-dump([$subject, $map->listTypes($subject)]);
             foreach ($map->listTypes($subject) as $t) {
                 $types[] = $t;
             }
@@ -386,9 +386,11 @@ dump([$subject, $map->listTypes($subject)]);
         // Build the array of extensions.
         $extensions = [];
         foreach ($types as $t) {
-            $extensions += $map->get()['types'][$t];
+            foreach ($t as $e) {
+                $extensions[$e] = $e;
+            }
         }
 
-        return $extensions;
+        return array_keys($extensions);
     }
 }
