@@ -331,6 +331,7 @@ class Type
         $map = new MapHandler();
         $subject = $this->toString(static::SHORT_TEXT);
 
+dump([$subject, $map->listTypes($subject)]);
         if (count($map->listTypes($subject)) !== 1) {
             if ($strict) {
                 throw new MappingException('Cannot determine default extension for type: ' . $this->toString(static::SHORT_TEXT));
@@ -384,7 +385,6 @@ class Type
         }
 
         // Build the array of extensions.
-dump($types);
         $extensions = [];
         foreach ($types as $t) {
             foreach ($map->get()['types'][$t] as $e) {
@@ -392,7 +392,6 @@ dump($types);
             }
         }
 
-dump($extensions);
         return array_keys($extensions);
     }
 }
