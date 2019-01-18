@@ -491,9 +491,9 @@ class TypeTest extends TestCase
         $this->assertFalse((new Type('text/plain'))->wildcardMatch('image/*'));
         $this->assertFalse((new Type('image/png'))->wildcardMatch('image/foo'));
 
-        $this->assertTrue((new Type('application/javascript'))->isWildcard('application/java*'));
-        $this->assertTrue((new Type('application/java-serialized-object'))->isWildcard('application/java-*'));
-        $this->assertFalse((new Type('application/javascript'))->isWildcard('application/java-*'));
+        $this->assertTrue((new Type('application/javascript'))->wildcardMatch('application/java*'));
+        $this->assertTrue((new Type('application/java-serialized-object'))->wildcardMatch('application/java-*'));
+        $this->assertFalse((new Type('application/javascript'))->wildcardMatch('application/java-*'));
     }
 
     public function testAddParameter()

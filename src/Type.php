@@ -329,7 +329,7 @@ dump([$wildcard_re, $subject]);
     public function getDefaultExtension($strict = true)
     {
         if ($this->isWildcard()) {
-            throw new MappingException('Cannot determine single default extension when multiple types selected: ' . $type);
+            throw new MappingException('Cannot determine single default extension when multiple types selected: ' . $this->toString(static::SHORT_TEXT));
         }
 
         $extensions = $this->getExtensions($strict);
