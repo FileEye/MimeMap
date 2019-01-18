@@ -22,8 +22,8 @@ class MapHandlerTest extends TestCase
     public function testSort()
     {
         $this->map->addMapping('aaa/aaa', '000a')->sort();
-        $this->assertSame('aaa/aaa', array_keys($this->map->get()['types'])[0]);
-        $this->assertSame('000a', array_keys($this->map->get()['extensions'])[0]);
+        $this->assertSame('aaa/aaa', $this->map->listTypes()[0]);
+        $this->assertSame('000a', $this->map->listExtensions()[0]);
     }
 
     public function testAdd()
