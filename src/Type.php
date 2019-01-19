@@ -328,14 +328,14 @@ class Type
      */
     public function getDefaultExtension($strict = true)
     {
-        $map_handler = new MapHandler();
+        $map = MapHandler::map();
         $subject = $this->toString(static::SHORT_TEXT);
 
         $proceed = false;
         if (!$this->isWildcard()) {
-            $proceed = $map_handler->getMap()->hasType($subject);
+            $proceed = $map->hasType($subject);
         } else {
-            $proceed = count($map_handler->getMap()->listTypes($subject)) === 1;
+            $proceed = count($map->listTypes($subject)) === 1;
         }
 
         if (!$proceed) {
@@ -366,17 +366,17 @@ class Type
      */
     public function getExtensions($strict = true)
     {
-        $map_handler = new MapHandler();
+        $map = MapHandler::map();
         $subject = $this->toString(static::SHORT_TEXT);
 
         // Find all types.
         $types = [];
         if (!$this->isWildcard()) {
-            if ($map_handler->getMap()->hasType($subject)) {
+            if ($map->hasType($subject)) {
                 $types[] = $subject;
             }
         } else {
-            foreach ($map_handler->getMap()->listTypes($subject) as $t) {
+            foreach ($map->listTypes($subject) as $t) {
                 $types[] = $t;
             }
         }
@@ -393,7 +393,7 @@ class Type
         // Build the array of extensions.
         $extensions = [];
         foreach ($types as $t) {
-            foreach ($map_handler->getMap()->getType($t) as $e) {
+            foreach ($map->getType($t) as $e) {
                 $extensions[$e] = $e;
             }
         }

@@ -3,9 +3,9 @@
 namespace FileEye\MimeMap;
 
 /**
- * Class for managing the type-to-extension map.
+ * Class for managing map singletons.
  */
-class MapHandler
+abstract class MapHandler
 {
     /**
      * The default map PHP class.
@@ -13,49 +13,37 @@ class MapHandler
     const DEFAULT_MAP_CLASS = '\FileEye\MimeMap\TypeExtensionMap';
 
     /**
-     * The map class to use.
+     * The default map class to use.
      *
-     * It's static so it can be overridden by ::setDefaultMapClass and any new
-     * instance take the overriden setting.
+     * It can be overridden by ::setDefaultMapClass.
      *
      * @var string
      */
-    protected static $mapClass = MapHandler::DEFAULT_MAP_CLASS;
+    protected static $defaultMapClass = MapHandler::DEFAULT_MAP_CLASS;
 
     /**
      * Sets a map class as default for new instances.
      *
-     * @param string $class A FQCN.
+     * @param string $map_class A FQCN.
      */
-    public static function setDefaultMapClass($class)
+    public static function setDefaultMapClass($map_class)
     {
-        static::$mapClass = $class;
+        static::$defaultMapClass = $map_class;
     }
 
     /**
-     * Constructor.
+     * Returns the map instance.
      *
-     * @param array $map
-     *   (Optional) The mapping to be used for this instance. If null, the
-     *   default map will be used.
-     */
-    public function __construct(array $map = null)
-    {
-//        if (is_null($map)) {
-//            $map_class = static::$mapClass;
-//            $this->map = &$map_class::$map;
-//        } else {
-//            $this->map = $map;
-//        }
-    }
-
-    /**
-     * Returns the map.
+     * @param AbstractMap $map
+     *   (Optional) The map to be used. If null, the default map will be used.
      *
      * @return string
      */
-    public function getMap()
+    public static function map(AbstractMap $map_class = null)
     {
-        return new static::$mapClass();
+        if (!$map_class) {
+            $map_class = static::$defaultMapClass;
+        }
+        return new static::$map_class();
     }
 }

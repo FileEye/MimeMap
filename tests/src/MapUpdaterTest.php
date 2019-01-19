@@ -73,7 +73,7 @@ class MapUpdaterTest extends TestCase
     {
         $this->fileSystem->copy(__DIR__ . '/../../src/Tests/MiniMap.php.test', __DIR__ . '/../../src/Tests/MiniMap.php');
         MapHandler::setDefaultMapClass('\FileEye\MimeMap\Tests\MiniMap');
-        $map_a = new MapHandler();
+        $map_a = MapHandler::map();
         $this->assertNotContains('text/plain', file_get_contents($map_a->getMapFileName()));
         $map_b = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
         $this->updater->applyOverrides($map_b, [['addMapping', ['bing/bong', 'binbon']]]);
