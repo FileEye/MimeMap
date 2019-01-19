@@ -1,18 +1,28 @@
 <?php
 
-namespace FileEye\MimeMap\Tests;
+namespace FileEye\MimeMap\Map;
 
 /**
  * Class for mapping file extensions to MIME types.
+ *
+ * This class has minimum mapping defined, and is by defualt not autoloadable
+ * (it has a .php.test extension). It is used for testing purposes.
  */
-class MiniMap
+class MiniMap extends AbstractMap
 {
     /**
-     * Returns this file's full qualified filename.
+     * Singleton instance.
+     *
+     * @var AbstractMap
+     */
+    protected static $instance;
+
+    /**
+     * Returns this file's fully qualified filename.
      *
      * @return string
      */
-    public static function getFileName()
+    public function getFileName()
     {
         return __FILE__;
     }
@@ -37,7 +47,7 @@ class MiniMap
      * @var array
      */
     // phpcs:disable
-    public static $map = array (
+    protected static $map = array (
   'types' =>
   array (
     'application/andrew-inset' =>

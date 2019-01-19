@@ -50,7 +50,7 @@ script:
   - php bin/fileeye-mimemap update --source=$APACHE_MIMETYPE_URL
 
   - if [ "$TRAVIS_PHP_VERSION" == "7.1" ]; then ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1; fi
-  - ./vendor/bin/phpunit ./tests
+  - ./vendor/bin/phpunit
 
 notifications:
   email:

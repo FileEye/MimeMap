@@ -4,14 +4,10 @@ build:
   tests:
     override:
       -
-        command: ./vendor/bin/phpunit --coverage-clover build/logs/clover.xml ./tests
+        command: ./vendor/bin/phpunit --coverage-clover build/logs/clover.xml
         coverage:
           file: build/logs/clover.xml
           format: clover
-
-filter:
-    excluded_paths:
-        - "src/Command"
 
 checks:
     php:

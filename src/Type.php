@@ -79,7 +79,7 @@ class Type
     protected function parse($type)
     {
         // Media and SubType are separated by a slash '/'.
-        $media = Parser::parseStringPart($type, 0, '/');
+        $media = TypeParser::parseStringPart($type, 0, '/');
 
         if (!$media['string']) {
             throw new MalformedTypeException('Media type not found');
@@ -92,7 +92,7 @@ class Type
         $this->mediaComment = $media['comment'];
 
         // SubType and Parameters are separated by semicolons ';'.
-        $sub = Parser::parseStringPart($type, $media['end_offset'] + 1, ';');
+        $sub = TypeParser::parseStringPart($type, $media['end_offset'] + 1, ';');
 
         if (!$sub['string']) {
             throw new MalformedTypeException('Media subtype not found');
@@ -103,7 +103,7 @@ class Type
 
         // Loops through the parameter.
         while ($sub['delimiter_matched']) {
-            $sub = Parser::parseStringPart($type, $sub['end_offset'] + 1, ';');
+            $sub = TypeParser::parseStringPart($type, $sub['end_offset'] + 1, ';');
             $tmp = explode('=', $sub['string'], 2);
             $p_name = trim($tmp[0]);
             $p_val = trim($tmp[1]);
@@ -254,8 +254,7 @@ class Type
      */
     public function isWildcard()
     {
-        // xxx also if a subtype can be submatched i.e. vnd.ms-excel.*
-        if (($this->getMedia() === '*' && $this->getSubtype() === '*') || $this->getSubtype() === '*') {
+        if (($this->getMedia() === '*' && $this->getSubtype() === '*') || strpos($this->getSubtype(), '*') !== false) {
             return true;
         }
         return false;
@@ -268,27 +267,25 @@ class Type
      * $type = new Type('image/png');
      * $type->wildcardMatch('image/*');
      *
-     * @param string $card Wildcard to check against
+     * @param string $wildcard Wildcard to check against
      *
      * @return boolean true if there was a match, false otherwise
      */
-    public function wildcardMatch($card)
+    public function wildcardMatch($wildcard)
     {
-        $match_type = new static($card);
+        $wildcard_type = new static($wildcard);
 
-        if (!$match_type->isWildcard()) {
+        if (!$wildcard_type->isWildcard()) {
             return false;
         }
 
-        if ($match_type->getMedia() === '*' && $match_type->getSubType() === '*') {
-            return true;
-        }
+        $wildcard_re = strtr($wildcard_type->toString(static::SHORT_TEXT), [
+            '/' => '\\/',
+            '*' => '.*',
+        ]);
+        $subject = $this->toString(static::SHORT_TEXT);
 
-        if ($match_type->getMedia() === $this->getMedia()) {
-            return true;
-        }
-
-        return false;
+        return preg_match("/$wildcard_re/", $subject) === 1;
     }
 
     /**
@@ -331,12 +328,31 @@ class Type
      */
     public function getDefaultExtension($strict = true)
     {
-        $extensions = $this->getExtensions($strict);
-        return isset($extensions[0]) ? $extensions[0] : null;
+        $map = MapHandler::map();
+        $subject = $this->toString(static::SHORT_TEXT);
+
+        if (!$this->isWildcard()) {
+            $proceed = $map->hasType($subject);
+        } else {
+            $proceed = count($map->listTypes($subject)) === 1;
+        }
+
+        if (!$proceed) {
+            if ($strict) {
+                throw new MappingException('Cannot determine default extension for type: ' . $this->toString(static::SHORT_TEXT));
+            } else {
+                return null;
+            }
+        }
+
+        return $this->getExtensions()[0];
     }
 
     /**
-     * Returns all the file extensions related to the MIME type.
+     * Returns all the file extensions related to the MIME type(s).
+     *
+     * If the current type is a wildcard, than all extensions of all the
+     * types matching the wildcard will be returned.
      *
      * @param bool $strict
      *   (Optional) if true a MappingException is thrown when no mapping is
@@ -349,16 +365,38 @@ class Type
      */
     public function getExtensions($strict = true)
     {
-        $type = $this->toString(static::SHORT_TEXT);
+        $map = MapHandler::map();
+        $subject = $this->toString(static::SHORT_TEXT);
 
-        $map = new MapHandler();
-        if (!isset($map->get()['types'][$type])) {
+        // Find all types.
+        $types = [];
+        if (!$this->isWildcard()) {
+            if ($map->hasType($subject)) {
+                $types[] = $subject;
+            }
+        } else {
+            foreach ($map->listTypes($subject) as $t) {
+                $types[] = $t;
+            }
+        }
+
+        // No types found, throw exception or return emtpy array.
+        if (empty($types)) {
             if ($strict) {
-                throw new MappingException('MIME type ' . $type . ' not found in map');
+                throw new MappingException('No MIME type found for ' . $type . ' in map');
             } else {
                 return [];
             }
         }
-        return $map->get()['types'][$type];
+
+        // Build the array of extensions.
+        $extensions = [];
+        foreach ($types as $t) {
+            foreach ($map->getType($t) as $e) {
+                $extensions[$e] = $e;
+            }
+        }
+
+        return array_keys($extensions);
     }
 }

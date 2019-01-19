@@ -479,6 +479,9 @@ class TypeTest extends TestCase
         $this->assertTrue((new Type('*/*'))->isWildcard());
         $this->assertTrue((new Type('image/*'))->isWildcard());
         $this->assertFalse((new Type('text/plain'))->isWildcard());
+
+        $this->assertTrue((new Type('application/java*'))->isWildcard());
+        $this->assertTrue((new Type('application/java-*'))->isWildcard());
     }
 
     public function testWildcardMatch()
@@ -486,11 +489,11 @@ class TypeTest extends TestCase
         $this->assertTrue((new Type('image/png'))->wildcardMatch('*/*'));
         $this->assertTrue((new Type('image/png'))->wildcardMatch('image/*'));
         $this->assertFalse((new Type('text/plain'))->wildcardMatch('image/*'));
-    }
-
-    public function testWildcardMatchNoWildcard()
-    {
         $this->assertFalse((new Type('image/png'))->wildcardMatch('image/foo'));
+
+        $this->assertTrue((new Type('application/javascript'))->wildcardMatch('application/java*'));
+        $this->assertTrue((new Type('application/java-serialized-object'))->wildcardMatch('application/java-*'));
+        $this->assertFalse((new Type('application/javascript'))->wildcardMatch('application/java-*'));
     }
 
     public function testAddParameter()
@@ -517,6 +520,15 @@ class TypeTest extends TestCase
         $this->assertSame('image/png; baz="val" (this is a comment)', $res);
     }
 
+    public function testGetExtensions()
+    {
+        $this->assertEquals(['atom'], (new Type('application/atom+xml'))->getExtensions());
+        $this->assertEquals(['jar', 'ser', 'class', 'js'], (new Type('application/java*'))->getExtensions());
+        $this->assertEquals(['jar', 'ser', 'class'], (new Type('application/java-*'))->getExtensions());
+        $this->assertEquals([], (new Type('application/a000'))->getExtensions(false));
+        $this->assertEquals([], (new Type('application/a000-*'))->getExtensions(false));
+    }
+
     public function testGetDefaultExtension()
     {
         $this->assertEquals('atom', (new Type('application/atom+xml'))->getDefaultExtension());
@@ -529,7 +541,10 @@ class TypeTest extends TestCase
     public function getDefaultExtensionFailProvider()
     {
         return [
+            ['*/*'],
             ['n/n'],
+            ['image/*'],
+            ['application/java*'],
         ];
     }
 
