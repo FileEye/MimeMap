@@ -37,7 +37,7 @@ class MapUpdaterTest extends TestCase
                 'txt' => ['text/plain'],
             ],
         ];
-        $this->assertSame($expected, $map->get());
+        $this->assertSame($expected, $map->getMapArray());
         $this->assertSame(['image/jpeg', 'text/plain'], $map->listTypes());
         $this->assertSame(['jpeg', 'jpg', 'jpe', 'txt'], $map->listExtensions());
     }
@@ -48,25 +48,7 @@ class MapUpdaterTest extends TestCase
     public function testCreateMapFromSourceFileZeroLines()
     {
         $map = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/zero.mime-types.txt');
-        $this->assertNull($map->get());
-    }
-
-    public function testCompareMapsEqual()
-    {
-        $map_a = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
-        $map_b = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
-        $this->assertTrue($this->updater->compareMaps($map_a, $map_b, 'types'));
-        $this->assertTrue($this->updater->compareMaps($map_a, $map_b, 'extensions'));
-    }
-
-    /**
-     * @expectedException \RuntimeException
-     */
-    public function testCompareMapsNotEqual()
-    {
-        $map_a = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
-        $map_b = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/some.mime-types.txt');
-        $this->updater->compareMaps($map_a, $map_b, 'types');
+        $this->assertNull($map->getMapArray());
     }
 
     public function testWriteMapToPhpClassFile()

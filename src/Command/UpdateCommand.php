@@ -121,7 +121,7 @@ class UpdateCommand extends Command
      * @return bool
      *   True if the maps are equal.
      */
-    public function compareMaps(MapHandler $old_map, MapHandler $new_map, $section)
+    protected function compareMaps(MapHandler $old_map, MapHandler $new_map, $section)
     {
         $old_map->sort();
         $new_map->sort();
