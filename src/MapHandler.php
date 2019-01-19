@@ -44,6 +44,6 @@ abstract class MapHandler
         if (!$map_class) {
             $map_class = static::$defaultMapClass;
         }
-        return new static::$map_class();
+        return new $map_class();
     }
 }
