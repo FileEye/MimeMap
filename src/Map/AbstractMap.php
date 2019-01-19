@@ -2,6 +2,8 @@
 
 namespace FileEye\MimeMap\Map;
 
+use FileEye\MimeMap\MappingException;
+
 /**
  * Abstract class for mapping file extensions to MIME types.
  *

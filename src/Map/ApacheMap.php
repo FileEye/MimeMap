@@ -1,6 +1,6 @@
 <?php
 
-namespace FileEye\MimeMap;
+namespace FileEye\MimeMap\Map;
 
 /**
  * Class for mapping file extensions to MIME types.
