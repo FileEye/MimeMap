@@ -14,6 +14,6 @@ class Version
      */
     public static function get()
     {
-        return '1.0.0-alpha3';
+        return '1.0.0-dev';
     }
 }
