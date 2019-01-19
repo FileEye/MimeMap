@@ -42,6 +42,7 @@ abstract class MapHandler
      */
     public static function map($map_class = null)
     {
+dump($map_class);
         if (!$map_class) {
             $map_class = static::$defaultMapClass;
         }
