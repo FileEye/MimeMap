@@ -20,4 +20,14 @@ class EmptyMap extends AbstractMap
      * @var array
      */
     protected static $map = [];
+
+    /**
+     * Resets the map array.
+     *
+     * @return array
+     */
+    public function reset()
+    {
+        static::$map = [];
+    }
 }

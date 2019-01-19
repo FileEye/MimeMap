@@ -56,7 +56,7 @@ abstract class AbstractMap
      *
      * @return array
      */
-    protected function getMapArray()
+    public function getMapArray()
     {
         return static::$map;
     }

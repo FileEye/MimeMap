@@ -101,6 +101,9 @@ class UpdateCommand extends Command
         } else {
             $output->writeln('<info>No changes to mapping.</info>');
         }
+
+        // Reset the new map's map array.
+        $new_map->reset();
     }
 
     /**
