@@ -13,7 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Yaml\Yaml;
 use FileEye\MimeMap\Map\AbstractMap;
 use FileEye\MimeMap\MapHandler;
-use FileEye\MimeMap\MapHandler;
+use FileEye\MimeMap\MapUpdater;
 
 /**
  * A Symfony application command to update the MIME type to extension map.
