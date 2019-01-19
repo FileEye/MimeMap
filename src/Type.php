@@ -383,7 +383,7 @@ class Type
         // No types found, throw exception or return emtpy array.
         if (empty($types)) {
             if ($strict) {
-                throw new MappingException('No MIME type found for ' . $type . ' in map');
+                throw new MappingException('No MIME type found for ' . $subject . ' in map');
             } else {
                 return [];
             }
