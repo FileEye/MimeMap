@@ -531,9 +531,8 @@ class TypeTest extends TestCase
 
     /**
      * @expectedException \FileEye\MimeMap\MappingException
-     * @dataProvider getDefaultExtensionFailProvider
      */
-    public function testGetExtensionsFail($type)
+    public function testGetExtensionsFail()
     {
         $this->assertEquals([], (new Type('application/a000'))->getExtensions());
     }
