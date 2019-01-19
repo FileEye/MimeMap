@@ -90,9 +90,8 @@ class MapUpdater
      *
      * @return void
      */
-    public function writeMapToCodeFile(AbstractMap $map)
+    public function writeMapToPhpClassFile(AbstractMap $map, $file)
     {
-        $file = $map->getFileName();
         $content = preg_replace(
             '#protected static \$map = (.+?);#s',
             "protected static \$map = " . var_export($map->getMapArray(), true) . ";",

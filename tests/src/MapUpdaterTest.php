@@ -69,7 +69,7 @@ class MapUpdaterTest extends TestCase
         $this->updater->compareMaps($map_a, $map_b, 'types');
     }
 
-    public function testWriteMapToCodeFile()
+    public function testwriteMapToPhpClassFile()
     {
         $this->fileSystem->copy(__DIR__ . '/../../src/Tests/MiniMap.php.test', __DIR__ . '/../../src/Tests/MiniMap.php');
         MapHandler::setDefaultMapClass('\FileEye\MimeMap\Tests\MiniMap');
@@ -77,7 +77,7 @@ class MapUpdaterTest extends TestCase
         $this->assertNotContains('text/plain', file_get_contents($map_a->getMapFileName()));
         $map_b = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
         $this->updater->applyOverrides($map_b, [['addMapping', ['bing/bong', 'binbon']]]);
-        $this->updater->writeMapToCodeFile($map_b, $map_a->getMapFileName());
+        $this->updater->writeMapToPhpClassFile($map_b, $map_a->getMapFileName());
         $content = file_get_contents($map_a->getMapFileName());
         $this->assertContains('text/plain', $content);
         $this->assertContains('bing/bong', $content);

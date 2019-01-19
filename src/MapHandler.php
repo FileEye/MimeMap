@@ -34,12 +34,13 @@ abstract class MapHandler
     /**
      * Returns the map instance.
      *
-     * @param AbstractMap $map
-     *   (Optional) The map to be used. If null, the default map will be used.
+     * @param string $map
+     *   (Optional) The map FQCN to be used. If null, the default map will be
+     *   used.
      *
      * @return string
      */
-    public static function map(AbstractMap $map_class = null)
+    public static function map($map_class = null)
     {
         if (!$map_class) {
             $map_class = static::$defaultMapClass;
