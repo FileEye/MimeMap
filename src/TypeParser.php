@@ -5,7 +5,7 @@ namespace FileEye\MimeMap;
 /**
  * Class for parsing RFC 2045 Content-Type Header Fields.
  */
-class Parser
+class TypeParser
 {
     /**
      * Parses a part of the content MIME type string.

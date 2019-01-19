@@ -11,7 +11,8 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Yaml\Yaml;
-use FileEye\MimeMap\MapUpdater;
+use FileEye\MimeMap\Map\AbstractMap;
+use FileEye\MimeMap\MapHandler;
 use FileEye\MimeMap\MapHandler;
 
 /**
@@ -96,7 +97,7 @@ class UpdateCommand extends Command
 
         // If changed, save the new map to the PHP file.
         if ($write) {
-            $updater->writeMapToPhpClassFile($new_map, $current_map->getMapFileName());
+            $updater->writeMapToPhpClassFile($new_map, $current_map->getFileName());
             $output->writeln('<comment>Code updated.</comment>');
         } else {
             $output->writeln('<info>No changes to mapping.</info>');
@@ -109,9 +110,9 @@ class UpdateCommand extends Command
     /**
      * Compares two type-to-extension maps by section.
      *
-     * @param MapHandler $old_map
+     * @param AbstractMap $old_map
      *   The first map to compare.
-     * @param MapHandler $new_map
+     * @param AbstractMap $new_map
      *   The second map to compare.
      * @param string $section
      *   The first-level array key to compare: 'types' or 'extensions'.
@@ -121,12 +122,12 @@ class UpdateCommand extends Command
      * @return bool
      *   True if the maps are equal.
      */
-    protected function compareMaps(MapHandler $old_map, MapHandler $new_map, $section)
+    protected function compareMaps(AbstractMap $old_map, AbstractMap $new_map, $section)
     {
         $old_map->sort();
         $new_map->sort();
-        $old = $old_map->get();
-        $new = $new_map->get();
+        $old = $old_map->getMapArray();
+        $new = $new_map->getMapArray();
 
         $factory = new Factory;
         $comparator = $factory->getComparatorFor($old[$section], $new[$section]);

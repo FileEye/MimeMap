@@ -79,7 +79,7 @@ class Type
     protected function parse($type)
     {
         // Media and SubType are separated by a slash '/'.
-        $media = Parser::parseStringPart($type, 0, '/');
+        $media = TypeParser::parseStringPart($type, 0, '/');
 
         if (!$media['string']) {
             throw new MalformedTypeException('Media type not found');
@@ -92,7 +92,7 @@ class Type
         $this->mediaComment = $media['comment'];
 
         // SubType and Parameters are separated by semicolons ';'.
-        $sub = Parser::parseStringPart($type, $media['end_offset'] + 1, ';');
+        $sub = TypeParser::parseStringPart($type, $media['end_offset'] + 1, ';');
 
         if (!$sub['string']) {
             throw new MalformedTypeException('Media subtype not found');
@@ -103,7 +103,7 @@ class Type
 
         // Loops through the parameter.
         while ($sub['delimiter_matched']) {
-            $sub = Parser::parseStringPart($type, $sub['end_offset'] + 1, ';');
+            $sub = TypeParser::parseStringPart($type, $sub['end_offset'] + 1, ';');
             $tmp = explode('=', $sub['string'], 2);
             $p_name = trim($tmp[0]);
             $p_val = trim($tmp[1]);
