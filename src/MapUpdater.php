@@ -68,14 +68,14 @@ class MapUpdater
     /**
      * Applies to the map an array of overrides.
      *
-     * @param MapHandler $map
+     * @param AbstractMap $map
      *   The map.
      * @param array $overrides
      *   The overrides to be applied.
      *
      * @return void
      */
-    public function applyOverrides(MapHandler $map, array $overrides)
+    public function applyOverrides(AbstractMap $map, array $overrides)
     {
         foreach ($overrides as $command) {
             call_user_func_array([$map, $command[0]], $command[1]);
