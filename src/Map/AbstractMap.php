@@ -33,7 +33,7 @@ abstract class AbstractMap
      *
      * @return string
      */
-    public function getInstance()
+    public static function getInstance()
     {
         if (!static::$instance) {
             static::$instance = new static();
@@ -49,6 +49,16 @@ abstract class AbstractMap
     public function getFileName()
     {
         throw new \LogicException(__METHOD__ . ' is not implemented in ' . get_called_class());
+    }
+
+    /**
+     * Gets the map array.
+     *
+     * @return array
+     */
+    protected function getMapArray()
+    {
+        return static::$map;
     }
 
     /**

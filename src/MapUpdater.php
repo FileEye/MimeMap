@@ -2,6 +2,8 @@
 
 namespace FileEye\MimeMap;
 
+use FileEye\MimeMap\Map\AbstractMap;
+
 /**
  * Compiles the MIME type to file extension map.
  */
@@ -57,8 +59,7 @@ class MapUpdater
                 $map->addMapping($type, $extension);
             }
         }
-        $map_array = $map->get();
-        if (empty($map_array)) {
+        if (empty($map->getMapArray())) {
             throw new \RuntimeException('No data found in file ' . $source_file);
         }
         return $map;
@@ -84,20 +85,19 @@ class MapUpdater
     /**
      * Updates the map at a destination PHP file.
      *
-     * @param MapHandler $map
+     * @param AbstractMap $map
      *   The map.
-     * @param string $output_file
-     *   The destination PHP file.
      *
      * @return void
      */
-    public function writeMapToCodeFile(MapHandler $map, $output_file)
+    public function writeMapToCodeFile(AbstractMap $map)
     {
+        $file = $map->getFileName();
         $content = preg_replace(
             '#protected static \$map = (.+?);#s',
-            "protected static \$map = " . var_export($map->get(), true) . ";",
-            file_get_contents($output_file)
+            "protected static \$map = " . var_export($map->getMapArray(), true) . ";",
+            file_get_contents($file)
         );
-        file_put_contents($output_file, $content);
+        file_put_contents($file, $content);
     }
 }
