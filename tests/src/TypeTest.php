@@ -413,7 +413,7 @@ class TypeTest extends TestCase
         $this->assertSame($expectedSubType[0], $mt->getSubType());
         $this->assertSame($expectedSubType[1], $mt->getSubTypeComment());
         $this->assertSame($expectedHasParameters, $mt->hasParameters());
-        $this->assertCount(count($expectedParameters), $mt->getParameters());
+        $this->assertSame(count($expectedParameters), count($mt->getParameters()));
         foreach ($expectedParameters as $name => $param) {
             $this->assertTrue(isset($mt->getParameters()[$name]));
             $this->assertInstanceOf('FileEye\MimeMap\TypeParameter', $mt->getParameter($name));
@@ -454,10 +454,10 @@ class TypeTest extends TestCase
     public function testParseAgain()
     {
         $mt = new Type('application/ogg;description=Hello there!;asd=fgh');
-        $this->assertCount(2, $mt->getParameters());
+        $this->assertSame(2, count($mt->getParameters()));
 
         $mt = new Type('text/plain;hello=there!');
-        $this->assertCount(1, $mt->getParameters());
+        $this->assertSame(1, count($mt->getParameters()));
     }
 
     public function testIsExperimental()
@@ -527,6 +527,15 @@ class TypeTest extends TestCase
         $this->assertEquals(['jar', 'ser', 'class'], (new Type('application/java-*'))->getExtensions());
         $this->assertEquals([], (new Type('application/a000'))->getExtensions(false));
         $this->assertEquals([], (new Type('application/a000-*'))->getExtensions(false));
+    }
+
+    /**
+     * @expectedException \FileEye\MimeMap\MappingException
+     * @dataProvider getDefaultExtensionFailProvider
+     */
+    public function testGetExtensionsFail($type)
+    {
+        $this->assertEquals([], (new Type('application/a000'))->getExtensions());
     }
 
     public function testGetDefaultExtension()
