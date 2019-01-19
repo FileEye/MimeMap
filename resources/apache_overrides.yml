@@ -10,6 +10,3 @@
 -
     - setExtensionDefaultType
     - [wmz, application/x-msmetafile]
--
-    - addMapping
-    - [foo/bar, baz]

@@ -40,6 +40,7 @@ class MapUpdaterTest extends TestCase
         $this->assertSame($expected, $map->getMapArray());
         $this->assertSame(['image/jpeg', 'text/plain'], $map->listTypes());
         $this->assertSame(['jpeg', 'jpg', 'jpe', 'txt'], $map->listExtensions());
+        $map->reset();
     }
 
     /**
@@ -49,6 +50,7 @@ class MapUpdaterTest extends TestCase
     {
         $map = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/zero.mime-types.txt');
         $this->assertNull($map->getMapArray());
+        $map->reset();
     }
 
     public function testWriteMapToPhpClassFile()
@@ -66,6 +68,7 @@ class MapUpdaterTest extends TestCase
         $this->assertContains('bing/bong', $content);
         $this->assertContains('binbon', $content);
         $this->fileSystem->remove(__DIR__ . '/../../src/Map/MiniMap.php');
+        $map_b->reset();
     }
 
     public function testGetDefaultOverrideFile()
