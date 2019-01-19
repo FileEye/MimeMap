@@ -331,7 +331,6 @@ class Type
         $map = MapHandler::map();
         $subject = $this->toString(static::SHORT_TEXT);
 
-        $proceed = false;
         if (!$this->isWildcard()) {
             $proceed = $map->hasType($subject);
         } else {

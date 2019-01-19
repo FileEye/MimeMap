@@ -38,11 +38,11 @@ abstract class MapHandler
      *   (Optional) The map FQCN to be used. If null, the default map will be
      *   used.
      *
-     * @return AbstractMap
+     * @return Map\AbstractMap
      */
     public static function map($map_class = null)
     {
-        if (!$map_class) {
+        if ($map_class === null) {
             $map_class = static::$defaultMapClass;
         }
         return $map_class::getInstance();
