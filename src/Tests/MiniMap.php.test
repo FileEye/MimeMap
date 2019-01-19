@@ -2,6 +2,8 @@
 
 namespace FileEye\MimeMap\Tests;
 
+use FileEye\MimeMap\AbstractMap;
+
 /**
  * Class for mapping file extensions to MIME types.
  */

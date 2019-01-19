@@ -2,11 +2,6 @@
 
 namespace FileEye\MimeMap;
 
-use SebastianBergmann\Comparator\ComparisonFailure;
-use SebastianBergmann\Comparator\Factory;
-use SebastianBergmann\Diff\Differ;
-use SebastianBergmann\Diff\Output\UnifiedDiffOutputBuilder;
-
 /**
  * Compiles the MIME type to file extension map.
  */
@@ -32,7 +27,7 @@ class MapUpdater
      */
     public static function getDefaultOverrideFile()
     {
-        return __DIR__ . '/../resources/overrides.yml';
+        return __DIR__ . '/../resources/apache_overrides.yml';
     }
 
     /**
@@ -67,45 +62,6 @@ class MapUpdater
             throw new \RuntimeException('No data found in file ' . $source_file);
         }
         return $map;
-    }
-
-    /**
-     * Compares two type-to-extension maps by section.
-     *
-     * @param MapHandler $old_map
-     *   The first map to compare.
-     * @param MapHandler $new_map
-     *   The second map to compare.
-     * @param string $section
-     *   The first-level array key to compare: 'types' or 'extensions'.
-     *
-     * @throws \RuntimeException with diff details if the maps differ.
-     *
-     * @return bool
-     *   True if the maps are equal.
-     */
-    public function compareMaps(MapHandler $old_map, MapHandler $new_map, $section)
-    {
-        $old_map->sort();
-        $new_map->sort();
-        $old = $old_map->get();
-        $new = $new_map->get();
-
-        $factory = new Factory;
-        $comparator = $factory->getComparatorFor($old[$section], $new[$section]);
-        try {
-            $comparator->assertEquals($old[$section], $new[$section]);
-            return true;
-        } catch (ComparisonFailure $failure) {
-            $old_string = var_export($old[$section], true);
-            $new_string = var_export($new[$section], true);
-            if (PHP_VERSION_ID >= 70000) {
-                $differ = new Differ(new UnifiedDiffOutputBuilder("--- Removed\n+++ Added\n"));
-                throw new \RuntimeException($differ->diff($old_string, $new_string));
-            } else {
-                throw new \RuntimeException(' ');
-            }
-        }
     }
 
     /**

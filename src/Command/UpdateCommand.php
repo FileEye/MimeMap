@@ -2,6 +2,10 @@
 
 namespace FileEye\MimeMap\Command;
 
+use SebastianBergmann\Comparator\ComparisonFailure;
+use SebastianBergmann\Comparator\Factory;
+use SebastianBergmann\Diff\Differ;
+use SebastianBergmann\Diff\Output\UnifiedDiffOutputBuilder;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
@@ -76,14 +80,14 @@ class UpdateCommand extends Command
         // Check if anything got changed.
         $write = false;
         try {
-            $updater->compareMaps($current_map, $new_map, 'types');
+            $this->compareMaps($current_map, $new_map, 'types');
         } catch (\RuntimeException $e) {
             $output->writeln('<comment>Changes to MIME types mapping</comment>');
             $output->writeln($e->getMessage());
             $write = true;
         }
         try {
-            $updater->compareMaps($current_map, $new_map, 'extensions');
+            $this->compareMaps($current_map, $new_map, 'extensions');
         } catch (\RuntimeException $e) {
             $output->writeln('<comment>Changes to extensions mapping</comment>');
             $output->writeln($e->getMessage());
@@ -96,6 +100,45 @@ class UpdateCommand extends Command
             $output->writeln('<comment>Code updated.</comment>');
         } else {
             $output->writeln('<info>No changes to mapping.</info>');
+        }
+    }
+
+    /**
+     * Compares two type-to-extension maps by section.
+     *
+     * @param MapHandler $old_map
+     *   The first map to compare.
+     * @param MapHandler $new_map
+     *   The second map to compare.
+     * @param string $section
+     *   The first-level array key to compare: 'types' or 'extensions'.
+     *
+     * @throws \RuntimeException with diff details if the maps differ.
+     *
+     * @return bool
+     *   True if the maps are equal.
+     */
+    public function compareMaps(MapHandler $old_map, MapHandler $new_map, $section)
+    {
+        $old_map->sort();
+        $new_map->sort();
+        $old = $old_map->get();
+        $new = $new_map->get();
+
+        $factory = new Factory;
+        $comparator = $factory->getComparatorFor($old[$section], $new[$section]);
+        try {
+            $comparator->assertEquals($old[$section], $new[$section]);
+            return true;
+        } catch (ComparisonFailure $failure) {
+            $old_string = var_export($old[$section], true);
+            $new_string = var_export($new[$section], true);
+            if (class_exists('\SebastianBergmann\Diff\Output\UnifiedDiffOutputBuilder')) {
+                $differ = new Differ(new UnifiedDiffOutputBuilder("--- Removed\n+++ Added\n"));
+                throw new \RuntimeException($differ->diff($old_string, $new_string));
+            } else {
+                throw new \RuntimeException(' ');
+            }
         }
     }
 }
