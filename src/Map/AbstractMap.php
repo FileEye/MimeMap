@@ -71,7 +71,7 @@ abstract class AbstractMap
             return $list;
         } else {
             $re = strtr($match, ['/' => '\\/', '*' => '.*']);
-            return array_filter($list, function($v) use($re) {
+            return array_filter($list, function ($v) use ($re) {
                 return preg_match("/$re/", $v) === 1;
             });
         }
@@ -92,7 +92,7 @@ abstract class AbstractMap
             return $list;
         } else {
             $re = strtr($match, ['*' => '.*']);
-            return array_filter($list, function($v) use($re) {
+            return array_filter($list, function ($v) use ($re) {
                 return preg_match("/$re/", $v) === 1;
             });
         }
