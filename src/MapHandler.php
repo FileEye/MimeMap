@@ -10,7 +10,7 @@ abstract class MapHandler
     /**
      * The default map PHP class.
      */
-    const DEFAULT_MAP_CLASS = '\FileEye\MimeMap\TypeExtensionMap';
+    const DEFAULT_MAP_CLASS = '\FileEye\MimeMap\Map\ApacheMap';
 
     /**
      * The default map class to use.
@@ -44,6 +44,6 @@ abstract class MapHandler
         if (!$map_class) {
             $map_class = static::$defaultMapClass;
         }
-        return new $map_class();
+        return $map_class::getInstance();
     }
 }

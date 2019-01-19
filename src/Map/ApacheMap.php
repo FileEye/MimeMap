@@ -4,8 +4,10 @@ namespace FileEye\MimeMap;
 
 /**
  * Class for mapping file extensions to MIME types.
+ *
+ * This is the default map, taken from the Apache HTTPD documentation website.
  */
-class TypeExtensionMap extends AbstractMap
+class ApacheMap extends AbstractMap
 {
     /**
      * Returns this file's fully qualified filename.

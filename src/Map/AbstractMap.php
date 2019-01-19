@@ -1,6 +1,6 @@
 <?php
 
-namespace FileEye\MimeMap;
+namespace FileEye\MimeMap\Map;
 
 /**
  * Abstract class for mapping file extensions to MIME types.
@@ -10,6 +10,13 @@ namespace FileEye\MimeMap;
 abstract class AbstractMap
 {
     /**
+     * Singleton instance.
+     *
+     * @var AbstractMap
+     */
+    protected static $instance;
+
+    /**
      * Mapping between file extensions and MIME types.
      *
      * The array has two main keys, 'types' that maps MIME types to file
@@ -18,6 +25,19 @@ abstract class AbstractMap
      * @var array
      */
     protected static $map = [];
+
+    /**
+     * Returns the singleton.
+     *
+     * @return string
+     */
+    public function getInstance()
+    {
+        if (!static::$instance) {
+            static::$instance = new static();
+        }
+        return static::$instance;
+    }
 
     /**
      * Returns this file's full qualified filename.

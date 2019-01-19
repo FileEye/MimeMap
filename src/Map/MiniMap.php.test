@@ -1,11 +1,12 @@
 <?php
 
-namespace FileEye\MimeMap\Tests;
-
-use FileEye\MimeMap\AbstractMap;
+namespace FileEye\MimeMap\Map;
 
 /**
  * Class for mapping file extensions to MIME types.
+ *
+ * This class has minimum mapping defined, and is by defualt not autoloadable
+ * (it has a .php.test extension). It is used for testing purposes.
  */
 class MiniMap extends AbstractMap
 {
