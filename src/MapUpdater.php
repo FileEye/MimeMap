@@ -41,8 +41,8 @@ class MapUpdater
      *
      * @throws \RuntimeException if file I/O error occurs.
      *
-     * @return MapHandler
-     *   The map handler with the new map.
+     * @return AbstractMap
+     *   The new map.
      */
     public function createMapFromSourceFile($source_file = MapUpdater::DEFAULT_SOURCE_FILE)
     {
