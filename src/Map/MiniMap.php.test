@@ -11,6 +11,13 @@ namespace FileEye\MimeMap\Map;
 class MiniMap extends AbstractMap
 {
     /**
+     * Singleton instance.
+     *
+     * @var AbstractMap
+     */
+    protected static $instance;
+
+    /**
      * Returns this file's fully qualified filename.
      *
      * @return string

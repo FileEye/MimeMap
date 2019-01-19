@@ -11,6 +11,13 @@ namespace FileEye\MimeMap\Map;
 class EmptyMap extends AbstractMap
 {
     /**
+     * Singleton instance.
+     *
+     * @var AbstractMap
+     */
+    protected static $instance;
+
+    /**
      * Mapping between file extensions and MIME types.
      *
      * Intentionally left blank.
