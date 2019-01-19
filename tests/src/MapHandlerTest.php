@@ -19,6 +19,11 @@ class MapHandlerTest extends TestCase
         $this->map = MapHandler::map();
     }
 
+    public function testMap()
+    {
+        $this->assertContains('ApacheMap.php', $this->map->getFileName());
+    }
+
     public function testSort()
     {
         $this->map->addMapping('aaa/aaa', '000a')->sort();
@@ -77,6 +82,18 @@ class MapHandlerTest extends TestCase
 
         // Try removing a non-existing type.
         $this->assertFalse($this->map->removeType('axx/axx'));
+    }
+
+    public function testHasType()
+    {
+        $this->assertTrue($this->map->hasType('text/plain'));
+        $this->assertFalse($this->map->hasType('foo/bar'));
+    }
+
+    public function testHasExtension()
+    {
+        $this->assertTrue($this->map->hasExtension('jpg'));
+        $this->assertFalse($this->map->hasExtension('jpgjpg'));
     }
 
     public function testSetExtensionDefaultType()

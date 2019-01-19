@@ -53,11 +53,22 @@ class MapUpdaterTest extends TestCase
         $map->reset();
     }
 
+    /**
+     * @expectedException \LogicException
+     */
+    public function testEmptyMapNotWriteable()
+    {
+        $map = MapHandler::map('\FileEye\MimeMap\Map\EmptyMap');
+        $this->assertNull($map->getFileName());
+        $map->reset();
+    }
+
     public function testWriteMapToPhpClassFile()
     {
         $this->fileSystem->copy(__DIR__ . '/../../src/Map/MiniMap.php.test', __DIR__ . '/../../src/Map/MiniMap.php');
         MapHandler::setDefaultMapClass('\FileEye\MimeMap\Map\MiniMap');
         $map_a = MapHandler::map();
+        $this->assertContains('src/Map/MiniMap.php', $map_a->getFileName());
         $content = file_get_contents($map_a->getFileName());
         $this->assertNotContains('text/plain', $content);
         $map_b = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
@@ -73,6 +84,6 @@ class MapUpdaterTest extends TestCase
 
     public function testGetDefaultOverrideFile()
     {
-        $this->assertContains('overrides.yml', MapUpdater::getDefaultOverrideFile());
+        $this->assertContains('apache_overrides.yml', MapUpdater::getDefaultOverrideFile());
     }
 }

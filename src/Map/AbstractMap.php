@@ -65,16 +65,7 @@ abstract class AbstractMap
      */
     public function listTypes($match = null)
     {
-        $list = array_keys(static::$map['types']);
-
-        if (is_null($match)) {
-            return $list;
-        } else {
-            $re = strtr($match, ['/' => '\\/', '*' => '.*']);
-            return array_filter($list, function ($v) use ($re) {
-                return preg_match("/$re/", $v) === 1;
-            });
-        }
+        return $this->listEntries('types', $match);
     }
 
     /**
@@ -86,12 +77,28 @@ abstract class AbstractMap
      */
     public function listExtensions($match = null)
     {
-        $list = array_keys(static::$map['extensions']);
+        return $this->listEntries('extensions', $match);
+    }
+
+    /**
+     * Gets a list of entries of the map.
+     *
+     * @param string $key
+     *   The main array key.
+     * @param string $match
+     *   (Optional) a match wildcard to limit the list.
+     *
+     * @return mixed|null
+     *   The value of the entry, or null if missing.
+     */
+    protected function listEntries($key, $match = null)
+    {
+        $list = array_keys(static::$map[$key]);
 
         if (is_null($match)) {
             return $list;
         } else {
-            $re = strtr($match, ['*' => '.*']);
+            $re = strtr($match, ['/' => '\\/', '*' => '.*']);
             return array_filter($list, function ($v) use ($re) {
                 return preg_match("/$re/", $v) === 1;
             });
