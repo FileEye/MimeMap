@@ -47,6 +47,8 @@ class MapUpdater
     public function createMapFromSourceFile($source_file = MapUpdater::DEFAULT_SOURCE_FILE)
     {
         $map = MapHandler::map('\FileEye\MimeMap\Map\EmptyMap');
+dump($map);
+return $map;
         $lines = file($source_file);
         foreach ($lines as $line) {
             if ($line{0} == '#') {
