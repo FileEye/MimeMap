@@ -75,7 +75,6 @@ class UpdateCommand extends Command
 
 
 
-        $new = [];
         $xml = simplexml_load_string(file_get_contents('https://raw.github.com/minad/mimemagic/master/script/freedesktop.org.xml'));
         foreach ($xml as $node) {
             $exts = [];
@@ -90,13 +89,16 @@ class UpdateCommand extends Command
                 continue;
             }
             $mt = (string) $node['type'];
-            $new[$mt] = $exts;
+            foreach ($exts as $ext) {
+                $new_map->addMapping($mt, $ext);
+            }
+            //$new[$mt] = $exts;
 /*            foreach ($node->alias as $alias) {
                 $mt = strtolower((string) $alias['type']);
                 $new[$mt] = array_merge($new[$mt] ?? [], $exts);
             }*/
         }
-dump($new);
+//dump($new);
 
 
 
