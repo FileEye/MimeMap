@@ -1,0 +1,33 @@
+# MimeMap
+#
+# This file provides the default script to build the MIME-type to file extension
+# map. It is used as input to the 'fileeye-mimemap' utility.
+#
+# The script fetches a mapping source available from the Apache's documentation
+# website, merges it with another mapping source from the freedesktop.org
+# project, integrates the result with any overrides specified by
+# 'applyOverrides', and finally updates the PHP file where the
+# '\FileEye\MimeMap\Map\ApacheMap' class is stored.
+#
+# The entries are executed sequentially; each entry indicates a MapUpdater
+# method to be invoked and the arguments to be passed in.
+
+
+# The Apache httpd project contains the most complete list of file extension to
+# mime type mapping on the planet. We use it to update our own list.
+-
+    - loadMapFromApacheFile
+    - [http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=co]
+
+# Extend Apache table with the Freedesktop.org database.
+-
+    - loadMapFromFreedesktopFile
+    - [https://raw.github.com/minad/mimemagic/master/script/freedesktop.org.xml]
+
+# MimeMap overrides.
+-
+    - applyOverrides
+    -
+        -
+            - [setExtensionDefaultType, [sub, text/vnd.dvb.subtitle]]
+            - [setExtensionDefaultType, [wmz, application/x-msmetafile]]
