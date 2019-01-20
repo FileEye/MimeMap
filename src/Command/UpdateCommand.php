@@ -69,6 +69,46 @@ class UpdateCommand extends Command
             exit(2);
         }
 
+
+
+
+
+
+
+        $new = [];
+        $xml = simplexml_load_string(file_get_contents('https://raw.github.com/minad/mimemagic/master/script/freedesktop.org.xml'));
+        foreach ($xml as $node) {
+            $exts = [];
+            foreach ($node->glob as $glob) {
+                $pattern = (string) $glob['pattern'];
+                if ('*' != $pattern[0] || '.' != $pattern[1]) {
+                    continue;
+                }
+                $exts[] = substr($pattern, 2);
+            }
+            if (!$exts) {
+                continue;
+            }
+            $mt = (string) $node['type'];
+            $new[$mt] = $exts;
+/*            foreach ($node->alias as $alias) {
+                $mt = strtolower((string) $alias['type']);
+                $new[$mt] = array_merge($new[$mt] ?? [], $exts);
+            }*/
+        }
+dump($new);
+
+
+
+
+
+
+
+
+
+
+
+
         // Applies the overrides.
         try {
             $content = file_get_contents($input->getOption('override'));
