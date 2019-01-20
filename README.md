@@ -101,8 +101,19 @@ use FileEye\MimeMap\Type;
 ### Updating extension mapping
 
 The built-in extension-to-type mapping list can be updated from Apache's source
-code repository:
+code repository, using the `fileeye-mimemap` utility:
 
 ```
-$ .vendor/bin/fileeye-mimemap update
+$ cd [project_directory]/vendor/bin
+$ fileeye-mimemap update
 ```
+
+By default, the utility fetches the map from the Apache's documentation website,
+integrates it with any overrides specified in the `resources/apache_overrides.yml`
+file, and updates the default map stored in the file that is storing the `\FileEye\MimeMap\Map\ApacheMap` PHP class.
+
+Type
+```
+$ fileeye-mimemap update --help
+```
+to get information on the command line options that can override the default.
