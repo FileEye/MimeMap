@@ -67,6 +67,7 @@ class MapUpdater
                 $this->map->addMapping($type, $extension);
             }
         }
+        $this->map->sort();
         return $this;
     }
 
@@ -101,6 +102,7 @@ class MapUpdater
                 $this->map->addMapping($mt, $ext);
             }
         }
+        $this->map->sort();
         return $this;
     }
 
