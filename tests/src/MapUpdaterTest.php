@@ -76,7 +76,7 @@ class MapUpdaterTest extends TestCase
         $this->assertSame(['a26', 'asc', 'txt'], $this->newMap->listExtensions());
     }
 
-    public function testLoadMapFromApacheFileZeroLines()
+    public function testLoadMapFromFreedesktopFileZeroLines()
     {
         $this->updater->loadMapFromFreedesktopFile(dirname(__FILE__) . '/../fixtures/zero.freedesktop.xml');
         $this->assertSame([], $this->newMap->getMapArray());
