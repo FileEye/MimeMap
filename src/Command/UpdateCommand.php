@@ -27,26 +27,19 @@ class UpdateCommand extends Command
     {
         $this
             ->setName('update')
-            ->setDescription('Updates the MIME-type-to-extension map. Reads the source file specified by --source, applies any overrides specified in the file at --override, then writes the map to the PHP file where the PHP --class is defined.')
+            ->setDescription('Updates the MIME-type-to-extension map. Executes the commands in the script file specified by --script, then writes the map to the PHP file where the PHP --class is defined.')
             ->addOption(
-                'source',
+                'script',
                 null,
                 InputOption::VALUE_REQUIRED,
-                'URL or filename of the source map',
-                MapUpdater::DEFAULT_SOURCE_FILE
-            )
-            ->addOption(
-                'override',
-                null,
-                InputOption::VALUE_REQUIRED,
-                'URL or filename of the override commands to execute',
-                MapUpdater::getDefaultOverrideFile()
+                'File name of the script containing the sequence of commands to execute to build the default map.',
+                MapUpdater::getDefaultMapBuildFile()
             )
             ->addOption(
                 'class',
                 null,
                 InputOption::VALUE_REQUIRED,
-                'The Fully Qualified Class Name of the PHP class storing the map',
+                'The fully qualified class name of the PHP class storing the map.',
                 MapHandler::DEFAULT_MAP_CLASS
             )
         ;
@@ -57,26 +50,22 @@ class UpdateCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $new_map = MapHandler::map('\FileEye\MimeMap\Map\EmptyMap');
+        $updater = new MapUpdater($new_map);
+
+        // Executes on an emtpy map the script commands.
+        $commands = Yaml::parse(file_get_contents($input->getOption('script')));
+        foreach ($commands as $command) {
+            try {
+                call_user_func_array([$updater, $command[0]], $command[1]);
+            } catch (\Exception $e) {
+                $output->writeln('<error>' . $e->getMessage() . '</error>');
+                exit(2);
+            }
+        }
+
         MapHandler::setDefaultMapClass($input->getOption('class'));
         $current_map = MapHandler::map();
-        $updater = new MapUpdater();
-
-        // Loads the map from the source file.
-        try {
-            $new_map = $updater->createMapFromSourceFile($input->getOption('source'));
-        } catch (\RuntimeException $e) {
-            $output->writeln('<error>' . $e->getMessage() . '</error>');
-            exit(2);
-        }
-
-        // Applies the overrides.
-        try {
-            $content = file_get_contents($input->getOption('override'));
-            $updater->applyOverrides($new_map, Yaml::parse($content));
-        } catch (\Exception $e) {
-            $output->writeln('<error>' . $e->getMessage() . '</error>');
-            exit(2);
-        }
 
         // Check if anything got changed.
         $write = false;
@@ -97,7 +86,7 @@ class UpdateCommand extends Command
 
         // If changed, save the new map to the PHP file.
         if ($write) {
-            $updater->writeMapToPhpClassFile($new_map, $current_map->getFileName());
+            $updater->writeMapToPhpClassFile($current_map->getFileName());
             $output->writeln('<comment>Code updated.</comment>');
         } else {
             $output->writeln('<info>No changes to mapping.</info>');

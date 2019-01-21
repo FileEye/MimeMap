@@ -21,7 +21,7 @@ class MapHandlerTest extends TestCase
 
     public function testMap()
     {
-        $this->assertContains('ApacheMap.php', $this->map->getFileName());
+        $this->assertContains('DefaultMap.php', $this->map->getFileName());
     }
 
     public function testSort()
@@ -58,14 +58,14 @@ class MapHandlerTest extends TestCase
 
     public function testRemove()
     {
-        $this->assertSame(['txt', 'text', 'conf', 'def', 'list', 'log', 'in'], (new Type('text/plain'))->getExtensions());
+        $this->assertSame(['txt', 'text', 'conf', 'def', 'list', 'log', 'in', 'asc'], (new Type('text/plain'))->getExtensions());
         $this->assertSame('txt', (new Type('text/plain'))->getDefaultExtension());
         $this->assertSame(['text/plain'], (new Extension('txt'))->getTypes());
         $this->assertSame('text/plain', (new Extension('txt'))->getDefaultType());
 
         // Remove an existing type-extension pair.
         $this->assertTrue($this->map->removeMapping('text/plain', 'txt'));
-        $this->assertSame(['text', 'conf', 'def', 'list', 'log', 'in'], (new Type('text/plain'))->getExtensions());
+        $this->assertSame(['text', 'conf', 'def', 'list', 'log', 'in', 'asc'], (new Type('text/plain'))->getExtensions());
         $this->assertSame('text', (new Type('text/plain'))->getDefaultExtension());
         $this->assertSame(['application/octet-stream'], (new Extension('txt'))->getTypes(false));
         $this->assertSame('application/octet-stream', (new Extension('txt'))->getDefaultType(false));
@@ -98,9 +98,9 @@ class MapHandlerTest extends TestCase
 
     public function testSetExtensionDefaultType()
     {
-        $this->assertSame(['text/vnd.dvb.subtitle', 'image/vnd.dvb.subtitle'], (new Extension('sub'))->getTypes());
+        $this->assertSame(['text/vnd.dvb.subtitle', 'image/vnd.dvb.subtitle', 'text/x-microdvd', 'text/x-mpsub', 'text/x-subviewer'], (new Extension('sub'))->getTypes());
         $this->map->setExtensionDefaultType('SUB', 'image/vnd.dvb.subtitle');
-        $this->assertSame(['image/vnd.dvb.subtitle', 'text/vnd.dvb.subtitle'], (new Extension('SUB'))->getTypes());
+        $this->assertSame(['image/vnd.dvb.subtitle', 'text/vnd.dvb.subtitle', 'text/x-microdvd', 'text/x-mpsub', 'text/x-subviewer'], (new Extension('SUB'))->getTypes());
     }
 
     /**
