@@ -93,7 +93,7 @@ class MapUpdater
                 }
                 $exts[] = substr($pattern, 2);
             }
-            if (!$exts) {
+            if (empty($exts)) {
                 continue;
             }
             $mt = (string) $node['type'];

@@ -20,8 +20,15 @@ class MapUpdaterTest extends TestCase
     public function setUp()
     {
         $this->newMap = MapHandler::map('\FileEye\MimeMap\Map\EmptyMap');
+        $this->assertInstanceOf('\FileEye\MimeMap\Map\EmptyMap', $this->newMap);
         $this->updater = new MapUpdater($this->newMap);
         $this->fileSystem = new Filesystem();
+    }
+
+    public function tearDown()
+    {
+        $this->assertInstanceOf('\FileEye\MimeMap\Map\EmptyMap', $this->newMap);
+        $this->newMap->reset();
     }
 
     public function testLoadMapFromApacheFile()
@@ -42,14 +49,12 @@ class MapUpdaterTest extends TestCase
         $this->assertSame($expected, $this->newMap->getMapArray());
         $this->assertSame(['image/jpeg', 'text/plain'], $this->newMap->listTypes());
         $this->assertSame(['jpeg', 'jpg', 'jpe', 'txt'], $this->newMap->listExtensions());
-        $this->newMap->reset();
     }
 
     public function testLoadMapFromApacheFileZeroLines()
     {
         $this->updater->loadMapFromApacheFile(dirname(__FILE__) . '/../fixtures/zero.mime-types.txt');
         $this->assertSame([], $this->newMap->getMapArray());
-        $this->newMap->reset();
     }
 
     /**
@@ -58,7 +63,6 @@ class MapUpdaterTest extends TestCase
     public function testEmptyMapNotWriteable()
     {
         $this->assertNull($this->newMap->getFileName());
-        $this->newMap->reset();
     }
 
     public function testWriteMapToPhpClassFile()
@@ -77,7 +81,6 @@ class MapUpdaterTest extends TestCase
         $this->assertContains('bing/bong', $content);
         $this->assertContains('binbon', $content);
         $this->fileSystem->remove(__DIR__ . '/../../src/Map/MiniMap.php');
-        $this->newMap->reset();
     }
 
     public function testGetDefaultMapBuildFile()
