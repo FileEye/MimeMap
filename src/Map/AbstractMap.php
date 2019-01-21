@@ -51,8 +51,12 @@ abstract class AbstractMap
      */
     public function sort()
     {
-        ksort(static::$map['types']);
-        ksort(static::$map['extensions']);
+        if (isset(static::$map['types'])) {
+            ksort(static::$map['types']);
+        }
+        if (isset(static::$map['extensions'])) {
+            ksort(static::$map['extensions']);
+        }
         return $this;
     }
 
