@@ -40,9 +40,9 @@ class MapUpdaterTest extends TestCase
                 'text/plain' => ['txt'],
             ],
             'extensions' => [
+                'jpe' => ['image/jpeg'],
                 'jpeg' => ['image/jpeg'],
                 'jpg' => ['image/jpeg'],
-                'jpe' => ['image/jpeg'],
                 'txt' => ['text/plain'],
             ],
         ];
