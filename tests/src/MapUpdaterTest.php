@@ -48,7 +48,7 @@ class MapUpdaterTest extends TestCase
         ];
         $this->assertSame($expected, $this->newMap->getMapArray());
         $this->assertSame(['image/jpeg', 'text/plain'], $this->newMap->listTypes());
-        $this->assertSame(['jpeg', 'jpg', 'jpe', 'txt'], $this->newMap->listExtensions());
+        $this->assertSame(['jpe', 'jpeg', 'jpg', 'txt'], $this->newMap->listExtensions());
     }
 
     public function testLoadMapFromApacheFileZeroLines()
