@@ -85,6 +85,7 @@ class MapUpdater
     public function loadMapFromFreedesktopFile($source_file)
     {
         $xml = simplexml_load_string(file_get_contents($source_file));
+        $alias = [];
         foreach ($xml as $node) {
             $exts = [];
             foreach ($node->glob as $glob) {
@@ -101,7 +102,13 @@ class MapUpdater
             foreach ($exts as $ext) {
                 $this->map->addMapping($mt, $ext);
             }
+
+            foreach ($node->alias as $alias) {
+                $al = strtolower((string) $alias['type']);
+                $alias[$mt][] = $al;
+            }
         }
+        dump($alias);
         $this->map->sort();
         return $this;
     }
