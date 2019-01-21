@@ -7,7 +7,7 @@
 # website, merges it with another mapping source from the freedesktop.org
 # project, integrates the result with any overrides specified by
 # 'applyOverrides', and finally updates the PHP file where the
-# '\FileEye\MimeMap\Map\ApacheMap' class is stored.
+# '\FileEye\MimeMap\Map\DefaultMap' class is stored.
 #
 # The entries are executed sequentially; each entry indicates a MapUpdater
 # method to be invoked and the arguments to be passed in.

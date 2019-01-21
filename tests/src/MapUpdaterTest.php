@@ -45,13 +45,10 @@ class MapUpdaterTest extends TestCase
         $this->newMap->reset();
     }
 
-    /**
-     * @expectedException \RuntimeException
-     */
     public function testLoadMapFromApacheFileZeroLines()
     {
         $this->updater->loadMapFromApacheFile(dirname(__FILE__) . '/../fixtures/zero.mime-types.txt');
-        $this->assertNull($this->newMap->getMapArray());
+        $this->assertSame([], $this->newMap->getMapArray());
         $this->newMap->reset();
     }
 

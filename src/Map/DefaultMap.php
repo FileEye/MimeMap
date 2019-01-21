@@ -5,9 +5,9 @@ namespace FileEye\MimeMap\Map;
 /**
  * Class for mapping file extensions to MIME types.
  *
- * This is the default map, taken from the Apache HTTPD documentation website.
+ * This is MimeMap's default map.
  */
-class ApacheMap extends AbstractMap
+class DefaultMap extends AbstractMap
 {
     /**
      * Singleton instance.
@@ -52,6 +52,10 @@ class ApacheMap extends AbstractMap
     'application/andrew-inset' =>
     array (
       0 => 'ez',
+    ),
+    'application/annodex' =>
+    array (
+      0 => 'anx',
     ),
     'application/applixware' =>
     array (
@@ -101,6 +105,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'davmount',
     ),
+    'application/dicom' =>
+    array (
+      0 => 'dcm',
+    ),
     'application/docbook+xml' =>
     array (
       0 => 'dbk',
@@ -116,6 +124,7 @@ class ApacheMap extends AbstractMap
     'application/ecmascript' =>
     array (
       0 => 'ecma',
+      1 => 'es',
     ),
     'application/emma+xml' =>
     array (
@@ -133,9 +142,18 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'pfr',
     ),
+    'application/geo+json' =>
+    array (
+      0 => 'geojson',
+      1 => 'geo.json',
+    ),
     'application/gml+xml' =>
     array (
       0 => 'gml',
+    ),
+    'application/gnunet-directory' =>
+    array (
+      0 => 'gnd',
     ),
     'application/gpx+xml' =>
     array (
@@ -145,9 +163,17 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'gxf',
     ),
+    'application/gzip' =>
+    array (
+      0 => 'gz',
+    ),
     'application/hyperstudio' =>
     array (
       0 => 'stk',
+    ),
+    'application/illustrator' =>
+    array (
+      0 => 'ai',
     ),
     'application/inkml+xml' =>
     array (
@@ -173,14 +199,28 @@ class ApacheMap extends AbstractMap
     'application/javascript' =>
     array (
       0 => 'js',
+      1 => 'jsm',
+      2 => 'mjs',
+    ),
+    'application/jrd+json' =>
+    array (
+      0 => 'jrd',
     ),
     'application/json' =>
     array (
       0 => 'json',
     ),
+    'application/json-patch+json' =>
+    array (
+      0 => 'json-patch',
+    ),
     'application/jsonml+json' =>
     array (
       0 => 'jsonml',
+    ),
+    'application/ld+json' =>
+    array (
+      0 => 'jsonld',
     ),
     'application/lost+xml' =>
     array (
@@ -215,6 +255,7 @@ class ApacheMap extends AbstractMap
     'application/mathml+xml' =>
     array (
       0 => 'mathml',
+      1 => 'mml',
     ),
     'application/mbox' =>
     array (
@@ -253,6 +294,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'doc',
       1 => 'dot',
+    ),
+    'application/msword-template' =>
+    array (
+      0 => 'dot',
     ),
     'application/mxf' =>
     array (
@@ -296,9 +341,14 @@ class ApacheMap extends AbstractMap
       2 => 'onetmp',
       3 => 'onepkg',
     ),
+    'application/owl+xml' =>
+    array (
+      0 => 'owx',
+    ),
     'application/oxps' =>
     array (
       0 => 'oxps',
+      1 => 'xps',
     ),
     'application/patch-ops-error+xml' =>
     array (
@@ -311,11 +361,23 @@ class ApacheMap extends AbstractMap
     'application/pgp-encrypted' =>
     array (
       0 => 'pgp',
+      1 => 'gpg',
+      2 => 'asc',
+    ),
+    'application/pgp-keys' =>
+    array (
+      0 => 'skr',
+      1 => 'pkr',
+      2 => 'asc',
+      3 => 'pgp',
+      4 => 'gpg',
     ),
     'application/pgp-signature' =>
     array (
       0 => 'asc',
       1 => 'sig',
+      2 => 'pgp',
+      3 => 'gpg',
     ),
     'application/pics-rules' =>
     array (
@@ -324,6 +386,11 @@ class ApacheMap extends AbstractMap
     'application/pkcs10' =>
     array (
       0 => 'p10',
+    ),
+    'application/pkcs12' =>
+    array (
+      0 => 'p12',
+      1 => 'pfx',
     ),
     'application/pkcs7-mime' =>
     array (
@@ -337,6 +404,10 @@ class ApacheMap extends AbstractMap
     'application/pkcs8' =>
     array (
       0 => 'p8',
+    ),
+    'application/pkcs8-encrypted' =>
+    array (
+      0 => 'p8e',
     ),
     'application/pkix-attr-cert' =>
     array (
@@ -376,9 +447,19 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'pskcxml',
     ),
+    'application/ram' =>
+    array (
+      0 => 'ram',
+    ),
+    'application/raml+yaml' =>
+    array (
+      0 => 'raml',
+    ),
     'application/rdf+xml' =>
     array (
       0 => 'rdf',
+      1 => 'rdfs',
+      2 => 'owl',
     ),
     'application/reginfo+xml' =>
     array (
@@ -460,10 +541,16 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'shf',
     ),
+    'application/sieve' =>
+    array (
+      0 => 'siv',
+    ),
     'application/smil+xml' =>
     array (
       0 => 'smi',
       1 => 'smil',
+      2 => 'sml',
+      3 => 'kino',
     ),
     'application/sparql-query' =>
     array (
@@ -472,6 +559,10 @@ class ApacheMap extends AbstractMap
     'application/sparql-results+xml' =>
     array (
       0 => 'srx',
+    ),
+    'application/sql' =>
+    array (
+      0 => 'sql',
     ),
     'application/srgs' =>
     array (
@@ -505,6 +596,10 @@ class ApacheMap extends AbstractMap
     'application/timestamped-data' =>
     array (
       0 => 'tsd',
+    ),
+    'application/trig' =>
+    array (
+      0 => 'trig',
     ),
     'application/vnd.3gpp.pic-bw-large' =>
     array (
@@ -546,6 +641,11 @@ class ApacheMap extends AbstractMap
     'application/vnd.adobe.air-application-installer-package+zip' =>
     array (
       0 => 'air',
+    ),
+    'application/vnd.adobe.flash.movie' =>
+    array (
+      0 => 'swf',
+      1 => 'spl',
     ),
     'application/vnd.adobe.formscentral.fcdt' =>
     array (
@@ -604,6 +704,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'atx',
     ),
+    'application/vnd.appimage' =>
+    array (
+      0 => 'appimage',
+    ),
     'application/vnd.apple.installer+xml' =>
     array (
       0 => 'mpkg',
@@ -611,6 +715,7 @@ class ApacheMap extends AbstractMap
     'application/vnd.apple.mpegurl' =>
     array (
       0 => 'm3u8',
+      1 => 'm3u',
     ),
     'application/vnd.aristanetworks.swi' =>
     array (
@@ -639,6 +744,10 @@ class ApacheMap extends AbstractMap
     'application/vnd.chemdraw+xml' =>
     array (
       0 => 'cdxml',
+    ),
+    'application/vnd.chess-pgn' =>
+    array (
+      0 => 'pgn',
     ),
     'application/vnd.chipnuts.karaoke-mmd' =>
     array (
@@ -672,6 +781,18 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'c11amz',
     ),
+    'application/vnd.coffeescript' =>
+    array (
+      0 => 'coffee',
+    ),
+    'application/vnd.comicbook+zip' =>
+    array (
+      0 => 'cbz',
+    ),
+    'application/vnd.comicbook-rar' =>
+    array (
+      0 => 'cbr',
+    ),
     'application/vnd.commonspace' =>
     array (
       0 => 'csp',
@@ -679,6 +800,10 @@ class ApacheMap extends AbstractMap
     'application/vnd.contact.cmsg' =>
     array (
       0 => 'cdbcmsg',
+    ),
+    'application/vnd.corel-draw' =>
+    array (
+      0 => 'cdr',
     ),
     'application/vnd.cosmocaller' =>
     array (
@@ -731,6 +856,11 @@ class ApacheMap extends AbstractMap
     'application/vnd.data-vision.rdz' =>
     array (
       0 => 'rdz',
+    ),
+    'application/vnd.debian.binary-package' =>
+    array (
+      0 => 'deb',
+      1 => 'udeb',
     ),
     'application/vnd.dece.data' =>
     array (
@@ -794,6 +924,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'mag',
     ),
+    'application/vnd.emusic-emusic_package' =>
+    array (
+      0 => 'emp',
+    ),
     'application/vnd.enliven' =>
     array (
       0 => 'nml',
@@ -843,6 +977,19 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'seed',
       1 => 'dataless',
+    ),
+    'application/vnd.flatpak' =>
+    array (
+      0 => 'flatpak',
+      1 => 'xdgapp',
+    ),
+    'application/vnd.flatpak.ref' =>
+    array (
+      0 => 'flatpakref',
+    ),
+    'application/vnd.flatpak.repo' =>
+    array (
+      0 => 'flatpakrepo',
     ),
     'application/vnd.flographit' =>
     array (
@@ -1191,6 +1338,10 @@ class ApacheMap extends AbstractMap
     'application/vnd.lotus-1-2-3' =>
     array (
       0 => '123',
+      1 => 'wk1',
+      2 => 'wk3',
+      3 => 'wk4',
+      4 => 'wks',
     ),
     'application/vnd.lotus-approach' =>
     array (
@@ -1292,9 +1443,17 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'xul',
     ),
+    'application/vnd.ms-access' =>
+    array (
+      0 => 'mdb',
+    ),
     'application/vnd.ms-artgalry' =>
     array (
       0 => 'cil',
+    ),
+    'application/vnd.ms-asf' =>
+    array (
+      0 => 'asf',
     ),
     'application/vnd.ms-cab-compressed' =>
     array (
@@ -1308,6 +1467,8 @@ class ApacheMap extends AbstractMap
       3 => 'xlc',
       4 => 'xlt',
       5 => 'xlw',
+      6 => 'xll',
+      7 => 'xld',
     ),
     'application/vnd.ms-excel.addin.macroenabled.12' =>
     array (
@@ -1358,6 +1519,7 @@ class ApacheMap extends AbstractMap
       0 => 'ppt',
       1 => 'pps',
       2 => 'pot',
+      3 => 'ppz',
     ),
     'application/vnd.ms-powerpoint.addin.macroenabled.12' =>
     array (
@@ -1384,6 +1546,39 @@ class ApacheMap extends AbstractMap
       0 => 'mpp',
       1 => 'mpt',
     ),
+    'application/vnd.ms-publisher' =>
+    array (
+      0 => 'pub',
+    ),
+    'application/vnd.ms-tnef' =>
+    array (
+      0 => 'tnef',
+      1 => 'tnf',
+    ),
+    'application/vnd.ms-visio.drawing.macroenabled.main+xml' =>
+    array (
+      0 => 'vsdm',
+    ),
+    'application/vnd.ms-visio.drawing.main+xml' =>
+    array (
+      0 => 'vsdx',
+    ),
+    'application/vnd.ms-visio.stencil.macroenabled.main+xml' =>
+    array (
+      0 => 'vssm',
+    ),
+    'application/vnd.ms-visio.stencil.main+xml' =>
+    array (
+      0 => 'vssx',
+    ),
+    'application/vnd.ms-visio.template.macroenabled.main+xml' =>
+    array (
+      0 => 'vstm',
+    ),
+    'application/vnd.ms-visio.template.main+xml' =>
+    array (
+      0 => 'vstx',
+    ),
     'application/vnd.ms-word.document.macroenabled.12' =>
     array (
       0 => 'docm',
@@ -1398,6 +1593,7 @@ class ApacheMap extends AbstractMap
       1 => 'wks',
       2 => 'wcm',
       3 => 'wdb',
+      4 => 'xlr',
     ),
     'application/vnd.ms-wpl' =>
     array (
@@ -1426,6 +1622,11 @@ class ApacheMap extends AbstractMap
     'application/vnd.neurolanguage.nlu' =>
     array (
       0 => 'nlu',
+    ),
+    'application/vnd.nintendo.snes.rom' =>
+    array (
+      0 => 'sfc',
+      1 => 'smc',
     ),
     'application/vnd.nitf' =>
     array (
@@ -1491,10 +1692,15 @@ class ApacheMap extends AbstractMap
     'application/vnd.oasis.opendocument.formula-template' =>
     array (
       0 => 'odft',
+      1 => 'otf',
     ),
     'application/vnd.oasis.opendocument.graphics' =>
     array (
       0 => 'odg',
+    ),
+    'application/vnd.oasis.opendocument.graphics-flat-xml' =>
+    array (
+      0 => 'fodg',
     ),
     'application/vnd.oasis.opendocument.graphics-template' =>
     array (
@@ -1512,6 +1718,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'odp',
     ),
+    'application/vnd.oasis.opendocument.presentation-flat-xml' =>
+    array (
+      0 => 'fodp',
+    ),
     'application/vnd.oasis.opendocument.presentation-template' =>
     array (
       0 => 'otp',
@@ -1520,6 +1730,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'ods',
     ),
+    'application/vnd.oasis.opendocument.spreadsheet-flat-xml' =>
+    array (
+      0 => 'fods',
+    ),
     'application/vnd.oasis.opendocument.spreadsheet-template' =>
     array (
       0 => 'ots',
@@ -1527,6 +1741,10 @@ class ApacheMap extends AbstractMap
     'application/vnd.oasis.opendocument.text' =>
     array (
       0 => 'odt',
+    ),
+    'application/vnd.oasis.opendocument.text-flat-xml' =>
+    array (
+      0 => 'fodt',
     ),
     'application/vnd.oasis.opendocument.text-master' =>
     array (
@@ -1601,6 +1819,7 @@ class ApacheMap extends AbstractMap
       0 => 'pdb',
       1 => 'pqa',
       2 => 'oprc',
+      3 => 'prc',
     ),
     'application/vnd.pawaafile' =>
     array (
@@ -1655,6 +1874,10 @@ class ApacheMap extends AbstractMap
       4 => 'qxl',
       5 => 'qxb',
     ),
+    'application/vnd.rar' =>
+    array (
+      0 => 'rar',
+    ),
     'application/vnd.realvnc.bed' =>
     array (
       0 => 'bed',
@@ -1678,6 +1901,11 @@ class ApacheMap extends AbstractMap
     'application/vnd.rn-realmedia' =>
     array (
       0 => 'rm',
+      1 => 'rmj',
+      2 => 'rmm',
+      3 => 'rms',
+      4 => 'rmx',
+      5 => 'rmvb',
     ),
     'application/vnd.rn-realmedia-vbr' =>
     array (
@@ -1736,6 +1964,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'teacher',
     ),
+    'application/vnd.snap' =>
+    array (
+      0 => 'snap',
+    ),
     'application/vnd.solent.sdkm+xml' =>
     array (
       0 => 'sdkm',
@@ -1749,9 +1981,21 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'sfs',
     ),
+    'application/vnd.sqlite3' =>
+    array (
+      0 => 'sqlite3',
+    ),
+    'application/vnd.squashfs' =>
+    array (
+      0 => 'sqsh',
+    ),
     'application/vnd.stardivision.calc' =>
     array (
       0 => 'sdc',
+    ),
+    'application/vnd.stardivision.chart' =>
+    array (
+      0 => 'sds',
     ),
     'application/vnd.stardivision.draw' =>
     array (
@@ -1760,6 +2004,11 @@ class ApacheMap extends AbstractMap
     'application/vnd.stardivision.impress' =>
     array (
       0 => 'sdd',
+      1 => 'sdp',
+    ),
+    'application/vnd.stardivision.mail' =>
+    array (
+      0 => 'smd',
     ),
     'application/vnd.stardivision.math' =>
     array (
@@ -1769,6 +2018,7 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'sdw',
       1 => 'vor',
+      2 => 'sgl',
     ),
     'application/vnd.stardivision.writer-global' =>
     array (
@@ -1937,6 +2187,11 @@ class ApacheMap extends AbstractMap
     'application/vnd.wordperfect' =>
     array (
       0 => 'wpd',
+      1 => 'wp',
+      2 => 'wp4',
+      3 => 'wp5',
+      4 => 'wp6',
+      5 => 'wpp',
     ),
     'application/vnd.wqd' =>
     array (
@@ -1986,6 +2241,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'cmp',
     ),
+    'application/vnd.youtube.yt' =>
+    array (
+      0 => 'yt',
+    ),
     'application/vnd.zul' =>
     array (
       0 => 'zir',
@@ -2022,14 +2281,71 @@ class ApacheMap extends AbstractMap
     'application/x-abiword' =>
     array (
       0 => 'abw',
+      1 => 'abw.crashed',
+      2 => 'abw.gz',
+      3 => 'zabw',
+    ),
+    'application/x-ace' =>
+    array (
+      0 => 'ace',
     ),
     'application/x-ace-compressed' =>
     array (
       0 => 'ace',
     ),
+    'application/x-alz' =>
+    array (
+      0 => 'alz',
+    ),
+    'application/x-amiga-disk-format' =>
+    array (
+      0 => 'adf',
+    ),
+    'application/x-amipro' =>
+    array (
+      0 => 'sam',
+    ),
+    'application/x-aportisdoc' =>
+    array (
+      0 => 'pdb',
+      1 => 'pdc',
+    ),
     'application/x-apple-diskimage' =>
     array (
       0 => 'dmg',
+    ),
+    'application/x-applix-spreadsheet' =>
+    array (
+      0 => 'as',
+    ),
+    'application/x-applix-word' =>
+    array (
+      0 => 'aw',
+    ),
+    'application/x-archive' =>
+    array (
+      0 => 'a',
+      1 => 'ar',
+    ),
+    'application/x-arj' =>
+    array (
+      0 => 'arj',
+    ),
+    'application/x-asp' =>
+    array (
+      0 => 'asp',
+    ),
+    'application/x-atari-2600-rom' =>
+    array (
+      0 => 'a26',
+    ),
+    'application/x-atari-7800-rom' =>
+    array (
+      0 => 'a78',
+    ),
+    'application/x-atari-lynx-rom' =>
+    array (
+      0 => 'lnx',
     ),
     'application/x-authorware-bin' =>
     array (
@@ -2046,6 +2362,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'aas',
     ),
+    'application/x-awk' =>
+    array (
+      0 => 'awk',
+    ),
     'application/x-bcpio' =>
     array (
       0 => 'bcpio',
@@ -2054,19 +2374,53 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'torrent',
     ),
+    'application/x-blender' =>
+    array (
+      0 => 'blender',
+      1 => 'blend',
+    ),
     'application/x-blorb' =>
     array (
       0 => 'blb',
       1 => 'blorb',
     ),
+    'application/x-bsdiff' =>
+    array (
+      0 => 'bsdiff',
+    ),
+    'application/x-bzdvi' =>
+    array (
+      0 => 'dvi.bz2',
+    ),
     'application/x-bzip' =>
     array (
       0 => 'bz',
+      1 => 'bz2',
+    ),
+    'application/x-bzip-compressed-tar' =>
+    array (
+      0 => 'tar.bz2',
+      1 => 'tar.bz',
+      2 => 'tbz2',
+      3 => 'tbz',
+      4 => 'tb2',
     ),
     'application/x-bzip2' =>
     array (
       0 => 'bz2',
       1 => 'boz',
+    ),
+    'application/x-bzpdf' =>
+    array (
+      0 => 'pdf.bz2',
+    ),
+    'application/x-bzpostscript' =>
+    array (
+      0 => 'ps.bz2',
+    ),
+    'application/x-cb7' =>
+    array (
+      0 => 'cb7',
     ),
     'application/x-cbr' =>
     array (
@@ -2076,9 +2430,26 @@ class ApacheMap extends AbstractMap
       3 => 'cbz',
       4 => 'cb7',
     ),
+    'application/x-cbt' =>
+    array (
+      0 => 'cbt',
+    ),
+    'application/x-ccmx' =>
+    array (
+      0 => 'ccmx',
+    ),
+    'application/x-cd-image' =>
+    array (
+      0 => 'iso',
+      1 => 'iso9660',
+    ),
     'application/x-cdlink' =>
     array (
       0 => 'vcd',
+    ),
+    'application/x-cdrdao-toc' =>
+    array (
+      0 => 'toc',
     ),
     'application/x-cfs-compressed' =>
     array (
@@ -2092,6 +2463,19 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'pgn',
     ),
+    'application/x-cisco-vpn-settings' =>
+    array (
+      0 => 'pcf',
+    ),
+    'application/x-compress' =>
+    array (
+      0 => 'z',
+    ),
+    'application/x-compressed-tar' =>
+    array (
+      0 => 'tar.gz',
+      1 => 'tgz',
+    ),
     'application/x-conference' =>
     array (
       0 => 'nsc',
@@ -2100,18 +2484,55 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'cpio',
     ),
+    'application/x-cpio-compressed' =>
+    array (
+      0 => 'cpio.gz',
+    ),
     'application/x-csh' =>
     array (
       0 => 'csh',
+    ),
+    'application/x-cue' =>
+    array (
+      0 => 'cue',
+    ),
+    'application/x-dar' =>
+    array (
+      0 => 'dar',
+    ),
+    'application/x-dbf' =>
+    array (
+      0 => 'dbf',
+    ),
+    'application/x-dc-rom' =>
+    array (
+      0 => 'dc',
     ),
     'application/x-debian-package' =>
     array (
       0 => 'deb',
       1 => 'udeb',
     ),
+    'application/x-designer' =>
+    array (
+      0 => 'ui',
+    ),
+    'application/x-desktop' =>
+    array (
+      0 => 'desktop',
+      1 => 'kdelnk',
+    ),
     'application/x-dgc-compressed' =>
     array (
       0 => 'dgc',
+    ),
+    'application/x-dia-diagram' =>
+    array (
+      0 => 'dia',
+    ),
+    'application/x-dia-shape' =>
+    array (
+      0 => 'shape',
     ),
     'application/x-director' =>
     array (
@@ -2125,7 +2546,16 @@ class ApacheMap extends AbstractMap
       7 => 'fgd',
       8 => 'swa',
     ),
+    'application/x-docbook+xml' =>
+    array (
+      0 => 'dbk',
+      1 => 'docbook',
+    ),
     'application/x-doom' =>
+    array (
+      0 => 'wad',
+    ),
+    'application/x-doom-wad' =>
     array (
       0 => 'wad',
     ),
@@ -2145,6 +2575,14 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'dvi',
     ),
+    'application/x-e-theme' =>
+    array (
+      0 => 'etheme',
+    ),
+    'application/x-egon' =>
+    array (
+      0 => 'egon',
+    ),
     'application/x-envoy' =>
     array (
       0 => 'evy',
@@ -2152,6 +2590,22 @@ class ApacheMap extends AbstractMap
     'application/x-eva' =>
     array (
       0 => 'eva',
+    ),
+    'application/x-fds-disk' =>
+    array (
+      0 => 'fds',
+    ),
+    'application/x-fictionbook+xml' =>
+    array (
+      0 => 'fb2',
+    ),
+    'application/x-fluid' =>
+    array (
+      0 => 'fl',
+    ),
+    'application/x-font-afm' =>
+    array (
+      0 => 'afm',
     ),
     'application/x-font-bdf' =>
     array (
@@ -2168,10 +2622,20 @@ class ApacheMap extends AbstractMap
     'application/x-font-pcf' =>
     array (
       0 => 'pcf',
+      1 => 'pcf.z',
+      2 => 'pcf.gz',
     ),
     'application/x-font-snf' =>
     array (
       0 => 'snf',
+    ),
+    'application/x-font-speedo' =>
+    array (
+      0 => 'spd',
+    ),
+    'application/x-font-ttx' =>
+    array (
+      0 => 'ttx',
     ),
     'application/x-font-type1' =>
     array (
@@ -2179,6 +2643,7 @@ class ApacheMap extends AbstractMap
       1 => 'pfb',
       2 => 'pfm',
       3 => 'afm',
+      4 => 'gsf',
     ),
     'application/x-freearc' =>
     array (
@@ -2188,54 +2653,345 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'spl',
     ),
+    'application/x-gameboy-color-rom' =>
+    array (
+      0 => 'gbc',
+      1 => 'cgb',
+    ),
+    'application/x-gameboy-rom' =>
+    array (
+      0 => 'gb',
+      1 => 'sgb',
+    ),
+    'application/x-gamecube-rom' =>
+    array (
+      0 => 'iso',
+    ),
+    'application/x-gamegear-rom' =>
+    array (
+      0 => 'gg',
+    ),
+    'application/x-gba-rom' =>
+    array (
+      0 => 'gba',
+      1 => 'agb',
+    ),
     'application/x-gca-compressed' =>
     array (
       0 => 'gca',
+    ),
+    'application/x-gedcom' =>
+    array (
+      0 => 'ged',
+      1 => 'gedcom',
+    ),
+    'application/x-genesis-32x-rom' =>
+    array (
+      0 => '32x',
+      1 => 'mdx',
+    ),
+    'application/x-genesis-rom' =>
+    array (
+      0 => 'gen',
+      1 => 'smd',
+    ),
+    'application/x-gettext-translation' =>
+    array (
+      0 => 'gmo',
+      1 => 'mo',
+    ),
+    'application/x-glade' =>
+    array (
+      0 => 'glade',
     ),
     'application/x-glulx' =>
     array (
       0 => 'ulx',
     ),
+    'application/x-gnucash' =>
+    array (
+      0 => 'gnucash',
+      1 => 'gnc',
+      2 => 'xac',
+    ),
     'application/x-gnumeric' =>
     array (
       0 => 'gnumeric',
+    ),
+    'application/x-gnuplot' =>
+    array (
+      0 => 'gp',
+      1 => 'gplt',
+      2 => 'gnuplot',
+    ),
+    'application/x-go-sgf' =>
+    array (
+      0 => 'sgf',
     ),
     'application/x-gramps-xml' =>
     array (
       0 => 'gramps',
     ),
+    'application/x-graphite' =>
+    array (
+      0 => 'gra',
+    ),
     'application/x-gtar' =>
     array (
       0 => 'gtar',
     ),
+    'application/x-gtk-builder' =>
+    array (
+      0 => 'ui',
+    ),
+    'application/x-gz-font-linux-psf' =>
+    array (
+      0 => 'psf.gz',
+    ),
+    'application/x-gzdvi' =>
+    array (
+      0 => 'dvi.gz',
+    ),
+    'application/x-gzpdf' =>
+    array (
+      0 => 'pdf.gz',
+    ),
+    'application/x-gzpostscript' =>
+    array (
+      0 => 'ps.gz',
+    ),
     'application/x-hdf' =>
     array (
       0 => 'hdf',
+      1 => 'hdf4',
+      2 => 'h4',
+      3 => 'hdf5',
+      4 => 'h5',
+    ),
+    'application/x-hfe-floppy-image' =>
+    array (
+      0 => 'hfe',
+    ),
+    'application/x-hwp' =>
+    array (
+      0 => 'hwp',
+    ),
+    'application/x-hwt' =>
+    array (
+      0 => 'hwt',
+    ),
+    'application/x-ica' =>
+    array (
+      0 => 'ica',
     ),
     'application/x-install-instructions' =>
     array (
       0 => 'install',
     ),
+    'application/x-ipynb+json' =>
+    array (
+      0 => 'ipynb',
+    ),
+    'application/x-iso9660-appimage' =>
+    array (
+      0 => 'appimage',
+    ),
     'application/x-iso9660-image' =>
     array (
       0 => 'iso',
+    ),
+    'application/x-it87' =>
+    array (
+      0 => 'it87',
+    ),
+    'application/x-iwork-keynote-sffkey' =>
+    array (
+      0 => 'key',
+    ),
+    'application/x-java' =>
+    array (
+      0 => 'class',
+    ),
+    'application/x-java-archive' =>
+    array (
+      0 => 'jar',
+    ),
+    'application/x-java-jce-keystore' =>
+    array (
+      0 => 'jceks',
     ),
     'application/x-java-jnlp-file' =>
     array (
       0 => 'jnlp',
     ),
+    'application/x-java-keystore' =>
+    array (
+      0 => 'jks',
+      1 => 'ks',
+    ),
+    'application/x-java-pack200' =>
+    array (
+      0 => 'pack',
+    ),
+    'application/x-jbuilder-project' =>
+    array (
+      0 => 'jpr',
+      1 => 'jpx',
+    ),
+    'application/x-karbon' =>
+    array (
+      0 => 'karbon',
+    ),
+    'application/x-kchart' =>
+    array (
+      0 => 'chrt',
+    ),
+    'application/x-kexi-connectiondata' =>
+    array (
+      0 => 'kexic',
+    ),
+    'application/x-kexiproject-shortcut' =>
+    array (
+      0 => 'kexis',
+    ),
+    'application/x-kexiproject-sqlite2' =>
+    array (
+      0 => 'kexi',
+    ),
+    'application/x-kexiproject-sqlite3' =>
+    array (
+      0 => 'kexi',
+    ),
+    'application/x-kformula' =>
+    array (
+      0 => 'kfo',
+    ),
+    'application/x-killustrator' =>
+    array (
+      0 => 'kil',
+    ),
+    'application/x-kivio' =>
+    array (
+      0 => 'flw',
+    ),
+    'application/x-kontour' =>
+    array (
+      0 => 'kon',
+    ),
+    'application/x-kpovmodeler' =>
+    array (
+      0 => 'kpm',
+    ),
+    'application/x-kpresenter' =>
+    array (
+      0 => 'kpr',
+      1 => 'kpt',
+    ),
+    'application/x-krita' =>
+    array (
+      0 => 'kra',
+    ),
+    'application/x-kspread' =>
+    array (
+      0 => 'ksp',
+    ),
+    'application/x-kugar' =>
+    array (
+      0 => 'kud',
+    ),
+    'application/x-kword' =>
+    array (
+      0 => 'kwd',
+      1 => 'kwt',
+    ),
     'application/x-latex' =>
     array (
       0 => 'latex',
+    ),
+    'application/x-lha' =>
+    array (
+      0 => 'lha',
+      1 => 'lzh',
+    ),
+    'application/x-lhz' =>
+    array (
+      0 => 'lhz',
+    ),
+    'application/x-lrzip' =>
+    array (
+      0 => 'lrz',
+    ),
+    'application/x-lrzip-compressed-tar' =>
+    array (
+      0 => 'tar.lrz',
+      1 => 'tlrz',
+    ),
+    'application/x-lyx' =>
+    array (
+      0 => 'lyx',
+    ),
+    'application/x-lz4' =>
+    array (
+      0 => 'lz4',
+    ),
+    'application/x-lz4-compressed-tar' =>
+    array (
+      0 => 'tar.lz4',
     ),
     'application/x-lzh-compressed' =>
     array (
       0 => 'lzh',
       1 => 'lha',
     ),
+    'application/x-lzip' =>
+    array (
+      0 => 'lz',
+    ),
+    'application/x-lzip-compressed-tar' =>
+    array (
+      0 => 'tar.lz',
+    ),
+    'application/x-lzma' =>
+    array (
+      0 => 'lzma',
+    ),
+    'application/x-lzma-compressed-tar' =>
+    array (
+      0 => 'tar.lzma',
+      1 => 'tlz',
+    ),
+    'application/x-lzop' =>
+    array (
+      0 => 'lzo',
+    ),
+    'application/x-lzpdf' =>
+    array (
+      0 => 'pdf.lz',
+    ),
+    'application/x-m4' =>
+    array (
+      0 => 'm4',
+    ),
+    'application/x-magicpoint' =>
+    array (
+      0 => 'mgp',
+    ),
+    'application/x-markaby' =>
+    array (
+      0 => 'mab',
+    ),
     'application/x-mie' =>
     array (
       0 => 'mie',
+    ),
+    'application/x-mif' =>
+    array (
+      0 => 'mif',
+    ),
+    'application/x-mimearchive' =>
+    array (
+      0 => 'mhtml',
+      1 => 'mht',
     ),
     'application/x-mobipocket-ebook' =>
     array (
@@ -2246,9 +3002,18 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application',
     ),
+    'application/x-ms-dos-executable' =>
+    array (
+      0 => 'exe',
+    ),
     'application/x-ms-shortcut' =>
     array (
       0 => 'lnk',
+    ),
+    'application/x-ms-wim' =>
+    array (
+      0 => 'wim',
+      1 => 'swm',
     ),
     'application/x-ms-wmd' =>
     array (
@@ -2286,6 +3051,10 @@ class ApacheMap extends AbstractMap
       3 => 'bat',
       4 => 'msi',
     ),
+    'application/x-msi' =>
+    array (
+      0 => 'msi',
+    ),
     'application/x-msmediaview' =>
     array (
       0 => 'mvb',
@@ -2315,18 +3084,109 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'trm',
     ),
+    'application/x-mswinurl' =>
+    array (
+      0 => 'url',
+    ),
     'application/x-mswrite' =>
     array (
       0 => 'wri',
+    ),
+    'application/x-msx-rom' =>
+    array (
+      0 => 'msx',
+    ),
+    'application/x-n64-rom' =>
+    array (
+      0 => 'n64',
+      1 => 'z64',
+      2 => 'v64',
+    ),
+    'application/x-navi-animation' =>
+    array (
+      0 => 'ani',
+    ),
+    'application/x-neo-geo-pocket-color-rom' =>
+    array (
+      0 => 'ngc',
+    ),
+    'application/x-neo-geo-pocket-rom' =>
+    array (
+      0 => 'ngp',
+    ),
+    'application/x-nes-rom' =>
+    array (
+      0 => 'nes',
+      1 => 'nez',
+      2 => 'unf',
+      3 => 'unif',
     ),
     'application/x-netcdf' =>
     array (
       0 => 'nc',
       1 => 'cdf',
     ),
+    'application/x-netshow-channel' =>
+    array (
+      0 => 'nsc',
+    ),
+    'application/x-nintendo-ds-rom' =>
+    array (
+      0 => 'nds',
+    ),
     'application/x-nzb' =>
     array (
       0 => 'nzb',
+    ),
+    'application/x-object' =>
+    array (
+      0 => 'o',
+    ),
+    'application/x-oleo' =>
+    array (
+      0 => 'oleo',
+    ),
+    'application/x-pagemaker' =>
+    array (
+      0 => 'p65',
+      1 => 'pm',
+      2 => 'pm6',
+      3 => 'pmd',
+    ),
+    'application/x-pak' =>
+    array (
+      0 => 'pak',
+    ),
+    'application/x-par2' =>
+    array (
+      0 => 'par2',
+    ),
+    'application/x-partial-download' =>
+    array (
+      0 => 'wkdownload',
+      1 => 'crdownload',
+      2 => 'part',
+    ),
+    'application/x-pc-engine-rom' =>
+    array (
+      0 => 'pce',
+    ),
+    'application/x-perl' =>
+    array (
+      0 => 'pl',
+      1 => 'pm',
+      2 => 'al',
+      3 => 'perl',
+      4 => 'pod',
+      5 => 't',
+    ),
+    'application/x-php' =>
+    array (
+      0 => 'php',
+      1 => 'php3',
+      2 => 'php4',
+      3 => 'php5',
+      4 => 'phps',
     ),
     'application/x-pkcs12' =>
     array (
@@ -2342,13 +3202,95 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'p7r',
     ),
+    'application/x-planperfect' =>
+    array (
+      0 => 'pln',
+    ),
+    'application/x-pocket-word' =>
+    array (
+      0 => 'psw',
+    ),
+    'application/x-pw' =>
+    array (
+      0 => 'pw',
+    ),
+    'application/x-python-bytecode' =>
+    array (
+      0 => 'pyc',
+      1 => 'pyo',
+    ),
+    'application/x-qpress' =>
+    array (
+      0 => 'qp',
+    ),
+    'application/x-qtiplot' =>
+    array (
+      0 => 'qti',
+      1 => 'qti.gz',
+    ),
+    'application/x-quattropro' =>
+    array (
+      0 => 'wb1',
+      1 => 'wb2',
+      2 => 'wb3',
+    ),
+    'application/x-quicktime-media-link' =>
+    array (
+      0 => 'qtl',
+    ),
+    'application/x-qw' =>
+    array (
+      0 => 'qif',
+    ),
     'application/x-rar-compressed' =>
     array (
       0 => 'rar',
     ),
+    'application/x-raw-disk-image' =>
+    array (
+      0 => 'raw-disk-image',
+      1 => 'img',
+    ),
+    'application/x-raw-disk-image-xz-compressed' =>
+    array (
+      0 => 'raw-disk-image.xz',
+      1 => 'img.xz',
+    ),
+    'application/x-raw-floppy-disk-image' =>
+    array (
+      0 => 'fd',
+      1 => 'qd',
+    ),
     'application/x-research-info-systems' =>
     array (
       0 => 'ris',
+    ),
+    'application/x-rpm' =>
+    array (
+      0 => 'rpm',
+    ),
+    'application/x-ruby' =>
+    array (
+      0 => 'rb',
+    ),
+    'application/x-sami' =>
+    array (
+      0 => 'smi',
+      1 => 'sami',
+    ),
+    'application/x-saturn-rom' =>
+    array (
+      0 => 'bin',
+      1 => 'iso',
+    ),
+    'application/x-sega-cd-rom' =>
+    array (
+      0 => 'bin',
+      1 => 'iso',
+    ),
+    'application/x-sg1000-rom' =>
+    array (
+      0 => 'sg',
     ),
     'application/x-sh' =>
     array (
@@ -2358,17 +3300,64 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'shar',
     ),
+    'application/x-shared-library-la' =>
+    array (
+      0 => 'la',
+    ),
+    'application/x-sharedlib' =>
+    array (
+      0 => 'so',
+    ),
+    'application/x-shellscript' =>
+    array (
+      0 => 'sh',
+    ),
     'application/x-shockwave-flash' =>
     array (
       0 => 'swf',
+    ),
+    'application/x-shorten' =>
+    array (
+      0 => 'shn',
+    ),
+    'application/x-siag' =>
+    array (
+      0 => 'siag',
     ),
     'application/x-silverlight-app' =>
     array (
       0 => 'xap',
     ),
+    'application/x-smaf' =>
+    array (
+      0 => 'mmf',
+      1 => 'smaf',
+    ),
+    'application/x-sms-rom' =>
+    array (
+      0 => 'sms',
+    ),
+    'application/x-source-rpm' =>
+    array (
+      0 => 'src.rpm',
+      1 => 'spm',
+    ),
+    'application/x-spss-por' =>
+    array (
+      0 => 'por',
+    ),
+    'application/x-spss-sav' =>
+    array (
+      0 => 'sav',
+      1 => 'zsav',
+    ),
     'application/x-sql' =>
     array (
       0 => 'sql',
+    ),
+    'application/x-sqlite2' =>
+    array (
+      0 => 'sqlite2',
     ),
     'application/x-stuffit' =>
     array (
@@ -2394,6 +3383,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 't3',
     ),
+    'application/x-t602' =>
+    array (
+      0 => '602',
+    ),
     'application/x-tads' =>
     array (
       0 => 'gam',
@@ -2401,6 +3394,13 @@ class ApacheMap extends AbstractMap
     'application/x-tar' =>
     array (
       0 => 'tar',
+      1 => 'gtar',
+      2 => 'gem',
+    ),
+    'application/x-tarz' =>
+    array (
+      0 => 'tar.z',
+      1 => 'taz',
     ),
     'application/x-tcl' =>
     array (
@@ -2409,6 +3409,14 @@ class ApacheMap extends AbstractMap
     'application/x-tex' =>
     array (
       0 => 'tex',
+    ),
+    'application/x-tex-gf' =>
+    array (
+      0 => 'gf',
+    ),
+    'application/x-tex-pk' =>
+    array (
+      0 => 'pk',
     ),
     'application/x-tex-tfm' =>
     array (
@@ -2423,18 +3431,96 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'obj',
     ),
+    'application/x-theme' =>
+    array (
+      0 => 'theme',
+    ),
+    'application/x-thomson-cartridge-memo7' =>
+    array (
+      0 => 'm7',
+    ),
+    'application/x-thomson-cassette' =>
+    array (
+      0 => 'k7',
+    ),
+    'application/x-thomson-sap-image' =>
+    array (
+      0 => 'sap',
+    ),
+    'application/x-trash' =>
+    array (
+      0 => 'bak',
+      1 => 'old',
+      2 => 'sik',
+    ),
+    'application/x-troff-man' =>
+    array (
+      0 => 'man',
+    ),
+    'application/x-tzo' =>
+    array (
+      0 => 'tar.lzo',
+      1 => 'tzo',
+    ),
+    'application/x-ufraw' =>
+    array (
+      0 => 'ufraw',
+    ),
     'application/x-ustar' =>
     array (
       0 => 'ustar',
+    ),
+    'application/x-virtual-boy-rom' =>
+    array (
+      0 => 'vb',
     ),
     'application/x-wais-source' =>
     array (
       0 => 'src',
     ),
+    'application/x-wii-rom' =>
+    array (
+      0 => 'iso',
+    ),
+    'application/x-wii-wad' =>
+    array (
+      0 => 'wad',
+    ),
+    'application/x-windows-themepack' =>
+    array (
+      0 => 'themepack',
+    ),
+    'application/x-wonderswan-color-rom' =>
+    array (
+      0 => 'wsc',
+    ),
+    'application/x-wonderswan-rom' =>
+    array (
+      0 => 'ws',
+    ),
+    'application/x-wpg' =>
+    array (
+      0 => 'wpg',
+    ),
+    'application/x-wwf' =>
+    array (
+      0 => 'wwf',
+    ),
     'application/x-x509-ca-cert' =>
     array (
       0 => 'der',
       1 => 'crt',
+      2 => 'cert',
+      3 => 'pem',
+    ),
+    'application/x-xar' =>
+    array (
+      0 => 'xar',
+      1 => 'pkg',
+    ),
+    'application/x-xbel' =>
+    array (
+      0 => 'xbel',
     ),
     'application/x-xfig' =>
     array (
@@ -2452,6 +3538,24 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'xz',
     ),
+    'application/x-xz-compressed-tar' =>
+    array (
+      0 => 'tar.xz',
+      1 => 'txz',
+    ),
+    'application/x-xzpdf' =>
+    array (
+      0 => 'pdf.xz',
+    ),
+    'application/x-yaml' =>
+    array (
+      0 => 'yaml',
+      1 => 'yml',
+    ),
+    'application/x-zip-compressed-fb2' =>
+    array (
+      0 => 'fb2.zip',
+    ),
     'application/x-zmachine' =>
     array (
       0 => 'z1',
@@ -2462,6 +3566,10 @@ class ApacheMap extends AbstractMap
       5 => 'z6',
       6 => 'z7',
       7 => 'z8',
+    ),
+    'application/x-zoo' =>
+    array (
+      0 => 'zoo',
     ),
     'application/xaml+xml' =>
     array (
@@ -2480,14 +3588,26 @@ class ApacheMap extends AbstractMap
       0 => 'xhtml',
       1 => 'xht',
     ),
+    'application/xliff+xml' =>
+    array (
+      0 => 'xlf',
+      1 => 'xliff',
+    ),
     'application/xml' =>
     array (
       0 => 'xml',
       1 => 'xsl',
+      2 => 'xbl',
+      3 => 'xsd',
+      4 => 'rng',
     ),
     'application/xml-dtd' =>
     array (
       0 => 'dtd',
+    ),
+    'application/xml-external-parsed-entity' =>
+    array (
+      0 => 'ent',
     ),
     'application/xop+xml' =>
     array (
@@ -2500,6 +3620,7 @@ class ApacheMap extends AbstractMap
     'application/xslt+xml' =>
     array (
       0 => 'xslt',
+      1 => 'xsl',
     ),
     'application/xspf+xml' =>
     array (
@@ -2524,14 +3645,44 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'zip',
     ),
+    'application/zlib' =>
+    array (
+      0 => 'zz',
+    ),
+    'audio/aac' =>
+    array (
+      0 => 'aac',
+      1 => 'adts',
+      2 => 'ass',
+    ),
+    'audio/ac3' =>
+    array (
+      0 => 'ac3',
+    ),
     'audio/adpcm' =>
     array (
       0 => 'adp',
+    ),
+    'audio/amr' =>
+    array (
+      0 => 'amr',
+    ),
+    'audio/amr-wb' =>
+    array (
+      0 => 'awb',
+    ),
+    'audio/annodex' =>
+    array (
+      0 => 'axa',
     ),
     'audio/basic' =>
     array (
       0 => 'au',
       1 => 'snd',
+    ),
+    'audio/flac' =>
+    array (
+      0 => 'flac',
     ),
     'audio/midi' =>
     array (
@@ -2540,10 +3691,15 @@ class ApacheMap extends AbstractMap
       2 => 'kar',
       3 => 'rmi',
     ),
+    'audio/mp2' =>
+    array (
+      0 => 'mp2',
+    ),
     'audio/mp4' =>
     array (
       0 => 'm4a',
       1 => 'mp4a',
+      2 => 'f4a',
     ),
     'audio/mpeg' =>
     array (
@@ -2559,6 +3715,12 @@ class ApacheMap extends AbstractMap
       0 => 'oga',
       1 => 'ogg',
       2 => 'spx',
+      3 => 'opus',
+    ),
+    'audio/prs.sid' =>
+    array (
+      0 => 'sid',
+      1 => 'psid',
     ),
     'audio/s3m' =>
     array (
@@ -2567,6 +3729,11 @@ class ApacheMap extends AbstractMap
     'audio/silk' =>
     array (
       0 => 'sil',
+    ),
+    'audio/usac' =>
+    array (
+      0 => 'loas',
+      1 => 'xhe',
     ),
     'audio/vnd.dece.audio' =>
     array (
@@ -2613,6 +3780,11 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'rip',
     ),
+    'audio/vnd.rn-realaudio' =>
+    array (
+      0 => 'ra',
+      1 => 'rax',
+    ),
     'audio/webm' =>
     array (
       0 => 'weba',
@@ -2621,11 +3793,24 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'aac',
     ),
+    'audio/x-aifc' =>
+    array (
+      0 => 'aifc',
+      1 => 'aiffc',
+    ),
     'audio/x-aiff' =>
     array (
       0 => 'aif',
       1 => 'aiff',
       2 => 'aifc',
+    ),
+    'audio/x-amzxml' =>
+    array (
+      0 => 'amz',
+    ),
+    'audio/x-ape' =>
+    array (
+      0 => 'ape',
     ),
     'audio/x-caf' =>
     array (
@@ -2635,13 +3820,66 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'flac',
     ),
+    'audio/x-flac+ogg' =>
+    array (
+      0 => 'oga',
+      1 => 'ogg',
+    ),
+    'audio/x-gsm' =>
+    array (
+      0 => 'gsm',
+    ),
+    'audio/x-iriver-pla' =>
+    array (
+      0 => 'pla',
+    ),
+    'audio/x-it' =>
+    array (
+      0 => 'it',
+    ),
+    'audio/x-m4b' =>
+    array (
+      0 => 'm4b',
+      1 => 'f4b',
+    ),
+    'audio/x-m4r' =>
+    array (
+      0 => 'm4r',
+    ),
     'audio/x-matroska' =>
     array (
       0 => 'mka',
     ),
+    'audio/x-minipsf' =>
+    array (
+      0 => 'minipsf',
+    ),
+    'audio/x-mo3' =>
+    array (
+      0 => 'mo3',
+    ),
+    'audio/x-mod' =>
+    array (
+      0 => 'mod',
+      1 => 'ult',
+      2 => 'uni',
+      3 => 'm15',
+      4 => 'mtm',
+      5 => '669',
+      6 => 'med',
+    ),
     'audio/x-mpegurl' =>
     array (
       0 => 'm3u',
+      1 => 'm3u8',
+      2 => 'vlc',
+    ),
+    'audio/x-ms-asx' =>
+    array (
+      0 => 'asx',
+      1 => 'wax',
+      2 => 'wvx',
+      3 => 'wmx',
     ),
     'audio/x-ms-wax' =>
     array (
@@ -2650,6 +3888,21 @@ class ApacheMap extends AbstractMap
     'audio/x-ms-wma' =>
     array (
       0 => 'wma',
+    ),
+    'audio/x-musepack' =>
+    array (
+      0 => 'mpc',
+      1 => 'mpp',
+      2 => 'mp+',
+    ),
+    'audio/x-opus+ogg' =>
+    array (
+      0 => 'opus',
+    ),
+    'audio/x-pn-audibleaudio' =>
+    array (
+      0 => 'aa',
+      1 => 'aax',
     ),
     'audio/x-pn-realaudio' =>
     array (
@@ -2660,9 +3913,72 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'rmp',
     ),
+    'audio/x-psf' =>
+    array (
+      0 => 'psf',
+    ),
+    'audio/x-psflib' =>
+    array (
+      0 => 'psflib',
+    ),
+    'audio/x-s3m' =>
+    array (
+      0 => 's3m',
+    ),
+    'audio/x-scpls' =>
+    array (
+      0 => 'pls',
+    ),
+    'audio/x-speex' =>
+    array (
+      0 => 'spx',
+    ),
+    'audio/x-speex+ogg' =>
+    array (
+      0 => 'oga',
+      1 => 'ogg',
+    ),
+    'audio/x-stm' =>
+    array (
+      0 => 'stm',
+    ),
+    'audio/x-tta' =>
+    array (
+      0 => 'tta',
+    ),
+    'audio/x-voc' =>
+    array (
+      0 => 'voc',
+    ),
+    'audio/x-vorbis+ogg' =>
+    array (
+      0 => 'oga',
+      1 => 'ogg',
+    ),
     'audio/x-wav' =>
     array (
       0 => 'wav',
+    ),
+    'audio/x-wavpack' =>
+    array (
+      0 => 'wv',
+      1 => 'wvp',
+    ),
+    'audio/x-wavpack-correction' =>
+    array (
+      0 => 'wvc',
+    ),
+    'audio/x-xi' =>
+    array (
+      0 => 'xi',
+    ),
+    'audio/x-xm' =>
+    array (
+      0 => 'xm',
+    ),
+    'audio/x-xmf' =>
+    array (
+      0 => 'xmf',
     ),
     'audio/xm' =>
     array (
@@ -2707,6 +4023,7 @@ class ApacheMap extends AbstractMap
     'font/woff' =>
     array (
       0 => 'woff',
+      1 => 'woff2',
     ),
     'font/woff2' =>
     array (
@@ -2715,10 +4032,23 @@ class ApacheMap extends AbstractMap
     'image/bmp' =>
     array (
       0 => 'bmp',
+      1 => 'dib',
     ),
     'image/cgm' =>
     array (
       0 => 'cgm',
+    ),
+    'image/emf' =>
+    array (
+      0 => 'emf',
+    ),
+    'image/fax-g3' =>
+    array (
+      0 => 'g3',
+    ),
+    'image/fits' =>
+    array (
+      0 => 'fits',
     ),
     'image/g3fax' =>
     array (
@@ -2728,9 +4058,19 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'gif',
     ),
+    'image/heif' =>
+    array (
+      0 => 'heic',
+      1 => 'heif',
+    ),
     'image/ief' =>
     array (
       0 => 'ief',
+    ),
+    'image/jp2' =>
+    array (
+      0 => 'jp2',
+      1 => 'jpg2',
     ),
     'image/jpeg' =>
     array (
@@ -2738,9 +4078,23 @@ class ApacheMap extends AbstractMap
       1 => 'jpg',
       2 => 'jpe',
     ),
+    'image/jpm' =>
+    array (
+      0 => 'jpm',
+      1 => 'jpgm',
+    ),
+    'image/jpx' =>
+    array (
+      0 => 'jpf',
+      1 => 'jpx',
+    ),
     'image/ktx' =>
     array (
       0 => 'ktx',
+    ),
+    'image/openraster' =>
+    array (
+      0 => 'ora',
     ),
     'image/png' =>
     array (
@@ -2750,6 +4104,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'btif',
     ),
+    'image/rle' =>
+    array (
+      0 => 'rle',
+    ),
     'image/sgi' =>
     array (
       0 => 'sgi',
@@ -2758,6 +4116,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'svg',
       1 => 'svgz',
+    ),
+    'image/svg+xml-compressed' =>
+    array (
+      0 => 'svgz',
     ),
     'image/tiff' =>
     array (
@@ -2776,6 +4138,11 @@ class ApacheMap extends AbstractMap
       3 => 'uvvg',
     ),
     'image/vnd.djvu' =>
+    array (
+      0 => 'djvu',
+      1 => 'djv',
+    ),
+    'image/vnd.djvu+multipage' =>
     array (
       0 => 'djvu',
       1 => 'djv',
@@ -2812,6 +4179,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'rlc',
     ),
+    'image/vnd.microsoft.icon' =>
+    array (
+      0 => 'ico',
+    ),
     'image/vnd.ms-modi' =>
     array (
       0 => 'mdi',
@@ -2824,6 +4195,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'npx',
     ),
+    'image/vnd.rn-realpix' =>
+    array (
+      0 => 'rp',
+    ),
     'image/vnd.wap.wbmp' =>
     array (
       0 => 'wbmp',
@@ -2832,13 +4207,43 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'xif',
     ),
+    'image/vnd.zbrush.pcx' =>
+    array (
+      0 => 'pcx',
+    ),
     'image/webp' =>
     array (
       0 => 'webp',
     ),
+    'image/wmf' =>
+    array (
+      0 => 'wmf',
+    ),
     'image/x-3ds' =>
     array (
       0 => '3ds',
+    ),
+    'image/x-adobe-dng' =>
+    array (
+      0 => 'dng',
+    ),
+    'image/x-applix-graphics' =>
+    array (
+      0 => 'ag',
+    ),
+    'image/x-bzeps' =>
+    array (
+      0 => 'eps.bz2',
+      1 => 'epsi.bz2',
+      2 => 'epsf.bz2',
+    ),
+    'image/x-canon-cr2' =>
+    array (
+      0 => 'cr2',
+    ),
+    'image/x-canon-crw' =>
+    array (
+      0 => 'crw',
     ),
     'image/x-cmu-raster' =>
     array (
@@ -2848,6 +4253,25 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'cmx',
     ),
+    'image/x-compressed-xcf' =>
+    array (
+      0 => 'xcf.gz',
+      1 => 'xcf.bz2',
+    ),
+    'image/x-dds' =>
+    array (
+      0 => 'dds',
+    ),
+    'image/x-eps' =>
+    array (
+      0 => 'eps',
+      1 => 'epsi',
+      2 => 'epsf',
+    ),
+    'image/x-exr' =>
+    array (
+      0 => 'exr',
+    ),
     'image/x-freehand' =>
     array (
       0 => 'fh',
@@ -2856,22 +4280,124 @@ class ApacheMap extends AbstractMap
       3 => 'fh5',
       4 => 'fh7',
     ),
+    'image/x-fuji-raf' =>
+    array (
+      0 => 'raf',
+    ),
+    'image/x-gimp-gbr' =>
+    array (
+      0 => 'gbr',
+    ),
+    'image/x-gimp-gih' =>
+    array (
+      0 => 'gih',
+    ),
+    'image/x-gimp-pat' =>
+    array (
+      0 => 'pat',
+    ),
+    'image/x-gzeps' =>
+    array (
+      0 => 'eps.gz',
+      1 => 'epsi.gz',
+      2 => 'epsf.gz',
+    ),
+    'image/x-icns' =>
+    array (
+      0 => 'icns',
+    ),
     'image/x-icon' =>
     array (
       0 => 'ico',
+    ),
+    'image/x-ilbm' =>
+    array (
+      0 => 'iff',
+      1 => 'ilbm',
+      2 => 'lbm',
+    ),
+    'image/x-jng' =>
+    array (
+      0 => 'jng',
+    ),
+    'image/x-jp2-codestream' =>
+    array (
+      0 => 'j2c',
+      1 => 'j2k',
+      2 => 'jpc',
+    ),
+    'image/x-kodak-dcr' =>
+    array (
+      0 => 'dcr',
+    ),
+    'image/x-kodak-k25' =>
+    array (
+      0 => 'k25',
+    ),
+    'image/x-kodak-kdc' =>
+    array (
+      0 => 'kdc',
+    ),
+    'image/x-lwo' =>
+    array (
+      0 => 'lwo',
+      1 => 'lwob',
+    ),
+    'image/x-lws' =>
+    array (
+      0 => 'lws',
+    ),
+    'image/x-macpaint' =>
+    array (
+      0 => 'pntg',
+    ),
+    'image/x-minolta-mrw' =>
+    array (
+      0 => 'mrw',
     ),
     'image/x-mrsid-image' =>
     array (
       0 => 'sid',
     ),
+    'image/x-msod' =>
+    array (
+      0 => 'msod',
+    ),
+    'image/x-nikon-nef' =>
+    array (
+      0 => 'nef',
+    ),
+    'image/x-olympus-orf' =>
+    array (
+      0 => 'orf',
+    ),
+    'image/x-panasonic-rw' =>
+    array (
+      0 => 'raw',
+    ),
+    'image/x-panasonic-rw2' =>
+    array (
+      0 => 'rw2',
+    ),
     'image/x-pcx' =>
     array (
       0 => 'pcx',
+    ),
+    'image/x-pentax-pef' =>
+    array (
+      0 => 'pef',
+    ),
+    'image/x-photo-cd' =>
+    array (
+      0 => 'pcd',
     ),
     'image/x-pict' =>
     array (
       0 => 'pic',
       1 => 'pct',
+      2 => 'pict',
+      3 => 'pict1',
+      4 => 'pict2',
     ),
     'image/x-portable-anymap' =>
     array (
@@ -2889,17 +4415,67 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'ppm',
     ),
+    'image/x-quicktime' =>
+    array (
+      0 => 'qtif',
+      1 => 'qif',
+    ),
     'image/x-rgb' =>
     array (
       0 => 'rgb',
     ),
+    'image/x-sgi' =>
+    array (
+      0 => 'sgi',
+    ),
+    'image/x-sigma-x3f' =>
+    array (
+      0 => 'x3f',
+    ),
+    'image/x-skencil' =>
+    array (
+      0 => 'sk',
+      1 => 'sk1',
+    ),
+    'image/x-sony-arw' =>
+    array (
+      0 => 'arw',
+    ),
+    'image/x-sony-sr2' =>
+    array (
+      0 => 'sr2',
+    ),
+    'image/x-sony-srf' =>
+    array (
+      0 => 'srf',
+    ),
+    'image/x-sun-raster' =>
+    array (
+      0 => 'sun',
+    ),
     'image/x-tga' =>
     array (
       0 => 'tga',
+      1 => 'icb',
+      2 => 'tpic',
+      3 => 'vda',
+      4 => 'vst',
+    ),
+    'image/x-win-bitmap' =>
+    array (
+      0 => 'cur',
     ),
     'image/x-xbitmap' =>
     array (
       0 => 'xbm',
+    ),
+    'image/x-xcf' =>
+    array (
+      0 => 'xcf',
+    ),
+    'image/x-xfig' =>
+    array (
+      0 => 'fig',
     ),
     'image/x-xpixmap' =>
     array (
@@ -2924,6 +4500,10 @@ class ApacheMap extends AbstractMap
       0 => 'msh',
       1 => 'mesh',
       2 => 'silo',
+    ),
+    'model/stl' =>
+    array (
+      0 => 'stl',
     ),
     'model/vnd.collada+xml' =>
     array (
@@ -2953,6 +4533,7 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'wrl',
       1 => 'vrml',
+      2 => 'vrm',
     ),
     'model/x3d+binary' =>
     array (
@@ -2972,11 +4553,13 @@ class ApacheMap extends AbstractMap
     'text/cache-manifest' =>
     array (
       0 => 'appcache',
+      1 => 'manifest',
     ),
     'text/calendar' =>
     array (
       0 => 'ics',
       1 => 'ifb',
+      2 => 'vcs',
     ),
     'text/css' =>
     array (
@@ -2986,10 +4569,20 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'csv',
     ),
+    'text/csv-schema' =>
+    array (
+      0 => 'csvs',
+    ),
     'text/html' =>
     array (
       0 => 'html',
       1 => 'htm',
+    ),
+    'text/markdown' =>
+    array (
+      0 => 'md',
+      1 => 'mkd',
+      2 => 'markdown',
     ),
     'text/n3' =>
     array (
@@ -3004,6 +4597,7 @@ class ApacheMap extends AbstractMap
       4 => 'list',
       5 => 'log',
       6 => 'in',
+      7 => 'asc',
     ),
     'text/prs.lines.tag' =>
     array (
@@ -3013,10 +4607,19 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'rtx',
     ),
+    'text/rust' =>
+    array (
+      0 => 'rs',
+    ),
     'text/sgml' =>
     array (
       0 => 'sgml',
       1 => 'sgm',
+    ),
+    'text/spreadsheet' =>
+    array (
+      0 => 'sylk',
+      1 => 'slk',
     ),
     'text/tab-separated-values' =>
     array (
@@ -3044,6 +4647,9 @@ class ApacheMap extends AbstractMap
     'text/vcard' =>
     array (
       0 => 'vcard',
+      1 => 'vcf',
+      2 => 'vct',
+      3 => 'gcrd',
     ),
     'text/vnd.curl' =>
     array (
@@ -3076,6 +4682,7 @@ class ApacheMap extends AbstractMap
     'text/vnd.graphviz' =>
     array (
       0 => 'gv',
+      1 => 'dot',
     ),
     'text/vnd.in3d.3dml' =>
     array (
@@ -3084,6 +4691,14 @@ class ApacheMap extends AbstractMap
     'text/vnd.in3d.spot' =>
     array (
       0 => 'spot',
+    ),
+    'text/vnd.qt.linguist' =>
+    array (
+      0 => 'ts',
+    ),
+    'text/vnd.rn-realtext' =>
+    array (
+      0 => 'rt',
     ),
     'text/vnd.sun.j2me.app-descriptor' =>
     array (
@@ -3097,10 +4712,23 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'wmls',
     ),
+    'text/vtt' =>
+    array (
+      0 => 'vtt',
+    ),
+    'text/x-adasrc' =>
+    array (
+      0 => 'adb',
+      1 => 'ads',
+    ),
     'text/x-asm' =>
     array (
       0 => 's',
       1 => 'asm',
+    ),
+    'text/x-bibtex' =>
+    array (
+      0 => 'bib',
     ),
     'text/x-c' =>
     array (
@@ -3112,22 +4740,223 @@ class ApacheMap extends AbstractMap
       5 => 'hh',
       6 => 'dic',
     ),
+    'text/x-c++hdr' =>
+    array (
+      0 => 'hh',
+      1 => 'hp',
+      2 => 'hpp',
+      3 => 'h++',
+      4 => 'hxx',
+    ),
+    'text/x-c++src' =>
+    array (
+      0 => 'cpp',
+      1 => 'cxx',
+      2 => 'cc',
+      3 => 'c',
+      4 => 'c++',
+    ),
+    'text/x-chdr' =>
+    array (
+      0 => 'h',
+    ),
+    'text/x-cmake' =>
+    array (
+      0 => 'cmake',
+    ),
+    'text/x-cobol' =>
+    array (
+      0 => 'cbl',
+      1 => 'cob',
+    ),
+    'text/x-csharp' =>
+    array (
+      0 => 'cs',
+    ),
+    'text/x-csrc' =>
+    array (
+      0 => 'c',
+    ),
+    'text/x-dbus-service' =>
+    array (
+      0 => 'service',
+    ),
+    'text/x-dcl' =>
+    array (
+      0 => 'dcl',
+    ),
+    'text/x-dsl' =>
+    array (
+      0 => 'dsl',
+    ),
+    'text/x-dsrc' =>
+    array (
+      0 => 'd',
+      1 => 'di',
+    ),
+    'text/x-eiffel' =>
+    array (
+      0 => 'e',
+      1 => 'eif',
+    ),
+    'text/x-emacs-lisp' =>
+    array (
+      0 => 'el',
+    ),
+    'text/x-erlang' =>
+    array (
+      0 => 'erl',
+    ),
     'text/x-fortran' =>
     array (
       0 => 'f',
       1 => 'for',
       2 => 'f77',
       3 => 'f90',
+      4 => 'f95',
+    ),
+    'text/x-genie' =>
+    array (
+      0 => 'gs',
+    ),
+    'text/x-gettext-translation' =>
+    array (
+      0 => 'po',
+    ),
+    'text/x-gettext-translation-template' =>
+    array (
+      0 => 'pot',
+    ),
+    'text/x-gherkin' =>
+    array (
+      0 => 'feature',
+    ),
+    'text/x-go' =>
+    array (
+      0 => 'go',
+    ),
+    'text/x-google-video-pointer' =>
+    array (
+      0 => 'gvp',
+    ),
+    'text/x-haskell' =>
+    array (
+      0 => 'hs',
+    ),
+    'text/x-idl' =>
+    array (
+      0 => 'idl',
+    ),
+    'text/x-imelody' =>
+    array (
+      0 => 'imy',
+      1 => 'ime',
+    ),
+    'text/x-iptables' =>
+    array (
+      0 => 'iptables',
+    ),
+    'text/x-java' =>
+    array (
+      0 => 'java',
     ),
     'text/x-java-source' =>
     array (
       0 => 'java',
     ),
+    'text/x-ldif' =>
+    array (
+      0 => 'ldif',
+    ),
+    'text/x-lilypond' =>
+    array (
+      0 => 'ly',
+    ),
+    'text/x-literate-haskell' =>
+    array (
+      0 => 'lhs',
+    ),
+    'text/x-log' =>
+    array (
+      0 => 'log',
+    ),
+    'text/x-lua' =>
+    array (
+      0 => 'lua',
+    ),
+    'text/x-makefile' =>
+    array (
+      0 => 'mk',
+      1 => 'mak',
+    ),
+    'text/x-matlab' =>
+    array (
+      0 => 'm',
+    ),
+    'text/x-microdvd' =>
+    array (
+      0 => 'sub',
+    ),
+    'text/x-moc' =>
+    array (
+      0 => 'moc',
+    ),
+    'text/x-modelica' =>
+    array (
+      0 => 'mo',
+    ),
+    'text/x-mof' =>
+    array (
+      0 => 'mof',
+    ),
+    'text/x-mpsub' =>
+    array (
+      0 => 'sub',
+    ),
+    'text/x-mrml' =>
+    array (
+      0 => 'mrml',
+      1 => 'mrl',
+    ),
+    'text/x-ms-regedit' =>
+    array (
+      0 => 'reg',
+    ),
+    'text/x-mup' =>
+    array (
+      0 => 'mup',
+      1 => 'not',
+    ),
     'text/x-nfo' =>
     array (
       0 => 'nfo',
     ),
+    'text/x-objcsrc' =>
+    array (
+      0 => 'm',
+    ),
+    'text/x-ocaml' =>
+    array (
+      0 => 'ml',
+      1 => 'mli',
+    ),
+    'text/x-ocl' =>
+    array (
+      0 => 'ocl',
+    ),
+    'text/x-ooc' =>
+    array (
+      0 => 'ooc',
+    ),
+    'text/x-opencl-src' =>
+    array (
+      0 => 'cl',
+    ),
     'text/x-opml' =>
+    array (
+      0 => 'opml',
+    ),
+    'text/x-opml+xml' =>
     array (
       0 => 'opml',
     ),
@@ -3135,6 +4964,54 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'p',
       1 => 'pas',
+    ),
+    'text/x-patch' =>
+    array (
+      0 => 'diff',
+      1 => 'patch',
+    ),
+    'text/x-python' =>
+    array (
+      0 => 'py',
+      1 => 'pyx',
+      2 => 'wsgi',
+    ),
+    'text/x-python3' =>
+    array (
+      0 => 'py',
+      1 => 'py3',
+      2 => 'py3x',
+    ),
+    'text/x-qml' =>
+    array (
+      0 => 'qml',
+      1 => 'qmltypes',
+      2 => 'qmlproject',
+    ),
+    'text/x-reject' =>
+    array (
+      0 => 'rej',
+    ),
+    'text/x-rpm-spec' =>
+    array (
+      0 => 'spec',
+    ),
+    'text/x-sass' =>
+    array (
+      0 => 'sass',
+    ),
+    'text/x-scala' =>
+    array (
+      0 => 'scala',
+    ),
+    'text/x-scheme' =>
+    array (
+      0 => 'scm',
+      1 => 'ss',
+    ),
+    'text/x-scss' =>
+    array (
+      0 => 'scss',
     ),
     'text/x-setext' =>
     array (
@@ -3144,9 +5021,90 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'sfv',
     ),
+    'text/x-ssa' =>
+    array (
+      0 => 'ssa',
+      1 => 'ass',
+    ),
+    'text/x-subviewer' =>
+    array (
+      0 => 'sub',
+    ),
+    'text/x-svhdr' =>
+    array (
+      0 => 'svh',
+    ),
+    'text/x-svsrc' =>
+    array (
+      0 => 'sv',
+    ),
+    'text/x-systemd-unit' =>
+    array (
+      0 => 'automount',
+      1 => 'device',
+      2 => 'mount',
+      3 => 'path',
+      4 => 'scope',
+      5 => 'service',
+      6 => 'slice',
+      7 => 'socket',
+      8 => 'swap',
+      9 => 'target',
+      10 => 'timer',
+    ),
+    'text/x-tcl' =>
+    array (
+      0 => 'tcl',
+      1 => 'tk',
+    ),
+    'text/x-tex' =>
+    array (
+      0 => 'tex',
+      1 => 'ltx',
+      2 => 'sty',
+      3 => 'cls',
+      4 => 'dtx',
+      5 => 'ins',
+      6 => 'latex',
+    ),
+    'text/x-texinfo' =>
+    array (
+      0 => 'texi',
+      1 => 'texinfo',
+    ),
+    'text/x-troff-me' =>
+    array (
+      0 => 'me',
+    ),
+    'text/x-troff-mm' =>
+    array (
+      0 => 'mm',
+    ),
+    'text/x-troff-ms' =>
+    array (
+      0 => 'ms',
+    ),
+    'text/x-twig' =>
+    array (
+      0 => 'twig',
+    ),
+    'text/x-txt2tags' =>
+    array (
+      0 => 't2t',
+    ),
+    'text/x-uil' =>
+    array (
+      0 => 'uil',
+    ),
     'text/x-uuencode' =>
     array (
       0 => 'uu',
+      1 => 'uue',
+    ),
+    'text/x-vala' =>
+    array (
+      0 => 'vala',
+      1 => 'vapi',
     ),
     'text/x-vcalendar' =>
     array (
@@ -3156,13 +5114,47 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'vcf',
     ),
+    'text/x-verilog' =>
+    array (
+      0 => 'v',
+    ),
+    'text/x-vhdl' =>
+    array (
+      0 => 'vhd',
+      1 => 'vhdl',
+    ),
+    'text/x-xmi' =>
+    array (
+      0 => 'xmi',
+    ),
+    'text/x-xslfo' =>
+    array (
+      0 => 'fo',
+      1 => 'xslfo',
+    ),
+    'text/x.gcode' =>
+    array (
+      0 => 'gcode',
+    ),
     'video/3gpp' =>
     array (
       0 => '3gp',
+      1 => '3gpp',
+      2 => '3ga',
     ),
     'video/3gpp2' =>
     array (
       0 => '3g2',
+      1 => '3gp2',
+      2 => '3gpp2',
+    ),
+    'video/annodex' =>
+    array (
+      0 => 'axv',
+    ),
+    'video/dv' =>
+    array (
+      0 => 'dv',
     ),
     'video/h261' =>
     array (
@@ -3190,11 +5182,27 @@ class ApacheMap extends AbstractMap
       0 => 'mj2',
       1 => 'mjp2',
     ),
+    'video/mp2t' =>
+    array (
+      0 => 'm2t',
+      1 => 'm2ts',
+      2 => 'ts',
+      3 => 'mts',
+      4 => 'cpi',
+      5 => 'clpi',
+      6 => 'mpl',
+      7 => 'mpls',
+      8 => 'bdm',
+      9 => 'bdmv',
+    ),
     'video/mp4' =>
     array (
       0 => 'mp4',
       1 => 'mp4v',
       2 => 'mpg4',
+      3 => 'm4v',
+      4 => 'f4v',
+      5 => 'lrv',
     ),
     'video/mpeg' =>
     array (
@@ -3203,15 +5211,20 @@ class ApacheMap extends AbstractMap
       2 => 'mpe',
       3 => 'm1v',
       4 => 'm2v',
+      5 => 'mp2',
+      6 => 'vob',
     ),
     'video/ogg' =>
     array (
       0 => 'ogv',
+      1 => 'ogg',
     ),
     'video/quicktime' =>
     array (
       0 => 'qt',
       1 => 'mov',
+      2 => 'moov',
+      3 => 'qtvr',
     ),
     'video/vnd.dece.hd' =>
     array (
@@ -3250,10 +5263,16 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'mxu',
       1 => 'm4u',
+      2 => 'm1u',
     ),
     'video/vnd.ms-playready.media.pyv' =>
     array (
       0 => 'pyv',
+    ),
+    'video/vnd.rn-realvideo' =>
+    array (
+      0 => 'rv',
+      1 => 'rvx',
     ),
     'video/vnd.uvvu.mp4' =>
     array (
@@ -3263,10 +5282,15 @@ class ApacheMap extends AbstractMap
     'video/vnd.vivo' =>
     array (
       0 => 'viv',
+      1 => 'vivo',
     ),
     'video/webm' =>
     array (
       0 => 'webm',
+    ),
+    'video/x-anim' =>
+    array (
+      0 => 'anim[1-9j]',
     ),
     'video/x-f4v' =>
     array (
@@ -3276,9 +5300,18 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'fli',
     ),
+    'video/x-flic' =>
+    array (
+      0 => 'fli',
+      1 => 'flc',
+    ),
     'video/x-flv' =>
     array (
       0 => 'flv',
+    ),
+    'video/x-javafx' =>
+    array (
+      0 => 'fxm',
     ),
     'video/x-m4v' =>
     array (
@@ -3289,6 +5322,15 @@ class ApacheMap extends AbstractMap
       0 => 'mkv',
       1 => 'mk3d',
       2 => 'mks',
+    ),
+    'video/x-matroska-3d' =>
+    array (
+      0 => 'mk3d',
+    ),
+    'video/x-mjpeg' =>
+    array (
+      0 => 'mjpeg',
+      1 => 'mjpg',
     ),
     'video/x-mng' =>
     array (
@@ -3322,6 +5364,16 @@ class ApacheMap extends AbstractMap
     'video/x-msvideo' =>
     array (
       0 => 'avi',
+      1 => 'avf',
+      2 => 'divx',
+    ),
+    'video/x-nsv' =>
+    array (
+      0 => 'nsv',
+    ),
+    'video/x-ogm+ogg' =>
+    array (
+      0 => 'ogm',
     ),
     'video/x-sgi-movie' =>
     array (
@@ -3331,13 +5383,25 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'smv',
     ),
+    'video/x-theora+ogg' =>
+    array (
+      0 => 'ogg',
+    ),
     'x-conference/x-cooltalk' =>
     array (
       0 => 'ice',
     ),
+    'x-epoc/x-sisx-app' =>
+    array (
+      0 => 'sisx',
+    ),
   ),
   'extensions' =>
   array (
+    '32x' =>
+    array (
+      0 => 'application/x-genesis-32x-rom',
+    ),
     '3dml' =>
     array (
       0 => 'text/vnd.in3d.3dml',
@@ -3350,13 +5414,45 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'video/3gpp2',
     ),
+    '3ga' =>
+    array (
+      0 => 'video/3gpp',
+    ),
     '3gp' =>
     array (
       0 => 'video/3gpp',
     ),
+    '3gp2' =>
+    array (
+      0 => 'video/3gpp2',
+    ),
+    '3gpp' =>
+    array (
+      0 => 'video/3gpp',
+    ),
+    '3gpp2' =>
+    array (
+      0 => 'video/3gpp2',
+    ),
     '7z' =>
     array (
       0 => 'application/x-7z-compressed',
+    ),
+    'a' =>
+    array (
+      0 => 'application/x-archive',
+    ),
+    'a26' =>
+    array (
+      0 => 'application/x-atari-2600-rom',
+    ),
+    'a78' =>
+    array (
+      0 => 'application/x-atari-7800-rom',
+    ),
+    'aa' =>
+    array (
+      0 => 'audio/x-pn-audibleaudio',
     ),
     'aab' =>
     array (
@@ -3365,6 +5461,7 @@ class ApacheMap extends AbstractMap
     'aac' =>
     array (
       0 => 'audio/x-aac',
+      1 => 'audio/aac',
     ),
     'aam' =>
     array (
@@ -3374,13 +5471,29 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/x-authorware-seg',
     ),
+    'aax' =>
+    array (
+      0 => 'audio/x-pn-audibleaudio',
+    ),
     'abw' =>
+    array (
+      0 => 'application/x-abiword',
+    ),
+    'abw.crashed' =>
+    array (
+      0 => 'application/x-abiword',
+    ),
+    'abw.gz' =>
     array (
       0 => 'application/x-abiword',
     ),
     'ac' =>
     array (
       0 => 'application/pkix-attr-cert',
+    ),
+    'ac3' =>
+    array (
+      0 => 'audio/ac3',
     ),
     'acc' =>
     array (
@@ -3389,6 +5502,7 @@ class ApacheMap extends AbstractMap
     'ace' =>
     array (
       0 => 'application/x-ace-compressed',
+      1 => 'application/x-ace',
     ),
     'acu' =>
     array (
@@ -3398,9 +5512,25 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.acucorp',
     ),
+    'adb' =>
+    array (
+      0 => 'text/x-adasrc',
+    ),
+    'adf' =>
+    array (
+      0 => 'application/x-amiga-disk-format',
+    ),
     'adp' =>
     array (
       0 => 'audio/adpcm',
+    ),
+    'ads' =>
+    array (
+      0 => 'text/x-adasrc',
+    ),
+    'adts' =>
+    array (
+      0 => 'audio/aac',
     ),
     'aep' =>
     array (
@@ -3409,10 +5539,19 @@ class ApacheMap extends AbstractMap
     'afm' =>
     array (
       0 => 'application/x-font-type1',
+      1 => 'application/x-font-afm',
     ),
     'afp' =>
     array (
       0 => 'application/vnd.ibm.modcap',
+    ),
+    'ag' =>
+    array (
+      0 => 'image/x-applix-graphics',
+    ),
+    'agb' =>
+    array (
+      0 => 'application/x-gba-rom',
     ),
     'ahead' =>
     array (
@@ -3421,6 +5560,7 @@ class ApacheMap extends AbstractMap
     'ai' =>
     array (
       0 => 'application/postscript',
+      1 => 'application/illustrator',
     ),
     'aif' =>
     array (
@@ -3429,10 +5569,15 @@ class ApacheMap extends AbstractMap
     'aifc' =>
     array (
       0 => 'audio/x-aiff',
+      1 => 'audio/x-aifc',
     ),
     'aiff' =>
     array (
       0 => 'audio/x-aiff',
+    ),
+    'aiffc' =>
+    array (
+      0 => 'audio/x-aifc',
     ),
     'air' =>
     array (
@@ -3442,9 +5587,41 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.dvb.ait',
     ),
+    'al' =>
+    array (
+      0 => 'application/x-perl',
+    ),
+    'alz' =>
+    array (
+      0 => 'application/x-alz',
+    ),
     'ami' =>
     array (
       0 => 'application/vnd.amiga.ami',
+    ),
+    'amr' =>
+    array (
+      0 => 'audio/amr',
+    ),
+    'amz' =>
+    array (
+      0 => 'audio/x-amzxml',
+    ),
+    'ani' =>
+    array (
+      0 => 'application/x-navi-animation',
+    ),
+    'anim[1-9j]' =>
+    array (
+      0 => 'video/x-anim',
+    ),
+    'anx' =>
+    array (
+      0 => 'application/annodex',
+    ),
+    'ape' =>
+    array (
+      0 => 'audio/x-ape',
     ),
     'apk' =>
     array (
@@ -3454,6 +5631,11 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'text/cache-manifest',
     ),
+    'appimage' =>
+    array (
+      0 => 'application/x-iso9660-appimage',
+      1 => 'application/vnd.appimage',
+    ),
     'application' =>
     array (
       0 => 'application/x-ms-application',
@@ -3462,17 +5644,37 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.lotus-approach',
     ),
+    'ar' =>
+    array (
+      0 => 'application/x-archive',
+    ),
     'arc' =>
     array (
       0 => 'application/x-freearc',
     ),
+    'arj' =>
+    array (
+      0 => 'application/x-arj',
+    ),
+    'arw' =>
+    array (
+      0 => 'image/x-sony-arw',
+    ),
+    'as' =>
+    array (
+      0 => 'application/x-applix-spreadsheet',
+    ),
     'asc' =>
     array (
       0 => 'application/pgp-signature',
+      1 => 'application/pgp-encrypted',
+      2 => 'application/pgp-keys',
+      3 => 'text/plain',
     ),
     'asf' =>
     array (
       0 => 'video/x-ms-asf',
+      1 => 'application/vnd.ms-asf',
     ),
     'asm' =>
     array (
@@ -3482,9 +5684,19 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.accpac.simply.aso',
     ),
+    'asp' =>
+    array (
+      0 => 'application/x-asp',
+    ),
+    'ass' =>
+    array (
+      0 => 'text/x-ssa',
+      1 => 'audio/aac',
+    ),
     'asx' =>
     array (
       0 => 'video/x-ms-asf',
+      1 => 'audio/x-ms-asx',
     ),
     'atc' =>
     array (
@@ -3510,6 +5722,14 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'audio/basic',
     ),
+    'automount' =>
+    array (
+      0 => 'text/x-systemd-unit',
+    ),
+    'avf' =>
+    array (
+      0 => 'video/x-msvideo',
+    ),
     'avi' =>
     array (
       0 => 'video/x-msvideo',
@@ -3517,6 +5737,23 @@ class ApacheMap extends AbstractMap
     'aw' =>
     array (
       0 => 'application/applixware',
+      1 => 'application/x-applix-word',
+    ),
+    'awb' =>
+    array (
+      0 => 'audio/amr-wb',
+    ),
+    'awk' =>
+    array (
+      0 => 'application/x-awk',
+    ),
+    'axa' =>
+    array (
+      0 => 'audio/annodex',
+    ),
+    'axv' =>
+    array (
+      0 => 'video/annodex',
     ),
     'azf' =>
     array (
@@ -3529,6 +5766,10 @@ class ApacheMap extends AbstractMap
     'azw' =>
     array (
       0 => 'application/vnd.amazon.ebook',
+    ),
+    'bak' =>
+    array (
+      0 => 'application/x-trash',
     ),
     'bat' =>
     array (
@@ -3545,6 +5786,11 @@ class ApacheMap extends AbstractMap
     'bdm' =>
     array (
       0 => 'application/vnd.syncml.dm+wbxml',
+      1 => 'video/mp2t',
+    ),
+    'bdmv' =>
+    array (
+      0 => 'video/mp2t',
     ),
     'bed' =>
     array (
@@ -3554,13 +5800,27 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.fujitsu.oasysprs',
     ),
+    'bib' =>
+    array (
+      0 => 'text/x-bibtex',
+    ),
     'bin' =>
     array (
       0 => 'application/octet-stream',
+      1 => 'application/x-sega-cd-rom',
+      2 => 'application/x-saturn-rom',
     ),
     'blb' =>
     array (
       0 => 'application/x-blorb',
+    ),
+    'blend' =>
+    array (
+      0 => 'application/x-blender',
+    ),
+    'blender' =>
+    array (
+      0 => 'application/x-blender',
     ),
     'blorb' =>
     array (
@@ -3590,6 +5850,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/octet-stream',
     ),
+    'bsdiff' =>
+    array (
+      0 => 'application/x-bsdiff',
+    ),
     'btif' =>
     array (
       0 => 'image/prs.btif',
@@ -3601,10 +5865,17 @@ class ApacheMap extends AbstractMap
     'bz2' =>
     array (
       0 => 'application/x-bzip2',
+      1 => 'application/x-bzip',
     ),
     'c' =>
     array (
       0 => 'text/x-c',
+      1 => 'text/x-c++src',
+      2 => 'text/x-csrc',
+    ),
+    'c++' =>
+    array (
+      0 => 'text/x-c++src',
     ),
     'c11amc' =>
     array (
@@ -3657,26 +5928,39 @@ class ApacheMap extends AbstractMap
     'cb7' =>
     array (
       0 => 'application/x-cbr',
+      1 => 'application/x-cb7',
     ),
     'cba' =>
     array (
       0 => 'application/x-cbr',
     ),
+    'cbl' =>
+    array (
+      0 => 'text/x-cobol',
+    ),
     'cbr' =>
     array (
       0 => 'application/x-cbr',
+      1 => 'application/vnd.comicbook-rar',
     ),
     'cbt' =>
     array (
       0 => 'application/x-cbr',
+      1 => 'application/x-cbt',
     ),
     'cbz' =>
     array (
       0 => 'application/x-cbr',
+      1 => 'application/vnd.comicbook+zip',
     ),
     'cc' =>
     array (
       0 => 'text/x-c',
+      1 => 'text/x-c++src',
+    ),
+    'ccmx' =>
+    array (
+      0 => 'application/x-ccmx',
     ),
     'cct' =>
     array (
@@ -3718,6 +6002,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/cdmi-queue',
     ),
+    'cdr' =>
+    array (
+      0 => 'application/vnd.corel-draw',
+    ),
     'cdx' =>
     array (
       0 => 'chemical/x-cdx',
@@ -3734,9 +6022,17 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/pkix-cert',
     ),
+    'cert' =>
+    array (
+      0 => 'application/x-x509-ca-cert',
+    ),
     'cfs' =>
     array (
       0 => 'application/x-cfs-compressed',
+    ),
+    'cgb' =>
+    array (
+      0 => 'application/x-gameboy-color-rom',
     ),
     'cgm' =>
     array (
@@ -3753,6 +6049,7 @@ class ApacheMap extends AbstractMap
     'chrt' =>
     array (
       0 => 'application/vnd.kde.kchart',
+      1 => 'application/x-kchart',
     ),
     'cif' =>
     array (
@@ -3766,6 +6063,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.ms-artgalry',
     ),
+    'cl' =>
+    array (
+      0 => 'text/x-opencl-src',
+    ),
     'cla' =>
     array (
       0 => 'application/vnd.claymore',
@@ -3773,6 +6074,7 @@ class ApacheMap extends AbstractMap
     'class' =>
     array (
       0 => 'application/java-vm',
+      1 => 'application/x-java',
     ),
     'clkk' =>
     array (
@@ -3798,6 +6100,18 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/x-msclip',
     ),
+    'clpi' =>
+    array (
+      0 => 'video/mp2t',
+    ),
+    'cls' =>
+    array (
+      0 => 'text/x-tex',
+    ),
+    'cmake' =>
+    array (
+      0 => 'text/x-cmake',
+    ),
     'cmc' =>
     array (
       0 => 'application/vnd.cosmocaller',
@@ -3818,9 +6132,17 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'image/x-cmx',
     ),
+    'cob' =>
+    array (
+      0 => 'text/x-cobol',
+    ),
     'cod' =>
     array (
       0 => 'application/vnd.rim.cod',
+    ),
+    'coffee' =>
+    array (
+      0 => 'application/vnd.coffeescript',
     ),
     'com' =>
     array (
@@ -3830,21 +6152,38 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'text/plain',
     ),
+    'cpi' =>
+    array (
+      0 => 'video/mp2t',
+    ),
     'cpio' =>
     array (
       0 => 'application/x-cpio',
     ),
+    'cpio.gz' =>
+    array (
+      0 => 'application/x-cpio-compressed',
+    ),
     'cpp' =>
     array (
       0 => 'text/x-c',
+      1 => 'text/x-c++src',
     ),
     'cpt' =>
     array (
       0 => 'application/mac-compactpro',
     ),
+    'cr2' =>
+    array (
+      0 => 'image/x-canon-cr2',
+    ),
     'crd' =>
     array (
       0 => 'application/x-mscardfile',
+    ),
+    'crdownload' =>
+    array (
+      0 => 'application/x-partial-download',
     ),
     'crl' =>
     array (
@@ -3854,9 +6193,17 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/x-x509-ca-cert',
     ),
+    'crw' =>
+    array (
+      0 => 'image/x-canon-crw',
+    ),
     'cryptonote' =>
     array (
       0 => 'application/vnd.rig.cryptonote',
+    ),
+    'cs' =>
+    array (
+      0 => 'text/x-csharp',
     ),
     'csh' =>
     array (
@@ -3882,9 +6229,21 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'text/csv',
     ),
+    'csvs' =>
+    array (
+      0 => 'text/csv-schema',
+    ),
     'cu' =>
     array (
       0 => 'application/cu-seeme',
+    ),
+    'cue' =>
+    array (
+      0 => 'application/x-cue',
+    ),
+    'cur' =>
+    array (
+      0 => 'image/x-win-bitmap',
     ),
     'curl' =>
     array (
@@ -3901,6 +6260,11 @@ class ApacheMap extends AbstractMap
     'cxx' =>
     array (
       0 => 'text/x-c',
+      1 => 'text/x-c++src',
+    ),
+    'd' =>
+    array (
+      0 => 'text/x-dsrc',
     ),
     'dae' =>
     array (
@@ -3909,6 +6273,10 @@ class ApacheMap extends AbstractMap
     'daf' =>
     array (
       0 => 'application/vnd.mobius.daf',
+    ),
+    'dar' =>
+    array (
+      0 => 'application/x-dar',
     ),
     'dart' =>
     array (
@@ -3922,13 +6290,31 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/davmount+xml',
     ),
+    'dbf' =>
+    array (
+      0 => 'application/x-dbf',
+    ),
     'dbk' =>
     array (
       0 => 'application/docbook+xml',
+      1 => 'application/x-docbook+xml',
+    ),
+    'dc' =>
+    array (
+      0 => 'application/x-dc-rom',
+    ),
+    'dcl' =>
+    array (
+      0 => 'text/x-dcl',
+    ),
+    'dcm' =>
+    array (
+      0 => 'application/dicom',
     ),
     'dcr' =>
     array (
       0 => 'application/x-director',
+      1 => 'image/x-kodak-dcr',
     ),
     'dcurl' =>
     array (
@@ -3942,9 +6328,14 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.fujixerox.ddd',
     ),
+    'dds' =>
+    array (
+      0 => 'image/x-dds',
+    ),
     'deb' =>
     array (
       0 => 'application/x-debian-package',
+      1 => 'application/vnd.debian.binary-package',
     ),
     'def' =>
     array (
@@ -3958,6 +6349,14 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/x-x509-ca-cert',
     ),
+    'desktop' =>
+    array (
+      0 => 'application/x-desktop',
+    ),
+    'device' =>
+    array (
+      0 => 'text/x-systemd-unit',
+    ),
     'dfac' =>
     array (
       0 => 'application/vnd.dreamfactory',
@@ -3966,9 +6365,25 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/x-dgc-compressed',
     ),
+    'di' =>
+    array (
+      0 => 'text/x-dsrc',
+    ),
+    'dia' =>
+    array (
+      0 => 'application/x-dia-diagram',
+    ),
+    'dib' =>
+    array (
+      0 => 'image/bmp',
+    ),
     'dic' =>
     array (
       0 => 'text/x-c',
+    ),
+    'diff' =>
+    array (
+      0 => 'text/x-patch',
     ),
     'dir' =>
     array (
@@ -3986,13 +6401,19 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/octet-stream',
     ),
+    'divx' =>
+    array (
+      0 => 'video/x-msvideo',
+    ),
     'djv' =>
     array (
       0 => 'image/vnd.djvu',
+      1 => 'image/vnd.djvu+multipage',
     ),
     'djvu' =>
     array (
       0 => 'image/vnd.djvu',
+      1 => 'image/vnd.djvu+multipage',
     ),
     'dll' =>
     array (
@@ -4014,9 +6435,17 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.dna',
     ),
+    'dng' =>
+    array (
+      0 => 'image/x-adobe-dng',
+    ),
     'doc' =>
     array (
       0 => 'application/msword',
+    ),
+    'docbook' =>
+    array (
+      0 => 'application/x-docbook+xml',
     ),
     'docm' =>
     array (
@@ -4029,6 +6458,8 @@ class ApacheMap extends AbstractMap
     'dot' =>
     array (
       0 => 'application/msword',
+      1 => 'application/msword-template',
+      2 => 'text/vnd.graphviz',
     ),
     'dotm' =>
     array (
@@ -4054,6 +6485,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'text/prs.lines.tag',
     ),
+    'dsl' =>
+    array (
+      0 => 'text/x-dsl',
+    ),
     'dssc' =>
     array (
       0 => 'application/dssc+der',
@@ -4074,9 +6509,17 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'audio/vnd.dts.hd',
     ),
+    'dtx' =>
+    array (
+      0 => 'text/x-tex',
+    ),
     'dump' =>
     array (
       0 => 'application/octet-stream',
+    ),
+    'dv' =>
+    array (
+      0 => 'video/dv',
     ),
     'dvb' =>
     array (
@@ -4085,6 +6528,14 @@ class ApacheMap extends AbstractMap
     'dvi' =>
     array (
       0 => 'application/x-dvi',
+    ),
+    'dvi.bz2' =>
+    array (
+      0 => 'application/x-bzdvi',
+    ),
+    'dvi.gz' =>
+    array (
+      0 => 'application/x-gzdvi',
     ),
     'dwf' =>
     array (
@@ -4105,6 +6556,10 @@ class ApacheMap extends AbstractMap
     'dxr' =>
     array (
       0 => 'application/x-director',
+    ),
+    'e' =>
+    array (
+      0 => 'text/x-eiffel',
     ),
     'ecelp4800' =>
     array (
@@ -4134,9 +6589,21 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.picsel',
     ),
+    'egon' =>
+    array (
+      0 => 'application/x-egon',
+    ),
     'ei6' =>
     array (
       0 => 'application/vnd.pg.osasli',
+    ),
+    'eif' =>
+    array (
+      0 => 'text/x-eiffel',
+    ),
+    'el' =>
+    array (
+      0 => 'text/x-emacs-lisp',
     ),
     'elc' =>
     array (
@@ -4145,6 +6612,7 @@ class ApacheMap extends AbstractMap
     'emf' =>
     array (
       0 => 'application/x-msmetafile',
+      1 => 'image/emf',
     ),
     'eml' =>
     array (
@@ -4154,9 +6622,17 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/emma+xml',
     ),
+    'emp' =>
+    array (
+      0 => 'application/vnd.emusic-emusic_package',
+    ),
     'emz' =>
     array (
       0 => 'application/x-msmetafile',
+    ),
+    'ent' =>
+    array (
+      0 => 'application/xml-external-parsed-entity',
     ),
     'eol' =>
     array (
@@ -4169,10 +6645,51 @@ class ApacheMap extends AbstractMap
     'eps' =>
     array (
       0 => 'application/postscript',
+      1 => 'image/x-eps',
+    ),
+    'eps.bz2' =>
+    array (
+      0 => 'image/x-bzeps',
+    ),
+    'eps.gz' =>
+    array (
+      0 => 'image/x-gzeps',
+    ),
+    'epsf' =>
+    array (
+      0 => 'image/x-eps',
+    ),
+    'epsf.bz2' =>
+    array (
+      0 => 'image/x-bzeps',
+    ),
+    'epsf.gz' =>
+    array (
+      0 => 'image/x-gzeps',
+    ),
+    'epsi' =>
+    array (
+      0 => 'image/x-eps',
+    ),
+    'epsi.bz2' =>
+    array (
+      0 => 'image/x-bzeps',
+    ),
+    'epsi.gz' =>
+    array (
+      0 => 'image/x-gzeps',
     ),
     'epub' =>
     array (
       0 => 'application/epub+zip',
+    ),
+    'erl' =>
+    array (
+      0 => 'text/x-erlang',
+    ),
+    'es' =>
+    array (
+      0 => 'application/ecmascript',
     ),
     'es3' =>
     array (
@@ -4190,6 +6707,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.eszigno3+xml',
     ),
+    'etheme' =>
+    array (
+      0 => 'application/x-e-theme',
+    ),
     'etx' =>
     array (
       0 => 'text/x-setext',
@@ -4205,10 +6726,15 @@ class ApacheMap extends AbstractMap
     'exe' =>
     array (
       0 => 'application/x-msdownload',
+      1 => 'application/x-ms-dos-executable',
     ),
     'exi' =>
     array (
       0 => 'application/exi',
+    ),
+    'exr' =>
+    array (
+      0 => 'image/x-exr',
     ),
     'ext' =>
     array (
@@ -4230,9 +6756,18 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'text/x-fortran',
     ),
+    'f4a' =>
+    array (
+      0 => 'audio/mp4',
+    ),
+    'f4b' =>
+    array (
+      0 => 'audio/x-m4b',
+    ),
     'f4v' =>
     array (
       0 => 'video/x-f4v',
+      1 => 'video/mp4',
     ),
     'f77' =>
     array (
@@ -4241,6 +6776,18 @@ class ApacheMap extends AbstractMap
     'f90' =>
     array (
       0 => 'text/x-fortran',
+    ),
+    'f95' =>
+    array (
+      0 => 'text/x-fortran',
+    ),
+    'fb2' =>
+    array (
+      0 => 'application/x-fictionbook+xml',
+    ),
+    'fb2.zip' =>
+    array (
+      0 => 'application/x-zip-compressed-fb2',
     ),
     'fbs' =>
     array (
@@ -4254,13 +6801,25 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.isac.fcs',
     ),
+    'fd' =>
+    array (
+      0 => 'application/x-raw-floppy-disk-image',
+    ),
     'fdf' =>
     array (
       0 => 'application/vnd.fdf',
     ),
+    'fds' =>
+    array (
+      0 => 'application/x-fds-disk',
+    ),
     'fe_launch' =>
     array (
       0 => 'application/vnd.denovo.fcselayout-link',
+    ),
+    'feature' =>
+    array (
+      0 => 'text/x-gherkin',
     ),
     'fg5' =>
     array (
@@ -4293,14 +6852,41 @@ class ApacheMap extends AbstractMap
     'fig' =>
     array (
       0 => 'application/x-xfig',
+      1 => 'image/x-xfig',
+    ),
+    'fits' =>
+    array (
+      0 => 'image/fits',
+    ),
+    'fl' =>
+    array (
+      0 => 'application/x-fluid',
     ),
     'flac' =>
     array (
       0 => 'audio/x-flac',
+      1 => 'audio/flac',
+    ),
+    'flatpak' =>
+    array (
+      0 => 'application/vnd.flatpak',
+    ),
+    'flatpakref' =>
+    array (
+      0 => 'application/vnd.flatpak.ref',
+    ),
+    'flatpakrepo' =>
+    array (
+      0 => 'application/vnd.flatpak.repo',
+    ),
+    'flc' =>
+    array (
+      0 => 'video/x-flic',
     ),
     'fli' =>
     array (
       0 => 'video/x-fli',
+      1 => 'video/x-flic',
     ),
     'flo' =>
     array (
@@ -4313,6 +6899,7 @@ class ApacheMap extends AbstractMap
     'flw' =>
     array (
       0 => 'application/vnd.kde.kivio',
+      1 => 'application/x-kivio',
     ),
     'flx' =>
     array (
@@ -4329,6 +6916,26 @@ class ApacheMap extends AbstractMap
     'fnc' =>
     array (
       0 => 'application/vnd.frogans.fnc',
+    ),
+    'fo' =>
+    array (
+      0 => 'text/x-xslfo',
+    ),
+    'fodg' =>
+    array (
+      0 => 'application/vnd.oasis.opendocument.graphics-flat-xml',
+    ),
+    'fodp' =>
+    array (
+      0 => 'application/vnd.oasis.opendocument.presentation-flat-xml',
+    ),
+    'fods' =>
+    array (
+      0 => 'application/vnd.oasis.opendocument.spreadsheet-flat-xml',
+    ),
+    'fodt' =>
+    array (
+      0 => 'application/vnd.oasis.opendocument.text-flat-xml',
     ),
     'for' =>
     array (
@@ -4362,6 +6969,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'video/vnd.fvt',
     ),
+    'fxm' =>
+    array (
+      0 => 'video/x-javafx',
+    ),
     'fxp' =>
     array (
       0 => 'application/vnd.adobe.fxp',
@@ -4381,6 +6992,7 @@ class ApacheMap extends AbstractMap
     'g3' =>
     array (
       0 => 'image/g3fax',
+      1 => 'image/fax-g3',
     ),
     'g3w' =>
     array (
@@ -4394,25 +7006,78 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/x-tads',
     ),
+    'gb' =>
+    array (
+      0 => 'application/x-gameboy-rom',
+    ),
+    'gba' =>
+    array (
+      0 => 'application/x-gba-rom',
+    ),
+    'gbc' =>
+    array (
+      0 => 'application/x-gameboy-color-rom',
+    ),
     'gbr' =>
     array (
       0 => 'application/rpki-ghostbusters',
+      1 => 'image/x-gimp-gbr',
     ),
     'gca' =>
     array (
       0 => 'application/x-gca-compressed',
     ),
+    'gcode' =>
+    array (
+      0 => 'text/x.gcode',
+    ),
+    'gcrd' =>
+    array (
+      0 => 'text/vcard',
+    ),
     'gdl' =>
     array (
       0 => 'model/vnd.gdl',
+    ),
+    'ged' =>
+    array (
+      0 => 'application/x-gedcom',
+    ),
+    'gedcom' =>
+    array (
+      0 => 'application/x-gedcom',
+    ),
+    'gem' =>
+    array (
+      0 => 'application/x-tar',
+    ),
+    'gen' =>
+    array (
+      0 => 'application/x-genesis-rom',
     ),
     'geo' =>
     array (
       0 => 'application/vnd.dynageo',
     ),
+    'geo.json' =>
+    array (
+      0 => 'application/geo+json',
+    ),
+    'geojson' =>
+    array (
+      0 => 'application/geo+json',
+    ),
     'gex' =>
     array (
       0 => 'application/vnd.geometry-explorer',
+    ),
+    'gf' =>
+    array (
+      0 => 'application/x-tex-gf',
+    ),
+    'gg' =>
+    array (
+      0 => 'application/x-gamegear-rom',
     ),
     'ggb' =>
     array (
@@ -4430,25 +7095,71 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'image/gif',
     ),
+    'gih' =>
+    array (
+      0 => 'image/x-gimp-gih',
+    ),
     'gim' =>
     array (
       0 => 'application/vnd.groove-identity-message',
+    ),
+    'glade' =>
+    array (
+      0 => 'application/x-glade',
     ),
     'gml' =>
     array (
       0 => 'application/gml+xml',
     ),
+    'gmo' =>
+    array (
+      0 => 'application/x-gettext-translation',
+    ),
     'gmx' =>
     array (
       0 => 'application/vnd.gmx',
+    ),
+    'gnc' =>
+    array (
+      0 => 'application/x-gnucash',
+    ),
+    'gnd' =>
+    array (
+      0 => 'application/gnunet-directory',
+    ),
+    'gnucash' =>
+    array (
+      0 => 'application/x-gnucash',
     ),
     'gnumeric' =>
     array (
       0 => 'application/x-gnumeric',
     ),
+    'gnuplot' =>
+    array (
+      0 => 'application/x-gnuplot',
+    ),
+    'go' =>
+    array (
+      0 => 'text/x-go',
+    ),
+    'gp' =>
+    array (
+      0 => 'application/x-gnuplot',
+    ),
+    'gpg' =>
+    array (
+      0 => 'application/pgp-encrypted',
+      1 => 'application/pgp-keys',
+      2 => 'application/pgp-signature',
+    ),
     'gph' =>
     array (
       0 => 'application/vnd.flographit',
+    ),
+    'gplt' =>
+    array (
+      0 => 'application/x-gnuplot',
     ),
     'gpx' =>
     array (
@@ -4461,6 +7172,10 @@ class ApacheMap extends AbstractMap
     'gqs' =>
     array (
       0 => 'application/vnd.grafeq',
+    ),
+    'gra' =>
+    array (
+      0 => 'application/x-graphite',
     ),
     'gram' =>
     array (
@@ -4482,13 +7197,23 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/srgs+xml',
     ),
+    'gs' =>
+    array (
+      0 => 'text/x-genie',
+    ),
     'gsf' =>
     array (
       0 => 'application/x-font-ghostscript',
+      1 => 'application/x-font-type1',
+    ),
+    'gsm' =>
+    array (
+      0 => 'audio/x-gsm',
     ),
     'gtar' =>
     array (
       0 => 'application/x-gtar',
+      1 => 'application/x-tar',
     ),
     'gtm' =>
     array (
@@ -4502,6 +7227,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'text/vnd.graphviz',
     ),
+    'gvp' =>
+    array (
+      0 => 'text/x-google-video-pointer',
+    ),
     'gxf' =>
     array (
       0 => 'application/gxf',
@@ -4510,9 +7239,18 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.geonext',
     ),
+    'gz' =>
+    array (
+      0 => 'application/gzip',
+    ),
     'h' =>
     array (
       0 => 'text/x-c',
+      1 => 'text/x-chdr',
+    ),
+    'h++' =>
+    array (
+      0 => 'text/x-c++hdr',
     ),
     'h261' =>
     array (
@@ -4526,6 +7264,14 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'video/h264',
     ),
+    'h4' =>
+    array (
+      0 => 'application/x-hdf',
+    ),
+    'h5' =>
+    array (
+      0 => 'application/x-hdf',
+    ),
     'hal' =>
     array (
       0 => 'application/vnd.hal+xml',
@@ -4538,13 +7284,38 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/x-hdf',
     ),
+    'hdf4' =>
+    array (
+      0 => 'application/x-hdf',
+    ),
+    'hdf5' =>
+    array (
+      0 => 'application/x-hdf',
+    ),
+    'heic' =>
+    array (
+      0 => 'image/heif',
+    ),
+    'heif' =>
+    array (
+      0 => 'image/heif',
+    ),
+    'hfe' =>
+    array (
+      0 => 'application/x-hfe-floppy-image',
+    ),
     'hh' =>
     array (
       0 => 'text/x-c',
+      1 => 'text/x-c++hdr',
     ),
     'hlp' =>
     array (
       0 => 'application/winhlp',
+    ),
+    'hp' =>
+    array (
+      0 => 'text/x-c++hdr',
     ),
     'hpgl' =>
     array (
@@ -4554,6 +7325,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.hp-hpid',
     ),
+    'hpp' =>
+    array (
+      0 => 'text/x-c++hdr',
+    ),
     'hps' =>
     array (
       0 => 'application/vnd.hp-hps',
@@ -4561,6 +7336,10 @@ class ApacheMap extends AbstractMap
     'hqx' =>
     array (
       0 => 'application/mac-binhex40',
+    ),
+    'hs' =>
+    array (
+      0 => 'text/x-haskell',
     ),
     'htke' =>
     array (
@@ -4586,9 +7365,29 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.yamaha.hv-script',
     ),
+    'hwp' =>
+    array (
+      0 => 'application/x-hwp',
+    ),
+    'hwt' =>
+    array (
+      0 => 'application/x-hwt',
+    ),
+    'hxx' =>
+    array (
+      0 => 'text/x-c++hdr',
+    ),
     'i2g' =>
     array (
       0 => 'application/vnd.intergeo',
+    ),
+    'ica' =>
+    array (
+      0 => 'application/x-ica',
+    ),
+    'icb' =>
+    array (
+      0 => 'image/x-tga',
     ),
     'icc' =>
     array (
@@ -4602,13 +7401,22 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.iccprofile',
     ),
+    'icns' =>
+    array (
+      0 => 'image/x-icns',
+    ),
     'ico' =>
     array (
       0 => 'image/x-icon',
+      1 => 'image/vnd.microsoft.icon',
     ),
     'ics' =>
     array (
       0 => 'text/calendar',
+    ),
+    'idl' =>
+    array (
+      0 => 'text/x-idl',
     ),
     'ief' =>
     array (
@@ -4617,6 +7425,10 @@ class ApacheMap extends AbstractMap
     'ifb' =>
     array (
       0 => 'text/calendar',
+    ),
+    'iff' =>
+    array (
+      0 => 'image/x-ilbm',
     ),
     'ifm' =>
     array (
@@ -4646,6 +7458,22 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.shana.informed.interchange',
     ),
+    'ilbm' =>
+    array (
+      0 => 'image/x-ilbm',
+    ),
+    'ime' =>
+    array (
+      0 => 'text/x-imelody',
+    ),
+    'img' =>
+    array (
+      0 => 'application/x-raw-disk-image',
+    ),
+    'img.xz' =>
+    array (
+      0 => 'application/x-raw-disk-image-xz-compressed',
+    ),
     'imp' =>
     array (
       0 => 'application/vnd.accpac.simply.imp',
@@ -4653,6 +7481,10 @@ class ApacheMap extends AbstractMap
     'ims' =>
     array (
       0 => 'application/vnd.ms-ims',
+    ),
+    'imy' =>
+    array (
+      0 => 'text/x-imelody',
     ),
     'in' =>
     array (
@@ -4665,6 +7497,10 @@ class ApacheMap extends AbstractMap
     'inkml' =>
     array (
       0 => 'application/inkml+xml',
+    ),
+    'ins' =>
+    array (
+      0 => 'text/x-tex',
     ),
     'install' =>
     array (
@@ -4682,6 +7518,14 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.shana.informed.package',
     ),
+    'iptables' =>
+    array (
+      0 => 'text/x-iptables',
+    ),
+    'ipynb' =>
+    array (
+      0 => 'application/x-ipynb+json',
+    ),
     'irm' =>
     array (
       0 => 'application/vnd.ibm.rights-management',
@@ -4693,6 +7537,23 @@ class ApacheMap extends AbstractMap
     'iso' =>
     array (
       0 => 'application/x-iso9660-image',
+      1 => 'application/x-cd-image',
+      2 => 'application/x-sega-cd-rom',
+      3 => 'application/x-saturn-rom',
+      4 => 'application/x-wii-rom',
+      5 => 'application/x-gamecube-rom',
+    ),
+    'iso9660' =>
+    array (
+      0 => 'application/x-cd-image',
+    ),
+    'it' =>
+    array (
+      0 => 'audio/x-it',
+    ),
+    'it87' =>
+    array (
+      0 => 'application/x-it87',
     ),
     'itp' =>
     array (
@@ -4706,6 +7567,14 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.immervision-ivu',
     ),
+    'j2c' =>
+    array (
+      0 => 'image/x-jp2-codestream',
+    ),
+    'j2k' =>
+    array (
+      0 => 'image/x-jp2-codestream',
+    ),
     'jad' =>
     array (
       0 => 'text/vnd.sun.j2me.app-descriptor',
@@ -4717,18 +7586,32 @@ class ApacheMap extends AbstractMap
     'jar' =>
     array (
       0 => 'application/java-archive',
+      1 => 'application/x-java-archive',
     ),
     'java' =>
     array (
       0 => 'text/x-java-source',
+      1 => 'text/x-java',
+    ),
+    'jceks' =>
+    array (
+      0 => 'application/x-java-jce-keystore',
     ),
     'jisp' =>
     array (
       0 => 'application/vnd.jisp',
     ),
+    'jks' =>
+    array (
+      0 => 'application/x-java-keystore',
+    ),
     'jlt' =>
     array (
       0 => 'application/vnd.hp-jlyt',
+    ),
+    'jng' =>
+    array (
+      0 => 'image/x-jng',
     ),
     'jnlp' =>
     array (
@@ -4738,6 +7621,14 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.joost.joda-archive',
     ),
+    'jp2' =>
+    array (
+      0 => 'image/jp2',
+    ),
+    'jpc' =>
+    array (
+      0 => 'image/x-jp2-codestream',
+    ),
     'jpe' =>
     array (
       0 => 'image/jpeg',
@@ -4746,13 +7637,22 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'image/jpeg',
     ),
+    'jpf' =>
+    array (
+      0 => 'image/jpx',
+    ),
     'jpg' =>
     array (
       0 => 'image/jpeg',
     ),
+    'jpg2' =>
+    array (
+      0 => 'image/jp2',
+    ),
     'jpgm' =>
     array (
       0 => 'video/jpm',
+      1 => 'image/jpm',
     ),
     'jpgv' =>
     array (
@@ -4761,8 +7661,26 @@ class ApacheMap extends AbstractMap
     'jpm' =>
     array (
       0 => 'video/jpm',
+      1 => 'image/jpm',
+    ),
+    'jpr' =>
+    array (
+      0 => 'application/x-jbuilder-project',
+    ),
+    'jpx' =>
+    array (
+      0 => 'application/x-jbuilder-project',
+      1 => 'image/jpx',
+    ),
+    'jrd' =>
+    array (
+      0 => 'application/jrd+json',
     ),
     'js' =>
+    array (
+      0 => 'application/javascript',
+    ),
+    'jsm' =>
     array (
       0 => 'application/javascript',
     ),
@@ -4770,9 +7688,25 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/json',
     ),
+    'json-patch' =>
+    array (
+      0 => 'application/json-patch+json',
+    ),
+    'jsonld' =>
+    array (
+      0 => 'application/ld+json',
+    ),
     'jsonml' =>
     array (
       0 => 'application/jsonml+json',
+    ),
+    'k25' =>
+    array (
+      0 => 'image/x-kodak-k25',
+    ),
+    'k7' =>
+    array (
+      0 => 'application/x-thomson-cassette',
     ),
     'kar' =>
     array (
@@ -4781,14 +7715,49 @@ class ApacheMap extends AbstractMap
     'karbon' =>
     array (
       0 => 'application/vnd.kde.karbon',
+      1 => 'application/x-karbon',
+    ),
+    'kdc' =>
+    array (
+      0 => 'image/x-kodak-kdc',
+    ),
+    'kdelnk' =>
+    array (
+      0 => 'application/x-desktop',
+    ),
+    'kexi' =>
+    array (
+      0 => 'application/x-kexiproject-sqlite2',
+      1 => 'application/x-kexiproject-sqlite3',
+    ),
+    'kexic' =>
+    array (
+      0 => 'application/x-kexi-connectiondata',
+    ),
+    'kexis' =>
+    array (
+      0 => 'application/x-kexiproject-shortcut',
+    ),
+    'key' =>
+    array (
+      0 => 'application/x-iwork-keynote-sffkey',
     ),
     'kfo' =>
     array (
       0 => 'application/vnd.kde.kformula',
+      1 => 'application/x-kformula',
     ),
     'kia' =>
     array (
       0 => 'application/vnd.kidspiration',
+    ),
+    'kil' =>
+    array (
+      0 => 'application/x-killustrator',
+    ),
+    'kino' =>
+    array (
+      0 => 'application/smil+xml',
     ),
     'kml' =>
     array (
@@ -4809,22 +7778,38 @@ class ApacheMap extends AbstractMap
     'kon' =>
     array (
       0 => 'application/vnd.kde.kontour',
+      1 => 'application/x-kontour',
+    ),
+    'kpm' =>
+    array (
+      0 => 'application/x-kpovmodeler',
     ),
     'kpr' =>
     array (
       0 => 'application/vnd.kde.kpresenter',
+      1 => 'application/x-kpresenter',
     ),
     'kpt' =>
     array (
       0 => 'application/vnd.kde.kpresenter',
+      1 => 'application/x-kpresenter',
     ),
     'kpxx' =>
     array (
       0 => 'application/vnd.ds-keypoint',
     ),
+    'kra' =>
+    array (
+      0 => 'application/x-krita',
+    ),
+    'ks' =>
+    array (
+      0 => 'application/x-java-keystore',
+    ),
     'ksp' =>
     array (
       0 => 'application/vnd.kde.kspread',
+      1 => 'application/x-kspread',
     ),
     'ktr' =>
     array (
@@ -4838,13 +7823,23 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.kahootz',
     ),
+    'kud' =>
+    array (
+      0 => 'application/x-kugar',
+    ),
     'kwd' =>
     array (
       0 => 'application/vnd.kde.kword',
+      1 => 'application/x-kword',
     ),
     'kwt' =>
     array (
       0 => 'application/vnd.kde.kword',
+      1 => 'application/x-kword',
+    ),
+    'la' =>
+    array (
+      0 => 'application/x-shared-library-la',
     ),
     'lasxml' =>
     array (
@@ -4853,6 +7848,7 @@ class ApacheMap extends AbstractMap
     'latex' =>
     array (
       0 => 'application/x-latex',
+      1 => 'text/x-tex',
     ),
     'lbd' =>
     array (
@@ -4862,6 +7858,14 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.llamagraphics.life-balance.exchange+xml',
     ),
+    'lbm' =>
+    array (
+      0 => 'image/x-ilbm',
+    ),
+    'ldif' =>
+    array (
+      0 => 'text/x-ldif',
+    ),
     'les' =>
     array (
       0 => 'application/vnd.hhe.lesson-player',
@@ -4869,6 +7873,15 @@ class ApacheMap extends AbstractMap
     'lha' =>
     array (
       0 => 'application/x-lzh-compressed',
+      1 => 'application/x-lha',
+    ),
+    'lhs' =>
+    array (
+      0 => 'text/x-literate-haskell',
+    ),
+    'lhz' =>
+    array (
+      0 => 'application/x-lhz',
     ),
     'link66' =>
     array (
@@ -4890,9 +7903,18 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/x-ms-shortcut',
     ),
+    'lnx' =>
+    array (
+      0 => 'application/x-atari-lynx-rom',
+    ),
+    'loas' =>
+    array (
+      0 => 'audio/usac',
+    ),
     'log' =>
     array (
       0 => 'text/plain',
+      1 => 'text/x-log',
     ),
     'lostxml' =>
     array (
@@ -4906,21 +7928,79 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.ms-lrm',
     ),
+    'lrv' =>
+    array (
+      0 => 'video/mp4',
+    ),
+    'lrz' =>
+    array (
+      0 => 'application/x-lrzip',
+    ),
     'ltf' =>
     array (
       0 => 'application/vnd.frogans.ltf',
+    ),
+    'ltx' =>
+    array (
+      0 => 'text/x-tex',
+    ),
+    'lua' =>
+    array (
+      0 => 'text/x-lua',
     ),
     'lvp' =>
     array (
       0 => 'audio/vnd.lucent.voice',
     ),
+    'lwo' =>
+    array (
+      0 => 'image/x-lwo',
+    ),
+    'lwob' =>
+    array (
+      0 => 'image/x-lwo',
+    ),
     'lwp' =>
     array (
       0 => 'application/vnd.lotus-wordpro',
     ),
+    'lws' =>
+    array (
+      0 => 'image/x-lws',
+    ),
+    'ly' =>
+    array (
+      0 => 'text/x-lilypond',
+    ),
+    'lyx' =>
+    array (
+      0 => 'application/x-lyx',
+    ),
+    'lz' =>
+    array (
+      0 => 'application/x-lzip',
+    ),
+    'lz4' =>
+    array (
+      0 => 'application/x-lz4',
+    ),
     'lzh' =>
     array (
       0 => 'application/x-lzh-compressed',
+      1 => 'application/x-lha',
+    ),
+    'lzma' =>
+    array (
+      0 => 'application/x-lzma',
+    ),
+    'lzo' =>
+    array (
+      0 => 'application/x-lzop',
+    ),
+    'm' =>
+    array (
+      0 => 'text/x-objcsrc',
+      1 => 'text/x-matlab',
     ),
     'm13' =>
     array (
@@ -4929,6 +8009,14 @@ class ApacheMap extends AbstractMap
     'm14' =>
     array (
       0 => 'application/x-msmediaview',
+    ),
+    'm15' =>
+    array (
+      0 => 'audio/x-mod',
+    ),
+    'm1u' =>
+    array (
+      0 => 'video/vnd.mpegurl',
     ),
     'm1v' =>
     array (
@@ -4942,6 +8030,14 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'audio/mpeg',
     ),
+    'm2t' =>
+    array (
+      0 => 'video/mp2t',
+    ),
+    'm2ts' =>
+    array (
+      0 => 'video/mp2t',
+    ),
     'm2v' =>
     array (
       0 => 'video/mpeg',
@@ -4953,14 +8049,28 @@ class ApacheMap extends AbstractMap
     'm3u' =>
     array (
       0 => 'audio/x-mpegurl',
+      1 => 'application/vnd.apple.mpegurl',
     ),
     'm3u8' =>
     array (
       0 => 'application/vnd.apple.mpegurl',
+      1 => 'audio/x-mpegurl',
+    ),
+    'm4' =>
+    array (
+      0 => 'application/x-m4',
     ),
     'm4a' =>
     array (
       0 => 'audio/mp4',
+    ),
+    'm4b' =>
+    array (
+      0 => 'audio/x-m4b',
+    ),
+    'm4r' =>
+    array (
+      0 => 'audio/x-m4r',
     ),
     'm4u' =>
     array (
@@ -4969,10 +8079,19 @@ class ApacheMap extends AbstractMap
     'm4v' =>
     array (
       0 => 'video/x-m4v',
+      1 => 'video/mp4',
+    ),
+    'm7' =>
+    array (
+      0 => 'application/x-thomson-cartridge-memo7',
     ),
     'ma' =>
     array (
       0 => 'application/mathematica',
+    ),
+    'mab' =>
+    array (
+      0 => 'application/x-markaby',
     ),
     'mads' =>
     array (
@@ -4982,6 +8101,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.ecowin.chart',
     ),
+    'mak' =>
+    array (
+      0 => 'text/x-makefile',
+    ),
     'maker' =>
     array (
       0 => 'application/vnd.framemaker',
@@ -4989,10 +8112,19 @@ class ApacheMap extends AbstractMap
     'man' =>
     array (
       0 => 'text/troff',
+      1 => 'application/x-troff-man',
+    ),
+    'manifest' =>
+    array (
+      0 => 'text/cache-manifest',
     ),
     'mar' =>
     array (
       0 => 'application/octet-stream',
+    ),
+    'markdown' =>
+    array (
+      0 => 'text/markdown',
     ),
     'mathml' =>
     array (
@@ -5022,17 +8154,31 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'text/vnd.curl.mcurl',
     ),
+    'md' =>
+    array (
+      0 => 'text/markdown',
+    ),
     'mdb' =>
     array (
       0 => 'application/x-msaccess',
+      1 => 'application/vnd.ms-access',
     ),
     'mdi' =>
     array (
       0 => 'image/vnd.ms-modi',
     ),
+    'mdx' =>
+    array (
+      0 => 'application/x-genesis-32x-rom',
+    ),
     'me' =>
     array (
       0 => 'text/troff',
+      1 => 'text/x-troff-me',
+    ),
+    'med' =>
+    array (
+      0 => 'audio/x-mod',
     ),
     'mesh' =>
     array (
@@ -5061,10 +8207,19 @@ class ApacheMap extends AbstractMap
     'mgp' =>
     array (
       0 => 'application/vnd.osgeo.mapguide.package',
+      1 => 'application/x-magicpoint',
     ),
     'mgz' =>
     array (
       0 => 'application/vnd.proteus.magazine',
+    ),
+    'mht' =>
+    array (
+      0 => 'application/x-mimearchive',
+    ),
+    'mhtml' =>
+    array (
+      0 => 'application/x-mimearchive',
     ),
     'mid' =>
     array (
@@ -5081,10 +8236,15 @@ class ApacheMap extends AbstractMap
     'mif' =>
     array (
       0 => 'application/vnd.mif',
+      1 => 'application/x-mif',
     ),
     'mime' =>
     array (
       0 => 'message/rfc822',
+    ),
+    'minipsf' =>
+    array (
+      0 => 'audio/x-minipsf',
     ),
     'mj2' =>
     array (
@@ -5094,13 +8254,34 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'video/mj2',
     ),
+    'mjpeg' =>
+    array (
+      0 => 'video/x-mjpeg',
+    ),
+    'mjpg' =>
+    array (
+      0 => 'video/x-mjpeg',
+    ),
+    'mjs' =>
+    array (
+      0 => 'application/javascript',
+    ),
+    'mk' =>
+    array (
+      0 => 'text/x-makefile',
+    ),
     'mk3d' =>
     array (
       0 => 'video/x-matroska',
+      1 => 'video/x-matroska-3d',
     ),
     'mka' =>
     array (
       0 => 'audio/x-matroska',
+    ),
+    'mkd' =>
+    array (
+      0 => 'text/markdown',
     ),
     'mks' =>
     array (
@@ -5110,9 +8291,21 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'video/x-matroska',
     ),
+    'ml' =>
+    array (
+      0 => 'text/x-ocaml',
+    ),
+    'mli' =>
+    array (
+      0 => 'text/x-ocaml',
+    ),
     'mlp' =>
     array (
       0 => 'application/vnd.dolby.mlp',
+    ),
+    'mm' =>
+    array (
+      0 => 'text/x-troff-mm',
     ),
     'mmd' =>
     array (
@@ -5121,6 +8314,11 @@ class ApacheMap extends AbstractMap
     'mmf' =>
     array (
       0 => 'application/vnd.smaf',
+      1 => 'application/x-smaf',
+    ),
+    'mml' =>
+    array (
+      0 => 'application/mathml+xml',
     ),
     'mmr' =>
     array (
@@ -5134,13 +8332,42 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/x-msmoney',
     ),
+    'mo' =>
+    array (
+      0 => 'application/x-gettext-translation',
+      1 => 'text/x-modelica',
+    ),
+    'mo3' =>
+    array (
+      0 => 'audio/x-mo3',
+    ),
     'mobi' =>
     array (
       0 => 'application/x-mobipocket-ebook',
     ),
+    'moc' =>
+    array (
+      0 => 'text/x-moc',
+    ),
+    'mod' =>
+    array (
+      0 => 'audio/x-mod',
+    ),
     'mods' =>
     array (
       0 => 'application/mods+xml',
+    ),
+    'mof' =>
+    array (
+      0 => 'text/x-mof',
+    ),
+    'moov' =>
+    array (
+      0 => 'video/quicktime',
+    ),
+    'mount' =>
+    array (
+      0 => 'text/x-systemd-unit',
     ),
     'mov' =>
     array (
@@ -5150,9 +8377,15 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'video/x-sgi-movie',
     ),
+    'mp+' =>
+    array (
+      0 => 'audio/x-musepack',
+    ),
     'mp2' =>
     array (
       0 => 'audio/mpeg',
+      1 => 'audio/mp2',
+      2 => 'video/mpeg',
     ),
     'mp21' =>
     array (
@@ -5185,6 +8418,7 @@ class ApacheMap extends AbstractMap
     'mpc' =>
     array (
       0 => 'application/vnd.mophun.certificate',
+      1 => 'audio/x-musepack',
     ),
     'mpe' =>
     array (
@@ -5210,6 +8444,14 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.apple.installer+xml',
     ),
+    'mpl' =>
+    array (
+      0 => 'video/mp2t',
+    ),
+    'mpls' =>
+    array (
+      0 => 'video/mp2t',
+    ),
     'mpm' =>
     array (
       0 => 'application/vnd.blueice.multipass',
@@ -5221,6 +8463,7 @@ class ApacheMap extends AbstractMap
     'mpp' =>
     array (
       0 => 'application/vnd.ms-project',
+      1 => 'audio/x-musepack',
     ),
     'mpt' =>
     array (
@@ -5242,9 +8485,22 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/marcxml+xml',
     ),
+    'mrl' =>
+    array (
+      0 => 'text/x-mrml',
+    ),
+    'mrml' =>
+    array (
+      0 => 'text/x-mrml',
+    ),
+    'mrw' =>
+    array (
+      0 => 'image/x-minolta-mrw',
+    ),
     'ms' =>
     array (
       0 => 'text/troff',
+      1 => 'text/x-troff-ms',
     ),
     'mscml' =>
     array (
@@ -5269,18 +8525,36 @@ class ApacheMap extends AbstractMap
     'msi' =>
     array (
       0 => 'application/x-msdownload',
+      1 => 'application/x-msi',
     ),
     'msl' =>
     array (
       0 => 'application/vnd.mobius.msl',
     ),
+    'msod' =>
+    array (
+      0 => 'image/x-msod',
+    ),
     'msty' =>
     array (
       0 => 'application/vnd.muvee.style',
     ),
+    'msx' =>
+    array (
+      0 => 'application/x-msx-rom',
+    ),
+    'mtm' =>
+    array (
+      0 => 'audio/x-mod',
+    ),
     'mts' =>
     array (
       0 => 'model/vnd.mts',
+      1 => 'video/mp2t',
+    ),
+    'mup' =>
+    array (
+      0 => 'text/x-mup',
     ),
     'mus' =>
     array (
@@ -5326,6 +8600,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'text/n3',
     ),
+    'n64' =>
+    array (
+      0 => 'application/x-n64-rom',
+    ),
     'nb' =>
     array (
       0 => 'application/mathematica',
@@ -5342,13 +8620,37 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/x-dtbncx+xml',
     ),
+    'nds' =>
+    array (
+      0 => 'application/x-nintendo-ds-rom',
+    ),
+    'nef' =>
+    array (
+      0 => 'image/x-nikon-nef',
+    ),
+    'nes' =>
+    array (
+      0 => 'application/x-nes-rom',
+    ),
+    'nez' =>
+    array (
+      0 => 'application/x-nes-rom',
+    ),
     'nfo' =>
     array (
       0 => 'text/x-nfo',
     ),
+    'ngc' =>
+    array (
+      0 => 'application/x-neo-geo-pocket-color-rom',
+    ),
     'ngdat' =>
     array (
       0 => 'application/vnd.nokia.n-gage.data',
+    ),
+    'ngp' =>
+    array (
+      0 => 'application/x-neo-geo-pocket-rom',
     ),
     'nitf' =>
     array (
@@ -5374,6 +8676,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.noblenet-web',
     ),
+    'not' =>
+    array (
+      0 => 'text/x-mup',
+    ),
     'npx' =>
     array (
       0 => 'image/vnd.net-fpx',
@@ -5381,10 +8687,15 @@ class ApacheMap extends AbstractMap
     'nsc' =>
     array (
       0 => 'application/x-conference',
+      1 => 'application/x-netshow-channel',
     ),
     'nsf' =>
     array (
       0 => 'application/vnd.lotus-notes',
+    ),
+    'nsv' =>
+    array (
+      0 => 'video/x-nsv',
     ),
     'ntf' =>
     array (
@@ -5393,6 +8704,10 @@ class ApacheMap extends AbstractMap
     'nzb' =>
     array (
       0 => 'application/x-nzb',
+    ),
+    'o' =>
+    array (
+      0 => 'application/x-object',
     ),
     'oa2' =>
     array (
@@ -5413,6 +8728,10 @@ class ApacheMap extends AbstractMap
     'obj' =>
     array (
       0 => 'application/x-tgif',
+    ),
+    'ocl' =>
+    array (
+      0 => 'text/x-ocl',
     ),
     'oda' =>
     array (
@@ -5461,10 +8780,22 @@ class ApacheMap extends AbstractMap
     'oga' =>
     array (
       0 => 'audio/ogg',
+      1 => 'audio/x-vorbis+ogg',
+      2 => 'audio/x-flac+ogg',
+      3 => 'audio/x-speex+ogg',
     ),
     'ogg' =>
     array (
       0 => 'audio/ogg',
+      1 => 'video/ogg',
+      2 => 'audio/x-vorbis+ogg',
+      3 => 'audio/x-flac+ogg',
+      4 => 'audio/x-speex+ogg',
+      5 => 'video/x-theora+ogg',
+    ),
+    'ogm' =>
+    array (
+      0 => 'video/x-ogm+ogg',
     ),
     'ogv' =>
     array (
@@ -5473,6 +8804,14 @@ class ApacheMap extends AbstractMap
     'ogx' =>
     array (
       0 => 'application/ogg',
+    ),
+    'old' =>
+    array (
+      0 => 'application/x-trash',
+    ),
+    'oleo' =>
+    array (
+      0 => 'application/x-oleo',
     ),
     'omdoc' =>
     array (
@@ -5494,6 +8833,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/onenote',
     ),
+    'ooc' =>
+    array (
+      0 => 'text/x-ooc',
+    ),
     'opf' =>
     array (
       0 => 'application/oebps-package+xml',
@@ -5501,10 +8844,24 @@ class ApacheMap extends AbstractMap
     'opml' =>
     array (
       0 => 'text/x-opml',
+      1 => 'text/x-opml+xml',
     ),
     'oprc' =>
     array (
       0 => 'application/vnd.palm',
+    ),
+    'opus' =>
+    array (
+      0 => 'audio/ogg',
+      1 => 'audio/x-opus+ogg',
+    ),
+    'ora' =>
+    array (
+      0 => 'image/openraster',
+    ),
+    'orf' =>
+    array (
+      0 => 'image/x-olympus-orf',
     ),
     'org' =>
     array (
@@ -5525,6 +8882,7 @@ class ApacheMap extends AbstractMap
     'otf' =>
     array (
       0 => 'font/otf',
+      1 => 'application/vnd.oasis.opendocument.formula-template',
     ),
     'otg' =>
     array (
@@ -5550,6 +8908,14 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.oasis.opendocument.text-template',
     ),
+    'owl' =>
+    array (
+      0 => 'application/rdf+xml',
+    ),
+    'owx' =>
+    array (
+      0 => 'application/owl+xml',
+    ),
     'oxps' =>
     array (
       0 => 'application/oxps',
@@ -5569,6 +8935,11 @@ class ApacheMap extends AbstractMap
     'p12' =>
     array (
       0 => 'application/x-pkcs12',
+      1 => 'application/pkcs12',
+    ),
+    'p65' =>
+    array (
+      0 => 'application/x-pagemaker',
     ),
     'p7b' =>
     array (
@@ -5594,9 +8965,41 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/pkcs8',
     ),
+    'p8e' =>
+    array (
+      0 => 'application/pkcs8-encrypted',
+    ),
+    'pack' =>
+    array (
+      0 => 'application/x-java-pack200',
+    ),
+    'pak' =>
+    array (
+      0 => 'application/x-pak',
+    ),
+    'par2' =>
+    array (
+      0 => 'application/x-par2',
+    ),
+    'part' =>
+    array (
+      0 => 'application/x-partial-download',
+    ),
     'pas' =>
     array (
       0 => 'text/x-pascal',
+    ),
+    'pat' =>
+    array (
+      0 => 'image/x-gimp-pat',
+    ),
+    'patch' =>
+    array (
+      0 => 'text/x-patch',
+    ),
+    'path' =>
+    array (
+      0 => 'text/x-systemd-unit',
     ),
     'paw' =>
     array (
@@ -5614,7 +9017,24 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.tcpdump.pcap',
     ),
+    'pcd' =>
+    array (
+      0 => 'image/x-photo-cd',
+    ),
+    'pce' =>
+    array (
+      0 => 'application/x-pc-engine-rom',
+    ),
     'pcf' =>
+    array (
+      0 => 'application/x-font-pcf',
+      1 => 'application/x-cisco-vpn-settings',
+    ),
+    'pcf.gz' =>
+    array (
+      0 => 'application/x-font-pcf',
+    ),
+    'pcf.z' =>
     array (
       0 => 'application/x-font-pcf',
     ),
@@ -5637,14 +9057,48 @@ class ApacheMap extends AbstractMap
     'pcx' =>
     array (
       0 => 'image/x-pcx',
+      1 => 'image/vnd.zbrush.pcx',
     ),
     'pdb' =>
     array (
       0 => 'application/vnd.palm',
+      1 => 'application/x-aportisdoc',
+    ),
+    'pdc' =>
+    array (
+      0 => 'application/x-aportisdoc',
     ),
     'pdf' =>
     array (
       0 => 'application/pdf',
+    ),
+    'pdf.bz2' =>
+    array (
+      0 => 'application/x-bzpdf',
+    ),
+    'pdf.gz' =>
+    array (
+      0 => 'application/x-gzpdf',
+    ),
+    'pdf.lz' =>
+    array (
+      0 => 'application/x-lzpdf',
+    ),
+    'pdf.xz' =>
+    array (
+      0 => 'application/x-xzpdf',
+    ),
+    'pef' =>
+    array (
+      0 => 'image/x-pentax-pef',
+    ),
+    'pem' =>
+    array (
+      0 => 'application/x-x509-ca-cert',
+    ),
+    'perl' =>
+    array (
+      0 => 'application/x-perl',
     ),
     'pfa' =>
     array (
@@ -5665,6 +9119,7 @@ class ApacheMap extends AbstractMap
     'pfx' =>
     array (
       0 => 'application/x-pkcs12',
+      1 => 'application/pkcs12',
     ),
     'pgm' =>
     array (
@@ -5673,18 +9128,58 @@ class ApacheMap extends AbstractMap
     'pgn' =>
     array (
       0 => 'application/x-chess-pgn',
+      1 => 'application/vnd.chess-pgn',
     ),
     'pgp' =>
     array (
       0 => 'application/pgp-encrypted',
+      1 => 'application/pgp-keys',
+      2 => 'application/pgp-signature',
+    ),
+    'php' =>
+    array (
+      0 => 'application/x-php',
+    ),
+    'php3' =>
+    array (
+      0 => 'application/x-php',
+    ),
+    'php4' =>
+    array (
+      0 => 'application/x-php',
+    ),
+    'php5' =>
+    array (
+      0 => 'application/x-php',
+    ),
+    'phps' =>
+    array (
+      0 => 'application/x-php',
     ),
     'pic' =>
     array (
       0 => 'image/x-pict',
     ),
+    'pict' =>
+    array (
+      0 => 'image/x-pict',
+    ),
+    'pict1' =>
+    array (
+      0 => 'image/x-pict',
+    ),
+    'pict2' =>
+    array (
+      0 => 'image/x-pict',
+    ),
+    'pk' =>
+    array (
+      0 => 'application/x-tex-pk',
+    ),
     'pkg' =>
     array (
       0 => 'application/octet-stream',
+      1 => 'application/x-xar',
     ),
     'pki' =>
     array (
@@ -5693,6 +9188,18 @@ class ApacheMap extends AbstractMap
     'pkipath' =>
     array (
       0 => 'application/pkix-pkipath',
+    ),
+    'pkr' =>
+    array (
+      0 => 'application/pgp-keys',
+    ),
+    'pl' =>
+    array (
+      0 => 'application/x-perl',
+    ),
+    'pla' =>
+    array (
+      0 => 'audio/x-iriver-pla',
     ),
     'plb' =>
     array (
@@ -5706,9 +9213,27 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.pocketlearn',
     ),
+    'pln' =>
+    array (
+      0 => 'application/x-planperfect',
+    ),
     'pls' =>
     array (
       0 => 'application/pls+xml',
+      1 => 'audio/x-scpls',
+    ),
+    'pm' =>
+    array (
+      0 => 'application/x-perl',
+      1 => 'application/x-pagemaker',
+    ),
+    'pm6' =>
+    array (
+      0 => 'application/x-pagemaker',
+    ),
+    'pmd' =>
+    array (
+      0 => 'application/x-pagemaker',
     ),
     'pml' =>
     array (
@@ -5722,6 +9247,22 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'image/x-portable-anymap',
     ),
+    'pntg' =>
+    array (
+      0 => 'image/x-macpaint',
+    ),
+    'po' =>
+    array (
+      0 => 'text/x-gettext-translation',
+    ),
+    'pod' =>
+    array (
+      0 => 'application/x-perl',
+    ),
+    'por' =>
+    array (
+      0 => 'application/x-spss-por',
+    ),
     'portpkg' =>
     array (
       0 => 'application/vnd.macports.portpkg',
@@ -5729,6 +9270,7 @@ class ApacheMap extends AbstractMap
     'pot' =>
     array (
       0 => 'application/vnd.ms-powerpoint',
+      1 => 'text/x-gettext-translation-template',
     ),
     'potm' =>
     array (
@@ -5774,6 +9316,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
     ),
+    'ppz' =>
+    array (
+      0 => 'application/vnd.ms-powerpoint',
+    ),
     'pqa' =>
     array (
       0 => 'application/vnd.palm',
@@ -5781,6 +9327,7 @@ class ApacheMap extends AbstractMap
     'prc' =>
     array (
       0 => 'application/x-mobipocket-ebook',
+      1 => 'application/vnd.palm',
     ),
     'pre' =>
     array (
@@ -5794,6 +9341,14 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/postscript',
     ),
+    'ps.bz2' =>
+    array (
+      0 => 'application/x-bzpostscript',
+    ),
+    'ps.gz' =>
+    array (
+      0 => 'application/x-gzpostscript',
+    ),
     'psb' =>
     array (
       0 => 'application/vnd.3gpp.pic-bw-small',
@@ -5805,10 +9360,27 @@ class ApacheMap extends AbstractMap
     'psf' =>
     array (
       0 => 'application/x-font-linux-psf',
+      1 => 'audio/x-psf',
+    ),
+    'psf.gz' =>
+    array (
+      0 => 'application/x-gz-font-linux-psf',
+    ),
+    'psflib' =>
+    array (
+      0 => 'audio/x-psflib',
+    ),
+    'psid' =>
+    array (
+      0 => 'audio/prs.sid',
     ),
     'pskcxml' =>
     array (
       0 => 'application/pskc+xml',
+    ),
+    'psw' =>
+    array (
+      0 => 'application/x-pocket-word',
     ),
     'ptid' =>
     array (
@@ -5817,22 +9389,52 @@ class ApacheMap extends AbstractMap
     'pub' =>
     array (
       0 => 'application/x-mspublisher',
+      1 => 'application/vnd.ms-publisher',
     ),
     'pvb' =>
     array (
       0 => 'application/vnd.3gpp.pic-bw-var',
     ),
+    'pw' =>
+    array (
+      0 => 'application/x-pw',
+    ),
     'pwn' =>
     array (
       0 => 'application/vnd.3m.post-it-notes',
+    ),
+    'py' =>
+    array (
+      0 => 'text/x-python3',
+      1 => 'text/x-python',
+    ),
+    'py3' =>
+    array (
+      0 => 'text/x-python3',
+    ),
+    'py3x' =>
+    array (
+      0 => 'text/x-python3',
     ),
     'pya' =>
     array (
       0 => 'audio/vnd.ms-playready.media.pya',
     ),
+    'pyc' =>
+    array (
+      0 => 'application/x-python-bytecode',
+    ),
+    'pyo' =>
+    array (
+      0 => 'application/x-python-bytecode',
+    ),
     'pyv' =>
     array (
       0 => 'video/vnd.ms-playready.media.pyv',
+    ),
+    'pyx' =>
+    array (
+      0 => 'text/x-python',
     ),
     'qam' =>
     array (
@@ -5842,15 +9444,60 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.intu.qbo',
     ),
+    'qd' =>
+    array (
+      0 => 'application/x-raw-floppy-disk-image',
+    ),
     'qfx' =>
     array (
       0 => 'application/vnd.intu.qfx',
+    ),
+    'qif' =>
+    array (
+      0 => 'application/x-qw',
+      1 => 'image/x-quicktime',
+    ),
+    'qml' =>
+    array (
+      0 => 'text/x-qml',
+    ),
+    'qmlproject' =>
+    array (
+      0 => 'text/x-qml',
+    ),
+    'qmltypes' =>
+    array (
+      0 => 'text/x-qml',
+    ),
+    'qp' =>
+    array (
+      0 => 'application/x-qpress',
     ),
     'qps' =>
     array (
       0 => 'application/vnd.publishare-delta-tree',
     ),
     'qt' =>
+    array (
+      0 => 'video/quicktime',
+    ),
+    'qti' =>
+    array (
+      0 => 'application/x-qtiplot',
+    ),
+    'qti.gz' =>
+    array (
+      0 => 'application/x-qtiplot',
+    ),
+    'qtif' =>
+    array (
+      0 => 'image/x-quicktime',
+    ),
+    'qtl' =>
+    array (
+      0 => 'application/x-quicktime-media-link',
+    ),
+    'qtvr' =>
     array (
       0 => 'video/quicktime',
     ),
@@ -5881,18 +9528,49 @@ class ApacheMap extends AbstractMap
     'ra' =>
     array (
       0 => 'audio/x-pn-realaudio',
+      1 => 'audio/vnd.rn-realaudio',
+    ),
+    'raf' =>
+    array (
+      0 => 'image/x-fuji-raf',
     ),
     'ram' =>
     array (
       0 => 'audio/x-pn-realaudio',
+      1 => 'application/ram',
+    ),
+    'raml' =>
+    array (
+      0 => 'application/raml+yaml',
     ),
     'rar' =>
     array (
       0 => 'application/x-rar-compressed',
+      1 => 'application/vnd.rar',
     ),
     'ras' =>
     array (
       0 => 'image/x-cmu-raster',
+    ),
+    'raw' =>
+    array (
+      0 => 'image/x-panasonic-rw',
+    ),
+    'raw-disk-image' =>
+    array (
+      0 => 'application/x-raw-disk-image',
+    ),
+    'raw-disk-image.xz' =>
+    array (
+      0 => 'application/x-raw-disk-image-xz-compressed',
+    ),
+    'rax' =>
+    array (
+      0 => 'audio/vnd.rn-realaudio',
+    ),
+    'rb' =>
+    array (
+      0 => 'application/x-ruby',
     ),
     'rcprofile' =>
     array (
@@ -5902,9 +9580,21 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/rdf+xml',
     ),
+    'rdfs' =>
+    array (
+      0 => 'application/rdf+xml',
+    ),
     'rdz' =>
     array (
       0 => 'application/vnd.data-vision.rdz',
+    ),
+    'reg' =>
+    array (
+      0 => 'text/x-ms-regedit',
+    ),
+    'rej' =>
+    array (
+      0 => 'text/x-reject',
     ),
     'rep' =>
     array (
@@ -5942,6 +9632,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/resource-lists-diff+xml',
     ),
+    'rle' =>
+    array (
+      0 => 'image/rle',
+    ),
     'rm' =>
     array (
       0 => 'application/vnd.rn-realmedia',
@@ -5950,6 +9644,14 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'audio/midi',
     ),
+    'rmj' =>
+    array (
+      0 => 'application/vnd.rn-realmedia',
+    ),
+    'rmm' =>
+    array (
+      0 => 'application/vnd.rn-realmedia',
+    ),
     'rmp' =>
     array (
       0 => 'audio/x-pn-realaudio-plugin',
@@ -5957,14 +9659,24 @@ class ApacheMap extends AbstractMap
     'rms' =>
     array (
       0 => 'application/vnd.jcp.javame.midlet-rms',
+      1 => 'application/vnd.rn-realmedia',
     ),
     'rmvb' =>
     array (
       0 => 'application/vnd.rn-realmedia-vbr',
+      1 => 'application/vnd.rn-realmedia',
+    ),
+    'rmx' =>
+    array (
+      0 => 'application/vnd.rn-realmedia',
     ),
     'rnc' =>
     array (
       0 => 'application/relax-ng-compact-syntax',
+    ),
+    'rng' =>
+    array (
+      0 => 'application/xml',
     ),
     'roa' =>
     array (
@@ -5974,9 +9686,17 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'text/troff',
     ),
+    'rp' =>
+    array (
+      0 => 'image/vnd.rn-realpix',
+    ),
     'rp9' =>
     array (
       0 => 'application/vnd.cloanto.rp9',
+    ),
+    'rpm' =>
+    array (
+      0 => 'application/x-rpm',
     ),
     'rpss' =>
     array (
@@ -5993,6 +9713,7 @@ class ApacheMap extends AbstractMap
     'rs' =>
     array (
       0 => 'application/rls-services+xml',
+      1 => 'text/rust',
     ),
     'rsd' =>
     array (
@@ -6002,6 +9723,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/rss+xml',
     ),
+    'rt' =>
+    array (
+      0 => 'text/vnd.rn-realtext',
+    ),
     'rtf' =>
     array (
       0 => 'application/rtf',
@@ -6010,6 +9735,18 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'text/richtext',
     ),
+    'rv' =>
+    array (
+      0 => 'video/vnd.rn-realvideo',
+    ),
+    'rvx' =>
+    array (
+      0 => 'video/vnd.rn-realvideo',
+    ),
+    'rw2' =>
+    array (
+      0 => 'image/x-panasonic-rw2',
+    ),
     's' =>
     array (
       0 => 'text/x-asm',
@@ -6017,10 +9754,31 @@ class ApacheMap extends AbstractMap
     's3m' =>
     array (
       0 => 'audio/s3m',
+      1 => 'audio/x-s3m',
     ),
     'saf' =>
     array (
       0 => 'application/vnd.yamaha.smaf-audio',
+    ),
+    'sam' =>
+    array (
+      0 => 'application/x-amipro',
+    ),
+    'sami' =>
+    array (
+      0 => 'application/x-sami',
+    ),
+    'sap' =>
+    array (
+      0 => 'application/x-thomson-sap-image',
+    ),
+    'sass' =>
+    array (
+      0 => 'text/x-sass',
+    ),
+    'sav' =>
+    array (
+      0 => 'application/x-spss-sav',
     ),
     'sbml' =>
     array (
@@ -6030,6 +9788,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.ibm.secure-container',
     ),
+    'scala' =>
+    array (
+      0 => 'text/x-scala',
+    ),
     'scd' =>
     array (
       0 => 'application/x-msschedule',
@@ -6037,6 +9799,11 @@ class ApacheMap extends AbstractMap
     'scm' =>
     array (
       0 => 'application/vnd.lotus-screencam',
+      1 => 'text/x-scheme',
+    ),
+    'scope' =>
+    array (
+      0 => 'text/x-systemd-unit',
     ),
     'scq' =>
     array (
@@ -6045,6 +9812,10 @@ class ApacheMap extends AbstractMap
     'scs' =>
     array (
       0 => 'application/scvp-cv-response',
+    ),
+    'scss' =>
+    array (
+      0 => 'text/x-scss',
     ),
     'scurl' =>
     array (
@@ -6073,6 +9844,11 @@ class ApacheMap extends AbstractMap
     'sdp' =>
     array (
       0 => 'application/sdp',
+      1 => 'application/vnd.stardivision.impress',
+    ),
+    'sds' =>
+    array (
+      0 => 'application/vnd.stardivision.chart',
     ),
     'sdw' =>
     array (
@@ -6102,6 +9878,11 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/java-serialized-object',
     ),
+    'service' =>
+    array (
+      0 => 'text/x-dbus-service',
+      1 => 'text/x-systemd-unit',
+    ),
     'setpay' =>
     array (
       0 => 'application/set-payment-initiation',
@@ -6109,6 +9890,10 @@ class ApacheMap extends AbstractMap
     'setreg' =>
     array (
       0 => 'application/set-registration-initiation',
+    ),
+    'sfc' =>
+    array (
+      0 => 'application/vnd.nintendo.snes.rom',
     ),
     'sfd-hdstx' =>
     array (
@@ -6122,13 +9907,27 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'text/x-sfv',
     ),
+    'sg' =>
+    array (
+      0 => 'application/x-sg1000-rom',
+    ),
+    'sgb' =>
+    array (
+      0 => 'application/x-gameboy-rom',
+    ),
+    'sgf' =>
+    array (
+      0 => 'application/x-go-sgf',
+    ),
     'sgi' =>
     array (
       0 => 'image/sgi',
+      1 => 'image/x-sgi',
     ),
     'sgl' =>
     array (
       0 => 'application/vnd.stardivision.writer-global',
+      1 => 'application/vnd.stardivision.writer',
     ),
     'sgm' =>
     array (
@@ -6141,6 +9940,11 @@ class ApacheMap extends AbstractMap
     'sh' =>
     array (
       0 => 'application/x-sh',
+      1 => 'application/x-shellscript',
+    ),
+    'shape' =>
+    array (
+      0 => 'application/x-dia-shape',
     ),
     'shar' =>
     array (
@@ -6150,13 +9954,26 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/shf+xml',
     ),
+    'shn' =>
+    array (
+      0 => 'application/x-shorten',
+    ),
+    'siag' =>
+    array (
+      0 => 'application/x-siag',
+    ),
     'sid' =>
     array (
       0 => 'image/x-mrsid-image',
+      1 => 'audio/prs.sid',
     ),
     'sig' =>
     array (
       0 => 'application/pgp-signature',
+    ),
+    'sik' =>
+    array (
+      0 => 'application/x-trash',
     ),
     'sil' =>
     array (
@@ -6173,6 +9990,7 @@ class ApacheMap extends AbstractMap
     'sisx' =>
     array (
       0 => 'application/vnd.symbian.install',
+      1 => 'x-epoc/x-sisx-app',
     ),
     'sit' =>
     array (
@@ -6181,6 +9999,18 @@ class ApacheMap extends AbstractMap
     'sitx' =>
     array (
       0 => 'application/x-stuffitx',
+    ),
+    'siv' =>
+    array (
+      0 => 'application/sieve',
+    ),
+    'sk' =>
+    array (
+      0 => 'image/x-skencil',
+    ),
+    'sk1' =>
+    array (
+      0 => 'image/x-skencil',
     ),
     'skd' =>
     array (
@@ -6194,6 +10024,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.koan',
     ),
+    'skr' =>
+    array (
+      0 => 'application/pgp-keys',
+    ),
     'skt' =>
     array (
       0 => 'application/vnd.koan',
@@ -6206,6 +10040,14 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.openxmlformats-officedocument.presentationml.slide',
     ),
+    'slice' =>
+    array (
+      0 => 'text/x-systemd-unit',
+    ),
+    'slk' =>
+    array (
+      0 => 'text/spreadsheet',
+    ),
     'slt' =>
     array (
       0 => 'application/vnd.epson.salt',
@@ -6214,6 +10056,19 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.stepmania.stepchart',
     ),
+    'smaf' =>
+    array (
+      0 => 'application/x-smaf',
+    ),
+    'smc' =>
+    array (
+      0 => 'application/vnd.nintendo.snes.rom',
+    ),
+    'smd' =>
+    array (
+      0 => 'application/vnd.stardivision.mail',
+      1 => 'application/x-genesis-rom',
+    ),
     'smf' =>
     array (
       0 => 'application/vnd.stardivision.math',
@@ -6221,10 +10076,19 @@ class ApacheMap extends AbstractMap
     'smi' =>
     array (
       0 => 'application/smil+xml',
+      1 => 'application/x-sami',
     ),
     'smil' =>
     array (
       0 => 'application/smil+xml',
+    ),
+    'sml' =>
+    array (
+      0 => 'application/smil+xml',
+    ),
+    'sms' =>
+    array (
+      0 => 'application/x-sms-rom',
     ),
     'smv' =>
     array (
@@ -6233,6 +10097,10 @@ class ApacheMap extends AbstractMap
     'smzip' =>
     array (
       0 => 'application/vnd.stepmania.package',
+    ),
+    'snap' =>
+    array (
+      0 => 'application/vnd.snap',
     ),
     'snd' =>
     array (
@@ -6245,10 +10113,23 @@ class ApacheMap extends AbstractMap
     'so' =>
     array (
       0 => 'application/octet-stream',
+      1 => 'application/x-sharedlib',
+    ),
+    'socket' =>
+    array (
+      0 => 'text/x-systemd-unit',
     ),
     'spc' =>
     array (
       0 => 'application/x-pkcs7-certificates',
+    ),
+    'spd' =>
+    array (
+      0 => 'application/x-font-speedo',
+    ),
+    'spec' =>
+    array (
+      0 => 'text/x-rpm-spec',
     ),
     'spf' =>
     array (
@@ -6257,6 +10138,11 @@ class ApacheMap extends AbstractMap
     'spl' =>
     array (
       0 => 'application/x-futuresplash',
+      1 => 'application/vnd.adobe.flash.movie',
+    ),
+    'spm' =>
+    array (
+      0 => 'application/x-source-rpm',
     ),
     'spot' =>
     array (
@@ -6273,14 +10159,40 @@ class ApacheMap extends AbstractMap
     'spx' =>
     array (
       0 => 'audio/ogg',
+      1 => 'audio/x-speex',
     ),
     'sql' =>
     array (
       0 => 'application/x-sql',
+      1 => 'application/sql',
+    ),
+    'sqlite2' =>
+    array (
+      0 => 'application/x-sqlite2',
+    ),
+    'sqlite3' =>
+    array (
+      0 => 'application/vnd.sqlite3',
+    ),
+    'sqsh' =>
+    array (
+      0 => 'application/vnd.squashfs',
+    ),
+    'sr2' =>
+    array (
+      0 => 'image/x-sony-sr2',
     ),
     'src' =>
     array (
       0 => 'application/x-wais-source',
+    ),
+    'src.rpm' =>
+    array (
+      0 => 'application/x-source-rpm',
+    ),
+    'srf' =>
+    array (
+      0 => 'image/x-sony-srf',
     ),
     'srt' =>
     array (
@@ -6293,6 +10205,14 @@ class ApacheMap extends AbstractMap
     'srx' =>
     array (
       0 => 'application/sparql-results+xml',
+    ),
+    'ss' =>
+    array (
+      0 => 'text/x-scheme',
+    ),
+    'ssa' =>
+    array (
+      0 => 'text/x-ssa',
     ),
     'ssdl' =>
     array (
@@ -6337,6 +10257,11 @@ class ApacheMap extends AbstractMap
     'stl' =>
     array (
       0 => 'application/vnd.ms-pki.stl',
+      1 => 'model/stl',
+    ),
+    'stm' =>
+    array (
+      0 => 'audio/x-stm',
     ),
     'str' =>
     array (
@@ -6346,10 +10271,21 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.sun.xml.writer.template',
     ),
+    'sty' =>
+    array (
+      0 => 'text/x-tex',
+    ),
     'sub' =>
     array (
       0 => 'text/vnd.dvb.subtitle',
       1 => 'image/vnd.dvb.subtitle',
+      2 => 'text/x-microdvd',
+      3 => 'text/x-mpsub',
+      4 => 'text/x-subviewer',
+    ),
+    'sun' =>
+    array (
+      0 => 'image/x-sun-raster',
     ),
     'sus' =>
     array (
@@ -6358,6 +10294,10 @@ class ApacheMap extends AbstractMap
     'susp' =>
     array (
       0 => 'application/vnd.sus-calendar',
+    ),
+    'sv' =>
+    array (
+      0 => 'text/x-svsrc',
     ),
     'sv4cpio' =>
     array (
@@ -6382,18 +10322,32 @@ class ApacheMap extends AbstractMap
     'svgz' =>
     array (
       0 => 'image/svg+xml',
+      1 => 'image/svg+xml-compressed',
+    ),
+    'svh' =>
+    array (
+      0 => 'text/x-svhdr',
     ),
     'swa' =>
     array (
       0 => 'application/x-director',
     ),
+    'swap' =>
+    array (
+      0 => 'text/x-systemd-unit',
+    ),
     'swf' =>
     array (
       0 => 'application/x-shockwave-flash',
+      1 => 'application/vnd.adobe.flash.movie',
     ),
     'swi' =>
     array (
       0 => 'application/vnd.aristanetworks.swi',
+    ),
+    'swm' =>
+    array (
+      0 => 'application/x-ms-wim',
     ),
     'sxc' =>
     array (
@@ -6419,9 +10373,18 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.sun.xml.writer',
     ),
+    'sylk' =>
+    array (
+      0 => 'text/spreadsheet',
+    ),
     't' =>
     array (
       0 => 'text/troff',
+      1 => 'application/x-perl',
+    ),
+    't2t' =>
+    array (
+      0 => 'text/x-txt2tags',
     ),
     't3' =>
     array (
@@ -6439,6 +10402,66 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/x-tar',
     ),
+    'tar.bz' =>
+    array (
+      0 => 'application/x-bzip-compressed-tar',
+    ),
+    'tar.bz2' =>
+    array (
+      0 => 'application/x-bzip-compressed-tar',
+    ),
+    'tar.gz' =>
+    array (
+      0 => 'application/x-compressed-tar',
+    ),
+    'tar.lrz' =>
+    array (
+      0 => 'application/x-lrzip-compressed-tar',
+    ),
+    'tar.lz' =>
+    array (
+      0 => 'application/x-lzip-compressed-tar',
+    ),
+    'tar.lz4' =>
+    array (
+      0 => 'application/x-lz4-compressed-tar',
+    ),
+    'tar.lzma' =>
+    array (
+      0 => 'application/x-lzma-compressed-tar',
+    ),
+    'tar.lzo' =>
+    array (
+      0 => 'application/x-tzo',
+    ),
+    'tar.xz' =>
+    array (
+      0 => 'application/x-xz-compressed-tar',
+    ),
+    'tar.z' =>
+    array (
+      0 => 'application/x-tarz',
+    ),
+    'target' =>
+    array (
+      0 => 'text/x-systemd-unit',
+    ),
+    'taz' =>
+    array (
+      0 => 'application/x-tarz',
+    ),
+    'tb2' =>
+    array (
+      0 => 'application/x-bzip-compressed-tar',
+    ),
+    'tbz' =>
+    array (
+      0 => 'application/x-bzip-compressed-tar',
+    ),
+    'tbz2' =>
+    array (
+      0 => 'application/x-bzip-compressed-tar',
+    ),
     'tcap' =>
     array (
       0 => 'application/vnd.3gpp2.tcap',
@@ -6446,6 +10469,7 @@ class ApacheMap extends AbstractMap
     'tcl' =>
     array (
       0 => 'application/x-tcl',
+      1 => 'text/x-tcl',
     ),
     'teacher' =>
     array (
@@ -6462,14 +10486,17 @@ class ApacheMap extends AbstractMap
     'tex' =>
     array (
       0 => 'application/x-tex',
+      1 => 'text/x-tex',
     ),
     'texi' =>
     array (
       0 => 'application/x-texinfo',
+      1 => 'text/x-texinfo',
     ),
     'texinfo' =>
     array (
       0 => 'application/x-texinfo',
+      1 => 'text/x-texinfo',
     ),
     'text' =>
     array (
@@ -6487,6 +10514,18 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'image/x-tga',
     ),
+    'tgz' =>
+    array (
+      0 => 'application/x-compressed-tar',
+    ),
+    'theme' =>
+    array (
+      0 => 'application/x-theme',
+    ),
+    'themepack' =>
+    array (
+      0 => 'application/x-windows-themepack',
+    ),
     'thmx' =>
     array (
       0 => 'application/vnd.ms-officetheme',
@@ -6499,13 +10538,45 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'image/tiff',
     ),
+    'timer' =>
+    array (
+      0 => 'text/x-systemd-unit',
+    ),
+    'tk' =>
+    array (
+      0 => 'text/x-tcl',
+    ),
+    'tlrz' =>
+    array (
+      0 => 'application/x-lrzip-compressed-tar',
+    ),
+    'tlz' =>
+    array (
+      0 => 'application/x-lzma-compressed-tar',
+    ),
     'tmo' =>
     array (
       0 => 'application/vnd.tmobile-livetv',
     ),
+    'tnef' =>
+    array (
+      0 => 'application/vnd.ms-tnef',
+    ),
+    'tnf' =>
+    array (
+      0 => 'application/vnd.ms-tnef',
+    ),
+    'toc' =>
+    array (
+      0 => 'application/x-cdrdao-toc',
+    ),
     'torrent' =>
     array (
       0 => 'application/x-bittorrent',
+    ),
+    'tpic' =>
+    array (
+      0 => 'image/x-tga',
     ),
     'tpl' =>
     array (
@@ -6523,9 +10594,18 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.trueapp',
     ),
+    'trig' =>
+    array (
+      0 => 'application/trig',
+    ),
     'trm' =>
     array (
       0 => 'application/x-msterminal',
+    ),
+    'ts' =>
+    array (
+      0 => 'text/vnd.qt.linguist',
+      1 => 'video/mp2t',
     ),
     'tsd' =>
     array (
@@ -6534,6 +10614,10 @@ class ApacheMap extends AbstractMap
     'tsv' =>
     array (
       0 => 'text/tab-separated-values',
+    ),
+    'tta' =>
+    array (
+      0 => 'audio/x-tta',
     ),
     'ttc' =>
     array (
@@ -6547,6 +10631,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'text/turtle',
     ),
+    'ttx' =>
+    array (
+      0 => 'application/x-font-ttx',
+    ),
     'twd' =>
     array (
       0 => 'application/vnd.simtech-mindmapper',
@@ -6554,6 +10642,10 @@ class ApacheMap extends AbstractMap
     'twds' =>
     array (
       0 => 'application/vnd.simtech-mindmapper',
+    ),
+    'twig' =>
+    array (
+      0 => 'text/x-twig',
     ),
     'txd' =>
     array (
@@ -6567,6 +10659,14 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'text/plain',
     ),
+    'txz' =>
+    array (
+      0 => 'application/x-xz-compressed-tar',
+    ),
+    'tzo' =>
+    array (
+      0 => 'application/x-tzo',
+    ),
     'u32' =>
     array (
       0 => 'application/x-authorware-bin',
@@ -6574,6 +10674,7 @@ class ApacheMap extends AbstractMap
     'udeb' =>
     array (
       0 => 'application/x-debian-package',
+      1 => 'application/vnd.debian.binary-package',
     ),
     'ufd' =>
     array (
@@ -6583,6 +10684,23 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.ufdl',
     ),
+    'ufraw' =>
+    array (
+      0 => 'application/x-ufraw',
+    ),
+    'ui' =>
+    array (
+      0 => 'application/x-designer',
+      1 => 'application/x-gtk-builder',
+    ),
+    'uil' =>
+    array (
+      0 => 'text/x-uil',
+    ),
+    'ult' =>
+    array (
+      0 => 'audio/x-mod',
+    ),
     'ulx' =>
     array (
       0 => 'application/x-glulx',
@@ -6590,6 +10708,18 @@ class ApacheMap extends AbstractMap
     'umj' =>
     array (
       0 => 'application/vnd.umajin',
+    ),
+    'unf' =>
+    array (
+      0 => 'application/x-nes-rom',
+    ),
+    'uni' =>
+    array (
+      0 => 'audio/x-mod',
+    ),
+    'unif' =>
+    array (
+      0 => 'application/x-nes-rom',
     ),
     'unityweb' =>
     array (
@@ -6607,6 +10737,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'text/uri-list',
     ),
+    'url' =>
+    array (
+      0 => 'application/x-mswinurl',
+    ),
     'urls' =>
     array (
       0 => 'text/uri-list',
@@ -6620,6 +10754,10 @@ class ApacheMap extends AbstractMap
       0 => 'application/vnd.uiq.theme',
     ),
     'uu' =>
+    array (
+      0 => 'text/x-uuencode',
+    ),
+    'uue' =>
     array (
       0 => 'text/x-uuencode',
     ),
@@ -6735,6 +10873,26 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.dece.zip',
     ),
+    'v' =>
+    array (
+      0 => 'text/x-verilog',
+    ),
+    'v64' =>
+    array (
+      0 => 'application/x-n64-rom',
+    ),
+    'vala' =>
+    array (
+      0 => 'text/x-vala',
+    ),
+    'vapi' =>
+    array (
+      0 => 'text/x-vala',
+    ),
+    'vb' =>
+    array (
+      0 => 'application/x-virtual-boy-rom',
+    ),
     'vcard' =>
     array (
       0 => 'text/vcard',
@@ -6746,6 +10904,7 @@ class ApacheMap extends AbstractMap
     'vcf' =>
     array (
       0 => 'text/x-vcard',
+      1 => 'text/vcard',
     ),
     'vcg' =>
     array (
@@ -6754,10 +10913,27 @@ class ApacheMap extends AbstractMap
     'vcs' =>
     array (
       0 => 'text/x-vcalendar',
+      1 => 'text/calendar',
+    ),
+    'vct' =>
+    array (
+      0 => 'text/vcard',
     ),
     'vcx' =>
     array (
       0 => 'application/vnd.vcx',
+    ),
+    'vda' =>
+    array (
+      0 => 'image/x-tga',
+    ),
+    'vhd' =>
+    array (
+      0 => 'text/x-vhdl',
+    ),
+    'vhdl' =>
+    array (
+      0 => 'text/x-vhdl',
     ),
     'vis' =>
     array (
@@ -6767,9 +10943,22 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'video/vnd.vivo',
     ),
+    'vivo' =>
+    array (
+      0 => 'video/vnd.vivo',
+    ),
+    'vlc' =>
+    array (
+      0 => 'audio/x-mpegurl',
+    ),
     'vob' =>
     array (
       0 => 'video/x-ms-vob',
+      1 => 'video/mpeg',
+    ),
+    'voc' =>
+    array (
+      0 => 'audio/x-voc',
     ),
     'vor' =>
     array (
@@ -6779,6 +10968,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/x-authorware-bin',
     ),
+    'vrm' =>
+    array (
+      0 => 'model/vrml',
+    ),
     'vrml' =>
     array (
       0 => 'model/vrml',
@@ -6786,6 +10979,14 @@ class ApacheMap extends AbstractMap
     'vsd' =>
     array (
       0 => 'application/vnd.visio',
+    ),
+    'vsdm' =>
+    array (
+      0 => 'application/vnd.ms-visio.drawing.macroenabled.main+xml',
+    ),
+    'vsdx' =>
+    array (
+      0 => 'application/vnd.ms-visio.drawing.main+xml',
     ),
     'vsf' =>
     array (
@@ -6795,13 +10996,34 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.visio',
     ),
+    'vssm' =>
+    array (
+      0 => 'application/vnd.ms-visio.stencil.macroenabled.main+xml',
+    ),
+    'vssx' =>
+    array (
+      0 => 'application/vnd.ms-visio.stencil.main+xml',
+    ),
     'vst' =>
     array (
       0 => 'application/vnd.visio',
+      1 => 'image/x-tga',
+    ),
+    'vstm' =>
+    array (
+      0 => 'application/vnd.ms-visio.template.macroenabled.main+xml',
+    ),
+    'vstx' =>
+    array (
+      0 => 'application/vnd.ms-visio.template.main+xml',
     ),
     'vsw' =>
     array (
       0 => 'application/vnd.visio',
+    ),
+    'vtt' =>
+    array (
+      0 => 'text/vtt',
     ),
     'vtu' =>
     array (
@@ -6818,6 +11040,8 @@ class ApacheMap extends AbstractMap
     'wad' =>
     array (
       0 => 'application/x-doom',
+      1 => 'application/x-wii-wad',
+      2 => 'application/x-doom-wad',
     ),
     'wav' =>
     array (
@@ -6826,6 +11050,19 @@ class ApacheMap extends AbstractMap
     'wax' =>
     array (
       0 => 'audio/x-ms-wax',
+      1 => 'audio/x-ms-asx',
+    ),
+    'wb1' =>
+    array (
+      0 => 'application/x-quattropro',
+    ),
+    'wb2' =>
+    array (
+      0 => 'application/x-quattropro',
+    ),
+    'wb3' =>
+    array (
+      0 => 'application/x-quattropro',
     ),
     'wbmp' =>
     array (
@@ -6871,9 +11108,30 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/widget',
     ),
+    'wim' =>
+    array (
+      0 => 'application/x-ms-wim',
+    ),
+    'wk1' =>
+    array (
+      0 => 'application/vnd.lotus-1-2-3',
+    ),
+    'wk3' =>
+    array (
+      0 => 'application/vnd.lotus-1-2-3',
+    ),
+    'wk4' =>
+    array (
+      0 => 'application/vnd.lotus-1-2-3',
+    ),
+    'wkdownload' =>
+    array (
+      0 => 'application/x-partial-download',
+    ),
     'wks' =>
     array (
       0 => 'application/vnd.ms-works',
+      1 => 'application/vnd.lotus-1-2-3',
     ),
     'wm' =>
     array (
@@ -6890,6 +11148,7 @@ class ApacheMap extends AbstractMap
     'wmf' =>
     array (
       0 => 'application/x-msmetafile',
+      1 => 'image/wmf',
     ),
     'wml' =>
     array (
@@ -6914,6 +11173,7 @@ class ApacheMap extends AbstractMap
     'wmx' =>
     array (
       0 => 'video/x-ms-wmx',
+      1 => 'audio/x-ms-asx',
     ),
     'wmz' =>
     array (
@@ -6927,14 +11187,39 @@ class ApacheMap extends AbstractMap
     'woff2' =>
     array (
       0 => 'font/woff2',
+      1 => 'font/woff',
+    ),
+    'wp' =>
+    array (
+      0 => 'application/vnd.wordperfect',
+    ),
+    'wp4' =>
+    array (
+      0 => 'application/vnd.wordperfect',
+    ),
+    'wp5' =>
+    array (
+      0 => 'application/vnd.wordperfect',
+    ),
+    'wp6' =>
+    array (
+      0 => 'application/vnd.wordperfect',
     ),
     'wpd' =>
     array (
       0 => 'application/vnd.wordperfect',
     ),
+    'wpg' =>
+    array (
+      0 => 'application/x-wpg',
+    ),
     'wpl' =>
     array (
       0 => 'application/vnd.ms-wpl',
+    ),
+    'wpp' =>
+    array (
+      0 => 'application/vnd.wordperfect',
     ),
     'wps' =>
     array (
@@ -6952,9 +11237,21 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'model/vrml',
     ),
+    'ws' =>
+    array (
+      0 => 'application/x-wonderswan-rom',
+    ),
+    'wsc' =>
+    array (
+      0 => 'application/x-wonderswan-color-rom',
+    ),
     'wsdl' =>
     array (
       0 => 'application/wsdl+xml',
+    ),
+    'wsgi' =>
+    array (
+      0 => 'text/x-python',
     ),
     'wspolicy' =>
     array (
@@ -6964,9 +11261,26 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.webturbo',
     ),
+    'wv' =>
+    array (
+      0 => 'audio/x-wavpack',
+    ),
+    'wvc' =>
+    array (
+      0 => 'audio/x-wavpack-correction',
+    ),
+    'wvp' =>
+    array (
+      0 => 'audio/x-wavpack',
+    ),
     'wvx' =>
     array (
       0 => 'video/x-ms-wvx',
+      1 => 'audio/x-ms-asx',
+    ),
+    'wwf' =>
+    array (
+      0 => 'application/x-wwf',
     ),
     'x32' =>
     array (
@@ -6996,6 +11310,14 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'model/x3d+xml',
     ),
+    'x3f' =>
+    array (
+      0 => 'image/x-sigma-x3f',
+    ),
+    'xac' =>
+    array (
+      0 => 'application/x-gnucash',
+    ),
     'xaml' =>
     array (
       0 => 'application/xaml+xml',
@@ -7007,6 +11329,7 @@ class ApacheMap extends AbstractMap
     'xar' =>
     array (
       0 => 'application/vnd.xara',
+      1 => 'application/x-xar',
     ),
     'xbap' =>
     array (
@@ -7016,13 +11339,37 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.fujixerox.docuworks.binder',
     ),
+    'xbel' =>
+    array (
+      0 => 'application/x-xbel',
+    ),
+    'xbl' =>
+    array (
+      0 => 'application/xml',
+    ),
     'xbm' =>
     array (
       0 => 'image/x-xbitmap',
     ),
+    'xcf' =>
+    array (
+      0 => 'image/x-xcf',
+    ),
+    'xcf.bz2' =>
+    array (
+      0 => 'image/x-compressed-xcf',
+    ),
+    'xcf.gz' =>
+    array (
+      0 => 'image/x-compressed-xcf',
+    ),
     'xdf' =>
     array (
       0 => 'application/xcap-diff+xml',
+    ),
+    'xdgapp' =>
+    array (
+      0 => 'application/vnd.flatpak',
     ),
     'xdm' =>
     array (
@@ -7056,6 +11403,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.xfdl',
     ),
+    'xhe' =>
+    array (
+      0 => 'audio/usac',
+    ),
     'xht' =>
     array (
       0 => 'application/xhtml+xml',
@@ -7067,6 +11418,10 @@ class ApacheMap extends AbstractMap
     'xhvml' =>
     array (
       0 => 'application/xv+xml',
+    ),
+    'xi' =>
+    array (
+      0 => 'audio/x-xi',
     ),
     'xif' =>
     array (
@@ -7084,13 +11439,30 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.ms-excel',
     ),
+    'xld' =>
+    array (
+      0 => 'application/vnd.ms-excel',
+    ),
     'xlf' =>
     array (
       0 => 'application/x-xliff+xml',
+      1 => 'application/xliff+xml',
+    ),
+    'xliff' =>
+    array (
+      0 => 'application/xliff+xml',
+    ),
+    'xll' =>
+    array (
+      0 => 'application/vnd.ms-excel',
     ),
     'xlm' =>
     array (
       0 => 'application/vnd.ms-excel',
+    ),
+    'xlr' =>
+    array (
+      0 => 'application/vnd.ms-works',
     ),
     'xls' =>
     array (
@@ -7127,6 +11499,15 @@ class ApacheMap extends AbstractMap
     'xm' =>
     array (
       0 => 'audio/xm',
+      1 => 'audio/x-xm',
+    ),
+    'xmf' =>
+    array (
+      0 => 'audio/x-xmf',
+    ),
+    'xmi' =>
+    array (
+      0 => 'text/x-xmi',
     ),
     'xml' =>
     array (
@@ -7159,6 +11540,7 @@ class ApacheMap extends AbstractMap
     'xps' =>
     array (
       0 => 'application/vnd.ms-xpsdocument',
+      1 => 'application/oxps',
     ),
     'xpw' =>
     array (
@@ -7168,9 +11550,18 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.intercon.formnet',
     ),
+    'xsd' =>
+    array (
+      0 => 'application/xml',
+    ),
     'xsl' =>
     array (
       0 => 'application/xml',
+      1 => 'application/xslt+xml',
+    ),
+    'xslfo' =>
+    array (
+      0 => 'text/x-xslfo',
     ),
     'xslt' =>
     array (
@@ -7208,6 +11599,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/x-xz',
     ),
+    'yaml' =>
+    array (
+      0 => 'application/x-yaml',
+    ),
     'yang' =>
     array (
       0 => 'application/yang',
@@ -7215,6 +11610,18 @@ class ApacheMap extends AbstractMap
     'yin' =>
     array (
       0 => 'application/yin+xml',
+    ),
+    'yml' =>
+    array (
+      0 => 'application/x-yaml',
+    ),
+    'yt' =>
+    array (
+      0 => 'application/vnd.youtube.yt',
+    ),
+    'z' =>
+    array (
+      0 => 'application/x-compress',
     ),
     'z1' =>
     array (
@@ -7240,6 +11647,10 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/x-zmachine',
     ),
+    'z64' =>
+    array (
+      0 => 'application/x-n64-rom',
+    ),
     'z7' =>
     array (
       0 => 'application/x-zmachine',
@@ -7247,6 +11658,10 @@ class ApacheMap extends AbstractMap
     'z8' =>
     array (
       0 => 'application/x-zmachine',
+    ),
+    'zabw' =>
+    array (
+      0 => 'application/x-abiword',
     ),
     'zaz' =>
     array (
@@ -7268,9 +11683,29 @@ class ApacheMap extends AbstractMap
     array (
       0 => 'application/vnd.handheld-entertainment+xml',
     ),
+    'zoo' =>
+    array (
+      0 => 'application/x-zoo',
+    ),
+    'zsav' =>
+    array (
+      0 => 'application/x-spss-sav',
+    ),
+    'zz' =>
+    array (
+      0 => 'application/zlib',
+    ),
     123 =>
     array (
       0 => 'application/vnd.lotus-1-2-3',
+    ),
+    602 =>
+    array (
+      0 => 'application/x-t602',
+    ),
+    669 =>
+    array (
+      0 => 'audio/x-mod',
     ),
   ),
 );

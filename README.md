@@ -113,7 +113,7 @@ By default, the utility fetches a mapping source available from the [Apache's do
 website, merges it with another mapping source from the [freedesktop.org project](https://raw.github.com/minad/mimemagic/master/script/freedesktop.org.xml),
 then integrates the result with any overrides specified in the
 `resources/default_map_build.yml` file, and finally updates the PHP file where
-the `\FileEye\MimeMap\Map\ApacheMap` class is stored.
+the `\FileEye\MimeMap\Map\DefaultMap` class is stored.
 
 The `--script` and `--class` options allow specifying a different update logic
 and a different class file to update. Type
