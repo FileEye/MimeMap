@@ -100,11 +100,6 @@ class MapUpdater
             foreach ($exts as $ext) {
                 $this->map->addMapping($mt, $ext);
             }
-            //$new[$mt] = $exts;
-/*              foreach ($node->alias as $alias) {
-                $mt = strtolower((string) $alias['type']);
-                $new[$mt] = array_merge($new[$mt] ?? [], $exts);
-            }*/
         }
         return $this;
     }

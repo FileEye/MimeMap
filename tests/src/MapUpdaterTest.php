@@ -57,6 +57,31 @@ class MapUpdaterTest extends TestCase
         $this->assertSame([], $this->newMap->getMapArray());
     }
 
+    public function testLoadMapFromFreedesktopFile()
+    {
+        $this->updater->loadMapFromFreedesktopFile(dirname(__FILE__) . '/../fixtures/min.freedesktop.xml');
+        $expected = [
+            'types' => [
+                'application/x-atari-2600-rom' => ['a26'],
+                'text/plain' => ['txt', 'asc'],
+            ],
+            'extensions' => [
+                'a26' => ['application/x-atari-2600-rom'],
+                'asc' => ['text/plain'],
+                'txt' => ['text/plain'],
+            ],
+        ];
+        $this->assertSame($expected, $this->newMap->getMapArray());
+        $this->assertSame(['application/x-atari-2600-rom', 'text/plain'], $this->newMap->listTypes());
+        $this->assertSame(['a26', 'asc', 'txt'], $this->newMap->listExtensions());
+    }
+
+    public function testLoadMapFromApacheFileZeroLines()
+    {
+        $this->updater->loadMapFromFreedesktopFile(dirname(__FILE__) . '/../fixtures/zero.freedesktop.xml');
+        $this->assertSame([], $this->newMap->getMapArray());
+    }
+
     /**
      * @expectedException \LogicException
      */
