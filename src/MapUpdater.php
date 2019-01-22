@@ -103,7 +103,13 @@ class MapUpdater
 
             // Add description.
             if (isset($node->comment)) {
-                $this->map->addTypeDescription($type, $node->comment[0]);
+                $this->map->addTypeDescription($type, (string) $node->comment[0]);
+            }
+            if (isset($node->acronym)) {
+                $this->map->addTypeDescription($type, (string) $node->acronym);
+            }
+            if (isset($node->expanded-acronym)) {
+                $this->map->addTypeDescription($type, (string) $node->expanded-acronym);
             }
 
             // Add extensions.
