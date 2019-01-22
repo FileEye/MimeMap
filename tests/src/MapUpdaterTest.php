@@ -35,15 +35,15 @@ class MapUpdaterTest extends TestCase
     {
         $this->updater->loadMapFromApacheFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
         $expected = [
-            'types' => [
-                'image/jpeg' => ['jpeg', 'jpg', 'jpe'],
-                'text/plain' => ['txt'],
+            't' => [
+                'image/jpeg' => ['e' => ['jpeg', 'jpg', 'jpe']],
+                'text/plain' => ['e' => ['txt']],
             ],
-            'extensions' => [
-                'jpe' => ['image/jpeg'],
-                'jpeg' => ['image/jpeg'],
-                'jpg' => ['image/jpeg'],
-                'txt' => ['text/plain'],
+            'e' => [
+                'jpe' => ['t' => ['image/jpeg']],
+                'jpeg' => ['t' => ['image/jpeg']],
+                'jpg' => ['t' => ['image/jpeg']],
+                'txt' => ['t' => ['text/plain']],
             ],
         ];
         $this->assertSame($expected, $this->newMap->getMapArray());
@@ -61,14 +61,14 @@ class MapUpdaterTest extends TestCase
     {
         $this->updater->loadMapFromFreedesktopFile(dirname(__FILE__) . '/../fixtures/min.freedesktop.xml');
         $expected = [
-            'types' => [
-                'application/x-atari-2600-rom' => ['a26'],
-                'text/plain' => ['txt', 'asc'],
+            't' => [
+                'application/x-atari-2600-rom' => ['e' => ['a26']],
+                'text/plain' => ['e' => ['txt', 'asc']],
             ],
-            'extensions' => [
-                'a26' => ['application/x-atari-2600-rom'],
-                'asc' => ['text/plain'],
-                'txt' => ['text/plain'],
+            'e' => [
+                'a26' => ['t' => ['application/x-atari-2600-rom']],
+                'asc' => ['t' => ['text/plain']],
+                'txt' => ['t' => ['text/plain']],
             ],
         ];
         $this->assertSame($expected, $this->newMap->getMapArray());
