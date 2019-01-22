@@ -353,8 +353,23 @@ abstract class AbstractMap
      */
     public function addTypeDescription($type, $description)
     {
-        $type = strtolower($type);
-        $this->addMapEntry('t', $type, 'desc', $description);
+        $this->addMapEntry('t', strtolower($type), 'desc', $description);
+        return $this;
+    }
+
+    /**
+     * Adds an alias of a MIME type.
+     *
+     * @param string $type
+     *   A MIME type.
+     * @param string $alias
+     *   An alias of $type.
+     *
+     * @return $this
+     */
+    public function addTypeDescription($type, $alias)
+    {
+        $this->addMapEntry('t', strtolower($type), 'a', strtolower($alias));
         return $this;
     }
 
