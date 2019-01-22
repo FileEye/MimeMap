@@ -119,7 +119,7 @@ class MapUpdater
 
             // Add aliases.
             foreach ($node->alias as $alias) {
-                $this->map->addTypeAlias($type, $alias);
+                $this->map->addTypeAlias($type, (string) $alias);
             }
         }
         $this->map->sort();
