@@ -120,6 +120,7 @@ abstract class AbstractMap
      */
     public function hasType($type)
     {
+        // xx manage aliases
         return (bool) $this->getMapEntry('t', $type);
     }
 
@@ -335,6 +336,23 @@ abstract class AbstractMap
     }
 
     /**
+     * Adds a description of a MIME type.
+     *
+     * @param string $type
+     *   A MIME type.
+     * @param string $description
+     *   The description of the MIME type.
+     *
+     * @return $this
+     */
+    public function addTypeDescription($type, $description)
+    {
+        $type = strtolower($type);
+        $this->addMapEntry('t', $type, 'desc', $description);
+        return $this;
+    }
+
+    /**
      * Removes a type-to-extension mapping.
      *
      * @param string $type
@@ -351,10 +369,10 @@ abstract class AbstractMap
         $extension = (string) strtolower($extension);
 
         // Remove entry from 'types'.
-        $type_ret = $this->removeMapEntry('types', $type, $extension);
+        $type_ret = $this->removeMapEntry('t', $type, 'e', $extension);
 
         // Remove entry from 'extensions'.
-        $extension_ret = $this->removeMapEntry('extensions', $extension, $type);
+        $extension_ret = $this->removeMapEntry('e', $extension, 't', $type);
 
         return $type_ret && $extension_ret;
     }
@@ -373,13 +391,13 @@ abstract class AbstractMap
         $type = strtolower($type);
 
         // Return false if type is not found.
-        if (!isset(static::$map['types'][$type])) {
+        if (!$this->hasType($type)) {
             return false;
         }
 
         // Loop through all the associated extensions and remove them. This
         // is also removing the type itself when the last extension is removed.
-        foreach (static::$map['types'][$type] as $extension) {
+        foreach ($this->getTypeExtensions($type) as $extension) {
             $this->removeMapping($type, $extension);
         }
 

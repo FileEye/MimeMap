@@ -98,14 +98,22 @@ class MapUpdater
             if (empty($exts)) {
                 continue;
             }
-            $mt = (string) $node['type'];
+
+            $type = (string) $node['type'];
+
+            // Add description.
+            if (isset($node->comment)) {
+                $this->map->addTypeDescription($type, $node->comment);
+            }
+
+            // Add extensions.
             foreach ($exts as $ext) {
-                $this->map->addMapping($mt, $ext);
+                $this->map->addMapping($type, $ext);
             }
 
             foreach ($node->alias as $alias) {
                 $al = strtolower((string) $alias['type']);
-                $aliasx[$mt][] = $al;
+                $aliasx[$type][] = $al;
             }
         }
         //dump($aliasx);
