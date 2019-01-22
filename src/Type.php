@@ -392,7 +392,7 @@ class Type
         // Build the array of extensions.
         $extensions = [];
         foreach ($types as $t) {
-            foreach ($map->getType($t) as $e) {
+            foreach ($map->getTypeExtensions($t) as $e) {
                 $extensions[$e] = $e;
             }
         }

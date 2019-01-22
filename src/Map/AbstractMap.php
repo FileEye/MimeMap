@@ -120,7 +120,7 @@ abstract class AbstractMap
      */
     public function hasType($type)
     {
-        return (bool) $this->getType($type);
+        return (bool) $this->getMapEntry('t', $type);
     }
 
     /**
@@ -130,10 +130,10 @@ abstract class AbstractMap
      *
      * @return string[] The mapped file extensions.
      */
-    public function getType($type)
+    public function getTypeExtensions($type)
     {
         // xx manage aliases
-        $res = $this->getMapEntry('t', $type);
+        $res = $this->getMapSubEntry('t', $type, 'e');
         return $res ?: [];
     }
 
