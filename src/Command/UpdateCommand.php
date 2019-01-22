@@ -68,8 +68,7 @@ class UpdateCommand extends Command
         $current_map = MapHandler::map();
 
         // Check if anything got changed.
-        $write = true;
-/*        $write = false;
+        $write = false;
         try {
             $this->compareMaps($current_map, $new_map, 't');
         } catch (\RuntimeException $e) {
@@ -83,7 +82,7 @@ class UpdateCommand extends Command
             $output->writeln('<comment>Changes to extensions mapping</comment>');
             $output->writeln($e->getMessage());
             $write = true;
-        }*/
+        }
 
         // If changed, save the new map to the PHP file.
         if ($write) {

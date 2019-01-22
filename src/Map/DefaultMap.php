@@ -47,11665 +47,19900 @@ class DefaultMap extends AbstractMap
      */
     // phpcs:disable
     protected static $map = array (
-  'types' =>
+  't' => 
   array (
-    'application/andrew-inset' =>
+    'application/andrew-inset' => 
     array (
-      0 => 'ez',
+      'e' => 
+      array (
+        0 => 'ez',
+      ),
     ),
-    'application/annodex' =>
+    'application/annodex' => 
     array (
-      0 => 'anx',
+      'e' => 
+      array (
+        0 => 'anx',
+      ),
     ),
-    'application/applixware' =>
+    'application/applixware' => 
     array (
-      0 => 'aw',
+      'e' => 
+      array (
+        0 => 'aw',
+      ),
     ),
-    'application/atom+xml' =>
+    'application/atom+xml' => 
     array (
-      0 => 'atom',
+      'e' => 
+      array (
+        0 => 'atom',
+      ),
     ),
-    'application/atomcat+xml' =>
+    'application/atomcat+xml' => 
     array (
-      0 => 'atomcat',
+      'e' => 
+      array (
+        0 => 'atomcat',
+      ),
     ),
-    'application/atomsvc+xml' =>
+    'application/atomsvc+xml' => 
     array (
-      0 => 'atomsvc',
+      'e' => 
+      array (
+        0 => 'atomsvc',
+      ),
     ),
-    'application/ccxml+xml' =>
+    'application/ccxml+xml' => 
     array (
-      0 => 'ccxml',
+      'e' => 
+      array (
+        0 => 'ccxml',
+      ),
     ),
-    'application/cdmi-capability' =>
+    'application/cdmi-capability' => 
     array (
-      0 => 'cdmia',
+      'e' => 
+      array (
+        0 => 'cdmia',
+      ),
     ),
-    'application/cdmi-container' =>
+    'application/cdmi-container' => 
     array (
-      0 => 'cdmic',
+      'e' => 
+      array (
+        0 => 'cdmic',
+      ),
     ),
-    'application/cdmi-domain' =>
+    'application/cdmi-domain' => 
     array (
-      0 => 'cdmid',
+      'e' => 
+      array (
+        0 => 'cdmid',
+      ),
     ),
-    'application/cdmi-object' =>
+    'application/cdmi-object' => 
     array (
-      0 => 'cdmio',
+      'e' => 
+      array (
+        0 => 'cdmio',
+      ),
     ),
-    'application/cdmi-queue' =>
+    'application/cdmi-queue' => 
     array (
-      0 => 'cdmiq',
+      'e' => 
+      array (
+        0 => 'cdmiq',
+      ),
     ),
-    'application/cu-seeme' =>
+    'application/cu-seeme' => 
     array (
-      0 => 'cu',
+      'e' => 
+      array (
+        0 => 'cu',
+      ),
     ),
-    'application/davmount+xml' =>
+    'application/davmount+xml' => 
     array (
-      0 => 'davmount',
+      'e' => 
+      array (
+        0 => 'davmount',
+      ),
     ),
-    'application/dicom' =>
+    'application/dicom' => 
     array (
-      0 => 'dcm',
+      'e' => 
+      array (
+        0 => 'dcm',
+      ),
     ),
-    'application/docbook+xml' =>
+    'application/docbook+xml' => 
     array (
-      0 => 'dbk',
+      'e' => 
+      array (
+        0 => 'dbk',
+      ),
     ),
-    'application/dssc+der' =>
+    'application/dssc+der' => 
     array (
-      0 => 'dssc',
+      'e' => 
+      array (
+        0 => 'dssc',
+      ),
     ),
-    'application/dssc+xml' =>
+    'application/dssc+xml' => 
     array (
-      0 => 'xdssc',
+      'e' => 
+      array (
+        0 => 'xdssc',
+      ),
     ),
-    'application/ecmascript' =>
+    'application/ecmascript' => 
     array (
-      0 => 'ecma',
-      1 => 'es',
+      'e' => 
+      array (
+        0 => 'ecma',
+        1 => 'es',
+      ),
     ),
-    'application/emma+xml' =>
+    'application/emma+xml' => 
     array (
-      0 => 'emma',
+      'e' => 
+      array (
+        0 => 'emma',
+      ),
     ),
-    'application/epub+zip' =>
+    'application/epub+zip' => 
     array (
-      0 => 'epub',
+      'e' => 
+      array (
+        0 => 'epub',
+      ),
     ),
-    'application/exi' =>
+    'application/exi' => 
     array (
-      0 => 'exi',
+      'e' => 
+      array (
+        0 => 'exi',
+      ),
     ),
-    'application/font-tdpfr' =>
+    'application/font-tdpfr' => 
     array (
-      0 => 'pfr',
+      'e' => 
+      array (
+        0 => 'pfr',
+      ),
     ),
-    'application/geo+json' =>
+    'application/geo+json' => 
     array (
-      0 => 'geojson',
-      1 => 'geo.json',
+      'e' => 
+      array (
+        0 => 'geojson',
+        1 => 'geo.json',
+      ),
     ),
-    'application/gml+xml' =>
+    'application/gml+xml' => 
     array (
-      0 => 'gml',
+      'e' => 
+      array (
+        0 => 'gml',
+      ),
     ),
-    'application/gnunet-directory' =>
+    'application/gnunet-directory' => 
     array (
-      0 => 'gnd',
+      'e' => 
+      array (
+        0 => 'gnd',
+      ),
     ),
-    'application/gpx+xml' =>
+    'application/gpx+xml' => 
     array (
-      0 => 'gpx',
+      'e' => 
+      array (
+        0 => 'gpx',
+      ),
     ),
-    'application/gxf' =>
+    'application/gxf' => 
     array (
-      0 => 'gxf',
+      'e' => 
+      array (
+        0 => 'gxf',
+      ),
     ),
-    'application/gzip' =>
+    'application/gzip' => 
     array (
-      0 => 'gz',
+      'e' => 
+      array (
+        0 => 'gz',
+      ),
     ),
-    'application/hyperstudio' =>
+    'application/hyperstudio' => 
     array (
-      0 => 'stk',
+      'e' => 
+      array (
+        0 => 'stk',
+      ),
     ),
-    'application/illustrator' =>
+    'application/illustrator' => 
     array (
-      0 => 'ai',
+      'e' => 
+      array (
+        0 => 'ai',
+      ),
     ),
-    'application/inkml+xml' =>
+    'application/inkml+xml' => 
     array (
-      0 => 'ink',
-      1 => 'inkml',
+      'e' => 
+      array (
+        0 => 'ink',
+        1 => 'inkml',
+      ),
     ),
-    'application/ipfix' =>
+    'application/ipfix' => 
     array (
-      0 => 'ipfix',
+      'e' => 
+      array (
+        0 => 'ipfix',
+      ),
     ),
-    'application/java-archive' =>
+    'application/java-archive' => 
     array (
-      0 => 'jar',
+      'e' => 
+      array (
+        0 => 'jar',
+      ),
     ),
-    'application/java-serialized-object' =>
+    'application/java-serialized-object' => 
     array (
-      0 => 'ser',
+      'e' => 
+      array (
+        0 => 'ser',
+      ),
     ),
-    'application/java-vm' =>
+    'application/java-vm' => 
     array (
-      0 => 'class',
+      'e' => 
+      array (
+        0 => 'class',
+      ),
     ),
-    'application/javascript' =>
+    'application/javascript' => 
     array (
-      0 => 'js',
-      1 => 'jsm',
-      2 => 'mjs',
+      'e' => 
+      array (
+        0 => 'js',
+        1 => 'jsm',
+        2 => 'mjs',
+      ),
     ),
-    'application/jrd+json' =>
+    'application/jrd+json' => 
     array (
-      0 => 'jrd',
+      'e' => 
+      array (
+        0 => 'jrd',
+      ),
     ),
-    'application/json' =>
+    'application/json' => 
     array (
-      0 => 'json',
+      'e' => 
+      array (
+        0 => 'json',
+      ),
     ),
-    'application/json-patch+json' =>
+    'application/json-patch+json' => 
     array (
-      0 => 'json-patch',
+      'e' => 
+      array (
+        0 => 'json-patch',
+      ),
     ),
-    'application/jsonml+json' =>
+    'application/jsonml+json' => 
     array (
-      0 => 'jsonml',
+      'e' => 
+      array (
+        0 => 'jsonml',
+      ),
     ),
-    'application/ld+json' =>
+    'application/ld+json' => 
     array (
-      0 => 'jsonld',
+      'e' => 
+      array (
+        0 => 'jsonld',
+      ),
     ),
-    'application/lost+xml' =>
+    'application/lost+xml' => 
     array (
-      0 => 'lostxml',
+      'e' => 
+      array (
+        0 => 'lostxml',
+      ),
     ),
-    'application/mac-binhex40' =>
+    'application/mac-binhex40' => 
     array (
-      0 => 'hqx',
+      'e' => 
+      array (
+        0 => 'hqx',
+      ),
     ),
-    'application/mac-compactpro' =>
+    'application/mac-compactpro' => 
     array (
-      0 => 'cpt',
+      'e' => 
+      array (
+        0 => 'cpt',
+      ),
     ),
-    'application/mads+xml' =>
+    'application/mads+xml' => 
     array (
-      0 => 'mads',
+      'e' => 
+      array (
+        0 => 'mads',
+      ),
     ),
-    'application/marc' =>
+    'application/marc' => 
     array (
-      0 => 'mrc',
+      'e' => 
+      array (
+        0 => 'mrc',
+      ),
     ),
-    'application/marcxml+xml' =>
+    'application/marcxml+xml' => 
     array (
-      0 => 'mrcx',
+      'e' => 
+      array (
+        0 => 'mrcx',
+      ),
     ),
-    'application/mathematica' =>
+    'application/mathematica' => 
     array (
-      0 => 'ma',
-      1 => 'nb',
-      2 => 'mb',
+      'e' => 
+      array (
+        0 => 'ma',
+        1 => 'nb',
+        2 => 'mb',
+      ),
     ),
-    'application/mathml+xml' =>
+    'application/mathml+xml' => 
     array (
-      0 => 'mathml',
-      1 => 'mml',
+      'e' => 
+      array (
+        0 => 'mathml',
+        1 => 'mml',
+      ),
     ),
-    'application/mbox' =>
+    'application/mbox' => 
     array (
-      0 => 'mbox',
+      'e' => 
+      array (
+        0 => 'mbox',
+      ),
     ),
-    'application/mediaservercontrol+xml' =>
+    'application/mediaservercontrol+xml' => 
     array (
-      0 => 'mscml',
+      'e' => 
+      array (
+        0 => 'mscml',
+      ),
     ),
-    'application/metalink+xml' =>
+    'application/metalink+xml' => 
     array (
-      0 => 'metalink',
+      'e' => 
+      array (
+        0 => 'metalink',
+      ),
     ),
-    'application/metalink4+xml' =>
+    'application/metalink4+xml' => 
     array (
-      0 => 'meta4',
+      'e' => 
+      array (
+        0 => 'meta4',
+      ),
     ),
-    'application/mets+xml' =>
+    'application/mets+xml' => 
     array (
-      0 => 'mets',
+      'e' => 
+      array (
+        0 => 'mets',
+      ),
     ),
-    'application/mods+xml' =>
+    'application/mods+xml' => 
     array (
-      0 => 'mods',
+      'e' => 
+      array (
+        0 => 'mods',
+      ),
     ),
-    'application/mp21' =>
+    'application/mp21' => 
     array (
-      0 => 'm21',
-      1 => 'mp21',
+      'e' => 
+      array (
+        0 => 'm21',
+        1 => 'mp21',
+      ),
     ),
-    'application/mp4' =>
+    'application/mp4' => 
     array (
-      0 => 'mp4s',
+      'e' => 
+      array (
+        0 => 'mp4s',
+      ),
     ),
-    'application/msword' =>
+    'application/msword' => 
     array (
-      0 => 'doc',
-      1 => 'dot',
+      'e' => 
+      array (
+        0 => 'doc',
+        1 => 'dot',
+      ),
     ),
-    'application/msword-template' =>
+    'application/msword-template' => 
     array (
-      0 => 'dot',
+      'e' => 
+      array (
+        0 => 'dot',
+      ),
     ),
-    'application/mxf' =>
+    'application/mxf' => 
     array (
-      0 => 'mxf',
+      'e' => 
+      array (
+        0 => 'mxf',
+      ),
     ),
-    'application/octet-stream' =>
+    'application/octet-stream' => 
     array (
-      0 => 'bin',
-      1 => 'dms',
-      2 => 'lrf',
-      3 => 'mar',
-      4 => 'so',
-      5 => 'dist',
-      6 => 'distz',
-      7 => 'pkg',
-      8 => 'bpk',
-      9 => 'dump',
-      10 => 'elc',
-      11 => 'deploy',
+      'e' => 
+      array (
+        0 => 'bin',
+        1 => 'dms',
+        2 => 'lrf',
+        3 => 'mar',
+        4 => 'so',
+        5 => 'dist',
+        6 => 'distz',
+        7 => 'pkg',
+        8 => 'bpk',
+        9 => 'dump',
+        10 => 'elc',
+        11 => 'deploy',
+      ),
     ),
-    'application/oda' =>
+    'application/oda' => 
     array (
-      0 => 'oda',
+      'e' => 
+      array (
+        0 => 'oda',
+      ),
     ),
-    'application/oebps-package+xml' =>
+    'application/oebps-package+xml' => 
     array (
-      0 => 'opf',
+      'e' => 
+      array (
+        0 => 'opf',
+      ),
     ),
-    'application/ogg' =>
+    'application/ogg' => 
     array (
-      0 => 'ogx',
+      'e' => 
+      array (
+        0 => 'ogx',
+      ),
     ),
-    'application/omdoc+xml' =>
+    'application/omdoc+xml' => 
     array (
-      0 => 'omdoc',
+      'e' => 
+      array (
+        0 => 'omdoc',
+      ),
     ),
-    'application/onenote' =>
+    'application/onenote' => 
     array (
-      0 => 'onetoc',
-      1 => 'onetoc2',
-      2 => 'onetmp',
-      3 => 'onepkg',
+      'e' => 
+      array (
+        0 => 'onetoc',
+        1 => 'onetoc2',
+        2 => 'onetmp',
+        3 => 'onepkg',
+      ),
     ),
-    'application/owl+xml' =>
+    'application/owl+xml' => 
     array (
-      0 => 'owx',
+      'e' => 
+      array (
+        0 => 'owx',
+      ),
     ),
-    'application/oxps' =>
+    'application/oxps' => 
     array (
-      0 => 'oxps',
-      1 => 'xps',
+      'e' => 
+      array (
+        0 => 'oxps',
+        1 => 'xps',
+      ),
     ),
-    'application/patch-ops-error+xml' =>
+    'application/patch-ops-error+xml' => 
     array (
-      0 => 'xer',
+      'e' => 
+      array (
+        0 => 'xer',
+      ),
     ),
-    'application/pdf' =>
+    'application/pdf' => 
     array (
-      0 => 'pdf',
+      'e' => 
+      array (
+        0 => 'pdf',
+      ),
     ),
-    'application/pgp-encrypted' =>
+    'application/pgp-encrypted' => 
     array (
-      0 => 'pgp',
-      1 => 'gpg',
-      2 => 'asc',
+      'e' => 
+      array (
+        0 => 'pgp',
+        1 => 'gpg',
+        2 => 'asc',
+      ),
     ),
-    'application/pgp-keys' =>
+    'application/pgp-keys' => 
     array (
-      0 => 'skr',
-      1 => 'pkr',
-      2 => 'asc',
-      3 => 'pgp',
-      4 => 'gpg',
+      'e' => 
+      array (
+        0 => 'skr',
+        1 => 'pkr',
+        2 => 'asc',
+        3 => 'pgp',
+        4 => 'gpg',
+      ),
     ),
-    'application/pgp-signature' =>
+    'application/pgp-signature' => 
     array (
-      0 => 'asc',
-      1 => 'sig',
-      2 => 'pgp',
-      3 => 'gpg',
+      'e' => 
+      array (
+        0 => 'asc',
+        1 => 'sig',
+        2 => 'pgp',
+        3 => 'gpg',
+      ),
     ),
-    'application/pics-rules' =>
+    'application/pics-rules' => 
     array (
-      0 => 'prf',
+      'e' => 
+      array (
+        0 => 'prf',
+      ),
     ),
-    'application/pkcs10' =>
+    'application/pkcs10' => 
     array (
-      0 => 'p10',
+      'e' => 
+      array (
+        0 => 'p10',
+      ),
     ),
-    'application/pkcs12' =>
+    'application/pkcs12' => 
     array (
-      0 => 'p12',
-      1 => 'pfx',
+      'e' => 
+      array (
+        0 => 'p12',
+        1 => 'pfx',
+      ),
     ),
-    'application/pkcs7-mime' =>
+    'application/pkcs7-mime' => 
     array (
-      0 => 'p7m',
-      1 => 'p7c',
+      'e' => 
+      array (
+        0 => 'p7m',
+        1 => 'p7c',
+      ),
     ),
-    'application/pkcs7-signature' =>
+    'application/pkcs7-signature' => 
     array (
-      0 => 'p7s',
+      'e' => 
+      array (
+        0 => 'p7s',
+      ),
     ),
-    'application/pkcs8' =>
+    'application/pkcs8' => 
     array (
-      0 => 'p8',
+      'e' => 
+      array (
+        0 => 'p8',
+      ),
     ),
-    'application/pkcs8-encrypted' =>
+    'application/pkcs8-encrypted' => 
     array (
-      0 => 'p8e',
+      'e' => 
+      array (
+        0 => 'p8e',
+      ),
     ),
-    'application/pkix-attr-cert' =>
+    'application/pkix-attr-cert' => 
     array (
-      0 => 'ac',
+      'e' => 
+      array (
+        0 => 'ac',
+      ),
     ),
-    'application/pkix-cert' =>
+    'application/pkix-cert' => 
     array (
-      0 => 'cer',
+      'e' => 
+      array (
+        0 => 'cer',
+      ),
     ),
-    'application/pkix-crl' =>
+    'application/pkix-crl' => 
     array (
-      0 => 'crl',
+      'e' => 
+      array (
+        0 => 'crl',
+      ),
     ),
-    'application/pkix-pkipath' =>
+    'application/pkix-pkipath' => 
     array (
-      0 => 'pkipath',
+      'e' => 
+      array (
+        0 => 'pkipath',
+      ),
     ),
-    'application/pkixcmp' =>
+    'application/pkixcmp' => 
     array (
-      0 => 'pki',
+      'e' => 
+      array (
+        0 => 'pki',
+      ),
     ),
-    'application/pls+xml' =>
+    'application/pls+xml' => 
     array (
-      0 => 'pls',
+      'e' => 
+      array (
+        0 => 'pls',
+      ),
     ),
-    'application/postscript' =>
+    'application/postscript' => 
     array (
-      0 => 'ai',
-      1 => 'eps',
-      2 => 'ps',
+      'e' => 
+      array (
+        0 => 'ai',
+        1 => 'eps',
+        2 => 'ps',
+      ),
     ),
-    'application/prs.cww' =>
+    'application/prs.cww' => 
     array (
-      0 => 'cww',
+      'e' => 
+      array (
+        0 => 'cww',
+      ),
     ),
-    'application/pskc+xml' =>
+    'application/pskc+xml' => 
     array (
-      0 => 'pskcxml',
+      'e' => 
+      array (
+        0 => 'pskcxml',
+      ),
     ),
-    'application/ram' =>
+    'application/ram' => 
     array (
-      0 => 'ram',
+      'e' => 
+      array (
+        0 => 'ram',
+      ),
     ),
-    'application/raml+yaml' =>
+    'application/raml+yaml' => 
     array (
-      0 => 'raml',
+      'e' => 
+      array (
+        0 => 'raml',
+      ),
     ),
-    'application/rdf+xml' =>
+    'application/rdf+xml' => 
     array (
-      0 => 'rdf',
-      1 => 'rdfs',
-      2 => 'owl',
+      'e' => 
+      array (
+        0 => 'rdf',
+        1 => 'rdfs',
+        2 => 'owl',
+      ),
     ),
-    'application/reginfo+xml' =>
+    'application/reginfo+xml' => 
     array (
-      0 => 'rif',
+      'e' => 
+      array (
+        0 => 'rif',
+      ),
     ),
-    'application/relax-ng-compact-syntax' =>
+    'application/relax-ng-compact-syntax' => 
     array (
-      0 => 'rnc',
+      'e' => 
+      array (
+        0 => 'rnc',
+      ),
     ),
-    'application/resource-lists+xml' =>
+    'application/resource-lists+xml' => 
     array (
-      0 => 'rl',
+      'e' => 
+      array (
+        0 => 'rl',
+      ),
     ),
-    'application/resource-lists-diff+xml' =>
+    'application/resource-lists-diff+xml' => 
     array (
-      0 => 'rld',
+      'e' => 
+      array (
+        0 => 'rld',
+      ),
     ),
-    'application/rls-services+xml' =>
+    'application/rls-services+xml' => 
     array (
-      0 => 'rs',
+      'e' => 
+      array (
+        0 => 'rs',
+      ),
     ),
-    'application/rpki-ghostbusters' =>
+    'application/rpki-ghostbusters' => 
     array (
-      0 => 'gbr',
+      'e' => 
+      array (
+        0 => 'gbr',
+      ),
     ),
-    'application/rpki-manifest' =>
+    'application/rpki-manifest' => 
     array (
-      0 => 'mft',
+      'e' => 
+      array (
+        0 => 'mft',
+      ),
     ),
-    'application/rpki-roa' =>
+    'application/rpki-roa' => 
     array (
-      0 => 'roa',
+      'e' => 
+      array (
+        0 => 'roa',
+      ),
     ),
-    'application/rsd+xml' =>
+    'application/rsd+xml' => 
     array (
-      0 => 'rsd',
+      'e' => 
+      array (
+        0 => 'rsd',
+      ),
     ),
-    'application/rss+xml' =>
+    'application/rss+xml' => 
     array (
-      0 => 'rss',
+      'e' => 
+      array (
+        0 => 'rss',
+      ),
     ),
-    'application/rtf' =>
+    'application/rtf' => 
     array (
-      0 => 'rtf',
+      'e' => 
+      array (
+        0 => 'rtf',
+      ),
     ),
-    'application/sbml+xml' =>
+    'application/sbml+xml' => 
     array (
-      0 => 'sbml',
+      'e' => 
+      array (
+        0 => 'sbml',
+      ),
     ),
-    'application/scvp-cv-request' =>
+    'application/scvp-cv-request' => 
     array (
-      0 => 'scq',
+      'e' => 
+      array (
+        0 => 'scq',
+      ),
     ),
-    'application/scvp-cv-response' =>
+    'application/scvp-cv-response' => 
     array (
-      0 => 'scs',
+      'e' => 
+      array (
+        0 => 'scs',
+      ),
     ),
-    'application/scvp-vp-request' =>
+    'application/scvp-vp-request' => 
     array (
-      0 => 'spq',
+      'e' => 
+      array (
+        0 => 'spq',
+      ),
     ),
-    'application/scvp-vp-response' =>
+    'application/scvp-vp-response' => 
     array (
-      0 => 'spp',
+      'e' => 
+      array (
+        0 => 'spp',
+      ),
     ),
-    'application/sdp' =>
+    'application/sdp' => 
     array (
-      0 => 'sdp',
+      'e' => 
+      array (
+        0 => 'sdp',
+      ),
     ),
-    'application/set-payment-initiation' =>
+    'application/set-payment-initiation' => 
     array (
-      0 => 'setpay',
+      'e' => 
+      array (
+        0 => 'setpay',
+      ),
     ),
-    'application/set-registration-initiation' =>
+    'application/set-registration-initiation' => 
     array (
-      0 => 'setreg',
+      'e' => 
+      array (
+        0 => 'setreg',
+      ),
     ),
-    'application/shf+xml' =>
+    'application/shf+xml' => 
     array (
-      0 => 'shf',
+      'e' => 
+      array (
+        0 => 'shf',
+      ),
     ),
-    'application/sieve' =>
+    'application/sieve' => 
     array (
-      0 => 'siv',
+      'e' => 
+      array (
+        0 => 'siv',
+      ),
     ),
-    'application/smil+xml' =>
+    'application/smil+xml' => 
     array (
-      0 => 'smi',
-      1 => 'smil',
-      2 => 'sml',
-      3 => 'kino',
+      'e' => 
+      array (
+        0 => 'smi',
+        1 => 'smil',
+        2 => 'sml',
+        3 => 'kino',
+      ),
     ),
-    'application/sparql-query' =>
+    'application/sparql-query' => 
     array (
-      0 => 'rq',
+      'e' => 
+      array (
+        0 => 'rq',
+      ),
     ),
-    'application/sparql-results+xml' =>
+    'application/sparql-results+xml' => 
     array (
-      0 => 'srx',
+      'e' => 
+      array (
+        0 => 'srx',
+      ),
     ),
-    'application/sql' =>
+    'application/sql' => 
     array (
-      0 => 'sql',
+      'e' => 
+      array (
+        0 => 'sql',
+      ),
     ),
-    'application/srgs' =>
+    'application/srgs' => 
     array (
-      0 => 'gram',
+      'e' => 
+      array (
+        0 => 'gram',
+      ),
     ),
-    'application/srgs+xml' =>
+    'application/srgs+xml' => 
     array (
-      0 => 'grxml',
+      'e' => 
+      array (
+        0 => 'grxml',
+      ),
     ),
-    'application/sru+xml' =>
+    'application/sru+xml' => 
     array (
-      0 => 'sru',
+      'e' => 
+      array (
+        0 => 'sru',
+      ),
     ),
-    'application/ssdl+xml' =>
+    'application/ssdl+xml' => 
     array (
-      0 => 'ssdl',
+      'e' => 
+      array (
+        0 => 'ssdl',
+      ),
     ),
-    'application/ssml+xml' =>
+    'application/ssml+xml' => 
     array (
-      0 => 'ssml',
+      'e' => 
+      array (
+        0 => 'ssml',
+      ),
     ),
-    'application/tei+xml' =>
+    'application/tei+xml' => 
     array (
-      0 => 'tei',
-      1 => 'teicorpus',
+      'e' => 
+      array (
+        0 => 'tei',
+        1 => 'teicorpus',
+      ),
     ),
-    'application/thraud+xml' =>
+    'application/thraud+xml' => 
     array (
-      0 => 'tfi',
+      'e' => 
+      array (
+        0 => 'tfi',
+      ),
     ),
-    'application/timestamped-data' =>
+    'application/timestamped-data' => 
     array (
-      0 => 'tsd',
+      'e' => 
+      array (
+        0 => 'tsd',
+      ),
     ),
-    'application/trig' =>
+    'application/trig' => 
     array (
-      0 => 'trig',
+      'e' => 
+      array (
+        0 => 'trig',
+      ),
     ),
-    'application/vnd.3gpp.pic-bw-large' =>
+    'application/vnd.3gpp.pic-bw-large' => 
     array (
-      0 => 'plb',
+      'e' => 
+      array (
+        0 => 'plb',
+      ),
     ),
-    'application/vnd.3gpp.pic-bw-small' =>
+    'application/vnd.3gpp.pic-bw-small' => 
     array (
-      0 => 'psb',
+      'e' => 
+      array (
+        0 => 'psb',
+      ),
     ),
-    'application/vnd.3gpp.pic-bw-var' =>
+    'application/vnd.3gpp.pic-bw-var' => 
     array (
-      0 => 'pvb',
+      'e' => 
+      array (
+        0 => 'pvb',
+      ),
     ),
-    'application/vnd.3gpp2.tcap' =>
+    'application/vnd.3gpp2.tcap' => 
     array (
-      0 => 'tcap',
+      'e' => 
+      array (
+        0 => 'tcap',
+      ),
     ),
-    'application/vnd.3m.post-it-notes' =>
+    'application/vnd.3m.post-it-notes' => 
     array (
-      0 => 'pwn',
+      'e' => 
+      array (
+        0 => 'pwn',
+      ),
     ),
-    'application/vnd.accpac.simply.aso' =>
+    'application/vnd.accpac.simply.aso' => 
     array (
-      0 => 'aso',
+      'e' => 
+      array (
+        0 => 'aso',
+      ),
     ),
-    'application/vnd.accpac.simply.imp' =>
+    'application/vnd.accpac.simply.imp' => 
     array (
-      0 => 'imp',
+      'e' => 
+      array (
+        0 => 'imp',
+      ),
     ),
-    'application/vnd.acucobol' =>
+    'application/vnd.acucobol' => 
     array (
-      0 => 'acu',
+      'e' => 
+      array (
+        0 => 'acu',
+      ),
     ),
-    'application/vnd.acucorp' =>
+    'application/vnd.acucorp' => 
     array (
-      0 => 'atc',
-      1 => 'acutc',
+      'e' => 
+      array (
+        0 => 'atc',
+        1 => 'acutc',
+      ),
     ),
-    'application/vnd.adobe.air-application-installer-package+zip' =>
+    'application/vnd.adobe.air-application-installer-package+zip' => 
     array (
-      0 => 'air',
+      'e' => 
+      array (
+        0 => 'air',
+      ),
     ),
-    'application/vnd.adobe.flash.movie' =>
+    'application/vnd.adobe.flash.movie' => 
     array (
-      0 => 'swf',
-      1 => 'spl',
+      'e' => 
+      array (
+        0 => 'swf',
+        1 => 'spl',
+      ),
     ),
-    'application/vnd.adobe.formscentral.fcdt' =>
+    'application/vnd.adobe.formscentral.fcdt' => 
     array (
-      0 => 'fcdt',
+      'e' => 
+      array (
+        0 => 'fcdt',
+      ),
     ),
-    'application/vnd.adobe.fxp' =>
+    'application/vnd.adobe.fxp' => 
     array (
-      0 => 'fxp',
-      1 => 'fxpl',
+      'e' => 
+      array (
+        0 => 'fxp',
+        1 => 'fxpl',
+      ),
     ),
-    'application/vnd.adobe.xdp+xml' =>
+    'application/vnd.adobe.xdp+xml' => 
     array (
-      0 => 'xdp',
+      'e' => 
+      array (
+        0 => 'xdp',
+      ),
     ),
-    'application/vnd.adobe.xfdf' =>
+    'application/vnd.adobe.xfdf' => 
     array (
-      0 => 'xfdf',
+      'e' => 
+      array (
+        0 => 'xfdf',
+      ),
     ),
-    'application/vnd.ahead.space' =>
+    'application/vnd.ahead.space' => 
     array (
-      0 => 'ahead',
+      'e' => 
+      array (
+        0 => 'ahead',
+      ),
     ),
-    'application/vnd.airzip.filesecure.azf' =>
+    'application/vnd.airzip.filesecure.azf' => 
     array (
-      0 => 'azf',
+      'e' => 
+      array (
+        0 => 'azf',
+      ),
     ),
-    'application/vnd.airzip.filesecure.azs' =>
+    'application/vnd.airzip.filesecure.azs' => 
     array (
-      0 => 'azs',
+      'e' => 
+      array (
+        0 => 'azs',
+      ),
     ),
-    'application/vnd.amazon.ebook' =>
+    'application/vnd.amazon.ebook' => 
     array (
-      0 => 'azw',
+      'e' => 
+      array (
+        0 => 'azw',
+      ),
     ),
-    'application/vnd.americandynamics.acc' =>
+    'application/vnd.americandynamics.acc' => 
     array (
-      0 => 'acc',
+      'e' => 
+      array (
+        0 => 'acc',
+      ),
     ),
-    'application/vnd.amiga.ami' =>
+    'application/vnd.amiga.ami' => 
     array (
-      0 => 'ami',
+      'e' => 
+      array (
+        0 => 'ami',
+      ),
     ),
-    'application/vnd.android.package-archive' =>
+    'application/vnd.android.package-archive' => 
     array (
-      0 => 'apk',
+      'e' => 
+      array (
+        0 => 'apk',
+      ),
     ),
-    'application/vnd.anser-web-certificate-issue-initiation' =>
+    'application/vnd.anser-web-certificate-issue-initiation' => 
     array (
-      0 => 'cii',
+      'e' => 
+      array (
+        0 => 'cii',
+      ),
     ),
-    'application/vnd.anser-web-funds-transfer-initiation' =>
+    'application/vnd.anser-web-funds-transfer-initiation' => 
     array (
-      0 => 'fti',
+      'e' => 
+      array (
+        0 => 'fti',
+      ),
     ),
-    'application/vnd.antix.game-component' =>
+    'application/vnd.antix.game-component' => 
     array (
-      0 => 'atx',
+      'e' => 
+      array (
+        0 => 'atx',
+      ),
     ),
-    'application/vnd.appimage' =>
+    'application/vnd.appimage' => 
     array (
-      0 => 'appimage',
+      'e' => 
+      array (
+        0 => 'appimage',
+      ),
     ),
-    'application/vnd.apple.installer+xml' =>
+    'application/vnd.apple.installer+xml' => 
     array (
-      0 => 'mpkg',
+      'e' => 
+      array (
+        0 => 'mpkg',
+      ),
     ),
-    'application/vnd.apple.mpegurl' =>
+    'application/vnd.apple.mpegurl' => 
     array (
-      0 => 'm3u8',
-      1 => 'm3u',
+      'e' => 
+      array (
+        0 => 'm3u8',
+        1 => 'm3u',
+      ),
     ),
-    'application/vnd.aristanetworks.swi' =>
+    'application/vnd.aristanetworks.swi' => 
     array (
-      0 => 'swi',
+      'e' => 
+      array (
+        0 => 'swi',
+      ),
     ),
-    'application/vnd.astraea-software.iota' =>
+    'application/vnd.astraea-software.iota' => 
     array (
-      0 => 'iota',
+      'e' => 
+      array (
+        0 => 'iota',
+      ),
     ),
-    'application/vnd.audiograph' =>
+    'application/vnd.audiograph' => 
     array (
-      0 => 'aep',
+      'e' => 
+      array (
+        0 => 'aep',
+      ),
     ),
-    'application/vnd.blueice.multipass' =>
+    'application/vnd.blueice.multipass' => 
     array (
-      0 => 'mpm',
+      'e' => 
+      array (
+        0 => 'mpm',
+      ),
     ),
-    'application/vnd.bmi' =>
+    'application/vnd.bmi' => 
     array (
-      0 => 'bmi',
+      'e' => 
+      array (
+        0 => 'bmi',
+      ),
     ),
-    'application/vnd.businessobjects' =>
+    'application/vnd.businessobjects' => 
     array (
-      0 => 'rep',
+      'e' => 
+      array (
+        0 => 'rep',
+      ),
     ),
-    'application/vnd.chemdraw+xml' =>
+    'application/vnd.chemdraw+xml' => 
     array (
-      0 => 'cdxml',
+      'e' => 
+      array (
+        0 => 'cdxml',
+      ),
     ),
-    'application/vnd.chess-pgn' =>
+    'application/vnd.chess-pgn' => 
     array (
-      0 => 'pgn',
+      'e' => 
+      array (
+        0 => 'pgn',
+      ),
     ),
-    'application/vnd.chipnuts.karaoke-mmd' =>
+    'application/vnd.chipnuts.karaoke-mmd' => 
     array (
-      0 => 'mmd',
+      'e' => 
+      array (
+        0 => 'mmd',
+      ),
     ),
-    'application/vnd.cinderella' =>
+    'application/vnd.cinderella' => 
     array (
-      0 => 'cdy',
+      'e' => 
+      array (
+        0 => 'cdy',
+      ),
     ),
-    'application/vnd.claymore' =>
+    'application/vnd.claymore' => 
     array (
-      0 => 'cla',
+      'e' => 
+      array (
+        0 => 'cla',
+      ),
     ),
-    'application/vnd.cloanto.rp9' =>
+    'application/vnd.cloanto.rp9' => 
     array (
-      0 => 'rp9',
+      'e' => 
+      array (
+        0 => 'rp9',
+      ),
     ),
-    'application/vnd.clonk.c4group' =>
+    'application/vnd.clonk.c4group' => 
     array (
-      0 => 'c4g',
-      1 => 'c4d',
-      2 => 'c4f',
-      3 => 'c4p',
-      4 => 'c4u',
+      'e' => 
+      array (
+        0 => 'c4g',
+        1 => 'c4d',
+        2 => 'c4f',
+        3 => 'c4p',
+        4 => 'c4u',
+      ),
     ),
-    'application/vnd.cluetrust.cartomobile-config' =>
+    'application/vnd.cluetrust.cartomobile-config' => 
     array (
-      0 => 'c11amc',
+      'e' => 
+      array (
+        0 => 'c11amc',
+      ),
     ),
-    'application/vnd.cluetrust.cartomobile-config-pkg' =>
+    'application/vnd.cluetrust.cartomobile-config-pkg' => 
     array (
-      0 => 'c11amz',
+      'e' => 
+      array (
+        0 => 'c11amz',
+      ),
     ),
-    'application/vnd.coffeescript' =>
+    'application/vnd.coffeescript' => 
     array (
-      0 => 'coffee',
+      'e' => 
+      array (
+        0 => 'coffee',
+      ),
     ),
-    'application/vnd.comicbook+zip' =>
+    'application/vnd.comicbook+zip' => 
     array (
-      0 => 'cbz',
+      'e' => 
+      array (
+        0 => 'cbz',
+      ),
     ),
-    'application/vnd.comicbook-rar' =>
+    'application/vnd.comicbook-rar' => 
     array (
-      0 => 'cbr',
+      'e' => 
+      array (
+        0 => 'cbr',
+      ),
     ),
-    'application/vnd.commonspace' =>
+    'application/vnd.commonspace' => 
     array (
-      0 => 'csp',
+      'e' => 
+      array (
+        0 => 'csp',
+      ),
     ),
-    'application/vnd.contact.cmsg' =>
+    'application/vnd.contact.cmsg' => 
     array (
-      0 => 'cdbcmsg',
+      'e' => 
+      array (
+        0 => 'cdbcmsg',
+      ),
     ),
-    'application/vnd.corel-draw' =>
+    'application/vnd.corel-draw' => 
     array (
-      0 => 'cdr',
+      'e' => 
+      array (
+        0 => 'cdr',
+      ),
     ),
-    'application/vnd.cosmocaller' =>
+    'application/vnd.cosmocaller' => 
     array (
-      0 => 'cmc',
+      'e' => 
+      array (
+        0 => 'cmc',
+      ),
     ),
-    'application/vnd.crick.clicker' =>
+    'application/vnd.crick.clicker' => 
     array (
-      0 => 'clkx',
+      'e' => 
+      array (
+        0 => 'clkx',
+      ),
     ),
-    'application/vnd.crick.clicker.keyboard' =>
+    'application/vnd.crick.clicker.keyboard' => 
     array (
-      0 => 'clkk',
+      'e' => 
+      array (
+        0 => 'clkk',
+      ),
     ),
-    'application/vnd.crick.clicker.palette' =>
+    'application/vnd.crick.clicker.palette' => 
     array (
-      0 => 'clkp',
+      'e' => 
+      array (
+        0 => 'clkp',
+      ),
     ),
-    'application/vnd.crick.clicker.template' =>
+    'application/vnd.crick.clicker.template' => 
     array (
-      0 => 'clkt',
+      'e' => 
+      array (
+        0 => 'clkt',
+      ),
     ),
-    'application/vnd.crick.clicker.wordbank' =>
+    'application/vnd.crick.clicker.wordbank' => 
     array (
-      0 => 'clkw',
+      'e' => 
+      array (
+        0 => 'clkw',
+      ),
     ),
-    'application/vnd.criticaltools.wbs+xml' =>
+    'application/vnd.criticaltools.wbs+xml' => 
     array (
-      0 => 'wbs',
+      'e' => 
+      array (
+        0 => 'wbs',
+      ),
     ),
-    'application/vnd.ctc-posml' =>
+    'application/vnd.ctc-posml' => 
     array (
-      0 => 'pml',
+      'e' => 
+      array (
+        0 => 'pml',
+      ),
     ),
-    'application/vnd.cups-ppd' =>
+    'application/vnd.cups-ppd' => 
     array (
-      0 => 'ppd',
+      'e' => 
+      array (
+        0 => 'ppd',
+      ),
     ),
-    'application/vnd.curl.car' =>
+    'application/vnd.curl.car' => 
     array (
-      0 => 'car',
+      'e' => 
+      array (
+        0 => 'car',
+      ),
     ),
-    'application/vnd.curl.pcurl' =>
+    'application/vnd.curl.pcurl' => 
     array (
-      0 => 'pcurl',
+      'e' => 
+      array (
+        0 => 'pcurl',
+      ),
     ),
-    'application/vnd.dart' =>
+    'application/vnd.dart' => 
     array (
-      0 => 'dart',
+      'e' => 
+      array (
+        0 => 'dart',
+      ),
     ),
-    'application/vnd.data-vision.rdz' =>
+    'application/vnd.data-vision.rdz' => 
     array (
-      0 => 'rdz',
+      'e' => 
+      array (
+        0 => 'rdz',
+      ),
     ),
-    'application/vnd.debian.binary-package' =>
+    'application/vnd.debian.binary-package' => 
     array (
-      0 => 'deb',
-      1 => 'udeb',
+      'e' => 
+      array (
+        0 => 'deb',
+        1 => 'udeb',
+      ),
     ),
-    'application/vnd.dece.data' =>
+    'application/vnd.dece.data' => 
     array (
-      0 => 'uvf',
-      1 => 'uvvf',
-      2 => 'uvd',
-      3 => 'uvvd',
+      'e' => 
+      array (
+        0 => 'uvf',
+        1 => 'uvvf',
+        2 => 'uvd',
+        3 => 'uvvd',
+      ),
     ),
-    'application/vnd.dece.ttml+xml' =>
+    'application/vnd.dece.ttml+xml' => 
     array (
-      0 => 'uvt',
-      1 => 'uvvt',
+      'e' => 
+      array (
+        0 => 'uvt',
+        1 => 'uvvt',
+      ),
     ),
-    'application/vnd.dece.unspecified' =>
+    'application/vnd.dece.unspecified' => 
     array (
-      0 => 'uvx',
-      1 => 'uvvx',
+      'e' => 
+      array (
+        0 => 'uvx',
+        1 => 'uvvx',
+      ),
     ),
-    'application/vnd.dece.zip' =>
+    'application/vnd.dece.zip' => 
     array (
-      0 => 'uvz',
-      1 => 'uvvz',
+      'e' => 
+      array (
+        0 => 'uvz',
+        1 => 'uvvz',
+      ),
     ),
-    'application/vnd.denovo.fcselayout-link' =>
+    'application/vnd.denovo.fcselayout-link' => 
     array (
-      0 => 'fe_launch',
+      'e' => 
+      array (
+        0 => 'fe_launch',
+      ),
     ),
-    'application/vnd.dna' =>
+    'application/vnd.dna' => 
     array (
-      0 => 'dna',
+      'e' => 
+      array (
+        0 => 'dna',
+      ),
     ),
-    'application/vnd.dolby.mlp' =>
+    'application/vnd.dolby.mlp' => 
     array (
-      0 => 'mlp',
+      'e' => 
+      array (
+        0 => 'mlp',
+      ),
     ),
-    'application/vnd.dpgraph' =>
+    'application/vnd.dpgraph' => 
     array (
-      0 => 'dpg',
+      'e' => 
+      array (
+        0 => 'dpg',
+      ),
     ),
-    'application/vnd.dreamfactory' =>
+    'application/vnd.dreamfactory' => 
     array (
-      0 => 'dfac',
+      'e' => 
+      array (
+        0 => 'dfac',
+      ),
     ),
-    'application/vnd.ds-keypoint' =>
+    'application/vnd.ds-keypoint' => 
     array (
-      0 => 'kpxx',
+      'e' => 
+      array (
+        0 => 'kpxx',
+      ),
     ),
-    'application/vnd.dvb.ait' =>
+    'application/vnd.dvb.ait' => 
     array (
-      0 => 'ait',
+      'e' => 
+      array (
+        0 => 'ait',
+      ),
     ),
-    'application/vnd.dvb.service' =>
+    'application/vnd.dvb.service' => 
     array (
-      0 => 'svc',
+      'e' => 
+      array (
+        0 => 'svc',
+      ),
     ),
-    'application/vnd.dynageo' =>
+    'application/vnd.dynageo' => 
     array (
-      0 => 'geo',
+      'e' => 
+      array (
+        0 => 'geo',
+      ),
     ),
-    'application/vnd.ecowin.chart' =>
+    'application/vnd.ecowin.chart' => 
     array (
-      0 => 'mag',
+      'e' => 
+      array (
+        0 => 'mag',
+      ),
     ),
-    'application/vnd.emusic-emusic_package' =>
+    'application/vnd.emusic-emusic_package' => 
     array (
-      0 => 'emp',
+      'e' => 
+      array (
+        0 => 'emp',
+      ),
     ),
-    'application/vnd.enliven' =>
+    'application/vnd.enliven' => 
     array (
-      0 => 'nml',
+      'e' => 
+      array (
+        0 => 'nml',
+      ),
     ),
-    'application/vnd.epson.esf' =>
+    'application/vnd.epson.esf' => 
     array (
-      0 => 'esf',
+      'e' => 
+      array (
+        0 => 'esf',
+      ),
     ),
-    'application/vnd.epson.msf' =>
+    'application/vnd.epson.msf' => 
     array (
-      0 => 'msf',
+      'e' => 
+      array (
+        0 => 'msf',
+      ),
     ),
-    'application/vnd.epson.quickanime' =>
+    'application/vnd.epson.quickanime' => 
     array (
-      0 => 'qam',
+      'e' => 
+      array (
+        0 => 'qam',
+      ),
     ),
-    'application/vnd.epson.salt' =>
+    'application/vnd.epson.salt' => 
     array (
-      0 => 'slt',
+      'e' => 
+      array (
+        0 => 'slt',
+      ),
     ),
-    'application/vnd.epson.ssf' =>
+    'application/vnd.epson.ssf' => 
     array (
-      0 => 'ssf',
+      'e' => 
+      array (
+        0 => 'ssf',
+      ),
     ),
-    'application/vnd.eszigno3+xml' =>
+    'application/vnd.eszigno3+xml' => 
     array (
-      0 => 'es3',
-      1 => 'et3',
+      'e' => 
+      array (
+        0 => 'es3',
+        1 => 'et3',
+      ),
     ),
-    'application/vnd.ezpix-album' =>
+    'application/vnd.ezpix-album' => 
     array (
-      0 => 'ez2',
+      'e' => 
+      array (
+        0 => 'ez2',
+      ),
     ),
-    'application/vnd.ezpix-package' =>
+    'application/vnd.ezpix-package' => 
     array (
-      0 => 'ez3',
+      'e' => 
+      array (
+        0 => 'ez3',
+      ),
     ),
-    'application/vnd.fdf' =>
+    'application/vnd.fdf' => 
     array (
-      0 => 'fdf',
+      'e' => 
+      array (
+        0 => 'fdf',
+      ),
     ),
-    'application/vnd.fdsn.mseed' =>
+    'application/vnd.fdsn.mseed' => 
     array (
-      0 => 'mseed',
+      'e' => 
+      array (
+        0 => 'mseed',
+      ),
     ),
-    'application/vnd.fdsn.seed' =>
+    'application/vnd.fdsn.seed' => 
     array (
-      0 => 'seed',
-      1 => 'dataless',
+      'e' => 
+      array (
+        0 => 'seed',
+        1 => 'dataless',
+      ),
     ),
-    'application/vnd.flatpak' =>
+    'application/vnd.flatpak' => 
     array (
-      0 => 'flatpak',
-      1 => 'xdgapp',
+      'e' => 
+      array (
+        0 => 'flatpak',
+        1 => 'xdgapp',
+      ),
     ),
-    'application/vnd.flatpak.ref' =>
+    'application/vnd.flatpak.ref' => 
     array (
-      0 => 'flatpakref',
+      'e' => 
+      array (
+        0 => 'flatpakref',
+      ),
     ),
-    'application/vnd.flatpak.repo' =>
+    'application/vnd.flatpak.repo' => 
     array (
-      0 => 'flatpakrepo',
+      'e' => 
+      array (
+        0 => 'flatpakrepo',
+      ),
     ),
-    'application/vnd.flographit' =>
+    'application/vnd.flographit' => 
     array (
-      0 => 'gph',
+      'e' => 
+      array (
+        0 => 'gph',
+      ),
     ),
-    'application/vnd.fluxtime.clip' =>
+    'application/vnd.fluxtime.clip' => 
     array (
-      0 => 'ftc',
+      'e' => 
+      array (
+        0 => 'ftc',
+      ),
     ),
-    'application/vnd.framemaker' =>
+    'application/vnd.framemaker' => 
     array (
-      0 => 'fm',
-      1 => 'frame',
-      2 => 'maker',
-      3 => 'book',
+      'e' => 
+      array (
+        0 => 'fm',
+        1 => 'frame',
+        2 => 'maker',
+        3 => 'book',
+      ),
     ),
-    'application/vnd.frogans.fnc' =>
+    'application/vnd.frogans.fnc' => 
     array (
-      0 => 'fnc',
+      'e' => 
+      array (
+        0 => 'fnc',
+      ),
     ),
-    'application/vnd.frogans.ltf' =>
+    'application/vnd.frogans.ltf' => 
     array (
-      0 => 'ltf',
+      'e' => 
+      array (
+        0 => 'ltf',
+      ),
     ),
-    'application/vnd.fsc.weblaunch' =>
+    'application/vnd.fsc.weblaunch' => 
     array (
-      0 => 'fsc',
+      'e' => 
+      array (
+        0 => 'fsc',
+      ),
     ),
-    'application/vnd.fujitsu.oasys' =>
+    'application/vnd.fujitsu.oasys' => 
     array (
-      0 => 'oas',
+      'e' => 
+      array (
+        0 => 'oas',
+      ),
     ),
-    'application/vnd.fujitsu.oasys2' =>
+    'application/vnd.fujitsu.oasys2' => 
     array (
-      0 => 'oa2',
+      'e' => 
+      array (
+        0 => 'oa2',
+      ),
     ),
-    'application/vnd.fujitsu.oasys3' =>
+    'application/vnd.fujitsu.oasys3' => 
     array (
-      0 => 'oa3',
+      'e' => 
+      array (
+        0 => 'oa3',
+      ),
     ),
-    'application/vnd.fujitsu.oasysgp' =>
+    'application/vnd.fujitsu.oasysgp' => 
     array (
-      0 => 'fg5',
+      'e' => 
+      array (
+        0 => 'fg5',
+      ),
     ),
-    'application/vnd.fujitsu.oasysprs' =>
+    'application/vnd.fujitsu.oasysprs' => 
     array (
-      0 => 'bh2',
+      'e' => 
+      array (
+        0 => 'bh2',
+      ),
     ),
-    'application/vnd.fujixerox.ddd' =>
+    'application/vnd.fujixerox.ddd' => 
     array (
-      0 => 'ddd',
+      'e' => 
+      array (
+        0 => 'ddd',
+      ),
     ),
-    'application/vnd.fujixerox.docuworks' =>
+    'application/vnd.fujixerox.docuworks' => 
     array (
-      0 => 'xdw',
+      'e' => 
+      array (
+        0 => 'xdw',
+      ),
     ),
-    'application/vnd.fujixerox.docuworks.binder' =>
+    'application/vnd.fujixerox.docuworks.binder' => 
     array (
-      0 => 'xbd',
+      'e' => 
+      array (
+        0 => 'xbd',
+      ),
     ),
-    'application/vnd.fuzzysheet' =>
+    'application/vnd.fuzzysheet' => 
     array (
-      0 => 'fzs',
+      'e' => 
+      array (
+        0 => 'fzs',
+      ),
     ),
-    'application/vnd.genomatix.tuxedo' =>
+    'application/vnd.genomatix.tuxedo' => 
     array (
-      0 => 'txd',
+      'e' => 
+      array (
+        0 => 'txd',
+      ),
     ),
-    'application/vnd.geogebra.file' =>
+    'application/vnd.geogebra.file' => 
     array (
-      0 => 'ggb',
+      'e' => 
+      array (
+        0 => 'ggb',
+      ),
     ),
-    'application/vnd.geogebra.tool' =>
+    'application/vnd.geogebra.tool' => 
     array (
-      0 => 'ggt',
+      'e' => 
+      array (
+        0 => 'ggt',
+      ),
     ),
-    'application/vnd.geometry-explorer' =>
+    'application/vnd.geometry-explorer' => 
     array (
-      0 => 'gex',
-      1 => 'gre',
+      'e' => 
+      array (
+        0 => 'gex',
+        1 => 'gre',
+      ),
     ),
-    'application/vnd.geonext' =>
+    'application/vnd.geonext' => 
     array (
-      0 => 'gxt',
+      'e' => 
+      array (
+        0 => 'gxt',
+      ),
     ),
-    'application/vnd.geoplan' =>
+    'application/vnd.geoplan' => 
     array (
-      0 => 'g2w',
+      'e' => 
+      array (
+        0 => 'g2w',
+      ),
     ),
-    'application/vnd.geospace' =>
+    'application/vnd.geospace' => 
     array (
-      0 => 'g3w',
+      'e' => 
+      array (
+        0 => 'g3w',
+      ),
     ),
-    'application/vnd.gmx' =>
+    'application/vnd.gmx' => 
     array (
-      0 => 'gmx',
+      'e' => 
+      array (
+        0 => 'gmx',
+      ),
     ),
-    'application/vnd.google-earth.kml+xml' =>
+    'application/vnd.google-earth.kml+xml' => 
     array (
-      0 => 'kml',
+      'e' => 
+      array (
+        0 => 'kml',
+      ),
     ),
-    'application/vnd.google-earth.kmz' =>
+    'application/vnd.google-earth.kmz' => 
     array (
-      0 => 'kmz',
+      'e' => 
+      array (
+        0 => 'kmz',
+      ),
     ),
-    'application/vnd.grafeq' =>
+    'application/vnd.grafeq' => 
     array (
-      0 => 'gqf',
-      1 => 'gqs',
+      'e' => 
+      array (
+        0 => 'gqf',
+        1 => 'gqs',
+      ),
     ),
-    'application/vnd.groove-account' =>
+    'application/vnd.groove-account' => 
     array (
-      0 => 'gac',
+      'e' => 
+      array (
+        0 => 'gac',
+      ),
     ),
-    'application/vnd.groove-help' =>
+    'application/vnd.groove-help' => 
     array (
-      0 => 'ghf',
+      'e' => 
+      array (
+        0 => 'ghf',
+      ),
     ),
-    'application/vnd.groove-identity-message' =>
+    'application/vnd.groove-identity-message' => 
     array (
-      0 => 'gim',
+      'e' => 
+      array (
+        0 => 'gim',
+      ),
     ),
-    'application/vnd.groove-injector' =>
+    'application/vnd.groove-injector' => 
     array (
-      0 => 'grv',
+      'e' => 
+      array (
+        0 => 'grv',
+      ),
     ),
-    'application/vnd.groove-tool-message' =>
+    'application/vnd.groove-tool-message' => 
     array (
-      0 => 'gtm',
+      'e' => 
+      array (
+        0 => 'gtm',
+      ),
     ),
-    'application/vnd.groove-tool-template' =>
+    'application/vnd.groove-tool-template' => 
     array (
-      0 => 'tpl',
+      'e' => 
+      array (
+        0 => 'tpl',
+      ),
     ),
-    'application/vnd.groove-vcard' =>
+    'application/vnd.groove-vcard' => 
     array (
-      0 => 'vcg',
+      'e' => 
+      array (
+        0 => 'vcg',
+      ),
     ),
-    'application/vnd.hal+xml' =>
+    'application/vnd.hal+xml' => 
     array (
-      0 => 'hal',
+      'e' => 
+      array (
+        0 => 'hal',
+      ),
     ),
-    'application/vnd.handheld-entertainment+xml' =>
+    'application/vnd.handheld-entertainment+xml' => 
     array (
-      0 => 'zmm',
+      'e' => 
+      array (
+        0 => 'zmm',
+      ),
     ),
-    'application/vnd.hbci' =>
+    'application/vnd.hbci' => 
     array (
-      0 => 'hbci',
+      'e' => 
+      array (
+        0 => 'hbci',
+      ),
     ),
-    'application/vnd.hhe.lesson-player' =>
+    'application/vnd.hhe.lesson-player' => 
     array (
-      0 => 'les',
+      'e' => 
+      array (
+        0 => 'les',
+      ),
     ),
-    'application/vnd.hp-hpgl' =>
+    'application/vnd.hp-hpgl' => 
     array (
-      0 => 'hpgl',
+      'e' => 
+      array (
+        0 => 'hpgl',
+      ),
     ),
-    'application/vnd.hp-hpid' =>
+    'application/vnd.hp-hpid' => 
     array (
-      0 => 'hpid',
+      'e' => 
+      array (
+        0 => 'hpid',
+      ),
     ),
-    'application/vnd.hp-hps' =>
+    'application/vnd.hp-hps' => 
     array (
-      0 => 'hps',
+      'e' => 
+      array (
+        0 => 'hps',
+      ),
     ),
-    'application/vnd.hp-jlyt' =>
+    'application/vnd.hp-jlyt' => 
     array (
-      0 => 'jlt',
+      'e' => 
+      array (
+        0 => 'jlt',
+      ),
     ),
-    'application/vnd.hp-pcl' =>
+    'application/vnd.hp-pcl' => 
     array (
-      0 => 'pcl',
+      'e' => 
+      array (
+        0 => 'pcl',
+      ),
     ),
-    'application/vnd.hp-pclxl' =>
+    'application/vnd.hp-pclxl' => 
     array (
-      0 => 'pclxl',
+      'e' => 
+      array (
+        0 => 'pclxl',
+      ),
     ),
-    'application/vnd.hydrostatix.sof-data' =>
+    'application/vnd.hydrostatix.sof-data' => 
     array (
-      0 => 'sfd-hdstx',
+      'e' => 
+      array (
+        0 => 'sfd-hdstx',
+      ),
     ),
-    'application/vnd.ibm.minipay' =>
+    'application/vnd.ibm.minipay' => 
     array (
-      0 => 'mpy',
+      'e' => 
+      array (
+        0 => 'mpy',
+      ),
     ),
-    'application/vnd.ibm.modcap' =>
+    'application/vnd.ibm.modcap' => 
     array (
-      0 => 'afp',
-      1 => 'listafp',
-      2 => 'list3820',
+      'e' => 
+      array (
+        0 => 'afp',
+        1 => 'listafp',
+        2 => 'list3820',
+      ),
     ),
-    'application/vnd.ibm.rights-management' =>
+    'application/vnd.ibm.rights-management' => 
     array (
-      0 => 'irm',
+      'e' => 
+      array (
+        0 => 'irm',
+      ),
     ),
-    'application/vnd.ibm.secure-container' =>
+    'application/vnd.ibm.secure-container' => 
     array (
-      0 => 'sc',
+      'e' => 
+      array (
+        0 => 'sc',
+      ),
     ),
-    'application/vnd.iccprofile' =>
+    'application/vnd.iccprofile' => 
     array (
-      0 => 'icc',
-      1 => 'icm',
+      'e' => 
+      array (
+        0 => 'icc',
+        1 => 'icm',
+      ),
     ),
-    'application/vnd.igloader' =>
+    'application/vnd.igloader' => 
     array (
-      0 => 'igl',
+      'e' => 
+      array (
+        0 => 'igl',
+      ),
     ),
-    'application/vnd.immervision-ivp' =>
+    'application/vnd.immervision-ivp' => 
     array (
-      0 => 'ivp',
+      'e' => 
+      array (
+        0 => 'ivp',
+      ),
     ),
-    'application/vnd.immervision-ivu' =>
+    'application/vnd.immervision-ivu' => 
     array (
-      0 => 'ivu',
+      'e' => 
+      array (
+        0 => 'ivu',
+      ),
     ),
-    'application/vnd.insors.igm' =>
+    'application/vnd.insors.igm' => 
     array (
-      0 => 'igm',
+      'e' => 
+      array (
+        0 => 'igm',
+      ),
     ),
-    'application/vnd.intercon.formnet' =>
+    'application/vnd.intercon.formnet' => 
     array (
-      0 => 'xpw',
-      1 => 'xpx',
+      'e' => 
+      array (
+        0 => 'xpw',
+        1 => 'xpx',
+      ),
     ),
-    'application/vnd.intergeo' =>
+    'application/vnd.intergeo' => 
     array (
-      0 => 'i2g',
+      'e' => 
+      array (
+        0 => 'i2g',
+      ),
     ),
-    'application/vnd.intu.qbo' =>
+    'application/vnd.intu.qbo' => 
     array (
-      0 => 'qbo',
+      'e' => 
+      array (
+        0 => 'qbo',
+      ),
     ),
-    'application/vnd.intu.qfx' =>
+    'application/vnd.intu.qfx' => 
     array (
-      0 => 'qfx',
+      'e' => 
+      array (
+        0 => 'qfx',
+      ),
     ),
-    'application/vnd.ipunplugged.rcprofile' =>
+    'application/vnd.ipunplugged.rcprofile' => 
     array (
-      0 => 'rcprofile',
+      'e' => 
+      array (
+        0 => 'rcprofile',
+      ),
     ),
-    'application/vnd.irepository.package+xml' =>
+    'application/vnd.irepository.package+xml' => 
     array (
-      0 => 'irp',
+      'e' => 
+      array (
+        0 => 'irp',
+      ),
     ),
-    'application/vnd.is-xpr' =>
+    'application/vnd.is-xpr' => 
     array (
-      0 => 'xpr',
+      'e' => 
+      array (
+        0 => 'xpr',
+      ),
     ),
-    'application/vnd.isac.fcs' =>
+    'application/vnd.isac.fcs' => 
     array (
-      0 => 'fcs',
+      'e' => 
+      array (
+        0 => 'fcs',
+      ),
     ),
-    'application/vnd.jam' =>
+    'application/vnd.jam' => 
     array (
-      0 => 'jam',
+      'e' => 
+      array (
+        0 => 'jam',
+      ),
     ),
-    'application/vnd.jcp.javame.midlet-rms' =>
+    'application/vnd.jcp.javame.midlet-rms' => 
     array (
-      0 => 'rms',
+      'e' => 
+      array (
+        0 => 'rms',
+      ),
     ),
-    'application/vnd.jisp' =>
+    'application/vnd.jisp' => 
     array (
-      0 => 'jisp',
+      'e' => 
+      array (
+        0 => 'jisp',
+      ),
     ),
-    'application/vnd.joost.joda-archive' =>
+    'application/vnd.joost.joda-archive' => 
     array (
-      0 => 'joda',
+      'e' => 
+      array (
+        0 => 'joda',
+      ),
     ),
-    'application/vnd.kahootz' =>
+    'application/vnd.kahootz' => 
     array (
-      0 => 'ktz',
-      1 => 'ktr',
+      'e' => 
+      array (
+        0 => 'ktz',
+        1 => 'ktr',
+      ),
     ),
-    'application/vnd.kde.karbon' =>
+    'application/vnd.kde.karbon' => 
     array (
-      0 => 'karbon',
+      'e' => 
+      array (
+        0 => 'karbon',
+      ),
     ),
-    'application/vnd.kde.kchart' =>
+    'application/vnd.kde.kchart' => 
     array (
-      0 => 'chrt',
+      'e' => 
+      array (
+        0 => 'chrt',
+      ),
     ),
-    'application/vnd.kde.kformula' =>
+    'application/vnd.kde.kformula' => 
     array (
-      0 => 'kfo',
+      'e' => 
+      array (
+        0 => 'kfo',
+      ),
     ),
-    'application/vnd.kde.kivio' =>
+    'application/vnd.kde.kivio' => 
     array (
-      0 => 'flw',
+      'e' => 
+      array (
+        0 => 'flw',
+      ),
     ),
-    'application/vnd.kde.kontour' =>
+    'application/vnd.kde.kontour' => 
     array (
-      0 => 'kon',
+      'e' => 
+      array (
+        0 => 'kon',
+      ),
     ),
-    'application/vnd.kde.kpresenter' =>
+    'application/vnd.kde.kpresenter' => 
     array (
-      0 => 'kpr',
-      1 => 'kpt',
+      'e' => 
+      array (
+        0 => 'kpr',
+        1 => 'kpt',
+      ),
     ),
-    'application/vnd.kde.kspread' =>
+    'application/vnd.kde.kspread' => 
     array (
-      0 => 'ksp',
+      'e' => 
+      array (
+        0 => 'ksp',
+      ),
     ),
-    'application/vnd.kde.kword' =>
+    'application/vnd.kde.kword' => 
     array (
-      0 => 'kwd',
-      1 => 'kwt',
+      'e' => 
+      array (
+        0 => 'kwd',
+        1 => 'kwt',
+      ),
     ),
-    'application/vnd.kenameaapp' =>
+    'application/vnd.kenameaapp' => 
     array (
-      0 => 'htke',
+      'e' => 
+      array (
+        0 => 'htke',
+      ),
     ),
-    'application/vnd.kidspiration' =>
+    'application/vnd.kidspiration' => 
     array (
-      0 => 'kia',
+      'e' => 
+      array (
+        0 => 'kia',
+      ),
     ),
-    'application/vnd.kinar' =>
+    'application/vnd.kinar' => 
     array (
-      0 => 'kne',
-      1 => 'knp',
+      'e' => 
+      array (
+        0 => 'kne',
+        1 => 'knp',
+      ),
     ),
-    'application/vnd.koan' =>
+    'application/vnd.koan' => 
     array (
-      0 => 'skp',
-      1 => 'skd',
-      2 => 'skt',
-      3 => 'skm',
+      'e' => 
+      array (
+        0 => 'skp',
+        1 => 'skd',
+        2 => 'skt',
+        3 => 'skm',
+      ),
     ),
-    'application/vnd.kodak-descriptor' =>
+    'application/vnd.kodak-descriptor' => 
     array (
-      0 => 'sse',
+      'e' => 
+      array (
+        0 => 'sse',
+      ),
     ),
-    'application/vnd.las.las+xml' =>
+    'application/vnd.las.las+xml' => 
     array (
-      0 => 'lasxml',
+      'e' => 
+      array (
+        0 => 'lasxml',
+      ),
     ),
-    'application/vnd.llamagraphics.life-balance.desktop' =>
+    'application/vnd.llamagraphics.life-balance.desktop' => 
     array (
-      0 => 'lbd',
+      'e' => 
+      array (
+        0 => 'lbd',
+      ),
     ),
-    'application/vnd.llamagraphics.life-balance.exchange+xml' =>
+    'application/vnd.llamagraphics.life-balance.exchange+xml' => 
     array (
-      0 => 'lbe',
+      'e' => 
+      array (
+        0 => 'lbe',
+      ),
     ),
-    'application/vnd.lotus-1-2-3' =>
+    'application/vnd.lotus-1-2-3' => 
     array (
-      0 => '123',
-      1 => 'wk1',
-      2 => 'wk3',
-      3 => 'wk4',
-      4 => 'wks',
+      'e' => 
+      array (
+        0 => '123',
+        1 => 'wk1',
+        2 => 'wk3',
+        3 => 'wk4',
+        4 => 'wks',
+      ),
     ),
-    'application/vnd.lotus-approach' =>
+    'application/vnd.lotus-approach' => 
     array (
-      0 => 'apr',
+      'e' => 
+      array (
+        0 => 'apr',
+      ),
     ),
-    'application/vnd.lotus-freelance' =>
+    'application/vnd.lotus-freelance' => 
     array (
-      0 => 'pre',
+      'e' => 
+      array (
+        0 => 'pre',
+      ),
     ),
-    'application/vnd.lotus-notes' =>
+    'application/vnd.lotus-notes' => 
     array (
-      0 => 'nsf',
+      'e' => 
+      array (
+        0 => 'nsf',
+      ),
     ),
-    'application/vnd.lotus-organizer' =>
+    'application/vnd.lotus-organizer' => 
     array (
-      0 => 'org',
+      'e' => 
+      array (
+        0 => 'org',
+      ),
     ),
-    'application/vnd.lotus-screencam' =>
+    'application/vnd.lotus-screencam' => 
     array (
-      0 => 'scm',
+      'e' => 
+      array (
+        0 => 'scm',
+      ),
     ),
-    'application/vnd.lotus-wordpro' =>
+    'application/vnd.lotus-wordpro' => 
     array (
-      0 => 'lwp',
+      'e' => 
+      array (
+        0 => 'lwp',
+      ),
     ),
-    'application/vnd.macports.portpkg' =>
+    'application/vnd.macports.portpkg' => 
     array (
-      0 => 'portpkg',
+      'e' => 
+      array (
+        0 => 'portpkg',
+      ),
     ),
-    'application/vnd.mcd' =>
+    'application/vnd.mcd' => 
     array (
-      0 => 'mcd',
+      'e' => 
+      array (
+        0 => 'mcd',
+      ),
     ),
-    'application/vnd.medcalcdata' =>
+    'application/vnd.medcalcdata' => 
     array (
-      0 => 'mc1',
+      'e' => 
+      array (
+        0 => 'mc1',
+      ),
     ),
-    'application/vnd.mediastation.cdkey' =>
+    'application/vnd.mediastation.cdkey' => 
     array (
-      0 => 'cdkey',
+      'e' => 
+      array (
+        0 => 'cdkey',
+      ),
     ),
-    'application/vnd.mfer' =>
+    'application/vnd.mfer' => 
     array (
-      0 => 'mwf',
+      'e' => 
+      array (
+        0 => 'mwf',
+      ),
     ),
-    'application/vnd.mfmp' =>
+    'application/vnd.mfmp' => 
     array (
-      0 => 'mfm',
+      'e' => 
+      array (
+        0 => 'mfm',
+      ),
     ),
-    'application/vnd.micrografx.flo' =>
+    'application/vnd.micrografx.flo' => 
     array (
-      0 => 'flo',
+      'e' => 
+      array (
+        0 => 'flo',
+      ),
     ),
-    'application/vnd.micrografx.igx' =>
+    'application/vnd.micrografx.igx' => 
     array (
-      0 => 'igx',
+      'e' => 
+      array (
+        0 => 'igx',
+      ),
     ),
-    'application/vnd.mif' =>
+    'application/vnd.mif' => 
     array (
-      0 => 'mif',
+      'e' => 
+      array (
+        0 => 'mif',
+      ),
     ),
-    'application/vnd.mobius.daf' =>
+    'application/vnd.mobius.daf' => 
     array (
-      0 => 'daf',
+      'e' => 
+      array (
+        0 => 'daf',
+      ),
     ),
-    'application/vnd.mobius.dis' =>
+    'application/vnd.mobius.dis' => 
     array (
-      0 => 'dis',
+      'e' => 
+      array (
+        0 => 'dis',
+      ),
     ),
-    'application/vnd.mobius.mbk' =>
+    'application/vnd.mobius.mbk' => 
     array (
-      0 => 'mbk',
+      'e' => 
+      array (
+        0 => 'mbk',
+      ),
     ),
-    'application/vnd.mobius.mqy' =>
+    'application/vnd.mobius.mqy' => 
     array (
-      0 => 'mqy',
+      'e' => 
+      array (
+        0 => 'mqy',
+      ),
     ),
-    'application/vnd.mobius.msl' =>
+    'application/vnd.mobius.msl' => 
     array (
-      0 => 'msl',
+      'e' => 
+      array (
+        0 => 'msl',
+      ),
     ),
-    'application/vnd.mobius.plc' =>
+    'application/vnd.mobius.plc' => 
     array (
-      0 => 'plc',
+      'e' => 
+      array (
+        0 => 'plc',
+      ),
     ),
-    'application/vnd.mobius.txf' =>
+    'application/vnd.mobius.txf' => 
     array (
-      0 => 'txf',
+      'e' => 
+      array (
+        0 => 'txf',
+      ),
     ),
-    'application/vnd.mophun.application' =>
+    'application/vnd.mophun.application' => 
     array (
-      0 => 'mpn',
+      'e' => 
+      array (
+        0 => 'mpn',
+      ),
     ),
-    'application/vnd.mophun.certificate' =>
+    'application/vnd.mophun.certificate' => 
     array (
-      0 => 'mpc',
+      'e' => 
+      array (
+        0 => 'mpc',
+      ),
     ),
-    'application/vnd.mozilla.xul+xml' =>
+    'application/vnd.mozilla.xul+xml' => 
     array (
-      0 => 'xul',
+      'e' => 
+      array (
+        0 => 'xul',
+      ),
     ),
-    'application/vnd.ms-access' =>
+    'application/vnd.ms-access' => 
     array (
-      0 => 'mdb',
+      'e' => 
+      array (
+        0 => 'mdb',
+      ),
     ),
-    'application/vnd.ms-artgalry' =>
+    'application/vnd.ms-artgalry' => 
     array (
-      0 => 'cil',
+      'e' => 
+      array (
+        0 => 'cil',
+      ),
     ),
-    'application/vnd.ms-asf' =>
+    'application/vnd.ms-asf' => 
     array (
-      0 => 'asf',
+      'e' => 
+      array (
+        0 => 'asf',
+      ),
     ),
-    'application/vnd.ms-cab-compressed' =>
+    'application/vnd.ms-cab-compressed' => 
     array (
-      0 => 'cab',
+      'e' => 
+      array (
+        0 => 'cab',
+      ),
     ),
-    'application/vnd.ms-excel' =>
+    'application/vnd.ms-excel' => 
     array (
-      0 => 'xls',
-      1 => 'xlm',
-      2 => 'xla',
-      3 => 'xlc',
-      4 => 'xlt',
-      5 => 'xlw',
-      6 => 'xll',
-      7 => 'xld',
+      'e' => 
+      array (
+        0 => 'xls',
+        1 => 'xlm',
+        2 => 'xla',
+        3 => 'xlc',
+        4 => 'xlt',
+        5 => 'xlw',
+        6 => 'xll',
+        7 => 'xld',
+      ),
     ),
-    'application/vnd.ms-excel.addin.macroenabled.12' =>
+    'application/vnd.ms-excel.addin.macroenabled.12' => 
     array (
-      0 => 'xlam',
+      'e' => 
+      array (
+        0 => 'xlam',
+      ),
     ),
-    'application/vnd.ms-excel.sheet.binary.macroenabled.12' =>
+    'application/vnd.ms-excel.sheet.binary.macroenabled.12' => 
     array (
-      0 => 'xlsb',
+      'e' => 
+      array (
+        0 => 'xlsb',
+      ),
     ),
-    'application/vnd.ms-excel.sheet.macroenabled.12' =>
+    'application/vnd.ms-excel.sheet.macroenabled.12' => 
     array (
-      0 => 'xlsm',
+      'e' => 
+      array (
+        0 => 'xlsm',
+      ),
     ),
-    'application/vnd.ms-excel.template.macroenabled.12' =>
+    'application/vnd.ms-excel.template.macroenabled.12' => 
     array (
-      0 => 'xltm',
+      'e' => 
+      array (
+        0 => 'xltm',
+      ),
     ),
-    'application/vnd.ms-fontobject' =>
+    'application/vnd.ms-fontobject' => 
     array (
-      0 => 'eot',
+      'e' => 
+      array (
+        0 => 'eot',
+      ),
     ),
-    'application/vnd.ms-htmlhelp' =>
+    'application/vnd.ms-htmlhelp' => 
     array (
-      0 => 'chm',
+      'e' => 
+      array (
+        0 => 'chm',
+      ),
     ),
-    'application/vnd.ms-ims' =>
+    'application/vnd.ms-ims' => 
     array (
-      0 => 'ims',
+      'e' => 
+      array (
+        0 => 'ims',
+      ),
     ),
-    'application/vnd.ms-lrm' =>
+    'application/vnd.ms-lrm' => 
     array (
-      0 => 'lrm',
+      'e' => 
+      array (
+        0 => 'lrm',
+      ),
     ),
-    'application/vnd.ms-officetheme' =>
+    'application/vnd.ms-officetheme' => 
     array (
-      0 => 'thmx',
+      'e' => 
+      array (
+        0 => 'thmx',
+      ),
     ),
-    'application/vnd.ms-pki.seccat' =>
+    'application/vnd.ms-pki.seccat' => 
     array (
-      0 => 'cat',
+      'e' => 
+      array (
+        0 => 'cat',
+      ),
     ),
-    'application/vnd.ms-pki.stl' =>
+    'application/vnd.ms-pki.stl' => 
     array (
-      0 => 'stl',
+      'e' => 
+      array (
+        0 => 'stl',
+      ),
     ),
-    'application/vnd.ms-powerpoint' =>
+    'application/vnd.ms-powerpoint' => 
     array (
-      0 => 'ppt',
-      1 => 'pps',
-      2 => 'pot',
-      3 => 'ppz',
+      'e' => 
+      array (
+        0 => 'ppt',
+        1 => 'pps',
+        2 => 'pot',
+        3 => 'ppz',
+      ),
     ),
-    'application/vnd.ms-powerpoint.addin.macroenabled.12' =>
+    'application/vnd.ms-powerpoint.addin.macroenabled.12' => 
     array (
-      0 => 'ppam',
+      'e' => 
+      array (
+        0 => 'ppam',
+      ),
     ),
-    'application/vnd.ms-powerpoint.presentation.macroenabled.12' =>
+    'application/vnd.ms-powerpoint.presentation.macroenabled.12' => 
     array (
-      0 => 'pptm',
+      'e' => 
+      array (
+        0 => 'pptm',
+      ),
     ),
-    'application/vnd.ms-powerpoint.slide.macroenabled.12' =>
+    'application/vnd.ms-powerpoint.slide.macroenabled.12' => 
     array (
-      0 => 'sldm',
+      'e' => 
+      array (
+        0 => 'sldm',
+      ),
     ),
-    'application/vnd.ms-powerpoint.slideshow.macroenabled.12' =>
+    'application/vnd.ms-powerpoint.slideshow.macroenabled.12' => 
     array (
-      0 => 'ppsm',
+      'e' => 
+      array (
+        0 => 'ppsm',
+      ),
     ),
-    'application/vnd.ms-powerpoint.template.macroenabled.12' =>
+    'application/vnd.ms-powerpoint.template.macroenabled.12' => 
     array (
-      0 => 'potm',
+      'e' => 
+      array (
+        0 => 'potm',
+      ),
     ),
-    'application/vnd.ms-project' =>
+    'application/vnd.ms-project' => 
     array (
-      0 => 'mpp',
-      1 => 'mpt',
+      'e' => 
+      array (
+        0 => 'mpp',
+        1 => 'mpt',
+      ),
     ),
-    'application/vnd.ms-publisher' =>
+    'application/vnd.ms-publisher' => 
     array (
-      0 => 'pub',
+      'e' => 
+      array (
+        0 => 'pub',
+      ),
     ),
-    'application/vnd.ms-tnef' =>
+    'application/vnd.ms-tnef' => 
     array (
-      0 => 'tnef',
-      1 => 'tnf',
+      'e' => 
+      array (
+        0 => 'tnef',
+        1 => 'tnf',
+      ),
     ),
-    'application/vnd.ms-visio.drawing.macroenabled.main+xml' =>
+    'application/vnd.ms-visio.drawing.macroenabled.main+xml' => 
     array (
-      0 => 'vsdm',
+      'e' => 
+      array (
+        0 => 'vsdm',
+      ),
     ),
-    'application/vnd.ms-visio.drawing.main+xml' =>
+    'application/vnd.ms-visio.drawing.main+xml' => 
     array (
-      0 => 'vsdx',
+      'e' => 
+      array (
+        0 => 'vsdx',
+      ),
     ),
-    'application/vnd.ms-visio.stencil.macroenabled.main+xml' =>
+    'application/vnd.ms-visio.stencil.macroenabled.main+xml' => 
     array (
-      0 => 'vssm',
+      'e' => 
+      array (
+        0 => 'vssm',
+      ),
     ),
-    'application/vnd.ms-visio.stencil.main+xml' =>
+    'application/vnd.ms-visio.stencil.main+xml' => 
     array (
-      0 => 'vssx',
+      'e' => 
+      array (
+        0 => 'vssx',
+      ),
     ),
-    'application/vnd.ms-visio.template.macroenabled.main+xml' =>
+    'application/vnd.ms-visio.template.macroenabled.main+xml' => 
     array (
-      0 => 'vstm',
+      'e' => 
+      array (
+        0 => 'vstm',
+      ),
     ),
-    'application/vnd.ms-visio.template.main+xml' =>
+    'application/vnd.ms-visio.template.main+xml' => 
     array (
-      0 => 'vstx',
+      'e' => 
+      array (
+        0 => 'vstx',
+      ),
     ),
-    'application/vnd.ms-word.document.macroenabled.12' =>
+    'application/vnd.ms-word.document.macroenabled.12' => 
     array (
-      0 => 'docm',
+      'e' => 
+      array (
+        0 => 'docm',
+      ),
     ),
-    'application/vnd.ms-word.template.macroenabled.12' =>
+    'application/vnd.ms-word.template.macroenabled.12' => 
     array (
-      0 => 'dotm',
+      'e' => 
+      array (
+        0 => 'dotm',
+      ),
     ),
-    'application/vnd.ms-works' =>
+    'application/vnd.ms-works' => 
     array (
-      0 => 'wps',
-      1 => 'wks',
-      2 => 'wcm',
-      3 => 'wdb',
-      4 => 'xlr',
+      'e' => 
+      array (
+        0 => 'wps',
+        1 => 'wks',
+        2 => 'wcm',
+        3 => 'wdb',
+        4 => 'xlr',
+      ),
     ),
-    'application/vnd.ms-wpl' =>
+    'application/vnd.ms-wpl' => 
     array (
-      0 => 'wpl',
+      'e' => 
+      array (
+        0 => 'wpl',
+      ),
     ),
-    'application/vnd.ms-xpsdocument' =>
+    'application/vnd.ms-xpsdocument' => 
     array (
-      0 => 'xps',
+      'e' => 
+      array (
+        0 => 'xps',
+      ),
     ),
-    'application/vnd.mseq' =>
+    'application/vnd.mseq' => 
     array (
-      0 => 'mseq',
+      'e' => 
+      array (
+        0 => 'mseq',
+      ),
     ),
-    'application/vnd.musician' =>
+    'application/vnd.musician' => 
     array (
-      0 => 'mus',
+      'e' => 
+      array (
+        0 => 'mus',
+      ),
     ),
-    'application/vnd.muvee.style' =>
+    'application/vnd.muvee.style' => 
     array (
-      0 => 'msty',
+      'e' => 
+      array (
+        0 => 'msty',
+      ),
     ),
-    'application/vnd.mynfc' =>
+    'application/vnd.mynfc' => 
     array (
-      0 => 'taglet',
+      'e' => 
+      array (
+        0 => 'taglet',
+      ),
     ),
-    'application/vnd.neurolanguage.nlu' =>
+    'application/vnd.neurolanguage.nlu' => 
     array (
-      0 => 'nlu',
+      'e' => 
+      array (
+        0 => 'nlu',
+      ),
     ),
-    'application/vnd.nintendo.snes.rom' =>
+    'application/vnd.nintendo.snes.rom' => 
     array (
-      0 => 'sfc',
-      1 => 'smc',
+      'e' => 
+      array (
+        0 => 'sfc',
+        1 => 'smc',
+      ),
     ),
-    'application/vnd.nitf' =>
+    'application/vnd.nitf' => 
     array (
-      0 => 'ntf',
-      1 => 'nitf',
+      'e' => 
+      array (
+        0 => 'ntf',
+        1 => 'nitf',
+      ),
     ),
-    'application/vnd.noblenet-directory' =>
+    'application/vnd.noblenet-directory' => 
     array (
-      0 => 'nnd',
+      'e' => 
+      array (
+        0 => 'nnd',
+      ),
     ),
-    'application/vnd.noblenet-sealer' =>
+    'application/vnd.noblenet-sealer' => 
     array (
-      0 => 'nns',
+      'e' => 
+      array (
+        0 => 'nns',
+      ),
     ),
-    'application/vnd.noblenet-web' =>
+    'application/vnd.noblenet-web' => 
     array (
-      0 => 'nnw',
+      'e' => 
+      array (
+        0 => 'nnw',
+      ),
     ),
-    'application/vnd.nokia.n-gage.data' =>
+    'application/vnd.nokia.n-gage.data' => 
     array (
-      0 => 'ngdat',
+      'e' => 
+      array (
+        0 => 'ngdat',
+      ),
     ),
-    'application/vnd.nokia.n-gage.symbian.install' =>
+    'application/vnd.nokia.n-gage.symbian.install' => 
     array (
-      0 => 'n-gage',
+      'e' => 
+      array (
+        0 => 'n-gage',
+      ),
     ),
-    'application/vnd.nokia.radio-preset' =>
+    'application/vnd.nokia.radio-preset' => 
     array (
-      0 => 'rpst',
+      'e' => 
+      array (
+        0 => 'rpst',
+      ),
     ),
-    'application/vnd.nokia.radio-presets' =>
+    'application/vnd.nokia.radio-presets' => 
     array (
-      0 => 'rpss',
+      'e' => 
+      array (
+        0 => 'rpss',
+      ),
     ),
-    'application/vnd.novadigm.edm' =>
+    'application/vnd.novadigm.edm' => 
     array (
-      0 => 'edm',
+      'e' => 
+      array (
+        0 => 'edm',
+      ),
     ),
-    'application/vnd.novadigm.edx' =>
+    'application/vnd.novadigm.edx' => 
     array (
-      0 => 'edx',
+      'e' => 
+      array (
+        0 => 'edx',
+      ),
     ),
-    'application/vnd.novadigm.ext' =>
+    'application/vnd.novadigm.ext' => 
     array (
-      0 => 'ext',
+      'e' => 
+      array (
+        0 => 'ext',
+      ),
     ),
-    'application/vnd.oasis.opendocument.chart' =>
+    'application/vnd.oasis.opendocument.chart' => 
     array (
-      0 => 'odc',
+      'e' => 
+      array (
+        0 => 'odc',
+      ),
     ),
-    'application/vnd.oasis.opendocument.chart-template' =>
+    'application/vnd.oasis.opendocument.chart-template' => 
     array (
-      0 => 'otc',
+      'e' => 
+      array (
+        0 => 'otc',
+      ),
     ),
-    'application/vnd.oasis.opendocument.database' =>
+    'application/vnd.oasis.opendocument.database' => 
     array (
-      0 => 'odb',
+      'e' => 
+      array (
+        0 => 'odb',
+      ),
     ),
-    'application/vnd.oasis.opendocument.formula' =>
+    'application/vnd.oasis.opendocument.formula' => 
     array (
-      0 => 'odf',
+      'e' => 
+      array (
+        0 => 'odf',
+      ),
     ),
-    'application/vnd.oasis.opendocument.formula-template' =>
+    'application/vnd.oasis.opendocument.formula-template' => 
     array (
-      0 => 'odft',
-      1 => 'otf',
+      'e' => 
+      array (
+        0 => 'odft',
+        1 => 'otf',
+      ),
     ),
-    'application/vnd.oasis.opendocument.graphics' =>
+    'application/vnd.oasis.opendocument.graphics' => 
     array (
-      0 => 'odg',
+      'e' => 
+      array (
+        0 => 'odg',
+      ),
     ),
-    'application/vnd.oasis.opendocument.graphics-flat-xml' =>
+    'application/vnd.oasis.opendocument.graphics-flat-xml' => 
     array (
-      0 => 'fodg',
+      'e' => 
+      array (
+        0 => 'fodg',
+      ),
     ),
-    'application/vnd.oasis.opendocument.graphics-template' =>
+    'application/vnd.oasis.opendocument.graphics-template' => 
     array (
-      0 => 'otg',
+      'e' => 
+      array (
+        0 => 'otg',
+      ),
     ),
-    'application/vnd.oasis.opendocument.image' =>
+    'application/vnd.oasis.opendocument.image' => 
     array (
-      0 => 'odi',
+      'e' => 
+      array (
+        0 => 'odi',
+      ),
     ),
-    'application/vnd.oasis.opendocument.image-template' =>
+    'application/vnd.oasis.opendocument.image-template' => 
     array (
-      0 => 'oti',
+      'e' => 
+      array (
+        0 => 'oti',
+      ),
     ),
-    'application/vnd.oasis.opendocument.presentation' =>
+    'application/vnd.oasis.opendocument.presentation' => 
     array (
-      0 => 'odp',
+      'e' => 
+      array (
+        0 => 'odp',
+      ),
     ),
-    'application/vnd.oasis.opendocument.presentation-flat-xml' =>
+    'application/vnd.oasis.opendocument.presentation-flat-xml' => 
     array (
-      0 => 'fodp',
+      'e' => 
+      array (
+        0 => 'fodp',
+      ),
     ),
-    'application/vnd.oasis.opendocument.presentation-template' =>
+    'application/vnd.oasis.opendocument.presentation-template' => 
     array (
-      0 => 'otp',
+      'e' => 
+      array (
+        0 => 'otp',
+      ),
     ),
-    'application/vnd.oasis.opendocument.spreadsheet' =>
+    'application/vnd.oasis.opendocument.spreadsheet' => 
     array (
-      0 => 'ods',
+      'e' => 
+      array (
+        0 => 'ods',
+      ),
     ),
-    'application/vnd.oasis.opendocument.spreadsheet-flat-xml' =>
+    'application/vnd.oasis.opendocument.spreadsheet-flat-xml' => 
     array (
-      0 => 'fods',
+      'e' => 
+      array (
+        0 => 'fods',
+      ),
     ),
-    'application/vnd.oasis.opendocument.spreadsheet-template' =>
+    'application/vnd.oasis.opendocument.spreadsheet-template' => 
     array (
-      0 => 'ots',
+      'e' => 
+      array (
+        0 => 'ots',
+      ),
     ),
-    'application/vnd.oasis.opendocument.text' =>
+    'application/vnd.oasis.opendocument.text' => 
     array (
-      0 => 'odt',
+      'e' => 
+      array (
+        0 => 'odt',
+      ),
     ),
-    'application/vnd.oasis.opendocument.text-flat-xml' =>
+    'application/vnd.oasis.opendocument.text-flat-xml' => 
     array (
-      0 => 'fodt',
+      'e' => 
+      array (
+        0 => 'fodt',
+      ),
     ),
-    'application/vnd.oasis.opendocument.text-master' =>
+    'application/vnd.oasis.opendocument.text-master' => 
     array (
-      0 => 'odm',
+      'e' => 
+      array (
+        0 => 'odm',
+      ),
     ),
-    'application/vnd.oasis.opendocument.text-template' =>
+    'application/vnd.oasis.opendocument.text-template' => 
     array (
-      0 => 'ott',
+      'e' => 
+      array (
+        0 => 'ott',
+      ),
     ),
-    'application/vnd.oasis.opendocument.text-web' =>
+    'application/vnd.oasis.opendocument.text-web' => 
     array (
-      0 => 'oth',
+      'e' => 
+      array (
+        0 => 'oth',
+      ),
     ),
-    'application/vnd.olpc-sugar' =>
+    'application/vnd.olpc-sugar' => 
     array (
-      0 => 'xo',
+      'e' => 
+      array (
+        0 => 'xo',
+      ),
     ),
-    'application/vnd.oma.dd2+xml' =>
+    'application/vnd.oma.dd2+xml' => 
     array (
-      0 => 'dd2',
+      'e' => 
+      array (
+        0 => 'dd2',
+      ),
     ),
-    'application/vnd.openofficeorg.extension' =>
+    'application/vnd.openofficeorg.extension' => 
     array (
-      0 => 'oxt',
+      'e' => 
+      array (
+        0 => 'oxt',
+      ),
     ),
-    'application/vnd.openxmlformats-officedocument.presentationml.presentation' =>
+    'application/vnd.openxmlformats-officedocument.presentationml.presentation' => 
     array (
-      0 => 'pptx',
+      'e' => 
+      array (
+        0 => 'pptx',
+      ),
     ),
-    'application/vnd.openxmlformats-officedocument.presentationml.slide' =>
+    'application/vnd.openxmlformats-officedocument.presentationml.slide' => 
     array (
-      0 => 'sldx',
+      'e' => 
+      array (
+        0 => 'sldx',
+      ),
     ),
-    'application/vnd.openxmlformats-officedocument.presentationml.slideshow' =>
+    'application/vnd.openxmlformats-officedocument.presentationml.slideshow' => 
     array (
-      0 => 'ppsx',
+      'e' => 
+      array (
+        0 => 'ppsx',
+      ),
     ),
-    'application/vnd.openxmlformats-officedocument.presentationml.template' =>
+    'application/vnd.openxmlformats-officedocument.presentationml.template' => 
     array (
-      0 => 'potx',
+      'e' => 
+      array (
+        0 => 'potx',
+      ),
     ),
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' =>
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' => 
     array (
-      0 => 'xlsx',
+      'e' => 
+      array (
+        0 => 'xlsx',
+      ),
     ),
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.template' =>
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.template' => 
     array (
-      0 => 'xltx',
+      'e' => 
+      array (
+        0 => 'xltx',
+      ),
     ),
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.document' =>
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document' => 
     array (
-      0 => 'docx',
+      'e' => 
+      array (
+        0 => 'docx',
+      ),
     ),
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.template' =>
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.template' => 
     array (
-      0 => 'dotx',
+      'e' => 
+      array (
+        0 => 'dotx',
+      ),
     ),
-    'application/vnd.osgeo.mapguide.package' =>
+    'application/vnd.osgeo.mapguide.package' => 
     array (
-      0 => 'mgp',
+      'e' => 
+      array (
+        0 => 'mgp',
+      ),
     ),
-    'application/vnd.osgi.dp' =>
+    'application/vnd.osgi.dp' => 
     array (
-      0 => 'dp',
+      'e' => 
+      array (
+        0 => 'dp',
+      ),
     ),
-    'application/vnd.osgi.subsystem' =>
+    'application/vnd.osgi.subsystem' => 
     array (
-      0 => 'esa',
+      'e' => 
+      array (
+        0 => 'esa',
+      ),
     ),
-    'application/vnd.palm' =>
+    'application/vnd.palm' => 
     array (
-      0 => 'pdb',
-      1 => 'pqa',
-      2 => 'oprc',
-      3 => 'prc',
+      'e' => 
+      array (
+        0 => 'pdb',
+        1 => 'pqa',
+        2 => 'oprc',
+        3 => 'prc',
+      ),
     ),
-    'application/vnd.pawaafile' =>
+    'application/vnd.pawaafile' => 
     array (
-      0 => 'paw',
+      'e' => 
+      array (
+        0 => 'paw',
+      ),
     ),
-    'application/vnd.pg.format' =>
+    'application/vnd.pg.format' => 
     array (
-      0 => 'str',
+      'e' => 
+      array (
+        0 => 'str',
+      ),
     ),
-    'application/vnd.pg.osasli' =>
+    'application/vnd.pg.osasli' => 
     array (
-      0 => 'ei6',
+      'e' => 
+      array (
+        0 => 'ei6',
+      ),
     ),
-    'application/vnd.picsel' =>
+    'application/vnd.picsel' => 
     array (
-      0 => 'efif',
+      'e' => 
+      array (
+        0 => 'efif',
+      ),
     ),
-    'application/vnd.pmi.widget' =>
+    'application/vnd.pmi.widget' => 
     array (
-      0 => 'wg',
+      'e' => 
+      array (
+        0 => 'wg',
+      ),
     ),
-    'application/vnd.pocketlearn' =>
+    'application/vnd.pocketlearn' => 
     array (
-      0 => 'plf',
+      'e' => 
+      array (
+        0 => 'plf',
+      ),
     ),
-    'application/vnd.powerbuilder6' =>
+    'application/vnd.powerbuilder6' => 
     array (
-      0 => 'pbd',
+      'e' => 
+      array (
+        0 => 'pbd',
+      ),
     ),
-    'application/vnd.previewsystems.box' =>
+    'application/vnd.previewsystems.box' => 
     array (
-      0 => 'box',
+      'e' => 
+      array (
+        0 => 'box',
+      ),
     ),
-    'application/vnd.proteus.magazine' =>
+    'application/vnd.proteus.magazine' => 
     array (
-      0 => 'mgz',
+      'e' => 
+      array (
+        0 => 'mgz',
+      ),
     ),
-    'application/vnd.publishare-delta-tree' =>
+    'application/vnd.publishare-delta-tree' => 
     array (
-      0 => 'qps',
+      'e' => 
+      array (
+        0 => 'qps',
+      ),
     ),
-    'application/vnd.pvi.ptid1' =>
+    'application/vnd.pvi.ptid1' => 
     array (
-      0 => 'ptid',
+      'e' => 
+      array (
+        0 => 'ptid',
+      ),
     ),
-    'application/vnd.quark.quarkxpress' =>
+    'application/vnd.quark.quarkxpress' => 
     array (
-      0 => 'qxd',
-      1 => 'qxt',
-      2 => 'qwd',
-      3 => 'qwt',
-      4 => 'qxl',
-      5 => 'qxb',
+      'e' => 
+      array (
+        0 => 'qxd',
+        1 => 'qxt',
+        2 => 'qwd',
+        3 => 'qwt',
+        4 => 'qxl',
+        5 => 'qxb',
+      ),
     ),
-    'application/vnd.rar' =>
+    'application/vnd.rar' => 
     array (
-      0 => 'rar',
+      'e' => 
+      array (
+        0 => 'rar',
+      ),
     ),
-    'application/vnd.realvnc.bed' =>
+    'application/vnd.realvnc.bed' => 
     array (
-      0 => 'bed',
+      'e' => 
+      array (
+        0 => 'bed',
+      ),
     ),
-    'application/vnd.recordare.musicxml' =>
+    'application/vnd.recordare.musicxml' => 
     array (
-      0 => 'mxl',
+      'e' => 
+      array (
+        0 => 'mxl',
+      ),
     ),
-    'application/vnd.recordare.musicxml+xml' =>
+    'application/vnd.recordare.musicxml+xml' => 
     array (
-      0 => 'musicxml',
+      'e' => 
+      array (
+        0 => 'musicxml',
+      ),
     ),
-    'application/vnd.rig.cryptonote' =>
+    'application/vnd.rig.cryptonote' => 
     array (
-      0 => 'cryptonote',
+      'e' => 
+      array (
+        0 => 'cryptonote',
+      ),
     ),
-    'application/vnd.rim.cod' =>
+    'application/vnd.rim.cod' => 
     array (
-      0 => 'cod',
+      'e' => 
+      array (
+        0 => 'cod',
+      ),
     ),
-    'application/vnd.rn-realmedia' =>
+    'application/vnd.rn-realmedia' => 
     array (
-      0 => 'rm',
-      1 => 'rmj',
-      2 => 'rmm',
-      3 => 'rms',
-      4 => 'rmx',
-      5 => 'rmvb',
+      'e' => 
+      array (
+        0 => 'rm',
+        1 => 'rmj',
+        2 => 'rmm',
+        3 => 'rms',
+        4 => 'rmx',
+        5 => 'rmvb',
+      ),
     ),
-    'application/vnd.rn-realmedia-vbr' =>
+    'application/vnd.rn-realmedia-vbr' => 
     array (
-      0 => 'rmvb',
+      'e' => 
+      array (
+        0 => 'rmvb',
+      ),
     ),
-    'application/vnd.route66.link66+xml' =>
+    'application/vnd.route66.link66+xml' => 
     array (
-      0 => 'link66',
+      'e' => 
+      array (
+        0 => 'link66',
+      ),
     ),
-    'application/vnd.sailingtracker.track' =>
+    'application/vnd.sailingtracker.track' => 
     array (
-      0 => 'st',
+      'e' => 
+      array (
+        0 => 'st',
+      ),
     ),
-    'application/vnd.seemail' =>
+    'application/vnd.seemail' => 
     array (
-      0 => 'see',
+      'e' => 
+      array (
+        0 => 'see',
+      ),
     ),
-    'application/vnd.sema' =>
+    'application/vnd.sema' => 
     array (
-      0 => 'sema',
+      'e' => 
+      array (
+        0 => 'sema',
+      ),
     ),
-    'application/vnd.semd' =>
+    'application/vnd.semd' => 
     array (
-      0 => 'semd',
+      'e' => 
+      array (
+        0 => 'semd',
+      ),
     ),
-    'application/vnd.semf' =>
+    'application/vnd.semf' => 
     array (
-      0 => 'semf',
+      'e' => 
+      array (
+        0 => 'semf',
+      ),
     ),
-    'application/vnd.shana.informed.formdata' =>
+    'application/vnd.shana.informed.formdata' => 
     array (
-      0 => 'ifm',
+      'e' => 
+      array (
+        0 => 'ifm',
+      ),
     ),
-    'application/vnd.shana.informed.formtemplate' =>
+    'application/vnd.shana.informed.formtemplate' => 
     array (
-      0 => 'itp',
+      'e' => 
+      array (
+        0 => 'itp',
+      ),
     ),
-    'application/vnd.shana.informed.interchange' =>
+    'application/vnd.shana.informed.interchange' => 
     array (
-      0 => 'iif',
+      'e' => 
+      array (
+        0 => 'iif',
+      ),
     ),
-    'application/vnd.shana.informed.package' =>
+    'application/vnd.shana.informed.package' => 
     array (
-      0 => 'ipk',
+      'e' => 
+      array (
+        0 => 'ipk',
+      ),
     ),
-    'application/vnd.simtech-mindmapper' =>
+    'application/vnd.simtech-mindmapper' => 
     array (
-      0 => 'twd',
-      1 => 'twds',
+      'e' => 
+      array (
+        0 => 'twd',
+        1 => 'twds',
+      ),
     ),
-    'application/vnd.smaf' =>
+    'application/vnd.smaf' => 
     array (
-      0 => 'mmf',
+      'e' => 
+      array (
+        0 => 'mmf',
+      ),
     ),
-    'application/vnd.smart.teacher' =>
+    'application/vnd.smart.teacher' => 
     array (
-      0 => 'teacher',
+      'e' => 
+      array (
+        0 => 'teacher',
+      ),
     ),
-    'application/vnd.snap' =>
+    'application/vnd.snap' => 
     array (
-      0 => 'snap',
+      'e' => 
+      array (
+        0 => 'snap',
+      ),
     ),
-    'application/vnd.solent.sdkm+xml' =>
+    'application/vnd.solent.sdkm+xml' => 
     array (
-      0 => 'sdkm',
-      1 => 'sdkd',
+      'e' => 
+      array (
+        0 => 'sdkm',
+        1 => 'sdkd',
+      ),
     ),
-    'application/vnd.spotfire.dxp' =>
+    'application/vnd.spotfire.dxp' => 
     array (
-      0 => 'dxp',
+      'e' => 
+      array (
+        0 => 'dxp',
+      ),
     ),
-    'application/vnd.spotfire.sfs' =>
+    'application/vnd.spotfire.sfs' => 
     array (
-      0 => 'sfs',
+      'e' => 
+      array (
+        0 => 'sfs',
+      ),
     ),
-    'application/vnd.sqlite3' =>
+    'application/vnd.sqlite3' => 
     array (
-      0 => 'sqlite3',
+      'e' => 
+      array (
+        0 => 'sqlite3',
+      ),
     ),
-    'application/vnd.squashfs' =>
+    'application/vnd.squashfs' => 
     array (
-      0 => 'sqsh',
+      'e' => 
+      array (
+        0 => 'sqsh',
+      ),
     ),
-    'application/vnd.stardivision.calc' =>
+    'application/vnd.stardivision.calc' => 
     array (
-      0 => 'sdc',
+      'e' => 
+      array (
+        0 => 'sdc',
+      ),
     ),
-    'application/vnd.stardivision.chart' =>
+    'application/vnd.stardivision.chart' => 
     array (
-      0 => 'sds',
+      'e' => 
+      array (
+        0 => 'sds',
+      ),
     ),
-    'application/vnd.stardivision.draw' =>
+    'application/vnd.stardivision.draw' => 
     array (
-      0 => 'sda',
+      'e' => 
+      array (
+        0 => 'sda',
+      ),
     ),
-    'application/vnd.stardivision.impress' =>
+    'application/vnd.stardivision.impress' => 
     array (
-      0 => 'sdd',
-      1 => 'sdp',
+      'e' => 
+      array (
+        0 => 'sdd',
+        1 => 'sdp',
+      ),
     ),
-    'application/vnd.stardivision.mail' =>
+    'application/vnd.stardivision.mail' => 
     array (
-      0 => 'smd',
+      'e' => 
+      array (
+        0 => 'smd',
+      ),
     ),
-    'application/vnd.stardivision.math' =>
+    'application/vnd.stardivision.math' => 
     array (
-      0 => 'smf',
+      'e' => 
+      array (
+        0 => 'smf',
+      ),
     ),
-    'application/vnd.stardivision.writer' =>
+    'application/vnd.stardivision.writer' => 
     array (
-      0 => 'sdw',
-      1 => 'vor',
-      2 => 'sgl',
+      'e' => 
+      array (
+        0 => 'sdw',
+        1 => 'vor',
+        2 => 'sgl',
+      ),
     ),
-    'application/vnd.stardivision.writer-global' =>
+    'application/vnd.stardivision.writer-global' => 
     array (
-      0 => 'sgl',
+      'e' => 
+      array (
+        0 => 'sgl',
+      ),
     ),
-    'application/vnd.stepmania.package' =>
+    'application/vnd.stepmania.package' => 
     array (
-      0 => 'smzip',
+      'e' => 
+      array (
+        0 => 'smzip',
+      ),
     ),
-    'application/vnd.stepmania.stepchart' =>
+    'application/vnd.stepmania.stepchart' => 
     array (
-      0 => 'sm',
+      'e' => 
+      array (
+        0 => 'sm',
+      ),
     ),
-    'application/vnd.sun.xml.calc' =>
+    'application/vnd.sun.xml.calc' => 
     array (
-      0 => 'sxc',
+      'e' => 
+      array (
+        0 => 'sxc',
+      ),
     ),
-    'application/vnd.sun.xml.calc.template' =>
+    'application/vnd.sun.xml.calc.template' => 
     array (
-      0 => 'stc',
+      'e' => 
+      array (
+        0 => 'stc',
+      ),
     ),
-    'application/vnd.sun.xml.draw' =>
+    'application/vnd.sun.xml.draw' => 
     array (
-      0 => 'sxd',
+      'e' => 
+      array (
+        0 => 'sxd',
+      ),
     ),
-    'application/vnd.sun.xml.draw.template' =>
+    'application/vnd.sun.xml.draw.template' => 
     array (
-      0 => 'std',
+      'e' => 
+      array (
+        0 => 'std',
+      ),
     ),
-    'application/vnd.sun.xml.impress' =>
+    'application/vnd.sun.xml.impress' => 
     array (
-      0 => 'sxi',
+      'e' => 
+      array (
+        0 => 'sxi',
+      ),
     ),
-    'application/vnd.sun.xml.impress.template' =>
+    'application/vnd.sun.xml.impress.template' => 
     array (
-      0 => 'sti',
+      'e' => 
+      array (
+        0 => 'sti',
+      ),
     ),
-    'application/vnd.sun.xml.math' =>
+    'application/vnd.sun.xml.math' => 
     array (
-      0 => 'sxm',
+      'e' => 
+      array (
+        0 => 'sxm',
+      ),
     ),
-    'application/vnd.sun.xml.writer' =>
+    'application/vnd.sun.xml.writer' => 
     array (
-      0 => 'sxw',
+      'e' => 
+      array (
+        0 => 'sxw',
+      ),
     ),
-    'application/vnd.sun.xml.writer.global' =>
+    'application/vnd.sun.xml.writer.global' => 
     array (
-      0 => 'sxg',
+      'e' => 
+      array (
+        0 => 'sxg',
+      ),
     ),
-    'application/vnd.sun.xml.writer.template' =>
+    'application/vnd.sun.xml.writer.template' => 
     array (
-      0 => 'stw',
+      'e' => 
+      array (
+        0 => 'stw',
+      ),
     ),
-    'application/vnd.sus-calendar' =>
+    'application/vnd.sus-calendar' => 
     array (
-      0 => 'sus',
-      1 => 'susp',
+      'e' => 
+      array (
+        0 => 'sus',
+        1 => 'susp',
+      ),
     ),
-    'application/vnd.svd' =>
+    'application/vnd.svd' => 
     array (
-      0 => 'svd',
+      'e' => 
+      array (
+        0 => 'svd',
+      ),
     ),
-    'application/vnd.symbian.install' =>
+    'application/vnd.symbian.install' => 
     array (
-      0 => 'sis',
-      1 => 'sisx',
+      'e' => 
+      array (
+        0 => 'sis',
+        1 => 'sisx',
+      ),
     ),
-    'application/vnd.syncml+xml' =>
+    'application/vnd.syncml+xml' => 
     array (
-      0 => 'xsm',
+      'e' => 
+      array (
+        0 => 'xsm',
+      ),
     ),
-    'application/vnd.syncml.dm+wbxml' =>
+    'application/vnd.syncml.dm+wbxml' => 
     array (
-      0 => 'bdm',
+      'e' => 
+      array (
+        0 => 'bdm',
+      ),
     ),
-    'application/vnd.syncml.dm+xml' =>
+    'application/vnd.syncml.dm+xml' => 
     array (
-      0 => 'xdm',
+      'e' => 
+      array (
+        0 => 'xdm',
+      ),
     ),
-    'application/vnd.tao.intent-module-archive' =>
+    'application/vnd.tao.intent-module-archive' => 
     array (
-      0 => 'tao',
+      'e' => 
+      array (
+        0 => 'tao',
+      ),
     ),
-    'application/vnd.tcpdump.pcap' =>
+    'application/vnd.tcpdump.pcap' => 
     array (
-      0 => 'pcap',
-      1 => 'cap',
-      2 => 'dmp',
+      'e' => 
+      array (
+        0 => 'pcap',
+        1 => 'cap',
+        2 => 'dmp',
+      ),
     ),
-    'application/vnd.tmobile-livetv' =>
+    'application/vnd.tmobile-livetv' => 
     array (
-      0 => 'tmo',
+      'e' => 
+      array (
+        0 => 'tmo',
+      ),
     ),
-    'application/vnd.trid.tpt' =>
+    'application/vnd.trid.tpt' => 
     array (
-      0 => 'tpt',
+      'e' => 
+      array (
+        0 => 'tpt',
+      ),
     ),
-    'application/vnd.triscape.mxs' =>
+    'application/vnd.triscape.mxs' => 
     array (
-      0 => 'mxs',
+      'e' => 
+      array (
+        0 => 'mxs',
+      ),
     ),
-    'application/vnd.trueapp' =>
+    'application/vnd.trueapp' => 
     array (
-      0 => 'tra',
+      'e' => 
+      array (
+        0 => 'tra',
+      ),
     ),
-    'application/vnd.ufdl' =>
+    'application/vnd.ufdl' => 
     array (
-      0 => 'ufd',
-      1 => 'ufdl',
+      'e' => 
+      array (
+        0 => 'ufd',
+        1 => 'ufdl',
+      ),
     ),
-    'application/vnd.uiq.theme' =>
+    'application/vnd.uiq.theme' => 
     array (
-      0 => 'utz',
+      'e' => 
+      array (
+        0 => 'utz',
+      ),
     ),
-    'application/vnd.umajin' =>
+    'application/vnd.umajin' => 
     array (
-      0 => 'umj',
+      'e' => 
+      array (
+        0 => 'umj',
+      ),
     ),
-    'application/vnd.unity' =>
+    'application/vnd.unity' => 
     array (
-      0 => 'unityweb',
+      'e' => 
+      array (
+        0 => 'unityweb',
+      ),
     ),
-    'application/vnd.uoml+xml' =>
+    'application/vnd.uoml+xml' => 
     array (
-      0 => 'uoml',
+      'e' => 
+      array (
+        0 => 'uoml',
+      ),
     ),
-    'application/vnd.vcx' =>
+    'application/vnd.vcx' => 
     array (
-      0 => 'vcx',
+      'e' => 
+      array (
+        0 => 'vcx',
+      ),
     ),
-    'application/vnd.visio' =>
+    'application/vnd.visio' => 
     array (
-      0 => 'vsd',
-      1 => 'vst',
-      2 => 'vss',
-      3 => 'vsw',
+      'e' => 
+      array (
+        0 => 'vsd',
+        1 => 'vst',
+        2 => 'vss',
+        3 => 'vsw',
+      ),
     ),
-    'application/vnd.visionary' =>
+    'application/vnd.visionary' => 
     array (
-      0 => 'vis',
+      'e' => 
+      array (
+        0 => 'vis',
+      ),
     ),
-    'application/vnd.vsf' =>
+    'application/vnd.vsf' => 
     array (
-      0 => 'vsf',
+      'e' => 
+      array (
+        0 => 'vsf',
+      ),
     ),
-    'application/vnd.wap.wbxml' =>
+    'application/vnd.wap.wbxml' => 
     array (
-      0 => 'wbxml',
+      'e' => 
+      array (
+        0 => 'wbxml',
+      ),
     ),
-    'application/vnd.wap.wmlc' =>
+    'application/vnd.wap.wmlc' => 
     array (
-      0 => 'wmlc',
+      'e' => 
+      array (
+        0 => 'wmlc',
+      ),
     ),
-    'application/vnd.wap.wmlscriptc' =>
+    'application/vnd.wap.wmlscriptc' => 
     array (
-      0 => 'wmlsc',
+      'e' => 
+      array (
+        0 => 'wmlsc',
+      ),
     ),
-    'application/vnd.webturbo' =>
+    'application/vnd.webturbo' => 
     array (
-      0 => 'wtb',
+      'e' => 
+      array (
+        0 => 'wtb',
+      ),
     ),
-    'application/vnd.wolfram.player' =>
+    'application/vnd.wolfram.player' => 
     array (
-      0 => 'nbp',
+      'e' => 
+      array (
+        0 => 'nbp',
+      ),
     ),
-    'application/vnd.wordperfect' =>
+    'application/vnd.wordperfect' => 
     array (
-      0 => 'wpd',
-      1 => 'wp',
-      2 => 'wp4',
-      3 => 'wp5',
-      4 => 'wp6',
-      5 => 'wpp',
+      'e' => 
+      array (
+        0 => 'wpd',
+        1 => 'wp',
+        2 => 'wp4',
+        3 => 'wp5',
+        4 => 'wp6',
+        5 => 'wpp',
+      ),
     ),
-    'application/vnd.wqd' =>
+    'application/vnd.wqd' => 
     array (
-      0 => 'wqd',
+      'e' => 
+      array (
+        0 => 'wqd',
+      ),
     ),
-    'application/vnd.wt.stf' =>
+    'application/vnd.wt.stf' => 
     array (
-      0 => 'stf',
+      'e' => 
+      array (
+        0 => 'stf',
+      ),
     ),
-    'application/vnd.xara' =>
+    'application/vnd.xara' => 
     array (
-      0 => 'xar',
+      'e' => 
+      array (
+        0 => 'xar',
+      ),
     ),
-    'application/vnd.xfdl' =>
+    'application/vnd.xfdl' => 
     array (
-      0 => 'xfdl',
+      'e' => 
+      array (
+        0 => 'xfdl',
+      ),
     ),
-    'application/vnd.yamaha.hv-dic' =>
+    'application/vnd.yamaha.hv-dic' => 
     array (
-      0 => 'hvd',
+      'e' => 
+      array (
+        0 => 'hvd',
+      ),
     ),
-    'application/vnd.yamaha.hv-script' =>
+    'application/vnd.yamaha.hv-script' => 
     array (
-      0 => 'hvs',
+      'e' => 
+      array (
+        0 => 'hvs',
+      ),
     ),
-    'application/vnd.yamaha.hv-voice' =>
+    'application/vnd.yamaha.hv-voice' => 
     array (
-      0 => 'hvp',
+      'e' => 
+      array (
+        0 => 'hvp',
+      ),
     ),
-    'application/vnd.yamaha.openscoreformat' =>
+    'application/vnd.yamaha.openscoreformat' => 
     array (
-      0 => 'osf',
+      'e' => 
+      array (
+        0 => 'osf',
+      ),
     ),
-    'application/vnd.yamaha.openscoreformat.osfpvg+xml' =>
+    'application/vnd.yamaha.openscoreformat.osfpvg+xml' => 
     array (
-      0 => 'osfpvg',
+      'e' => 
+      array (
+        0 => 'osfpvg',
+      ),
     ),
-    'application/vnd.yamaha.smaf-audio' =>
+    'application/vnd.yamaha.smaf-audio' => 
     array (
-      0 => 'saf',
+      'e' => 
+      array (
+        0 => 'saf',
+      ),
     ),
-    'application/vnd.yamaha.smaf-phrase' =>
+    'application/vnd.yamaha.smaf-phrase' => 
     array (
-      0 => 'spf',
+      'e' => 
+      array (
+        0 => 'spf',
+      ),
     ),
-    'application/vnd.yellowriver-custom-menu' =>
+    'application/vnd.yellowriver-custom-menu' => 
     array (
-      0 => 'cmp',
+      'e' => 
+      array (
+        0 => 'cmp',
+      ),
     ),
-    'application/vnd.youtube.yt' =>
+    'application/vnd.youtube.yt' => 
     array (
-      0 => 'yt',
+      'e' => 
+      array (
+        0 => 'yt',
+      ),
     ),
-    'application/vnd.zul' =>
+    'application/vnd.zul' => 
     array (
-      0 => 'zir',
-      1 => 'zirz',
+      'e' => 
+      array (
+        0 => 'zir',
+        1 => 'zirz',
+      ),
     ),
-    'application/vnd.zzazz.deck+xml' =>
+    'application/vnd.zzazz.deck+xml' => 
     array (
-      0 => 'zaz',
+      'e' => 
+      array (
+        0 => 'zaz',
+      ),
     ),
-    'application/voicexml+xml' =>
+    'application/voicexml+xml' => 
     array (
-      0 => 'vxml',
+      'e' => 
+      array (
+        0 => 'vxml',
+      ),
     ),
-    'application/widget' =>
+    'application/widget' => 
     array (
-      0 => 'wgt',
+      'e' => 
+      array (
+        0 => 'wgt',
+      ),
     ),
-    'application/winhlp' =>
+    'application/winhlp' => 
     array (
-      0 => 'hlp',
+      'e' => 
+      array (
+        0 => 'hlp',
+      ),
     ),
-    'application/wsdl+xml' =>
+    'application/wsdl+xml' => 
     array (
-      0 => 'wsdl',
+      'e' => 
+      array (
+        0 => 'wsdl',
+      ),
     ),
-    'application/wspolicy+xml' =>
+    'application/wspolicy+xml' => 
     array (
-      0 => 'wspolicy',
+      'e' => 
+      array (
+        0 => 'wspolicy',
+      ),
     ),
-    'application/x-7z-compressed' =>
+    'application/x-7z-compressed' => 
     array (
-      0 => '7z',
+      'e' => 
+      array (
+        0 => '7z',
+      ),
     ),
-    'application/x-abiword' =>
+    'application/x-abiword' => 
     array (
-      0 => 'abw',
-      1 => 'abw.crashed',
-      2 => 'abw.gz',
-      3 => 'zabw',
+      'e' => 
+      array (
+        0 => 'abw',
+        1 => 'abw.crashed',
+        2 => 'abw.gz',
+        3 => 'zabw',
+      ),
     ),
-    'application/x-ace' =>
+    'application/x-ace' => 
     array (
-      0 => 'ace',
+      'e' => 
+      array (
+        0 => 'ace',
+      ),
     ),
-    'application/x-ace-compressed' =>
+    'application/x-ace-compressed' => 
     array (
-      0 => 'ace',
+      'e' => 
+      array (
+        0 => 'ace',
+      ),
     ),
-    'application/x-alz' =>
+    'application/x-alz' => 
     array (
-      0 => 'alz',
+      'e' => 
+      array (
+        0 => 'alz',
+      ),
     ),
-    'application/x-amiga-disk-format' =>
+    'application/x-amiga-disk-format' => 
     array (
-      0 => 'adf',
+      'e' => 
+      array (
+        0 => 'adf',
+      ),
     ),
-    'application/x-amipro' =>
+    'application/x-amipro' => 
     array (
-      0 => 'sam',
+      'e' => 
+      array (
+        0 => 'sam',
+      ),
     ),
-    'application/x-aportisdoc' =>
+    'application/x-aportisdoc' => 
     array (
-      0 => 'pdb',
-      1 => 'pdc',
+      'e' => 
+      array (
+        0 => 'pdb',
+        1 => 'pdc',
+      ),
     ),
-    'application/x-apple-diskimage' =>
+    'application/x-apple-diskimage' => 
     array (
-      0 => 'dmg',
+      'e' => 
+      array (
+        0 => 'dmg',
+      ),
     ),
-    'application/x-applix-spreadsheet' =>
+    'application/x-applix-spreadsheet' => 
     array (
-      0 => 'as',
+      'e' => 
+      array (
+        0 => 'as',
+      ),
     ),
-    'application/x-applix-word' =>
+    'application/x-applix-word' => 
     array (
-      0 => 'aw',
+      'e' => 
+      array (
+        0 => 'aw',
+      ),
     ),
-    'application/x-archive' =>
+    'application/x-archive' => 
     array (
-      0 => 'a',
-      1 => 'ar',
+      'e' => 
+      array (
+        0 => 'a',
+        1 => 'ar',
+      ),
     ),
-    'application/x-arj' =>
+    'application/x-arj' => 
     array (
-      0 => 'arj',
+      'e' => 
+      array (
+        0 => 'arj',
+      ),
     ),
-    'application/x-asp' =>
+    'application/x-asp' => 
     array (
-      0 => 'asp',
+      'e' => 
+      array (
+        0 => 'asp',
+      ),
     ),
-    'application/x-atari-2600-rom' =>
+    'application/x-atari-2600-rom' => 
     array (
-      0 => 'a26',
+      'e' => 
+      array (
+        0 => 'a26',
+      ),
     ),
-    'application/x-atari-7800-rom' =>
+    'application/x-atari-7800-rom' => 
     array (
-      0 => 'a78',
+      'e' => 
+      array (
+        0 => 'a78',
+      ),
     ),
-    'application/x-atari-lynx-rom' =>
+    'application/x-atari-lynx-rom' => 
     array (
-      0 => 'lnx',
+      'e' => 
+      array (
+        0 => 'lnx',
+      ),
     ),
-    'application/x-authorware-bin' =>
+    'application/x-authorware-bin' => 
     array (
-      0 => 'aab',
-      1 => 'x32',
-      2 => 'u32',
-      3 => 'vox',
+      'e' => 
+      array (
+        0 => 'aab',
+        1 => 'x32',
+        2 => 'u32',
+        3 => 'vox',
+      ),
     ),
-    'application/x-authorware-map' =>
+    'application/x-authorware-map' => 
     array (
-      0 => 'aam',
+      'e' => 
+      array (
+        0 => 'aam',
+      ),
     ),
-    'application/x-authorware-seg' =>
+    'application/x-authorware-seg' => 
     array (
-      0 => 'aas',
+      'e' => 
+      array (
+        0 => 'aas',
+      ),
     ),
-    'application/x-awk' =>
+    'application/x-awk' => 
     array (
-      0 => 'awk',
+      'e' => 
+      array (
+        0 => 'awk',
+      ),
     ),
-    'application/x-bcpio' =>
+    'application/x-bcpio' => 
     array (
-      0 => 'bcpio',
+      'e' => 
+      array (
+        0 => 'bcpio',
+      ),
     ),
-    'application/x-bittorrent' =>
+    'application/x-bittorrent' => 
     array (
-      0 => 'torrent',
+      'e' => 
+      array (
+        0 => 'torrent',
+      ),
     ),
-    'application/x-blender' =>
+    'application/x-blender' => 
     array (
-      0 => 'blender',
-      1 => 'blend',
+      'e' => 
+      array (
+        0 => 'blender',
+        1 => 'blend',
+      ),
     ),
-    'application/x-blorb' =>
+    'application/x-blorb' => 
     array (
-      0 => 'blb',
-      1 => 'blorb',
+      'e' => 
+      array (
+        0 => 'blb',
+        1 => 'blorb',
+      ),
     ),
-    'application/x-bsdiff' =>
+    'application/x-bsdiff' => 
     array (
-      0 => 'bsdiff',
+      'e' => 
+      array (
+        0 => 'bsdiff',
+      ),
     ),
-    'application/x-bzdvi' =>
+    'application/x-bzdvi' => 
     array (
-      0 => 'dvi.bz2',
+      'e' => 
+      array (
+        0 => 'dvi.bz2',
+      ),
     ),
-    'application/x-bzip' =>
+    'application/x-bzip' => 
     array (
-      0 => 'bz',
-      1 => 'bz2',
+      'e' => 
+      array (
+        0 => 'bz',
+        1 => 'bz2',
+      ),
     ),
-    'application/x-bzip-compressed-tar' =>
+    'application/x-bzip-compressed-tar' => 
     array (
-      0 => 'tar.bz2',
-      1 => 'tar.bz',
-      2 => 'tbz2',
-      3 => 'tbz',
-      4 => 'tb2',
+      'e' => 
+      array (
+        0 => 'tar.bz2',
+        1 => 'tar.bz',
+        2 => 'tbz2',
+        3 => 'tbz',
+        4 => 'tb2',
+      ),
     ),
-    'application/x-bzip2' =>
+    'application/x-bzip2' => 
     array (
-      0 => 'bz2',
-      1 => 'boz',
+      'e' => 
+      array (
+        0 => 'bz2',
+        1 => 'boz',
+      ),
     ),
-    'application/x-bzpdf' =>
+    'application/x-bzpdf' => 
     array (
-      0 => 'pdf.bz2',
+      'e' => 
+      array (
+        0 => 'pdf.bz2',
+      ),
     ),
-    'application/x-bzpostscript' =>
+    'application/x-bzpostscript' => 
     array (
-      0 => 'ps.bz2',
+      'e' => 
+      array (
+        0 => 'ps.bz2',
+      ),
     ),
-    'application/x-cb7' =>
+    'application/x-cb7' => 
     array (
-      0 => 'cb7',
+      'e' => 
+      array (
+        0 => 'cb7',
+      ),
     ),
-    'application/x-cbr' =>
+    'application/x-cbr' => 
     array (
-      0 => 'cbr',
-      1 => 'cba',
-      2 => 'cbt',
-      3 => 'cbz',
-      4 => 'cb7',
+      'e' => 
+      array (
+        0 => 'cbr',
+        1 => 'cba',
+        2 => 'cbt',
+        3 => 'cbz',
+        4 => 'cb7',
+      ),
     ),
-    'application/x-cbt' =>
+    'application/x-cbt' => 
     array (
-      0 => 'cbt',
+      'e' => 
+      array (
+        0 => 'cbt',
+      ),
     ),
-    'application/x-ccmx' =>
+    'application/x-ccmx' => 
     array (
-      0 => 'ccmx',
+      'e' => 
+      array (
+        0 => 'ccmx',
+      ),
     ),
-    'application/x-cd-image' =>
+    'application/x-cd-image' => 
     array (
-      0 => 'iso',
-      1 => 'iso9660',
+      'e' => 
+      array (
+        0 => 'iso',
+        1 => 'iso9660',
+      ),
     ),
-    'application/x-cdlink' =>
+    'application/x-cdlink' => 
     array (
-      0 => 'vcd',
+      'e' => 
+      array (
+        0 => 'vcd',
+      ),
     ),
-    'application/x-cdrdao-toc' =>
+    'application/x-cdrdao-toc' => 
     array (
-      0 => 'toc',
+      'e' => 
+      array (
+        0 => 'toc',
+      ),
     ),
-    'application/x-cfs-compressed' =>
+    'application/x-cfs-compressed' => 
     array (
-      0 => 'cfs',
+      'e' => 
+      array (
+        0 => 'cfs',
+      ),
     ),
-    'application/x-chat' =>
+    'application/x-chat' => 
     array (
-      0 => 'chat',
+      'e' => 
+      array (
+        0 => 'chat',
+      ),
     ),
-    'application/x-chess-pgn' =>
+    'application/x-chess-pgn' => 
     array (
-      0 => 'pgn',
+      'e' => 
+      array (
+        0 => 'pgn',
+      ),
     ),
-    'application/x-cisco-vpn-settings' =>
+    'application/x-cisco-vpn-settings' => 
     array (
-      0 => 'pcf',
+      'e' => 
+      array (
+        0 => 'pcf',
+      ),
     ),
-    'application/x-compress' =>
+    'application/x-compress' => 
     array (
-      0 => 'z',
+      'e' => 
+      array (
+        0 => 'z',
+      ),
     ),
-    'application/x-compressed-tar' =>
+    'application/x-compressed-tar' => 
     array (
-      0 => 'tar.gz',
-      1 => 'tgz',
+      'e' => 
+      array (
+        0 => 'tar.gz',
+        1 => 'tgz',
+      ),
     ),
-    'application/x-conference' =>
+    'application/x-conference' => 
     array (
-      0 => 'nsc',
+      'e' => 
+      array (
+        0 => 'nsc',
+      ),
     ),
-    'application/x-cpio' =>
+    'application/x-cpio' => 
     array (
-      0 => 'cpio',
+      'e' => 
+      array (
+        0 => 'cpio',
+      ),
     ),
-    'application/x-cpio-compressed' =>
+    'application/x-cpio-compressed' => 
     array (
-      0 => 'cpio.gz',
+      'e' => 
+      array (
+        0 => 'cpio.gz',
+      ),
     ),
-    'application/x-csh' =>
+    'application/x-csh' => 
     array (
-      0 => 'csh',
+      'e' => 
+      array (
+        0 => 'csh',
+      ),
     ),
-    'application/x-cue' =>
+    'application/x-cue' => 
     array (
-      0 => 'cue',
+      'e' => 
+      array (
+        0 => 'cue',
+      ),
     ),
-    'application/x-dar' =>
+    'application/x-dar' => 
     array (
-      0 => 'dar',
+      'e' => 
+      array (
+        0 => 'dar',
+      ),
     ),
-    'application/x-dbf' =>
+    'application/x-dbf' => 
     array (
-      0 => 'dbf',
+      'e' => 
+      array (
+        0 => 'dbf',
+      ),
     ),
-    'application/x-dc-rom' =>
+    'application/x-dc-rom' => 
     array (
-      0 => 'dc',
+      'e' => 
+      array (
+        0 => 'dc',
+      ),
     ),
-    'application/x-debian-package' =>
+    'application/x-debian-package' => 
     array (
-      0 => 'deb',
-      1 => 'udeb',
+      'e' => 
+      array (
+        0 => 'deb',
+        1 => 'udeb',
+      ),
     ),
-    'application/x-designer' =>
+    'application/x-designer' => 
     array (
-      0 => 'ui',
+      'e' => 
+      array (
+        0 => 'ui',
+      ),
     ),
-    'application/x-desktop' =>
+    'application/x-desktop' => 
     array (
-      0 => 'desktop',
-      1 => 'kdelnk',
+      'e' => 
+      array (
+        0 => 'desktop',
+        1 => 'kdelnk',
+      ),
     ),
-    'application/x-dgc-compressed' =>
+    'application/x-dgc-compressed' => 
     array (
-      0 => 'dgc',
+      'e' => 
+      array (
+        0 => 'dgc',
+      ),
     ),
-    'application/x-dia-diagram' =>
+    'application/x-dia-diagram' => 
     array (
-      0 => 'dia',
+      'e' => 
+      array (
+        0 => 'dia',
+      ),
     ),
-    'application/x-dia-shape' =>
+    'application/x-dia-shape' => 
     array (
-      0 => 'shape',
+      'e' => 
+      array (
+        0 => 'shape',
+      ),
     ),
-    'application/x-director' =>
+    'application/x-director' => 
     array (
-      0 => 'dir',
-      1 => 'dcr',
-      2 => 'dxr',
-      3 => 'cst',
-      4 => 'cct',
-      5 => 'cxt',
-      6 => 'w3d',
-      7 => 'fgd',
-      8 => 'swa',
+      'e' => 
+      array (
+        0 => 'dir',
+        1 => 'dcr',
+        2 => 'dxr',
+        3 => 'cst',
+        4 => 'cct',
+        5 => 'cxt',
+        6 => 'w3d',
+        7 => 'fgd',
+        8 => 'swa',
+      ),
     ),
-    'application/x-docbook+xml' =>
+    'application/x-docbook+xml' => 
     array (
-      0 => 'dbk',
-      1 => 'docbook',
+      'e' => 
+      array (
+        0 => 'dbk',
+        1 => 'docbook',
+      ),
     ),
-    'application/x-doom' =>
+    'application/x-doom' => 
     array (
-      0 => 'wad',
+      'e' => 
+      array (
+        0 => 'wad',
+      ),
     ),
-    'application/x-doom-wad' =>
+    'application/x-doom-wad' => 
     array (
-      0 => 'wad',
+      'e' => 
+      array (
+        0 => 'wad',
+      ),
     ),
-    'application/x-dtbncx+xml' =>
+    'application/x-dtbncx+xml' => 
     array (
-      0 => 'ncx',
+      'e' => 
+      array (
+        0 => 'ncx',
+      ),
     ),
-    'application/x-dtbook+xml' =>
+    'application/x-dtbook+xml' => 
     array (
-      0 => 'dtb',
+      'e' => 
+      array (
+        0 => 'dtb',
+      ),
     ),
-    'application/x-dtbresource+xml' =>
+    'application/x-dtbresource+xml' => 
     array (
-      0 => 'res',
+      'e' => 
+      array (
+        0 => 'res',
+      ),
     ),
-    'application/x-dvi' =>
+    'application/x-dvi' => 
     array (
-      0 => 'dvi',
+      'e' => 
+      array (
+        0 => 'dvi',
+      ),
     ),
-    'application/x-e-theme' =>
+    'application/x-e-theme' => 
     array (
-      0 => 'etheme',
+      'e' => 
+      array (
+        0 => 'etheme',
+      ),
     ),
-    'application/x-egon' =>
+    'application/x-egon' => 
     array (
-      0 => 'egon',
+      'e' => 
+      array (
+        0 => 'egon',
+      ),
     ),
-    'application/x-envoy' =>
+    'application/x-envoy' => 
     array (
-      0 => 'evy',
+      'e' => 
+      array (
+        0 => 'evy',
+      ),
     ),
-    'application/x-eva' =>
+    'application/x-eva' => 
     array (
-      0 => 'eva',
+      'e' => 
+      array (
+        0 => 'eva',
+      ),
     ),
-    'application/x-fds-disk' =>
+    'application/x-fds-disk' => 
     array (
-      0 => 'fds',
+      'e' => 
+      array (
+        0 => 'fds',
+      ),
     ),
-    'application/x-fictionbook+xml' =>
+    'application/x-fictionbook+xml' => 
     array (
-      0 => 'fb2',
+      'e' => 
+      array (
+        0 => 'fb2',
+      ),
     ),
-    'application/x-fluid' =>
+    'application/x-fluid' => 
     array (
-      0 => 'fl',
+      'e' => 
+      array (
+        0 => 'fl',
+      ),
     ),
-    'application/x-font-afm' =>
+    'application/x-font-afm' => 
     array (
-      0 => 'afm',
+      'e' => 
+      array (
+        0 => 'afm',
+      ),
     ),
-    'application/x-font-bdf' =>
+    'application/x-font-bdf' => 
     array (
-      0 => 'bdf',
+      'e' => 
+      array (
+        0 => 'bdf',
+      ),
     ),
-    'application/x-font-ghostscript' =>
+    'application/x-font-ghostscript' => 
     array (
-      0 => 'gsf',
+      'e' => 
+      array (
+        0 => 'gsf',
+      ),
     ),
-    'application/x-font-linux-psf' =>
+    'application/x-font-linux-psf' => 
     array (
-      0 => 'psf',
+      'e' => 
+      array (
+        0 => 'psf',
+      ),
     ),
-    'application/x-font-pcf' =>
+    'application/x-font-pcf' => 
     array (
-      0 => 'pcf',
-      1 => 'pcf.z',
-      2 => 'pcf.gz',
+      'e' => 
+      array (
+        0 => 'pcf',
+        1 => 'pcf.z',
+        2 => 'pcf.gz',
+      ),
     ),
-    'application/x-font-snf' =>
+    'application/x-font-snf' => 
     array (
-      0 => 'snf',
+      'e' => 
+      array (
+        0 => 'snf',
+      ),
     ),
-    'application/x-font-speedo' =>
+    'application/x-font-speedo' => 
     array (
-      0 => 'spd',
+      'e' => 
+      array (
+        0 => 'spd',
+      ),
     ),
-    'application/x-font-ttx' =>
+    'application/x-font-ttx' => 
     array (
-      0 => 'ttx',
+      'e' => 
+      array (
+        0 => 'ttx',
+      ),
     ),
-    'application/x-font-type1' =>
+    'application/x-font-type1' => 
     array (
-      0 => 'pfa',
-      1 => 'pfb',
-      2 => 'pfm',
-      3 => 'afm',
-      4 => 'gsf',
+      'e' => 
+      array (
+        0 => 'pfa',
+        1 => 'pfb',
+        2 => 'pfm',
+        3 => 'afm',
+        4 => 'gsf',
+      ),
     ),
-    'application/x-freearc' =>
+    'application/x-freearc' => 
     array (
-      0 => 'arc',
+      'e' => 
+      array (
+        0 => 'arc',
+      ),
     ),
-    'application/x-futuresplash' =>
+    'application/x-futuresplash' => 
     array (
-      0 => 'spl',
+      'e' => 
+      array (
+        0 => 'spl',
+      ),
     ),
-    'application/x-gameboy-color-rom' =>
+    'application/x-gameboy-color-rom' => 
     array (
-      0 => 'gbc',
-      1 => 'cgb',
+      'e' => 
+      array (
+        0 => 'gbc',
+        1 => 'cgb',
+      ),
     ),
-    'application/x-gameboy-rom' =>
+    'application/x-gameboy-rom' => 
     array (
-      0 => 'gb',
-      1 => 'sgb',
+      'e' => 
+      array (
+        0 => 'gb',
+        1 => 'sgb',
+      ),
     ),
-    'application/x-gamecube-rom' =>
+    'application/x-gamecube-rom' => 
     array (
-      0 => 'iso',
+      'e' => 
+      array (
+        0 => 'iso',
+      ),
     ),
-    'application/x-gamegear-rom' =>
+    'application/x-gamegear-rom' => 
     array (
-      0 => 'gg',
+      'e' => 
+      array (
+        0 => 'gg',
+      ),
     ),
-    'application/x-gba-rom' =>
+    'application/x-gba-rom' => 
     array (
-      0 => 'gba',
-      1 => 'agb',
+      'e' => 
+      array (
+        0 => 'gba',
+        1 => 'agb',
+      ),
     ),
-    'application/x-gca-compressed' =>
+    'application/x-gca-compressed' => 
     array (
-      0 => 'gca',
+      'e' => 
+      array (
+        0 => 'gca',
+      ),
     ),
-    'application/x-gedcom' =>
+    'application/x-gedcom' => 
     array (
-      0 => 'ged',
-      1 => 'gedcom',
+      'e' => 
+      array (
+        0 => 'ged',
+        1 => 'gedcom',
+      ),
     ),
-    'application/x-genesis-32x-rom' =>
+    'application/x-genesis-32x-rom' => 
     array (
-      0 => '32x',
-      1 => 'mdx',
+      'e' => 
+      array (
+        0 => '32x',
+        1 => 'mdx',
+      ),
     ),
-    'application/x-genesis-rom' =>
+    'application/x-genesis-rom' => 
     array (
-      0 => 'gen',
-      1 => 'smd',
+      'e' => 
+      array (
+        0 => 'gen',
+        1 => 'smd',
+      ),
     ),
-    'application/x-gettext-translation' =>
+    'application/x-gettext-translation' => 
     array (
-      0 => 'gmo',
-      1 => 'mo',
+      'e' => 
+      array (
+        0 => 'gmo',
+        1 => 'mo',
+      ),
     ),
-    'application/x-glade' =>
+    'application/x-glade' => 
     array (
-      0 => 'glade',
+      'e' => 
+      array (
+        0 => 'glade',
+      ),
     ),
-    'application/x-glulx' =>
+    'application/x-glulx' => 
     array (
-      0 => 'ulx',
+      'e' => 
+      array (
+        0 => 'ulx',
+      ),
     ),
-    'application/x-gnucash' =>
+    'application/x-gnucash' => 
     array (
-      0 => 'gnucash',
-      1 => 'gnc',
-      2 => 'xac',
+      'e' => 
+      array (
+        0 => 'gnucash',
+        1 => 'gnc',
+        2 => 'xac',
+      ),
     ),
-    'application/x-gnumeric' =>
+    'application/x-gnumeric' => 
     array (
-      0 => 'gnumeric',
+      'e' => 
+      array (
+        0 => 'gnumeric',
+      ),
     ),
-    'application/x-gnuplot' =>
+    'application/x-gnuplot' => 
     array (
-      0 => 'gp',
-      1 => 'gplt',
-      2 => 'gnuplot',
+      'e' => 
+      array (
+        0 => 'gp',
+        1 => 'gplt',
+        2 => 'gnuplot',
+      ),
     ),
-    'application/x-go-sgf' =>
+    'application/x-go-sgf' => 
     array (
-      0 => 'sgf',
+      'e' => 
+      array (
+        0 => 'sgf',
+      ),
     ),
-    'application/x-gramps-xml' =>
+    'application/x-gramps-xml' => 
     array (
-      0 => 'gramps',
+      'e' => 
+      array (
+        0 => 'gramps',
+      ),
     ),
-    'application/x-graphite' =>
+    'application/x-graphite' => 
     array (
-      0 => 'gra',
+      'e' => 
+      array (
+        0 => 'gra',
+      ),
     ),
-    'application/x-gtar' =>
+    'application/x-gtar' => 
     array (
-      0 => 'gtar',
+      'e' => 
+      array (
+        0 => 'gtar',
+      ),
     ),
-    'application/x-gtk-builder' =>
+    'application/x-gtk-builder' => 
     array (
-      0 => 'ui',
+      'e' => 
+      array (
+        0 => 'ui',
+      ),
     ),
-    'application/x-gz-font-linux-psf' =>
+    'application/x-gz-font-linux-psf' => 
     array (
-      0 => 'psf.gz',
+      'e' => 
+      array (
+        0 => 'psf.gz',
+      ),
     ),
-    'application/x-gzdvi' =>
+    'application/x-gzdvi' => 
     array (
-      0 => 'dvi.gz',
+      'e' => 
+      array (
+        0 => 'dvi.gz',
+      ),
     ),
-    'application/x-gzpdf' =>
+    'application/x-gzpdf' => 
     array (
-      0 => 'pdf.gz',
+      'e' => 
+      array (
+        0 => 'pdf.gz',
+      ),
     ),
-    'application/x-gzpostscript' =>
+    'application/x-gzpostscript' => 
     array (
-      0 => 'ps.gz',
+      'e' => 
+      array (
+        0 => 'ps.gz',
+      ),
     ),
-    'application/x-hdf' =>
+    'application/x-hdf' => 
     array (
-      0 => 'hdf',
-      1 => 'hdf4',
-      2 => 'h4',
-      3 => 'hdf5',
-      4 => 'h5',
+      'e' => 
+      array (
+        0 => 'hdf',
+        1 => 'hdf4',
+        2 => 'h4',
+        3 => 'hdf5',
+        4 => 'h5',
+      ),
     ),
-    'application/x-hfe-floppy-image' =>
+    'application/x-hfe-floppy-image' => 
     array (
-      0 => 'hfe',
+      'e' => 
+      array (
+        0 => 'hfe',
+      ),
     ),
-    'application/x-hwp' =>
+    'application/x-hwp' => 
     array (
-      0 => 'hwp',
+      'e' => 
+      array (
+        0 => 'hwp',
+      ),
     ),
-    'application/x-hwt' =>
+    'application/x-hwt' => 
     array (
-      0 => 'hwt',
+      'e' => 
+      array (
+        0 => 'hwt',
+      ),
     ),
-    'application/x-ica' =>
+    'application/x-ica' => 
     array (
-      0 => 'ica',
+      'e' => 
+      array (
+        0 => 'ica',
+      ),
     ),
-    'application/x-install-instructions' =>
+    'application/x-install-instructions' => 
     array (
-      0 => 'install',
+      'e' => 
+      array (
+        0 => 'install',
+      ),
     ),
-    'application/x-ipynb+json' =>
+    'application/x-ipynb+json' => 
     array (
-      0 => 'ipynb',
+      'e' => 
+      array (
+        0 => 'ipynb',
+      ),
     ),
-    'application/x-iso9660-appimage' =>
+    'application/x-iso9660-appimage' => 
     array (
-      0 => 'appimage',
+      'e' => 
+      array (
+        0 => 'appimage',
+      ),
     ),
-    'application/x-iso9660-image' =>
+    'application/x-iso9660-image' => 
     array (
-      0 => 'iso',
+      'e' => 
+      array (
+        0 => 'iso',
+      ),
     ),
-    'application/x-it87' =>
+    'application/x-it87' => 
     array (
-      0 => 'it87',
+      'e' => 
+      array (
+        0 => 'it87',
+      ),
     ),
-    'application/x-iwork-keynote-sffkey' =>
+    'application/x-iwork-keynote-sffkey' => 
     array (
-      0 => 'key',
+      'e' => 
+      array (
+        0 => 'key',
+      ),
     ),
-    'application/x-java' =>
+    'application/x-java' => 
     array (
-      0 => 'class',
+      'e' => 
+      array (
+        0 => 'class',
+      ),
     ),
-    'application/x-java-archive' =>
+    'application/x-java-archive' => 
     array (
-      0 => 'jar',
+      'e' => 
+      array (
+        0 => 'jar',
+      ),
     ),
-    'application/x-java-jce-keystore' =>
+    'application/x-java-jce-keystore' => 
     array (
-      0 => 'jceks',
+      'e' => 
+      array (
+        0 => 'jceks',
+      ),
     ),
-    'application/x-java-jnlp-file' =>
+    'application/x-java-jnlp-file' => 
     array (
-      0 => 'jnlp',
+      'e' => 
+      array (
+        0 => 'jnlp',
+      ),
     ),
-    'application/x-java-keystore' =>
+    'application/x-java-keystore' => 
     array (
-      0 => 'jks',
-      1 => 'ks',
+      'e' => 
+      array (
+        0 => 'jks',
+        1 => 'ks',
+      ),
     ),
-    'application/x-java-pack200' =>
+    'application/x-java-pack200' => 
     array (
-      0 => 'pack',
+      'e' => 
+      array (
+        0 => 'pack',
+      ),
     ),
-    'application/x-jbuilder-project' =>
+    'application/x-jbuilder-project' => 
     array (
-      0 => 'jpr',
-      1 => 'jpx',
+      'e' => 
+      array (
+        0 => 'jpr',
+        1 => 'jpx',
+      ),
     ),
-    'application/x-karbon' =>
+    'application/x-karbon' => 
     array (
-      0 => 'karbon',
+      'e' => 
+      array (
+        0 => 'karbon',
+      ),
     ),
-    'application/x-kchart' =>
+    'application/x-kchart' => 
     array (
-      0 => 'chrt',
+      'e' => 
+      array (
+        0 => 'chrt',
+      ),
     ),
-    'application/x-kexi-connectiondata' =>
+    'application/x-kexi-connectiondata' => 
     array (
-      0 => 'kexic',
+      'e' => 
+      array (
+        0 => 'kexic',
+      ),
     ),
-    'application/x-kexiproject-shortcut' =>
+    'application/x-kexiproject-shortcut' => 
     array (
-      0 => 'kexis',
+      'e' => 
+      array (
+        0 => 'kexis',
+      ),
     ),
-    'application/x-kexiproject-sqlite2' =>
+    'application/x-kexiproject-sqlite2' => 
     array (
-      0 => 'kexi',
+      'e' => 
+      array (
+        0 => 'kexi',
+      ),
     ),
-    'application/x-kexiproject-sqlite3' =>
+    'application/x-kexiproject-sqlite3' => 
     array (
-      0 => 'kexi',
+      'e' => 
+      array (
+        0 => 'kexi',
+      ),
     ),
-    'application/x-kformula' =>
+    'application/x-kformula' => 
     array (
-      0 => 'kfo',
+      'e' => 
+      array (
+        0 => 'kfo',
+      ),
     ),
-    'application/x-killustrator' =>
+    'application/x-killustrator' => 
     array (
-      0 => 'kil',
+      'e' => 
+      array (
+        0 => 'kil',
+      ),
     ),
-    'application/x-kivio' =>
+    'application/x-kivio' => 
     array (
-      0 => 'flw',
+      'e' => 
+      array (
+        0 => 'flw',
+      ),
     ),
-    'application/x-kontour' =>
+    'application/x-kontour' => 
     array (
-      0 => 'kon',
+      'e' => 
+      array (
+        0 => 'kon',
+      ),
     ),
-    'application/x-kpovmodeler' =>
+    'application/x-kpovmodeler' => 
     array (
-      0 => 'kpm',
+      'e' => 
+      array (
+        0 => 'kpm',
+      ),
     ),
-    'application/x-kpresenter' =>
+    'application/x-kpresenter' => 
     array (
-      0 => 'kpr',
-      1 => 'kpt',
+      'e' => 
+      array (
+        0 => 'kpr',
+        1 => 'kpt',
+      ),
     ),
-    'application/x-krita' =>
+    'application/x-krita' => 
     array (
-      0 => 'kra',
+      'e' => 
+      array (
+        0 => 'kra',
+      ),
     ),
-    'application/x-kspread' =>
+    'application/x-kspread' => 
     array (
-      0 => 'ksp',
+      'e' => 
+      array (
+        0 => 'ksp',
+      ),
     ),
-    'application/x-kugar' =>
+    'application/x-kugar' => 
     array (
-      0 => 'kud',
+      'e' => 
+      array (
+        0 => 'kud',
+      ),
     ),
-    'application/x-kword' =>
+    'application/x-kword' => 
     array (
-      0 => 'kwd',
-      1 => 'kwt',
+      'e' => 
+      array (
+        0 => 'kwd',
+        1 => 'kwt',
+      ),
     ),
-    'application/x-latex' =>
+    'application/x-latex' => 
     array (
-      0 => 'latex',
+      'e' => 
+      array (
+        0 => 'latex',
+      ),
     ),
-    'application/x-lha' =>
+    'application/x-lha' => 
     array (
-      0 => 'lha',
-      1 => 'lzh',
+      'e' => 
+      array (
+        0 => 'lha',
+        1 => 'lzh',
+      ),
     ),
-    'application/x-lhz' =>
+    'application/x-lhz' => 
     array (
-      0 => 'lhz',
+      'e' => 
+      array (
+        0 => 'lhz',
+      ),
     ),
-    'application/x-lrzip' =>
+    'application/x-lrzip' => 
     array (
-      0 => 'lrz',
+      'e' => 
+      array (
+        0 => 'lrz',
+      ),
     ),
-    'application/x-lrzip-compressed-tar' =>
+    'application/x-lrzip-compressed-tar' => 
     array (
-      0 => 'tar.lrz',
-      1 => 'tlrz',
+      'e' => 
+      array (
+        0 => 'tar.lrz',
+        1 => 'tlrz',
+      ),
     ),
-    'application/x-lyx' =>
+    'application/x-lyx' => 
     array (
-      0 => 'lyx',
+      'e' => 
+      array (
+        0 => 'lyx',
+      ),
     ),
-    'application/x-lz4' =>
+    'application/x-lz4' => 
     array (
-      0 => 'lz4',
+      'e' => 
+      array (
+        0 => 'lz4',
+      ),
     ),
-    'application/x-lz4-compressed-tar' =>
+    'application/x-lz4-compressed-tar' => 
     array (
-      0 => 'tar.lz4',
+      'e' => 
+      array (
+        0 => 'tar.lz4',
+      ),
     ),
-    'application/x-lzh-compressed' =>
+    'application/x-lzh-compressed' => 
     array (
-      0 => 'lzh',
-      1 => 'lha',
+      'e' => 
+      array (
+        0 => 'lzh',
+        1 => 'lha',
+      ),
     ),
-    'application/x-lzip' =>
+    'application/x-lzip' => 
     array (
-      0 => 'lz',
+      'e' => 
+      array (
+        0 => 'lz',
+      ),
     ),
-    'application/x-lzip-compressed-tar' =>
+    'application/x-lzip-compressed-tar' => 
     array (
-      0 => 'tar.lz',
+      'e' => 
+      array (
+        0 => 'tar.lz',
+      ),
     ),
-    'application/x-lzma' =>
+    'application/x-lzma' => 
     array (
-      0 => 'lzma',
+      'e' => 
+      array (
+        0 => 'lzma',
+      ),
     ),
-    'application/x-lzma-compressed-tar' =>
+    'application/x-lzma-compressed-tar' => 
     array (
-      0 => 'tar.lzma',
-      1 => 'tlz',
+      'e' => 
+      array (
+        0 => 'tar.lzma',
+        1 => 'tlz',
+      ),
     ),
-    'application/x-lzop' =>
+    'application/x-lzop' => 
     array (
-      0 => 'lzo',
+      'e' => 
+      array (
+        0 => 'lzo',
+      ),
     ),
-    'application/x-lzpdf' =>
+    'application/x-lzpdf' => 
     array (
-      0 => 'pdf.lz',
+      'e' => 
+      array (
+        0 => 'pdf.lz',
+      ),
     ),
-    'application/x-m4' =>
+    'application/x-m4' => 
     array (
-      0 => 'm4',
+      'e' => 
+      array (
+        0 => 'm4',
+      ),
     ),
-    'application/x-magicpoint' =>
+    'application/x-magicpoint' => 
     array (
-      0 => 'mgp',
+      'e' => 
+      array (
+        0 => 'mgp',
+      ),
     ),
-    'application/x-markaby' =>
+    'application/x-markaby' => 
     array (
-      0 => 'mab',
+      'e' => 
+      array (
+        0 => 'mab',
+      ),
     ),
-    'application/x-mie' =>
+    'application/x-mie' => 
     array (
-      0 => 'mie',
+      'e' => 
+      array (
+        0 => 'mie',
+      ),
     ),
-    'application/x-mif' =>
+    'application/x-mif' => 
     array (
-      0 => 'mif',
+      'e' => 
+      array (
+        0 => 'mif',
+      ),
     ),
-    'application/x-mimearchive' =>
+    'application/x-mimearchive' => 
     array (
-      0 => 'mhtml',
-      1 => 'mht',
+      'e' => 
+      array (
+        0 => 'mhtml',
+        1 => 'mht',
+      ),
     ),
-    'application/x-mobipocket-ebook' =>
+    'application/x-mobipocket-ebook' => 
     array (
-      0 => 'prc',
-      1 => 'mobi',
+      'e' => 
+      array (
+        0 => 'prc',
+        1 => 'mobi',
+      ),
     ),
-    'application/x-ms-application' =>
+    'application/x-ms-application' => 
     array (
-      0 => 'application',
+      'e' => 
+      array (
+        0 => 'application',
+      ),
     ),
-    'application/x-ms-dos-executable' =>
+    'application/x-ms-dos-executable' => 
     array (
-      0 => 'exe',
+      'e' => 
+      array (
+        0 => 'exe',
+      ),
     ),
-    'application/x-ms-shortcut' =>
+    'application/x-ms-shortcut' => 
     array (
-      0 => 'lnk',
+      'e' => 
+      array (
+        0 => 'lnk',
+      ),
     ),
-    'application/x-ms-wim' =>
+    'application/x-ms-wim' => 
     array (
-      0 => 'wim',
-      1 => 'swm',
+      'e' => 
+      array (
+        0 => 'wim',
+        1 => 'swm',
+      ),
     ),
-    'application/x-ms-wmd' =>
+    'application/x-ms-wmd' => 
     array (
-      0 => 'wmd',
+      'e' => 
+      array (
+        0 => 'wmd',
+      ),
     ),
-    'application/x-ms-wmz' =>
+    'application/x-ms-wmz' => 
     array (
-      0 => 'wmz',
+      'e' => 
+      array (
+        0 => 'wmz',
+      ),
     ),
-    'application/x-ms-xbap' =>
+    'application/x-ms-xbap' => 
     array (
-      0 => 'xbap',
+      'e' => 
+      array (
+        0 => 'xbap',
+      ),
     ),
-    'application/x-msaccess' =>
+    'application/x-msaccess' => 
     array (
-      0 => 'mdb',
+      'e' => 
+      array (
+        0 => 'mdb',
+      ),
     ),
-    'application/x-msbinder' =>
+    'application/x-msbinder' => 
     array (
-      0 => 'obd',
+      'e' => 
+      array (
+        0 => 'obd',
+      ),
     ),
-    'application/x-mscardfile' =>
+    'application/x-mscardfile' => 
     array (
-      0 => 'crd',
+      'e' => 
+      array (
+        0 => 'crd',
+      ),
     ),
-    'application/x-msclip' =>
+    'application/x-msclip' => 
     array (
-      0 => 'clp',
+      'e' => 
+      array (
+        0 => 'clp',
+      ),
     ),
-    'application/x-msdownload' =>
+    'application/x-msdownload' => 
     array (
-      0 => 'exe',
-      1 => 'dll',
-      2 => 'com',
-      3 => 'bat',
-      4 => 'msi',
+      'e' => 
+      array (
+        0 => 'exe',
+        1 => 'dll',
+        2 => 'com',
+        3 => 'bat',
+        4 => 'msi',
+      ),
     ),
-    'application/x-msi' =>
+    'application/x-msi' => 
     array (
-      0 => 'msi',
+      'e' => 
+      array (
+        0 => 'msi',
+      ),
     ),
-    'application/x-msmediaview' =>
+    'application/x-msmediaview' => 
     array (
-      0 => 'mvb',
-      1 => 'm13',
-      2 => 'm14',
+      'e' => 
+      array (
+        0 => 'mvb',
+        1 => 'm13',
+        2 => 'm14',
+      ),
     ),
-    'application/x-msmetafile' =>
+    'application/x-msmetafile' => 
     array (
-      0 => 'wmf',
-      1 => 'wmz',
-      2 => 'emf',
-      3 => 'emz',
+      'e' => 
+      array (
+        0 => 'wmf',
+        1 => 'wmz',
+        2 => 'emf',
+        3 => 'emz',
+      ),
     ),
-    'application/x-msmoney' =>
+    'application/x-msmoney' => 
     array (
-      0 => 'mny',
+      'e' => 
+      array (
+        0 => 'mny',
+      ),
     ),
-    'application/x-mspublisher' =>
+    'application/x-mspublisher' => 
     array (
-      0 => 'pub',
+      'e' => 
+      array (
+        0 => 'pub',
+      ),
     ),
-    'application/x-msschedule' =>
+    'application/x-msschedule' => 
     array (
-      0 => 'scd',
+      'e' => 
+      array (
+        0 => 'scd',
+      ),
     ),
-    'application/x-msterminal' =>
+    'application/x-msterminal' => 
     array (
-      0 => 'trm',
+      'e' => 
+      array (
+        0 => 'trm',
+      ),
     ),
-    'application/x-mswinurl' =>
+    'application/x-mswinurl' => 
     array (
-      0 => 'url',
+      'e' => 
+      array (
+        0 => 'url',
+      ),
     ),
-    'application/x-mswrite' =>
+    'application/x-mswrite' => 
     array (
-      0 => 'wri',
+      'e' => 
+      array (
+        0 => 'wri',
+      ),
     ),
-    'application/x-msx-rom' =>
+    'application/x-msx-rom' => 
     array (
-      0 => 'msx',
+      'e' => 
+      array (
+        0 => 'msx',
+      ),
     ),
-    'application/x-n64-rom' =>
+    'application/x-n64-rom' => 
     array (
-      0 => 'n64',
-      1 => 'z64',
-      2 => 'v64',
+      'e' => 
+      array (
+        0 => 'n64',
+        1 => 'z64',
+        2 => 'v64',
+      ),
     ),
-    'application/x-navi-animation' =>
+    'application/x-navi-animation' => 
     array (
-      0 => 'ani',
+      'e' => 
+      array (
+        0 => 'ani',
+      ),
     ),
-    'application/x-neo-geo-pocket-color-rom' =>
+    'application/x-neo-geo-pocket-color-rom' => 
     array (
-      0 => 'ngc',
+      'e' => 
+      array (
+        0 => 'ngc',
+      ),
     ),
-    'application/x-neo-geo-pocket-rom' =>
+    'application/x-neo-geo-pocket-rom' => 
     array (
-      0 => 'ngp',
+      'e' => 
+      array (
+        0 => 'ngp',
+      ),
     ),
-    'application/x-nes-rom' =>
+    'application/x-nes-rom' => 
     array (
-      0 => 'nes',
-      1 => 'nez',
-      2 => 'unf',
-      3 => 'unif',
+      'e' => 
+      array (
+        0 => 'nes',
+        1 => 'nez',
+        2 => 'unf',
+        3 => 'unif',
+      ),
     ),
-    'application/x-netcdf' =>
+    'application/x-netcdf' => 
     array (
-      0 => 'nc',
-      1 => 'cdf',
+      'e' => 
+      array (
+        0 => 'nc',
+        1 => 'cdf',
+      ),
     ),
-    'application/x-netshow-channel' =>
+    'application/x-netshow-channel' => 
     array (
-      0 => 'nsc',
+      'e' => 
+      array (
+        0 => 'nsc',
+      ),
     ),
-    'application/x-nintendo-ds-rom' =>
+    'application/x-nintendo-ds-rom' => 
     array (
-      0 => 'nds',
+      'e' => 
+      array (
+        0 => 'nds',
+      ),
     ),
-    'application/x-nzb' =>
+    'application/x-nzb' => 
     array (
-      0 => 'nzb',
+      'e' => 
+      array (
+        0 => 'nzb',
+      ),
     ),
-    'application/x-object' =>
+    'application/x-object' => 
     array (
-      0 => 'o',
+      'e' => 
+      array (
+        0 => 'o',
+      ),
     ),
-    'application/x-oleo' =>
+    'application/x-oleo' => 
     array (
-      0 => 'oleo',
+      'e' => 
+      array (
+        0 => 'oleo',
+      ),
     ),
-    'application/x-pagemaker' =>
+    'application/x-pagemaker' => 
     array (
-      0 => 'p65',
-      1 => 'pm',
-      2 => 'pm6',
-      3 => 'pmd',
+      'e' => 
+      array (
+        0 => 'p65',
+        1 => 'pm',
+        2 => 'pm6',
+        3 => 'pmd',
+      ),
     ),
-    'application/x-pak' =>
+    'application/x-pak' => 
     array (
-      0 => 'pak',
+      'e' => 
+      array (
+        0 => 'pak',
+      ),
     ),
-    'application/x-par2' =>
+    'application/x-par2' => 
     array (
-      0 => 'par2',
+      'e' => 
+      array (
+        0 => 'par2',
+      ),
     ),
-    'application/x-partial-download' =>
+    'application/x-partial-download' => 
     array (
-      0 => 'wkdownload',
-      1 => 'crdownload',
-      2 => 'part',
+      'e' => 
+      array (
+        0 => 'wkdownload',
+        1 => 'crdownload',
+        2 => 'part',
+      ),
     ),
-    'application/x-pc-engine-rom' =>
+    'application/x-pc-engine-rom' => 
     array (
-      0 => 'pce',
+      'e' => 
+      array (
+        0 => 'pce',
+      ),
     ),
-    'application/x-perl' =>
+    'application/x-perl' => 
     array (
-      0 => 'pl',
-      1 => 'pm',
-      2 => 'al',
-      3 => 'perl',
-      4 => 'pod',
-      5 => 't',
+      'e' => 
+      array (
+        0 => 'pl',
+        1 => 'pm',
+        2 => 'al',
+        3 => 'perl',
+        4 => 'pod',
+        5 => 't',
+      ),
     ),
-    'application/x-php' =>
+    'application/x-php' => 
     array (
-      0 => 'php',
-      1 => 'php3',
-      2 => 'php4',
-      3 => 'php5',
-      4 => 'phps',
+      'e' => 
+      array (
+        0 => 'php',
+        1 => 'php3',
+        2 => 'php4',
+        3 => 'php5',
+        4 => 'phps',
+      ),
     ),
-    'application/x-pkcs12' =>
+    'application/x-pkcs12' => 
     array (
-      0 => 'p12',
-      1 => 'pfx',
+      'e' => 
+      array (
+        0 => 'p12',
+        1 => 'pfx',
+      ),
     ),
-    'application/x-pkcs7-certificates' =>
+    'application/x-pkcs7-certificates' => 
     array (
-      0 => 'p7b',
-      1 => 'spc',
+      'e' => 
+      array (
+        0 => 'p7b',
+        1 => 'spc',
+      ),
     ),
-    'application/x-pkcs7-certreqresp' =>
+    'application/x-pkcs7-certreqresp' => 
     array (
-      0 => 'p7r',
+      'e' => 
+      array (
+        0 => 'p7r',
+      ),
     ),
-    'application/x-planperfect' =>
+    'application/x-planperfect' => 
     array (
-      0 => 'pln',
+      'e' => 
+      array (
+        0 => 'pln',
+      ),
     ),
-    'application/x-pocket-word' =>
+    'application/x-pocket-word' => 
     array (
-      0 => 'psw',
+      'e' => 
+      array (
+        0 => 'psw',
+      ),
     ),
-    'application/x-pw' =>
+    'application/x-pw' => 
     array (
-      0 => 'pw',
+      'e' => 
+      array (
+        0 => 'pw',
+      ),
     ),
-    'application/x-python-bytecode' =>
+    'application/x-python-bytecode' => 
     array (
-      0 => 'pyc',
-      1 => 'pyo',
+      'e' => 
+      array (
+        0 => 'pyc',
+        1 => 'pyo',
+      ),
     ),
-    'application/x-qpress' =>
+    'application/x-qpress' => 
     array (
-      0 => 'qp',
+      'e' => 
+      array (
+        0 => 'qp',
+      ),
     ),
-    'application/x-qtiplot' =>
+    'application/x-qtiplot' => 
     array (
-      0 => 'qti',
-      1 => 'qti.gz',
+      'e' => 
+      array (
+        0 => 'qti',
+        1 => 'qti.gz',
+      ),
     ),
-    'application/x-quattropro' =>
+    'application/x-quattropro' => 
     array (
-      0 => 'wb1',
-      1 => 'wb2',
-      2 => 'wb3',
+      'e' => 
+      array (
+        0 => 'wb1',
+        1 => 'wb2',
+        2 => 'wb3',
+      ),
     ),
-    'application/x-quicktime-media-link' =>
+    'application/x-quicktime-media-link' => 
     array (
-      0 => 'qtl',
+      'e' => 
+      array (
+        0 => 'qtl',
+      ),
     ),
-    'application/x-qw' =>
+    'application/x-qw' => 
     array (
-      0 => 'qif',
+      'e' => 
+      array (
+        0 => 'qif',
+      ),
     ),
-    'application/x-rar-compressed' =>
+    'application/x-rar-compressed' => 
     array (
-      0 => 'rar',
+      'e' => 
+      array (
+        0 => 'rar',
+      ),
     ),
-    'application/x-raw-disk-image' =>
+    'application/x-raw-disk-image' => 
     array (
-      0 => 'raw-disk-image',
-      1 => 'img',
+      'e' => 
+      array (
+        0 => 'raw-disk-image',
+        1 => 'img',
+      ),
     ),
-    'application/x-raw-disk-image-xz-compressed' =>
+    'application/x-raw-disk-image-xz-compressed' => 
     array (
-      0 => 'raw-disk-image.xz',
-      1 => 'img.xz',
+      'e' => 
+      array (
+        0 => 'raw-disk-image.xz',
+        1 => 'img.xz',
+      ),
     ),
-    'application/x-raw-floppy-disk-image' =>
+    'application/x-raw-floppy-disk-image' => 
     array (
-      0 => 'fd',
-      1 => 'qd',
+      'e' => 
+      array (
+        0 => 'fd',
+        1 => 'qd',
+      ),
     ),
-    'application/x-research-info-systems' =>
+    'application/x-research-info-systems' => 
     array (
-      0 => 'ris',
+      'e' => 
+      array (
+        0 => 'ris',
+      ),
     ),
-    'application/x-rpm' =>
+    'application/x-rpm' => 
     array (
-      0 => 'rpm',
+      'e' => 
+      array (
+        0 => 'rpm',
+      ),
     ),
-    'application/x-ruby' =>
+    'application/x-ruby' => 
     array (
-      0 => 'rb',
+      'e' => 
+      array (
+        0 => 'rb',
+      ),
     ),
-    'application/x-sami' =>
+    'application/x-sami' => 
     array (
-      0 => 'smi',
-      1 => 'sami',
+      'e' => 
+      array (
+        0 => 'smi',
+        1 => 'sami',
+      ),
     ),
-    'application/x-saturn-rom' =>
+    'application/x-saturn-rom' => 
     array (
-      0 => 'bin',
-      1 => 'iso',
+      'e' => 
+      array (
+        0 => 'bin',
+        1 => 'iso',
+      ),
     ),
-    'application/x-sega-cd-rom' =>
+    'application/x-sega-cd-rom' => 
     array (
-      0 => 'bin',
-      1 => 'iso',
+      'e' => 
+      array (
+        0 => 'bin',
+        1 => 'iso',
+      ),
     ),
-    'application/x-sg1000-rom' =>
+    'application/x-sg1000-rom' => 
     array (
-      0 => 'sg',
+      'e' => 
+      array (
+        0 => 'sg',
+      ),
     ),
-    'application/x-sh' =>
+    'application/x-sh' => 
     array (
-      0 => 'sh',
+      'e' => 
+      array (
+        0 => 'sh',
+      ),
     ),
-    'application/x-shar' =>
+    'application/x-shar' => 
     array (
-      0 => 'shar',
+      'e' => 
+      array (
+        0 => 'shar',
+      ),
     ),
-    'application/x-shared-library-la' =>
+    'application/x-shared-library-la' => 
     array (
-      0 => 'la',
+      'e' => 
+      array (
+        0 => 'la',
+      ),
     ),
-    'application/x-sharedlib' =>
+    'application/x-sharedlib' => 
     array (
-      0 => 'so',
+      'e' => 
+      array (
+        0 => 'so',
+      ),
     ),
-    'application/x-shellscript' =>
+    'application/x-shellscript' => 
     array (
-      0 => 'sh',
+      'e' => 
+      array (
+        0 => 'sh',
+      ),
     ),
-    'application/x-shockwave-flash' =>
+    'application/x-shockwave-flash' => 
     array (
-      0 => 'swf',
+      'e' => 
+      array (
+        0 => 'swf',
+      ),
     ),
-    'application/x-shorten' =>
+    'application/x-shorten' => 
     array (
-      0 => 'shn',
+      'e' => 
+      array (
+        0 => 'shn',
+      ),
     ),
-    'application/x-siag' =>
+    'application/x-siag' => 
     array (
-      0 => 'siag',
+      'e' => 
+      array (
+        0 => 'siag',
+      ),
     ),
-    'application/x-silverlight-app' =>
+    'application/x-silverlight-app' => 
     array (
-      0 => 'xap',
+      'e' => 
+      array (
+        0 => 'xap',
+      ),
     ),
-    'application/x-smaf' =>
+    'application/x-smaf' => 
     array (
-      0 => 'mmf',
-      1 => 'smaf',
+      'e' => 
+      array (
+        0 => 'mmf',
+        1 => 'smaf',
+      ),
     ),
-    'application/x-sms-rom' =>
+    'application/x-sms-rom' => 
     array (
-      0 => 'sms',
+      'e' => 
+      array (
+        0 => 'sms',
+      ),
     ),
-    'application/x-source-rpm' =>
+    'application/x-source-rpm' => 
     array (
-      0 => 'src.rpm',
-      1 => 'spm',
+      'e' => 
+      array (
+        0 => 'src.rpm',
+        1 => 'spm',
+      ),
     ),
-    'application/x-spss-por' =>
+    'application/x-spss-por' => 
     array (
-      0 => 'por',
+      'e' => 
+      array (
+        0 => 'por',
+      ),
     ),
-    'application/x-spss-sav' =>
+    'application/x-spss-sav' => 
     array (
-      0 => 'sav',
-      1 => 'zsav',
+      'e' => 
+      array (
+        0 => 'sav',
+        1 => 'zsav',
+      ),
     ),
-    'application/x-sql' =>
+    'application/x-sql' => 
     array (
-      0 => 'sql',
+      'e' => 
+      array (
+        0 => 'sql',
+      ),
     ),
-    'application/x-sqlite2' =>
+    'application/x-sqlite2' => 
     array (
-      0 => 'sqlite2',
+      'e' => 
+      array (
+        0 => 'sqlite2',
+      ),
     ),
-    'application/x-stuffit' =>
+    'application/x-stuffit' => 
     array (
-      0 => 'sit',
+      'e' => 
+      array (
+        0 => 'sit',
+      ),
     ),
-    'application/x-stuffitx' =>
+    'application/x-stuffitx' => 
     array (
-      0 => 'sitx',
+      'e' => 
+      array (
+        0 => 'sitx',
+      ),
     ),
-    'application/x-subrip' =>
+    'application/x-subrip' => 
     array (
-      0 => 'srt',
+      'e' => 
+      array (
+        0 => 'srt',
+      ),
     ),
-    'application/x-sv4cpio' =>
+    'application/x-sv4cpio' => 
     array (
-      0 => 'sv4cpio',
+      'e' => 
+      array (
+        0 => 'sv4cpio',
+      ),
     ),
-    'application/x-sv4crc' =>
+    'application/x-sv4crc' => 
     array (
-      0 => 'sv4crc',
+      'e' => 
+      array (
+        0 => 'sv4crc',
+      ),
     ),
-    'application/x-t3vm-image' =>
+    'application/x-t3vm-image' => 
     array (
-      0 => 't3',
+      'e' => 
+      array (
+        0 => 't3',
+      ),
     ),
-    'application/x-t602' =>
+    'application/x-t602' => 
     array (
-      0 => '602',
+      'e' => 
+      array (
+        0 => '602',
+      ),
     ),
-    'application/x-tads' =>
+    'application/x-tads' => 
     array (
-      0 => 'gam',
+      'e' => 
+      array (
+        0 => 'gam',
+      ),
     ),
-    'application/x-tar' =>
+    'application/x-tar' => 
     array (
-      0 => 'tar',
-      1 => 'gtar',
-      2 => 'gem',
+      'e' => 
+      array (
+        0 => 'tar',
+        1 => 'gtar',
+        2 => 'gem',
+      ),
     ),
-    'application/x-tarz' =>
+    'application/x-tarz' => 
     array (
-      0 => 'tar.z',
-      1 => 'taz',
+      'e' => 
+      array (
+        0 => 'tar.z',
+        1 => 'taz',
+      ),
     ),
-    'application/x-tcl' =>
+    'application/x-tcl' => 
     array (
-      0 => 'tcl',
+      'e' => 
+      array (
+        0 => 'tcl',
+      ),
     ),
-    'application/x-tex' =>
+    'application/x-tex' => 
     array (
-      0 => 'tex',
+      'e' => 
+      array (
+        0 => 'tex',
+      ),
     ),
-    'application/x-tex-gf' =>
+    'application/x-tex-gf' => 
     array (
-      0 => 'gf',
+      'e' => 
+      array (
+        0 => 'gf',
+      ),
     ),
-    'application/x-tex-pk' =>
+    'application/x-tex-pk' => 
     array (
-      0 => 'pk',
+      'e' => 
+      array (
+        0 => 'pk',
+      ),
     ),
-    'application/x-tex-tfm' =>
+    'application/x-tex-tfm' => 
     array (
-      0 => 'tfm',
+      'e' => 
+      array (
+        0 => 'tfm',
+      ),
     ),
-    'application/x-texinfo' =>
+    'application/x-texinfo' => 
     array (
-      0 => 'texinfo',
-      1 => 'texi',
+      'e' => 
+      array (
+        0 => 'texinfo',
+        1 => 'texi',
+      ),
     ),
-    'application/x-tgif' =>
+    'application/x-tgif' => 
     array (
-      0 => 'obj',
+      'e' => 
+      array (
+        0 => 'obj',
+      ),
     ),
-    'application/x-theme' =>
+    'application/x-theme' => 
     array (
-      0 => 'theme',
+      'e' => 
+      array (
+        0 => 'theme',
+      ),
     ),
-    'application/x-thomson-cartridge-memo7' =>
+    'application/x-thomson-cartridge-memo7' => 
     array (
-      0 => 'm7',
+      'e' => 
+      array (
+        0 => 'm7',
+      ),
     ),
-    'application/x-thomson-cassette' =>
+    'application/x-thomson-cassette' => 
     array (
-      0 => 'k7',
+      'e' => 
+      array (
+        0 => 'k7',
+      ),
     ),
-    'application/x-thomson-sap-image' =>
+    'application/x-thomson-sap-image' => 
     array (
-      0 => 'sap',
+      'e' => 
+      array (
+        0 => 'sap',
+      ),
     ),
-    'application/x-trash' =>
+    'application/x-trash' => 
     array (
-      0 => 'bak',
-      1 => 'old',
-      2 => 'sik',
+      'e' => 
+      array (
+        0 => 'bak',
+        1 => 'old',
+        2 => 'sik',
+      ),
     ),
-    'application/x-troff-man' =>
+    'application/x-troff-man' => 
     array (
-      0 => 'man',
+      'e' => 
+      array (
+        0 => 'man',
+      ),
     ),
-    'application/x-tzo' =>
+    'application/x-tzo' => 
     array (
-      0 => 'tar.lzo',
-      1 => 'tzo',
+      'e' => 
+      array (
+        0 => 'tar.lzo',
+        1 => 'tzo',
+      ),
     ),
-    'application/x-ufraw' =>
+    'application/x-ufraw' => 
     array (
-      0 => 'ufraw',
+      'e' => 
+      array (
+        0 => 'ufraw',
+      ),
     ),
-    'application/x-ustar' =>
+    'application/x-ustar' => 
     array (
-      0 => 'ustar',
+      'e' => 
+      array (
+        0 => 'ustar',
+      ),
     ),
-    'application/x-virtual-boy-rom' =>
+    'application/x-virtual-boy-rom' => 
     array (
-      0 => 'vb',
+      'e' => 
+      array (
+        0 => 'vb',
+      ),
     ),
-    'application/x-wais-source' =>
+    'application/x-wais-source' => 
     array (
-      0 => 'src',
+      'e' => 
+      array (
+        0 => 'src',
+      ),
     ),
-    'application/x-wii-rom' =>
+    'application/x-wii-rom' => 
     array (
-      0 => 'iso',
+      'e' => 
+      array (
+        0 => 'iso',
+      ),
     ),
-    'application/x-wii-wad' =>
+    'application/x-wii-wad' => 
     array (
-      0 => 'wad',
+      'e' => 
+      array (
+        0 => 'wad',
+      ),
     ),
-    'application/x-windows-themepack' =>
+    'application/x-windows-themepack' => 
     array (
-      0 => 'themepack',
+      'e' => 
+      array (
+        0 => 'themepack',
+      ),
     ),
-    'application/x-wonderswan-color-rom' =>
+    'application/x-wonderswan-color-rom' => 
     array (
-      0 => 'wsc',
+      'e' => 
+      array (
+        0 => 'wsc',
+      ),
     ),
-    'application/x-wonderswan-rom' =>
+    'application/x-wonderswan-rom' => 
     array (
-      0 => 'ws',
+      'e' => 
+      array (
+        0 => 'ws',
+      ),
     ),
-    'application/x-wpg' =>
+    'application/x-wpg' => 
     array (
-      0 => 'wpg',
+      'e' => 
+      array (
+        0 => 'wpg',
+      ),
     ),
-    'application/x-wwf' =>
+    'application/x-wwf' => 
     array (
-      0 => 'wwf',
+      'e' => 
+      array (
+        0 => 'wwf',
+      ),
     ),
-    'application/x-x509-ca-cert' =>
+    'application/x-x509-ca-cert' => 
     array (
-      0 => 'der',
-      1 => 'crt',
-      2 => 'cert',
-      3 => 'pem',
+      'e' => 
+      array (
+        0 => 'der',
+        1 => 'crt',
+        2 => 'cert',
+        3 => 'pem',
+      ),
     ),
-    'application/x-xar' =>
+    'application/x-xar' => 
     array (
-      0 => 'xar',
-      1 => 'pkg',
+      'e' => 
+      array (
+        0 => 'xar',
+        1 => 'pkg',
+      ),
     ),
-    'application/x-xbel' =>
+    'application/x-xbel' => 
     array (
-      0 => 'xbel',
+      'e' => 
+      array (
+        0 => 'xbel',
+      ),
     ),
-    'application/x-xfig' =>
+    'application/x-xfig' => 
     array (
-      0 => 'fig',
+      'e' => 
+      array (
+        0 => 'fig',
+      ),
     ),
-    'application/x-xliff+xml' =>
+    'application/x-xliff+xml' => 
     array (
-      0 => 'xlf',
+      'e' => 
+      array (
+        0 => 'xlf',
+      ),
     ),
-    'application/x-xpinstall' =>
+    'application/x-xpinstall' => 
     array (
-      0 => 'xpi',
+      'e' => 
+      array (
+        0 => 'xpi',
+      ),
     ),
-    'application/x-xz' =>
+    'application/x-xz' => 
     array (
-      0 => 'xz',
+      'e' => 
+      array (
+        0 => 'xz',
+      ),
     ),
-    'application/x-xz-compressed-tar' =>
+    'application/x-xz-compressed-tar' => 
     array (
-      0 => 'tar.xz',
-      1 => 'txz',
+      'e' => 
+      array (
+        0 => 'tar.xz',
+        1 => 'txz',
+      ),
     ),
-    'application/x-xzpdf' =>
+    'application/x-xzpdf' => 
     array (
-      0 => 'pdf.xz',
+      'e' => 
+      array (
+        0 => 'pdf.xz',
+      ),
     ),
-    'application/x-yaml' =>
+    'application/x-yaml' => 
     array (
-      0 => 'yaml',
-      1 => 'yml',
+      'e' => 
+      array (
+        0 => 'yaml',
+        1 => 'yml',
+      ),
     ),
-    'application/x-zip-compressed-fb2' =>
+    'application/x-zip-compressed-fb2' => 
     array (
-      0 => 'fb2.zip',
+      'e' => 
+      array (
+        0 => 'fb2.zip',
+      ),
     ),
-    'application/x-zmachine' =>
+    'application/x-zmachine' => 
     array (
-      0 => 'z1',
-      1 => 'z2',
-      2 => 'z3',
-      3 => 'z4',
-      4 => 'z5',
-      5 => 'z6',
-      6 => 'z7',
-      7 => 'z8',
+      'e' => 
+      array (
+        0 => 'z1',
+        1 => 'z2',
+        2 => 'z3',
+        3 => 'z4',
+        4 => 'z5',
+        5 => 'z6',
+        6 => 'z7',
+        7 => 'z8',
+      ),
     ),
-    'application/x-zoo' =>
+    'application/x-zoo' => 
     array (
-      0 => 'zoo',
+      'e' => 
+      array (
+        0 => 'zoo',
+      ),
     ),
-    'application/xaml+xml' =>
+    'application/xaml+xml' => 
     array (
-      0 => 'xaml',
+      'e' => 
+      array (
+        0 => 'xaml',
+      ),
     ),
-    'application/xcap-diff+xml' =>
+    'application/xcap-diff+xml' => 
     array (
-      0 => 'xdf',
+      'e' => 
+      array (
+        0 => 'xdf',
+      ),
     ),
-    'application/xenc+xml' =>
+    'application/xenc+xml' => 
     array (
-      0 => 'xenc',
+      'e' => 
+      array (
+        0 => 'xenc',
+      ),
     ),
-    'application/xhtml+xml' =>
+    'application/xhtml+xml' => 
     array (
-      0 => 'xhtml',
-      1 => 'xht',
+      'e' => 
+      array (
+        0 => 'xhtml',
+        1 => 'xht',
+      ),
     ),
-    'application/xliff+xml' =>
+    'application/xliff+xml' => 
     array (
-      0 => 'xlf',
-      1 => 'xliff',
+      'e' => 
+      array (
+        0 => 'xlf',
+        1 => 'xliff',
+      ),
     ),
-    'application/xml' =>
+    'application/xml' => 
     array (
-      0 => 'xml',
-      1 => 'xsl',
-      2 => 'xbl',
-      3 => 'xsd',
-      4 => 'rng',
+      'e' => 
+      array (
+        0 => 'xml',
+        1 => 'xsl',
+        2 => 'xbl',
+        3 => 'xsd',
+        4 => 'rng',
+      ),
     ),
-    'application/xml-dtd' =>
+    'application/xml-dtd' => 
     array (
-      0 => 'dtd',
+      'e' => 
+      array (
+        0 => 'dtd',
+      ),
     ),
-    'application/xml-external-parsed-entity' =>
+    'application/xml-external-parsed-entity' => 
     array (
-      0 => 'ent',
+      'e' => 
+      array (
+        0 => 'ent',
+      ),
     ),
-    'application/xop+xml' =>
+    'application/xop+xml' => 
     array (
-      0 => 'xop',
+      'e' => 
+      array (
+        0 => 'xop',
+      ),
     ),
-    'application/xproc+xml' =>
+    'application/xproc+xml' => 
     array (
-      0 => 'xpl',
+      'e' => 
+      array (
+        0 => 'xpl',
+      ),
     ),
-    'application/xslt+xml' =>
+    'application/xslt+xml' => 
     array (
-      0 => 'xslt',
-      1 => 'xsl',
+      'e' => 
+      array (
+        0 => 'xslt',
+        1 => 'xsl',
+      ),
     ),
-    'application/xspf+xml' =>
+    'application/xspf+xml' => 
     array (
-      0 => 'xspf',
+      'e' => 
+      array (
+        0 => 'xspf',
+      ),
     ),
-    'application/xv+xml' =>
+    'application/xv+xml' => 
     array (
-      0 => 'mxml',
-      1 => 'xhvml',
-      2 => 'xvml',
-      3 => 'xvm',
+      'e' => 
+      array (
+        0 => 'mxml',
+        1 => 'xhvml',
+        2 => 'xvml',
+        3 => 'xvm',
+      ),
     ),
-    'application/yang' =>
+    'application/yang' => 
     array (
-      0 => 'yang',
+      'e' => 
+      array (
+        0 => 'yang',
+      ),
     ),
-    'application/yin+xml' =>
+    'application/yin+xml' => 
     array (
-      0 => 'yin',
+      'e' => 
+      array (
+        0 => 'yin',
+      ),
     ),
-    'application/zip' =>
+    'application/zip' => 
     array (
-      0 => 'zip',
+      'e' => 
+      array (
+        0 => 'zip',
+      ),
     ),
-    'application/zlib' =>
+    'application/zlib' => 
     array (
-      0 => 'zz',
+      'e' => 
+      array (
+        0 => 'zz',
+      ),
     ),
-    'audio/aac' =>
+    'audio/aac' => 
     array (
-      0 => 'aac',
-      1 => 'adts',
-      2 => 'ass',
+      'e' => 
+      array (
+        0 => 'aac',
+        1 => 'adts',
+        2 => 'ass',
+      ),
     ),
-    'audio/ac3' =>
+    'audio/ac3' => 
     array (
-      0 => 'ac3',
+      'e' => 
+      array (
+        0 => 'ac3',
+      ),
     ),
-    'audio/adpcm' =>
+    'audio/adpcm' => 
     array (
-      0 => 'adp',
+      'e' => 
+      array (
+        0 => 'adp',
+      ),
     ),
-    'audio/amr' =>
+    'audio/amr' => 
     array (
-      0 => 'amr',
+      'e' => 
+      array (
+        0 => 'amr',
+      ),
     ),
-    'audio/amr-wb' =>
+    'audio/amr-wb' => 
     array (
-      0 => 'awb',
+      'e' => 
+      array (
+        0 => 'awb',
+      ),
     ),
-    'audio/annodex' =>
+    'audio/annodex' => 
     array (
-      0 => 'axa',
+      'e' => 
+      array (
+        0 => 'axa',
+      ),
     ),
-    'audio/basic' =>
+    'audio/basic' => 
     array (
-      0 => 'au',
-      1 => 'snd',
+      'e' => 
+      array (
+        0 => 'au',
+        1 => 'snd',
+      ),
     ),
-    'audio/flac' =>
+    'audio/flac' => 
     array (
-      0 => 'flac',
+      'e' => 
+      array (
+        0 => 'flac',
+      ),
     ),
-    'audio/midi' =>
+    'audio/midi' => 
     array (
-      0 => 'mid',
-      1 => 'midi',
-      2 => 'kar',
-      3 => 'rmi',
+      'e' => 
+      array (
+        0 => 'mid',
+        1 => 'midi',
+        2 => 'kar',
+        3 => 'rmi',
+      ),
     ),
-    'audio/mp2' =>
+    'audio/mp2' => 
     array (
-      0 => 'mp2',
+      'e' => 
+      array (
+        0 => 'mp2',
+      ),
     ),
-    'audio/mp4' =>
+    'audio/mp4' => 
     array (
-      0 => 'm4a',
-      1 => 'mp4a',
-      2 => 'f4a',
+      'e' => 
+      array (
+        0 => 'm4a',
+        1 => 'mp4a',
+        2 => 'f4a',
+      ),
     ),
-    'audio/mpeg' =>
+    'audio/mpeg' => 
     array (
-      0 => 'mpga',
-      1 => 'mp2',
-      2 => 'mp2a',
-      3 => 'mp3',
-      4 => 'm2a',
-      5 => 'm3a',
+      'e' => 
+      array (
+        0 => 'mpga',
+        1 => 'mp2',
+        2 => 'mp2a',
+        3 => 'mp3',
+        4 => 'm2a',
+        5 => 'm3a',
+      ),
     ),
-    'audio/ogg' =>
+    'audio/ogg' => 
     array (
-      0 => 'oga',
-      1 => 'ogg',
-      2 => 'spx',
-      3 => 'opus',
+      'e' => 
+      array (
+        0 => 'oga',
+        1 => 'ogg',
+        2 => 'spx',
+        3 => 'opus',
+      ),
     ),
-    'audio/prs.sid' =>
+    'audio/prs.sid' => 
     array (
-      0 => 'sid',
-      1 => 'psid',
+      'e' => 
+      array (
+        0 => 'sid',
+        1 => 'psid',
+      ),
     ),
-    'audio/s3m' =>
+    'audio/s3m' => 
     array (
-      0 => 's3m',
+      'e' => 
+      array (
+        0 => 's3m',
+      ),
     ),
-    'audio/silk' =>
+    'audio/silk' => 
     array (
-      0 => 'sil',
+      'e' => 
+      array (
+        0 => 'sil',
+      ),
     ),
-    'audio/usac' =>
+    'audio/usac' => 
     array (
-      0 => 'loas',
-      1 => 'xhe',
+      'e' => 
+      array (
+        0 => 'loas',
+        1 => 'xhe',
+      ),
     ),
-    'audio/vnd.dece.audio' =>
+    'audio/vnd.dece.audio' => 
     array (
-      0 => 'uva',
-      1 => 'uvva',
+      'e' => 
+      array (
+        0 => 'uva',
+        1 => 'uvva',
+      ),
     ),
-    'audio/vnd.digital-winds' =>
+    'audio/vnd.digital-winds' => 
     array (
-      0 => 'eol',
+      'e' => 
+      array (
+        0 => 'eol',
+      ),
     ),
-    'audio/vnd.dra' =>
+    'audio/vnd.dra' => 
     array (
-      0 => 'dra',
+      'e' => 
+      array (
+        0 => 'dra',
+      ),
     ),
-    'audio/vnd.dts' =>
+    'audio/vnd.dts' => 
     array (
-      0 => 'dts',
+      'e' => 
+      array (
+        0 => 'dts',
+      ),
     ),
-    'audio/vnd.dts.hd' =>
+    'audio/vnd.dts.hd' => 
     array (
-      0 => 'dtshd',
+      'e' => 
+      array (
+        0 => 'dtshd',
+      ),
     ),
-    'audio/vnd.lucent.voice' =>
+    'audio/vnd.lucent.voice' => 
     array (
-      0 => 'lvp',
+      'e' => 
+      array (
+        0 => 'lvp',
+      ),
     ),
-    'audio/vnd.ms-playready.media.pya' =>
+    'audio/vnd.ms-playready.media.pya' => 
     array (
-      0 => 'pya',
+      'e' => 
+      array (
+        0 => 'pya',
+      ),
     ),
-    'audio/vnd.nuera.ecelp4800' =>
+    'audio/vnd.nuera.ecelp4800' => 
     array (
-      0 => 'ecelp4800',
+      'e' => 
+      array (
+        0 => 'ecelp4800',
+      ),
     ),
-    'audio/vnd.nuera.ecelp7470' =>
+    'audio/vnd.nuera.ecelp7470' => 
     array (
-      0 => 'ecelp7470',
+      'e' => 
+      array (
+        0 => 'ecelp7470',
+      ),
     ),
-    'audio/vnd.nuera.ecelp9600' =>
+    'audio/vnd.nuera.ecelp9600' => 
     array (
-      0 => 'ecelp9600',
+      'e' => 
+      array (
+        0 => 'ecelp9600',
+      ),
     ),
-    'audio/vnd.rip' =>
+    'audio/vnd.rip' => 
     array (
-      0 => 'rip',
+      'e' => 
+      array (
+        0 => 'rip',
+      ),
     ),
-    'audio/vnd.rn-realaudio' =>
+    'audio/vnd.rn-realaudio' => 
     array (
-      0 => 'ra',
-      1 => 'rax',
+      'e' => 
+      array (
+        0 => 'ra',
+        1 => 'rax',
+      ),
     ),
-    'audio/webm' =>
+    'audio/webm' => 
     array (
-      0 => 'weba',
+      'e' => 
+      array (
+        0 => 'weba',
+      ),
     ),
-    'audio/x-aac' =>
+    'audio/x-aac' => 
     array (
-      0 => 'aac',
+      'e' => 
+      array (
+        0 => 'aac',
+      ),
     ),
-    'audio/x-aifc' =>
+    'audio/x-aifc' => 
     array (
-      0 => 'aifc',
-      1 => 'aiffc',
+      'e' => 
+      array (
+        0 => 'aifc',
+        1 => 'aiffc',
+      ),
     ),
-    'audio/x-aiff' =>
+    'audio/x-aiff' => 
     array (
-      0 => 'aif',
-      1 => 'aiff',
-      2 => 'aifc',
+      'e' => 
+      array (
+        0 => 'aif',
+        1 => 'aiff',
+        2 => 'aifc',
+      ),
     ),
-    'audio/x-amzxml' =>
+    'audio/x-amzxml' => 
     array (
-      0 => 'amz',
+      'e' => 
+      array (
+        0 => 'amz',
+      ),
     ),
-    'audio/x-ape' =>
+    'audio/x-ape' => 
     array (
-      0 => 'ape',
+      'e' => 
+      array (
+        0 => 'ape',
+      ),
     ),
-    'audio/x-caf' =>
+    'audio/x-caf' => 
     array (
-      0 => 'caf',
+      'e' => 
+      array (
+        0 => 'caf',
+      ),
     ),
-    'audio/x-flac' =>
+    'audio/x-flac' => 
     array (
-      0 => 'flac',
+      'e' => 
+      array (
+        0 => 'flac',
+      ),
     ),
-    'audio/x-flac+ogg' =>
+    'audio/x-flac+ogg' => 
     array (
-      0 => 'oga',
-      1 => 'ogg',
+      'e' => 
+      array (
+        0 => 'oga',
+        1 => 'ogg',
+      ),
     ),
-    'audio/x-gsm' =>
+    'audio/x-gsm' => 
     array (
-      0 => 'gsm',
+      'e' => 
+      array (
+        0 => 'gsm',
+      ),
     ),
-    'audio/x-iriver-pla' =>
+    'audio/x-iriver-pla' => 
     array (
-      0 => 'pla',
+      'e' => 
+      array (
+        0 => 'pla',
+      ),
     ),
-    'audio/x-it' =>
+    'audio/x-it' => 
     array (
-      0 => 'it',
+      'e' => 
+      array (
+        0 => 'it',
+      ),
     ),
-    'audio/x-m4b' =>
+    'audio/x-m4b' => 
     array (
-      0 => 'm4b',
-      1 => 'f4b',
+      'e' => 
+      array (
+        0 => 'm4b',
+        1 => 'f4b',
+      ),
     ),
-    'audio/x-m4r' =>
+    'audio/x-m4r' => 
     array (
-      0 => 'm4r',
+      'e' => 
+      array (
+        0 => 'm4r',
+      ),
     ),
-    'audio/x-matroska' =>
+    'audio/x-matroska' => 
     array (
-      0 => 'mka',
+      'e' => 
+      array (
+        0 => 'mka',
+      ),
     ),
-    'audio/x-minipsf' =>
+    'audio/x-minipsf' => 
     array (
-      0 => 'minipsf',
+      'e' => 
+      array (
+        0 => 'minipsf',
+      ),
     ),
-    'audio/x-mo3' =>
+    'audio/x-mo3' => 
     array (
-      0 => 'mo3',
+      'e' => 
+      array (
+        0 => 'mo3',
+      ),
     ),
-    'audio/x-mod' =>
+    'audio/x-mod' => 
     array (
-      0 => 'mod',
-      1 => 'ult',
-      2 => 'uni',
-      3 => 'm15',
-      4 => 'mtm',
-      5 => '669',
-      6 => 'med',
+      'e' => 
+      array (
+        0 => 'mod',
+        1 => 'ult',
+        2 => 'uni',
+        3 => 'm15',
+        4 => 'mtm',
+        5 => '669',
+        6 => 'med',
+      ),
     ),
-    'audio/x-mpegurl' =>
+    'audio/x-mpegurl' => 
     array (
-      0 => 'm3u',
-      1 => 'm3u8',
-      2 => 'vlc',
+      'e' => 
+      array (
+        0 => 'm3u',
+        1 => 'm3u8',
+        2 => 'vlc',
+      ),
     ),
-    'audio/x-ms-asx' =>
+    'audio/x-ms-asx' => 
     array (
-      0 => 'asx',
-      1 => 'wax',
-      2 => 'wvx',
-      3 => 'wmx',
+      'e' => 
+      array (
+        0 => 'asx',
+        1 => 'wax',
+        2 => 'wvx',
+        3 => 'wmx',
+      ),
     ),
-    'audio/x-ms-wax' =>
+    'audio/x-ms-wax' => 
     array (
-      0 => 'wax',
+      'e' => 
+      array (
+        0 => 'wax',
+      ),
     ),
-    'audio/x-ms-wma' =>
+    'audio/x-ms-wma' => 
     array (
-      0 => 'wma',
+      'e' => 
+      array (
+        0 => 'wma',
+      ),
     ),
-    'audio/x-musepack' =>
+    'audio/x-musepack' => 
     array (
-      0 => 'mpc',
-      1 => 'mpp',
-      2 => 'mp+',
+      'e' => 
+      array (
+        0 => 'mpc',
+        1 => 'mpp',
+        2 => 'mp+',
+      ),
     ),
-    'audio/x-opus+ogg' =>
+    'audio/x-opus+ogg' => 
     array (
-      0 => 'opus',
+      'e' => 
+      array (
+        0 => 'opus',
+      ),
     ),
-    'audio/x-pn-audibleaudio' =>
+    'audio/x-pn-audibleaudio' => 
     array (
-      0 => 'aa',
-      1 => 'aax',
+      'e' => 
+      array (
+        0 => 'aa',
+        1 => 'aax',
+      ),
     ),
-    'audio/x-pn-realaudio' =>
+    'audio/x-pn-realaudio' => 
     array (
-      0 => 'ram',
-      1 => 'ra',
+      'e' => 
+      array (
+        0 => 'ram',
+        1 => 'ra',
+      ),
     ),
-    'audio/x-pn-realaudio-plugin' =>
+    'audio/x-pn-realaudio-plugin' => 
     array (
-      0 => 'rmp',
+      'e' => 
+      array (
+        0 => 'rmp',
+      ),
     ),
-    'audio/x-psf' =>
+    'audio/x-psf' => 
     array (
-      0 => 'psf',
+      'e' => 
+      array (
+        0 => 'psf',
+      ),
     ),
-    'audio/x-psflib' =>
+    'audio/x-psflib' => 
     array (
-      0 => 'psflib',
+      'e' => 
+      array (
+        0 => 'psflib',
+      ),
     ),
-    'audio/x-s3m' =>
+    'audio/x-s3m' => 
     array (
-      0 => 's3m',
+      'e' => 
+      array (
+        0 => 's3m',
+      ),
     ),
-    'audio/x-scpls' =>
+    'audio/x-scpls' => 
     array (
-      0 => 'pls',
+      'e' => 
+      array (
+        0 => 'pls',
+      ),
     ),
-    'audio/x-speex' =>
+    'audio/x-speex' => 
     array (
-      0 => 'spx',
+      'e' => 
+      array (
+        0 => 'spx',
+      ),
     ),
-    'audio/x-speex+ogg' =>
+    'audio/x-speex+ogg' => 
     array (
-      0 => 'oga',
-      1 => 'ogg',
+      'e' => 
+      array (
+        0 => 'oga',
+        1 => 'ogg',
+      ),
     ),
-    'audio/x-stm' =>
+    'audio/x-stm' => 
     array (
-      0 => 'stm',
+      'e' => 
+      array (
+        0 => 'stm',
+      ),
     ),
-    'audio/x-tta' =>
+    'audio/x-tta' => 
     array (
-      0 => 'tta',
+      'e' => 
+      array (
+        0 => 'tta',
+      ),
     ),
-    'audio/x-voc' =>
+    'audio/x-voc' => 
     array (
-      0 => 'voc',
+      'e' => 
+      array (
+        0 => 'voc',
+      ),
     ),
-    'audio/x-vorbis+ogg' =>
+    'audio/x-vorbis+ogg' => 
     array (
-      0 => 'oga',
-      1 => 'ogg',
+      'e' => 
+      array (
+        0 => 'oga',
+        1 => 'ogg',
+      ),
     ),
-    'audio/x-wav' =>
+    'audio/x-wav' => 
     array (
-      0 => 'wav',
+      'e' => 
+      array (
+        0 => 'wav',
+      ),
     ),
-    'audio/x-wavpack' =>
+    'audio/x-wavpack' => 
     array (
-      0 => 'wv',
-      1 => 'wvp',
+      'e' => 
+      array (
+        0 => 'wv',
+        1 => 'wvp',
+      ),
     ),
-    'audio/x-wavpack-correction' =>
+    'audio/x-wavpack-correction' => 
     array (
-      0 => 'wvc',
+      'e' => 
+      array (
+        0 => 'wvc',
+      ),
     ),
-    'audio/x-xi' =>
+    'audio/x-xi' => 
     array (
-      0 => 'xi',
+      'e' => 
+      array (
+        0 => 'xi',
+      ),
     ),
-    'audio/x-xm' =>
+    'audio/x-xm' => 
     array (
-      0 => 'xm',
+      'e' => 
+      array (
+        0 => 'xm',
+      ),
     ),
-    'audio/x-xmf' =>
+    'audio/x-xmf' => 
     array (
-      0 => 'xmf',
+      'e' => 
+      array (
+        0 => 'xmf',
+      ),
     ),
-    'audio/xm' =>
+    'audio/xm' => 
     array (
-      0 => 'xm',
+      'e' => 
+      array (
+        0 => 'xm',
+      ),
     ),
-    'chemical/x-cdx' =>
+    'chemical/x-cdx' => 
     array (
-      0 => 'cdx',
+      'e' => 
+      array (
+        0 => 'cdx',
+      ),
     ),
-    'chemical/x-cif' =>
+    'chemical/x-cif' => 
     array (
-      0 => 'cif',
+      'e' => 
+      array (
+        0 => 'cif',
+      ),
     ),
-    'chemical/x-cmdf' =>
+    'chemical/x-cmdf' => 
     array (
-      0 => 'cmdf',
+      'e' => 
+      array (
+        0 => 'cmdf',
+      ),
     ),
-    'chemical/x-cml' =>
+    'chemical/x-cml' => 
     array (
-      0 => 'cml',
+      'e' => 
+      array (
+        0 => 'cml',
+      ),
     ),
-    'chemical/x-csml' =>
+    'chemical/x-csml' => 
     array (
-      0 => 'csml',
+      'e' => 
+      array (
+        0 => 'csml',
+      ),
     ),
-    'chemical/x-xyz' =>
+    'chemical/x-xyz' => 
     array (
-      0 => 'xyz',
+      'e' => 
+      array (
+        0 => 'xyz',
+      ),
     ),
-    'font/collection' =>
+    'font/collection' => 
     array (
-      0 => 'ttc',
+      'e' => 
+      array (
+        0 => 'ttc',
+      ),
     ),
-    'font/otf' =>
+    'font/otf' => 
     array (
-      0 => 'otf',
+      'e' => 
+      array (
+        0 => 'otf',
+      ),
     ),
-    'font/ttf' =>
+    'font/ttf' => 
     array (
-      0 => 'ttf',
+      'e' => 
+      array (
+        0 => 'ttf',
+      ),
     ),
-    'font/woff' =>
+    'font/woff' => 
     array (
-      0 => 'woff',
-      1 => 'woff2',
+      'e' => 
+      array (
+        0 => 'woff',
+        1 => 'woff2',
+      ),
     ),
-    'font/woff2' =>
+    'font/woff2' => 
     array (
-      0 => 'woff2',
+      'e' => 
+      array (
+        0 => 'woff2',
+      ),
     ),
-    'image/bmp' =>
+    'image/bmp' => 
     array (
-      0 => 'bmp',
-      1 => 'dib',
+      'e' => 
+      array (
+        0 => 'bmp',
+        1 => 'dib',
+      ),
     ),
-    'image/cgm' =>
+    'image/cgm' => 
     array (
-      0 => 'cgm',
+      'e' => 
+      array (
+        0 => 'cgm',
+      ),
     ),
-    'image/emf' =>
+    'image/emf' => 
     array (
-      0 => 'emf',
+      'e' => 
+      array (
+        0 => 'emf',
+      ),
     ),
-    'image/fax-g3' =>
+    'image/fax-g3' => 
     array (
-      0 => 'g3',
+      'e' => 
+      array (
+        0 => 'g3',
+      ),
     ),
-    'image/fits' =>
+    'image/fits' => 
     array (
-      0 => 'fits',
+      'e' => 
+      array (
+        0 => 'fits',
+      ),
     ),
-    'image/g3fax' =>
+    'image/g3fax' => 
     array (
-      0 => 'g3',
+      'e' => 
+      array (
+        0 => 'g3',
+      ),
     ),
-    'image/gif' =>
+    'image/gif' => 
     array (
-      0 => 'gif',
+      'e' => 
+      array (
+        0 => 'gif',
+      ),
     ),
-    'image/heif' =>
+    'image/heif' => 
     array (
-      0 => 'heic',
-      1 => 'heif',
+      'e' => 
+      array (
+        0 => 'heic',
+        1 => 'heif',
+      ),
     ),
-    'image/ief' =>
+    'image/ief' => 
     array (
-      0 => 'ief',
+      'e' => 
+      array (
+        0 => 'ief',
+      ),
     ),
-    'image/jp2' =>
+    'image/jp2' => 
     array (
-      0 => 'jp2',
-      1 => 'jpg2',
+      'e' => 
+      array (
+        0 => 'jp2',
+        1 => 'jpg2',
+      ),
     ),
-    'image/jpeg' =>
+    'image/jpeg' => 
     array (
-      0 => 'jpeg',
-      1 => 'jpg',
-      2 => 'jpe',
+      'e' => 
+      array (
+        0 => 'jpeg',
+        1 => 'jpg',
+        2 => 'jpe',
+      ),
     ),
-    'image/jpm' =>
+    'image/jpm' => 
     array (
-      0 => 'jpm',
-      1 => 'jpgm',
+      'e' => 
+      array (
+        0 => 'jpm',
+        1 => 'jpgm',
+      ),
     ),
-    'image/jpx' =>
+    'image/jpx' => 
     array (
-      0 => 'jpf',
-      1 => 'jpx',
+      'e' => 
+      array (
+        0 => 'jpf',
+        1 => 'jpx',
+      ),
     ),
-    'image/ktx' =>
+    'image/ktx' => 
     array (
-      0 => 'ktx',
+      'e' => 
+      array (
+        0 => 'ktx',
+      ),
     ),
-    'image/openraster' =>
+    'image/openraster' => 
     array (
-      0 => 'ora',
+      'e' => 
+      array (
+        0 => 'ora',
+      ),
     ),
-    'image/png' =>
+    'image/png' => 
     array (
-      0 => 'png',
+      'e' => 
+      array (
+        0 => 'png',
+      ),
     ),
-    'image/prs.btif' =>
+    'image/prs.btif' => 
     array (
-      0 => 'btif',
+      'e' => 
+      array (
+        0 => 'btif',
+      ),
     ),
-    'image/rle' =>
+    'image/rle' => 
     array (
-      0 => 'rle',
+      'e' => 
+      array (
+        0 => 'rle',
+      ),
     ),
-    'image/sgi' =>
+    'image/sgi' => 
     array (
-      0 => 'sgi',
+      'e' => 
+      array (
+        0 => 'sgi',
+      ),
     ),
-    'image/svg+xml' =>
+    'image/svg+xml' => 
     array (
-      0 => 'svg',
-      1 => 'svgz',
+      'e' => 
+      array (
+        0 => 'svg',
+        1 => 'svgz',
+      ),
     ),
-    'image/svg+xml-compressed' =>
+    'image/svg+xml-compressed' => 
     array (
-      0 => 'svgz',
+      'e' => 
+      array (
+        0 => 'svgz',
+      ),
     ),
-    'image/tiff' =>
+    'image/tiff' => 
     array (
-      0 => 'tiff',
-      1 => 'tif',
+      'e' => 
+      array (
+        0 => 'tiff',
+        1 => 'tif',
+      ),
     ),
-    'image/vnd.adobe.photoshop' =>
+    'image/vnd.adobe.photoshop' => 
     array (
-      0 => 'psd',
+      'e' => 
+      array (
+        0 => 'psd',
+      ),
     ),
-    'image/vnd.dece.graphic' =>
+    'image/vnd.dece.graphic' => 
     array (
-      0 => 'uvi',
-      1 => 'uvvi',
-      2 => 'uvg',
-      3 => 'uvvg',
+      'e' => 
+      array (
+        0 => 'uvi',
+        1 => 'uvvi',
+        2 => 'uvg',
+        3 => 'uvvg',
+      ),
     ),
-    'image/vnd.djvu' =>
+    'image/vnd.djvu' => 
     array (
-      0 => 'djvu',
-      1 => 'djv',
+      'e' => 
+      array (
+        0 => 'djvu',
+        1 => 'djv',
+      ),
     ),
-    'image/vnd.djvu+multipage' =>
+    'image/vnd.djvu+multipage' => 
     array (
-      0 => 'djvu',
-      1 => 'djv',
+      'e' => 
+      array (
+        0 => 'djvu',
+        1 => 'djv',
+      ),
     ),
-    'image/vnd.dvb.subtitle' =>
+    'image/vnd.dvb.subtitle' => 
     array (
-      0 => 'sub',
+      'e' => 
+      array (
+        0 => 'sub',
+      ),
     ),
-    'image/vnd.dwg' =>
+    'image/vnd.dwg' => 
     array (
-      0 => 'dwg',
+      'e' => 
+      array (
+        0 => 'dwg',
+      ),
     ),
-    'image/vnd.dxf' =>
+    'image/vnd.dxf' => 
     array (
-      0 => 'dxf',
+      'e' => 
+      array (
+        0 => 'dxf',
+      ),
     ),
-    'image/vnd.fastbidsheet' =>
+    'image/vnd.fastbidsheet' => 
     array (
-      0 => 'fbs',
+      'e' => 
+      array (
+        0 => 'fbs',
+      ),
     ),
-    'image/vnd.fpx' =>
+    'image/vnd.fpx' => 
     array (
-      0 => 'fpx',
+      'e' => 
+      array (
+        0 => 'fpx',
+      ),
     ),
-    'image/vnd.fst' =>
+    'image/vnd.fst' => 
     array (
-      0 => 'fst',
+      'e' => 
+      array (
+        0 => 'fst',
+      ),
     ),
-    'image/vnd.fujixerox.edmics-mmr' =>
+    'image/vnd.fujixerox.edmics-mmr' => 
     array (
-      0 => 'mmr',
+      'e' => 
+      array (
+        0 => 'mmr',
+      ),
     ),
-    'image/vnd.fujixerox.edmics-rlc' =>
+    'image/vnd.fujixerox.edmics-rlc' => 
     array (
-      0 => 'rlc',
+      'e' => 
+      array (
+        0 => 'rlc',
+      ),
     ),
-    'image/vnd.microsoft.icon' =>
+    'image/vnd.microsoft.icon' => 
     array (
-      0 => 'ico',
+      'e' => 
+      array (
+        0 => 'ico',
+      ),
     ),
-    'image/vnd.ms-modi' =>
+    'image/vnd.ms-modi' => 
     array (
-      0 => 'mdi',
+      'e' => 
+      array (
+        0 => 'mdi',
+      ),
     ),
-    'image/vnd.ms-photo' =>
+    'image/vnd.ms-photo' => 
     array (
-      0 => 'wdp',
+      'e' => 
+      array (
+        0 => 'wdp',
+      ),
     ),
-    'image/vnd.net-fpx' =>
+    'image/vnd.net-fpx' => 
     array (
-      0 => 'npx',
+      'e' => 
+      array (
+        0 => 'npx',
+      ),
     ),
-    'image/vnd.rn-realpix' =>
+    'image/vnd.rn-realpix' => 
     array (
-      0 => 'rp',
+      'e' => 
+      array (
+        0 => 'rp',
+      ),
     ),
-    'image/vnd.wap.wbmp' =>
+    'image/vnd.wap.wbmp' => 
     array (
-      0 => 'wbmp',
+      'e' => 
+      array (
+        0 => 'wbmp',
+      ),
     ),
-    'image/vnd.xiff' =>
+    'image/vnd.xiff' => 
     array (
-      0 => 'xif',
+      'e' => 
+      array (
+        0 => 'xif',
+      ),
     ),
-    'image/vnd.zbrush.pcx' =>
+    'image/vnd.zbrush.pcx' => 
     array (
-      0 => 'pcx',
+      'e' => 
+      array (
+        0 => 'pcx',
+      ),
     ),
-    'image/webp' =>
+    'image/webp' => 
     array (
-      0 => 'webp',
+      'e' => 
+      array (
+        0 => 'webp',
+      ),
     ),
-    'image/wmf' =>
+    'image/wmf' => 
     array (
-      0 => 'wmf',
+      'e' => 
+      array (
+        0 => 'wmf',
+      ),
     ),
-    'image/x-3ds' =>
+    'image/x-3ds' => 
     array (
-      0 => '3ds',
+      'e' => 
+      array (
+        0 => '3ds',
+      ),
     ),
-    'image/x-adobe-dng' =>
+    'image/x-adobe-dng' => 
     array (
-      0 => 'dng',
+      'e' => 
+      array (
+        0 => 'dng',
+      ),
     ),
-    'image/x-applix-graphics' =>
+    'image/x-applix-graphics' => 
     array (
-      0 => 'ag',
+      'e' => 
+      array (
+        0 => 'ag',
+      ),
     ),
-    'image/x-bzeps' =>
+    'image/x-bzeps' => 
     array (
-      0 => 'eps.bz2',
-      1 => 'epsi.bz2',
-      2 => 'epsf.bz2',
+      'e' => 
+      array (
+        0 => 'eps.bz2',
+        1 => 'epsi.bz2',
+        2 => 'epsf.bz2',
+      ),
     ),
-    'image/x-canon-cr2' =>
+    'image/x-canon-cr2' => 
     array (
-      0 => 'cr2',
+      'e' => 
+      array (
+        0 => 'cr2',
+      ),
     ),
-    'image/x-canon-crw' =>
+    'image/x-canon-crw' => 
     array (
-      0 => 'crw',
+      'e' => 
+      array (
+        0 => 'crw',
+      ),
     ),
-    'image/x-cmu-raster' =>
+    'image/x-cmu-raster' => 
     array (
-      0 => 'ras',
+      'e' => 
+      array (
+        0 => 'ras',
+      ),
     ),
-    'image/x-cmx' =>
+    'image/x-cmx' => 
     array (
-      0 => 'cmx',
+      'e' => 
+      array (
+        0 => 'cmx',
+      ),
     ),
-    'image/x-compressed-xcf' =>
+    'image/x-compressed-xcf' => 
     array (
-      0 => 'xcf.gz',
-      1 => 'xcf.bz2',
+      'e' => 
+      array (
+        0 => 'xcf.gz',
+        1 => 'xcf.bz2',
+      ),
     ),
-    'image/x-dds' =>
+    'image/x-dds' => 
     array (
-      0 => 'dds',
+      'e' => 
+      array (
+        0 => 'dds',
+      ),
     ),
-    'image/x-eps' =>
+    'image/x-eps' => 
     array (
-      0 => 'eps',
-      1 => 'epsi',
-      2 => 'epsf',
+      'e' => 
+      array (
+        0 => 'eps',
+        1 => 'epsi',
+        2 => 'epsf',
+      ),
     ),
-    'image/x-exr' =>
+    'image/x-exr' => 
     array (
-      0 => 'exr',
+      'e' => 
+      array (
+        0 => 'exr',
+      ),
     ),
-    'image/x-freehand' =>
+    'image/x-freehand' => 
     array (
-      0 => 'fh',
-      1 => 'fhc',
-      2 => 'fh4',
-      3 => 'fh5',
-      4 => 'fh7',
+      'e' => 
+      array (
+        0 => 'fh',
+        1 => 'fhc',
+        2 => 'fh4',
+        3 => 'fh5',
+        4 => 'fh7',
+      ),
     ),
-    'image/x-fuji-raf' =>
+    'image/x-fuji-raf' => 
     array (
-      0 => 'raf',
+      'e' => 
+      array (
+        0 => 'raf',
+      ),
     ),
-    'image/x-gimp-gbr' =>
+    'image/x-gimp-gbr' => 
     array (
-      0 => 'gbr',
+      'e' => 
+      array (
+        0 => 'gbr',
+      ),
     ),
-    'image/x-gimp-gih' =>
+    'image/x-gimp-gih' => 
     array (
-      0 => 'gih',
+      'e' => 
+      array (
+        0 => 'gih',
+      ),
     ),
-    'image/x-gimp-pat' =>
+    'image/x-gimp-pat' => 
     array (
-      0 => 'pat',
+      'e' => 
+      array (
+        0 => 'pat',
+      ),
     ),
-    'image/x-gzeps' =>
+    'image/x-gzeps' => 
     array (
-      0 => 'eps.gz',
-      1 => 'epsi.gz',
-      2 => 'epsf.gz',
+      'e' => 
+      array (
+        0 => 'eps.gz',
+        1 => 'epsi.gz',
+        2 => 'epsf.gz',
+      ),
     ),
-    'image/x-icns' =>
+    'image/x-icns' => 
     array (
-      0 => 'icns',
+      'e' => 
+      array (
+        0 => 'icns',
+      ),
     ),
-    'image/x-icon' =>
+    'image/x-icon' => 
     array (
-      0 => 'ico',
+      'e' => 
+      array (
+        0 => 'ico',
+      ),
     ),
-    'image/x-ilbm' =>
+    'image/x-ilbm' => 
     array (
-      0 => 'iff',
-      1 => 'ilbm',
-      2 => 'lbm',
+      'e' => 
+      array (
+        0 => 'iff',
+        1 => 'ilbm',
+        2 => 'lbm',
+      ),
     ),
-    'image/x-jng' =>
+    'image/x-jng' => 
     array (
-      0 => 'jng',
+      'e' => 
+      array (
+        0 => 'jng',
+      ),
     ),
-    'image/x-jp2-codestream' =>
+    'image/x-jp2-codestream' => 
     array (
-      0 => 'j2c',
-      1 => 'j2k',
-      2 => 'jpc',
+      'e' => 
+      array (
+        0 => 'j2c',
+        1 => 'j2k',
+        2 => 'jpc',
+      ),
     ),
-    'image/x-kodak-dcr' =>
+    'image/x-kodak-dcr' => 
     array (
-      0 => 'dcr',
+      'e' => 
+      array (
+        0 => 'dcr',
+      ),
     ),
-    'image/x-kodak-k25' =>
+    'image/x-kodak-k25' => 
     array (
-      0 => 'k25',
+      'e' => 
+      array (
+        0 => 'k25',
+      ),
     ),
-    'image/x-kodak-kdc' =>
+    'image/x-kodak-kdc' => 
     array (
-      0 => 'kdc',
+      'e' => 
+      array (
+        0 => 'kdc',
+      ),
     ),
-    'image/x-lwo' =>
+    'image/x-lwo' => 
     array (
-      0 => 'lwo',
-      1 => 'lwob',
+      'e' => 
+      array (
+        0 => 'lwo',
+        1 => 'lwob',
+      ),
     ),
-    'image/x-lws' =>
+    'image/x-lws' => 
     array (
-      0 => 'lws',
+      'e' => 
+      array (
+        0 => 'lws',
+      ),
     ),
-    'image/x-macpaint' =>
+    'image/x-macpaint' => 
     array (
-      0 => 'pntg',
+      'e' => 
+      array (
+        0 => 'pntg',
+      ),
     ),
-    'image/x-minolta-mrw' =>
+    'image/x-minolta-mrw' => 
     array (
-      0 => 'mrw',
+      'e' => 
+      array (
+        0 => 'mrw',
+      ),
     ),
-    'image/x-mrsid-image' =>
+    'image/x-mrsid-image' => 
     array (
-      0 => 'sid',
+      'e' => 
+      array (
+        0 => 'sid',
+      ),
     ),
-    'image/x-msod' =>
+    'image/x-msod' => 
     array (
-      0 => 'msod',
+      'e' => 
+      array (
+        0 => 'msod',
+      ),
     ),
-    'image/x-nikon-nef' =>
+    'image/x-nikon-nef' => 
     array (
-      0 => 'nef',
+      'e' => 
+      array (
+        0 => 'nef',
+      ),
     ),
-    'image/x-olympus-orf' =>
+    'image/x-olympus-orf' => 
     array (
-      0 => 'orf',
+      'e' => 
+      array (
+        0 => 'orf',
+      ),
     ),
-    'image/x-panasonic-rw' =>
+    'image/x-panasonic-rw' => 
     array (
-      0 => 'raw',
+      'e' => 
+      array (
+        0 => 'raw',
+      ),
     ),
-    'image/x-panasonic-rw2' =>
+    'image/x-panasonic-rw2' => 
     array (
-      0 => 'rw2',
+      'e' => 
+      array (
+        0 => 'rw2',
+      ),
     ),
-    'image/x-pcx' =>
+    'image/x-pcx' => 
     array (
-      0 => 'pcx',
+      'e' => 
+      array (
+        0 => 'pcx',
+      ),
     ),
-    'image/x-pentax-pef' =>
+    'image/x-pentax-pef' => 
     array (
-      0 => 'pef',
+      'e' => 
+      array (
+        0 => 'pef',
+      ),
     ),
-    'image/x-photo-cd' =>
+    'image/x-photo-cd' => 
     array (
-      0 => 'pcd',
+      'e' => 
+      array (
+        0 => 'pcd',
+      ),
     ),
-    'image/x-pict' =>
+    'image/x-pict' => 
     array (
-      0 => 'pic',
-      1 => 'pct',
-      2 => 'pict',
-      3 => 'pict1',
-      4 => 'pict2',
+      'e' => 
+      array (
+        0 => 'pic',
+        1 => 'pct',
+        2 => 'pict',
+        3 => 'pict1',
+        4 => 'pict2',
+      ),
     ),
-    'image/x-portable-anymap' =>
+    'image/x-portable-anymap' => 
     array (
-      0 => 'pnm',
+      'e' => 
+      array (
+        0 => 'pnm',
+      ),
     ),
-    'image/x-portable-bitmap' =>
+    'image/x-portable-bitmap' => 
     array (
-      0 => 'pbm',
+      'e' => 
+      array (
+        0 => 'pbm',
+      ),
     ),
-    'image/x-portable-graymap' =>
+    'image/x-portable-graymap' => 
     array (
-      0 => 'pgm',
+      'e' => 
+      array (
+        0 => 'pgm',
+      ),
     ),
-    'image/x-portable-pixmap' =>
+    'image/x-portable-pixmap' => 
     array (
-      0 => 'ppm',
+      'e' => 
+      array (
+        0 => 'ppm',
+      ),
     ),
-    'image/x-quicktime' =>
+    'image/x-quicktime' => 
     array (
-      0 => 'qtif',
-      1 => 'qif',
+      'e' => 
+      array (
+        0 => 'qtif',
+        1 => 'qif',
+      ),
     ),
-    'image/x-rgb' =>
+    'image/x-rgb' => 
     array (
-      0 => 'rgb',
+      'e' => 
+      array (
+        0 => 'rgb',
+      ),
     ),
-    'image/x-sgi' =>
+    'image/x-sgi' => 
     array (
-      0 => 'sgi',
+      'e' => 
+      array (
+        0 => 'sgi',
+      ),
     ),
-    'image/x-sigma-x3f' =>
+    'image/x-sigma-x3f' => 
     array (
-      0 => 'x3f',
+      'e' => 
+      array (
+        0 => 'x3f',
+      ),
     ),
-    'image/x-skencil' =>
+    'image/x-skencil' => 
     array (
-      0 => 'sk',
-      1 => 'sk1',
+      'e' => 
+      array (
+        0 => 'sk',
+        1 => 'sk1',
+      ),
     ),
-    'image/x-sony-arw' =>
+    'image/x-sony-arw' => 
     array (
-      0 => 'arw',
+      'e' => 
+      array (
+        0 => 'arw',
+      ),
     ),
-    'image/x-sony-sr2' =>
+    'image/x-sony-sr2' => 
     array (
-      0 => 'sr2',
+      'e' => 
+      array (
+        0 => 'sr2',
+      ),
     ),
-    'image/x-sony-srf' =>
+    'image/x-sony-srf' => 
     array (
-      0 => 'srf',
+      'e' => 
+      array (
+        0 => 'srf',
+      ),
     ),
-    'image/x-sun-raster' =>
+    'image/x-sun-raster' => 
     array (
-      0 => 'sun',
+      'e' => 
+      array (
+        0 => 'sun',
+      ),
     ),
-    'image/x-tga' =>
+    'image/x-tga' => 
     array (
-      0 => 'tga',
-      1 => 'icb',
-      2 => 'tpic',
-      3 => 'vda',
-      4 => 'vst',
+      'e' => 
+      array (
+        0 => 'tga',
+        1 => 'icb',
+        2 => 'tpic',
+        3 => 'vda',
+        4 => 'vst',
+      ),
     ),
-    'image/x-win-bitmap' =>
+    'image/x-win-bitmap' => 
     array (
-      0 => 'cur',
+      'e' => 
+      array (
+        0 => 'cur',
+      ),
     ),
-    'image/x-xbitmap' =>
+    'image/x-xbitmap' => 
     array (
-      0 => 'xbm',
+      'e' => 
+      array (
+        0 => 'xbm',
+      ),
     ),
-    'image/x-xcf' =>
+    'image/x-xcf' => 
     array (
-      0 => 'xcf',
+      'e' => 
+      array (
+        0 => 'xcf',
+      ),
     ),
-    'image/x-xfig' =>
+    'image/x-xfig' => 
     array (
-      0 => 'fig',
+      'e' => 
+      array (
+        0 => 'fig',
+      ),
     ),
-    'image/x-xpixmap' =>
+    'image/x-xpixmap' => 
     array (
-      0 => 'xpm',
+      'e' => 
+      array (
+        0 => 'xpm',
+      ),
     ),
-    'image/x-xwindowdump' =>
+    'image/x-xwindowdump' => 
     array (
-      0 => 'xwd',
+      'e' => 
+      array (
+        0 => 'xwd',
+      ),
     ),
-    'message/rfc822' =>
+    'message/rfc822' => 
     array (
-      0 => 'eml',
-      1 => 'mime',
+      'e' => 
+      array (
+        0 => 'eml',
+        1 => 'mime',
+      ),
     ),
-    'model/iges' =>
+    'model/iges' => 
     array (
-      0 => 'igs',
-      1 => 'iges',
+      'e' => 
+      array (
+        0 => 'igs',
+        1 => 'iges',
+      ),
     ),
-    'model/mesh' =>
+    'model/mesh' => 
     array (
-      0 => 'msh',
-      1 => 'mesh',
-      2 => 'silo',
+      'e' => 
+      array (
+        0 => 'msh',
+        1 => 'mesh',
+        2 => 'silo',
+      ),
     ),
-    'model/stl' =>
+    'model/stl' => 
     array (
-      0 => 'stl',
+      'e' => 
+      array (
+        0 => 'stl',
+      ),
     ),
-    'model/vnd.collada+xml' =>
+    'model/vnd.collada+xml' => 
     array (
-      0 => 'dae',
+      'e' => 
+      array (
+        0 => 'dae',
+      ),
     ),
-    'model/vnd.dwf' =>
+    'model/vnd.dwf' => 
     array (
-      0 => 'dwf',
+      'e' => 
+      array (
+        0 => 'dwf',
+      ),
     ),
-    'model/vnd.gdl' =>
+    'model/vnd.gdl' => 
     array (
-      0 => 'gdl',
+      'e' => 
+      array (
+        0 => 'gdl',
+      ),
     ),
-    'model/vnd.gtw' =>
+    'model/vnd.gtw' => 
     array (
-      0 => 'gtw',
+      'e' => 
+      array (
+        0 => 'gtw',
+      ),
     ),
-    'model/vnd.mts' =>
+    'model/vnd.mts' => 
     array (
-      0 => 'mts',
+      'e' => 
+      array (
+        0 => 'mts',
+      ),
     ),
-    'model/vnd.vtu' =>
+    'model/vnd.vtu' => 
     array (
-      0 => 'vtu',
+      'e' => 
+      array (
+        0 => 'vtu',
+      ),
     ),
-    'model/vrml' =>
+    'model/vrml' => 
     array (
-      0 => 'wrl',
-      1 => 'vrml',
-      2 => 'vrm',
+      'e' => 
+      array (
+        0 => 'wrl',
+        1 => 'vrml',
+        2 => 'vrm',
+      ),
     ),
-    'model/x3d+binary' =>
+    'model/x3d+binary' => 
     array (
-      0 => 'x3db',
-      1 => 'x3dbz',
+      'e' => 
+      array (
+        0 => 'x3db',
+        1 => 'x3dbz',
+      ),
     ),
-    'model/x3d+vrml' =>
+    'model/x3d+vrml' => 
     array (
-      0 => 'x3dv',
-      1 => 'x3dvz',
+      'e' => 
+      array (
+        0 => 'x3dv',
+        1 => 'x3dvz',
+      ),
     ),
-    'model/x3d+xml' =>
+    'model/x3d+xml' => 
     array (
-      0 => 'x3d',
-      1 => 'x3dz',
+      'e' => 
+      array (
+        0 => 'x3d',
+        1 => 'x3dz',
+      ),
     ),
-    'text/cache-manifest' =>
+    'text/cache-manifest' => 
     array (
-      0 => 'appcache',
-      1 => 'manifest',
+      'e' => 
+      array (
+        0 => 'appcache',
+        1 => 'manifest',
+      ),
     ),
-    'text/calendar' =>
+    'text/calendar' => 
     array (
-      0 => 'ics',
-      1 => 'ifb',
-      2 => 'vcs',
+      'e' => 
+      array (
+        0 => 'ics',
+        1 => 'ifb',
+        2 => 'vcs',
+      ),
     ),
-    'text/css' =>
+    'text/css' => 
     array (
-      0 => 'css',
+      'e' => 
+      array (
+        0 => 'css',
+      ),
     ),
-    'text/csv' =>
+    'text/csv' => 
     array (
-      0 => 'csv',
+      'e' => 
+      array (
+        0 => 'csv',
+      ),
     ),
-    'text/csv-schema' =>
+    'text/csv-schema' => 
     array (
-      0 => 'csvs',
+      'e' => 
+      array (
+        0 => 'csvs',
+      ),
     ),
-    'text/html' =>
+    'text/html' => 
     array (
-      0 => 'html',
-      1 => 'htm',
+      'e' => 
+      array (
+        0 => 'html',
+        1 => 'htm',
+      ),
     ),
-    'text/markdown' =>
+    'text/markdown' => 
     array (
-      0 => 'md',
-      1 => 'mkd',
-      2 => 'markdown',
+      'e' => 
+      array (
+        0 => 'md',
+        1 => 'mkd',
+        2 => 'markdown',
+      ),
     ),
-    'text/n3' =>
+    'text/n3' => 
     array (
-      0 => 'n3',
+      'e' => 
+      array (
+        0 => 'n3',
+      ),
     ),
-    'text/plain' =>
+    'text/plain' => 
     array (
-      0 => 'txt',
-      1 => 'text',
-      2 => 'conf',
-      3 => 'def',
-      4 => 'list',
-      5 => 'log',
-      6 => 'in',
-      7 => 'asc',
+      'e' => 
+      array (
+        0 => 'txt',
+        1 => 'text',
+        2 => 'conf',
+        3 => 'def',
+        4 => 'list',
+        5 => 'log',
+        6 => 'in',
+        7 => 'asc',
+      ),
     ),
-    'text/prs.lines.tag' =>
+    'text/prs.lines.tag' => 
     array (
-      0 => 'dsc',
+      'e' => 
+      array (
+        0 => 'dsc',
+      ),
     ),
-    'text/richtext' =>
+    'text/richtext' => 
     array (
-      0 => 'rtx',
+      'e' => 
+      array (
+        0 => 'rtx',
+      ),
     ),
-    'text/rust' =>
+    'text/rust' => 
     array (
-      0 => 'rs',
+      'e' => 
+      array (
+        0 => 'rs',
+      ),
     ),
-    'text/sgml' =>
+    'text/sgml' => 
     array (
-      0 => 'sgml',
-      1 => 'sgm',
+      'e' => 
+      array (
+        0 => 'sgml',
+        1 => 'sgm',
+      ),
     ),
-    'text/spreadsheet' =>
+    'text/spreadsheet' => 
     array (
-      0 => 'sylk',
-      1 => 'slk',
+      'e' => 
+      array (
+        0 => 'sylk',
+        1 => 'slk',
+      ),
     ),
-    'text/tab-separated-values' =>
+    'text/tab-separated-values' => 
     array (
-      0 => 'tsv',
+      'e' => 
+      array (
+        0 => 'tsv',
+      ),
     ),
-    'text/troff' =>
+    'text/troff' => 
     array (
-      0 => 't',
-      1 => 'tr',
-      2 => 'roff',
-      3 => 'man',
-      4 => 'me',
-      5 => 'ms',
+      'e' => 
+      array (
+        0 => 't',
+        1 => 'tr',
+        2 => 'roff',
+        3 => 'man',
+        4 => 'me',
+        5 => 'ms',
+      ),
     ),
-    'text/turtle' =>
+    'text/turtle' => 
     array (
-      0 => 'ttl',
+      'e' => 
+      array (
+        0 => 'ttl',
+      ),
     ),
-    'text/uri-list' =>
+    'text/uri-list' => 
     array (
-      0 => 'uri',
-      1 => 'uris',
-      2 => 'urls',
+      'e' => 
+      array (
+        0 => 'uri',
+        1 => 'uris',
+        2 => 'urls',
+      ),
     ),
-    'text/vcard' =>
+    'text/vcard' => 
     array (
-      0 => 'vcard',
-      1 => 'vcf',
-      2 => 'vct',
-      3 => 'gcrd',
+      'e' => 
+      array (
+        0 => 'vcard',
+        1 => 'vcf',
+        2 => 'vct',
+        3 => 'gcrd',
+      ),
     ),
-    'text/vnd.curl' =>
+    'text/vnd.curl' => 
     array (
-      0 => 'curl',
+      'e' => 
+      array (
+        0 => 'curl',
+      ),
     ),
-    'text/vnd.curl.dcurl' =>
+    'text/vnd.curl.dcurl' => 
     array (
-      0 => 'dcurl',
+      'e' => 
+      array (
+        0 => 'dcurl',
+      ),
     ),
-    'text/vnd.curl.mcurl' =>
+    'text/vnd.curl.mcurl' => 
     array (
-      0 => 'mcurl',
+      'e' => 
+      array (
+        0 => 'mcurl',
+      ),
     ),
-    'text/vnd.curl.scurl' =>
+    'text/vnd.curl.scurl' => 
     array (
-      0 => 'scurl',
+      'e' => 
+      array (
+        0 => 'scurl',
+      ),
     ),
-    'text/vnd.dvb.subtitle' =>
+    'text/vnd.dvb.subtitle' => 
     array (
-      0 => 'sub',
+      'e' => 
+      array (
+        0 => 'sub',
+      ),
     ),
-    'text/vnd.fly' =>
+    'text/vnd.fly' => 
     array (
-      0 => 'fly',
+      'e' => 
+      array (
+        0 => 'fly',
+      ),
     ),
-    'text/vnd.fmi.flexstor' =>
+    'text/vnd.fmi.flexstor' => 
     array (
-      0 => 'flx',
+      'e' => 
+      array (
+        0 => 'flx',
+      ),
     ),
-    'text/vnd.graphviz' =>
+    'text/vnd.graphviz' => 
     array (
-      0 => 'gv',
-      1 => 'dot',
+      'e' => 
+      array (
+        0 => 'gv',
+        1 => 'dot',
+      ),
     ),
-    'text/vnd.in3d.3dml' =>
+    'text/vnd.in3d.3dml' => 
     array (
-      0 => '3dml',
+      'e' => 
+      array (
+        0 => '3dml',
+      ),
     ),
-    'text/vnd.in3d.spot' =>
+    'text/vnd.in3d.spot' => 
     array (
-      0 => 'spot',
+      'e' => 
+      array (
+        0 => 'spot',
+      ),
     ),
-    'text/vnd.qt.linguist' =>
+    'text/vnd.qt.linguist' => 
     array (
-      0 => 'ts',
+      'e' => 
+      array (
+        0 => 'ts',
+      ),
     ),
-    'text/vnd.rn-realtext' =>
+    'text/vnd.rn-realtext' => 
     array (
-      0 => 'rt',
+      'e' => 
+      array (
+        0 => 'rt',
+      ),
     ),
-    'text/vnd.sun.j2me.app-descriptor' =>
+    'text/vnd.sun.j2me.app-descriptor' => 
     array (
-      0 => 'jad',
+      'e' => 
+      array (
+        0 => 'jad',
+      ),
     ),
-    'text/vnd.wap.wml' =>
+    'text/vnd.wap.wml' => 
     array (
-      0 => 'wml',
+      'e' => 
+      array (
+        0 => 'wml',
+      ),
     ),
-    'text/vnd.wap.wmlscript' =>
+    'text/vnd.wap.wmlscript' => 
     array (
-      0 => 'wmls',
+      'e' => 
+      array (
+        0 => 'wmls',
+      ),
     ),
-    'text/vtt' =>
+    'text/vtt' => 
     array (
-      0 => 'vtt',
+      'e' => 
+      array (
+        0 => 'vtt',
+      ),
     ),
-    'text/x-adasrc' =>
+    'text/x-adasrc' => 
     array (
-      0 => 'adb',
-      1 => 'ads',
+      'e' => 
+      array (
+        0 => 'adb',
+        1 => 'ads',
+      ),
     ),
-    'text/x-asm' =>
+    'text/x-asm' => 
     array (
-      0 => 's',
-      1 => 'asm',
+      'e' => 
+      array (
+        0 => 's',
+        1 => 'asm',
+      ),
     ),
-    'text/x-bibtex' =>
+    'text/x-bibtex' => 
     array (
-      0 => 'bib',
+      'e' => 
+      array (
+        0 => 'bib',
+      ),
     ),
-    'text/x-c' =>
+    'text/x-c' => 
     array (
-      0 => 'c',
-      1 => 'cc',
-      2 => 'cxx',
-      3 => 'cpp',
-      4 => 'h',
-      5 => 'hh',
-      6 => 'dic',
+      'e' => 
+      array (
+        0 => 'c',
+        1 => 'cc',
+        2 => 'cxx',
+        3 => 'cpp',
+        4 => 'h',
+        5 => 'hh',
+        6 => 'dic',
+      ),
     ),
-    'text/x-c++hdr' =>
+    'text/x-c++hdr' => 
     array (
-      0 => 'hh',
-      1 => 'hp',
-      2 => 'hpp',
-      3 => 'h++',
-      4 => 'hxx',
+      'e' => 
+      array (
+        0 => 'hh',
+        1 => 'hp',
+        2 => 'hpp',
+        3 => 'h++',
+        4 => 'hxx',
+      ),
     ),
-    'text/x-c++src' =>
+    'text/x-c++src' => 
     array (
-      0 => 'cpp',
-      1 => 'cxx',
-      2 => 'cc',
-      3 => 'c',
-      4 => 'c++',
+      'e' => 
+      array (
+        0 => 'cpp',
+        1 => 'cxx',
+        2 => 'cc',
+        3 => 'c',
+        4 => 'c++',
+      ),
     ),
-    'text/x-chdr' =>
+    'text/x-chdr' => 
     array (
-      0 => 'h',
+      'e' => 
+      array (
+        0 => 'h',
+      ),
     ),
-    'text/x-cmake' =>
+    'text/x-cmake' => 
     array (
-      0 => 'cmake',
+      'e' => 
+      array (
+        0 => 'cmake',
+      ),
     ),
-    'text/x-cobol' =>
+    'text/x-cobol' => 
     array (
-      0 => 'cbl',
-      1 => 'cob',
+      'e' => 
+      array (
+        0 => 'cbl',
+        1 => 'cob',
+      ),
     ),
-    'text/x-csharp' =>
+    'text/x-csharp' => 
     array (
-      0 => 'cs',
+      'e' => 
+      array (
+        0 => 'cs',
+      ),
     ),
-    'text/x-csrc' =>
+    'text/x-csrc' => 
     array (
-      0 => 'c',
+      'e' => 
+      array (
+        0 => 'c',
+      ),
     ),
-    'text/x-dbus-service' =>
+    'text/x-dbus-service' => 
     array (
-      0 => 'service',
+      'e' => 
+      array (
+        0 => 'service',
+      ),
     ),
-    'text/x-dcl' =>
+    'text/x-dcl' => 
     array (
-      0 => 'dcl',
+      'e' => 
+      array (
+        0 => 'dcl',
+      ),
     ),
-    'text/x-dsl' =>
+    'text/x-dsl' => 
     array (
-      0 => 'dsl',
+      'e' => 
+      array (
+        0 => 'dsl',
+      ),
     ),
-    'text/x-dsrc' =>
+    'text/x-dsrc' => 
     array (
-      0 => 'd',
-      1 => 'di',
+      'e' => 
+      array (
+        0 => 'd',
+        1 => 'di',
+      ),
     ),
-    'text/x-eiffel' =>
+    'text/x-eiffel' => 
     array (
-      0 => 'e',
-      1 => 'eif',
+      'e' => 
+      array (
+        0 => 'e',
+        1 => 'eif',
+      ),
     ),
-    'text/x-emacs-lisp' =>
+    'text/x-emacs-lisp' => 
     array (
-      0 => 'el',
+      'e' => 
+      array (
+        0 => 'el',
+      ),
     ),
-    'text/x-erlang' =>
+    'text/x-erlang' => 
     array (
-      0 => 'erl',
+      'e' => 
+      array (
+        0 => 'erl',
+      ),
     ),
-    'text/x-fortran' =>
+    'text/x-fortran' => 
     array (
-      0 => 'f',
-      1 => 'for',
-      2 => 'f77',
-      3 => 'f90',
-      4 => 'f95',
+      'e' => 
+      array (
+        0 => 'f',
+        1 => 'for',
+        2 => 'f77',
+        3 => 'f90',
+        4 => 'f95',
+      ),
     ),
-    'text/x-genie' =>
+    'text/x-genie' => 
     array (
-      0 => 'gs',
+      'e' => 
+      array (
+        0 => 'gs',
+      ),
     ),
-    'text/x-gettext-translation' =>
+    'text/x-gettext-translation' => 
     array (
-      0 => 'po',
+      'e' => 
+      array (
+        0 => 'po',
+      ),
     ),
-    'text/x-gettext-translation-template' =>
+    'text/x-gettext-translation-template' => 
     array (
-      0 => 'pot',
+      'e' => 
+      array (
+        0 => 'pot',
+      ),
     ),
-    'text/x-gherkin' =>
+    'text/x-gherkin' => 
     array (
-      0 => 'feature',
+      'e' => 
+      array (
+        0 => 'feature',
+      ),
     ),
-    'text/x-go' =>
+    'text/x-go' => 
     array (
-      0 => 'go',
+      'e' => 
+      array (
+        0 => 'go',
+      ),
     ),
-    'text/x-google-video-pointer' =>
+    'text/x-google-video-pointer' => 
     array (
-      0 => 'gvp',
+      'e' => 
+      array (
+        0 => 'gvp',
+      ),
     ),
-    'text/x-haskell' =>
+    'text/x-haskell' => 
     array (
-      0 => 'hs',
+      'e' => 
+      array (
+        0 => 'hs',
+      ),
     ),
-    'text/x-idl' =>
+    'text/x-idl' => 
     array (
-      0 => 'idl',
+      'e' => 
+      array (
+        0 => 'idl',
+      ),
     ),
-    'text/x-imelody' =>
+    'text/x-imelody' => 
     array (
-      0 => 'imy',
-      1 => 'ime',
+      'e' => 
+      array (
+        0 => 'imy',
+        1 => 'ime',
+      ),
     ),
-    'text/x-iptables' =>
+    'text/x-iptables' => 
     array (
-      0 => 'iptables',
+      'e' => 
+      array (
+        0 => 'iptables',
+      ),
     ),
-    'text/x-java' =>
+    'text/x-java' => 
     array (
-      0 => 'java',
+      'e' => 
+      array (
+        0 => 'java',
+      ),
     ),
-    'text/x-java-source' =>
+    'text/x-java-source' => 
     array (
-      0 => 'java',
+      'e' => 
+      array (
+        0 => 'java',
+      ),
     ),
-    'text/x-ldif' =>
+    'text/x-ldif' => 
     array (
-      0 => 'ldif',
+      'e' => 
+      array (
+        0 => 'ldif',
+      ),
     ),
-    'text/x-lilypond' =>
+    'text/x-lilypond' => 
     array (
-      0 => 'ly',
+      'e' => 
+      array (
+        0 => 'ly',
+      ),
     ),
-    'text/x-literate-haskell' =>
+    'text/x-literate-haskell' => 
     array (
-      0 => 'lhs',
+      'e' => 
+      array (
+        0 => 'lhs',
+      ),
     ),
-    'text/x-log' =>
+    'text/x-log' => 
     array (
-      0 => 'log',
+      'e' => 
+      array (
+        0 => 'log',
+      ),
     ),
-    'text/x-lua' =>
+    'text/x-lua' => 
     array (
-      0 => 'lua',
+      'e' => 
+      array (
+        0 => 'lua',
+      ),
     ),
-    'text/x-makefile' =>
+    'text/x-makefile' => 
     array (
-      0 => 'mk',
-      1 => 'mak',
+      'e' => 
+      array (
+        0 => 'mk',
+        1 => 'mak',
+      ),
     ),
-    'text/x-matlab' =>
+    'text/x-matlab' => 
     array (
-      0 => 'm',
+      'e' => 
+      array (
+        0 => 'm',
+      ),
     ),
-    'text/x-microdvd' =>
+    'text/x-microdvd' => 
     array (
-      0 => 'sub',
+      'e' => 
+      array (
+        0 => 'sub',
+      ),
     ),
-    'text/x-moc' =>
+    'text/x-moc' => 
     array (
-      0 => 'moc',
+      'e' => 
+      array (
+        0 => 'moc',
+      ),
     ),
-    'text/x-modelica' =>
+    'text/x-modelica' => 
     array (
-      0 => 'mo',
+      'e' => 
+      array (
+        0 => 'mo',
+      ),
     ),
-    'text/x-mof' =>
+    'text/x-mof' => 
     array (
-      0 => 'mof',
+      'e' => 
+      array (
+        0 => 'mof',
+      ),
     ),
-    'text/x-mpsub' =>
+    'text/x-mpsub' => 
     array (
-      0 => 'sub',
+      'e' => 
+      array (
+        0 => 'sub',
+      ),
     ),
-    'text/x-mrml' =>
+    'text/x-mrml' => 
     array (
-      0 => 'mrml',
-      1 => 'mrl',
+      'e' => 
+      array (
+        0 => 'mrml',
+        1 => 'mrl',
+      ),
     ),
-    'text/x-ms-regedit' =>
+    'text/x-ms-regedit' => 
     array (
-      0 => 'reg',
+      'e' => 
+      array (
+        0 => 'reg',
+      ),
     ),
-    'text/x-mup' =>
+    'text/x-mup' => 
     array (
-      0 => 'mup',
-      1 => 'not',
+      'e' => 
+      array (
+        0 => 'mup',
+        1 => 'not',
+      ),
     ),
-    'text/x-nfo' =>
+    'text/x-nfo' => 
     array (
-      0 => 'nfo',
+      'e' => 
+      array (
+        0 => 'nfo',
+      ),
     ),
-    'text/x-objcsrc' =>
+    'text/x-objcsrc' => 
     array (
-      0 => 'm',
+      'e' => 
+      array (
+        0 => 'm',
+      ),
     ),
-    'text/x-ocaml' =>
+    'text/x-ocaml' => 
     array (
-      0 => 'ml',
-      1 => 'mli',
+      'e' => 
+      array (
+        0 => 'ml',
+        1 => 'mli',
+      ),
     ),
-    'text/x-ocl' =>
+    'text/x-ocl' => 
     array (
-      0 => 'ocl',
+      'e' => 
+      array (
+        0 => 'ocl',
+      ),
     ),
-    'text/x-ooc' =>
+    'text/x-ooc' => 
     array (
-      0 => 'ooc',
+      'e' => 
+      array (
+        0 => 'ooc',
+      ),
     ),
-    'text/x-opencl-src' =>
+    'text/x-opencl-src' => 
     array (
-      0 => 'cl',
+      'e' => 
+      array (
+        0 => 'cl',
+      ),
     ),
-    'text/x-opml' =>
+    'text/x-opml' => 
     array (
-      0 => 'opml',
+      'e' => 
+      array (
+        0 => 'opml',
+      ),
     ),
-    'text/x-opml+xml' =>
+    'text/x-opml+xml' => 
     array (
-      0 => 'opml',
+      'e' => 
+      array (
+        0 => 'opml',
+      ),
     ),
-    'text/x-pascal' =>
+    'text/x-pascal' => 
     array (
-      0 => 'p',
-      1 => 'pas',
+      'e' => 
+      array (
+        0 => 'p',
+        1 => 'pas',
+      ),
     ),
-    'text/x-patch' =>
+    'text/x-patch' => 
     array (
-      0 => 'diff',
-      1 => 'patch',
+      'e' => 
+      array (
+        0 => 'diff',
+        1 => 'patch',
+      ),
     ),
-    'text/x-python' =>
+    'text/x-python' => 
     array (
-      0 => 'py',
-      1 => 'pyx',
-      2 => 'wsgi',
+      'e' => 
+      array (
+        0 => 'py',
+        1 => 'pyx',
+        2 => 'wsgi',
+      ),
     ),
-    'text/x-python3' =>
+    'text/x-python3' => 
     array (
-      0 => 'py',
-      1 => 'py3',
-      2 => 'py3x',
+      'e' => 
+      array (
+        0 => 'py',
+        1 => 'py3',
+        2 => 'py3x',
+      ),
     ),
-    'text/x-qml' =>
+    'text/x-qml' => 
     array (
-      0 => 'qml',
-      1 => 'qmltypes',
-      2 => 'qmlproject',
+      'e' => 
+      array (
+        0 => 'qml',
+        1 => 'qmltypes',
+        2 => 'qmlproject',
+      ),
     ),
-    'text/x-reject' =>
+    'text/x-reject' => 
     array (
-      0 => 'rej',
+      'e' => 
+      array (
+        0 => 'rej',
+      ),
     ),
-    'text/x-rpm-spec' =>
+    'text/x-rpm-spec' => 
     array (
-      0 => 'spec',
+      'e' => 
+      array (
+        0 => 'spec',
+      ),
     ),
-    'text/x-sass' =>
+    'text/x-sass' => 
     array (
-      0 => 'sass',
+      'e' => 
+      array (
+        0 => 'sass',
+      ),
     ),
-    'text/x-scala' =>
+    'text/x-scala' => 
     array (
-      0 => 'scala',
+      'e' => 
+      array (
+        0 => 'scala',
+      ),
     ),
-    'text/x-scheme' =>
+    'text/x-scheme' => 
     array (
-      0 => 'scm',
-      1 => 'ss',
+      'e' => 
+      array (
+        0 => 'scm',
+        1 => 'ss',
+      ),
     ),
-    'text/x-scss' =>
+    'text/x-scss' => 
     array (
-      0 => 'scss',
+      'e' => 
+      array (
+        0 => 'scss',
+      ),
     ),
-    'text/x-setext' =>
+    'text/x-setext' => 
     array (
-      0 => 'etx',
+      'e' => 
+      array (
+        0 => 'etx',
+      ),
     ),
-    'text/x-sfv' =>
+    'text/x-sfv' => 
     array (
-      0 => 'sfv',
+      'e' => 
+      array (
+        0 => 'sfv',
+      ),
     ),
-    'text/x-ssa' =>
+    'text/x-ssa' => 
     array (
-      0 => 'ssa',
-      1 => 'ass',
+      'e' => 
+      array (
+        0 => 'ssa',
+        1 => 'ass',
+      ),
     ),
-    'text/x-subviewer' =>
+    'text/x-subviewer' => 
     array (
-      0 => 'sub',
+      'e' => 
+      array (
+        0 => 'sub',
+      ),
     ),
-    'text/x-svhdr' =>
+    'text/x-svhdr' => 
     array (
-      0 => 'svh',
+      'e' => 
+      array (
+        0 => 'svh',
+      ),
     ),
-    'text/x-svsrc' =>
+    'text/x-svsrc' => 
     array (
-      0 => 'sv',
+      'e' => 
+      array (
+        0 => 'sv',
+      ),
     ),
-    'text/x-systemd-unit' =>
+    'text/x-systemd-unit' => 
     array (
-      0 => 'automount',
-      1 => 'device',
-      2 => 'mount',
-      3 => 'path',
-      4 => 'scope',
-      5 => 'service',
-      6 => 'slice',
-      7 => 'socket',
-      8 => 'swap',
-      9 => 'target',
-      10 => 'timer',
+      'e' => 
+      array (
+        0 => 'automount',
+        1 => 'device',
+        2 => 'mount',
+        3 => 'path',
+        4 => 'scope',
+        5 => 'service',
+        6 => 'slice',
+        7 => 'socket',
+        8 => 'swap',
+        9 => 'target',
+        10 => 'timer',
+      ),
     ),
-    'text/x-tcl' =>
+    'text/x-tcl' => 
     array (
-      0 => 'tcl',
-      1 => 'tk',
+      'e' => 
+      array (
+        0 => 'tcl',
+        1 => 'tk',
+      ),
     ),
-    'text/x-tex' =>
+    'text/x-tex' => 
     array (
-      0 => 'tex',
-      1 => 'ltx',
-      2 => 'sty',
-      3 => 'cls',
-      4 => 'dtx',
-      5 => 'ins',
-      6 => 'latex',
+      'e' => 
+      array (
+        0 => 'tex',
+        1 => 'ltx',
+        2 => 'sty',
+        3 => 'cls',
+        4 => 'dtx',
+        5 => 'ins',
+        6 => 'latex',
+      ),
     ),
-    'text/x-texinfo' =>
+    'text/x-texinfo' => 
     array (
-      0 => 'texi',
-      1 => 'texinfo',
+      'e' => 
+      array (
+        0 => 'texi',
+        1 => 'texinfo',
+      ),
     ),
-    'text/x-troff-me' =>
+    'text/x-troff-me' => 
     array (
-      0 => 'me',
+      'e' => 
+      array (
+        0 => 'me',
+      ),
     ),
-    'text/x-troff-mm' =>
+    'text/x-troff-mm' => 
     array (
-      0 => 'mm',
+      'e' => 
+      array (
+        0 => 'mm',
+      ),
     ),
-    'text/x-troff-ms' =>
+    'text/x-troff-ms' => 
     array (
-      0 => 'ms',
+      'e' => 
+      array (
+        0 => 'ms',
+      ),
     ),
-    'text/x-twig' =>
+    'text/x-twig' => 
     array (
-      0 => 'twig',
+      'e' => 
+      array (
+        0 => 'twig',
+      ),
     ),
-    'text/x-txt2tags' =>
+    'text/x-txt2tags' => 
     array (
-      0 => 't2t',
+      'e' => 
+      array (
+        0 => 't2t',
+      ),
     ),
-    'text/x-uil' =>
+    'text/x-uil' => 
     array (
-      0 => 'uil',
+      'e' => 
+      array (
+        0 => 'uil',
+      ),
     ),
-    'text/x-uuencode' =>
+    'text/x-uuencode' => 
     array (
-      0 => 'uu',
-      1 => 'uue',
+      'e' => 
+      array (
+        0 => 'uu',
+        1 => 'uue',
+      ),
     ),
-    'text/x-vala' =>
+    'text/x-vala' => 
     array (
-      0 => 'vala',
-      1 => 'vapi',
+      'e' => 
+      array (
+        0 => 'vala',
+        1 => 'vapi',
+      ),
     ),
-    'text/x-vcalendar' =>
+    'text/x-vcalendar' => 
     array (
-      0 => 'vcs',
+      'e' => 
+      array (
+        0 => 'vcs',
+      ),
     ),
-    'text/x-vcard' =>
+    'text/x-vcard' => 
     array (
-      0 => 'vcf',
+      'e' => 
+      array (
+        0 => 'vcf',
+      ),
     ),
-    'text/x-verilog' =>
+    'text/x-verilog' => 
     array (
-      0 => 'v',
+      'e' => 
+      array (
+        0 => 'v',
+      ),
     ),
-    'text/x-vhdl' =>
+    'text/x-vhdl' => 
     array (
-      0 => 'vhd',
-      1 => 'vhdl',
+      'e' => 
+      array (
+        0 => 'vhd',
+        1 => 'vhdl',
+      ),
     ),
-    'text/x-xmi' =>
+    'text/x-xmi' => 
     array (
-      0 => 'xmi',
+      'e' => 
+      array (
+        0 => 'xmi',
+      ),
     ),
-    'text/x-xslfo' =>
+    'text/x-xslfo' => 
     array (
-      0 => 'fo',
-      1 => 'xslfo',
+      'e' => 
+      array (
+        0 => 'fo',
+        1 => 'xslfo',
+      ),
     ),
-    'text/x.gcode' =>
+    'text/x.gcode' => 
     array (
-      0 => 'gcode',
+      'e' => 
+      array (
+        0 => 'gcode',
+      ),
     ),
-    'video/3gpp' =>
+    'video/3gpp' => 
     array (
-      0 => '3gp',
-      1 => '3gpp',
-      2 => '3ga',
+      'e' => 
+      array (
+        0 => '3gp',
+        1 => '3gpp',
+        2 => '3ga',
+      ),
     ),
-    'video/3gpp2' =>
+    'video/3gpp2' => 
     array (
-      0 => '3g2',
-      1 => '3gp2',
-      2 => '3gpp2',
+      'e' => 
+      array (
+        0 => '3g2',
+        1 => '3gp2',
+        2 => '3gpp2',
+      ),
     ),
-    'video/annodex' =>
+    'video/annodex' => 
     array (
-      0 => 'axv',
+      'e' => 
+      array (
+        0 => 'axv',
+      ),
     ),
-    'video/dv' =>
+    'video/dv' => 
     array (
-      0 => 'dv',
+      'e' => 
+      array (
+        0 => 'dv',
+      ),
     ),
-    'video/h261' =>
+    'video/h261' => 
     array (
-      0 => 'h261',
+      'e' => 
+      array (
+        0 => 'h261',
+      ),
     ),
-    'video/h263' =>
+    'video/h263' => 
     array (
-      0 => 'h263',
+      'e' => 
+      array (
+        0 => 'h263',
+      ),
     ),
-    'video/h264' =>
+    'video/h264' => 
     array (
-      0 => 'h264',
+      'e' => 
+      array (
+        0 => 'h264',
+      ),
     ),
-    'video/jpeg' =>
+    'video/jpeg' => 
     array (
-      0 => 'jpgv',
+      'e' => 
+      array (
+        0 => 'jpgv',
+      ),
     ),
-    'video/jpm' =>
+    'video/jpm' => 
     array (
-      0 => 'jpm',
-      1 => 'jpgm',
+      'e' => 
+      array (
+        0 => 'jpm',
+        1 => 'jpgm',
+      ),
     ),
-    'video/mj2' =>
+    'video/mj2' => 
     array (
-      0 => 'mj2',
-      1 => 'mjp2',
+      'e' => 
+      array (
+        0 => 'mj2',
+        1 => 'mjp2',
+      ),
     ),
-    'video/mp2t' =>
+    'video/mp2t' => 
     array (
-      0 => 'm2t',
-      1 => 'm2ts',
-      2 => 'ts',
-      3 => 'mts',
-      4 => 'cpi',
-      5 => 'clpi',
-      6 => 'mpl',
-      7 => 'mpls',
-      8 => 'bdm',
-      9 => 'bdmv',
+      'e' => 
+      array (
+        0 => 'm2t',
+        1 => 'm2ts',
+        2 => 'ts',
+        3 => 'mts',
+        4 => 'cpi',
+        5 => 'clpi',
+        6 => 'mpl',
+        7 => 'mpls',
+        8 => 'bdm',
+        9 => 'bdmv',
+      ),
     ),
-    'video/mp4' =>
+    'video/mp4' => 
     array (
-      0 => 'mp4',
-      1 => 'mp4v',
-      2 => 'mpg4',
-      3 => 'm4v',
-      4 => 'f4v',
-      5 => 'lrv',
+      'e' => 
+      array (
+        0 => 'mp4',
+        1 => 'mp4v',
+        2 => 'mpg4',
+        3 => 'm4v',
+        4 => 'f4v',
+        5 => 'lrv',
+      ),
     ),
-    'video/mpeg' =>
+    'video/mpeg' => 
     array (
-      0 => 'mpeg',
-      1 => 'mpg',
-      2 => 'mpe',
-      3 => 'm1v',
-      4 => 'm2v',
-      5 => 'mp2',
-      6 => 'vob',
+      'e' => 
+      array (
+        0 => 'mpeg',
+        1 => 'mpg',
+        2 => 'mpe',
+        3 => 'm1v',
+        4 => 'm2v',
+        5 => 'mp2',
+        6 => 'vob',
+      ),
     ),
-    'video/ogg' =>
+    'video/ogg' => 
     array (
-      0 => 'ogv',
-      1 => 'ogg',
+      'e' => 
+      array (
+        0 => 'ogv',
+        1 => 'ogg',
+      ),
     ),
-    'video/quicktime' =>
+    'video/quicktime' => 
     array (
-      0 => 'qt',
-      1 => 'mov',
-      2 => 'moov',
-      3 => 'qtvr',
+      'e' => 
+      array (
+        0 => 'qt',
+        1 => 'mov',
+        2 => 'moov',
+        3 => 'qtvr',
+      ),
     ),
-    'video/vnd.dece.hd' =>
+    'video/vnd.dece.hd' => 
     array (
-      0 => 'uvh',
-      1 => 'uvvh',
+      'e' => 
+      array (
+        0 => 'uvh',
+        1 => 'uvvh',
+      ),
     ),
-    'video/vnd.dece.mobile' =>
+    'video/vnd.dece.mobile' => 
     array (
-      0 => 'uvm',
-      1 => 'uvvm',
+      'e' => 
+      array (
+        0 => 'uvm',
+        1 => 'uvvm',
+      ),
     ),
-    'video/vnd.dece.pd' =>
+    'video/vnd.dece.pd' => 
     array (
-      0 => 'uvp',
-      1 => 'uvvp',
+      'e' => 
+      array (
+        0 => 'uvp',
+        1 => 'uvvp',
+      ),
     ),
-    'video/vnd.dece.sd' =>
+    'video/vnd.dece.sd' => 
     array (
-      0 => 'uvs',
-      1 => 'uvvs',
+      'e' => 
+      array (
+        0 => 'uvs',
+        1 => 'uvvs',
+      ),
     ),
-    'video/vnd.dece.video' =>
+    'video/vnd.dece.video' => 
     array (
-      0 => 'uvv',
-      1 => 'uvvv',
+      'e' => 
+      array (
+        0 => 'uvv',
+        1 => 'uvvv',
+      ),
     ),
-    'video/vnd.dvb.file' =>
+    'video/vnd.dvb.file' => 
     array (
-      0 => 'dvb',
+      'e' => 
+      array (
+        0 => 'dvb',
+      ),
     ),
-    'video/vnd.fvt' =>
+    'video/vnd.fvt' => 
     array (
-      0 => 'fvt',
+      'e' => 
+      array (
+        0 => 'fvt',
+      ),
     ),
-    'video/vnd.mpegurl' =>
+    'video/vnd.mpegurl' => 
     array (
-      0 => 'mxu',
-      1 => 'm4u',
-      2 => 'm1u',
+      'e' => 
+      array (
+        0 => 'mxu',
+        1 => 'm4u',
+        2 => 'm1u',
+      ),
     ),
-    'video/vnd.ms-playready.media.pyv' =>
+    'video/vnd.ms-playready.media.pyv' => 
     array (
-      0 => 'pyv',
+      'e' => 
+      array (
+        0 => 'pyv',
+      ),
     ),
-    'video/vnd.rn-realvideo' =>
+    'video/vnd.rn-realvideo' => 
     array (
-      0 => 'rv',
-      1 => 'rvx',
+      'e' => 
+      array (
+        0 => 'rv',
+        1 => 'rvx',
+      ),
     ),
-    'video/vnd.uvvu.mp4' =>
+    'video/vnd.uvvu.mp4' => 
     array (
-      0 => 'uvu',
-      1 => 'uvvu',
+      'e' => 
+      array (
+        0 => 'uvu',
+        1 => 'uvvu',
+      ),
     ),
-    'video/vnd.vivo' =>
+    'video/vnd.vivo' => 
     array (
-      0 => 'viv',
-      1 => 'vivo',
+      'e' => 
+      array (
+        0 => 'viv',
+        1 => 'vivo',
+      ),
     ),
-    'video/webm' =>
+    'video/webm' => 
     array (
-      0 => 'webm',
+      'e' => 
+      array (
+        0 => 'webm',
+      ),
     ),
-    'video/x-anim' =>
+    'video/x-anim' => 
     array (
-      0 => 'anim[1-9j]',
+      'e' => 
+      array (
+        0 => 'anim[1-9j]',
+      ),
     ),
-    'video/x-f4v' =>
+    'video/x-f4v' => 
     array (
-      0 => 'f4v',
+      'e' => 
+      array (
+        0 => 'f4v',
+      ),
     ),
-    'video/x-fli' =>
+    'video/x-fli' => 
     array (
-      0 => 'fli',
+      'e' => 
+      array (
+        0 => 'fli',
+      ),
     ),
-    'video/x-flic' =>
+    'video/x-flic' => 
     array (
-      0 => 'fli',
-      1 => 'flc',
+      'e' => 
+      array (
+        0 => 'fli',
+        1 => 'flc',
+      ),
     ),
-    'video/x-flv' =>
+    'video/x-flv' => 
     array (
-      0 => 'flv',
+      'e' => 
+      array (
+        0 => 'flv',
+      ),
     ),
-    'video/x-javafx' =>
+    'video/x-javafx' => 
     array (
-      0 => 'fxm',
+      'e' => 
+      array (
+        0 => 'fxm',
+      ),
     ),
-    'video/x-m4v' =>
+    'video/x-m4v' => 
     array (
-      0 => 'm4v',
+      'e' => 
+      array (
+        0 => 'm4v',
+      ),
     ),
-    'video/x-matroska' =>
+    'video/x-matroska' => 
     array (
-      0 => 'mkv',
-      1 => 'mk3d',
-      2 => 'mks',
+      'e' => 
+      array (
+        0 => 'mkv',
+        1 => 'mk3d',
+        2 => 'mks',
+      ),
     ),
-    'video/x-matroska-3d' =>
+    'video/x-matroska-3d' => 
     array (
-      0 => 'mk3d',
+      'e' => 
+      array (
+        0 => 'mk3d',
+      ),
     ),
-    'video/x-mjpeg' =>
+    'video/x-mjpeg' => 
     array (
-      0 => 'mjpeg',
-      1 => 'mjpg',
+      'e' => 
+      array (
+        0 => 'mjpeg',
+        1 => 'mjpg',
+      ),
     ),
-    'video/x-mng' =>
+    'video/x-mng' => 
     array (
-      0 => 'mng',
+      'e' => 
+      array (
+        0 => 'mng',
+      ),
     ),
-    'video/x-ms-asf' =>
+    'video/x-ms-asf' => 
     array (
-      0 => 'asf',
-      1 => 'asx',
+      'e' => 
+      array (
+        0 => 'asf',
+        1 => 'asx',
+      ),
     ),
-    'video/x-ms-vob' =>
+    'video/x-ms-vob' => 
     array (
-      0 => 'vob',
+      'e' => 
+      array (
+        0 => 'vob',
+      ),
     ),
-    'video/x-ms-wm' =>
+    'video/x-ms-wm' => 
     array (
-      0 => 'wm',
+      'e' => 
+      array (
+        0 => 'wm',
+      ),
     ),
-    'video/x-ms-wmv' =>
+    'video/x-ms-wmv' => 
     array (
-      0 => 'wmv',
+      'e' => 
+      array (
+        0 => 'wmv',
+      ),
     ),
-    'video/x-ms-wmx' =>
+    'video/x-ms-wmx' => 
     array (
-      0 => 'wmx',
+      'e' => 
+      array (
+        0 => 'wmx',
+      ),
     ),
-    'video/x-ms-wvx' =>
+    'video/x-ms-wvx' => 
     array (
-      0 => 'wvx',
+      'e' => 
+      array (
+        0 => 'wvx',
+      ),
     ),
-    'video/x-msvideo' =>
+    'video/x-msvideo' => 
     array (
-      0 => 'avi',
-      1 => 'avf',
-      2 => 'divx',
+      'e' => 
+      array (
+        0 => 'avi',
+        1 => 'avf',
+        2 => 'divx',
+      ),
     ),
-    'video/x-nsv' =>
+    'video/x-nsv' => 
     array (
-      0 => 'nsv',
+      'e' => 
+      array (
+        0 => 'nsv',
+      ),
     ),
-    'video/x-ogm+ogg' =>
+    'video/x-ogm+ogg' => 
     array (
-      0 => 'ogm',
+      'e' => 
+      array (
+        0 => 'ogm',
+      ),
     ),
-    'video/x-sgi-movie' =>
+    'video/x-sgi-movie' => 
     array (
-      0 => 'movie',
+      'e' => 
+      array (
+        0 => 'movie',
+      ),
     ),
-    'video/x-smv' =>
+    'video/x-smv' => 
     array (
-      0 => 'smv',
+      'e' => 
+      array (
+        0 => 'smv',
+      ),
     ),
-    'video/x-theora+ogg' =>
+    'video/x-theora+ogg' => 
     array (
-      0 => 'ogg',
+      'e' => 
+      array (
+        0 => 'ogg',
+      ),
     ),
-    'x-conference/x-cooltalk' =>
+    'x-conference/x-cooltalk' => 
     array (
-      0 => 'ice',
+      'e' => 
+      array (
+        0 => 'ice',
+      ),
     ),
-    'x-epoc/x-sisx-app' =>
+    'x-epoc/x-sisx-app' => 
     array (
-      0 => 'sisx',
+      'e' => 
+      array (
+        0 => 'sisx',
+      ),
     ),
   ),
-  'extensions' =>
+  'e' => 
   array (
-    '32x' =>
+    '32x' => 
     array (
-      0 => 'application/x-genesis-32x-rom',
+      't' => 
+      array (
+        0 => 'application/x-genesis-32x-rom',
+      ),
     ),
-    '3dml' =>
+    '3dml' => 
     array (
-      0 => 'text/vnd.in3d.3dml',
+      't' => 
+      array (
+        0 => 'text/vnd.in3d.3dml',
+      ),
     ),
-    '3ds' =>
+    '3ds' => 
     array (
-      0 => 'image/x-3ds',
+      't' => 
+      array (
+        0 => 'image/x-3ds',
+      ),
     ),
-    '3g2' =>
+    '3g2' => 
     array (
-      0 => 'video/3gpp2',
+      't' => 
+      array (
+        0 => 'video/3gpp2',
+      ),
     ),
-    '3ga' =>
+    '3ga' => 
     array (
-      0 => 'video/3gpp',
+      't' => 
+      array (
+        0 => 'video/3gpp',
+      ),
     ),
-    '3gp' =>
+    '3gp' => 
     array (
-      0 => 'video/3gpp',
+      't' => 
+      array (
+        0 => 'video/3gpp',
+      ),
     ),
-    '3gp2' =>
+    '3gp2' => 
     array (
-      0 => 'video/3gpp2',
+      't' => 
+      array (
+        0 => 'video/3gpp2',
+      ),
     ),
-    '3gpp' =>
+    '3gpp' => 
     array (
-      0 => 'video/3gpp',
+      't' => 
+      array (
+        0 => 'video/3gpp',
+      ),
     ),
-    '3gpp2' =>
+    '3gpp2' => 
     array (
-      0 => 'video/3gpp2',
+      't' => 
+      array (
+        0 => 'video/3gpp2',
+      ),
     ),
-    '7z' =>
+    '7z' => 
     array (
-      0 => 'application/x-7z-compressed',
+      't' => 
+      array (
+        0 => 'application/x-7z-compressed',
+      ),
     ),
-    'a' =>
+    'a' => 
     array (
-      0 => 'application/x-archive',
+      't' => 
+      array (
+        0 => 'application/x-archive',
+      ),
     ),
-    'a26' =>
+    'a26' => 
     array (
-      0 => 'application/x-atari-2600-rom',
+      't' => 
+      array (
+        0 => 'application/x-atari-2600-rom',
+      ),
     ),
-    'a78' =>
+    'a78' => 
     array (
-      0 => 'application/x-atari-7800-rom',
+      't' => 
+      array (
+        0 => 'application/x-atari-7800-rom',
+      ),
     ),
-    'aa' =>
+    'aa' => 
     array (
-      0 => 'audio/x-pn-audibleaudio',
+      't' => 
+      array (
+        0 => 'audio/x-pn-audibleaudio',
+      ),
     ),
-    'aab' =>
+    'aab' => 
     array (
-      0 => 'application/x-authorware-bin',
+      't' => 
+      array (
+        0 => 'application/x-authorware-bin',
+      ),
     ),
-    'aac' =>
+    'aac' => 
     array (
-      0 => 'audio/x-aac',
-      1 => 'audio/aac',
+      't' => 
+      array (
+        0 => 'audio/x-aac',
+        1 => 'audio/aac',
+      ),
     ),
-    'aam' =>
+    'aam' => 
     array (
-      0 => 'application/x-authorware-map',
+      't' => 
+      array (
+        0 => 'application/x-authorware-map',
+      ),
     ),
-    'aas' =>
+    'aas' => 
     array (
-      0 => 'application/x-authorware-seg',
+      't' => 
+      array (
+        0 => 'application/x-authorware-seg',
+      ),
     ),
-    'aax' =>
+    'aax' => 
     array (
-      0 => 'audio/x-pn-audibleaudio',
+      't' => 
+      array (
+        0 => 'audio/x-pn-audibleaudio',
+      ),
     ),
-    'abw' =>
+    'abw' => 
     array (
-      0 => 'application/x-abiword',
+      't' => 
+      array (
+        0 => 'application/x-abiword',
+      ),
     ),
-    'abw.crashed' =>
+    'abw.crashed' => 
     array (
-      0 => 'application/x-abiword',
+      't' => 
+      array (
+        0 => 'application/x-abiword',
+      ),
     ),
-    'abw.gz' =>
+    'abw.gz' => 
     array (
-      0 => 'application/x-abiword',
+      't' => 
+      array (
+        0 => 'application/x-abiword',
+      ),
     ),
-    'ac' =>
+    'ac' => 
     array (
-      0 => 'application/pkix-attr-cert',
+      't' => 
+      array (
+        0 => 'application/pkix-attr-cert',
+      ),
     ),
-    'ac3' =>
+    'ac3' => 
     array (
-      0 => 'audio/ac3',
+      't' => 
+      array (
+        0 => 'audio/ac3',
+      ),
     ),
-    'acc' =>
+    'acc' => 
     array (
-      0 => 'application/vnd.americandynamics.acc',
+      't' => 
+      array (
+        0 => 'application/vnd.americandynamics.acc',
+      ),
     ),
-    'ace' =>
+    'ace' => 
     array (
-      0 => 'application/x-ace-compressed',
-      1 => 'application/x-ace',
+      't' => 
+      array (
+        0 => 'application/x-ace-compressed',
+        1 => 'application/x-ace',
+      ),
     ),
-    'acu' =>
+    'acu' => 
     array (
-      0 => 'application/vnd.acucobol',
+      't' => 
+      array (
+        0 => 'application/vnd.acucobol',
+      ),
     ),
-    'acutc' =>
+    'acutc' => 
     array (
-      0 => 'application/vnd.acucorp',
+      't' => 
+      array (
+        0 => 'application/vnd.acucorp',
+      ),
     ),
-    'adb' =>
+    'adb' => 
     array (
-      0 => 'text/x-adasrc',
+      't' => 
+      array (
+        0 => 'text/x-adasrc',
+      ),
     ),
-    'adf' =>
+    'adf' => 
     array (
-      0 => 'application/x-amiga-disk-format',
+      't' => 
+      array (
+        0 => 'application/x-amiga-disk-format',
+      ),
     ),
-    'adp' =>
+    'adp' => 
     array (
-      0 => 'audio/adpcm',
+      't' => 
+      array (
+        0 => 'audio/adpcm',
+      ),
     ),
-    'ads' =>
+    'ads' => 
     array (
-      0 => 'text/x-adasrc',
+      't' => 
+      array (
+        0 => 'text/x-adasrc',
+      ),
     ),
-    'adts' =>
+    'adts' => 
     array (
-      0 => 'audio/aac',
+      't' => 
+      array (
+        0 => 'audio/aac',
+      ),
     ),
-    'aep' =>
+    'aep' => 
     array (
-      0 => 'application/vnd.audiograph',
+      't' => 
+      array (
+        0 => 'application/vnd.audiograph',
+      ),
     ),
-    'afm' =>
+    'afm' => 
     array (
-      0 => 'application/x-font-type1',
-      1 => 'application/x-font-afm',
+      't' => 
+      array (
+        0 => 'application/x-font-type1',
+        1 => 'application/x-font-afm',
+      ),
     ),
-    'afp' =>
+    'afp' => 
     array (
-      0 => 'application/vnd.ibm.modcap',
+      't' => 
+      array (
+        0 => 'application/vnd.ibm.modcap',
+      ),
     ),
-    'ag' =>
+    'ag' => 
     array (
-      0 => 'image/x-applix-graphics',
+      't' => 
+      array (
+        0 => 'image/x-applix-graphics',
+      ),
     ),
-    'agb' =>
+    'agb' => 
     array (
-      0 => 'application/x-gba-rom',
+      't' => 
+      array (
+        0 => 'application/x-gba-rom',
+      ),
     ),
-    'ahead' =>
+    'ahead' => 
     array (
-      0 => 'application/vnd.ahead.space',
+      't' => 
+      array (
+        0 => 'application/vnd.ahead.space',
+      ),
     ),
-    'ai' =>
+    'ai' => 
     array (
-      0 => 'application/postscript',
-      1 => 'application/illustrator',
+      't' => 
+      array (
+        0 => 'application/postscript',
+        1 => 'application/illustrator',
+      ),
     ),
-    'aif' =>
+    'aif' => 
     array (
-      0 => 'audio/x-aiff',
+      't' => 
+      array (
+        0 => 'audio/x-aiff',
+      ),
     ),
-    'aifc' =>
+    'aifc' => 
     array (
-      0 => 'audio/x-aiff',
-      1 => 'audio/x-aifc',
+      't' => 
+      array (
+        0 => 'audio/x-aiff',
+        1 => 'audio/x-aifc',
+      ),
     ),
-    'aiff' =>
+    'aiff' => 
     array (
-      0 => 'audio/x-aiff',
+      't' => 
+      array (
+        0 => 'audio/x-aiff',
+      ),
     ),
-    'aiffc' =>
+    'aiffc' => 
     array (
-      0 => 'audio/x-aifc',
+      't' => 
+      array (
+        0 => 'audio/x-aifc',
+      ),
     ),
-    'air' =>
+    'air' => 
     array (
-      0 => 'application/vnd.adobe.air-application-installer-package+zip',
+      't' => 
+      array (
+        0 => 'application/vnd.adobe.air-application-installer-package+zip',
+      ),
     ),
-    'ait' =>
+    'ait' => 
     array (
-      0 => 'application/vnd.dvb.ait',
+      't' => 
+      array (
+        0 => 'application/vnd.dvb.ait',
+      ),
     ),
-    'al' =>
+    'al' => 
     array (
-      0 => 'application/x-perl',
+      't' => 
+      array (
+        0 => 'application/x-perl',
+      ),
     ),
-    'alz' =>
+    'alz' => 
     array (
-      0 => 'application/x-alz',
+      't' => 
+      array (
+        0 => 'application/x-alz',
+      ),
     ),
-    'ami' =>
+    'ami' => 
     array (
-      0 => 'application/vnd.amiga.ami',
+      't' => 
+      array (
+        0 => 'application/vnd.amiga.ami',
+      ),
     ),
-    'amr' =>
+    'amr' => 
     array (
-      0 => 'audio/amr',
+      't' => 
+      array (
+        0 => 'audio/amr',
+      ),
     ),
-    'amz' =>
+    'amz' => 
     array (
-      0 => 'audio/x-amzxml',
+      't' => 
+      array (
+        0 => 'audio/x-amzxml',
+      ),
     ),
-    'ani' =>
+    'ani' => 
     array (
-      0 => 'application/x-navi-animation',
+      't' => 
+      array (
+        0 => 'application/x-navi-animation',
+      ),
     ),
-    'anim[1-9j]' =>
+    'anim[1-9j]' => 
     array (
-      0 => 'video/x-anim',
+      't' => 
+      array (
+        0 => 'video/x-anim',
+      ),
     ),
-    'anx' =>
+    'anx' => 
     array (
-      0 => 'application/annodex',
+      't' => 
+      array (
+        0 => 'application/annodex',
+      ),
     ),
-    'ape' =>
+    'ape' => 
     array (
-      0 => 'audio/x-ape',
+      't' => 
+      array (
+        0 => 'audio/x-ape',
+      ),
     ),
-    'apk' =>
+    'apk' => 
     array (
-      0 => 'application/vnd.android.package-archive',
+      't' => 
+      array (
+        0 => 'application/vnd.android.package-archive',
+      ),
     ),
-    'appcache' =>
+    'appcache' => 
     array (
-      0 => 'text/cache-manifest',
+      't' => 
+      array (
+        0 => 'text/cache-manifest',
+      ),
     ),
-    'appimage' =>
+    'appimage' => 
     array (
-      0 => 'application/x-iso9660-appimage',
-      1 => 'application/vnd.appimage',
+      't' => 
+      array (
+        0 => 'application/x-iso9660-appimage',
+        1 => 'application/vnd.appimage',
+      ),
     ),
-    'application' =>
+    'application' => 
     array (
-      0 => 'application/x-ms-application',
+      't' => 
+      array (
+        0 => 'application/x-ms-application',
+      ),
     ),
-    'apr' =>
+    'apr' => 
     array (
-      0 => 'application/vnd.lotus-approach',
+      't' => 
+      array (
+        0 => 'application/vnd.lotus-approach',
+      ),
     ),
-    'ar' =>
+    'ar' => 
     array (
-      0 => 'application/x-archive',
+      't' => 
+      array (
+        0 => 'application/x-archive',
+      ),
     ),
-    'arc' =>
+    'arc' => 
     array (
-      0 => 'application/x-freearc',
+      't' => 
+      array (
+        0 => 'application/x-freearc',
+      ),
     ),
-    'arj' =>
+    'arj' => 
     array (
-      0 => 'application/x-arj',
+      't' => 
+      array (
+        0 => 'application/x-arj',
+      ),
     ),
-    'arw' =>
+    'arw' => 
     array (
-      0 => 'image/x-sony-arw',
+      't' => 
+      array (
+        0 => 'image/x-sony-arw',
+      ),
     ),
-    'as' =>
+    'as' => 
     array (
-      0 => 'application/x-applix-spreadsheet',
+      't' => 
+      array (
+        0 => 'application/x-applix-spreadsheet',
+      ),
     ),
-    'asc' =>
+    'asc' => 
     array (
-      0 => 'application/pgp-signature',
-      1 => 'application/pgp-encrypted',
-      2 => 'application/pgp-keys',
-      3 => 'text/plain',
+      't' => 
+      array (
+        0 => 'application/pgp-signature',
+        1 => 'application/pgp-encrypted',
+        2 => 'application/pgp-keys',
+        3 => 'text/plain',
+      ),
     ),
-    'asf' =>
+    'asf' => 
     array (
-      0 => 'video/x-ms-asf',
-      1 => 'application/vnd.ms-asf',
+      't' => 
+      array (
+        0 => 'video/x-ms-asf',
+        1 => 'application/vnd.ms-asf',
+      ),
     ),
-    'asm' =>
+    'asm' => 
     array (
-      0 => 'text/x-asm',
+      't' => 
+      array (
+        0 => 'text/x-asm',
+      ),
     ),
-    'aso' =>
+    'aso' => 
     array (
-      0 => 'application/vnd.accpac.simply.aso',
+      't' => 
+      array (
+        0 => 'application/vnd.accpac.simply.aso',
+      ),
     ),
-    'asp' =>
+    'asp' => 
     array (
-      0 => 'application/x-asp',
+      't' => 
+      array (
+        0 => 'application/x-asp',
+      ),
     ),
-    'ass' =>
+    'ass' => 
     array (
-      0 => 'text/x-ssa',
-      1 => 'audio/aac',
+      't' => 
+      array (
+        0 => 'text/x-ssa',
+        1 => 'audio/aac',
+      ),
     ),
-    'asx' =>
+    'asx' => 
     array (
-      0 => 'video/x-ms-asf',
-      1 => 'audio/x-ms-asx',
+      't' => 
+      array (
+        0 => 'video/x-ms-asf',
+        1 => 'audio/x-ms-asx',
+      ),
     ),
-    'atc' =>
+    'atc' => 
     array (
-      0 => 'application/vnd.acucorp',
+      't' => 
+      array (
+        0 => 'application/vnd.acucorp',
+      ),
     ),
-    'atom' =>
+    'atom' => 
     array (
-      0 => 'application/atom+xml',
+      't' => 
+      array (
+        0 => 'application/atom+xml',
+      ),
     ),
-    'atomcat' =>
+    'atomcat' => 
     array (
-      0 => 'application/atomcat+xml',
+      't' => 
+      array (
+        0 => 'application/atomcat+xml',
+      ),
     ),
-    'atomsvc' =>
+    'atomsvc' => 
     array (
-      0 => 'application/atomsvc+xml',
+      't' => 
+      array (
+        0 => 'application/atomsvc+xml',
+      ),
     ),
-    'atx' =>
+    'atx' => 
     array (
-      0 => 'application/vnd.antix.game-component',
+      't' => 
+      array (
+        0 => 'application/vnd.antix.game-component',
+      ),
     ),
-    'au' =>
+    'au' => 
     array (
-      0 => 'audio/basic',
+      't' => 
+      array (
+        0 => 'audio/basic',
+      ),
     ),
-    'automount' =>
+    'automount' => 
     array (
-      0 => 'text/x-systemd-unit',
+      't' => 
+      array (
+        0 => 'text/x-systemd-unit',
+      ),
     ),
-    'avf' =>
+    'avf' => 
     array (
-      0 => 'video/x-msvideo',
+      't' => 
+      array (
+        0 => 'video/x-msvideo',
+      ),
     ),
-    'avi' =>
+    'avi' => 
     array (
-      0 => 'video/x-msvideo',
+      't' => 
+      array (
+        0 => 'video/x-msvideo',
+      ),
     ),
-    'aw' =>
+    'aw' => 
     array (
-      0 => 'application/applixware',
-      1 => 'application/x-applix-word',
+      't' => 
+      array (
+        0 => 'application/applixware',
+        1 => 'application/x-applix-word',
+      ),
     ),
-    'awb' =>
+    'awb' => 
     array (
-      0 => 'audio/amr-wb',
+      't' => 
+      array (
+        0 => 'audio/amr-wb',
+      ),
     ),
-    'awk' =>
+    'awk' => 
     array (
-      0 => 'application/x-awk',
+      't' => 
+      array (
+        0 => 'application/x-awk',
+      ),
     ),
-    'axa' =>
+    'axa' => 
     array (
-      0 => 'audio/annodex',
+      't' => 
+      array (
+        0 => 'audio/annodex',
+      ),
     ),
-    'axv' =>
+    'axv' => 
     array (
-      0 => 'video/annodex',
+      't' => 
+      array (
+        0 => 'video/annodex',
+      ),
     ),
-    'azf' =>
+    'azf' => 
     array (
-      0 => 'application/vnd.airzip.filesecure.azf',
+      't' => 
+      array (
+        0 => 'application/vnd.airzip.filesecure.azf',
+      ),
     ),
-    'azs' =>
+    'azs' => 
     array (
-      0 => 'application/vnd.airzip.filesecure.azs',
+      't' => 
+      array (
+        0 => 'application/vnd.airzip.filesecure.azs',
+      ),
     ),
-    'azw' =>
+    'azw' => 
     array (
-      0 => 'application/vnd.amazon.ebook',
+      't' => 
+      array (
+        0 => 'application/vnd.amazon.ebook',
+      ),
     ),
-    'bak' =>
+    'bak' => 
     array (
-      0 => 'application/x-trash',
+      't' => 
+      array (
+        0 => 'application/x-trash',
+      ),
     ),
-    'bat' =>
+    'bat' => 
     array (
-      0 => 'application/x-msdownload',
+      't' => 
+      array (
+        0 => 'application/x-msdownload',
+      ),
     ),
-    'bcpio' =>
+    'bcpio' => 
     array (
-      0 => 'application/x-bcpio',
+      't' => 
+      array (
+        0 => 'application/x-bcpio',
+      ),
     ),
-    'bdf' =>
+    'bdf' => 
     array (
-      0 => 'application/x-font-bdf',
+      't' => 
+      array (
+        0 => 'application/x-font-bdf',
+      ),
     ),
-    'bdm' =>
+    'bdm' => 
     array (
-      0 => 'application/vnd.syncml.dm+wbxml',
-      1 => 'video/mp2t',
+      't' => 
+      array (
+        0 => 'application/vnd.syncml.dm+wbxml',
+        1 => 'video/mp2t',
+      ),
     ),
-    'bdmv' =>
+    'bdmv' => 
     array (
-      0 => 'video/mp2t',
+      't' => 
+      array (
+        0 => 'video/mp2t',
+      ),
     ),
-    'bed' =>
+    'bed' => 
     array (
-      0 => 'application/vnd.realvnc.bed',
+      't' => 
+      array (
+        0 => 'application/vnd.realvnc.bed',
+      ),
     ),
-    'bh2' =>
+    'bh2' => 
     array (
-      0 => 'application/vnd.fujitsu.oasysprs',
+      't' => 
+      array (
+        0 => 'application/vnd.fujitsu.oasysprs',
+      ),
     ),
-    'bib' =>
+    'bib' => 
     array (
-      0 => 'text/x-bibtex',
+      't' => 
+      array (
+        0 => 'text/x-bibtex',
+      ),
     ),
-    'bin' =>
+    'bin' => 
     array (
-      0 => 'application/octet-stream',
-      1 => 'application/x-sega-cd-rom',
-      2 => 'application/x-saturn-rom',
+      't' => 
+      array (
+        0 => 'application/octet-stream',
+        1 => 'application/x-sega-cd-rom',
+        2 => 'application/x-saturn-rom',
+      ),
     ),
-    'blb' =>
+    'blb' => 
     array (
-      0 => 'application/x-blorb',
+      't' => 
+      array (
+        0 => 'application/x-blorb',
+      ),
     ),
-    'blend' =>
+    'blend' => 
     array (
-      0 => 'application/x-blender',
+      't' => 
+      array (
+        0 => 'application/x-blender',
+      ),
     ),
-    'blender' =>
+    'blender' => 
     array (
-      0 => 'application/x-blender',
+      't' => 
+      array (
+        0 => 'application/x-blender',
+      ),
     ),
-    'blorb' =>
+    'blorb' => 
     array (
-      0 => 'application/x-blorb',
+      't' => 
+      array (
+        0 => 'application/x-blorb',
+      ),
     ),
-    'bmi' =>
+    'bmi' => 
     array (
-      0 => 'application/vnd.bmi',
+      't' => 
+      array (
+        0 => 'application/vnd.bmi',
+      ),
     ),
-    'bmp' =>
+    'bmp' => 
     array (
-      0 => 'image/bmp',
+      't' => 
+      array (
+        0 => 'image/bmp',
+      ),
     ),
-    'book' =>
+    'book' => 
     array (
-      0 => 'application/vnd.framemaker',
+      't' => 
+      array (
+        0 => 'application/vnd.framemaker',
+      ),
     ),
-    'box' =>
+    'box' => 
     array (
-      0 => 'application/vnd.previewsystems.box',
+      't' => 
+      array (
+        0 => 'application/vnd.previewsystems.box',
+      ),
     ),
-    'boz' =>
+    'boz' => 
     array (
-      0 => 'application/x-bzip2',
+      't' => 
+      array (
+        0 => 'application/x-bzip2',
+      ),
     ),
-    'bpk' =>
+    'bpk' => 
     array (
-      0 => 'application/octet-stream',
+      't' => 
+      array (
+        0 => 'application/octet-stream',
+      ),
     ),
-    'bsdiff' =>
+    'bsdiff' => 
     array (
-      0 => 'application/x-bsdiff',
+      't' => 
+      array (
+        0 => 'application/x-bsdiff',
+      ),
     ),
-    'btif' =>
+    'btif' => 
     array (
-      0 => 'image/prs.btif',
+      't' => 
+      array (
+        0 => 'image/prs.btif',
+      ),
     ),
-    'bz' =>
+    'bz' => 
     array (
-      0 => 'application/x-bzip',
+      't' => 
+      array (
+        0 => 'application/x-bzip',
+      ),
     ),
-    'bz2' =>
+    'bz2' => 
     array (
-      0 => 'application/x-bzip2',
-      1 => 'application/x-bzip',
+      't' => 
+      array (
+        0 => 'application/x-bzip2',
+        1 => 'application/x-bzip',
+      ),
     ),
-    'c' =>
+    'c' => 
     array (
-      0 => 'text/x-c',
-      1 => 'text/x-c++src',
-      2 => 'text/x-csrc',
+      't' => 
+      array (
+        0 => 'text/x-c',
+        1 => 'text/x-c++src',
+        2 => 'text/x-csrc',
+      ),
     ),
-    'c++' =>
+    'c++' => 
     array (
-      0 => 'text/x-c++src',
+      't' => 
+      array (
+        0 => 'text/x-c++src',
+      ),
     ),
-    'c11amc' =>
+    'c11amc' => 
     array (
-      0 => 'application/vnd.cluetrust.cartomobile-config',
+      't' => 
+      array (
+        0 => 'application/vnd.cluetrust.cartomobile-config',
+      ),
     ),
-    'c11amz' =>
+    'c11amz' => 
     array (
-      0 => 'application/vnd.cluetrust.cartomobile-config-pkg',
+      't' => 
+      array (
+        0 => 'application/vnd.cluetrust.cartomobile-config-pkg',
+      ),
     ),
-    'c4d' =>
+    'c4d' => 
     array (
-      0 => 'application/vnd.clonk.c4group',
+      't' => 
+      array (
+        0 => 'application/vnd.clonk.c4group',
+      ),
     ),
-    'c4f' =>
+    'c4f' => 
     array (
-      0 => 'application/vnd.clonk.c4group',
+      't' => 
+      array (
+        0 => 'application/vnd.clonk.c4group',
+      ),
     ),
-    'c4g' =>
+    'c4g' => 
     array (
-      0 => 'application/vnd.clonk.c4group',
+      't' => 
+      array (
+        0 => 'application/vnd.clonk.c4group',
+      ),
     ),
-    'c4p' =>
+    'c4p' => 
     array (
-      0 => 'application/vnd.clonk.c4group',
+      't' => 
+      array (
+        0 => 'application/vnd.clonk.c4group',
+      ),
     ),
-    'c4u' =>
+    'c4u' => 
     array (
-      0 => 'application/vnd.clonk.c4group',
+      't' => 
+      array (
+        0 => 'application/vnd.clonk.c4group',
+      ),
     ),
-    'cab' =>
+    'cab' => 
     array (
-      0 => 'application/vnd.ms-cab-compressed',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-cab-compressed',
+      ),
     ),
-    'caf' =>
+    'caf' => 
     array (
-      0 => 'audio/x-caf',
+      't' => 
+      array (
+        0 => 'audio/x-caf',
+      ),
     ),
-    'cap' =>
+    'cap' => 
     array (
-      0 => 'application/vnd.tcpdump.pcap',
+      't' => 
+      array (
+        0 => 'application/vnd.tcpdump.pcap',
+      ),
     ),
-    'car' =>
+    'car' => 
     array (
-      0 => 'application/vnd.curl.car',
+      't' => 
+      array (
+        0 => 'application/vnd.curl.car',
+      ),
     ),
-    'cat' =>
+    'cat' => 
     array (
-      0 => 'application/vnd.ms-pki.seccat',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-pki.seccat',
+      ),
     ),
-    'cb7' =>
+    'cb7' => 
     array (
-      0 => 'application/x-cbr',
-      1 => 'application/x-cb7',
+      't' => 
+      array (
+        0 => 'application/x-cbr',
+        1 => 'application/x-cb7',
+      ),
     ),
-    'cba' =>
+    'cba' => 
     array (
-      0 => 'application/x-cbr',
+      't' => 
+      array (
+        0 => 'application/x-cbr',
+      ),
     ),
-    'cbl' =>
+    'cbl' => 
     array (
-      0 => 'text/x-cobol',
+      't' => 
+      array (
+        0 => 'text/x-cobol',
+      ),
     ),
-    'cbr' =>
+    'cbr' => 
     array (
-      0 => 'application/x-cbr',
-      1 => 'application/vnd.comicbook-rar',
+      't' => 
+      array (
+        0 => 'application/x-cbr',
+        1 => 'application/vnd.comicbook-rar',
+      ),
     ),
-    'cbt' =>
+    'cbt' => 
     array (
-      0 => 'application/x-cbr',
-      1 => 'application/x-cbt',
+      't' => 
+      array (
+        0 => 'application/x-cbr',
+        1 => 'application/x-cbt',
+      ),
     ),
-    'cbz' =>
+    'cbz' => 
     array (
-      0 => 'application/x-cbr',
-      1 => 'application/vnd.comicbook+zip',
+      't' => 
+      array (
+        0 => 'application/x-cbr',
+        1 => 'application/vnd.comicbook+zip',
+      ),
     ),
-    'cc' =>
+    'cc' => 
     array (
-      0 => 'text/x-c',
-      1 => 'text/x-c++src',
+      't' => 
+      array (
+        0 => 'text/x-c',
+        1 => 'text/x-c++src',
+      ),
     ),
-    'ccmx' =>
+    'ccmx' => 
     array (
-      0 => 'application/x-ccmx',
+      't' => 
+      array (
+        0 => 'application/x-ccmx',
+      ),
     ),
-    'cct' =>
+    'cct' => 
     array (
-      0 => 'application/x-director',
+      't' => 
+      array (
+        0 => 'application/x-director',
+      ),
     ),
-    'ccxml' =>
+    'ccxml' => 
     array (
-      0 => 'application/ccxml+xml',
+      't' => 
+      array (
+        0 => 'application/ccxml+xml',
+      ),
     ),
-    'cdbcmsg' =>
+    'cdbcmsg' => 
     array (
-      0 => 'application/vnd.contact.cmsg',
+      't' => 
+      array (
+        0 => 'application/vnd.contact.cmsg',
+      ),
     ),
-    'cdf' =>
+    'cdf' => 
     array (
-      0 => 'application/x-netcdf',
+      't' => 
+      array (
+        0 => 'application/x-netcdf',
+      ),
     ),
-    'cdkey' =>
+    'cdkey' => 
     array (
-      0 => 'application/vnd.mediastation.cdkey',
+      't' => 
+      array (
+        0 => 'application/vnd.mediastation.cdkey',
+      ),
     ),
-    'cdmia' =>
+    'cdmia' => 
     array (
-      0 => 'application/cdmi-capability',
+      't' => 
+      array (
+        0 => 'application/cdmi-capability',
+      ),
     ),
-    'cdmic' =>
+    'cdmic' => 
     array (
-      0 => 'application/cdmi-container',
+      't' => 
+      array (
+        0 => 'application/cdmi-container',
+      ),
     ),
-    'cdmid' =>
+    'cdmid' => 
     array (
-      0 => 'application/cdmi-domain',
+      't' => 
+      array (
+        0 => 'application/cdmi-domain',
+      ),
     ),
-    'cdmio' =>
+    'cdmio' => 
     array (
-      0 => 'application/cdmi-object',
+      't' => 
+      array (
+        0 => 'application/cdmi-object',
+      ),
     ),
-    'cdmiq' =>
+    'cdmiq' => 
     array (
-      0 => 'application/cdmi-queue',
+      't' => 
+      array (
+        0 => 'application/cdmi-queue',
+      ),
     ),
-    'cdr' =>
+    'cdr' => 
     array (
-      0 => 'application/vnd.corel-draw',
+      't' => 
+      array (
+        0 => 'application/vnd.corel-draw',
+      ),
     ),
-    'cdx' =>
+    'cdx' => 
     array (
-      0 => 'chemical/x-cdx',
+      't' => 
+      array (
+        0 => 'chemical/x-cdx',
+      ),
     ),
-    'cdxml' =>
+    'cdxml' => 
     array (
-      0 => 'application/vnd.chemdraw+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.chemdraw+xml',
+      ),
     ),
-    'cdy' =>
+    'cdy' => 
     array (
-      0 => 'application/vnd.cinderella',
+      't' => 
+      array (
+        0 => 'application/vnd.cinderella',
+      ),
     ),
-    'cer' =>
+    'cer' => 
     array (
-      0 => 'application/pkix-cert',
+      't' => 
+      array (
+        0 => 'application/pkix-cert',
+      ),
     ),
-    'cert' =>
+    'cert' => 
     array (
-      0 => 'application/x-x509-ca-cert',
+      't' => 
+      array (
+        0 => 'application/x-x509-ca-cert',
+      ),
     ),
-    'cfs' =>
+    'cfs' => 
     array (
-      0 => 'application/x-cfs-compressed',
+      't' => 
+      array (
+        0 => 'application/x-cfs-compressed',
+      ),
     ),
-    'cgb' =>
+    'cgb' => 
     array (
-      0 => 'application/x-gameboy-color-rom',
+      't' => 
+      array (
+        0 => 'application/x-gameboy-color-rom',
+      ),
     ),
-    'cgm' =>
+    'cgm' => 
     array (
-      0 => 'image/cgm',
+      't' => 
+      array (
+        0 => 'image/cgm',
+      ),
     ),
-    'chat' =>
+    'chat' => 
     array (
-      0 => 'application/x-chat',
+      't' => 
+      array (
+        0 => 'application/x-chat',
+      ),
     ),
-    'chm' =>
+    'chm' => 
     array (
-      0 => 'application/vnd.ms-htmlhelp',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-htmlhelp',
+      ),
     ),
-    'chrt' =>
+    'chrt' => 
     array (
-      0 => 'application/vnd.kde.kchart',
-      1 => 'application/x-kchart',
+      't' => 
+      array (
+        0 => 'application/vnd.kde.kchart',
+        1 => 'application/x-kchart',
+      ),
     ),
-    'cif' =>
+    'cif' => 
     array (
-      0 => 'chemical/x-cif',
+      't' => 
+      array (
+        0 => 'chemical/x-cif',
+      ),
     ),
-    'cii' =>
+    'cii' => 
     array (
-      0 => 'application/vnd.anser-web-certificate-issue-initiation',
+      't' => 
+      array (
+        0 => 'application/vnd.anser-web-certificate-issue-initiation',
+      ),
     ),
-    'cil' =>
+    'cil' => 
     array (
-      0 => 'application/vnd.ms-artgalry',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-artgalry',
+      ),
     ),
-    'cl' =>
+    'cl' => 
     array (
-      0 => 'text/x-opencl-src',
+      't' => 
+      array (
+        0 => 'text/x-opencl-src',
+      ),
     ),
-    'cla' =>
+    'cla' => 
     array (
-      0 => 'application/vnd.claymore',
+      't' => 
+      array (
+        0 => 'application/vnd.claymore',
+      ),
     ),
-    'class' =>
+    'class' => 
     array (
-      0 => 'application/java-vm',
-      1 => 'application/x-java',
+      't' => 
+      array (
+        0 => 'application/java-vm',
+        1 => 'application/x-java',
+      ),
     ),
-    'clkk' =>
+    'clkk' => 
     array (
-      0 => 'application/vnd.crick.clicker.keyboard',
+      't' => 
+      array (
+        0 => 'application/vnd.crick.clicker.keyboard',
+      ),
     ),
-    'clkp' =>
+    'clkp' => 
     array (
-      0 => 'application/vnd.crick.clicker.palette',
+      't' => 
+      array (
+        0 => 'application/vnd.crick.clicker.palette',
+      ),
     ),
-    'clkt' =>
+    'clkt' => 
     array (
-      0 => 'application/vnd.crick.clicker.template',
+      't' => 
+      array (
+        0 => 'application/vnd.crick.clicker.template',
+      ),
     ),
-    'clkw' =>
+    'clkw' => 
     array (
-      0 => 'application/vnd.crick.clicker.wordbank',
+      't' => 
+      array (
+        0 => 'application/vnd.crick.clicker.wordbank',
+      ),
     ),
-    'clkx' =>
+    'clkx' => 
     array (
-      0 => 'application/vnd.crick.clicker',
+      't' => 
+      array (
+        0 => 'application/vnd.crick.clicker',
+      ),
     ),
-    'clp' =>
+    'clp' => 
     array (
-      0 => 'application/x-msclip',
+      't' => 
+      array (
+        0 => 'application/x-msclip',
+      ),
     ),
-    'clpi' =>
+    'clpi' => 
     array (
-      0 => 'video/mp2t',
+      't' => 
+      array (
+        0 => 'video/mp2t',
+      ),
     ),
-    'cls' =>
+    'cls' => 
     array (
-      0 => 'text/x-tex',
+      't' => 
+      array (
+        0 => 'text/x-tex',
+      ),
     ),
-    'cmake' =>
+    'cmake' => 
     array (
-      0 => 'text/x-cmake',
+      't' => 
+      array (
+        0 => 'text/x-cmake',
+      ),
     ),
-    'cmc' =>
+    'cmc' => 
     array (
-      0 => 'application/vnd.cosmocaller',
+      't' => 
+      array (
+        0 => 'application/vnd.cosmocaller',
+      ),
     ),
-    'cmdf' =>
+    'cmdf' => 
     array (
-      0 => 'chemical/x-cmdf',
+      't' => 
+      array (
+        0 => 'chemical/x-cmdf',
+      ),
     ),
-    'cml' =>
+    'cml' => 
     array (
-      0 => 'chemical/x-cml',
+      't' => 
+      array (
+        0 => 'chemical/x-cml',
+      ),
     ),
-    'cmp' =>
+    'cmp' => 
     array (
-      0 => 'application/vnd.yellowriver-custom-menu',
+      't' => 
+      array (
+        0 => 'application/vnd.yellowriver-custom-menu',
+      ),
     ),
-    'cmx' =>
+    'cmx' => 
     array (
-      0 => 'image/x-cmx',
+      't' => 
+      array (
+        0 => 'image/x-cmx',
+      ),
     ),
-    'cob' =>
+    'cob' => 
     array (
-      0 => 'text/x-cobol',
+      't' => 
+      array (
+        0 => 'text/x-cobol',
+      ),
     ),
-    'cod' =>
+    'cod' => 
     array (
-      0 => 'application/vnd.rim.cod',
+      't' => 
+      array (
+        0 => 'application/vnd.rim.cod',
+      ),
     ),
-    'coffee' =>
+    'coffee' => 
     array (
-      0 => 'application/vnd.coffeescript',
+      't' => 
+      array (
+        0 => 'application/vnd.coffeescript',
+      ),
     ),
-    'com' =>
+    'com' => 
     array (
-      0 => 'application/x-msdownload',
+      't' => 
+      array (
+        0 => 'application/x-msdownload',
+      ),
     ),
-    'conf' =>
+    'conf' => 
     array (
-      0 => 'text/plain',
+      't' => 
+      array (
+        0 => 'text/plain',
+      ),
     ),
-    'cpi' =>
+    'cpi' => 
     array (
-      0 => 'video/mp2t',
+      't' => 
+      array (
+        0 => 'video/mp2t',
+      ),
     ),
-    'cpio' =>
+    'cpio' => 
     array (
-      0 => 'application/x-cpio',
+      't' => 
+      array (
+        0 => 'application/x-cpio',
+      ),
     ),
-    'cpio.gz' =>
+    'cpio.gz' => 
     array (
-      0 => 'application/x-cpio-compressed',
+      't' => 
+      array (
+        0 => 'application/x-cpio-compressed',
+      ),
     ),
-    'cpp' =>
+    'cpp' => 
     array (
-      0 => 'text/x-c',
-      1 => 'text/x-c++src',
+      't' => 
+      array (
+        0 => 'text/x-c',
+        1 => 'text/x-c++src',
+      ),
     ),
-    'cpt' =>
+    'cpt' => 
     array (
-      0 => 'application/mac-compactpro',
+      't' => 
+      array (
+        0 => 'application/mac-compactpro',
+      ),
     ),
-    'cr2' =>
+    'cr2' => 
     array (
-      0 => 'image/x-canon-cr2',
+      't' => 
+      array (
+        0 => 'image/x-canon-cr2',
+      ),
     ),
-    'crd' =>
+    'crd' => 
     array (
-      0 => 'application/x-mscardfile',
+      't' => 
+      array (
+        0 => 'application/x-mscardfile',
+      ),
     ),
-    'crdownload' =>
+    'crdownload' => 
     array (
-      0 => 'application/x-partial-download',
+      't' => 
+      array (
+        0 => 'application/x-partial-download',
+      ),
     ),
-    'crl' =>
+    'crl' => 
     array (
-      0 => 'application/pkix-crl',
+      't' => 
+      array (
+        0 => 'application/pkix-crl',
+      ),
     ),
-    'crt' =>
+    'crt' => 
     array (
-      0 => 'application/x-x509-ca-cert',
+      't' => 
+      array (
+        0 => 'application/x-x509-ca-cert',
+      ),
     ),
-    'crw' =>
+    'crw' => 
     array (
-      0 => 'image/x-canon-crw',
+      't' => 
+      array (
+        0 => 'image/x-canon-crw',
+      ),
     ),
-    'cryptonote' =>
+    'cryptonote' => 
     array (
-      0 => 'application/vnd.rig.cryptonote',
+      't' => 
+      array (
+        0 => 'application/vnd.rig.cryptonote',
+      ),
     ),
-    'cs' =>
+    'cs' => 
     array (
-      0 => 'text/x-csharp',
+      't' => 
+      array (
+        0 => 'text/x-csharp',
+      ),
     ),
-    'csh' =>
+    'csh' => 
     array (
-      0 => 'application/x-csh',
+      't' => 
+      array (
+        0 => 'application/x-csh',
+      ),
     ),
-    'csml' =>
+    'csml' => 
     array (
-      0 => 'chemical/x-csml',
+      't' => 
+      array (
+        0 => 'chemical/x-csml',
+      ),
     ),
-    'csp' =>
+    'csp' => 
     array (
-      0 => 'application/vnd.commonspace',
+      't' => 
+      array (
+        0 => 'application/vnd.commonspace',
+      ),
     ),
-    'css' =>
+    'css' => 
     array (
-      0 => 'text/css',
+      't' => 
+      array (
+        0 => 'text/css',
+      ),
     ),
-    'cst' =>
+    'cst' => 
     array (
-      0 => 'application/x-director',
+      't' => 
+      array (
+        0 => 'application/x-director',
+      ),
     ),
-    'csv' =>
+    'csv' => 
     array (
-      0 => 'text/csv',
+      't' => 
+      array (
+        0 => 'text/csv',
+      ),
     ),
-    'csvs' =>
+    'csvs' => 
     array (
-      0 => 'text/csv-schema',
+      't' => 
+      array (
+        0 => 'text/csv-schema',
+      ),
     ),
-    'cu' =>
+    'cu' => 
     array (
-      0 => 'application/cu-seeme',
+      't' => 
+      array (
+        0 => 'application/cu-seeme',
+      ),
     ),
-    'cue' =>
+    'cue' => 
     array (
-      0 => 'application/x-cue',
+      't' => 
+      array (
+        0 => 'application/x-cue',
+      ),
     ),
-    'cur' =>
+    'cur' => 
     array (
-      0 => 'image/x-win-bitmap',
+      't' => 
+      array (
+        0 => 'image/x-win-bitmap',
+      ),
     ),
-    'curl' =>
+    'curl' => 
     array (
-      0 => 'text/vnd.curl',
+      't' => 
+      array (
+        0 => 'text/vnd.curl',
+      ),
     ),
-    'cww' =>
+    'cww' => 
     array (
-      0 => 'application/prs.cww',
+      't' => 
+      array (
+        0 => 'application/prs.cww',
+      ),
     ),
-    'cxt' =>
+    'cxt' => 
     array (
-      0 => 'application/x-director',
+      't' => 
+      array (
+        0 => 'application/x-director',
+      ),
     ),
-    'cxx' =>
+    'cxx' => 
     array (
-      0 => 'text/x-c',
-      1 => 'text/x-c++src',
+      't' => 
+      array (
+        0 => 'text/x-c',
+        1 => 'text/x-c++src',
+      ),
     ),
-    'd' =>
+    'd' => 
     array (
-      0 => 'text/x-dsrc',
+      't' => 
+      array (
+        0 => 'text/x-dsrc',
+      ),
     ),
-    'dae' =>
+    'dae' => 
     array (
-      0 => 'model/vnd.collada+xml',
+      't' => 
+      array (
+        0 => 'model/vnd.collada+xml',
+      ),
     ),
-    'daf' =>
+    'daf' => 
     array (
-      0 => 'application/vnd.mobius.daf',
+      't' => 
+      array (
+        0 => 'application/vnd.mobius.daf',
+      ),
     ),
-    'dar' =>
+    'dar' => 
     array (
-      0 => 'application/x-dar',
+      't' => 
+      array (
+        0 => 'application/x-dar',
+      ),
     ),
-    'dart' =>
+    'dart' => 
     array (
-      0 => 'application/vnd.dart',
+      't' => 
+      array (
+        0 => 'application/vnd.dart',
+      ),
     ),
-    'dataless' =>
+    'dataless' => 
     array (
-      0 => 'application/vnd.fdsn.seed',
+      't' => 
+      array (
+        0 => 'application/vnd.fdsn.seed',
+      ),
     ),
-    'davmount' =>
+    'davmount' => 
     array (
-      0 => 'application/davmount+xml',
+      't' => 
+      array (
+        0 => 'application/davmount+xml',
+      ),
     ),
-    'dbf' =>
+    'dbf' => 
     array (
-      0 => 'application/x-dbf',
+      't' => 
+      array (
+        0 => 'application/x-dbf',
+      ),
     ),
-    'dbk' =>
+    'dbk' => 
     array (
-      0 => 'application/docbook+xml',
-      1 => 'application/x-docbook+xml',
+      't' => 
+      array (
+        0 => 'application/docbook+xml',
+        1 => 'application/x-docbook+xml',
+      ),
     ),
-    'dc' =>
+    'dc' => 
     array (
-      0 => 'application/x-dc-rom',
+      't' => 
+      array (
+        0 => 'application/x-dc-rom',
+      ),
     ),
-    'dcl' =>
+    'dcl' => 
     array (
-      0 => 'text/x-dcl',
+      't' => 
+      array (
+        0 => 'text/x-dcl',
+      ),
     ),
-    'dcm' =>
+    'dcm' => 
     array (
-      0 => 'application/dicom',
+      't' => 
+      array (
+        0 => 'application/dicom',
+      ),
     ),
-    'dcr' =>
+    'dcr' => 
     array (
-      0 => 'application/x-director',
-      1 => 'image/x-kodak-dcr',
+      't' => 
+      array (
+        0 => 'application/x-director',
+        1 => 'image/x-kodak-dcr',
+      ),
     ),
-    'dcurl' =>
+    'dcurl' => 
     array (
-      0 => 'text/vnd.curl.dcurl',
+      't' => 
+      array (
+        0 => 'text/vnd.curl.dcurl',
+      ),
     ),
-    'dd2' =>
+    'dd2' => 
     array (
-      0 => 'application/vnd.oma.dd2+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.oma.dd2+xml',
+      ),
     ),
-    'ddd' =>
+    'ddd' => 
     array (
-      0 => 'application/vnd.fujixerox.ddd',
+      't' => 
+      array (
+        0 => 'application/vnd.fujixerox.ddd',
+      ),
     ),
-    'dds' =>
+    'dds' => 
     array (
-      0 => 'image/x-dds',
+      't' => 
+      array (
+        0 => 'image/x-dds',
+      ),
     ),
-    'deb' =>
+    'deb' => 
     array (
-      0 => 'application/x-debian-package',
-      1 => 'application/vnd.debian.binary-package',
+      't' => 
+      array (
+        0 => 'application/x-debian-package',
+        1 => 'application/vnd.debian.binary-package',
+      ),
     ),
-    'def' =>
+    'def' => 
     array (
-      0 => 'text/plain',
+      't' => 
+      array (
+        0 => 'text/plain',
+      ),
     ),
-    'deploy' =>
+    'deploy' => 
     array (
-      0 => 'application/octet-stream',
+      't' => 
+      array (
+        0 => 'application/octet-stream',
+      ),
     ),
-    'der' =>
+    'der' => 
     array (
-      0 => 'application/x-x509-ca-cert',
+      't' => 
+      array (
+        0 => 'application/x-x509-ca-cert',
+      ),
     ),
-    'desktop' =>
+    'desktop' => 
     array (
-      0 => 'application/x-desktop',
+      't' => 
+      array (
+        0 => 'application/x-desktop',
+      ),
     ),
-    'device' =>
+    'device' => 
     array (
-      0 => 'text/x-systemd-unit',
+      't' => 
+      array (
+        0 => 'text/x-systemd-unit',
+      ),
     ),
-    'dfac' =>
+    'dfac' => 
     array (
-      0 => 'application/vnd.dreamfactory',
+      't' => 
+      array (
+        0 => 'application/vnd.dreamfactory',
+      ),
     ),
-    'dgc' =>
+    'dgc' => 
     array (
-      0 => 'application/x-dgc-compressed',
+      't' => 
+      array (
+        0 => 'application/x-dgc-compressed',
+      ),
     ),
-    'di' =>
+    'di' => 
     array (
-      0 => 'text/x-dsrc',
+      't' => 
+      array (
+        0 => 'text/x-dsrc',
+      ),
     ),
-    'dia' =>
+    'dia' => 
     array (
-      0 => 'application/x-dia-diagram',
+      't' => 
+      array (
+        0 => 'application/x-dia-diagram',
+      ),
     ),
-    'dib' =>
+    'dib' => 
     array (
-      0 => 'image/bmp',
+      't' => 
+      array (
+        0 => 'image/bmp',
+      ),
     ),
-    'dic' =>
+    'dic' => 
     array (
-      0 => 'text/x-c',
+      't' => 
+      array (
+        0 => 'text/x-c',
+      ),
     ),
-    'diff' =>
+    'diff' => 
     array (
-      0 => 'text/x-patch',
+      't' => 
+      array (
+        0 => 'text/x-patch',
+      ),
     ),
-    'dir' =>
+    'dir' => 
     array (
-      0 => 'application/x-director',
+      't' => 
+      array (
+        0 => 'application/x-director',
+      ),
     ),
-    'dis' =>
+    'dis' => 
     array (
-      0 => 'application/vnd.mobius.dis',
+      't' => 
+      array (
+        0 => 'application/vnd.mobius.dis',
+      ),
     ),
-    'dist' =>
+    'dist' => 
     array (
-      0 => 'application/octet-stream',
+      't' => 
+      array (
+        0 => 'application/octet-stream',
+      ),
     ),
-    'distz' =>
+    'distz' => 
     array (
-      0 => 'application/octet-stream',
+      't' => 
+      array (
+        0 => 'application/octet-stream',
+      ),
     ),
-    'divx' =>
+    'divx' => 
     array (
-      0 => 'video/x-msvideo',
+      't' => 
+      array (
+        0 => 'video/x-msvideo',
+      ),
     ),
-    'djv' =>
+    'djv' => 
     array (
-      0 => 'image/vnd.djvu',
-      1 => 'image/vnd.djvu+multipage',
+      't' => 
+      array (
+        0 => 'image/vnd.djvu',
+        1 => 'image/vnd.djvu+multipage',
+      ),
     ),
-    'djvu' =>
+    'djvu' => 
     array (
-      0 => 'image/vnd.djvu',
-      1 => 'image/vnd.djvu+multipage',
+      't' => 
+      array (
+        0 => 'image/vnd.djvu',
+        1 => 'image/vnd.djvu+multipage',
+      ),
     ),
-    'dll' =>
+    'dll' => 
     array (
-      0 => 'application/x-msdownload',
+      't' => 
+      array (
+        0 => 'application/x-msdownload',
+      ),
     ),
-    'dmg' =>
+    'dmg' => 
     array (
-      0 => 'application/x-apple-diskimage',
+      't' => 
+      array (
+        0 => 'application/x-apple-diskimage',
+      ),
     ),
-    'dmp' =>
+    'dmp' => 
     array (
-      0 => 'application/vnd.tcpdump.pcap',
+      't' => 
+      array (
+        0 => 'application/vnd.tcpdump.pcap',
+      ),
     ),
-    'dms' =>
+    'dms' => 
     array (
-      0 => 'application/octet-stream',
+      't' => 
+      array (
+        0 => 'application/octet-stream',
+      ),
     ),
-    'dna' =>
+    'dna' => 
     array (
-      0 => 'application/vnd.dna',
+      't' => 
+      array (
+        0 => 'application/vnd.dna',
+      ),
     ),
-    'dng' =>
+    'dng' => 
     array (
-      0 => 'image/x-adobe-dng',
+      't' => 
+      array (
+        0 => 'image/x-adobe-dng',
+      ),
     ),
-    'doc' =>
+    'doc' => 
     array (
-      0 => 'application/msword',
+      't' => 
+      array (
+        0 => 'application/msword',
+      ),
     ),
-    'docbook' =>
+    'docbook' => 
     array (
-      0 => 'application/x-docbook+xml',
+      't' => 
+      array (
+        0 => 'application/x-docbook+xml',
+      ),
     ),
-    'docm' =>
+    'docm' => 
     array (
-      0 => 'application/vnd.ms-word.document.macroenabled.12',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-word.document.macroenabled.12',
+      ),
     ),
-    'docx' =>
+    'docx' => 
     array (
-      0 => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      't' => 
+      array (
+        0 => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      ),
     ),
-    'dot' =>
+    'dot' => 
     array (
-      0 => 'application/msword',
-      1 => 'application/msword-template',
-      2 => 'text/vnd.graphviz',
+      't' => 
+      array (
+        0 => 'application/msword',
+        1 => 'application/msword-template',
+        2 => 'text/vnd.graphviz',
+      ),
     ),
-    'dotm' =>
+    'dotm' => 
     array (
-      0 => 'application/vnd.ms-word.template.macroenabled.12',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-word.template.macroenabled.12',
+      ),
     ),
-    'dotx' =>
+    'dotx' => 
     array (
-      0 => 'application/vnd.openxmlformats-officedocument.wordprocessingml.template',
+      't' => 
+      array (
+        0 => 'application/vnd.openxmlformats-officedocument.wordprocessingml.template',
+      ),
     ),
-    'dp' =>
+    'dp' => 
     array (
-      0 => 'application/vnd.osgi.dp',
+      't' => 
+      array (
+        0 => 'application/vnd.osgi.dp',
+      ),
     ),
-    'dpg' =>
+    'dpg' => 
     array (
-      0 => 'application/vnd.dpgraph',
+      't' => 
+      array (
+        0 => 'application/vnd.dpgraph',
+      ),
     ),
-    'dra' =>
+    'dra' => 
     array (
-      0 => 'audio/vnd.dra',
+      't' => 
+      array (
+        0 => 'audio/vnd.dra',
+      ),
     ),
-    'dsc' =>
+    'dsc' => 
     array (
-      0 => 'text/prs.lines.tag',
+      't' => 
+      array (
+        0 => 'text/prs.lines.tag',
+      ),
     ),
-    'dsl' =>
+    'dsl' => 
     array (
-      0 => 'text/x-dsl',
+      't' => 
+      array (
+        0 => 'text/x-dsl',
+      ),
     ),
-    'dssc' =>
+    'dssc' => 
     array (
-      0 => 'application/dssc+der',
+      't' => 
+      array (
+        0 => 'application/dssc+der',
+      ),
     ),
-    'dtb' =>
+    'dtb' => 
     array (
-      0 => 'application/x-dtbook+xml',
+      't' => 
+      array (
+        0 => 'application/x-dtbook+xml',
+      ),
     ),
-    'dtd' =>
+    'dtd' => 
     array (
-      0 => 'application/xml-dtd',
+      't' => 
+      array (
+        0 => 'application/xml-dtd',
+      ),
     ),
-    'dts' =>
+    'dts' => 
     array (
-      0 => 'audio/vnd.dts',
+      't' => 
+      array (
+        0 => 'audio/vnd.dts',
+      ),
     ),
-    'dtshd' =>
+    'dtshd' => 
     array (
-      0 => 'audio/vnd.dts.hd',
+      't' => 
+      array (
+        0 => 'audio/vnd.dts.hd',
+      ),
     ),
-    'dtx' =>
+    'dtx' => 
     array (
-      0 => 'text/x-tex',
+      't' => 
+      array (
+        0 => 'text/x-tex',
+      ),
     ),
-    'dump' =>
+    'dump' => 
     array (
-      0 => 'application/octet-stream',
+      't' => 
+      array (
+        0 => 'application/octet-stream',
+      ),
     ),
-    'dv' =>
+    'dv' => 
     array (
-      0 => 'video/dv',
+      't' => 
+      array (
+        0 => 'video/dv',
+      ),
     ),
-    'dvb' =>
+    'dvb' => 
     array (
-      0 => 'video/vnd.dvb.file',
+      't' => 
+      array (
+        0 => 'video/vnd.dvb.file',
+      ),
     ),
-    'dvi' =>
+    'dvi' => 
     array (
-      0 => 'application/x-dvi',
+      't' => 
+      array (
+        0 => 'application/x-dvi',
+      ),
     ),
-    'dvi.bz2' =>
+    'dvi.bz2' => 
     array (
-      0 => 'application/x-bzdvi',
+      't' => 
+      array (
+        0 => 'application/x-bzdvi',
+      ),
     ),
-    'dvi.gz' =>
+    'dvi.gz' => 
     array (
-      0 => 'application/x-gzdvi',
+      't' => 
+      array (
+        0 => 'application/x-gzdvi',
+      ),
     ),
-    'dwf' =>
+    'dwf' => 
     array (
-      0 => 'model/vnd.dwf',
+      't' => 
+      array (
+        0 => 'model/vnd.dwf',
+      ),
     ),
-    'dwg' =>
+    'dwg' => 
     array (
-      0 => 'image/vnd.dwg',
+      't' => 
+      array (
+        0 => 'image/vnd.dwg',
+      ),
     ),
-    'dxf' =>
+    'dxf' => 
     array (
-      0 => 'image/vnd.dxf',
+      't' => 
+      array (
+        0 => 'image/vnd.dxf',
+      ),
     ),
-    'dxp' =>
+    'dxp' => 
     array (
-      0 => 'application/vnd.spotfire.dxp',
+      't' => 
+      array (
+        0 => 'application/vnd.spotfire.dxp',
+      ),
     ),
-    'dxr' =>
+    'dxr' => 
     array (
-      0 => 'application/x-director',
+      't' => 
+      array (
+        0 => 'application/x-director',
+      ),
     ),
-    'e' =>
+    'e' => 
     array (
-      0 => 'text/x-eiffel',
+      't' => 
+      array (
+        0 => 'text/x-eiffel',
+      ),
     ),
-    'ecelp4800' =>
+    'ecelp4800' => 
     array (
-      0 => 'audio/vnd.nuera.ecelp4800',
+      't' => 
+      array (
+        0 => 'audio/vnd.nuera.ecelp4800',
+      ),
     ),
-    'ecelp7470' =>
+    'ecelp7470' => 
     array (
-      0 => 'audio/vnd.nuera.ecelp7470',
+      't' => 
+      array (
+        0 => 'audio/vnd.nuera.ecelp7470',
+      ),
     ),
-    'ecelp9600' =>
+    'ecelp9600' => 
     array (
-      0 => 'audio/vnd.nuera.ecelp9600',
+      't' => 
+      array (
+        0 => 'audio/vnd.nuera.ecelp9600',
+      ),
     ),
-    'ecma' =>
+    'ecma' => 
     array (
-      0 => 'application/ecmascript',
+      't' => 
+      array (
+        0 => 'application/ecmascript',
+      ),
     ),
-    'edm' =>
+    'edm' => 
     array (
-      0 => 'application/vnd.novadigm.edm',
+      't' => 
+      array (
+        0 => 'application/vnd.novadigm.edm',
+      ),
     ),
-    'edx' =>
+    'edx' => 
     array (
-      0 => 'application/vnd.novadigm.edx',
+      't' => 
+      array (
+        0 => 'application/vnd.novadigm.edx',
+      ),
     ),
-    'efif' =>
+    'efif' => 
     array (
-      0 => 'application/vnd.picsel',
+      't' => 
+      array (
+        0 => 'application/vnd.picsel',
+      ),
     ),
-    'egon' =>
+    'egon' => 
     array (
-      0 => 'application/x-egon',
+      't' => 
+      array (
+        0 => 'application/x-egon',
+      ),
     ),
-    'ei6' =>
+    'ei6' => 
     array (
-      0 => 'application/vnd.pg.osasli',
+      't' => 
+      array (
+        0 => 'application/vnd.pg.osasli',
+      ),
     ),
-    'eif' =>
+    'eif' => 
     array (
-      0 => 'text/x-eiffel',
+      't' => 
+      array (
+        0 => 'text/x-eiffel',
+      ),
     ),
-    'el' =>
+    'el' => 
     array (
-      0 => 'text/x-emacs-lisp',
+      't' => 
+      array (
+        0 => 'text/x-emacs-lisp',
+      ),
     ),
-    'elc' =>
+    'elc' => 
     array (
-      0 => 'application/octet-stream',
+      't' => 
+      array (
+        0 => 'application/octet-stream',
+      ),
     ),
-    'emf' =>
+    'emf' => 
     array (
-      0 => 'application/x-msmetafile',
-      1 => 'image/emf',
+      't' => 
+      array (
+        0 => 'application/x-msmetafile',
+        1 => 'image/emf',
+      ),
     ),
-    'eml' =>
+    'eml' => 
     array (
-      0 => 'message/rfc822',
+      't' => 
+      array (
+        0 => 'message/rfc822',
+      ),
     ),
-    'emma' =>
+    'emma' => 
     array (
-      0 => 'application/emma+xml',
+      't' => 
+      array (
+        0 => 'application/emma+xml',
+      ),
     ),
-    'emp' =>
+    'emp' => 
     array (
-      0 => 'application/vnd.emusic-emusic_package',
+      't' => 
+      array (
+        0 => 'application/vnd.emusic-emusic_package',
+      ),
     ),
-    'emz' =>
+    'emz' => 
     array (
-      0 => 'application/x-msmetafile',
+      't' => 
+      array (
+        0 => 'application/x-msmetafile',
+      ),
     ),
-    'ent' =>
+    'ent' => 
     array (
-      0 => 'application/xml-external-parsed-entity',
+      't' => 
+      array (
+        0 => 'application/xml-external-parsed-entity',
+      ),
     ),
-    'eol' =>
+    'eol' => 
     array (
-      0 => 'audio/vnd.digital-winds',
+      't' => 
+      array (
+        0 => 'audio/vnd.digital-winds',
+      ),
     ),
-    'eot' =>
+    'eot' => 
     array (
-      0 => 'application/vnd.ms-fontobject',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-fontobject',
+      ),
     ),
-    'eps' =>
+    'eps' => 
     array (
-      0 => 'application/postscript',
-      1 => 'image/x-eps',
+      't' => 
+      array (
+        0 => 'application/postscript',
+        1 => 'image/x-eps',
+      ),
     ),
-    'eps.bz2' =>
+    'eps.bz2' => 
     array (
-      0 => 'image/x-bzeps',
+      't' => 
+      array (
+        0 => 'image/x-bzeps',
+      ),
     ),
-    'eps.gz' =>
+    'eps.gz' => 
     array (
-      0 => 'image/x-gzeps',
+      't' => 
+      array (
+        0 => 'image/x-gzeps',
+      ),
     ),
-    'epsf' =>
+    'epsf' => 
     array (
-      0 => 'image/x-eps',
+      't' => 
+      array (
+        0 => 'image/x-eps',
+      ),
     ),
-    'epsf.bz2' =>
+    'epsf.bz2' => 
     array (
-      0 => 'image/x-bzeps',
+      't' => 
+      array (
+        0 => 'image/x-bzeps',
+      ),
     ),
-    'epsf.gz' =>
+    'epsf.gz' => 
     array (
-      0 => 'image/x-gzeps',
+      't' => 
+      array (
+        0 => 'image/x-gzeps',
+      ),
     ),
-    'epsi' =>
+    'epsi' => 
     array (
-      0 => 'image/x-eps',
+      't' => 
+      array (
+        0 => 'image/x-eps',
+      ),
     ),
-    'epsi.bz2' =>
+    'epsi.bz2' => 
     array (
-      0 => 'image/x-bzeps',
+      't' => 
+      array (
+        0 => 'image/x-bzeps',
+      ),
     ),
-    'epsi.gz' =>
+    'epsi.gz' => 
     array (
-      0 => 'image/x-gzeps',
+      't' => 
+      array (
+        0 => 'image/x-gzeps',
+      ),
     ),
-    'epub' =>
+    'epub' => 
     array (
-      0 => 'application/epub+zip',
+      't' => 
+      array (
+        0 => 'application/epub+zip',
+      ),
     ),
-    'erl' =>
+    'erl' => 
     array (
-      0 => 'text/x-erlang',
+      't' => 
+      array (
+        0 => 'text/x-erlang',
+      ),
     ),
-    'es' =>
+    'es' => 
     array (
-      0 => 'application/ecmascript',
+      't' => 
+      array (
+        0 => 'application/ecmascript',
+      ),
     ),
-    'es3' =>
+    'es3' => 
     array (
-      0 => 'application/vnd.eszigno3+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.eszigno3+xml',
+      ),
     ),
-    'esa' =>
+    'esa' => 
     array (
-      0 => 'application/vnd.osgi.subsystem',
+      't' => 
+      array (
+        0 => 'application/vnd.osgi.subsystem',
+      ),
     ),
-    'esf' =>
+    'esf' => 
     array (
-      0 => 'application/vnd.epson.esf',
+      't' => 
+      array (
+        0 => 'application/vnd.epson.esf',
+      ),
     ),
-    'et3' =>
+    'et3' => 
     array (
-      0 => 'application/vnd.eszigno3+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.eszigno3+xml',
+      ),
     ),
-    'etheme' =>
+    'etheme' => 
     array (
-      0 => 'application/x-e-theme',
+      't' => 
+      array (
+        0 => 'application/x-e-theme',
+      ),
     ),
-    'etx' =>
+    'etx' => 
     array (
-      0 => 'text/x-setext',
+      't' => 
+      array (
+        0 => 'text/x-setext',
+      ),
     ),
-    'eva' =>
+    'eva' => 
     array (
-      0 => 'application/x-eva',
+      't' => 
+      array (
+        0 => 'application/x-eva',
+      ),
     ),
-    'evy' =>
+    'evy' => 
     array (
-      0 => 'application/x-envoy',
+      't' => 
+      array (
+        0 => 'application/x-envoy',
+      ),
     ),
-    'exe' =>
+    'exe' => 
     array (
-      0 => 'application/x-msdownload',
-      1 => 'application/x-ms-dos-executable',
+      't' => 
+      array (
+        0 => 'application/x-msdownload',
+        1 => 'application/x-ms-dos-executable',
+      ),
     ),
-    'exi' =>
+    'exi' => 
     array (
-      0 => 'application/exi',
+      't' => 
+      array (
+        0 => 'application/exi',
+      ),
     ),
-    'exr' =>
+    'exr' => 
     array (
-      0 => 'image/x-exr',
+      't' => 
+      array (
+        0 => 'image/x-exr',
+      ),
     ),
-    'ext' =>
+    'ext' => 
     array (
-      0 => 'application/vnd.novadigm.ext',
+      't' => 
+      array (
+        0 => 'application/vnd.novadigm.ext',
+      ),
     ),
-    'ez' =>
+    'ez' => 
     array (
-      0 => 'application/andrew-inset',
+      't' => 
+      array (
+        0 => 'application/andrew-inset',
+      ),
     ),
-    'ez2' =>
+    'ez2' => 
     array (
-      0 => 'application/vnd.ezpix-album',
+      't' => 
+      array (
+        0 => 'application/vnd.ezpix-album',
+      ),
     ),
-    'ez3' =>
+    'ez3' => 
     array (
-      0 => 'application/vnd.ezpix-package',
+      't' => 
+      array (
+        0 => 'application/vnd.ezpix-package',
+      ),
     ),
-    'f' =>
+    'f' => 
     array (
-      0 => 'text/x-fortran',
+      't' => 
+      array (
+        0 => 'text/x-fortran',
+      ),
     ),
-    'f4a' =>
+    'f4a' => 
     array (
-      0 => 'audio/mp4',
+      't' => 
+      array (
+        0 => 'audio/mp4',
+      ),
     ),
-    'f4b' =>
+    'f4b' => 
     array (
-      0 => 'audio/x-m4b',
+      't' => 
+      array (
+        0 => 'audio/x-m4b',
+      ),
     ),
-    'f4v' =>
+    'f4v' => 
     array (
-      0 => 'video/x-f4v',
-      1 => 'video/mp4',
+      't' => 
+      array (
+        0 => 'video/x-f4v',
+        1 => 'video/mp4',
+      ),
     ),
-    'f77' =>
+    'f77' => 
     array (
-      0 => 'text/x-fortran',
+      't' => 
+      array (
+        0 => 'text/x-fortran',
+      ),
     ),
-    'f90' =>
+    'f90' => 
     array (
-      0 => 'text/x-fortran',
+      't' => 
+      array (
+        0 => 'text/x-fortran',
+      ),
     ),
-    'f95' =>
+    'f95' => 
     array (
-      0 => 'text/x-fortran',
+      't' => 
+      array (
+        0 => 'text/x-fortran',
+      ),
     ),
-    'fb2' =>
+    'fb2' => 
     array (
-      0 => 'application/x-fictionbook+xml',
+      't' => 
+      array (
+        0 => 'application/x-fictionbook+xml',
+      ),
     ),
-    'fb2.zip' =>
+    'fb2.zip' => 
     array (
-      0 => 'application/x-zip-compressed-fb2',
+      't' => 
+      array (
+        0 => 'application/x-zip-compressed-fb2',
+      ),
     ),
-    'fbs' =>
+    'fbs' => 
     array (
-      0 => 'image/vnd.fastbidsheet',
+      't' => 
+      array (
+        0 => 'image/vnd.fastbidsheet',
+      ),
     ),
-    'fcdt' =>
+    'fcdt' => 
     array (
-      0 => 'application/vnd.adobe.formscentral.fcdt',
+      't' => 
+      array (
+        0 => 'application/vnd.adobe.formscentral.fcdt',
+      ),
     ),
-    'fcs' =>
+    'fcs' => 
     array (
-      0 => 'application/vnd.isac.fcs',
+      't' => 
+      array (
+        0 => 'application/vnd.isac.fcs',
+      ),
     ),
-    'fd' =>
+    'fd' => 
     array (
-      0 => 'application/x-raw-floppy-disk-image',
+      't' => 
+      array (
+        0 => 'application/x-raw-floppy-disk-image',
+      ),
     ),
-    'fdf' =>
+    'fdf' => 
     array (
-      0 => 'application/vnd.fdf',
+      't' => 
+      array (
+        0 => 'application/vnd.fdf',
+      ),
     ),
-    'fds' =>
+    'fds' => 
     array (
-      0 => 'application/x-fds-disk',
+      't' => 
+      array (
+        0 => 'application/x-fds-disk',
+      ),
     ),
-    'fe_launch' =>
+    'fe_launch' => 
     array (
-      0 => 'application/vnd.denovo.fcselayout-link',
+      't' => 
+      array (
+        0 => 'application/vnd.denovo.fcselayout-link',
+      ),
     ),
-    'feature' =>
+    'feature' => 
     array (
-      0 => 'text/x-gherkin',
+      't' => 
+      array (
+        0 => 'text/x-gherkin',
+      ),
     ),
-    'fg5' =>
+    'fg5' => 
     array (
-      0 => 'application/vnd.fujitsu.oasysgp',
+      't' => 
+      array (
+        0 => 'application/vnd.fujitsu.oasysgp',
+      ),
     ),
-    'fgd' =>
+    'fgd' => 
     array (
-      0 => 'application/x-director',
+      't' => 
+      array (
+        0 => 'application/x-director',
+      ),
     ),
-    'fh' =>
+    'fh' => 
     array (
-      0 => 'image/x-freehand',
+      't' => 
+      array (
+        0 => 'image/x-freehand',
+      ),
     ),
-    'fh4' =>
+    'fh4' => 
     array (
-      0 => 'image/x-freehand',
+      't' => 
+      array (
+        0 => 'image/x-freehand',
+      ),
     ),
-    'fh5' =>
+    'fh5' => 
     array (
-      0 => 'image/x-freehand',
+      't' => 
+      array (
+        0 => 'image/x-freehand',
+      ),
     ),
-    'fh7' =>
+    'fh7' => 
     array (
-      0 => 'image/x-freehand',
+      't' => 
+      array (
+        0 => 'image/x-freehand',
+      ),
     ),
-    'fhc' =>
+    'fhc' => 
     array (
-      0 => 'image/x-freehand',
+      't' => 
+      array (
+        0 => 'image/x-freehand',
+      ),
     ),
-    'fig' =>
+    'fig' => 
     array (
-      0 => 'application/x-xfig',
-      1 => 'image/x-xfig',
+      't' => 
+      array (
+        0 => 'application/x-xfig',
+        1 => 'image/x-xfig',
+      ),
     ),
-    'fits' =>
+    'fits' => 
     array (
-      0 => 'image/fits',
+      't' => 
+      array (
+        0 => 'image/fits',
+      ),
     ),
-    'fl' =>
+    'fl' => 
     array (
-      0 => 'application/x-fluid',
+      't' => 
+      array (
+        0 => 'application/x-fluid',
+      ),
     ),
-    'flac' =>
+    'flac' => 
     array (
-      0 => 'audio/x-flac',
-      1 => 'audio/flac',
+      't' => 
+      array (
+        0 => 'audio/x-flac',
+        1 => 'audio/flac',
+      ),
     ),
-    'flatpak' =>
+    'flatpak' => 
     array (
-      0 => 'application/vnd.flatpak',
+      't' => 
+      array (
+        0 => 'application/vnd.flatpak',
+      ),
     ),
-    'flatpakref' =>
+    'flatpakref' => 
     array (
-      0 => 'application/vnd.flatpak.ref',
+      't' => 
+      array (
+        0 => 'application/vnd.flatpak.ref',
+      ),
     ),
-    'flatpakrepo' =>
+    'flatpakrepo' => 
     array (
-      0 => 'application/vnd.flatpak.repo',
+      't' => 
+      array (
+        0 => 'application/vnd.flatpak.repo',
+      ),
     ),
-    'flc' =>
+    'flc' => 
     array (
-      0 => 'video/x-flic',
+      't' => 
+      array (
+        0 => 'video/x-flic',
+      ),
     ),
-    'fli' =>
+    'fli' => 
     array (
-      0 => 'video/x-fli',
-      1 => 'video/x-flic',
+      't' => 
+      array (
+        0 => 'video/x-fli',
+        1 => 'video/x-flic',
+      ),
     ),
-    'flo' =>
+    'flo' => 
     array (
-      0 => 'application/vnd.micrografx.flo',
+      't' => 
+      array (
+        0 => 'application/vnd.micrografx.flo',
+      ),
     ),
-    'flv' =>
+    'flv' => 
     array (
-      0 => 'video/x-flv',
+      't' => 
+      array (
+        0 => 'video/x-flv',
+      ),
     ),
-    'flw' =>
+    'flw' => 
     array (
-      0 => 'application/vnd.kde.kivio',
-      1 => 'application/x-kivio',
+      't' => 
+      array (
+        0 => 'application/vnd.kde.kivio',
+        1 => 'application/x-kivio',
+      ),
     ),
-    'flx' =>
+    'flx' => 
     array (
-      0 => 'text/vnd.fmi.flexstor',
+      't' => 
+      array (
+        0 => 'text/vnd.fmi.flexstor',
+      ),
     ),
-    'fly' =>
+    'fly' => 
     array (
-      0 => 'text/vnd.fly',
+      't' => 
+      array (
+        0 => 'text/vnd.fly',
+      ),
     ),
-    'fm' =>
+    'fm' => 
     array (
-      0 => 'application/vnd.framemaker',
+      't' => 
+      array (
+        0 => 'application/vnd.framemaker',
+      ),
     ),
-    'fnc' =>
+    'fnc' => 
     array (
-      0 => 'application/vnd.frogans.fnc',
+      't' => 
+      array (
+        0 => 'application/vnd.frogans.fnc',
+      ),
     ),
-    'fo' =>
+    'fo' => 
     array (
-      0 => 'text/x-xslfo',
+      't' => 
+      array (
+        0 => 'text/x-xslfo',
+      ),
     ),
-    'fodg' =>
+    'fodg' => 
     array (
-      0 => 'application/vnd.oasis.opendocument.graphics-flat-xml',
+      't' => 
+      array (
+        0 => 'application/vnd.oasis.opendocument.graphics-flat-xml',
+      ),
     ),
-    'fodp' =>
+    'fodp' => 
     array (
-      0 => 'application/vnd.oasis.opendocument.presentation-flat-xml',
+      't' => 
+      array (
+        0 => 'application/vnd.oasis.opendocument.presentation-flat-xml',
+      ),
     ),
-    'fods' =>
+    'fods' => 
     array (
-      0 => 'application/vnd.oasis.opendocument.spreadsheet-flat-xml',
+      't' => 
+      array (
+        0 => 'application/vnd.oasis.opendocument.spreadsheet-flat-xml',
+      ),
     ),
-    'fodt' =>
+    'fodt' => 
     array (
-      0 => 'application/vnd.oasis.opendocument.text-flat-xml',
+      't' => 
+      array (
+        0 => 'application/vnd.oasis.opendocument.text-flat-xml',
+      ),
     ),
-    'for' =>
+    'for' => 
     array (
-      0 => 'text/x-fortran',
+      't' => 
+      array (
+        0 => 'text/x-fortran',
+      ),
     ),
-    'fpx' =>
+    'fpx' => 
     array (
-      0 => 'image/vnd.fpx',
+      't' => 
+      array (
+        0 => 'image/vnd.fpx',
+      ),
     ),
-    'frame' =>
+    'frame' => 
     array (
-      0 => 'application/vnd.framemaker',
+      't' => 
+      array (
+        0 => 'application/vnd.framemaker',
+      ),
     ),
-    'fsc' =>
+    'fsc' => 
     array (
-      0 => 'application/vnd.fsc.weblaunch',
+      't' => 
+      array (
+        0 => 'application/vnd.fsc.weblaunch',
+      ),
     ),
-    'fst' =>
+    'fst' => 
     array (
-      0 => 'image/vnd.fst',
+      't' => 
+      array (
+        0 => 'image/vnd.fst',
+      ),
     ),
-    'ftc' =>
+    'ftc' => 
     array (
-      0 => 'application/vnd.fluxtime.clip',
+      't' => 
+      array (
+        0 => 'application/vnd.fluxtime.clip',
+      ),
     ),
-    'fti' =>
+    'fti' => 
     array (
-      0 => 'application/vnd.anser-web-funds-transfer-initiation',
+      't' => 
+      array (
+        0 => 'application/vnd.anser-web-funds-transfer-initiation',
+      ),
     ),
-    'fvt' =>
+    'fvt' => 
     array (
-      0 => 'video/vnd.fvt',
+      't' => 
+      array (
+        0 => 'video/vnd.fvt',
+      ),
     ),
-    'fxm' =>
+    'fxm' => 
     array (
-      0 => 'video/x-javafx',
+      't' => 
+      array (
+        0 => 'video/x-javafx',
+      ),
     ),
-    'fxp' =>
+    'fxp' => 
     array (
-      0 => 'application/vnd.adobe.fxp',
+      't' => 
+      array (
+        0 => 'application/vnd.adobe.fxp',
+      ),
     ),
-    'fxpl' =>
+    'fxpl' => 
     array (
-      0 => 'application/vnd.adobe.fxp',
+      't' => 
+      array (
+        0 => 'application/vnd.adobe.fxp',
+      ),
     ),
-    'fzs' =>
+    'fzs' => 
     array (
-      0 => 'application/vnd.fuzzysheet',
+      't' => 
+      array (
+        0 => 'application/vnd.fuzzysheet',
+      ),
     ),
-    'g2w' =>
+    'g2w' => 
     array (
-      0 => 'application/vnd.geoplan',
+      't' => 
+      array (
+        0 => 'application/vnd.geoplan',
+      ),
     ),
-    'g3' =>
+    'g3' => 
     array (
-      0 => 'image/g3fax',
-      1 => 'image/fax-g3',
+      't' => 
+      array (
+        0 => 'image/g3fax',
+        1 => 'image/fax-g3',
+      ),
     ),
-    'g3w' =>
+    'g3w' => 
     array (
-      0 => 'application/vnd.geospace',
+      't' => 
+      array (
+        0 => 'application/vnd.geospace',
+      ),
     ),
-    'gac' =>
+    'gac' => 
     array (
-      0 => 'application/vnd.groove-account',
+      't' => 
+      array (
+        0 => 'application/vnd.groove-account',
+      ),
     ),
-    'gam' =>
+    'gam' => 
     array (
-      0 => 'application/x-tads',
+      't' => 
+      array (
+        0 => 'application/x-tads',
+      ),
     ),
-    'gb' =>
+    'gb' => 
     array (
-      0 => 'application/x-gameboy-rom',
+      't' => 
+      array (
+        0 => 'application/x-gameboy-rom',
+      ),
     ),
-    'gba' =>
+    'gba' => 
     array (
-      0 => 'application/x-gba-rom',
+      't' => 
+      array (
+        0 => 'application/x-gba-rom',
+      ),
     ),
-    'gbc' =>
+    'gbc' => 
     array (
-      0 => 'application/x-gameboy-color-rom',
+      't' => 
+      array (
+        0 => 'application/x-gameboy-color-rom',
+      ),
     ),
-    'gbr' =>
+    'gbr' => 
     array (
-      0 => 'application/rpki-ghostbusters',
-      1 => 'image/x-gimp-gbr',
+      't' => 
+      array (
+        0 => 'application/rpki-ghostbusters',
+        1 => 'image/x-gimp-gbr',
+      ),
     ),
-    'gca' =>
+    'gca' => 
     array (
-      0 => 'application/x-gca-compressed',
+      't' => 
+      array (
+        0 => 'application/x-gca-compressed',
+      ),
     ),
-    'gcode' =>
+    'gcode' => 
     array (
-      0 => 'text/x.gcode',
+      't' => 
+      array (
+        0 => 'text/x.gcode',
+      ),
     ),
-    'gcrd' =>
+    'gcrd' => 
     array (
-      0 => 'text/vcard',
+      't' => 
+      array (
+        0 => 'text/vcard',
+      ),
     ),
-    'gdl' =>
+    'gdl' => 
     array (
-      0 => 'model/vnd.gdl',
+      't' => 
+      array (
+        0 => 'model/vnd.gdl',
+      ),
     ),
-    'ged' =>
+    'ged' => 
     array (
-      0 => 'application/x-gedcom',
+      't' => 
+      array (
+        0 => 'application/x-gedcom',
+      ),
     ),
-    'gedcom' =>
+    'gedcom' => 
     array (
-      0 => 'application/x-gedcom',
+      't' => 
+      array (
+        0 => 'application/x-gedcom',
+      ),
     ),
-    'gem' =>
+    'gem' => 
     array (
-      0 => 'application/x-tar',
+      't' => 
+      array (
+        0 => 'application/x-tar',
+      ),
     ),
-    'gen' =>
+    'gen' => 
     array (
-      0 => 'application/x-genesis-rom',
+      't' => 
+      array (
+        0 => 'application/x-genesis-rom',
+      ),
     ),
-    'geo' =>
+    'geo' => 
     array (
-      0 => 'application/vnd.dynageo',
+      't' => 
+      array (
+        0 => 'application/vnd.dynageo',
+      ),
     ),
-    'geo.json' =>
+    'geo.json' => 
     array (
-      0 => 'application/geo+json',
+      't' => 
+      array (
+        0 => 'application/geo+json',
+      ),
     ),
-    'geojson' =>
+    'geojson' => 
     array (
-      0 => 'application/geo+json',
+      't' => 
+      array (
+        0 => 'application/geo+json',
+      ),
     ),
-    'gex' =>
+    'gex' => 
     array (
-      0 => 'application/vnd.geometry-explorer',
+      't' => 
+      array (
+        0 => 'application/vnd.geometry-explorer',
+      ),
     ),
-    'gf' =>
+    'gf' => 
     array (
-      0 => 'application/x-tex-gf',
+      't' => 
+      array (
+        0 => 'application/x-tex-gf',
+      ),
     ),
-    'gg' =>
+    'gg' => 
     array (
-      0 => 'application/x-gamegear-rom',
+      't' => 
+      array (
+        0 => 'application/x-gamegear-rom',
+      ),
     ),
-    'ggb' =>
+    'ggb' => 
     array (
-      0 => 'application/vnd.geogebra.file',
+      't' => 
+      array (
+        0 => 'application/vnd.geogebra.file',
+      ),
     ),
-    'ggt' =>
+    'ggt' => 
     array (
-      0 => 'application/vnd.geogebra.tool',
+      't' => 
+      array (
+        0 => 'application/vnd.geogebra.tool',
+      ),
     ),
-    'ghf' =>
+    'ghf' => 
     array (
-      0 => 'application/vnd.groove-help',
+      't' => 
+      array (
+        0 => 'application/vnd.groove-help',
+      ),
     ),
-    'gif' =>
+    'gif' => 
     array (
-      0 => 'image/gif',
+      't' => 
+      array (
+        0 => 'image/gif',
+      ),
     ),
-    'gih' =>
+    'gih' => 
     array (
-      0 => 'image/x-gimp-gih',
+      't' => 
+      array (
+        0 => 'image/x-gimp-gih',
+      ),
     ),
-    'gim' =>
+    'gim' => 
     array (
-      0 => 'application/vnd.groove-identity-message',
+      't' => 
+      array (
+        0 => 'application/vnd.groove-identity-message',
+      ),
     ),
-    'glade' =>
+    'glade' => 
     array (
-      0 => 'application/x-glade',
+      't' => 
+      array (
+        0 => 'application/x-glade',
+      ),
     ),
-    'gml' =>
+    'gml' => 
     array (
-      0 => 'application/gml+xml',
+      't' => 
+      array (
+        0 => 'application/gml+xml',
+      ),
     ),
-    'gmo' =>
+    'gmo' => 
     array (
-      0 => 'application/x-gettext-translation',
+      't' => 
+      array (
+        0 => 'application/x-gettext-translation',
+      ),
     ),
-    'gmx' =>
+    'gmx' => 
     array (
-      0 => 'application/vnd.gmx',
+      't' => 
+      array (
+        0 => 'application/vnd.gmx',
+      ),
     ),
-    'gnc' =>
+    'gnc' => 
     array (
-      0 => 'application/x-gnucash',
+      't' => 
+      array (
+        0 => 'application/x-gnucash',
+      ),
     ),
-    'gnd' =>
+    'gnd' => 
     array (
-      0 => 'application/gnunet-directory',
+      't' => 
+      array (
+        0 => 'application/gnunet-directory',
+      ),
     ),
-    'gnucash' =>
+    'gnucash' => 
     array (
-      0 => 'application/x-gnucash',
+      't' => 
+      array (
+        0 => 'application/x-gnucash',
+      ),
     ),
-    'gnumeric' =>
+    'gnumeric' => 
     array (
-      0 => 'application/x-gnumeric',
+      't' => 
+      array (
+        0 => 'application/x-gnumeric',
+      ),
     ),
-    'gnuplot' =>
+    'gnuplot' => 
     array (
-      0 => 'application/x-gnuplot',
+      't' => 
+      array (
+        0 => 'application/x-gnuplot',
+      ),
     ),
-    'go' =>
+    'go' => 
     array (
-      0 => 'text/x-go',
+      't' => 
+      array (
+        0 => 'text/x-go',
+      ),
     ),
-    'gp' =>
+    'gp' => 
     array (
-      0 => 'application/x-gnuplot',
+      't' => 
+      array (
+        0 => 'application/x-gnuplot',
+      ),
     ),
-    'gpg' =>
+    'gpg' => 
     array (
-      0 => 'application/pgp-encrypted',
-      1 => 'application/pgp-keys',
-      2 => 'application/pgp-signature',
+      't' => 
+      array (
+        0 => 'application/pgp-encrypted',
+        1 => 'application/pgp-keys',
+        2 => 'application/pgp-signature',
+      ),
     ),
-    'gph' =>
+    'gph' => 
     array (
-      0 => 'application/vnd.flographit',
+      't' => 
+      array (
+        0 => 'application/vnd.flographit',
+      ),
     ),
-    'gplt' =>
+    'gplt' => 
     array (
-      0 => 'application/x-gnuplot',
+      't' => 
+      array (
+        0 => 'application/x-gnuplot',
+      ),
     ),
-    'gpx' =>
+    'gpx' => 
     array (
-      0 => 'application/gpx+xml',
+      't' => 
+      array (
+        0 => 'application/gpx+xml',
+      ),
     ),
-    'gqf' =>
+    'gqf' => 
     array (
-      0 => 'application/vnd.grafeq',
+      't' => 
+      array (
+        0 => 'application/vnd.grafeq',
+      ),
     ),
-    'gqs' =>
+    'gqs' => 
     array (
-      0 => 'application/vnd.grafeq',
+      't' => 
+      array (
+        0 => 'application/vnd.grafeq',
+      ),
     ),
-    'gra' =>
+    'gra' => 
     array (
-      0 => 'application/x-graphite',
+      't' => 
+      array (
+        0 => 'application/x-graphite',
+      ),
     ),
-    'gram' =>
+    'gram' => 
     array (
-      0 => 'application/srgs',
+      't' => 
+      array (
+        0 => 'application/srgs',
+      ),
     ),
-    'gramps' =>
+    'gramps' => 
     array (
-      0 => 'application/x-gramps-xml',
+      't' => 
+      array (
+        0 => 'application/x-gramps-xml',
+      ),
     ),
-    'gre' =>
+    'gre' => 
     array (
-      0 => 'application/vnd.geometry-explorer',
+      't' => 
+      array (
+        0 => 'application/vnd.geometry-explorer',
+      ),
     ),
-    'grv' =>
+    'grv' => 
     array (
-      0 => 'application/vnd.groove-injector',
+      't' => 
+      array (
+        0 => 'application/vnd.groove-injector',
+      ),
     ),
-    'grxml' =>
+    'grxml' => 
     array (
-      0 => 'application/srgs+xml',
+      't' => 
+      array (
+        0 => 'application/srgs+xml',
+      ),
     ),
-    'gs' =>
+    'gs' => 
     array (
-      0 => 'text/x-genie',
+      't' => 
+      array (
+        0 => 'text/x-genie',
+      ),
     ),
-    'gsf' =>
+    'gsf' => 
     array (
-      0 => 'application/x-font-ghostscript',
-      1 => 'application/x-font-type1',
+      't' => 
+      array (
+        0 => 'application/x-font-ghostscript',
+        1 => 'application/x-font-type1',
+      ),
     ),
-    'gsm' =>
+    'gsm' => 
     array (
-      0 => 'audio/x-gsm',
+      't' => 
+      array (
+        0 => 'audio/x-gsm',
+      ),
     ),
-    'gtar' =>
+    'gtar' => 
     array (
-      0 => 'application/x-gtar',
-      1 => 'application/x-tar',
+      't' => 
+      array (
+        0 => 'application/x-gtar',
+        1 => 'application/x-tar',
+      ),
     ),
-    'gtm' =>
+    'gtm' => 
     array (
-      0 => 'application/vnd.groove-tool-message',
+      't' => 
+      array (
+        0 => 'application/vnd.groove-tool-message',
+      ),
     ),
-    'gtw' =>
+    'gtw' => 
     array (
-      0 => 'model/vnd.gtw',
+      't' => 
+      array (
+        0 => 'model/vnd.gtw',
+      ),
     ),
-    'gv' =>
+    'gv' => 
     array (
-      0 => 'text/vnd.graphviz',
+      't' => 
+      array (
+        0 => 'text/vnd.graphviz',
+      ),
     ),
-    'gvp' =>
+    'gvp' => 
     array (
-      0 => 'text/x-google-video-pointer',
+      't' => 
+      array (
+        0 => 'text/x-google-video-pointer',
+      ),
     ),
-    'gxf' =>
+    'gxf' => 
     array (
-      0 => 'application/gxf',
+      't' => 
+      array (
+        0 => 'application/gxf',
+      ),
     ),
-    'gxt' =>
+    'gxt' => 
     array (
-      0 => 'application/vnd.geonext',
+      't' => 
+      array (
+        0 => 'application/vnd.geonext',
+      ),
     ),
-    'gz' =>
+    'gz' => 
     array (
-      0 => 'application/gzip',
+      't' => 
+      array (
+        0 => 'application/gzip',
+      ),
     ),
-    'h' =>
+    'h' => 
     array (
-      0 => 'text/x-c',
-      1 => 'text/x-chdr',
+      't' => 
+      array (
+        0 => 'text/x-c',
+        1 => 'text/x-chdr',
+      ),
     ),
-    'h++' =>
+    'h++' => 
     array (
-      0 => 'text/x-c++hdr',
+      't' => 
+      array (
+        0 => 'text/x-c++hdr',
+      ),
     ),
-    'h261' =>
+    'h261' => 
     array (
-      0 => 'video/h261',
+      't' => 
+      array (
+        0 => 'video/h261',
+      ),
     ),
-    'h263' =>
+    'h263' => 
     array (
-      0 => 'video/h263',
+      't' => 
+      array (
+        0 => 'video/h263',
+      ),
     ),
-    'h264' =>
+    'h264' => 
     array (
-      0 => 'video/h264',
+      't' => 
+      array (
+        0 => 'video/h264',
+      ),
     ),
-    'h4' =>
+    'h4' => 
     array (
-      0 => 'application/x-hdf',
+      't' => 
+      array (
+        0 => 'application/x-hdf',
+      ),
     ),
-    'h5' =>
+    'h5' => 
     array (
-      0 => 'application/x-hdf',
+      't' => 
+      array (
+        0 => 'application/x-hdf',
+      ),
     ),
-    'hal' =>
+    'hal' => 
     array (
-      0 => 'application/vnd.hal+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.hal+xml',
+      ),
     ),
-    'hbci' =>
+    'hbci' => 
     array (
-      0 => 'application/vnd.hbci',
+      't' => 
+      array (
+        0 => 'application/vnd.hbci',
+      ),
     ),
-    'hdf' =>
+    'hdf' => 
     array (
-      0 => 'application/x-hdf',
+      't' => 
+      array (
+        0 => 'application/x-hdf',
+      ),
     ),
-    'hdf4' =>
+    'hdf4' => 
     array (
-      0 => 'application/x-hdf',
+      't' => 
+      array (
+        0 => 'application/x-hdf',
+      ),
     ),
-    'hdf5' =>
+    'hdf5' => 
     array (
-      0 => 'application/x-hdf',
+      't' => 
+      array (
+        0 => 'application/x-hdf',
+      ),
     ),
-    'heic' =>
+    'heic' => 
     array (
-      0 => 'image/heif',
+      't' => 
+      array (
+        0 => 'image/heif',
+      ),
     ),
-    'heif' =>
+    'heif' => 
     array (
-      0 => 'image/heif',
+      't' => 
+      array (
+        0 => 'image/heif',
+      ),
     ),
-    'hfe' =>
+    'hfe' => 
     array (
-      0 => 'application/x-hfe-floppy-image',
+      't' => 
+      array (
+        0 => 'application/x-hfe-floppy-image',
+      ),
     ),
-    'hh' =>
+    'hh' => 
     array (
-      0 => 'text/x-c',
-      1 => 'text/x-c++hdr',
+      't' => 
+      array (
+        0 => 'text/x-c',
+        1 => 'text/x-c++hdr',
+      ),
     ),
-    'hlp' =>
+    'hlp' => 
     array (
-      0 => 'application/winhlp',
+      't' => 
+      array (
+        0 => 'application/winhlp',
+      ),
     ),
-    'hp' =>
+    'hp' => 
     array (
-      0 => 'text/x-c++hdr',
+      't' => 
+      array (
+        0 => 'text/x-c++hdr',
+      ),
     ),
-    'hpgl' =>
+    'hpgl' => 
     array (
-      0 => 'application/vnd.hp-hpgl',
+      't' => 
+      array (
+        0 => 'application/vnd.hp-hpgl',
+      ),
     ),
-    'hpid' =>
+    'hpid' => 
     array (
-      0 => 'application/vnd.hp-hpid',
+      't' => 
+      array (
+        0 => 'application/vnd.hp-hpid',
+      ),
     ),
-    'hpp' =>
+    'hpp' => 
     array (
-      0 => 'text/x-c++hdr',
+      't' => 
+      array (
+        0 => 'text/x-c++hdr',
+      ),
     ),
-    'hps' =>
+    'hps' => 
     array (
-      0 => 'application/vnd.hp-hps',
+      't' => 
+      array (
+        0 => 'application/vnd.hp-hps',
+      ),
     ),
-    'hqx' =>
+    'hqx' => 
     array (
-      0 => 'application/mac-binhex40',
+      't' => 
+      array (
+        0 => 'application/mac-binhex40',
+      ),
     ),
-    'hs' =>
+    'hs' => 
     array (
-      0 => 'text/x-haskell',
+      't' => 
+      array (
+        0 => 'text/x-haskell',
+      ),
     ),
-    'htke' =>
+    'htke' => 
     array (
-      0 => 'application/vnd.kenameaapp',
+      't' => 
+      array (
+        0 => 'application/vnd.kenameaapp',
+      ),
     ),
-    'htm' =>
+    'htm' => 
     array (
-      0 => 'text/html',
+      't' => 
+      array (
+        0 => 'text/html',
+      ),
     ),
-    'html' =>
+    'html' => 
     array (
-      0 => 'text/html',
+      't' => 
+      array (
+        0 => 'text/html',
+      ),
     ),
-    'hvd' =>
+    'hvd' => 
     array (
-      0 => 'application/vnd.yamaha.hv-dic',
+      't' => 
+      array (
+        0 => 'application/vnd.yamaha.hv-dic',
+      ),
     ),
-    'hvp' =>
+    'hvp' => 
     array (
-      0 => 'application/vnd.yamaha.hv-voice',
+      't' => 
+      array (
+        0 => 'application/vnd.yamaha.hv-voice',
+      ),
     ),
-    'hvs' =>
+    'hvs' => 
     array (
-      0 => 'application/vnd.yamaha.hv-script',
+      't' => 
+      array (
+        0 => 'application/vnd.yamaha.hv-script',
+      ),
     ),
-    'hwp' =>
+    'hwp' => 
     array (
-      0 => 'application/x-hwp',
+      't' => 
+      array (
+        0 => 'application/x-hwp',
+      ),
     ),
-    'hwt' =>
+    'hwt' => 
     array (
-      0 => 'application/x-hwt',
+      't' => 
+      array (
+        0 => 'application/x-hwt',
+      ),
     ),
-    'hxx' =>
+    'hxx' => 
     array (
-      0 => 'text/x-c++hdr',
+      't' => 
+      array (
+        0 => 'text/x-c++hdr',
+      ),
     ),
-    'i2g' =>
+    'i2g' => 
     array (
-      0 => 'application/vnd.intergeo',
+      't' => 
+      array (
+        0 => 'application/vnd.intergeo',
+      ),
     ),
-    'ica' =>
+    'ica' => 
     array (
-      0 => 'application/x-ica',
+      't' => 
+      array (
+        0 => 'application/x-ica',
+      ),
     ),
-    'icb' =>
+    'icb' => 
     array (
-      0 => 'image/x-tga',
+      't' => 
+      array (
+        0 => 'image/x-tga',
+      ),
     ),
-    'icc' =>
+    'icc' => 
     array (
-      0 => 'application/vnd.iccprofile',
+      't' => 
+      array (
+        0 => 'application/vnd.iccprofile',
+      ),
     ),
-    'ice' =>
+    'ice' => 
     array (
-      0 => 'x-conference/x-cooltalk',
+      't' => 
+      array (
+        0 => 'x-conference/x-cooltalk',
+      ),
     ),
-    'icm' =>
+    'icm' => 
     array (
-      0 => 'application/vnd.iccprofile',
+      't' => 
+      array (
+        0 => 'application/vnd.iccprofile',
+      ),
     ),
-    'icns' =>
+    'icns' => 
     array (
-      0 => 'image/x-icns',
+      't' => 
+      array (
+        0 => 'image/x-icns',
+      ),
     ),
-    'ico' =>
+    'ico' => 
     array (
-      0 => 'image/x-icon',
-      1 => 'image/vnd.microsoft.icon',
+      't' => 
+      array (
+        0 => 'image/x-icon',
+        1 => 'image/vnd.microsoft.icon',
+      ),
     ),
-    'ics' =>
+    'ics' => 
     array (
-      0 => 'text/calendar',
+      't' => 
+      array (
+        0 => 'text/calendar',
+      ),
     ),
-    'idl' =>
+    'idl' => 
     array (
-      0 => 'text/x-idl',
+      't' => 
+      array (
+        0 => 'text/x-idl',
+      ),
     ),
-    'ief' =>
+    'ief' => 
     array (
-      0 => 'image/ief',
+      't' => 
+      array (
+        0 => 'image/ief',
+      ),
     ),
-    'ifb' =>
+    'ifb' => 
     array (
-      0 => 'text/calendar',
+      't' => 
+      array (
+        0 => 'text/calendar',
+      ),
     ),
-    'iff' =>
+    'iff' => 
     array (
-      0 => 'image/x-ilbm',
+      't' => 
+      array (
+        0 => 'image/x-ilbm',
+      ),
     ),
-    'ifm' =>
+    'ifm' => 
     array (
-      0 => 'application/vnd.shana.informed.formdata',
+      't' => 
+      array (
+        0 => 'application/vnd.shana.informed.formdata',
+      ),
     ),
-    'iges' =>
+    'iges' => 
     array (
-      0 => 'model/iges',
+      't' => 
+      array (
+        0 => 'model/iges',
+      ),
     ),
-    'igl' =>
+    'igl' => 
     array (
-      0 => 'application/vnd.igloader',
+      't' => 
+      array (
+        0 => 'application/vnd.igloader',
+      ),
     ),
-    'igm' =>
+    'igm' => 
     array (
-      0 => 'application/vnd.insors.igm',
+      't' => 
+      array (
+        0 => 'application/vnd.insors.igm',
+      ),
     ),
-    'igs' =>
+    'igs' => 
     array (
-      0 => 'model/iges',
+      't' => 
+      array (
+        0 => 'model/iges',
+      ),
     ),
-    'igx' =>
+    'igx' => 
     array (
-      0 => 'application/vnd.micrografx.igx',
+      't' => 
+      array (
+        0 => 'application/vnd.micrografx.igx',
+      ),
     ),
-    'iif' =>
+    'iif' => 
     array (
-      0 => 'application/vnd.shana.informed.interchange',
+      't' => 
+      array (
+        0 => 'application/vnd.shana.informed.interchange',
+      ),
     ),
-    'ilbm' =>
+    'ilbm' => 
     array (
-      0 => 'image/x-ilbm',
+      't' => 
+      array (
+        0 => 'image/x-ilbm',
+      ),
     ),
-    'ime' =>
+    'ime' => 
     array (
-      0 => 'text/x-imelody',
+      't' => 
+      array (
+        0 => 'text/x-imelody',
+      ),
     ),
-    'img' =>
+    'img' => 
     array (
-      0 => 'application/x-raw-disk-image',
+      't' => 
+      array (
+        0 => 'application/x-raw-disk-image',
+      ),
     ),
-    'img.xz' =>
+    'img.xz' => 
     array (
-      0 => 'application/x-raw-disk-image-xz-compressed',
+      't' => 
+      array (
+        0 => 'application/x-raw-disk-image-xz-compressed',
+      ),
     ),
-    'imp' =>
+    'imp' => 
     array (
-      0 => 'application/vnd.accpac.simply.imp',
+      't' => 
+      array (
+        0 => 'application/vnd.accpac.simply.imp',
+      ),
     ),
-    'ims' =>
+    'ims' => 
     array (
-      0 => 'application/vnd.ms-ims',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-ims',
+      ),
     ),
-    'imy' =>
+    'imy' => 
     array (
-      0 => 'text/x-imelody',
+      't' => 
+      array (
+        0 => 'text/x-imelody',
+      ),
     ),
-    'in' =>
+    'in' => 
     array (
-      0 => 'text/plain',
+      't' => 
+      array (
+        0 => 'text/plain',
+      ),
     ),
-    'ink' =>
+    'ink' => 
     array (
-      0 => 'application/inkml+xml',
+      't' => 
+      array (
+        0 => 'application/inkml+xml',
+      ),
     ),
-    'inkml' =>
+    'inkml' => 
     array (
-      0 => 'application/inkml+xml',
+      't' => 
+      array (
+        0 => 'application/inkml+xml',
+      ),
     ),
-    'ins' =>
+    'ins' => 
     array (
-      0 => 'text/x-tex',
+      't' => 
+      array (
+        0 => 'text/x-tex',
+      ),
     ),
-    'install' =>
+    'install' => 
     array (
-      0 => 'application/x-install-instructions',
+      't' => 
+      array (
+        0 => 'application/x-install-instructions',
+      ),
     ),
-    'iota' =>
+    'iota' => 
     array (
-      0 => 'application/vnd.astraea-software.iota',
+      't' => 
+      array (
+        0 => 'application/vnd.astraea-software.iota',
+      ),
     ),
-    'ipfix' =>
+    'ipfix' => 
     array (
-      0 => 'application/ipfix',
+      't' => 
+      array (
+        0 => 'application/ipfix',
+      ),
     ),
-    'ipk' =>
+    'ipk' => 
     array (
-      0 => 'application/vnd.shana.informed.package',
+      't' => 
+      array (
+        0 => 'application/vnd.shana.informed.package',
+      ),
     ),
-    'iptables' =>
+    'iptables' => 
     array (
-      0 => 'text/x-iptables',
+      't' => 
+      array (
+        0 => 'text/x-iptables',
+      ),
     ),
-    'ipynb' =>
+    'ipynb' => 
     array (
-      0 => 'application/x-ipynb+json',
+      't' => 
+      array (
+        0 => 'application/x-ipynb+json',
+      ),
     ),
-    'irm' =>
+    'irm' => 
     array (
-      0 => 'application/vnd.ibm.rights-management',
+      't' => 
+      array (
+        0 => 'application/vnd.ibm.rights-management',
+      ),
     ),
-    'irp' =>
+    'irp' => 
     array (
-      0 => 'application/vnd.irepository.package+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.irepository.package+xml',
+      ),
     ),
-    'iso' =>
+    'iso' => 
     array (
-      0 => 'application/x-iso9660-image',
-      1 => 'application/x-cd-image',
-      2 => 'application/x-sega-cd-rom',
-      3 => 'application/x-saturn-rom',
-      4 => 'application/x-wii-rom',
-      5 => 'application/x-gamecube-rom',
+      't' => 
+      array (
+        0 => 'application/x-iso9660-image',
+        1 => 'application/x-cd-image',
+        2 => 'application/x-sega-cd-rom',
+        3 => 'application/x-saturn-rom',
+        4 => 'application/x-wii-rom',
+        5 => 'application/x-gamecube-rom',
+      ),
     ),
-    'iso9660' =>
+    'iso9660' => 
     array (
-      0 => 'application/x-cd-image',
+      't' => 
+      array (
+        0 => 'application/x-cd-image',
+      ),
     ),
-    'it' =>
+    'it' => 
     array (
-      0 => 'audio/x-it',
+      't' => 
+      array (
+        0 => 'audio/x-it',
+      ),
     ),
-    'it87' =>
+    'it87' => 
     array (
-      0 => 'application/x-it87',
+      't' => 
+      array (
+        0 => 'application/x-it87',
+      ),
     ),
-    'itp' =>
+    'itp' => 
     array (
-      0 => 'application/vnd.shana.informed.formtemplate',
+      't' => 
+      array (
+        0 => 'application/vnd.shana.informed.formtemplate',
+      ),
     ),
-    'ivp' =>
+    'ivp' => 
     array (
-      0 => 'application/vnd.immervision-ivp',
+      't' => 
+      array (
+        0 => 'application/vnd.immervision-ivp',
+      ),
     ),
-    'ivu' =>
+    'ivu' => 
     array (
-      0 => 'application/vnd.immervision-ivu',
+      't' => 
+      array (
+        0 => 'application/vnd.immervision-ivu',
+      ),
     ),
-    'j2c' =>
+    'j2c' => 
     array (
-      0 => 'image/x-jp2-codestream',
+      't' => 
+      array (
+        0 => 'image/x-jp2-codestream',
+      ),
     ),
-    'j2k' =>
+    'j2k' => 
     array (
-      0 => 'image/x-jp2-codestream',
+      't' => 
+      array (
+        0 => 'image/x-jp2-codestream',
+      ),
     ),
-    'jad' =>
+    'jad' => 
     array (
-      0 => 'text/vnd.sun.j2me.app-descriptor',
+      't' => 
+      array (
+        0 => 'text/vnd.sun.j2me.app-descriptor',
+      ),
     ),
-    'jam' =>
+    'jam' => 
     array (
-      0 => 'application/vnd.jam',
+      't' => 
+      array (
+        0 => 'application/vnd.jam',
+      ),
     ),
-    'jar' =>
+    'jar' => 
     array (
-      0 => 'application/java-archive',
-      1 => 'application/x-java-archive',
+      't' => 
+      array (
+        0 => 'application/java-archive',
+        1 => 'application/x-java-archive',
+      ),
     ),
-    'java' =>
+    'java' => 
     array (
-      0 => 'text/x-java-source',
-      1 => 'text/x-java',
+      't' => 
+      array (
+        0 => 'text/x-java-source',
+        1 => 'text/x-java',
+      ),
     ),
-    'jceks' =>
+    'jceks' => 
     array (
-      0 => 'application/x-java-jce-keystore',
+      't' => 
+      array (
+        0 => 'application/x-java-jce-keystore',
+      ),
     ),
-    'jisp' =>
+    'jisp' => 
     array (
-      0 => 'application/vnd.jisp',
+      't' => 
+      array (
+        0 => 'application/vnd.jisp',
+      ),
     ),
-    'jks' =>
+    'jks' => 
     array (
-      0 => 'application/x-java-keystore',
+      't' => 
+      array (
+        0 => 'application/x-java-keystore',
+      ),
     ),
-    'jlt' =>
+    'jlt' => 
     array (
-      0 => 'application/vnd.hp-jlyt',
+      't' => 
+      array (
+        0 => 'application/vnd.hp-jlyt',
+      ),
     ),
-    'jng' =>
+    'jng' => 
     array (
-      0 => 'image/x-jng',
+      't' => 
+      array (
+        0 => 'image/x-jng',
+      ),
     ),
-    'jnlp' =>
+    'jnlp' => 
     array (
-      0 => 'application/x-java-jnlp-file',
+      't' => 
+      array (
+        0 => 'application/x-java-jnlp-file',
+      ),
     ),
-    'joda' =>
+    'joda' => 
     array (
-      0 => 'application/vnd.joost.joda-archive',
+      't' => 
+      array (
+        0 => 'application/vnd.joost.joda-archive',
+      ),
     ),
-    'jp2' =>
+    'jp2' => 
     array (
-      0 => 'image/jp2',
+      't' => 
+      array (
+        0 => 'image/jp2',
+      ),
     ),
-    'jpc' =>
+    'jpc' => 
     array (
-      0 => 'image/x-jp2-codestream',
+      't' => 
+      array (
+        0 => 'image/x-jp2-codestream',
+      ),
     ),
-    'jpe' =>
+    'jpe' => 
     array (
-      0 => 'image/jpeg',
+      't' => 
+      array (
+        0 => 'image/jpeg',
+      ),
     ),
-    'jpeg' =>
+    'jpeg' => 
     array (
-      0 => 'image/jpeg',
+      't' => 
+      array (
+        0 => 'image/jpeg',
+      ),
     ),
-    'jpf' =>
+    'jpf' => 
     array (
-      0 => 'image/jpx',
+      't' => 
+      array (
+        0 => 'image/jpx',
+      ),
     ),
-    'jpg' =>
+    'jpg' => 
     array (
-      0 => 'image/jpeg',
+      't' => 
+      array (
+        0 => 'image/jpeg',
+      ),
     ),
-    'jpg2' =>
+    'jpg2' => 
     array (
-      0 => 'image/jp2',
+      't' => 
+      array (
+        0 => 'image/jp2',
+      ),
     ),
-    'jpgm' =>
+    'jpgm' => 
     array (
-      0 => 'video/jpm',
-      1 => 'image/jpm',
+      't' => 
+      array (
+        0 => 'video/jpm',
+        1 => 'image/jpm',
+      ),
     ),
-    'jpgv' =>
+    'jpgv' => 
     array (
-      0 => 'video/jpeg',
+      't' => 
+      array (
+        0 => 'video/jpeg',
+      ),
     ),
-    'jpm' =>
+    'jpm' => 
     array (
-      0 => 'video/jpm',
-      1 => 'image/jpm',
+      't' => 
+      array (
+        0 => 'video/jpm',
+        1 => 'image/jpm',
+      ),
     ),
-    'jpr' =>
+    'jpr' => 
     array (
-      0 => 'application/x-jbuilder-project',
+      't' => 
+      array (
+        0 => 'application/x-jbuilder-project',
+      ),
     ),
-    'jpx' =>
+    'jpx' => 
     array (
-      0 => 'application/x-jbuilder-project',
-      1 => 'image/jpx',
+      't' => 
+      array (
+        0 => 'application/x-jbuilder-project',
+        1 => 'image/jpx',
+      ),
     ),
-    'jrd' =>
+    'jrd' => 
     array (
-      0 => 'application/jrd+json',
+      't' => 
+      array (
+        0 => 'application/jrd+json',
+      ),
     ),
-    'js' =>
+    'js' => 
     array (
-      0 => 'application/javascript',
+      't' => 
+      array (
+        0 => 'application/javascript',
+      ),
     ),
-    'jsm' =>
+    'jsm' => 
     array (
-      0 => 'application/javascript',
+      't' => 
+      array (
+        0 => 'application/javascript',
+      ),
     ),
-    'json' =>
+    'json' => 
     array (
-      0 => 'application/json',
+      't' => 
+      array (
+        0 => 'application/json',
+      ),
     ),
-    'json-patch' =>
+    'json-patch' => 
     array (
-      0 => 'application/json-patch+json',
+      't' => 
+      array (
+        0 => 'application/json-patch+json',
+      ),
     ),
-    'jsonld' =>
+    'jsonld' => 
     array (
-      0 => 'application/ld+json',
+      't' => 
+      array (
+        0 => 'application/ld+json',
+      ),
     ),
-    'jsonml' =>
+    'jsonml' => 
     array (
-      0 => 'application/jsonml+json',
+      't' => 
+      array (
+        0 => 'application/jsonml+json',
+      ),
     ),
-    'k25' =>
+    'k25' => 
     array (
-      0 => 'image/x-kodak-k25',
+      't' => 
+      array (
+        0 => 'image/x-kodak-k25',
+      ),
     ),
-    'k7' =>
+    'k7' => 
     array (
-      0 => 'application/x-thomson-cassette',
+      't' => 
+      array (
+        0 => 'application/x-thomson-cassette',
+      ),
     ),
-    'kar' =>
+    'kar' => 
     array (
-      0 => 'audio/midi',
+      't' => 
+      array (
+        0 => 'audio/midi',
+      ),
     ),
-    'karbon' =>
+    'karbon' => 
     array (
-      0 => 'application/vnd.kde.karbon',
-      1 => 'application/x-karbon',
+      't' => 
+      array (
+        0 => 'application/vnd.kde.karbon',
+        1 => 'application/x-karbon',
+      ),
     ),
-    'kdc' =>
+    'kdc' => 
     array (
-      0 => 'image/x-kodak-kdc',
+      't' => 
+      array (
+        0 => 'image/x-kodak-kdc',
+      ),
     ),
-    'kdelnk' =>
+    'kdelnk' => 
     array (
-      0 => 'application/x-desktop',
+      't' => 
+      array (
+        0 => 'application/x-desktop',
+      ),
     ),
-    'kexi' =>
+    'kexi' => 
     array (
-      0 => 'application/x-kexiproject-sqlite2',
-      1 => 'application/x-kexiproject-sqlite3',
+      't' => 
+      array (
+        0 => 'application/x-kexiproject-sqlite2',
+        1 => 'application/x-kexiproject-sqlite3',
+      ),
     ),
-    'kexic' =>
+    'kexic' => 
     array (
-      0 => 'application/x-kexi-connectiondata',
+      't' => 
+      array (
+        0 => 'application/x-kexi-connectiondata',
+      ),
     ),
-    'kexis' =>
+    'kexis' => 
     array (
-      0 => 'application/x-kexiproject-shortcut',
+      't' => 
+      array (
+        0 => 'application/x-kexiproject-shortcut',
+      ),
     ),
-    'key' =>
+    'key' => 
     array (
-      0 => 'application/x-iwork-keynote-sffkey',
+      't' => 
+      array (
+        0 => 'application/x-iwork-keynote-sffkey',
+      ),
     ),
-    'kfo' =>
+    'kfo' => 
     array (
-      0 => 'application/vnd.kde.kformula',
-      1 => 'application/x-kformula',
+      't' => 
+      array (
+        0 => 'application/vnd.kde.kformula',
+        1 => 'application/x-kformula',
+      ),
     ),
-    'kia' =>
+    'kia' => 
     array (
-      0 => 'application/vnd.kidspiration',
+      't' => 
+      array (
+        0 => 'application/vnd.kidspiration',
+      ),
     ),
-    'kil' =>
+    'kil' => 
     array (
-      0 => 'application/x-killustrator',
+      't' => 
+      array (
+        0 => 'application/x-killustrator',
+      ),
     ),
-    'kino' =>
+    'kino' => 
     array (
-      0 => 'application/smil+xml',
+      't' => 
+      array (
+        0 => 'application/smil+xml',
+      ),
     ),
-    'kml' =>
+    'kml' => 
     array (
-      0 => 'application/vnd.google-earth.kml+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.google-earth.kml+xml',
+      ),
     ),
-    'kmz' =>
+    'kmz' => 
     array (
-      0 => 'application/vnd.google-earth.kmz',
+      't' => 
+      array (
+        0 => 'application/vnd.google-earth.kmz',
+      ),
     ),
-    'kne' =>
+    'kne' => 
     array (
-      0 => 'application/vnd.kinar',
+      't' => 
+      array (
+        0 => 'application/vnd.kinar',
+      ),
     ),
-    'knp' =>
+    'knp' => 
     array (
-      0 => 'application/vnd.kinar',
+      't' => 
+      array (
+        0 => 'application/vnd.kinar',
+      ),
     ),
-    'kon' =>
+    'kon' => 
     array (
-      0 => 'application/vnd.kde.kontour',
-      1 => 'application/x-kontour',
+      't' => 
+      array (
+        0 => 'application/vnd.kde.kontour',
+        1 => 'application/x-kontour',
+      ),
     ),
-    'kpm' =>
+    'kpm' => 
     array (
-      0 => 'application/x-kpovmodeler',
+      't' => 
+      array (
+        0 => 'application/x-kpovmodeler',
+      ),
     ),
-    'kpr' =>
+    'kpr' => 
     array (
-      0 => 'application/vnd.kde.kpresenter',
-      1 => 'application/x-kpresenter',
+      't' => 
+      array (
+        0 => 'application/vnd.kde.kpresenter',
+        1 => 'application/x-kpresenter',
+      ),
     ),
-    'kpt' =>
+    'kpt' => 
     array (
-      0 => 'application/vnd.kde.kpresenter',
-      1 => 'application/x-kpresenter',
+      't' => 
+      array (
+        0 => 'application/vnd.kde.kpresenter',
+        1 => 'application/x-kpresenter',
+      ),
     ),
-    'kpxx' =>
+    'kpxx' => 
     array (
-      0 => 'application/vnd.ds-keypoint',
+      't' => 
+      array (
+        0 => 'application/vnd.ds-keypoint',
+      ),
     ),
-    'kra' =>
+    'kra' => 
     array (
-      0 => 'application/x-krita',
+      't' => 
+      array (
+        0 => 'application/x-krita',
+      ),
     ),
-    'ks' =>
+    'ks' => 
     array (
-      0 => 'application/x-java-keystore',
+      't' => 
+      array (
+        0 => 'application/x-java-keystore',
+      ),
     ),
-    'ksp' =>
+    'ksp' => 
     array (
-      0 => 'application/vnd.kde.kspread',
-      1 => 'application/x-kspread',
+      't' => 
+      array (
+        0 => 'application/vnd.kde.kspread',
+        1 => 'application/x-kspread',
+      ),
     ),
-    'ktr' =>
+    'ktr' => 
     array (
-      0 => 'application/vnd.kahootz',
+      't' => 
+      array (
+        0 => 'application/vnd.kahootz',
+      ),
     ),
-    'ktx' =>
+    'ktx' => 
     array (
-      0 => 'image/ktx',
+      't' => 
+      array (
+        0 => 'image/ktx',
+      ),
     ),
-    'ktz' =>
+    'ktz' => 
     array (
-      0 => 'application/vnd.kahootz',
+      't' => 
+      array (
+        0 => 'application/vnd.kahootz',
+      ),
     ),
-    'kud' =>
+    'kud' => 
     array (
-      0 => 'application/x-kugar',
+      't' => 
+      array (
+        0 => 'application/x-kugar',
+      ),
     ),
-    'kwd' =>
+    'kwd' => 
     array (
-      0 => 'application/vnd.kde.kword',
-      1 => 'application/x-kword',
+      't' => 
+      array (
+        0 => 'application/vnd.kde.kword',
+        1 => 'application/x-kword',
+      ),
     ),
-    'kwt' =>
+    'kwt' => 
     array (
-      0 => 'application/vnd.kde.kword',
-      1 => 'application/x-kword',
+      't' => 
+      array (
+        0 => 'application/vnd.kde.kword',
+        1 => 'application/x-kword',
+      ),
     ),
-    'la' =>
+    'la' => 
     array (
-      0 => 'application/x-shared-library-la',
+      't' => 
+      array (
+        0 => 'application/x-shared-library-la',
+      ),
     ),
-    'lasxml' =>
+    'lasxml' => 
     array (
-      0 => 'application/vnd.las.las+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.las.las+xml',
+      ),
     ),
-    'latex' =>
+    'latex' => 
     array (
-      0 => 'application/x-latex',
-      1 => 'text/x-tex',
+      't' => 
+      array (
+        0 => 'application/x-latex',
+        1 => 'text/x-tex',
+      ),
     ),
-    'lbd' =>
+    'lbd' => 
     array (
-      0 => 'application/vnd.llamagraphics.life-balance.desktop',
+      't' => 
+      array (
+        0 => 'application/vnd.llamagraphics.life-balance.desktop',
+      ),
     ),
-    'lbe' =>
+    'lbe' => 
     array (
-      0 => 'application/vnd.llamagraphics.life-balance.exchange+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.llamagraphics.life-balance.exchange+xml',
+      ),
     ),
-    'lbm' =>
+    'lbm' => 
     array (
-      0 => 'image/x-ilbm',
+      't' => 
+      array (
+        0 => 'image/x-ilbm',
+      ),
     ),
-    'ldif' =>
+    'ldif' => 
     array (
-      0 => 'text/x-ldif',
+      't' => 
+      array (
+        0 => 'text/x-ldif',
+      ),
     ),
-    'les' =>
+    'les' => 
     array (
-      0 => 'application/vnd.hhe.lesson-player',
+      't' => 
+      array (
+        0 => 'application/vnd.hhe.lesson-player',
+      ),
     ),
-    'lha' =>
+    'lha' => 
     array (
-      0 => 'application/x-lzh-compressed',
-      1 => 'application/x-lha',
+      't' => 
+      array (
+        0 => 'application/x-lzh-compressed',
+        1 => 'application/x-lha',
+      ),
     ),
-    'lhs' =>
+    'lhs' => 
     array (
-      0 => 'text/x-literate-haskell',
+      't' => 
+      array (
+        0 => 'text/x-literate-haskell',
+      ),
     ),
-    'lhz' =>
+    'lhz' => 
     array (
-      0 => 'application/x-lhz',
+      't' => 
+      array (
+        0 => 'application/x-lhz',
+      ),
     ),
-    'link66' =>
+    'link66' => 
     array (
-      0 => 'application/vnd.route66.link66+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.route66.link66+xml',
+      ),
     ),
-    'list' =>
+    'list' => 
     array (
-      0 => 'text/plain',
+      't' => 
+      array (
+        0 => 'text/plain',
+      ),
     ),
-    'list3820' =>
+    'list3820' => 
     array (
-      0 => 'application/vnd.ibm.modcap',
+      't' => 
+      array (
+        0 => 'application/vnd.ibm.modcap',
+      ),
     ),
-    'listafp' =>
+    'listafp' => 
     array (
-      0 => 'application/vnd.ibm.modcap',
+      't' => 
+      array (
+        0 => 'application/vnd.ibm.modcap',
+      ),
     ),
-    'lnk' =>
+    'lnk' => 
     array (
-      0 => 'application/x-ms-shortcut',
+      't' => 
+      array (
+        0 => 'application/x-ms-shortcut',
+      ),
     ),
-    'lnx' =>
+    'lnx' => 
     array (
-      0 => 'application/x-atari-lynx-rom',
+      't' => 
+      array (
+        0 => 'application/x-atari-lynx-rom',
+      ),
     ),
-    'loas' =>
+    'loas' => 
     array (
-      0 => 'audio/usac',
+      't' => 
+      array (
+        0 => 'audio/usac',
+      ),
     ),
-    'log' =>
+    'log' => 
     array (
-      0 => 'text/plain',
-      1 => 'text/x-log',
+      't' => 
+      array (
+        0 => 'text/plain',
+        1 => 'text/x-log',
+      ),
     ),
-    'lostxml' =>
+    'lostxml' => 
     array (
-      0 => 'application/lost+xml',
+      't' => 
+      array (
+        0 => 'application/lost+xml',
+      ),
     ),
-    'lrf' =>
+    'lrf' => 
     array (
-      0 => 'application/octet-stream',
+      't' => 
+      array (
+        0 => 'application/octet-stream',
+      ),
     ),
-    'lrm' =>
+    'lrm' => 
     array (
-      0 => 'application/vnd.ms-lrm',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-lrm',
+      ),
     ),
-    'lrv' =>
+    'lrv' => 
     array (
-      0 => 'video/mp4',
+      't' => 
+      array (
+        0 => 'video/mp4',
+      ),
     ),
-    'lrz' =>
+    'lrz' => 
     array (
-      0 => 'application/x-lrzip',
+      't' => 
+      array (
+        0 => 'application/x-lrzip',
+      ),
     ),
-    'ltf' =>
+    'ltf' => 
     array (
-      0 => 'application/vnd.frogans.ltf',
+      't' => 
+      array (
+        0 => 'application/vnd.frogans.ltf',
+      ),
     ),
-    'ltx' =>
+    'ltx' => 
     array (
-      0 => 'text/x-tex',
+      't' => 
+      array (
+        0 => 'text/x-tex',
+      ),
     ),
-    'lua' =>
+    'lua' => 
     array (
-      0 => 'text/x-lua',
+      't' => 
+      array (
+        0 => 'text/x-lua',
+      ),
     ),
-    'lvp' =>
+    'lvp' => 
     array (
-      0 => 'audio/vnd.lucent.voice',
+      't' => 
+      array (
+        0 => 'audio/vnd.lucent.voice',
+      ),
     ),
-    'lwo' =>
+    'lwo' => 
     array (
-      0 => 'image/x-lwo',
+      't' => 
+      array (
+        0 => 'image/x-lwo',
+      ),
     ),
-    'lwob' =>
+    'lwob' => 
     array (
-      0 => 'image/x-lwo',
+      't' => 
+      array (
+        0 => 'image/x-lwo',
+      ),
     ),
-    'lwp' =>
+    'lwp' => 
     array (
-      0 => 'application/vnd.lotus-wordpro',
+      't' => 
+      array (
+        0 => 'application/vnd.lotus-wordpro',
+      ),
     ),
-    'lws' =>
+    'lws' => 
     array (
-      0 => 'image/x-lws',
+      't' => 
+      array (
+        0 => 'image/x-lws',
+      ),
     ),
-    'ly' =>
+    'ly' => 
     array (
-      0 => 'text/x-lilypond',
+      't' => 
+      array (
+        0 => 'text/x-lilypond',
+      ),
     ),
-    'lyx' =>
+    'lyx' => 
     array (
-      0 => 'application/x-lyx',
+      't' => 
+      array (
+        0 => 'application/x-lyx',
+      ),
     ),
-    'lz' =>
+    'lz' => 
     array (
-      0 => 'application/x-lzip',
+      't' => 
+      array (
+        0 => 'application/x-lzip',
+      ),
     ),
-    'lz4' =>
+    'lz4' => 
     array (
-      0 => 'application/x-lz4',
+      't' => 
+      array (
+        0 => 'application/x-lz4',
+      ),
     ),
-    'lzh' =>
+    'lzh' => 
     array (
-      0 => 'application/x-lzh-compressed',
-      1 => 'application/x-lha',
+      't' => 
+      array (
+        0 => 'application/x-lzh-compressed',
+        1 => 'application/x-lha',
+      ),
     ),
-    'lzma' =>
+    'lzma' => 
     array (
-      0 => 'application/x-lzma',
+      't' => 
+      array (
+        0 => 'application/x-lzma',
+      ),
     ),
-    'lzo' =>
+    'lzo' => 
     array (
-      0 => 'application/x-lzop',
+      't' => 
+      array (
+        0 => 'application/x-lzop',
+      ),
     ),
-    'm' =>
+    'm' => 
     array (
-      0 => 'text/x-objcsrc',
-      1 => 'text/x-matlab',
+      't' => 
+      array (
+        0 => 'text/x-objcsrc',
+        1 => 'text/x-matlab',
+      ),
     ),
-    'm13' =>
+    'm13' => 
     array (
-      0 => 'application/x-msmediaview',
+      't' => 
+      array (
+        0 => 'application/x-msmediaview',
+      ),
     ),
-    'm14' =>
+    'm14' => 
     array (
-      0 => 'application/x-msmediaview',
+      't' => 
+      array (
+        0 => 'application/x-msmediaview',
+      ),
     ),
-    'm15' =>
+    'm15' => 
     array (
-      0 => 'audio/x-mod',
+      't' => 
+      array (
+        0 => 'audio/x-mod',
+      ),
     ),
-    'm1u' =>
+    'm1u' => 
     array (
-      0 => 'video/vnd.mpegurl',
+      't' => 
+      array (
+        0 => 'video/vnd.mpegurl',
+      ),
     ),
-    'm1v' =>
+    'm1v' => 
     array (
-      0 => 'video/mpeg',
+      't' => 
+      array (
+        0 => 'video/mpeg',
+      ),
     ),
-    'm21' =>
+    'm21' => 
     array (
-      0 => 'application/mp21',
+      't' => 
+      array (
+        0 => 'application/mp21',
+      ),
     ),
-    'm2a' =>
+    'm2a' => 
     array (
-      0 => 'audio/mpeg',
+      't' => 
+      array (
+        0 => 'audio/mpeg',
+      ),
     ),
-    'm2t' =>
+    'm2t' => 
     array (
-      0 => 'video/mp2t',
+      't' => 
+      array (
+        0 => 'video/mp2t',
+      ),
     ),
-    'm2ts' =>
+    'm2ts' => 
     array (
-      0 => 'video/mp2t',
+      't' => 
+      array (
+        0 => 'video/mp2t',
+      ),
     ),
-    'm2v' =>
+    'm2v' => 
     array (
-      0 => 'video/mpeg',
+      't' => 
+      array (
+        0 => 'video/mpeg',
+      ),
     ),
-    'm3a' =>
+    'm3a' => 
     array (
-      0 => 'audio/mpeg',
+      't' => 
+      array (
+        0 => 'audio/mpeg',
+      ),
     ),
-    'm3u' =>
+    'm3u' => 
     array (
-      0 => 'audio/x-mpegurl',
-      1 => 'application/vnd.apple.mpegurl',
+      't' => 
+      array (
+        0 => 'audio/x-mpegurl',
+        1 => 'application/vnd.apple.mpegurl',
+      ),
     ),
-    'm3u8' =>
+    'm3u8' => 
     array (
-      0 => 'application/vnd.apple.mpegurl',
-      1 => 'audio/x-mpegurl',
+      't' => 
+      array (
+        0 => 'application/vnd.apple.mpegurl',
+        1 => 'audio/x-mpegurl',
+      ),
     ),
-    'm4' =>
+    'm4' => 
     array (
-      0 => 'application/x-m4',
+      't' => 
+      array (
+        0 => 'application/x-m4',
+      ),
     ),
-    'm4a' =>
+    'm4a' => 
     array (
-      0 => 'audio/mp4',
+      't' => 
+      array (
+        0 => 'audio/mp4',
+      ),
     ),
-    'm4b' =>
+    'm4b' => 
     array (
-      0 => 'audio/x-m4b',
+      't' => 
+      array (
+        0 => 'audio/x-m4b',
+      ),
     ),
-    'm4r' =>
+    'm4r' => 
     array (
-      0 => 'audio/x-m4r',
+      't' => 
+      array (
+        0 => 'audio/x-m4r',
+      ),
     ),
-    'm4u' =>
+    'm4u' => 
     array (
-      0 => 'video/vnd.mpegurl',
+      't' => 
+      array (
+        0 => 'video/vnd.mpegurl',
+      ),
     ),
-    'm4v' =>
+    'm4v' => 
     array (
-      0 => 'video/x-m4v',
-      1 => 'video/mp4',
+      't' => 
+      array (
+        0 => 'video/x-m4v',
+        1 => 'video/mp4',
+      ),
     ),
-    'm7' =>
+    'm7' => 
     array (
-      0 => 'application/x-thomson-cartridge-memo7',
+      't' => 
+      array (
+        0 => 'application/x-thomson-cartridge-memo7',
+      ),
     ),
-    'ma' =>
+    'ma' => 
     array (
-      0 => 'application/mathematica',
+      't' => 
+      array (
+        0 => 'application/mathematica',
+      ),
     ),
-    'mab' =>
+    'mab' => 
     array (
-      0 => 'application/x-markaby',
+      't' => 
+      array (
+        0 => 'application/x-markaby',
+      ),
     ),
-    'mads' =>
+    'mads' => 
     array (
-      0 => 'application/mads+xml',
+      't' => 
+      array (
+        0 => 'application/mads+xml',
+      ),
     ),
-    'mag' =>
+    'mag' => 
     array (
-      0 => 'application/vnd.ecowin.chart',
+      't' => 
+      array (
+        0 => 'application/vnd.ecowin.chart',
+      ),
     ),
-    'mak' =>
+    'mak' => 
     array (
-      0 => 'text/x-makefile',
+      't' => 
+      array (
+        0 => 'text/x-makefile',
+      ),
     ),
-    'maker' =>
+    'maker' => 
     array (
-      0 => 'application/vnd.framemaker',
+      't' => 
+      array (
+        0 => 'application/vnd.framemaker',
+      ),
     ),
-    'man' =>
+    'man' => 
     array (
-      0 => 'text/troff',
-      1 => 'application/x-troff-man',
+      't' => 
+      array (
+        0 => 'text/troff',
+        1 => 'application/x-troff-man',
+      ),
     ),
-    'manifest' =>
+    'manifest' => 
     array (
-      0 => 'text/cache-manifest',
+      't' => 
+      array (
+        0 => 'text/cache-manifest',
+      ),
     ),
-    'mar' =>
+    'mar' => 
     array (
-      0 => 'application/octet-stream',
+      't' => 
+      array (
+        0 => 'application/octet-stream',
+      ),
     ),
-    'markdown' =>
+    'markdown' => 
     array (
-      0 => 'text/markdown',
+      't' => 
+      array (
+        0 => 'text/markdown',
+      ),
     ),
-    'mathml' =>
+    'mathml' => 
     array (
-      0 => 'application/mathml+xml',
+      't' => 
+      array (
+        0 => 'application/mathml+xml',
+      ),
     ),
-    'mb' =>
+    'mb' => 
     array (
-      0 => 'application/mathematica',
+      't' => 
+      array (
+        0 => 'application/mathematica',
+      ),
     ),
-    'mbk' =>
+    'mbk' => 
     array (
-      0 => 'application/vnd.mobius.mbk',
+      't' => 
+      array (
+        0 => 'application/vnd.mobius.mbk',
+      ),
     ),
-    'mbox' =>
+    'mbox' => 
     array (
-      0 => 'application/mbox',
+      't' => 
+      array (
+        0 => 'application/mbox',
+      ),
     ),
-    'mc1' =>
+    'mc1' => 
     array (
-      0 => 'application/vnd.medcalcdata',
+      't' => 
+      array (
+        0 => 'application/vnd.medcalcdata',
+      ),
     ),
-    'mcd' =>
+    'mcd' => 
     array (
-      0 => 'application/vnd.mcd',
+      't' => 
+      array (
+        0 => 'application/vnd.mcd',
+      ),
     ),
-    'mcurl' =>
+    'mcurl' => 
     array (
-      0 => 'text/vnd.curl.mcurl',
+      't' => 
+      array (
+        0 => 'text/vnd.curl.mcurl',
+      ),
     ),
-    'md' =>
+    'md' => 
     array (
-      0 => 'text/markdown',
+      't' => 
+      array (
+        0 => 'text/markdown',
+      ),
     ),
-    'mdb' =>
+    'mdb' => 
     array (
-      0 => 'application/x-msaccess',
-      1 => 'application/vnd.ms-access',
+      't' => 
+      array (
+        0 => 'application/x-msaccess',
+        1 => 'application/vnd.ms-access',
+      ),
     ),
-    'mdi' =>
+    'mdi' => 
     array (
-      0 => 'image/vnd.ms-modi',
+      't' => 
+      array (
+        0 => 'image/vnd.ms-modi',
+      ),
     ),
-    'mdx' =>
+    'mdx' => 
     array (
-      0 => 'application/x-genesis-32x-rom',
+      't' => 
+      array (
+        0 => 'application/x-genesis-32x-rom',
+      ),
     ),
-    'me' =>
+    'me' => 
     array (
-      0 => 'text/troff',
-      1 => 'text/x-troff-me',
+      't' => 
+      array (
+        0 => 'text/troff',
+        1 => 'text/x-troff-me',
+      ),
     ),
-    'med' =>
+    'med' => 
     array (
-      0 => 'audio/x-mod',
+      't' => 
+      array (
+        0 => 'audio/x-mod',
+      ),
     ),
-    'mesh' =>
+    'mesh' => 
     array (
-      0 => 'model/mesh',
+      't' => 
+      array (
+        0 => 'model/mesh',
+      ),
     ),
-    'meta4' =>
+    'meta4' => 
     array (
-      0 => 'application/metalink4+xml',
+      't' => 
+      array (
+        0 => 'application/metalink4+xml',
+      ),
     ),
-    'metalink' =>
+    'metalink' => 
     array (
-      0 => 'application/metalink+xml',
+      't' => 
+      array (
+        0 => 'application/metalink+xml',
+      ),
     ),
-    'mets' =>
+    'mets' => 
     array (
-      0 => 'application/mets+xml',
+      't' => 
+      array (
+        0 => 'application/mets+xml',
+      ),
     ),
-    'mfm' =>
+    'mfm' => 
     array (
-      0 => 'application/vnd.mfmp',
+      't' => 
+      array (
+        0 => 'application/vnd.mfmp',
+      ),
     ),
-    'mft' =>
+    'mft' => 
     array (
-      0 => 'application/rpki-manifest',
+      't' => 
+      array (
+        0 => 'application/rpki-manifest',
+      ),
     ),
-    'mgp' =>
+    'mgp' => 
     array (
-      0 => 'application/vnd.osgeo.mapguide.package',
-      1 => 'application/x-magicpoint',
+      't' => 
+      array (
+        0 => 'application/vnd.osgeo.mapguide.package',
+        1 => 'application/x-magicpoint',
+      ),
     ),
-    'mgz' =>
+    'mgz' => 
     array (
-      0 => 'application/vnd.proteus.magazine',
+      't' => 
+      array (
+        0 => 'application/vnd.proteus.magazine',
+      ),
     ),
-    'mht' =>
+    'mht' => 
     array (
-      0 => 'application/x-mimearchive',
+      't' => 
+      array (
+        0 => 'application/x-mimearchive',
+      ),
     ),
-    'mhtml' =>
+    'mhtml' => 
     array (
-      0 => 'application/x-mimearchive',
+      't' => 
+      array (
+        0 => 'application/x-mimearchive',
+      ),
     ),
-    'mid' =>
+    'mid' => 
     array (
-      0 => 'audio/midi',
+      't' => 
+      array (
+        0 => 'audio/midi',
+      ),
     ),
-    'midi' =>
+    'midi' => 
     array (
-      0 => 'audio/midi',
+      't' => 
+      array (
+        0 => 'audio/midi',
+      ),
     ),
-    'mie' =>
+    'mie' => 
     array (
-      0 => 'application/x-mie',
+      't' => 
+      array (
+        0 => 'application/x-mie',
+      ),
     ),
-    'mif' =>
+    'mif' => 
     array (
-      0 => 'application/vnd.mif',
-      1 => 'application/x-mif',
+      't' => 
+      array (
+        0 => 'application/vnd.mif',
+        1 => 'application/x-mif',
+      ),
     ),
-    'mime' =>
+    'mime' => 
     array (
-      0 => 'message/rfc822',
+      't' => 
+      array (
+        0 => 'message/rfc822',
+      ),
     ),
-    'minipsf' =>
+    'minipsf' => 
     array (
-      0 => 'audio/x-minipsf',
+      't' => 
+      array (
+        0 => 'audio/x-minipsf',
+      ),
     ),
-    'mj2' =>
+    'mj2' => 
     array (
-      0 => 'video/mj2',
+      't' => 
+      array (
+        0 => 'video/mj2',
+      ),
     ),
-    'mjp2' =>
+    'mjp2' => 
     array (
-      0 => 'video/mj2',
+      't' => 
+      array (
+        0 => 'video/mj2',
+      ),
     ),
-    'mjpeg' =>
+    'mjpeg' => 
     array (
-      0 => 'video/x-mjpeg',
+      't' => 
+      array (
+        0 => 'video/x-mjpeg',
+      ),
     ),
-    'mjpg' =>
+    'mjpg' => 
     array (
-      0 => 'video/x-mjpeg',
+      't' => 
+      array (
+        0 => 'video/x-mjpeg',
+      ),
     ),
-    'mjs' =>
+    'mjs' => 
     array (
-      0 => 'application/javascript',
+      't' => 
+      array (
+        0 => 'application/javascript',
+      ),
     ),
-    'mk' =>
+    'mk' => 
     array (
-      0 => 'text/x-makefile',
+      't' => 
+      array (
+        0 => 'text/x-makefile',
+      ),
     ),
-    'mk3d' =>
+    'mk3d' => 
     array (
-      0 => 'video/x-matroska',
-      1 => 'video/x-matroska-3d',
+      't' => 
+      array (
+        0 => 'video/x-matroska',
+        1 => 'video/x-matroska-3d',
+      ),
     ),
-    'mka' =>
+    'mka' => 
     array (
-      0 => 'audio/x-matroska',
+      't' => 
+      array (
+        0 => 'audio/x-matroska',
+      ),
     ),
-    'mkd' =>
+    'mkd' => 
     array (
-      0 => 'text/markdown',
+      't' => 
+      array (
+        0 => 'text/markdown',
+      ),
     ),
-    'mks' =>
+    'mks' => 
     array (
-      0 => 'video/x-matroska',
+      't' => 
+      array (
+        0 => 'video/x-matroska',
+      ),
     ),
-    'mkv' =>
+    'mkv' => 
     array (
-      0 => 'video/x-matroska',
+      't' => 
+      array (
+        0 => 'video/x-matroska',
+      ),
     ),
-    'ml' =>
+    'ml' => 
     array (
-      0 => 'text/x-ocaml',
+      't' => 
+      array (
+        0 => 'text/x-ocaml',
+      ),
     ),
-    'mli' =>
+    'mli' => 
     array (
-      0 => 'text/x-ocaml',
+      't' => 
+      array (
+        0 => 'text/x-ocaml',
+      ),
     ),
-    'mlp' =>
+    'mlp' => 
     array (
-      0 => 'application/vnd.dolby.mlp',
+      't' => 
+      array (
+        0 => 'application/vnd.dolby.mlp',
+      ),
     ),
-    'mm' =>
+    'mm' => 
     array (
-      0 => 'text/x-troff-mm',
+      't' => 
+      array (
+        0 => 'text/x-troff-mm',
+      ),
     ),
-    'mmd' =>
+    'mmd' => 
     array (
-      0 => 'application/vnd.chipnuts.karaoke-mmd',
+      't' => 
+      array (
+        0 => 'application/vnd.chipnuts.karaoke-mmd',
+      ),
     ),
-    'mmf' =>
+    'mmf' => 
     array (
-      0 => 'application/vnd.smaf',
-      1 => 'application/x-smaf',
+      't' => 
+      array (
+        0 => 'application/vnd.smaf',
+        1 => 'application/x-smaf',
+      ),
     ),
-    'mml' =>
+    'mml' => 
     array (
-      0 => 'application/mathml+xml',
+      't' => 
+      array (
+        0 => 'application/mathml+xml',
+      ),
     ),
-    'mmr' =>
+    'mmr' => 
     array (
-      0 => 'image/vnd.fujixerox.edmics-mmr',
+      't' => 
+      array (
+        0 => 'image/vnd.fujixerox.edmics-mmr',
+      ),
     ),
-    'mng' =>
+    'mng' => 
     array (
-      0 => 'video/x-mng',
+      't' => 
+      array (
+        0 => 'video/x-mng',
+      ),
     ),
-    'mny' =>
+    'mny' => 
     array (
-      0 => 'application/x-msmoney',
+      't' => 
+      array (
+        0 => 'application/x-msmoney',
+      ),
     ),
-    'mo' =>
+    'mo' => 
     array (
-      0 => 'application/x-gettext-translation',
-      1 => 'text/x-modelica',
+      't' => 
+      array (
+        0 => 'application/x-gettext-translation',
+        1 => 'text/x-modelica',
+      ),
     ),
-    'mo3' =>
+    'mo3' => 
     array (
-      0 => 'audio/x-mo3',
+      't' => 
+      array (
+        0 => 'audio/x-mo3',
+      ),
     ),
-    'mobi' =>
+    'mobi' => 
     array (
-      0 => 'application/x-mobipocket-ebook',
+      't' => 
+      array (
+        0 => 'application/x-mobipocket-ebook',
+      ),
     ),
-    'moc' =>
+    'moc' => 
     array (
-      0 => 'text/x-moc',
+      't' => 
+      array (
+        0 => 'text/x-moc',
+      ),
     ),
-    'mod' =>
+    'mod' => 
     array (
-      0 => 'audio/x-mod',
+      't' => 
+      array (
+        0 => 'audio/x-mod',
+      ),
     ),
-    'mods' =>
+    'mods' => 
     array (
-      0 => 'application/mods+xml',
+      't' => 
+      array (
+        0 => 'application/mods+xml',
+      ),
     ),
-    'mof' =>
+    'mof' => 
     array (
-      0 => 'text/x-mof',
+      't' => 
+      array (
+        0 => 'text/x-mof',
+      ),
     ),
-    'moov' =>
+    'moov' => 
     array (
-      0 => 'video/quicktime',
+      't' => 
+      array (
+        0 => 'video/quicktime',
+      ),
     ),
-    'mount' =>
+    'mount' => 
     array (
-      0 => 'text/x-systemd-unit',
+      't' => 
+      array (
+        0 => 'text/x-systemd-unit',
+      ),
     ),
-    'mov' =>
+    'mov' => 
     array (
-      0 => 'video/quicktime',
+      't' => 
+      array (
+        0 => 'video/quicktime',
+      ),
     ),
-    'movie' =>
+    'movie' => 
     array (
-      0 => 'video/x-sgi-movie',
+      't' => 
+      array (
+        0 => 'video/x-sgi-movie',
+      ),
     ),
-    'mp+' =>
+    'mp+' => 
     array (
-      0 => 'audio/x-musepack',
+      't' => 
+      array (
+        0 => 'audio/x-musepack',
+      ),
     ),
-    'mp2' =>
+    'mp2' => 
     array (
-      0 => 'audio/mpeg',
-      1 => 'audio/mp2',
-      2 => 'video/mpeg',
+      't' => 
+      array (
+        0 => 'audio/mpeg',
+        1 => 'audio/mp2',
+        2 => 'video/mpeg',
+      ),
     ),
-    'mp21' =>
+    'mp21' => 
     array (
-      0 => 'application/mp21',
+      't' => 
+      array (
+        0 => 'application/mp21',
+      ),
     ),
-    'mp2a' =>
+    'mp2a' => 
     array (
-      0 => 'audio/mpeg',
+      't' => 
+      array (
+        0 => 'audio/mpeg',
+      ),
     ),
-    'mp3' =>
+    'mp3' => 
     array (
-      0 => 'audio/mpeg',
+      't' => 
+      array (
+        0 => 'audio/mpeg',
+      ),
     ),
-    'mp4' =>
+    'mp4' => 
     array (
-      0 => 'video/mp4',
+      't' => 
+      array (
+        0 => 'video/mp4',
+      ),
     ),
-    'mp4a' =>
+    'mp4a' => 
     array (
-      0 => 'audio/mp4',
+      't' => 
+      array (
+        0 => 'audio/mp4',
+      ),
     ),
-    'mp4s' =>
+    'mp4s' => 
     array (
-      0 => 'application/mp4',
+      't' => 
+      array (
+        0 => 'application/mp4',
+      ),
     ),
-    'mp4v' =>
+    'mp4v' => 
     array (
-      0 => 'video/mp4',
+      't' => 
+      array (
+        0 => 'video/mp4',
+      ),
     ),
-    'mpc' =>
+    'mpc' => 
     array (
-      0 => 'application/vnd.mophun.certificate',
-      1 => 'audio/x-musepack',
+      't' => 
+      array (
+        0 => 'application/vnd.mophun.certificate',
+        1 => 'audio/x-musepack',
+      ),
     ),
-    'mpe' =>
+    'mpe' => 
     array (
-      0 => 'video/mpeg',
+      't' => 
+      array (
+        0 => 'video/mpeg',
+      ),
     ),
-    'mpeg' =>
+    'mpeg' => 
     array (
-      0 => 'video/mpeg',
+      't' => 
+      array (
+        0 => 'video/mpeg',
+      ),
     ),
-    'mpg' =>
+    'mpg' => 
     array (
-      0 => 'video/mpeg',
+      't' => 
+      array (
+        0 => 'video/mpeg',
+      ),
     ),
-    'mpg4' =>
+    'mpg4' => 
     array (
-      0 => 'video/mp4',
+      't' => 
+      array (
+        0 => 'video/mp4',
+      ),
     ),
-    'mpga' =>
+    'mpga' => 
     array (
-      0 => 'audio/mpeg',
+      't' => 
+      array (
+        0 => 'audio/mpeg',
+      ),
     ),
-    'mpkg' =>
+    'mpkg' => 
     array (
-      0 => 'application/vnd.apple.installer+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.apple.installer+xml',
+      ),
     ),
-    'mpl' =>
+    'mpl' => 
     array (
-      0 => 'video/mp2t',
+      't' => 
+      array (
+        0 => 'video/mp2t',
+      ),
     ),
-    'mpls' =>
+    'mpls' => 
     array (
-      0 => 'video/mp2t',
+      't' => 
+      array (
+        0 => 'video/mp2t',
+      ),
     ),
-    'mpm' =>
+    'mpm' => 
     array (
-      0 => 'application/vnd.blueice.multipass',
+      't' => 
+      array (
+        0 => 'application/vnd.blueice.multipass',
+      ),
     ),
-    'mpn' =>
+    'mpn' => 
     array (
-      0 => 'application/vnd.mophun.application',
+      't' => 
+      array (
+        0 => 'application/vnd.mophun.application',
+      ),
     ),
-    'mpp' =>
+    'mpp' => 
     array (
-      0 => 'application/vnd.ms-project',
-      1 => 'audio/x-musepack',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-project',
+        1 => 'audio/x-musepack',
+      ),
     ),
-    'mpt' =>
+    'mpt' => 
     array (
-      0 => 'application/vnd.ms-project',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-project',
+      ),
     ),
-    'mpy' =>
+    'mpy' => 
     array (
-      0 => 'application/vnd.ibm.minipay',
+      't' => 
+      array (
+        0 => 'application/vnd.ibm.minipay',
+      ),
     ),
-    'mqy' =>
+    'mqy' => 
     array (
-      0 => 'application/vnd.mobius.mqy',
+      't' => 
+      array (
+        0 => 'application/vnd.mobius.mqy',
+      ),
     ),
-    'mrc' =>
+    'mrc' => 
     array (
-      0 => 'application/marc',
+      't' => 
+      array (
+        0 => 'application/marc',
+      ),
     ),
-    'mrcx' =>
+    'mrcx' => 
     array (
-      0 => 'application/marcxml+xml',
+      't' => 
+      array (
+        0 => 'application/marcxml+xml',
+      ),
     ),
-    'mrl' =>
+    'mrl' => 
     array (
-      0 => 'text/x-mrml',
+      't' => 
+      array (
+        0 => 'text/x-mrml',
+      ),
     ),
-    'mrml' =>
+    'mrml' => 
     array (
-      0 => 'text/x-mrml',
+      't' => 
+      array (
+        0 => 'text/x-mrml',
+      ),
     ),
-    'mrw' =>
+    'mrw' => 
     array (
-      0 => 'image/x-minolta-mrw',
+      't' => 
+      array (
+        0 => 'image/x-minolta-mrw',
+      ),
     ),
-    'ms' =>
+    'ms' => 
     array (
-      0 => 'text/troff',
-      1 => 'text/x-troff-ms',
+      't' => 
+      array (
+        0 => 'text/troff',
+        1 => 'text/x-troff-ms',
+      ),
     ),
-    'mscml' =>
+    'mscml' => 
     array (
-      0 => 'application/mediaservercontrol+xml',
+      't' => 
+      array (
+        0 => 'application/mediaservercontrol+xml',
+      ),
     ),
-    'mseed' =>
+    'mseed' => 
     array (
-      0 => 'application/vnd.fdsn.mseed',
+      't' => 
+      array (
+        0 => 'application/vnd.fdsn.mseed',
+      ),
     ),
-    'mseq' =>
+    'mseq' => 
     array (
-      0 => 'application/vnd.mseq',
+      't' => 
+      array (
+        0 => 'application/vnd.mseq',
+      ),
     ),
-    'msf' =>
+    'msf' => 
     array (
-      0 => 'application/vnd.epson.msf',
+      't' => 
+      array (
+        0 => 'application/vnd.epson.msf',
+      ),
     ),
-    'msh' =>
+    'msh' => 
     array (
-      0 => 'model/mesh',
+      't' => 
+      array (
+        0 => 'model/mesh',
+      ),
     ),
-    'msi' =>
+    'msi' => 
     array (
-      0 => 'application/x-msdownload',
-      1 => 'application/x-msi',
+      't' => 
+      array (
+        0 => 'application/x-msdownload',
+        1 => 'application/x-msi',
+      ),
     ),
-    'msl' =>
+    'msl' => 
     array (
-      0 => 'application/vnd.mobius.msl',
+      't' => 
+      array (
+        0 => 'application/vnd.mobius.msl',
+      ),
     ),
-    'msod' =>
+    'msod' => 
     array (
-      0 => 'image/x-msod',
+      't' => 
+      array (
+        0 => 'image/x-msod',
+      ),
     ),
-    'msty' =>
+    'msty' => 
     array (
-      0 => 'application/vnd.muvee.style',
+      't' => 
+      array (
+        0 => 'application/vnd.muvee.style',
+      ),
     ),
-    'msx' =>
+    'msx' => 
     array (
-      0 => 'application/x-msx-rom',
+      't' => 
+      array (
+        0 => 'application/x-msx-rom',
+      ),
     ),
-    'mtm' =>
+    'mtm' => 
     array (
-      0 => 'audio/x-mod',
+      't' => 
+      array (
+        0 => 'audio/x-mod',
+      ),
     ),
-    'mts' =>
+    'mts' => 
     array (
-      0 => 'model/vnd.mts',
-      1 => 'video/mp2t',
+      't' => 
+      array (
+        0 => 'model/vnd.mts',
+        1 => 'video/mp2t',
+      ),
     ),
-    'mup' =>
+    'mup' => 
     array (
-      0 => 'text/x-mup',
+      't' => 
+      array (
+        0 => 'text/x-mup',
+      ),
     ),
-    'mus' =>
+    'mus' => 
     array (
-      0 => 'application/vnd.musician',
+      't' => 
+      array (
+        0 => 'application/vnd.musician',
+      ),
     ),
-    'musicxml' =>
+    'musicxml' => 
     array (
-      0 => 'application/vnd.recordare.musicxml+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.recordare.musicxml+xml',
+      ),
     ),
-    'mvb' =>
+    'mvb' => 
     array (
-      0 => 'application/x-msmediaview',
+      't' => 
+      array (
+        0 => 'application/x-msmediaview',
+      ),
     ),
-    'mwf' =>
+    'mwf' => 
     array (
-      0 => 'application/vnd.mfer',
+      't' => 
+      array (
+        0 => 'application/vnd.mfer',
+      ),
     ),
-    'mxf' =>
+    'mxf' => 
     array (
-      0 => 'application/mxf',
+      't' => 
+      array (
+        0 => 'application/mxf',
+      ),
     ),
-    'mxl' =>
+    'mxl' => 
     array (
-      0 => 'application/vnd.recordare.musicxml',
+      't' => 
+      array (
+        0 => 'application/vnd.recordare.musicxml',
+      ),
     ),
-    'mxml' =>
+    'mxml' => 
     array (
-      0 => 'application/xv+xml',
+      't' => 
+      array (
+        0 => 'application/xv+xml',
+      ),
     ),
-    'mxs' =>
+    'mxs' => 
     array (
-      0 => 'application/vnd.triscape.mxs',
+      't' => 
+      array (
+        0 => 'application/vnd.triscape.mxs',
+      ),
     ),
-    'mxu' =>
+    'mxu' => 
     array (
-      0 => 'video/vnd.mpegurl',
+      't' => 
+      array (
+        0 => 'video/vnd.mpegurl',
+      ),
     ),
-    'n-gage' =>
+    'n-gage' => 
     array (
-      0 => 'application/vnd.nokia.n-gage.symbian.install',
+      't' => 
+      array (
+        0 => 'application/vnd.nokia.n-gage.symbian.install',
+      ),
     ),
-    'n3' =>
+    'n3' => 
     array (
-      0 => 'text/n3',
+      't' => 
+      array (
+        0 => 'text/n3',
+      ),
     ),
-    'n64' =>
+    'n64' => 
     array (
-      0 => 'application/x-n64-rom',
+      't' => 
+      array (
+        0 => 'application/x-n64-rom',
+      ),
     ),
-    'nb' =>
+    'nb' => 
     array (
-      0 => 'application/mathematica',
+      't' => 
+      array (
+        0 => 'application/mathematica',
+      ),
     ),
-    'nbp' =>
+    'nbp' => 
     array (
-      0 => 'application/vnd.wolfram.player',
+      't' => 
+      array (
+        0 => 'application/vnd.wolfram.player',
+      ),
     ),
-    'nc' =>
+    'nc' => 
     array (
-      0 => 'application/x-netcdf',
+      't' => 
+      array (
+        0 => 'application/x-netcdf',
+      ),
     ),
-    'ncx' =>
+    'ncx' => 
     array (
-      0 => 'application/x-dtbncx+xml',
+      't' => 
+      array (
+        0 => 'application/x-dtbncx+xml',
+      ),
     ),
-    'nds' =>
+    'nds' => 
     array (
-      0 => 'application/x-nintendo-ds-rom',
+      't' => 
+      array (
+        0 => 'application/x-nintendo-ds-rom',
+      ),
     ),
-    'nef' =>
+    'nef' => 
     array (
-      0 => 'image/x-nikon-nef',
+      't' => 
+      array (
+        0 => 'image/x-nikon-nef',
+      ),
     ),
-    'nes' =>
+    'nes' => 
     array (
-      0 => 'application/x-nes-rom',
+      't' => 
+      array (
+        0 => 'application/x-nes-rom',
+      ),
     ),
-    'nez' =>
+    'nez' => 
     array (
-      0 => 'application/x-nes-rom',
+      't' => 
+      array (
+        0 => 'application/x-nes-rom',
+      ),
     ),
-    'nfo' =>
+    'nfo' => 
     array (
-      0 => 'text/x-nfo',
+      't' => 
+      array (
+        0 => 'text/x-nfo',
+      ),
     ),
-    'ngc' =>
+    'ngc' => 
     array (
-      0 => 'application/x-neo-geo-pocket-color-rom',
+      't' => 
+      array (
+        0 => 'application/x-neo-geo-pocket-color-rom',
+      ),
     ),
-    'ngdat' =>
+    'ngdat' => 
     array (
-      0 => 'application/vnd.nokia.n-gage.data',
+      't' => 
+      array (
+        0 => 'application/vnd.nokia.n-gage.data',
+      ),
     ),
-    'ngp' =>
+    'ngp' => 
     array (
-      0 => 'application/x-neo-geo-pocket-rom',
+      't' => 
+      array (
+        0 => 'application/x-neo-geo-pocket-rom',
+      ),
     ),
-    'nitf' =>
+    'nitf' => 
     array (
-      0 => 'application/vnd.nitf',
+      't' => 
+      array (
+        0 => 'application/vnd.nitf',
+      ),
     ),
-    'nlu' =>
+    'nlu' => 
     array (
-      0 => 'application/vnd.neurolanguage.nlu',
+      't' => 
+      array (
+        0 => 'application/vnd.neurolanguage.nlu',
+      ),
     ),
-    'nml' =>
+    'nml' => 
     array (
-      0 => 'application/vnd.enliven',
+      't' => 
+      array (
+        0 => 'application/vnd.enliven',
+      ),
     ),
-    'nnd' =>
+    'nnd' => 
     array (
-      0 => 'application/vnd.noblenet-directory',
+      't' => 
+      array (
+        0 => 'application/vnd.noblenet-directory',
+      ),
     ),
-    'nns' =>
+    'nns' => 
     array (
-      0 => 'application/vnd.noblenet-sealer',
+      't' => 
+      array (
+        0 => 'application/vnd.noblenet-sealer',
+      ),
     ),
-    'nnw' =>
+    'nnw' => 
     array (
-      0 => 'application/vnd.noblenet-web',
+      't' => 
+      array (
+        0 => 'application/vnd.noblenet-web',
+      ),
     ),
-    'not' =>
+    'not' => 
     array (
-      0 => 'text/x-mup',
+      't' => 
+      array (
+        0 => 'text/x-mup',
+      ),
     ),
-    'npx' =>
+    'npx' => 
     array (
-      0 => 'image/vnd.net-fpx',
+      't' => 
+      array (
+        0 => 'image/vnd.net-fpx',
+      ),
     ),
-    'nsc' =>
+    'nsc' => 
     array (
-      0 => 'application/x-conference',
-      1 => 'application/x-netshow-channel',
+      't' => 
+      array (
+        0 => 'application/x-conference',
+        1 => 'application/x-netshow-channel',
+      ),
     ),
-    'nsf' =>
+    'nsf' => 
     array (
-      0 => 'application/vnd.lotus-notes',
+      't' => 
+      array (
+        0 => 'application/vnd.lotus-notes',
+      ),
     ),
-    'nsv' =>
+    'nsv' => 
     array (
-      0 => 'video/x-nsv',
+      't' => 
+      array (
+        0 => 'video/x-nsv',
+      ),
     ),
-    'ntf' =>
+    'ntf' => 
     array (
-      0 => 'application/vnd.nitf',
+      't' => 
+      array (
+        0 => 'application/vnd.nitf',
+      ),
     ),
-    'nzb' =>
+    'nzb' => 
     array (
-      0 => 'application/x-nzb',
+      't' => 
+      array (
+        0 => 'application/x-nzb',
+      ),
     ),
-    'o' =>
+    'o' => 
     array (
-      0 => 'application/x-object',
+      't' => 
+      array (
+        0 => 'application/x-object',
+      ),
     ),
-    'oa2' =>
+    'oa2' => 
     array (
-      0 => 'application/vnd.fujitsu.oasys2',
+      't' => 
+      array (
+        0 => 'application/vnd.fujitsu.oasys2',
+      ),
     ),
-    'oa3' =>
+    'oa3' => 
     array (
-      0 => 'application/vnd.fujitsu.oasys3',
+      't' => 
+      array (
+        0 => 'application/vnd.fujitsu.oasys3',
+      ),
     ),
-    'oas' =>
+    'oas' => 
     array (
-      0 => 'application/vnd.fujitsu.oasys',
+      't' => 
+      array (
+        0 => 'application/vnd.fujitsu.oasys',
+      ),
     ),
-    'obd' =>
+    'obd' => 
     array (
-      0 => 'application/x-msbinder',
+      't' => 
+      array (
+        0 => 'application/x-msbinder',
+      ),
     ),
-    'obj' =>
+    'obj' => 
     array (
-      0 => 'application/x-tgif',
+      't' => 
+      array (
+        0 => 'application/x-tgif',
+      ),
     ),
-    'ocl' =>
+    'ocl' => 
     array (
-      0 => 'text/x-ocl',
+      't' => 
+      array (
+        0 => 'text/x-ocl',
+      ),
     ),
-    'oda' =>
+    'oda' => 
     array (
-      0 => 'application/oda',
+      't' => 
+      array (
+        0 => 'application/oda',
+      ),
     ),
-    'odb' =>
+    'odb' => 
     array (
-      0 => 'application/vnd.oasis.opendocument.database',
+      't' => 
+      array (
+        0 => 'application/vnd.oasis.opendocument.database',
+      ),
     ),
-    'odc' =>
+    'odc' => 
     array (
-      0 => 'application/vnd.oasis.opendocument.chart',
+      't' => 
+      array (
+        0 => 'application/vnd.oasis.opendocument.chart',
+      ),
     ),
-    'odf' =>
+    'odf' => 
     array (
-      0 => 'application/vnd.oasis.opendocument.formula',
+      't' => 
+      array (
+        0 => 'application/vnd.oasis.opendocument.formula',
+      ),
     ),
-    'odft' =>
+    'odft' => 
     array (
-      0 => 'application/vnd.oasis.opendocument.formula-template',
+      't' => 
+      array (
+        0 => 'application/vnd.oasis.opendocument.formula-template',
+      ),
     ),
-    'odg' =>
+    'odg' => 
     array (
-      0 => 'application/vnd.oasis.opendocument.graphics',
+      't' => 
+      array (
+        0 => 'application/vnd.oasis.opendocument.graphics',
+      ),
     ),
-    'odi' =>
+    'odi' => 
     array (
-      0 => 'application/vnd.oasis.opendocument.image',
+      't' => 
+      array (
+        0 => 'application/vnd.oasis.opendocument.image',
+      ),
     ),
-    'odm' =>
+    'odm' => 
     array (
-      0 => 'application/vnd.oasis.opendocument.text-master',
+      't' => 
+      array (
+        0 => 'application/vnd.oasis.opendocument.text-master',
+      ),
     ),
-    'odp' =>
+    'odp' => 
     array (
-      0 => 'application/vnd.oasis.opendocument.presentation',
+      't' => 
+      array (
+        0 => 'application/vnd.oasis.opendocument.presentation',
+      ),
     ),
-    'ods' =>
+    'ods' => 
     array (
-      0 => 'application/vnd.oasis.opendocument.spreadsheet',
+      't' => 
+      array (
+        0 => 'application/vnd.oasis.opendocument.spreadsheet',
+      ),
     ),
-    'odt' =>
+    'odt' => 
     array (
-      0 => 'application/vnd.oasis.opendocument.text',
+      't' => 
+      array (
+        0 => 'application/vnd.oasis.opendocument.text',
+      ),
     ),
-    'oga' =>
+    'oga' => 
     array (
-      0 => 'audio/ogg',
-      1 => 'audio/x-vorbis+ogg',
-      2 => 'audio/x-flac+ogg',
-      3 => 'audio/x-speex+ogg',
+      't' => 
+      array (
+        0 => 'audio/ogg',
+        1 => 'audio/x-vorbis+ogg',
+        2 => 'audio/x-flac+ogg',
+        3 => 'audio/x-speex+ogg',
+      ),
     ),
-    'ogg' =>
+    'ogg' => 
     array (
-      0 => 'audio/ogg',
-      1 => 'video/ogg',
-      2 => 'audio/x-vorbis+ogg',
-      3 => 'audio/x-flac+ogg',
-      4 => 'audio/x-speex+ogg',
-      5 => 'video/x-theora+ogg',
+      't' => 
+      array (
+        0 => 'audio/ogg',
+        1 => 'video/ogg',
+        2 => 'audio/x-vorbis+ogg',
+        3 => 'audio/x-flac+ogg',
+        4 => 'audio/x-speex+ogg',
+        5 => 'video/x-theora+ogg',
+      ),
     ),
-    'ogm' =>
+    'ogm' => 
     array (
-      0 => 'video/x-ogm+ogg',
+      't' => 
+      array (
+        0 => 'video/x-ogm+ogg',
+      ),
     ),
-    'ogv' =>
+    'ogv' => 
     array (
-      0 => 'video/ogg',
+      't' => 
+      array (
+        0 => 'video/ogg',
+      ),
     ),
-    'ogx' =>
+    'ogx' => 
     array (
-      0 => 'application/ogg',
+      't' => 
+      array (
+        0 => 'application/ogg',
+      ),
     ),
-    'old' =>
+    'old' => 
     array (
-      0 => 'application/x-trash',
+      't' => 
+      array (
+        0 => 'application/x-trash',
+      ),
     ),
-    'oleo' =>
+    'oleo' => 
     array (
-      0 => 'application/x-oleo',
+      't' => 
+      array (
+        0 => 'application/x-oleo',
+      ),
     ),
-    'omdoc' =>
+    'omdoc' => 
     array (
-      0 => 'application/omdoc+xml',
+      't' => 
+      array (
+        0 => 'application/omdoc+xml',
+      ),
     ),
-    'onepkg' =>
+    'onepkg' => 
     array (
-      0 => 'application/onenote',
+      't' => 
+      array (
+        0 => 'application/onenote',
+      ),
     ),
-    'onetmp' =>
+    'onetmp' => 
     array (
-      0 => 'application/onenote',
+      't' => 
+      array (
+        0 => 'application/onenote',
+      ),
     ),
-    'onetoc' =>
+    'onetoc' => 
     array (
-      0 => 'application/onenote',
+      't' => 
+      array (
+        0 => 'application/onenote',
+      ),
     ),
-    'onetoc2' =>
+    'onetoc2' => 
     array (
-      0 => 'application/onenote',
+      't' => 
+      array (
+        0 => 'application/onenote',
+      ),
     ),
-    'ooc' =>
+    'ooc' => 
     array (
-      0 => 'text/x-ooc',
+      't' => 
+      array (
+        0 => 'text/x-ooc',
+      ),
     ),
-    'opf' =>
+    'opf' => 
     array (
-      0 => 'application/oebps-package+xml',
+      't' => 
+      array (
+        0 => 'application/oebps-package+xml',
+      ),
     ),
-    'opml' =>
+    'opml' => 
     array (
-      0 => 'text/x-opml',
-      1 => 'text/x-opml+xml',
+      't' => 
+      array (
+        0 => 'text/x-opml',
+        1 => 'text/x-opml+xml',
+      ),
     ),
-    'oprc' =>
+    'oprc' => 
     array (
-      0 => 'application/vnd.palm',
+      't' => 
+      array (
+        0 => 'application/vnd.palm',
+      ),
     ),
-    'opus' =>
+    'opus' => 
     array (
-      0 => 'audio/ogg',
-      1 => 'audio/x-opus+ogg',
+      't' => 
+      array (
+        0 => 'audio/ogg',
+        1 => 'audio/x-opus+ogg',
+      ),
     ),
-    'ora' =>
+    'ora' => 
     array (
-      0 => 'image/openraster',
+      't' => 
+      array (
+        0 => 'image/openraster',
+      ),
     ),
-    'orf' =>
+    'orf' => 
     array (
-      0 => 'image/x-olympus-orf',
+      't' => 
+      array (
+        0 => 'image/x-olympus-orf',
+      ),
     ),
-    'org' =>
+    'org' => 
     array (
-      0 => 'application/vnd.lotus-organizer',
+      't' => 
+      array (
+        0 => 'application/vnd.lotus-organizer',
+      ),
     ),
-    'osf' =>
+    'osf' => 
     array (
-      0 => 'application/vnd.yamaha.openscoreformat',
+      't' => 
+      array (
+        0 => 'application/vnd.yamaha.openscoreformat',
+      ),
     ),
-    'osfpvg' =>
+    'osfpvg' => 
     array (
-      0 => 'application/vnd.yamaha.openscoreformat.osfpvg+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.yamaha.openscoreformat.osfpvg+xml',
+      ),
     ),
-    'otc' =>
+    'otc' => 
     array (
-      0 => 'application/vnd.oasis.opendocument.chart-template',
+      't' => 
+      array (
+        0 => 'application/vnd.oasis.opendocument.chart-template',
+      ),
     ),
-    'otf' =>
+    'otf' => 
     array (
-      0 => 'font/otf',
-      1 => 'application/vnd.oasis.opendocument.formula-template',
+      't' => 
+      array (
+        0 => 'font/otf',
+        1 => 'application/vnd.oasis.opendocument.formula-template',
+      ),
     ),
-    'otg' =>
+    'otg' => 
     array (
-      0 => 'application/vnd.oasis.opendocument.graphics-template',
+      't' => 
+      array (
+        0 => 'application/vnd.oasis.opendocument.graphics-template',
+      ),
     ),
-    'oth' =>
+    'oth' => 
     array (
-      0 => 'application/vnd.oasis.opendocument.text-web',
+      't' => 
+      array (
+        0 => 'application/vnd.oasis.opendocument.text-web',
+      ),
     ),
-    'oti' =>
+    'oti' => 
     array (
-      0 => 'application/vnd.oasis.opendocument.image-template',
+      't' => 
+      array (
+        0 => 'application/vnd.oasis.opendocument.image-template',
+      ),
     ),
-    'otp' =>
+    'otp' => 
     array (
-      0 => 'application/vnd.oasis.opendocument.presentation-template',
+      't' => 
+      array (
+        0 => 'application/vnd.oasis.opendocument.presentation-template',
+      ),
     ),
-    'ots' =>
+    'ots' => 
     array (
-      0 => 'application/vnd.oasis.opendocument.spreadsheet-template',
+      't' => 
+      array (
+        0 => 'application/vnd.oasis.opendocument.spreadsheet-template',
+      ),
     ),
-    'ott' =>
+    'ott' => 
     array (
-      0 => 'application/vnd.oasis.opendocument.text-template',
+      't' => 
+      array (
+        0 => 'application/vnd.oasis.opendocument.text-template',
+      ),
     ),
-    'owl' =>
+    'owl' => 
     array (
-      0 => 'application/rdf+xml',
+      't' => 
+      array (
+        0 => 'application/rdf+xml',
+      ),
     ),
-    'owx' =>
+    'owx' => 
     array (
-      0 => 'application/owl+xml',
+      't' => 
+      array (
+        0 => 'application/owl+xml',
+      ),
     ),
-    'oxps' =>
+    'oxps' => 
     array (
-      0 => 'application/oxps',
+      't' => 
+      array (
+        0 => 'application/oxps',
+      ),
     ),
-    'oxt' =>
+    'oxt' => 
     array (
-      0 => 'application/vnd.openofficeorg.extension',
+      't' => 
+      array (
+        0 => 'application/vnd.openofficeorg.extension',
+      ),
     ),
-    'p' =>
+    'p' => 
     array (
-      0 => 'text/x-pascal',
+      't' => 
+      array (
+        0 => 'text/x-pascal',
+      ),
     ),
-    'p10' =>
+    'p10' => 
     array (
-      0 => 'application/pkcs10',
+      't' => 
+      array (
+        0 => 'application/pkcs10',
+      ),
     ),
-    'p12' =>
+    'p12' => 
     array (
-      0 => 'application/x-pkcs12',
-      1 => 'application/pkcs12',
+      't' => 
+      array (
+        0 => 'application/x-pkcs12',
+        1 => 'application/pkcs12',
+      ),
     ),
-    'p65' =>
+    'p65' => 
     array (
-      0 => 'application/x-pagemaker',
+      't' => 
+      array (
+        0 => 'application/x-pagemaker',
+      ),
     ),
-    'p7b' =>
+    'p7b' => 
     array (
-      0 => 'application/x-pkcs7-certificates',
+      't' => 
+      array (
+        0 => 'application/x-pkcs7-certificates',
+      ),
     ),
-    'p7c' =>
+    'p7c' => 
     array (
-      0 => 'application/pkcs7-mime',
+      't' => 
+      array (
+        0 => 'application/pkcs7-mime',
+      ),
     ),
-    'p7m' =>
+    'p7m' => 
     array (
-      0 => 'application/pkcs7-mime',
+      't' => 
+      array (
+        0 => 'application/pkcs7-mime',
+      ),
     ),
-    'p7r' =>
+    'p7r' => 
     array (
-      0 => 'application/x-pkcs7-certreqresp',
+      't' => 
+      array (
+        0 => 'application/x-pkcs7-certreqresp',
+      ),
     ),
-    'p7s' =>
+    'p7s' => 
     array (
-      0 => 'application/pkcs7-signature',
+      't' => 
+      array (
+        0 => 'application/pkcs7-signature',
+      ),
     ),
-    'p8' =>
+    'p8' => 
     array (
-      0 => 'application/pkcs8',
+      't' => 
+      array (
+        0 => 'application/pkcs8',
+      ),
     ),
-    'p8e' =>
+    'p8e' => 
     array (
-      0 => 'application/pkcs8-encrypted',
+      't' => 
+      array (
+        0 => 'application/pkcs8-encrypted',
+      ),
     ),
-    'pack' =>
+    'pack' => 
     array (
-      0 => 'application/x-java-pack200',
+      't' => 
+      array (
+        0 => 'application/x-java-pack200',
+      ),
     ),
-    'pak' =>
+    'pak' => 
     array (
-      0 => 'application/x-pak',
+      't' => 
+      array (
+        0 => 'application/x-pak',
+      ),
     ),
-    'par2' =>
+    'par2' => 
     array (
-      0 => 'application/x-par2',
+      't' => 
+      array (
+        0 => 'application/x-par2',
+      ),
     ),
-    'part' =>
+    'part' => 
     array (
-      0 => 'application/x-partial-download',
+      't' => 
+      array (
+        0 => 'application/x-partial-download',
+      ),
     ),
-    'pas' =>
+    'pas' => 
     array (
-      0 => 'text/x-pascal',
+      't' => 
+      array (
+        0 => 'text/x-pascal',
+      ),
     ),
-    'pat' =>
+    'pat' => 
     array (
-      0 => 'image/x-gimp-pat',
+      't' => 
+      array (
+        0 => 'image/x-gimp-pat',
+      ),
     ),
-    'patch' =>
+    'patch' => 
     array (
-      0 => 'text/x-patch',
+      't' => 
+      array (
+        0 => 'text/x-patch',
+      ),
     ),
-    'path' =>
+    'path' => 
     array (
-      0 => 'text/x-systemd-unit',
+      't' => 
+      array (
+        0 => 'text/x-systemd-unit',
+      ),
     ),
-    'paw' =>
+    'paw' => 
     array (
-      0 => 'application/vnd.pawaafile',
+      't' => 
+      array (
+        0 => 'application/vnd.pawaafile',
+      ),
     ),
-    'pbd' =>
+    'pbd' => 
     array (
-      0 => 'application/vnd.powerbuilder6',
+      't' => 
+      array (
+        0 => 'application/vnd.powerbuilder6',
+      ),
     ),
-    'pbm' =>
+    'pbm' => 
     array (
-      0 => 'image/x-portable-bitmap',
+      't' => 
+      array (
+        0 => 'image/x-portable-bitmap',
+      ),
     ),
-    'pcap' =>
+    'pcap' => 
     array (
-      0 => 'application/vnd.tcpdump.pcap',
+      't' => 
+      array (
+        0 => 'application/vnd.tcpdump.pcap',
+      ),
     ),
-    'pcd' =>
+    'pcd' => 
     array (
-      0 => 'image/x-photo-cd',
+      't' => 
+      array (
+        0 => 'image/x-photo-cd',
+      ),
     ),
-    'pce' =>
+    'pce' => 
     array (
-      0 => 'application/x-pc-engine-rom',
+      't' => 
+      array (
+        0 => 'application/x-pc-engine-rom',
+      ),
     ),
-    'pcf' =>
+    'pcf' => 
     array (
-      0 => 'application/x-font-pcf',
-      1 => 'application/x-cisco-vpn-settings',
+      't' => 
+      array (
+        0 => 'application/x-font-pcf',
+        1 => 'application/x-cisco-vpn-settings',
+      ),
     ),
-    'pcf.gz' =>
+    'pcf.gz' => 
     array (
-      0 => 'application/x-font-pcf',
+      't' => 
+      array (
+        0 => 'application/x-font-pcf',
+      ),
     ),
-    'pcf.z' =>
+    'pcf.z' => 
     array (
-      0 => 'application/x-font-pcf',
+      't' => 
+      array (
+        0 => 'application/x-font-pcf',
+      ),
     ),
-    'pcl' =>
+    'pcl' => 
     array (
-      0 => 'application/vnd.hp-pcl',
+      't' => 
+      array (
+        0 => 'application/vnd.hp-pcl',
+      ),
     ),
-    'pclxl' =>
+    'pclxl' => 
     array (
-      0 => 'application/vnd.hp-pclxl',
+      't' => 
+      array (
+        0 => 'application/vnd.hp-pclxl',
+      ),
     ),
-    'pct' =>
+    'pct' => 
     array (
-      0 => 'image/x-pict',
+      't' => 
+      array (
+        0 => 'image/x-pict',
+      ),
     ),
-    'pcurl' =>
+    'pcurl' => 
     array (
-      0 => 'application/vnd.curl.pcurl',
+      't' => 
+      array (
+        0 => 'application/vnd.curl.pcurl',
+      ),
     ),
-    'pcx' =>
+    'pcx' => 
     array (
-      0 => 'image/x-pcx',
-      1 => 'image/vnd.zbrush.pcx',
+      't' => 
+      array (
+        0 => 'image/x-pcx',
+        1 => 'image/vnd.zbrush.pcx',
+      ),
     ),
-    'pdb' =>
+    'pdb' => 
     array (
-      0 => 'application/vnd.palm',
-      1 => 'application/x-aportisdoc',
+      't' => 
+      array (
+        0 => 'application/vnd.palm',
+        1 => 'application/x-aportisdoc',
+      ),
     ),
-    'pdc' =>
+    'pdc' => 
     array (
-      0 => 'application/x-aportisdoc',
+      't' => 
+      array (
+        0 => 'application/x-aportisdoc',
+      ),
     ),
-    'pdf' =>
+    'pdf' => 
     array (
-      0 => 'application/pdf',
+      't' => 
+      array (
+        0 => 'application/pdf',
+      ),
     ),
-    'pdf.bz2' =>
+    'pdf.bz2' => 
     array (
-      0 => 'application/x-bzpdf',
+      't' => 
+      array (
+        0 => 'application/x-bzpdf',
+      ),
     ),
-    'pdf.gz' =>
+    'pdf.gz' => 
     array (
-      0 => 'application/x-gzpdf',
+      't' => 
+      array (
+        0 => 'application/x-gzpdf',
+      ),
     ),
-    'pdf.lz' =>
+    'pdf.lz' => 
     array (
-      0 => 'application/x-lzpdf',
+      't' => 
+      array (
+        0 => 'application/x-lzpdf',
+      ),
     ),
-    'pdf.xz' =>
+    'pdf.xz' => 
     array (
-      0 => 'application/x-xzpdf',
+      't' => 
+      array (
+        0 => 'application/x-xzpdf',
+      ),
     ),
-    'pef' =>
+    'pef' => 
     array (
-      0 => 'image/x-pentax-pef',
+      't' => 
+      array (
+        0 => 'image/x-pentax-pef',
+      ),
     ),
-    'pem' =>
+    'pem' => 
     array (
-      0 => 'application/x-x509-ca-cert',
+      't' => 
+      array (
+        0 => 'application/x-x509-ca-cert',
+      ),
     ),
-    'perl' =>
+    'perl' => 
     array (
-      0 => 'application/x-perl',
+      't' => 
+      array (
+        0 => 'application/x-perl',
+      ),
     ),
-    'pfa' =>
+    'pfa' => 
     array (
-      0 => 'application/x-font-type1',
+      't' => 
+      array (
+        0 => 'application/x-font-type1',
+      ),
     ),
-    'pfb' =>
+    'pfb' => 
     array (
-      0 => 'application/x-font-type1',
+      't' => 
+      array (
+        0 => 'application/x-font-type1',
+      ),
     ),
-    'pfm' =>
+    'pfm' => 
     array (
-      0 => 'application/x-font-type1',
+      't' => 
+      array (
+        0 => 'application/x-font-type1',
+      ),
     ),
-    'pfr' =>
+    'pfr' => 
     array (
-      0 => 'application/font-tdpfr',
+      't' => 
+      array (
+        0 => 'application/font-tdpfr',
+      ),
     ),
-    'pfx' =>
+    'pfx' => 
     array (
-      0 => 'application/x-pkcs12',
-      1 => 'application/pkcs12',
+      't' => 
+      array (
+        0 => 'application/x-pkcs12',
+        1 => 'application/pkcs12',
+      ),
     ),
-    'pgm' =>
+    'pgm' => 
     array (
-      0 => 'image/x-portable-graymap',
+      't' => 
+      array (
+        0 => 'image/x-portable-graymap',
+      ),
     ),
-    'pgn' =>
+    'pgn' => 
     array (
-      0 => 'application/x-chess-pgn',
-      1 => 'application/vnd.chess-pgn',
+      't' => 
+      array (
+        0 => 'application/x-chess-pgn',
+        1 => 'application/vnd.chess-pgn',
+      ),
     ),
-    'pgp' =>
+    'pgp' => 
     array (
-      0 => 'application/pgp-encrypted',
-      1 => 'application/pgp-keys',
-      2 => 'application/pgp-signature',
+      't' => 
+      array (
+        0 => 'application/pgp-encrypted',
+        1 => 'application/pgp-keys',
+        2 => 'application/pgp-signature',
+      ),
     ),
-    'php' =>
+    'php' => 
     array (
-      0 => 'application/x-php',
+      't' => 
+      array (
+        0 => 'application/x-php',
+      ),
     ),
-    'php3' =>
+    'php3' => 
     array (
-      0 => 'application/x-php',
+      't' => 
+      array (
+        0 => 'application/x-php',
+      ),
     ),
-    'php4' =>
+    'php4' => 
     array (
-      0 => 'application/x-php',
+      't' => 
+      array (
+        0 => 'application/x-php',
+      ),
     ),
-    'php5' =>
+    'php5' => 
     array (
-      0 => 'application/x-php',
+      't' => 
+      array (
+        0 => 'application/x-php',
+      ),
     ),
-    'phps' =>
+    'phps' => 
     array (
-      0 => 'application/x-php',
+      't' => 
+      array (
+        0 => 'application/x-php',
+      ),
     ),
-    'pic' =>
+    'pic' => 
     array (
-      0 => 'image/x-pict',
+      't' => 
+      array (
+        0 => 'image/x-pict',
+      ),
     ),
-    'pict' =>
+    'pict' => 
     array (
-      0 => 'image/x-pict',
+      't' => 
+      array (
+        0 => 'image/x-pict',
+      ),
     ),
-    'pict1' =>
+    'pict1' => 
     array (
-      0 => 'image/x-pict',
+      't' => 
+      array (
+        0 => 'image/x-pict',
+      ),
     ),
-    'pict2' =>
+    'pict2' => 
     array (
-      0 => 'image/x-pict',
+      't' => 
+      array (
+        0 => 'image/x-pict',
+      ),
     ),
-    'pk' =>
+    'pk' => 
     array (
-      0 => 'application/x-tex-pk',
+      't' => 
+      array (
+        0 => 'application/x-tex-pk',
+      ),
     ),
-    'pkg' =>
+    'pkg' => 
     array (
-      0 => 'application/octet-stream',
-      1 => 'application/x-xar',
+      't' => 
+      array (
+        0 => 'application/octet-stream',
+        1 => 'application/x-xar',
+      ),
     ),
-    'pki' =>
+    'pki' => 
     array (
-      0 => 'application/pkixcmp',
+      't' => 
+      array (
+        0 => 'application/pkixcmp',
+      ),
     ),
-    'pkipath' =>
+    'pkipath' => 
     array (
-      0 => 'application/pkix-pkipath',
+      't' => 
+      array (
+        0 => 'application/pkix-pkipath',
+      ),
     ),
-    'pkr' =>
+    'pkr' => 
     array (
-      0 => 'application/pgp-keys',
+      't' => 
+      array (
+        0 => 'application/pgp-keys',
+      ),
     ),
-    'pl' =>
+    'pl' => 
     array (
-      0 => 'application/x-perl',
+      't' => 
+      array (
+        0 => 'application/x-perl',
+      ),
     ),
-    'pla' =>
+    'pla' => 
     array (
-      0 => 'audio/x-iriver-pla',
+      't' => 
+      array (
+        0 => 'audio/x-iriver-pla',
+      ),
     ),
-    'plb' =>
+    'plb' => 
     array (
-      0 => 'application/vnd.3gpp.pic-bw-large',
+      't' => 
+      array (
+        0 => 'application/vnd.3gpp.pic-bw-large',
+      ),
     ),
-    'plc' =>
+    'plc' => 
     array (
-      0 => 'application/vnd.mobius.plc',
+      't' => 
+      array (
+        0 => 'application/vnd.mobius.plc',
+      ),
     ),
-    'plf' =>
+    'plf' => 
     array (
-      0 => 'application/vnd.pocketlearn',
+      't' => 
+      array (
+        0 => 'application/vnd.pocketlearn',
+      ),
     ),
-    'pln' =>
+    'pln' => 
     array (
-      0 => 'application/x-planperfect',
+      't' => 
+      array (
+        0 => 'application/x-planperfect',
+      ),
     ),
-    'pls' =>
+    'pls' => 
     array (
-      0 => 'application/pls+xml',
-      1 => 'audio/x-scpls',
+      't' => 
+      array (
+        0 => 'application/pls+xml',
+        1 => 'audio/x-scpls',
+      ),
     ),
-    'pm' =>
+    'pm' => 
     array (
-      0 => 'application/x-perl',
-      1 => 'application/x-pagemaker',
+      't' => 
+      array (
+        0 => 'application/x-perl',
+        1 => 'application/x-pagemaker',
+      ),
     ),
-    'pm6' =>
+    'pm6' => 
     array (
-      0 => 'application/x-pagemaker',
+      't' => 
+      array (
+        0 => 'application/x-pagemaker',
+      ),
     ),
-    'pmd' =>
+    'pmd' => 
     array (
-      0 => 'application/x-pagemaker',
+      't' => 
+      array (
+        0 => 'application/x-pagemaker',
+      ),
     ),
-    'pml' =>
+    'pml' => 
     array (
-      0 => 'application/vnd.ctc-posml',
+      't' => 
+      array (
+        0 => 'application/vnd.ctc-posml',
+      ),
     ),
-    'png' =>
+    'png' => 
     array (
-      0 => 'image/png',
+      't' => 
+      array (
+        0 => 'image/png',
+      ),
     ),
-    'pnm' =>
+    'pnm' => 
     array (
-      0 => 'image/x-portable-anymap',
+      't' => 
+      array (
+        0 => 'image/x-portable-anymap',
+      ),
     ),
-    'pntg' =>
+    'pntg' => 
     array (
-      0 => 'image/x-macpaint',
+      't' => 
+      array (
+        0 => 'image/x-macpaint',
+      ),
     ),
-    'po' =>
+    'po' => 
     array (
-      0 => 'text/x-gettext-translation',
+      't' => 
+      array (
+        0 => 'text/x-gettext-translation',
+      ),
     ),
-    'pod' =>
+    'pod' => 
     array (
-      0 => 'application/x-perl',
+      't' => 
+      array (
+        0 => 'application/x-perl',
+      ),
     ),
-    'por' =>
+    'por' => 
     array (
-      0 => 'application/x-spss-por',
+      't' => 
+      array (
+        0 => 'application/x-spss-por',
+      ),
     ),
-    'portpkg' =>
+    'portpkg' => 
     array (
-      0 => 'application/vnd.macports.portpkg',
+      't' => 
+      array (
+        0 => 'application/vnd.macports.portpkg',
+      ),
     ),
-    'pot' =>
+    'pot' => 
     array (
-      0 => 'application/vnd.ms-powerpoint',
-      1 => 'text/x-gettext-translation-template',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-powerpoint',
+        1 => 'text/x-gettext-translation-template',
+      ),
     ),
-    'potm' =>
+    'potm' => 
     array (
-      0 => 'application/vnd.ms-powerpoint.template.macroenabled.12',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-powerpoint.template.macroenabled.12',
+      ),
     ),
-    'potx' =>
+    'potx' => 
     array (
-      0 => 'application/vnd.openxmlformats-officedocument.presentationml.template',
+      't' => 
+      array (
+        0 => 'application/vnd.openxmlformats-officedocument.presentationml.template',
+      ),
     ),
-    'ppam' =>
+    'ppam' => 
     array (
-      0 => 'application/vnd.ms-powerpoint.addin.macroenabled.12',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-powerpoint.addin.macroenabled.12',
+      ),
     ),
-    'ppd' =>
+    'ppd' => 
     array (
-      0 => 'application/vnd.cups-ppd',
+      't' => 
+      array (
+        0 => 'application/vnd.cups-ppd',
+      ),
     ),
-    'ppm' =>
+    'ppm' => 
     array (
-      0 => 'image/x-portable-pixmap',
+      't' => 
+      array (
+        0 => 'image/x-portable-pixmap',
+      ),
     ),
-    'pps' =>
+    'pps' => 
     array (
-      0 => 'application/vnd.ms-powerpoint',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-powerpoint',
+      ),
     ),
-    'ppsm' =>
+    'ppsm' => 
     array (
-      0 => 'application/vnd.ms-powerpoint.slideshow.macroenabled.12',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-powerpoint.slideshow.macroenabled.12',
+      ),
     ),
-    'ppsx' =>
+    'ppsx' => 
     array (
-      0 => 'application/vnd.openxmlformats-officedocument.presentationml.slideshow',
+      't' => 
+      array (
+        0 => 'application/vnd.openxmlformats-officedocument.presentationml.slideshow',
+      ),
     ),
-    'ppt' =>
+    'ppt' => 
     array (
-      0 => 'application/vnd.ms-powerpoint',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-powerpoint',
+      ),
     ),
-    'pptm' =>
+    'pptm' => 
     array (
-      0 => 'application/vnd.ms-powerpoint.presentation.macroenabled.12',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-powerpoint.presentation.macroenabled.12',
+      ),
     ),
-    'pptx' =>
+    'pptx' => 
     array (
-      0 => 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+      't' => 
+      array (
+        0 => 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+      ),
     ),
-    'ppz' =>
+    'ppz' => 
     array (
-      0 => 'application/vnd.ms-powerpoint',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-powerpoint',
+      ),
     ),
-    'pqa' =>
+    'pqa' => 
     array (
-      0 => 'application/vnd.palm',
+      't' => 
+      array (
+        0 => 'application/vnd.palm',
+      ),
     ),
-    'prc' =>
+    'prc' => 
     array (
-      0 => 'application/x-mobipocket-ebook',
-      1 => 'application/vnd.palm',
+      't' => 
+      array (
+        0 => 'application/x-mobipocket-ebook',
+        1 => 'application/vnd.palm',
+      ),
     ),
-    'pre' =>
+    'pre' => 
     array (
-      0 => 'application/vnd.lotus-freelance',
+      't' => 
+      array (
+        0 => 'application/vnd.lotus-freelance',
+      ),
     ),
-    'prf' =>
+    'prf' => 
     array (
-      0 => 'application/pics-rules',
+      't' => 
+      array (
+        0 => 'application/pics-rules',
+      ),
     ),
-    'ps' =>
+    'ps' => 
     array (
-      0 => 'application/postscript',
+      't' => 
+      array (
+        0 => 'application/postscript',
+      ),
     ),
-    'ps.bz2' =>
+    'ps.bz2' => 
     array (
-      0 => 'application/x-bzpostscript',
+      't' => 
+      array (
+        0 => 'application/x-bzpostscript',
+      ),
     ),
-    'ps.gz' =>
+    'ps.gz' => 
     array (
-      0 => 'application/x-gzpostscript',
+      't' => 
+      array (
+        0 => 'application/x-gzpostscript',
+      ),
     ),
-    'psb' =>
+    'psb' => 
     array (
-      0 => 'application/vnd.3gpp.pic-bw-small',
+      't' => 
+      array (
+        0 => 'application/vnd.3gpp.pic-bw-small',
+      ),
     ),
-    'psd' =>
+    'psd' => 
     array (
-      0 => 'image/vnd.adobe.photoshop',
+      't' => 
+      array (
+        0 => 'image/vnd.adobe.photoshop',
+      ),
     ),
-    'psf' =>
+    'psf' => 
     array (
-      0 => 'application/x-font-linux-psf',
-      1 => 'audio/x-psf',
+      't' => 
+      array (
+        0 => 'application/x-font-linux-psf',
+        1 => 'audio/x-psf',
+      ),
     ),
-    'psf.gz' =>
+    'psf.gz' => 
     array (
-      0 => 'application/x-gz-font-linux-psf',
+      't' => 
+      array (
+        0 => 'application/x-gz-font-linux-psf',
+      ),
     ),
-    'psflib' =>
+    'psflib' => 
     array (
-      0 => 'audio/x-psflib',
+      't' => 
+      array (
+        0 => 'audio/x-psflib',
+      ),
     ),
-    'psid' =>
+    'psid' => 
     array (
-      0 => 'audio/prs.sid',
+      't' => 
+      array (
+        0 => 'audio/prs.sid',
+      ),
     ),
-    'pskcxml' =>
+    'pskcxml' => 
     array (
-      0 => 'application/pskc+xml',
+      't' => 
+      array (
+        0 => 'application/pskc+xml',
+      ),
     ),
-    'psw' =>
+    'psw' => 
     array (
-      0 => 'application/x-pocket-word',
+      't' => 
+      array (
+        0 => 'application/x-pocket-word',
+      ),
     ),
-    'ptid' =>
+    'ptid' => 
     array (
-      0 => 'application/vnd.pvi.ptid1',
+      't' => 
+      array (
+        0 => 'application/vnd.pvi.ptid1',
+      ),
     ),
-    'pub' =>
+    'pub' => 
     array (
-      0 => 'application/x-mspublisher',
-      1 => 'application/vnd.ms-publisher',
+      't' => 
+      array (
+        0 => 'application/x-mspublisher',
+        1 => 'application/vnd.ms-publisher',
+      ),
     ),
-    'pvb' =>
+    'pvb' => 
     array (
-      0 => 'application/vnd.3gpp.pic-bw-var',
+      't' => 
+      array (
+        0 => 'application/vnd.3gpp.pic-bw-var',
+      ),
     ),
-    'pw' =>
+    'pw' => 
     array (
-      0 => 'application/x-pw',
+      't' => 
+      array (
+        0 => 'application/x-pw',
+      ),
     ),
-    'pwn' =>
+    'pwn' => 
     array (
-      0 => 'application/vnd.3m.post-it-notes',
+      't' => 
+      array (
+        0 => 'application/vnd.3m.post-it-notes',
+      ),
     ),
-    'py' =>
+    'py' => 
     array (
-      0 => 'text/x-python3',
-      1 => 'text/x-python',
+      't' => 
+      array (
+        0 => 'text/x-python3',
+        1 => 'text/x-python',
+      ),
     ),
-    'py3' =>
+    'py3' => 
     array (
-      0 => 'text/x-python3',
+      't' => 
+      array (
+        0 => 'text/x-python3',
+      ),
     ),
-    'py3x' =>
+    'py3x' => 
     array (
-      0 => 'text/x-python3',
+      't' => 
+      array (
+        0 => 'text/x-python3',
+      ),
     ),
-    'pya' =>
+    'pya' => 
     array (
-      0 => 'audio/vnd.ms-playready.media.pya',
+      't' => 
+      array (
+        0 => 'audio/vnd.ms-playready.media.pya',
+      ),
     ),
-    'pyc' =>
+    'pyc' => 
     array (
-      0 => 'application/x-python-bytecode',
+      't' => 
+      array (
+        0 => 'application/x-python-bytecode',
+      ),
     ),
-    'pyo' =>
+    'pyo' => 
     array (
-      0 => 'application/x-python-bytecode',
+      't' => 
+      array (
+        0 => 'application/x-python-bytecode',
+      ),
     ),
-    'pyv' =>
+    'pyv' => 
     array (
-      0 => 'video/vnd.ms-playready.media.pyv',
+      't' => 
+      array (
+        0 => 'video/vnd.ms-playready.media.pyv',
+      ),
     ),
-    'pyx' =>
+    'pyx' => 
     array (
-      0 => 'text/x-python',
+      't' => 
+      array (
+        0 => 'text/x-python',
+      ),
     ),
-    'qam' =>
+    'qam' => 
     array (
-      0 => 'application/vnd.epson.quickanime',
+      't' => 
+      array (
+        0 => 'application/vnd.epson.quickanime',
+      ),
     ),
-    'qbo' =>
+    'qbo' => 
     array (
-      0 => 'application/vnd.intu.qbo',
+      't' => 
+      array (
+        0 => 'application/vnd.intu.qbo',
+      ),
     ),
-    'qd' =>
+    'qd' => 
     array (
-      0 => 'application/x-raw-floppy-disk-image',
+      't' => 
+      array (
+        0 => 'application/x-raw-floppy-disk-image',
+      ),
     ),
-    'qfx' =>
+    'qfx' => 
     array (
-      0 => 'application/vnd.intu.qfx',
+      't' => 
+      array (
+        0 => 'application/vnd.intu.qfx',
+      ),
     ),
-    'qif' =>
+    'qif' => 
     array (
-      0 => 'application/x-qw',
-      1 => 'image/x-quicktime',
+      't' => 
+      array (
+        0 => 'application/x-qw',
+        1 => 'image/x-quicktime',
+      ),
     ),
-    'qml' =>
+    'qml' => 
     array (
-      0 => 'text/x-qml',
+      't' => 
+      array (
+        0 => 'text/x-qml',
+      ),
     ),
-    'qmlproject' =>
+    'qmlproject' => 
     array (
-      0 => 'text/x-qml',
+      't' => 
+      array (
+        0 => 'text/x-qml',
+      ),
     ),
-    'qmltypes' =>
+    'qmltypes' => 
     array (
-      0 => 'text/x-qml',
+      't' => 
+      array (
+        0 => 'text/x-qml',
+      ),
     ),
-    'qp' =>
+    'qp' => 
     array (
-      0 => 'application/x-qpress',
+      't' => 
+      array (
+        0 => 'application/x-qpress',
+      ),
     ),
-    'qps' =>
+    'qps' => 
     array (
-      0 => 'application/vnd.publishare-delta-tree',
+      't' => 
+      array (
+        0 => 'application/vnd.publishare-delta-tree',
+      ),
     ),
-    'qt' =>
+    'qt' => 
     array (
-      0 => 'video/quicktime',
+      't' => 
+      array (
+        0 => 'video/quicktime',
+      ),
     ),
-    'qti' =>
+    'qti' => 
     array (
-      0 => 'application/x-qtiplot',
+      't' => 
+      array (
+        0 => 'application/x-qtiplot',
+      ),
     ),
-    'qti.gz' =>
+    'qti.gz' => 
     array (
-      0 => 'application/x-qtiplot',
+      't' => 
+      array (
+        0 => 'application/x-qtiplot',
+      ),
     ),
-    'qtif' =>
+    'qtif' => 
     array (
-      0 => 'image/x-quicktime',
+      't' => 
+      array (
+        0 => 'image/x-quicktime',
+      ),
     ),
-    'qtl' =>
+    'qtl' => 
     array (
-      0 => 'application/x-quicktime-media-link',
+      't' => 
+      array (
+        0 => 'application/x-quicktime-media-link',
+      ),
     ),
-    'qtvr' =>
+    'qtvr' => 
     array (
-      0 => 'video/quicktime',
+      't' => 
+      array (
+        0 => 'video/quicktime',
+      ),
     ),
-    'qwd' =>
+    'qwd' => 
     array (
-      0 => 'application/vnd.quark.quarkxpress',
+      't' => 
+      array (
+        0 => 'application/vnd.quark.quarkxpress',
+      ),
     ),
-    'qwt' =>
+    'qwt' => 
     array (
-      0 => 'application/vnd.quark.quarkxpress',
+      't' => 
+      array (
+        0 => 'application/vnd.quark.quarkxpress',
+      ),
     ),
-    'qxb' =>
+    'qxb' => 
     array (
-      0 => 'application/vnd.quark.quarkxpress',
+      't' => 
+      array (
+        0 => 'application/vnd.quark.quarkxpress',
+      ),
     ),
-    'qxd' =>
+    'qxd' => 
     array (
-      0 => 'application/vnd.quark.quarkxpress',
+      't' => 
+      array (
+        0 => 'application/vnd.quark.quarkxpress',
+      ),
     ),
-    'qxl' =>
+    'qxl' => 
     array (
-      0 => 'application/vnd.quark.quarkxpress',
+      't' => 
+      array (
+        0 => 'application/vnd.quark.quarkxpress',
+      ),
     ),
-    'qxt' =>
+    'qxt' => 
     array (
-      0 => 'application/vnd.quark.quarkxpress',
+      't' => 
+      array (
+        0 => 'application/vnd.quark.quarkxpress',
+      ),
     ),
-    'ra' =>
+    'ra' => 
     array (
-      0 => 'audio/x-pn-realaudio',
-      1 => 'audio/vnd.rn-realaudio',
+      't' => 
+      array (
+        0 => 'audio/x-pn-realaudio',
+        1 => 'audio/vnd.rn-realaudio',
+      ),
     ),
-    'raf' =>
+    'raf' => 
     array (
-      0 => 'image/x-fuji-raf',
+      't' => 
+      array (
+        0 => 'image/x-fuji-raf',
+      ),
     ),
-    'ram' =>
+    'ram' => 
     array (
-      0 => 'audio/x-pn-realaudio',
-      1 => 'application/ram',
+      't' => 
+      array (
+        0 => 'audio/x-pn-realaudio',
+        1 => 'application/ram',
+      ),
     ),
-    'raml' =>
+    'raml' => 
     array (
-      0 => 'application/raml+yaml',
+      't' => 
+      array (
+        0 => 'application/raml+yaml',
+      ),
     ),
-    'rar' =>
+    'rar' => 
     array (
-      0 => 'application/x-rar-compressed',
-      1 => 'application/vnd.rar',
+      't' => 
+      array (
+        0 => 'application/x-rar-compressed',
+        1 => 'application/vnd.rar',
+      ),
     ),
-    'ras' =>
+    'ras' => 
     array (
-      0 => 'image/x-cmu-raster',
+      't' => 
+      array (
+        0 => 'image/x-cmu-raster',
+      ),
     ),
-    'raw' =>
+    'raw' => 
     array (
-      0 => 'image/x-panasonic-rw',
+      't' => 
+      array (
+        0 => 'image/x-panasonic-rw',
+      ),
     ),
-    'raw-disk-image' =>
+    'raw-disk-image' => 
     array (
-      0 => 'application/x-raw-disk-image',
+      't' => 
+      array (
+        0 => 'application/x-raw-disk-image',
+      ),
     ),
-    'raw-disk-image.xz' =>
+    'raw-disk-image.xz' => 
     array (
-      0 => 'application/x-raw-disk-image-xz-compressed',
+      't' => 
+      array (
+        0 => 'application/x-raw-disk-image-xz-compressed',
+      ),
     ),
-    'rax' =>
+    'rax' => 
     array (
-      0 => 'audio/vnd.rn-realaudio',
+      't' => 
+      array (
+        0 => 'audio/vnd.rn-realaudio',
+      ),
     ),
-    'rb' =>
+    'rb' => 
     array (
-      0 => 'application/x-ruby',
+      't' => 
+      array (
+        0 => 'application/x-ruby',
+      ),
     ),
-    'rcprofile' =>
+    'rcprofile' => 
     array (
-      0 => 'application/vnd.ipunplugged.rcprofile',
+      't' => 
+      array (
+        0 => 'application/vnd.ipunplugged.rcprofile',
+      ),
     ),
-    'rdf' =>
+    'rdf' => 
     array (
-      0 => 'application/rdf+xml',
+      't' => 
+      array (
+        0 => 'application/rdf+xml',
+      ),
     ),
-    'rdfs' =>
+    'rdfs' => 
     array (
-      0 => 'application/rdf+xml',
+      't' => 
+      array (
+        0 => 'application/rdf+xml',
+      ),
     ),
-    'rdz' =>
+    'rdz' => 
     array (
-      0 => 'application/vnd.data-vision.rdz',
+      't' => 
+      array (
+        0 => 'application/vnd.data-vision.rdz',
+      ),
     ),
-    'reg' =>
+    'reg' => 
     array (
-      0 => 'text/x-ms-regedit',
+      't' => 
+      array (
+        0 => 'text/x-ms-regedit',
+      ),
     ),
-    'rej' =>
+    'rej' => 
     array (
-      0 => 'text/x-reject',
+      't' => 
+      array (
+        0 => 'text/x-reject',
+      ),
     ),
-    'rep' =>
+    'rep' => 
     array (
-      0 => 'application/vnd.businessobjects',
+      't' => 
+      array (
+        0 => 'application/vnd.businessobjects',
+      ),
     ),
-    'res' =>
+    'res' => 
     array (
-      0 => 'application/x-dtbresource+xml',
+      't' => 
+      array (
+        0 => 'application/x-dtbresource+xml',
+      ),
     ),
-    'rgb' =>
+    'rgb' => 
     array (
-      0 => 'image/x-rgb',
+      't' => 
+      array (
+        0 => 'image/x-rgb',
+      ),
     ),
-    'rif' =>
+    'rif' => 
     array (
-      0 => 'application/reginfo+xml',
+      't' => 
+      array (
+        0 => 'application/reginfo+xml',
+      ),
     ),
-    'rip' =>
+    'rip' => 
     array (
-      0 => 'audio/vnd.rip',
+      't' => 
+      array (
+        0 => 'audio/vnd.rip',
+      ),
     ),
-    'ris' =>
+    'ris' => 
     array (
-      0 => 'application/x-research-info-systems',
+      't' => 
+      array (
+        0 => 'application/x-research-info-systems',
+      ),
     ),
-    'rl' =>
+    'rl' => 
     array (
-      0 => 'application/resource-lists+xml',
+      't' => 
+      array (
+        0 => 'application/resource-lists+xml',
+      ),
     ),
-    'rlc' =>
+    'rlc' => 
     array (
-      0 => 'image/vnd.fujixerox.edmics-rlc',
+      't' => 
+      array (
+        0 => 'image/vnd.fujixerox.edmics-rlc',
+      ),
     ),
-    'rld' =>
+    'rld' => 
     array (
-      0 => 'application/resource-lists-diff+xml',
+      't' => 
+      array (
+        0 => 'application/resource-lists-diff+xml',
+      ),
     ),
-    'rle' =>
+    'rle' => 
     array (
-      0 => 'image/rle',
+      't' => 
+      array (
+        0 => 'image/rle',
+      ),
     ),
-    'rm' =>
+    'rm' => 
     array (
-      0 => 'application/vnd.rn-realmedia',
+      't' => 
+      array (
+        0 => 'application/vnd.rn-realmedia',
+      ),
     ),
-    'rmi' =>
+    'rmi' => 
     array (
-      0 => 'audio/midi',
+      't' => 
+      array (
+        0 => 'audio/midi',
+      ),
     ),
-    'rmj' =>
+    'rmj' => 
     array (
-      0 => 'application/vnd.rn-realmedia',
+      't' => 
+      array (
+        0 => 'application/vnd.rn-realmedia',
+      ),
     ),
-    'rmm' =>
+    'rmm' => 
     array (
-      0 => 'application/vnd.rn-realmedia',
+      't' => 
+      array (
+        0 => 'application/vnd.rn-realmedia',
+      ),
     ),
-    'rmp' =>
+    'rmp' => 
     array (
-      0 => 'audio/x-pn-realaudio-plugin',
+      't' => 
+      array (
+        0 => 'audio/x-pn-realaudio-plugin',
+      ),
     ),
-    'rms' =>
+    'rms' => 
     array (
-      0 => 'application/vnd.jcp.javame.midlet-rms',
-      1 => 'application/vnd.rn-realmedia',
+      't' => 
+      array (
+        0 => 'application/vnd.jcp.javame.midlet-rms',
+        1 => 'application/vnd.rn-realmedia',
+      ),
     ),
-    'rmvb' =>
+    'rmvb' => 
     array (
-      0 => 'application/vnd.rn-realmedia-vbr',
-      1 => 'application/vnd.rn-realmedia',
+      't' => 
+      array (
+        0 => 'application/vnd.rn-realmedia-vbr',
+        1 => 'application/vnd.rn-realmedia',
+      ),
     ),
-    'rmx' =>
+    'rmx' => 
     array (
-      0 => 'application/vnd.rn-realmedia',
+      't' => 
+      array (
+        0 => 'application/vnd.rn-realmedia',
+      ),
     ),
-    'rnc' =>
+    'rnc' => 
     array (
-      0 => 'application/relax-ng-compact-syntax',
+      't' => 
+      array (
+        0 => 'application/relax-ng-compact-syntax',
+      ),
     ),
-    'rng' =>
+    'rng' => 
     array (
-      0 => 'application/xml',
+      't' => 
+      array (
+        0 => 'application/xml',
+      ),
     ),
-    'roa' =>
+    'roa' => 
     array (
-      0 => 'application/rpki-roa',
+      't' => 
+      array (
+        0 => 'application/rpki-roa',
+      ),
     ),
-    'roff' =>
+    'roff' => 
     array (
-      0 => 'text/troff',
+      't' => 
+      array (
+        0 => 'text/troff',
+      ),
     ),
-    'rp' =>
+    'rp' => 
     array (
-      0 => 'image/vnd.rn-realpix',
+      't' => 
+      array (
+        0 => 'image/vnd.rn-realpix',
+      ),
     ),
-    'rp9' =>
+    'rp9' => 
     array (
-      0 => 'application/vnd.cloanto.rp9',
+      't' => 
+      array (
+        0 => 'application/vnd.cloanto.rp9',
+      ),
     ),
-    'rpm' =>
+    'rpm' => 
     array (
-      0 => 'application/x-rpm',
+      't' => 
+      array (
+        0 => 'application/x-rpm',
+      ),
     ),
-    'rpss' =>
+    'rpss' => 
     array (
-      0 => 'application/vnd.nokia.radio-presets',
+      't' => 
+      array (
+        0 => 'application/vnd.nokia.radio-presets',
+      ),
     ),
-    'rpst' =>
+    'rpst' => 
     array (
-      0 => 'application/vnd.nokia.radio-preset',
+      't' => 
+      array (
+        0 => 'application/vnd.nokia.radio-preset',
+      ),
     ),
-    'rq' =>
+    'rq' => 
     array (
-      0 => 'application/sparql-query',
+      't' => 
+      array (
+        0 => 'application/sparql-query',
+      ),
     ),
-    'rs' =>
+    'rs' => 
     array (
-      0 => 'application/rls-services+xml',
-      1 => 'text/rust',
+      't' => 
+      array (
+        0 => 'application/rls-services+xml',
+        1 => 'text/rust',
+      ),
     ),
-    'rsd' =>
+    'rsd' => 
     array (
-      0 => 'application/rsd+xml',
+      't' => 
+      array (
+        0 => 'application/rsd+xml',
+      ),
     ),
-    'rss' =>
+    'rss' => 
     array (
-      0 => 'application/rss+xml',
+      't' => 
+      array (
+        0 => 'application/rss+xml',
+      ),
     ),
-    'rt' =>
+    'rt' => 
     array (
-      0 => 'text/vnd.rn-realtext',
+      't' => 
+      array (
+        0 => 'text/vnd.rn-realtext',
+      ),
     ),
-    'rtf' =>
+    'rtf' => 
     array (
-      0 => 'application/rtf',
+      't' => 
+      array (
+        0 => 'application/rtf',
+      ),
     ),
-    'rtx' =>
+    'rtx' => 
     array (
-      0 => 'text/richtext',
+      't' => 
+      array (
+        0 => 'text/richtext',
+      ),
     ),
-    'rv' =>
+    'rv' => 
     array (
-      0 => 'video/vnd.rn-realvideo',
+      't' => 
+      array (
+        0 => 'video/vnd.rn-realvideo',
+      ),
     ),
-    'rvx' =>
+    'rvx' => 
     array (
-      0 => 'video/vnd.rn-realvideo',
+      't' => 
+      array (
+        0 => 'video/vnd.rn-realvideo',
+      ),
     ),
-    'rw2' =>
+    'rw2' => 
     array (
-      0 => 'image/x-panasonic-rw2',
+      't' => 
+      array (
+        0 => 'image/x-panasonic-rw2',
+      ),
     ),
-    's' =>
+    's' => 
     array (
-      0 => 'text/x-asm',
+      't' => 
+      array (
+        0 => 'text/x-asm',
+      ),
     ),
-    's3m' =>
+    's3m' => 
     array (
-      0 => 'audio/s3m',
-      1 => 'audio/x-s3m',
+      't' => 
+      array (
+        0 => 'audio/s3m',
+        1 => 'audio/x-s3m',
+      ),
     ),
-    'saf' =>
+    'saf' => 
     array (
-      0 => 'application/vnd.yamaha.smaf-audio',
+      't' => 
+      array (
+        0 => 'application/vnd.yamaha.smaf-audio',
+      ),
     ),
-    'sam' =>
+    'sam' => 
     array (
-      0 => 'application/x-amipro',
+      't' => 
+      array (
+        0 => 'application/x-amipro',
+      ),
     ),
-    'sami' =>
+    'sami' => 
     array (
-      0 => 'application/x-sami',
+      't' => 
+      array (
+        0 => 'application/x-sami',
+      ),
     ),
-    'sap' =>
+    'sap' => 
     array (
-      0 => 'application/x-thomson-sap-image',
+      't' => 
+      array (
+        0 => 'application/x-thomson-sap-image',
+      ),
     ),
-    'sass' =>
+    'sass' => 
     array (
-      0 => 'text/x-sass',
+      't' => 
+      array (
+        0 => 'text/x-sass',
+      ),
     ),
-    'sav' =>
+    'sav' => 
     array (
-      0 => 'application/x-spss-sav',
+      't' => 
+      array (
+        0 => 'application/x-spss-sav',
+      ),
     ),
-    'sbml' =>
+    'sbml' => 
     array (
-      0 => 'application/sbml+xml',
+      't' => 
+      array (
+        0 => 'application/sbml+xml',
+      ),
     ),
-    'sc' =>
+    'sc' => 
     array (
-      0 => 'application/vnd.ibm.secure-container',
+      't' => 
+      array (
+        0 => 'application/vnd.ibm.secure-container',
+      ),
     ),
-    'scala' =>
+    'scala' => 
     array (
-      0 => 'text/x-scala',
+      't' => 
+      array (
+        0 => 'text/x-scala',
+      ),
     ),
-    'scd' =>
+    'scd' => 
     array (
-      0 => 'application/x-msschedule',
+      't' => 
+      array (
+        0 => 'application/x-msschedule',
+      ),
     ),
-    'scm' =>
+    'scm' => 
     array (
-      0 => 'application/vnd.lotus-screencam',
-      1 => 'text/x-scheme',
+      't' => 
+      array (
+        0 => 'application/vnd.lotus-screencam',
+        1 => 'text/x-scheme',
+      ),
     ),
-    'scope' =>
+    'scope' => 
     array (
-      0 => 'text/x-systemd-unit',
+      't' => 
+      array (
+        0 => 'text/x-systemd-unit',
+      ),
     ),
-    'scq' =>
+    'scq' => 
     array (
-      0 => 'application/scvp-cv-request',
+      't' => 
+      array (
+        0 => 'application/scvp-cv-request',
+      ),
     ),
-    'scs' =>
+    'scs' => 
     array (
-      0 => 'application/scvp-cv-response',
+      't' => 
+      array (
+        0 => 'application/scvp-cv-response',
+      ),
     ),
-    'scss' =>
+    'scss' => 
     array (
-      0 => 'text/x-scss',
+      't' => 
+      array (
+        0 => 'text/x-scss',
+      ),
     ),
-    'scurl' =>
+    'scurl' => 
     array (
-      0 => 'text/vnd.curl.scurl',
+      't' => 
+      array (
+        0 => 'text/vnd.curl.scurl',
+      ),
     ),
-    'sda' =>
+    'sda' => 
     array (
-      0 => 'application/vnd.stardivision.draw',
+      't' => 
+      array (
+        0 => 'application/vnd.stardivision.draw',
+      ),
     ),
-    'sdc' =>
+    'sdc' => 
     array (
-      0 => 'application/vnd.stardivision.calc',
+      't' => 
+      array (
+        0 => 'application/vnd.stardivision.calc',
+      ),
     ),
-    'sdd' =>
+    'sdd' => 
     array (
-      0 => 'application/vnd.stardivision.impress',
+      't' => 
+      array (
+        0 => 'application/vnd.stardivision.impress',
+      ),
     ),
-    'sdkd' =>
+    'sdkd' => 
     array (
-      0 => 'application/vnd.solent.sdkm+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.solent.sdkm+xml',
+      ),
     ),
-    'sdkm' =>
+    'sdkm' => 
     array (
-      0 => 'application/vnd.solent.sdkm+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.solent.sdkm+xml',
+      ),
     ),
-    'sdp' =>
+    'sdp' => 
     array (
-      0 => 'application/sdp',
-      1 => 'application/vnd.stardivision.impress',
+      't' => 
+      array (
+        0 => 'application/sdp',
+        1 => 'application/vnd.stardivision.impress',
+      ),
     ),
-    'sds' =>
+    'sds' => 
     array (
-      0 => 'application/vnd.stardivision.chart',
+      't' => 
+      array (
+        0 => 'application/vnd.stardivision.chart',
+      ),
     ),
-    'sdw' =>
+    'sdw' => 
     array (
-      0 => 'application/vnd.stardivision.writer',
+      't' => 
+      array (
+        0 => 'application/vnd.stardivision.writer',
+      ),
     ),
-    'see' =>
+    'see' => 
     array (
-      0 => 'application/vnd.seemail',
+      't' => 
+      array (
+        0 => 'application/vnd.seemail',
+      ),
     ),
-    'seed' =>
+    'seed' => 
     array (
-      0 => 'application/vnd.fdsn.seed',
+      't' => 
+      array (
+        0 => 'application/vnd.fdsn.seed',
+      ),
     ),
-    'sema' =>
+    'sema' => 
     array (
-      0 => 'application/vnd.sema',
+      't' => 
+      array (
+        0 => 'application/vnd.sema',
+      ),
     ),
-    'semd' =>
+    'semd' => 
     array (
-      0 => 'application/vnd.semd',
+      't' => 
+      array (
+        0 => 'application/vnd.semd',
+      ),
     ),
-    'semf' =>
+    'semf' => 
     array (
-      0 => 'application/vnd.semf',
+      't' => 
+      array (
+        0 => 'application/vnd.semf',
+      ),
     ),
-    'ser' =>
+    'ser' => 
     array (
-      0 => 'application/java-serialized-object',
+      't' => 
+      array (
+        0 => 'application/java-serialized-object',
+      ),
     ),
-    'service' =>
+    'service' => 
     array (
-      0 => 'text/x-dbus-service',
-      1 => 'text/x-systemd-unit',
+      't' => 
+      array (
+        0 => 'text/x-dbus-service',
+        1 => 'text/x-systemd-unit',
+      ),
     ),
-    'setpay' =>
+    'setpay' => 
     array (
-      0 => 'application/set-payment-initiation',
+      't' => 
+      array (
+        0 => 'application/set-payment-initiation',
+      ),
     ),
-    'setreg' =>
+    'setreg' => 
     array (
-      0 => 'application/set-registration-initiation',
+      't' => 
+      array (
+        0 => 'application/set-registration-initiation',
+      ),
     ),
-    'sfc' =>
+    'sfc' => 
     array (
-      0 => 'application/vnd.nintendo.snes.rom',
+      't' => 
+      array (
+        0 => 'application/vnd.nintendo.snes.rom',
+      ),
     ),
-    'sfd-hdstx' =>
+    'sfd-hdstx' => 
     array (
-      0 => 'application/vnd.hydrostatix.sof-data',
+      't' => 
+      array (
+        0 => 'application/vnd.hydrostatix.sof-data',
+      ),
     ),
-    'sfs' =>
+    'sfs' => 
     array (
-      0 => 'application/vnd.spotfire.sfs',
+      't' => 
+      array (
+        0 => 'application/vnd.spotfire.sfs',
+      ),
     ),
-    'sfv' =>
+    'sfv' => 
     array (
-      0 => 'text/x-sfv',
+      't' => 
+      array (
+        0 => 'text/x-sfv',
+      ),
     ),
-    'sg' =>
+    'sg' => 
     array (
-      0 => 'application/x-sg1000-rom',
+      't' => 
+      array (
+        0 => 'application/x-sg1000-rom',
+      ),
     ),
-    'sgb' =>
+    'sgb' => 
     array (
-      0 => 'application/x-gameboy-rom',
+      't' => 
+      array (
+        0 => 'application/x-gameboy-rom',
+      ),
     ),
-    'sgf' =>
+    'sgf' => 
     array (
-      0 => 'application/x-go-sgf',
+      't' => 
+      array (
+        0 => 'application/x-go-sgf',
+      ),
     ),
-    'sgi' =>
+    'sgi' => 
     array (
-      0 => 'image/sgi',
-      1 => 'image/x-sgi',
+      't' => 
+      array (
+        0 => 'image/sgi',
+        1 => 'image/x-sgi',
+      ),
     ),
-    'sgl' =>
+    'sgl' => 
     array (
-      0 => 'application/vnd.stardivision.writer-global',
-      1 => 'application/vnd.stardivision.writer',
+      't' => 
+      array (
+        0 => 'application/vnd.stardivision.writer-global',
+        1 => 'application/vnd.stardivision.writer',
+      ),
     ),
-    'sgm' =>
+    'sgm' => 
     array (
-      0 => 'text/sgml',
+      't' => 
+      array (
+        0 => 'text/sgml',
+      ),
     ),
-    'sgml' =>
+    'sgml' => 
     array (
-      0 => 'text/sgml',
+      't' => 
+      array (
+        0 => 'text/sgml',
+      ),
     ),
-    'sh' =>
+    'sh' => 
     array (
-      0 => 'application/x-sh',
-      1 => 'application/x-shellscript',
+      't' => 
+      array (
+        0 => 'application/x-sh',
+        1 => 'application/x-shellscript',
+      ),
     ),
-    'shape' =>
+    'shape' => 
     array (
-      0 => 'application/x-dia-shape',
+      't' => 
+      array (
+        0 => 'application/x-dia-shape',
+      ),
     ),
-    'shar' =>
+    'shar' => 
     array (
-      0 => 'application/x-shar',
+      't' => 
+      array (
+        0 => 'application/x-shar',
+      ),
     ),
-    'shf' =>
+    'shf' => 
     array (
-      0 => 'application/shf+xml',
+      't' => 
+      array (
+        0 => 'application/shf+xml',
+      ),
     ),
-    'shn' =>
+    'shn' => 
     array (
-      0 => 'application/x-shorten',
+      't' => 
+      array (
+        0 => 'application/x-shorten',
+      ),
     ),
-    'siag' =>
+    'siag' => 
     array (
-      0 => 'application/x-siag',
+      't' => 
+      array (
+        0 => 'application/x-siag',
+      ),
     ),
-    'sid' =>
+    'sid' => 
     array (
-      0 => 'image/x-mrsid-image',
-      1 => 'audio/prs.sid',
+      't' => 
+      array (
+        0 => 'image/x-mrsid-image',
+        1 => 'audio/prs.sid',
+      ),
     ),
-    'sig' =>
+    'sig' => 
     array (
-      0 => 'application/pgp-signature',
+      't' => 
+      array (
+        0 => 'application/pgp-signature',
+      ),
     ),
-    'sik' =>
+    'sik' => 
     array (
-      0 => 'application/x-trash',
+      't' => 
+      array (
+        0 => 'application/x-trash',
+      ),
     ),
-    'sil' =>
+    'sil' => 
     array (
-      0 => 'audio/silk',
+      't' => 
+      array (
+        0 => 'audio/silk',
+      ),
     ),
-    'silo' =>
+    'silo' => 
     array (
-      0 => 'model/mesh',
+      't' => 
+      array (
+        0 => 'model/mesh',
+      ),
     ),
-    'sis' =>
+    'sis' => 
     array (
-      0 => 'application/vnd.symbian.install',
+      't' => 
+      array (
+        0 => 'application/vnd.symbian.install',
+      ),
     ),
-    'sisx' =>
+    'sisx' => 
     array (
-      0 => 'application/vnd.symbian.install',
-      1 => 'x-epoc/x-sisx-app',
+      't' => 
+      array (
+        0 => 'application/vnd.symbian.install',
+        1 => 'x-epoc/x-sisx-app',
+      ),
     ),
-    'sit' =>
+    'sit' => 
     array (
-      0 => 'application/x-stuffit',
+      't' => 
+      array (
+        0 => 'application/x-stuffit',
+      ),
     ),
-    'sitx' =>
+    'sitx' => 
     array (
-      0 => 'application/x-stuffitx',
+      't' => 
+      array (
+        0 => 'application/x-stuffitx',
+      ),
     ),
-    'siv' =>
+    'siv' => 
     array (
-      0 => 'application/sieve',
+      't' => 
+      array (
+        0 => 'application/sieve',
+      ),
     ),
-    'sk' =>
+    'sk' => 
     array (
-      0 => 'image/x-skencil',
+      't' => 
+      array (
+        0 => 'image/x-skencil',
+      ),
     ),
-    'sk1' =>
+    'sk1' => 
     array (
-      0 => 'image/x-skencil',
+      't' => 
+      array (
+        0 => 'image/x-skencil',
+      ),
     ),
-    'skd' =>
+    'skd' => 
     array (
-      0 => 'application/vnd.koan',
+      't' => 
+      array (
+        0 => 'application/vnd.koan',
+      ),
     ),
-    'skm' =>
+    'skm' => 
     array (
-      0 => 'application/vnd.koan',
+      't' => 
+      array (
+        0 => 'application/vnd.koan',
+      ),
     ),
-    'skp' =>
+    'skp' => 
     array (
-      0 => 'application/vnd.koan',
+      't' => 
+      array (
+        0 => 'application/vnd.koan',
+      ),
     ),
-    'skr' =>
+    'skr' => 
     array (
-      0 => 'application/pgp-keys',
+      't' => 
+      array (
+        0 => 'application/pgp-keys',
+      ),
     ),
-    'skt' =>
+    'skt' => 
     array (
-      0 => 'application/vnd.koan',
+      't' => 
+      array (
+        0 => 'application/vnd.koan',
+      ),
     ),
-    'sldm' =>
+    'sldm' => 
     array (
-      0 => 'application/vnd.ms-powerpoint.slide.macroenabled.12',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-powerpoint.slide.macroenabled.12',
+      ),
     ),
-    'sldx' =>
+    'sldx' => 
     array (
-      0 => 'application/vnd.openxmlformats-officedocument.presentationml.slide',
+      't' => 
+      array (
+        0 => 'application/vnd.openxmlformats-officedocument.presentationml.slide',
+      ),
     ),
-    'slice' =>
+    'slice' => 
     array (
-      0 => 'text/x-systemd-unit',
+      't' => 
+      array (
+        0 => 'text/x-systemd-unit',
+      ),
     ),
-    'slk' =>
+    'slk' => 
     array (
-      0 => 'text/spreadsheet',
+      't' => 
+      array (
+        0 => 'text/spreadsheet',
+      ),
     ),
-    'slt' =>
+    'slt' => 
     array (
-      0 => 'application/vnd.epson.salt',
+      't' => 
+      array (
+        0 => 'application/vnd.epson.salt',
+      ),
     ),
-    'sm' =>
+    'sm' => 
     array (
-      0 => 'application/vnd.stepmania.stepchart',
+      't' => 
+      array (
+        0 => 'application/vnd.stepmania.stepchart',
+      ),
     ),
-    'smaf' =>
+    'smaf' => 
     array (
-      0 => 'application/x-smaf',
+      't' => 
+      array (
+        0 => 'application/x-smaf',
+      ),
     ),
-    'smc' =>
+    'smc' => 
     array (
-      0 => 'application/vnd.nintendo.snes.rom',
+      't' => 
+      array (
+        0 => 'application/vnd.nintendo.snes.rom',
+      ),
     ),
-    'smd' =>
+    'smd' => 
     array (
-      0 => 'application/vnd.stardivision.mail',
-      1 => 'application/x-genesis-rom',
+      't' => 
+      array (
+        0 => 'application/vnd.stardivision.mail',
+        1 => 'application/x-genesis-rom',
+      ),
     ),
-    'smf' =>
+    'smf' => 
     array (
-      0 => 'application/vnd.stardivision.math',
+      't' => 
+      array (
+        0 => 'application/vnd.stardivision.math',
+      ),
     ),
-    'smi' =>
+    'smi' => 
     array (
-      0 => 'application/smil+xml',
-      1 => 'application/x-sami',
+      't' => 
+      array (
+        0 => 'application/smil+xml',
+        1 => 'application/x-sami',
+      ),
     ),
-    'smil' =>
+    'smil' => 
     array (
-      0 => 'application/smil+xml',
+      't' => 
+      array (
+        0 => 'application/smil+xml',
+      ),
     ),
-    'sml' =>
+    'sml' => 
     array (
-      0 => 'application/smil+xml',
+      't' => 
+      array (
+        0 => 'application/smil+xml',
+      ),
     ),
-    'sms' =>
+    'sms' => 
     array (
-      0 => 'application/x-sms-rom',
+      't' => 
+      array (
+        0 => 'application/x-sms-rom',
+      ),
     ),
-    'smv' =>
+    'smv' => 
     array (
-      0 => 'video/x-smv',
+      't' => 
+      array (
+        0 => 'video/x-smv',
+      ),
     ),
-    'smzip' =>
+    'smzip' => 
     array (
-      0 => 'application/vnd.stepmania.package',
+      't' => 
+      array (
+        0 => 'application/vnd.stepmania.package',
+      ),
     ),
-    'snap' =>
+    'snap' => 
     array (
-      0 => 'application/vnd.snap',
+      't' => 
+      array (
+        0 => 'application/vnd.snap',
+      ),
     ),
-    'snd' =>
+    'snd' => 
     array (
-      0 => 'audio/basic',
+      't' => 
+      array (
+        0 => 'audio/basic',
+      ),
     ),
-    'snf' =>
+    'snf' => 
     array (
-      0 => 'application/x-font-snf',
+      't' => 
+      array (
+        0 => 'application/x-font-snf',
+      ),
     ),
-    'so' =>
+    'so' => 
     array (
-      0 => 'application/octet-stream',
-      1 => 'application/x-sharedlib',
+      't' => 
+      array (
+        0 => 'application/octet-stream',
+        1 => 'application/x-sharedlib',
+      ),
     ),
-    'socket' =>
+    'socket' => 
     array (
-      0 => 'text/x-systemd-unit',
+      't' => 
+      array (
+        0 => 'text/x-systemd-unit',
+      ),
     ),
-    'spc' =>
+    'spc' => 
     array (
-      0 => 'application/x-pkcs7-certificates',
+      't' => 
+      array (
+        0 => 'application/x-pkcs7-certificates',
+      ),
     ),
-    'spd' =>
+    'spd' => 
     array (
-      0 => 'application/x-font-speedo',
+      't' => 
+      array (
+        0 => 'application/x-font-speedo',
+      ),
     ),
-    'spec' =>
+    'spec' => 
     array (
-      0 => 'text/x-rpm-spec',
+      't' => 
+      array (
+        0 => 'text/x-rpm-spec',
+      ),
     ),
-    'spf' =>
+    'spf' => 
     array (
-      0 => 'application/vnd.yamaha.smaf-phrase',
+      't' => 
+      array (
+        0 => 'application/vnd.yamaha.smaf-phrase',
+      ),
     ),
-    'spl' =>
+    'spl' => 
     array (
-      0 => 'application/x-futuresplash',
-      1 => 'application/vnd.adobe.flash.movie',
+      't' => 
+      array (
+        0 => 'application/x-futuresplash',
+        1 => 'application/vnd.adobe.flash.movie',
+      ),
     ),
-    'spm' =>
+    'spm' => 
     array (
-      0 => 'application/x-source-rpm',
+      't' => 
+      array (
+        0 => 'application/x-source-rpm',
+      ),
     ),
-    'spot' =>
+    'spot' => 
     array (
-      0 => 'text/vnd.in3d.spot',
+      't' => 
+      array (
+        0 => 'text/vnd.in3d.spot',
+      ),
     ),
-    'spp' =>
+    'spp' => 
     array (
-      0 => 'application/scvp-vp-response',
+      't' => 
+      array (
+        0 => 'application/scvp-vp-response',
+      ),
     ),
-    'spq' =>
+    'spq' => 
     array (
-      0 => 'application/scvp-vp-request',
+      't' => 
+      array (
+        0 => 'application/scvp-vp-request',
+      ),
     ),
-    'spx' =>
+    'spx' => 
     array (
-      0 => 'audio/ogg',
-      1 => 'audio/x-speex',
+      't' => 
+      array (
+        0 => 'audio/ogg',
+        1 => 'audio/x-speex',
+      ),
     ),
-    'sql' =>
+    'sql' => 
     array (
-      0 => 'application/x-sql',
-      1 => 'application/sql',
+      't' => 
+      array (
+        0 => 'application/x-sql',
+        1 => 'application/sql',
+      ),
     ),
-    'sqlite2' =>
+    'sqlite2' => 
     array (
-      0 => 'application/x-sqlite2',
+      't' => 
+      array (
+        0 => 'application/x-sqlite2',
+      ),
     ),
-    'sqlite3' =>
+    'sqlite3' => 
     array (
-      0 => 'application/vnd.sqlite3',
+      't' => 
+      array (
+        0 => 'application/vnd.sqlite3',
+      ),
     ),
-    'sqsh' =>
+    'sqsh' => 
     array (
-      0 => 'application/vnd.squashfs',
+      't' => 
+      array (
+        0 => 'application/vnd.squashfs',
+      ),
     ),
-    'sr2' =>
+    'sr2' => 
     array (
-      0 => 'image/x-sony-sr2',
+      't' => 
+      array (
+        0 => 'image/x-sony-sr2',
+      ),
     ),
-    'src' =>
+    'src' => 
     array (
-      0 => 'application/x-wais-source',
+      't' => 
+      array (
+        0 => 'application/x-wais-source',
+      ),
     ),
-    'src.rpm' =>
+    'src.rpm' => 
     array (
-      0 => 'application/x-source-rpm',
+      't' => 
+      array (
+        0 => 'application/x-source-rpm',
+      ),
     ),
-    'srf' =>
+    'srf' => 
     array (
-      0 => 'image/x-sony-srf',
+      't' => 
+      array (
+        0 => 'image/x-sony-srf',
+      ),
     ),
-    'srt' =>
+    'srt' => 
     array (
-      0 => 'application/x-subrip',
+      't' => 
+      array (
+        0 => 'application/x-subrip',
+      ),
     ),
-    'sru' =>
+    'sru' => 
     array (
-      0 => 'application/sru+xml',
+      't' => 
+      array (
+        0 => 'application/sru+xml',
+      ),
     ),
-    'srx' =>
+    'srx' => 
     array (
-      0 => 'application/sparql-results+xml',
+      't' => 
+      array (
+        0 => 'application/sparql-results+xml',
+      ),
     ),
-    'ss' =>
+    'ss' => 
     array (
-      0 => 'text/x-scheme',
+      't' => 
+      array (
+        0 => 'text/x-scheme',
+      ),
     ),
-    'ssa' =>
+    'ssa' => 
     array (
-      0 => 'text/x-ssa',
+      't' => 
+      array (
+        0 => 'text/x-ssa',
+      ),
     ),
-    'ssdl' =>
+    'ssdl' => 
     array (
-      0 => 'application/ssdl+xml',
+      't' => 
+      array (
+        0 => 'application/ssdl+xml',
+      ),
     ),
-    'sse' =>
+    'sse' => 
     array (
-      0 => 'application/vnd.kodak-descriptor',
+      't' => 
+      array (
+        0 => 'application/vnd.kodak-descriptor',
+      ),
     ),
-    'ssf' =>
+    'ssf' => 
     array (
-      0 => 'application/vnd.epson.ssf',
+      't' => 
+      array (
+        0 => 'application/vnd.epson.ssf',
+      ),
     ),
-    'ssml' =>
+    'ssml' => 
     array (
-      0 => 'application/ssml+xml',
+      't' => 
+      array (
+        0 => 'application/ssml+xml',
+      ),
     ),
-    'st' =>
+    'st' => 
     array (
-      0 => 'application/vnd.sailingtracker.track',
+      't' => 
+      array (
+        0 => 'application/vnd.sailingtracker.track',
+      ),
     ),
-    'stc' =>
+    'stc' => 
     array (
-      0 => 'application/vnd.sun.xml.calc.template',
+      't' => 
+      array (
+        0 => 'application/vnd.sun.xml.calc.template',
+      ),
     ),
-    'std' =>
+    'std' => 
     array (
-      0 => 'application/vnd.sun.xml.draw.template',
+      't' => 
+      array (
+        0 => 'application/vnd.sun.xml.draw.template',
+      ),
     ),
-    'stf' =>
+    'stf' => 
     array (
-      0 => 'application/vnd.wt.stf',
+      't' => 
+      array (
+        0 => 'application/vnd.wt.stf',
+      ),
     ),
-    'sti' =>
+    'sti' => 
     array (
-      0 => 'application/vnd.sun.xml.impress.template',
+      't' => 
+      array (
+        0 => 'application/vnd.sun.xml.impress.template',
+      ),
     ),
-    'stk' =>
+    'stk' => 
     array (
-      0 => 'application/hyperstudio',
+      't' => 
+      array (
+        0 => 'application/hyperstudio',
+      ),
     ),
-    'stl' =>
+    'stl' => 
     array (
-      0 => 'application/vnd.ms-pki.stl',
-      1 => 'model/stl',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-pki.stl',
+        1 => 'model/stl',
+      ),
     ),
-    'stm' =>
+    'stm' => 
     array (
-      0 => 'audio/x-stm',
+      't' => 
+      array (
+        0 => 'audio/x-stm',
+      ),
     ),
-    'str' =>
+    'str' => 
     array (
-      0 => 'application/vnd.pg.format',
+      't' => 
+      array (
+        0 => 'application/vnd.pg.format',
+      ),
     ),
-    'stw' =>
+    'stw' => 
     array (
-      0 => 'application/vnd.sun.xml.writer.template',
+      't' => 
+      array (
+        0 => 'application/vnd.sun.xml.writer.template',
+      ),
     ),
-    'sty' =>
+    'sty' => 
     array (
-      0 => 'text/x-tex',
+      't' => 
+      array (
+        0 => 'text/x-tex',
+      ),
     ),
-    'sub' =>
+    'sub' => 
     array (
-      0 => 'text/vnd.dvb.subtitle',
-      1 => 'image/vnd.dvb.subtitle',
-      2 => 'text/x-microdvd',
-      3 => 'text/x-mpsub',
-      4 => 'text/x-subviewer',
+      't' => 
+      array (
+        0 => 'text/vnd.dvb.subtitle',
+        1 => 'image/vnd.dvb.subtitle',
+        2 => 'text/x-microdvd',
+        3 => 'text/x-mpsub',
+        4 => 'text/x-subviewer',
+      ),
     ),
-    'sun' =>
+    'sun' => 
     array (
-      0 => 'image/x-sun-raster',
+      't' => 
+      array (
+        0 => 'image/x-sun-raster',
+      ),
     ),
-    'sus' =>
+    'sus' => 
     array (
-      0 => 'application/vnd.sus-calendar',
+      't' => 
+      array (
+        0 => 'application/vnd.sus-calendar',
+      ),
     ),
-    'susp' =>
+    'susp' => 
     array (
-      0 => 'application/vnd.sus-calendar',
+      't' => 
+      array (
+        0 => 'application/vnd.sus-calendar',
+      ),
     ),
-    'sv' =>
+    'sv' => 
     array (
-      0 => 'text/x-svsrc',
+      't' => 
+      array (
+        0 => 'text/x-svsrc',
+      ),
     ),
-    'sv4cpio' =>
+    'sv4cpio' => 
     array (
-      0 => 'application/x-sv4cpio',
+      't' => 
+      array (
+        0 => 'application/x-sv4cpio',
+      ),
     ),
-    'sv4crc' =>
+    'sv4crc' => 
     array (
-      0 => 'application/x-sv4crc',
+      't' => 
+      array (
+        0 => 'application/x-sv4crc',
+      ),
     ),
-    'svc' =>
+    'svc' => 
     array (
-      0 => 'application/vnd.dvb.service',
+      't' => 
+      array (
+        0 => 'application/vnd.dvb.service',
+      ),
     ),
-    'svd' =>
+    'svd' => 
     array (
-      0 => 'application/vnd.svd',
+      't' => 
+      array (
+        0 => 'application/vnd.svd',
+      ),
     ),
-    'svg' =>
+    'svg' => 
     array (
-      0 => 'image/svg+xml',
+      't' => 
+      array (
+        0 => 'image/svg+xml',
+      ),
     ),
-    'svgz' =>
+    'svgz' => 
     array (
-      0 => 'image/svg+xml',
-      1 => 'image/svg+xml-compressed',
+      't' => 
+      array (
+        0 => 'image/svg+xml',
+        1 => 'image/svg+xml-compressed',
+      ),
     ),
-    'svh' =>
+    'svh' => 
     array (
-      0 => 'text/x-svhdr',
+      't' => 
+      array (
+        0 => 'text/x-svhdr',
+      ),
     ),
-    'swa' =>
+    'swa' => 
     array (
-      0 => 'application/x-director',
+      't' => 
+      array (
+        0 => 'application/x-director',
+      ),
     ),
-    'swap' =>
+    'swap' => 
     array (
-      0 => 'text/x-systemd-unit',
+      't' => 
+      array (
+        0 => 'text/x-systemd-unit',
+      ),
     ),
-    'swf' =>
+    'swf' => 
     array (
-      0 => 'application/x-shockwave-flash',
-      1 => 'application/vnd.adobe.flash.movie',
+      't' => 
+      array (
+        0 => 'application/x-shockwave-flash',
+        1 => 'application/vnd.adobe.flash.movie',
+      ),
     ),
-    'swi' =>
+    'swi' => 
     array (
-      0 => 'application/vnd.aristanetworks.swi',
+      't' => 
+      array (
+        0 => 'application/vnd.aristanetworks.swi',
+      ),
     ),
-    'swm' =>
+    'swm' => 
     array (
-      0 => 'application/x-ms-wim',
+      't' => 
+      array (
+        0 => 'application/x-ms-wim',
+      ),
     ),
-    'sxc' =>
+    'sxc' => 
     array (
-      0 => 'application/vnd.sun.xml.calc',
+      't' => 
+      array (
+        0 => 'application/vnd.sun.xml.calc',
+      ),
     ),
-    'sxd' =>
+    'sxd' => 
     array (
-      0 => 'application/vnd.sun.xml.draw',
+      't' => 
+      array (
+        0 => 'application/vnd.sun.xml.draw',
+      ),
     ),
-    'sxg' =>
+    'sxg' => 
     array (
-      0 => 'application/vnd.sun.xml.writer.global',
+      't' => 
+      array (
+        0 => 'application/vnd.sun.xml.writer.global',
+      ),
     ),
-    'sxi' =>
+    'sxi' => 
     array (
-      0 => 'application/vnd.sun.xml.impress',
+      't' => 
+      array (
+        0 => 'application/vnd.sun.xml.impress',
+      ),
     ),
-    'sxm' =>
+    'sxm' => 
     array (
-      0 => 'application/vnd.sun.xml.math',
+      't' => 
+      array (
+        0 => 'application/vnd.sun.xml.math',
+      ),
     ),
-    'sxw' =>
+    'sxw' => 
     array (
-      0 => 'application/vnd.sun.xml.writer',
+      't' => 
+      array (
+        0 => 'application/vnd.sun.xml.writer',
+      ),
     ),
-    'sylk' =>
+    'sylk' => 
     array (
-      0 => 'text/spreadsheet',
+      't' => 
+      array (
+        0 => 'text/spreadsheet',
+      ),
     ),
-    't' =>
+    't' => 
     array (
-      0 => 'text/troff',
-      1 => 'application/x-perl',
+      't' => 
+      array (
+        0 => 'text/troff',
+        1 => 'application/x-perl',
+      ),
     ),
-    't2t' =>
+    't2t' => 
     array (
-      0 => 'text/x-txt2tags',
+      't' => 
+      array (
+        0 => 'text/x-txt2tags',
+      ),
     ),
-    't3' =>
+    't3' => 
     array (
-      0 => 'application/x-t3vm-image',
+      't' => 
+      array (
+        0 => 'application/x-t3vm-image',
+      ),
     ),
-    'taglet' =>
+    'taglet' => 
     array (
-      0 => 'application/vnd.mynfc',
+      't' => 
+      array (
+        0 => 'application/vnd.mynfc',
+      ),
     ),
-    'tao' =>
+    'tao' => 
     array (
-      0 => 'application/vnd.tao.intent-module-archive',
+      't' => 
+      array (
+        0 => 'application/vnd.tao.intent-module-archive',
+      ),
     ),
-    'tar' =>
+    'tar' => 
     array (
-      0 => 'application/x-tar',
+      't' => 
+      array (
+        0 => 'application/x-tar',
+      ),
     ),
-    'tar.bz' =>
+    'tar.bz' => 
     array (
-      0 => 'application/x-bzip-compressed-tar',
+      't' => 
+      array (
+        0 => 'application/x-bzip-compressed-tar',
+      ),
     ),
-    'tar.bz2' =>
+    'tar.bz2' => 
     array (
-      0 => 'application/x-bzip-compressed-tar',
+      't' => 
+      array (
+        0 => 'application/x-bzip-compressed-tar',
+      ),
     ),
-    'tar.gz' =>
+    'tar.gz' => 
     array (
-      0 => 'application/x-compressed-tar',
+      't' => 
+      array (
+        0 => 'application/x-compressed-tar',
+      ),
     ),
-    'tar.lrz' =>
+    'tar.lrz' => 
     array (
-      0 => 'application/x-lrzip-compressed-tar',
+      't' => 
+      array (
+        0 => 'application/x-lrzip-compressed-tar',
+      ),
     ),
-    'tar.lz' =>
+    'tar.lz' => 
     array (
-      0 => 'application/x-lzip-compressed-tar',
+      't' => 
+      array (
+        0 => 'application/x-lzip-compressed-tar',
+      ),
     ),
-    'tar.lz4' =>
+    'tar.lz4' => 
     array (
-      0 => 'application/x-lz4-compressed-tar',
+      't' => 
+      array (
+        0 => 'application/x-lz4-compressed-tar',
+      ),
     ),
-    'tar.lzma' =>
+    'tar.lzma' => 
     array (
-      0 => 'application/x-lzma-compressed-tar',
+      't' => 
+      array (
+        0 => 'application/x-lzma-compressed-tar',
+      ),
     ),
-    'tar.lzo' =>
+    'tar.lzo' => 
     array (
-      0 => 'application/x-tzo',
+      't' => 
+      array (
+        0 => 'application/x-tzo',
+      ),
     ),
-    'tar.xz' =>
+    'tar.xz' => 
     array (
-      0 => 'application/x-xz-compressed-tar',
+      't' => 
+      array (
+        0 => 'application/x-xz-compressed-tar',
+      ),
     ),
-    'tar.z' =>
+    'tar.z' => 
     array (
-      0 => 'application/x-tarz',
+      't' => 
+      array (
+        0 => 'application/x-tarz',
+      ),
     ),
-    'target' =>
+    'target' => 
     array (
-      0 => 'text/x-systemd-unit',
+      't' => 
+      array (
+        0 => 'text/x-systemd-unit',
+      ),
     ),
-    'taz' =>
+    'taz' => 
     array (
-      0 => 'application/x-tarz',
+      't' => 
+      array (
+        0 => 'application/x-tarz',
+      ),
     ),
-    'tb2' =>
+    'tb2' => 
     array (
-      0 => 'application/x-bzip-compressed-tar',
+      't' => 
+      array (
+        0 => 'application/x-bzip-compressed-tar',
+      ),
     ),
-    'tbz' =>
+    'tbz' => 
     array (
-      0 => 'application/x-bzip-compressed-tar',
+      't' => 
+      array (
+        0 => 'application/x-bzip-compressed-tar',
+      ),
     ),
-    'tbz2' =>
+    'tbz2' => 
     array (
-      0 => 'application/x-bzip-compressed-tar',
+      't' => 
+      array (
+        0 => 'application/x-bzip-compressed-tar',
+      ),
     ),
-    'tcap' =>
+    'tcap' => 
     array (
-      0 => 'application/vnd.3gpp2.tcap',
+      't' => 
+      array (
+        0 => 'application/vnd.3gpp2.tcap',
+      ),
     ),
-    'tcl' =>
+    'tcl' => 
     array (
-      0 => 'application/x-tcl',
-      1 => 'text/x-tcl',
+      't' => 
+      array (
+        0 => 'application/x-tcl',
+        1 => 'text/x-tcl',
+      ),
     ),
-    'teacher' =>
+    'teacher' => 
     array (
-      0 => 'application/vnd.smart.teacher',
+      't' => 
+      array (
+        0 => 'application/vnd.smart.teacher',
+      ),
     ),
-    'tei' =>
+    'tei' => 
     array (
-      0 => 'application/tei+xml',
+      't' => 
+      array (
+        0 => 'application/tei+xml',
+      ),
     ),
-    'teicorpus' =>
+    'teicorpus' => 
     array (
-      0 => 'application/tei+xml',
+      't' => 
+      array (
+        0 => 'application/tei+xml',
+      ),
     ),
-    'tex' =>
+    'tex' => 
     array (
-      0 => 'application/x-tex',
-      1 => 'text/x-tex',
+      't' => 
+      array (
+        0 => 'application/x-tex',
+        1 => 'text/x-tex',
+      ),
     ),
-    'texi' =>
+    'texi' => 
     array (
-      0 => 'application/x-texinfo',
-      1 => 'text/x-texinfo',
+      't' => 
+      array (
+        0 => 'application/x-texinfo',
+        1 => 'text/x-texinfo',
+      ),
     ),
-    'texinfo' =>
+    'texinfo' => 
     array (
-      0 => 'application/x-texinfo',
-      1 => 'text/x-texinfo',
+      't' => 
+      array (
+        0 => 'application/x-texinfo',
+        1 => 'text/x-texinfo',
+      ),
     ),
-    'text' =>
+    'text' => 
     array (
-      0 => 'text/plain',
+      't' => 
+      array (
+        0 => 'text/plain',
+      ),
     ),
-    'tfi' =>
+    'tfi' => 
     array (
-      0 => 'application/thraud+xml',
+      't' => 
+      array (
+        0 => 'application/thraud+xml',
+      ),
     ),
-    'tfm' =>
+    'tfm' => 
     array (
-      0 => 'application/x-tex-tfm',
+      't' => 
+      array (
+        0 => 'application/x-tex-tfm',
+      ),
     ),
-    'tga' =>
+    'tga' => 
     array (
-      0 => 'image/x-tga',
+      't' => 
+      array (
+        0 => 'image/x-tga',
+      ),
     ),
-    'tgz' =>
+    'tgz' => 
     array (
-      0 => 'application/x-compressed-tar',
+      't' => 
+      array (
+        0 => 'application/x-compressed-tar',
+      ),
     ),
-    'theme' =>
+    'theme' => 
     array (
-      0 => 'application/x-theme',
+      't' => 
+      array (
+        0 => 'application/x-theme',
+      ),
     ),
-    'themepack' =>
+    'themepack' => 
     array (
-      0 => 'application/x-windows-themepack',
+      't' => 
+      array (
+        0 => 'application/x-windows-themepack',
+      ),
     ),
-    'thmx' =>
+    'thmx' => 
     array (
-      0 => 'application/vnd.ms-officetheme',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-officetheme',
+      ),
     ),
-    'tif' =>
+    'tif' => 
     array (
-      0 => 'image/tiff',
+      't' => 
+      array (
+        0 => 'image/tiff',
+      ),
     ),
-    'tiff' =>
+    'tiff' => 
     array (
-      0 => 'image/tiff',
+      't' => 
+      array (
+        0 => 'image/tiff',
+      ),
     ),
-    'timer' =>
+    'timer' => 
     array (
-      0 => 'text/x-systemd-unit',
+      't' => 
+      array (
+        0 => 'text/x-systemd-unit',
+      ),
     ),
-    'tk' =>
+    'tk' => 
     array (
-      0 => 'text/x-tcl',
+      't' => 
+      array (
+        0 => 'text/x-tcl',
+      ),
     ),
-    'tlrz' =>
+    'tlrz' => 
     array (
-      0 => 'application/x-lrzip-compressed-tar',
+      't' => 
+      array (
+        0 => 'application/x-lrzip-compressed-tar',
+      ),
     ),
-    'tlz' =>
+    'tlz' => 
     array (
-      0 => 'application/x-lzma-compressed-tar',
+      't' => 
+      array (
+        0 => 'application/x-lzma-compressed-tar',
+      ),
     ),
-    'tmo' =>
+    'tmo' => 
     array (
-      0 => 'application/vnd.tmobile-livetv',
+      't' => 
+      array (
+        0 => 'application/vnd.tmobile-livetv',
+      ),
     ),
-    'tnef' =>
+    'tnef' => 
     array (
-      0 => 'application/vnd.ms-tnef',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-tnef',
+      ),
     ),
-    'tnf' =>
+    'tnf' => 
     array (
-      0 => 'application/vnd.ms-tnef',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-tnef',
+      ),
     ),
-    'toc' =>
+    'toc' => 
     array (
-      0 => 'application/x-cdrdao-toc',
+      't' => 
+      array (
+        0 => 'application/x-cdrdao-toc',
+      ),
     ),
-    'torrent' =>
+    'torrent' => 
     array (
-      0 => 'application/x-bittorrent',
+      't' => 
+      array (
+        0 => 'application/x-bittorrent',
+      ),
     ),
-    'tpic' =>
+    'tpic' => 
     array (
-      0 => 'image/x-tga',
+      't' => 
+      array (
+        0 => 'image/x-tga',
+      ),
     ),
-    'tpl' =>
+    'tpl' => 
     array (
-      0 => 'application/vnd.groove-tool-template',
+      't' => 
+      array (
+        0 => 'application/vnd.groove-tool-template',
+      ),
     ),
-    'tpt' =>
+    'tpt' => 
     array (
-      0 => 'application/vnd.trid.tpt',
+      't' => 
+      array (
+        0 => 'application/vnd.trid.tpt',
+      ),
     ),
-    'tr' =>
+    'tr' => 
     array (
-      0 => 'text/troff',
+      't' => 
+      array (
+        0 => 'text/troff',
+      ),
     ),
-    'tra' =>
+    'tra' => 
     array (
-      0 => 'application/vnd.trueapp',
+      't' => 
+      array (
+        0 => 'application/vnd.trueapp',
+      ),
     ),
-    'trig' =>
+    'trig' => 
     array (
-      0 => 'application/trig',
+      't' => 
+      array (
+        0 => 'application/trig',
+      ),
     ),
-    'trm' =>
+    'trm' => 
     array (
-      0 => 'application/x-msterminal',
+      't' => 
+      array (
+        0 => 'application/x-msterminal',
+      ),
     ),
-    'ts' =>
+    'ts' => 
     array (
-      0 => 'text/vnd.qt.linguist',
-      1 => 'video/mp2t',
+      't' => 
+      array (
+        0 => 'text/vnd.qt.linguist',
+        1 => 'video/mp2t',
+      ),
     ),
-    'tsd' =>
+    'tsd' => 
     array (
-      0 => 'application/timestamped-data',
+      't' => 
+      array (
+        0 => 'application/timestamped-data',
+      ),
     ),
-    'tsv' =>
+    'tsv' => 
     array (
-      0 => 'text/tab-separated-values',
+      't' => 
+      array (
+        0 => 'text/tab-separated-values',
+      ),
     ),
-    'tta' =>
+    'tta' => 
     array (
-      0 => 'audio/x-tta',
+      't' => 
+      array (
+        0 => 'audio/x-tta',
+      ),
     ),
-    'ttc' =>
+    'ttc' => 
     array (
-      0 => 'font/collection',
+      't' => 
+      array (
+        0 => 'font/collection',
+      ),
     ),
-    'ttf' =>
+    'ttf' => 
     array (
-      0 => 'font/ttf',
+      't' => 
+      array (
+        0 => 'font/ttf',
+      ),
     ),
-    'ttl' =>
+    'ttl' => 
     array (
-      0 => 'text/turtle',
+      't' => 
+      array (
+        0 => 'text/turtle',
+      ),
     ),
-    'ttx' =>
+    'ttx' => 
     array (
-      0 => 'application/x-font-ttx',
+      't' => 
+      array (
+        0 => 'application/x-font-ttx',
+      ),
     ),
-    'twd' =>
+    'twd' => 
     array (
-      0 => 'application/vnd.simtech-mindmapper',
+      't' => 
+      array (
+        0 => 'application/vnd.simtech-mindmapper',
+      ),
     ),
-    'twds' =>
+    'twds' => 
     array (
-      0 => 'application/vnd.simtech-mindmapper',
+      't' => 
+      array (
+        0 => 'application/vnd.simtech-mindmapper',
+      ),
     ),
-    'twig' =>
+    'twig' => 
     array (
-      0 => 'text/x-twig',
+      't' => 
+      array (
+        0 => 'text/x-twig',
+      ),
     ),
-    'txd' =>
+    'txd' => 
     array (
-      0 => 'application/vnd.genomatix.tuxedo',
+      't' => 
+      array (
+        0 => 'application/vnd.genomatix.tuxedo',
+      ),
     ),
-    'txf' =>
+    'txf' => 
     array (
-      0 => 'application/vnd.mobius.txf',
+      't' => 
+      array (
+        0 => 'application/vnd.mobius.txf',
+      ),
     ),
-    'txt' =>
+    'txt' => 
     array (
-      0 => 'text/plain',
+      't' => 
+      array (
+        0 => 'text/plain',
+      ),
     ),
-    'txz' =>
+    'txz' => 
     array (
-      0 => 'application/x-xz-compressed-tar',
+      't' => 
+      array (
+        0 => 'application/x-xz-compressed-tar',
+      ),
     ),
-    'tzo' =>
+    'tzo' => 
     array (
-      0 => 'application/x-tzo',
+      't' => 
+      array (
+        0 => 'application/x-tzo',
+      ),
     ),
-    'u32' =>
+    'u32' => 
     array (
-      0 => 'application/x-authorware-bin',
+      't' => 
+      array (
+        0 => 'application/x-authorware-bin',
+      ),
     ),
-    'udeb' =>
+    'udeb' => 
     array (
-      0 => 'application/x-debian-package',
-      1 => 'application/vnd.debian.binary-package',
+      't' => 
+      array (
+        0 => 'application/x-debian-package',
+        1 => 'application/vnd.debian.binary-package',
+      ),
     ),
-    'ufd' =>
+    'ufd' => 
     array (
-      0 => 'application/vnd.ufdl',
+      't' => 
+      array (
+        0 => 'application/vnd.ufdl',
+      ),
     ),
-    'ufdl' =>
+    'ufdl' => 
     array (
-      0 => 'application/vnd.ufdl',
+      't' => 
+      array (
+        0 => 'application/vnd.ufdl',
+      ),
     ),
-    'ufraw' =>
+    'ufraw' => 
     array (
-      0 => 'application/x-ufraw',
+      't' => 
+      array (
+        0 => 'application/x-ufraw',
+      ),
     ),
-    'ui' =>
+    'ui' => 
     array (
-      0 => 'application/x-designer',
-      1 => 'application/x-gtk-builder',
+      't' => 
+      array (
+        0 => 'application/x-designer',
+        1 => 'application/x-gtk-builder',
+      ),
     ),
-    'uil' =>
+    'uil' => 
     array (
-      0 => 'text/x-uil',
+      't' => 
+      array (
+        0 => 'text/x-uil',
+      ),
     ),
-    'ult' =>
+    'ult' => 
     array (
-      0 => 'audio/x-mod',
+      't' => 
+      array (
+        0 => 'audio/x-mod',
+      ),
     ),
-    'ulx' =>
+    'ulx' => 
     array (
-      0 => 'application/x-glulx',
+      't' => 
+      array (
+        0 => 'application/x-glulx',
+      ),
     ),
-    'umj' =>
+    'umj' => 
     array (
-      0 => 'application/vnd.umajin',
+      't' => 
+      array (
+        0 => 'application/vnd.umajin',
+      ),
     ),
-    'unf' =>
+    'unf' => 
     array (
-      0 => 'application/x-nes-rom',
+      't' => 
+      array (
+        0 => 'application/x-nes-rom',
+      ),
     ),
-    'uni' =>
+    'uni' => 
     array (
-      0 => 'audio/x-mod',
+      't' => 
+      array (
+        0 => 'audio/x-mod',
+      ),
     ),
-    'unif' =>
+    'unif' => 
     array (
-      0 => 'application/x-nes-rom',
+      't' => 
+      array (
+        0 => 'application/x-nes-rom',
+      ),
     ),
-    'unityweb' =>
+    'unityweb' => 
     array (
-      0 => 'application/vnd.unity',
+      't' => 
+      array (
+        0 => 'application/vnd.unity',
+      ),
     ),
-    'uoml' =>
+    'uoml' => 
     array (
-      0 => 'application/vnd.uoml+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.uoml+xml',
+      ),
     ),
-    'uri' =>
+    'uri' => 
     array (
-      0 => 'text/uri-list',
+      't' => 
+      array (
+        0 => 'text/uri-list',
+      ),
     ),
-    'uris' =>
+    'uris' => 
     array (
-      0 => 'text/uri-list',
+      't' => 
+      array (
+        0 => 'text/uri-list',
+      ),
     ),
-    'url' =>
+    'url' => 
     array (
-      0 => 'application/x-mswinurl',
+      't' => 
+      array (
+        0 => 'application/x-mswinurl',
+      ),
     ),
-    'urls' =>
+    'urls' => 
     array (
-      0 => 'text/uri-list',
+      't' => 
+      array (
+        0 => 'text/uri-list',
+      ),
     ),
-    'ustar' =>
+    'ustar' => 
     array (
-      0 => 'application/x-ustar',
+      't' => 
+      array (
+        0 => 'application/x-ustar',
+      ),
     ),
-    'utz' =>
+    'utz' => 
     array (
-      0 => 'application/vnd.uiq.theme',
+      't' => 
+      array (
+        0 => 'application/vnd.uiq.theme',
+      ),
     ),
-    'uu' =>
+    'uu' => 
     array (
-      0 => 'text/x-uuencode',
+      't' => 
+      array (
+        0 => 'text/x-uuencode',
+      ),
     ),
-    'uue' =>
+    'uue' => 
     array (
-      0 => 'text/x-uuencode',
+      't' => 
+      array (
+        0 => 'text/x-uuencode',
+      ),
     ),
-    'uva' =>
+    'uva' => 
     array (
-      0 => 'audio/vnd.dece.audio',
+      't' => 
+      array (
+        0 => 'audio/vnd.dece.audio',
+      ),
     ),
-    'uvd' =>
+    'uvd' => 
     array (
-      0 => 'application/vnd.dece.data',
+      't' => 
+      array (
+        0 => 'application/vnd.dece.data',
+      ),
     ),
-    'uvf' =>
+    'uvf' => 
     array (
-      0 => 'application/vnd.dece.data',
+      't' => 
+      array (
+        0 => 'application/vnd.dece.data',
+      ),
     ),
-    'uvg' =>
+    'uvg' => 
     array (
-      0 => 'image/vnd.dece.graphic',
+      't' => 
+      array (
+        0 => 'image/vnd.dece.graphic',
+      ),
     ),
-    'uvh' =>
+    'uvh' => 
     array (
-      0 => 'video/vnd.dece.hd',
+      't' => 
+      array (
+        0 => 'video/vnd.dece.hd',
+      ),
     ),
-    'uvi' =>
+    'uvi' => 
     array (
-      0 => 'image/vnd.dece.graphic',
+      't' => 
+      array (
+        0 => 'image/vnd.dece.graphic',
+      ),
     ),
-    'uvm' =>
+    'uvm' => 
     array (
-      0 => 'video/vnd.dece.mobile',
+      't' => 
+      array (
+        0 => 'video/vnd.dece.mobile',
+      ),
     ),
-    'uvp' =>
+    'uvp' => 
     array (
-      0 => 'video/vnd.dece.pd',
+      't' => 
+      array (
+        0 => 'video/vnd.dece.pd',
+      ),
     ),
-    'uvs' =>
+    'uvs' => 
     array (
-      0 => 'video/vnd.dece.sd',
+      't' => 
+      array (
+        0 => 'video/vnd.dece.sd',
+      ),
     ),
-    'uvt' =>
+    'uvt' => 
     array (
-      0 => 'application/vnd.dece.ttml+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.dece.ttml+xml',
+      ),
     ),
-    'uvu' =>
+    'uvu' => 
     array (
-      0 => 'video/vnd.uvvu.mp4',
+      't' => 
+      array (
+        0 => 'video/vnd.uvvu.mp4',
+      ),
     ),
-    'uvv' =>
+    'uvv' => 
     array (
-      0 => 'video/vnd.dece.video',
+      't' => 
+      array (
+        0 => 'video/vnd.dece.video',
+      ),
     ),
-    'uvva' =>
+    'uvva' => 
     array (
-      0 => 'audio/vnd.dece.audio',
+      't' => 
+      array (
+        0 => 'audio/vnd.dece.audio',
+      ),
     ),
-    'uvvd' =>
+    'uvvd' => 
     array (
-      0 => 'application/vnd.dece.data',
+      't' => 
+      array (
+        0 => 'application/vnd.dece.data',
+      ),
     ),
-    'uvvf' =>
+    'uvvf' => 
     array (
-      0 => 'application/vnd.dece.data',
+      't' => 
+      array (
+        0 => 'application/vnd.dece.data',
+      ),
     ),
-    'uvvg' =>
+    'uvvg' => 
     array (
-      0 => 'image/vnd.dece.graphic',
+      't' => 
+      array (
+        0 => 'image/vnd.dece.graphic',
+      ),
     ),
-    'uvvh' =>
+    'uvvh' => 
     array (
-      0 => 'video/vnd.dece.hd',
+      't' => 
+      array (
+        0 => 'video/vnd.dece.hd',
+      ),
     ),
-    'uvvi' =>
+    'uvvi' => 
     array (
-      0 => 'image/vnd.dece.graphic',
+      't' => 
+      array (
+        0 => 'image/vnd.dece.graphic',
+      ),
     ),
-    'uvvm' =>
+    'uvvm' => 
     array (
-      0 => 'video/vnd.dece.mobile',
+      't' => 
+      array (
+        0 => 'video/vnd.dece.mobile',
+      ),
     ),
-    'uvvp' =>
+    'uvvp' => 
     array (
-      0 => 'video/vnd.dece.pd',
+      't' => 
+      array (
+        0 => 'video/vnd.dece.pd',
+      ),
     ),
-    'uvvs' =>
+    'uvvs' => 
     array (
-      0 => 'video/vnd.dece.sd',
+      't' => 
+      array (
+        0 => 'video/vnd.dece.sd',
+      ),
     ),
-    'uvvt' =>
+    'uvvt' => 
     array (
-      0 => 'application/vnd.dece.ttml+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.dece.ttml+xml',
+      ),
     ),
-    'uvvu' =>
+    'uvvu' => 
     array (
-      0 => 'video/vnd.uvvu.mp4',
+      't' => 
+      array (
+        0 => 'video/vnd.uvvu.mp4',
+      ),
     ),
-    'uvvv' =>
+    'uvvv' => 
     array (
-      0 => 'video/vnd.dece.video',
+      't' => 
+      array (
+        0 => 'video/vnd.dece.video',
+      ),
     ),
-    'uvvx' =>
+    'uvvx' => 
     array (
-      0 => 'application/vnd.dece.unspecified',
+      't' => 
+      array (
+        0 => 'application/vnd.dece.unspecified',
+      ),
     ),
-    'uvvz' =>
+    'uvvz' => 
     array (
-      0 => 'application/vnd.dece.zip',
+      't' => 
+      array (
+        0 => 'application/vnd.dece.zip',
+      ),
     ),
-    'uvx' =>
+    'uvx' => 
     array (
-      0 => 'application/vnd.dece.unspecified',
+      't' => 
+      array (
+        0 => 'application/vnd.dece.unspecified',
+      ),
     ),
-    'uvz' =>
+    'uvz' => 
     array (
-      0 => 'application/vnd.dece.zip',
+      't' => 
+      array (
+        0 => 'application/vnd.dece.zip',
+      ),
     ),
-    'v' =>
+    'v' => 
     array (
-      0 => 'text/x-verilog',
+      't' => 
+      array (
+        0 => 'text/x-verilog',
+      ),
     ),
-    'v64' =>
+    'v64' => 
     array (
-      0 => 'application/x-n64-rom',
+      't' => 
+      array (
+        0 => 'application/x-n64-rom',
+      ),
     ),
-    'vala' =>
+    'vala' => 
     array (
-      0 => 'text/x-vala',
+      't' => 
+      array (
+        0 => 'text/x-vala',
+      ),
     ),
-    'vapi' =>
+    'vapi' => 
     array (
-      0 => 'text/x-vala',
+      't' => 
+      array (
+        0 => 'text/x-vala',
+      ),
     ),
-    'vb' =>
+    'vb' => 
     array (
-      0 => 'application/x-virtual-boy-rom',
+      't' => 
+      array (
+        0 => 'application/x-virtual-boy-rom',
+      ),
     ),
-    'vcard' =>
+    'vcard' => 
     array (
-      0 => 'text/vcard',
+      't' => 
+      array (
+        0 => 'text/vcard',
+      ),
     ),
-    'vcd' =>
+    'vcd' => 
     array (
-      0 => 'application/x-cdlink',
+      't' => 
+      array (
+        0 => 'application/x-cdlink',
+      ),
     ),
-    'vcf' =>
+    'vcf' => 
     array (
-      0 => 'text/x-vcard',
-      1 => 'text/vcard',
+      't' => 
+      array (
+        0 => 'text/x-vcard',
+        1 => 'text/vcard',
+      ),
     ),
-    'vcg' =>
+    'vcg' => 
     array (
-      0 => 'application/vnd.groove-vcard',
+      't' => 
+      array (
+        0 => 'application/vnd.groove-vcard',
+      ),
     ),
-    'vcs' =>
+    'vcs' => 
     array (
-      0 => 'text/x-vcalendar',
-      1 => 'text/calendar',
+      't' => 
+      array (
+        0 => 'text/x-vcalendar',
+        1 => 'text/calendar',
+      ),
     ),
-    'vct' =>
+    'vct' => 
     array (
-      0 => 'text/vcard',
+      't' => 
+      array (
+        0 => 'text/vcard',
+      ),
     ),
-    'vcx' =>
+    'vcx' => 
     array (
-      0 => 'application/vnd.vcx',
+      't' => 
+      array (
+        0 => 'application/vnd.vcx',
+      ),
     ),
-    'vda' =>
+    'vda' => 
     array (
-      0 => 'image/x-tga',
+      't' => 
+      array (
+        0 => 'image/x-tga',
+      ),
     ),
-    'vhd' =>
+    'vhd' => 
     array (
-      0 => 'text/x-vhdl',
+      't' => 
+      array (
+        0 => 'text/x-vhdl',
+      ),
     ),
-    'vhdl' =>
+    'vhdl' => 
     array (
-      0 => 'text/x-vhdl',
+      't' => 
+      array (
+        0 => 'text/x-vhdl',
+      ),
     ),
-    'vis' =>
+    'vis' => 
     array (
-      0 => 'application/vnd.visionary',
+      't' => 
+      array (
+        0 => 'application/vnd.visionary',
+      ),
     ),
-    'viv' =>
+    'viv' => 
     array (
-      0 => 'video/vnd.vivo',
+      't' => 
+      array (
+        0 => 'video/vnd.vivo',
+      ),
     ),
-    'vivo' =>
+    'vivo' => 
     array (
-      0 => 'video/vnd.vivo',
+      't' => 
+      array (
+        0 => 'video/vnd.vivo',
+      ),
     ),
-    'vlc' =>
+    'vlc' => 
     array (
-      0 => 'audio/x-mpegurl',
+      't' => 
+      array (
+        0 => 'audio/x-mpegurl',
+      ),
     ),
-    'vob' =>
+    'vob' => 
     array (
-      0 => 'video/x-ms-vob',
-      1 => 'video/mpeg',
+      't' => 
+      array (
+        0 => 'video/x-ms-vob',
+        1 => 'video/mpeg',
+      ),
     ),
-    'voc' =>
+    'voc' => 
     array (
-      0 => 'audio/x-voc',
+      't' => 
+      array (
+        0 => 'audio/x-voc',
+      ),
     ),
-    'vor' =>
+    'vor' => 
     array (
-      0 => 'application/vnd.stardivision.writer',
+      't' => 
+      array (
+        0 => 'application/vnd.stardivision.writer',
+      ),
     ),
-    'vox' =>
+    'vox' => 
     array (
-      0 => 'application/x-authorware-bin',
+      't' => 
+      array (
+        0 => 'application/x-authorware-bin',
+      ),
     ),
-    'vrm' =>
+    'vrm' => 
     array (
-      0 => 'model/vrml',
+      't' => 
+      array (
+        0 => 'model/vrml',
+      ),
     ),
-    'vrml' =>
+    'vrml' => 
     array (
-      0 => 'model/vrml',
+      't' => 
+      array (
+        0 => 'model/vrml',
+      ),
     ),
-    'vsd' =>
+    'vsd' => 
     array (
-      0 => 'application/vnd.visio',
+      't' => 
+      array (
+        0 => 'application/vnd.visio',
+      ),
     ),
-    'vsdm' =>
+    'vsdm' => 
     array (
-      0 => 'application/vnd.ms-visio.drawing.macroenabled.main+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-visio.drawing.macroenabled.main+xml',
+      ),
     ),
-    'vsdx' =>
+    'vsdx' => 
     array (
-      0 => 'application/vnd.ms-visio.drawing.main+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-visio.drawing.main+xml',
+      ),
     ),
-    'vsf' =>
+    'vsf' => 
     array (
-      0 => 'application/vnd.vsf',
+      't' => 
+      array (
+        0 => 'application/vnd.vsf',
+      ),
     ),
-    'vss' =>
+    'vss' => 
     array (
-      0 => 'application/vnd.visio',
+      't' => 
+      array (
+        0 => 'application/vnd.visio',
+      ),
     ),
-    'vssm' =>
+    'vssm' => 
     array (
-      0 => 'application/vnd.ms-visio.stencil.macroenabled.main+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-visio.stencil.macroenabled.main+xml',
+      ),
     ),
-    'vssx' =>
+    'vssx' => 
     array (
-      0 => 'application/vnd.ms-visio.stencil.main+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-visio.stencil.main+xml',
+      ),
     ),
-    'vst' =>
+    'vst' => 
     array (
-      0 => 'application/vnd.visio',
-      1 => 'image/x-tga',
+      't' => 
+      array (
+        0 => 'application/vnd.visio',
+        1 => 'image/x-tga',
+      ),
     ),
-    'vstm' =>
+    'vstm' => 
     array (
-      0 => 'application/vnd.ms-visio.template.macroenabled.main+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-visio.template.macroenabled.main+xml',
+      ),
     ),
-    'vstx' =>
+    'vstx' => 
     array (
-      0 => 'application/vnd.ms-visio.template.main+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-visio.template.main+xml',
+      ),
     ),
-    'vsw' =>
+    'vsw' => 
     array (
-      0 => 'application/vnd.visio',
+      't' => 
+      array (
+        0 => 'application/vnd.visio',
+      ),
     ),
-    'vtt' =>
+    'vtt' => 
     array (
-      0 => 'text/vtt',
+      't' => 
+      array (
+        0 => 'text/vtt',
+      ),
     ),
-    'vtu' =>
+    'vtu' => 
     array (
-      0 => 'model/vnd.vtu',
+      't' => 
+      array (
+        0 => 'model/vnd.vtu',
+      ),
     ),
-    'vxml' =>
+    'vxml' => 
     array (
-      0 => 'application/voicexml+xml',
+      't' => 
+      array (
+        0 => 'application/voicexml+xml',
+      ),
     ),
-    'w3d' =>
+    'w3d' => 
     array (
-      0 => 'application/x-director',
+      't' => 
+      array (
+        0 => 'application/x-director',
+      ),
     ),
-    'wad' =>
+    'wad' => 
     array (
-      0 => 'application/x-doom',
-      1 => 'application/x-wii-wad',
-      2 => 'application/x-doom-wad',
+      't' => 
+      array (
+        0 => 'application/x-doom',
+        1 => 'application/x-wii-wad',
+        2 => 'application/x-doom-wad',
+      ),
     ),
-    'wav' =>
+    'wav' => 
     array (
-      0 => 'audio/x-wav',
+      't' => 
+      array (
+        0 => 'audio/x-wav',
+      ),
     ),
-    'wax' =>
+    'wax' => 
     array (
-      0 => 'audio/x-ms-wax',
-      1 => 'audio/x-ms-asx',
+      't' => 
+      array (
+        0 => 'audio/x-ms-wax',
+        1 => 'audio/x-ms-asx',
+      ),
     ),
-    'wb1' =>
+    'wb1' => 
     array (
-      0 => 'application/x-quattropro',
+      't' => 
+      array (
+        0 => 'application/x-quattropro',
+      ),
     ),
-    'wb2' =>
+    'wb2' => 
     array (
-      0 => 'application/x-quattropro',
+      't' => 
+      array (
+        0 => 'application/x-quattropro',
+      ),
     ),
-    'wb3' =>
+    'wb3' => 
     array (
-      0 => 'application/x-quattropro',
+      't' => 
+      array (
+        0 => 'application/x-quattropro',
+      ),
     ),
-    'wbmp' =>
+    'wbmp' => 
     array (
-      0 => 'image/vnd.wap.wbmp',
+      't' => 
+      array (
+        0 => 'image/vnd.wap.wbmp',
+      ),
     ),
-    'wbs' =>
+    'wbs' => 
     array (
-      0 => 'application/vnd.criticaltools.wbs+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.criticaltools.wbs+xml',
+      ),
     ),
-    'wbxml' =>
+    'wbxml' => 
     array (
-      0 => 'application/vnd.wap.wbxml',
+      't' => 
+      array (
+        0 => 'application/vnd.wap.wbxml',
+      ),
     ),
-    'wcm' =>
+    'wcm' => 
     array (
-      0 => 'application/vnd.ms-works',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-works',
+      ),
     ),
-    'wdb' =>
+    'wdb' => 
     array (
-      0 => 'application/vnd.ms-works',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-works',
+      ),
     ),
-    'wdp' =>
+    'wdp' => 
     array (
-      0 => 'image/vnd.ms-photo',
+      't' => 
+      array (
+        0 => 'image/vnd.ms-photo',
+      ),
     ),
-    'weba' =>
+    'weba' => 
     array (
-      0 => 'audio/webm',
+      't' => 
+      array (
+        0 => 'audio/webm',
+      ),
     ),
-    'webm' =>
+    'webm' => 
     array (
-      0 => 'video/webm',
+      't' => 
+      array (
+        0 => 'video/webm',
+      ),
     ),
-    'webp' =>
+    'webp' => 
     array (
-      0 => 'image/webp',
+      't' => 
+      array (
+        0 => 'image/webp',
+      ),
     ),
-    'wg' =>
+    'wg' => 
     array (
-      0 => 'application/vnd.pmi.widget',
+      't' => 
+      array (
+        0 => 'application/vnd.pmi.widget',
+      ),
     ),
-    'wgt' =>
+    'wgt' => 
     array (
-      0 => 'application/widget',
+      't' => 
+      array (
+        0 => 'application/widget',
+      ),
     ),
-    'wim' =>
+    'wim' => 
     array (
-      0 => 'application/x-ms-wim',
+      't' => 
+      array (
+        0 => 'application/x-ms-wim',
+      ),
     ),
-    'wk1' =>
+    'wk1' => 
     array (
-      0 => 'application/vnd.lotus-1-2-3',
+      't' => 
+      array (
+        0 => 'application/vnd.lotus-1-2-3',
+      ),
     ),
-    'wk3' =>
+    'wk3' => 
     array (
-      0 => 'application/vnd.lotus-1-2-3',
+      't' => 
+      array (
+        0 => 'application/vnd.lotus-1-2-3',
+      ),
     ),
-    'wk4' =>
+    'wk4' => 
     array (
-      0 => 'application/vnd.lotus-1-2-3',
+      't' => 
+      array (
+        0 => 'application/vnd.lotus-1-2-3',
+      ),
     ),
-    'wkdownload' =>
+    'wkdownload' => 
     array (
-      0 => 'application/x-partial-download',
+      't' => 
+      array (
+        0 => 'application/x-partial-download',
+      ),
     ),
-    'wks' =>
+    'wks' => 
     array (
-      0 => 'application/vnd.ms-works',
-      1 => 'application/vnd.lotus-1-2-3',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-works',
+        1 => 'application/vnd.lotus-1-2-3',
+      ),
     ),
-    'wm' =>
+    'wm' => 
     array (
-      0 => 'video/x-ms-wm',
+      't' => 
+      array (
+        0 => 'video/x-ms-wm',
+      ),
     ),
-    'wma' =>
+    'wma' => 
     array (
-      0 => 'audio/x-ms-wma',
+      't' => 
+      array (
+        0 => 'audio/x-ms-wma',
+      ),
     ),
-    'wmd' =>
+    'wmd' => 
     array (
-      0 => 'application/x-ms-wmd',
+      't' => 
+      array (
+        0 => 'application/x-ms-wmd',
+      ),
     ),
-    'wmf' =>
+    'wmf' => 
     array (
-      0 => 'application/x-msmetafile',
-      1 => 'image/wmf',
+      't' => 
+      array (
+        0 => 'application/x-msmetafile',
+        1 => 'image/wmf',
+      ),
     ),
-    'wml' =>
+    'wml' => 
     array (
-      0 => 'text/vnd.wap.wml',
+      't' => 
+      array (
+        0 => 'text/vnd.wap.wml',
+      ),
     ),
-    'wmlc' =>
+    'wmlc' => 
     array (
-      0 => 'application/vnd.wap.wmlc',
+      't' => 
+      array (
+        0 => 'application/vnd.wap.wmlc',
+      ),
     ),
-    'wmls' =>
+    'wmls' => 
     array (
-      0 => 'text/vnd.wap.wmlscript',
+      't' => 
+      array (
+        0 => 'text/vnd.wap.wmlscript',
+      ),
     ),
-    'wmlsc' =>
+    'wmlsc' => 
     array (
-      0 => 'application/vnd.wap.wmlscriptc',
+      't' => 
+      array (
+        0 => 'application/vnd.wap.wmlscriptc',
+      ),
     ),
-    'wmv' =>
+    'wmv' => 
     array (
-      0 => 'video/x-ms-wmv',
+      't' => 
+      array (
+        0 => 'video/x-ms-wmv',
+      ),
     ),
-    'wmx' =>
+    'wmx' => 
     array (
-      0 => 'video/x-ms-wmx',
-      1 => 'audio/x-ms-asx',
+      't' => 
+      array (
+        0 => 'video/x-ms-wmx',
+        1 => 'audio/x-ms-asx',
+      ),
     ),
-    'wmz' =>
+    'wmz' => 
     array (
-      0 => 'application/x-msmetafile',
-      1 => 'application/x-ms-wmz',
+      't' => 
+      array (
+        0 => 'application/x-msmetafile',
+        1 => 'application/x-ms-wmz',
+      ),
     ),
-    'woff' =>
+    'woff' => 
     array (
-      0 => 'font/woff',
+      't' => 
+      array (
+        0 => 'font/woff',
+      ),
     ),
-    'woff2' =>
+    'woff2' => 
     array (
-      0 => 'font/woff2',
-      1 => 'font/woff',
+      't' => 
+      array (
+        0 => 'font/woff2',
+        1 => 'font/woff',
+      ),
     ),
-    'wp' =>
+    'wp' => 
     array (
-      0 => 'application/vnd.wordperfect',
+      't' => 
+      array (
+        0 => 'application/vnd.wordperfect',
+      ),
     ),
-    'wp4' =>
+    'wp4' => 
     array (
-      0 => 'application/vnd.wordperfect',
+      't' => 
+      array (
+        0 => 'application/vnd.wordperfect',
+      ),
     ),
-    'wp5' =>
+    'wp5' => 
     array (
-      0 => 'application/vnd.wordperfect',
+      't' => 
+      array (
+        0 => 'application/vnd.wordperfect',
+      ),
     ),
-    'wp6' =>
+    'wp6' => 
     array (
-      0 => 'application/vnd.wordperfect',
+      't' => 
+      array (
+        0 => 'application/vnd.wordperfect',
+      ),
     ),
-    'wpd' =>
+    'wpd' => 
     array (
-      0 => 'application/vnd.wordperfect',
+      't' => 
+      array (
+        0 => 'application/vnd.wordperfect',
+      ),
     ),
-    'wpg' =>
+    'wpg' => 
     array (
-      0 => 'application/x-wpg',
+      't' => 
+      array (
+        0 => 'application/x-wpg',
+      ),
     ),
-    'wpl' =>
+    'wpl' => 
     array (
-      0 => 'application/vnd.ms-wpl',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-wpl',
+      ),
     ),
-    'wpp' =>
+    'wpp' => 
     array (
-      0 => 'application/vnd.wordperfect',
+      't' => 
+      array (
+        0 => 'application/vnd.wordperfect',
+      ),
     ),
-    'wps' =>
+    'wps' => 
     array (
-      0 => 'application/vnd.ms-works',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-works',
+      ),
     ),
-    'wqd' =>
+    'wqd' => 
     array (
-      0 => 'application/vnd.wqd',
+      't' => 
+      array (
+        0 => 'application/vnd.wqd',
+      ),
     ),
-    'wri' =>
+    'wri' => 
     array (
-      0 => 'application/x-mswrite',
+      't' => 
+      array (
+        0 => 'application/x-mswrite',
+      ),
     ),
-    'wrl' =>
+    'wrl' => 
     array (
-      0 => 'model/vrml',
+      't' => 
+      array (
+        0 => 'model/vrml',
+      ),
     ),
-    'ws' =>
+    'ws' => 
     array (
-      0 => 'application/x-wonderswan-rom',
+      't' => 
+      array (
+        0 => 'application/x-wonderswan-rom',
+      ),
     ),
-    'wsc' =>
+    'wsc' => 
     array (
-      0 => 'application/x-wonderswan-color-rom',
+      't' => 
+      array (
+        0 => 'application/x-wonderswan-color-rom',
+      ),
     ),
-    'wsdl' =>
+    'wsdl' => 
     array (
-      0 => 'application/wsdl+xml',
+      't' => 
+      array (
+        0 => 'application/wsdl+xml',
+      ),
     ),
-    'wsgi' =>
+    'wsgi' => 
     array (
-      0 => 'text/x-python',
+      't' => 
+      array (
+        0 => 'text/x-python',
+      ),
     ),
-    'wspolicy' =>
+    'wspolicy' => 
     array (
-      0 => 'application/wspolicy+xml',
+      't' => 
+      array (
+        0 => 'application/wspolicy+xml',
+      ),
     ),
-    'wtb' =>
+    'wtb' => 
     array (
-      0 => 'application/vnd.webturbo',
+      't' => 
+      array (
+        0 => 'application/vnd.webturbo',
+      ),
     ),
-    'wv' =>
+    'wv' => 
     array (
-      0 => 'audio/x-wavpack',
+      't' => 
+      array (
+        0 => 'audio/x-wavpack',
+      ),
     ),
-    'wvc' =>
+    'wvc' => 
     array (
-      0 => 'audio/x-wavpack-correction',
+      't' => 
+      array (
+        0 => 'audio/x-wavpack-correction',
+      ),
     ),
-    'wvp' =>
+    'wvp' => 
     array (
-      0 => 'audio/x-wavpack',
+      't' => 
+      array (
+        0 => 'audio/x-wavpack',
+      ),
     ),
-    'wvx' =>
+    'wvx' => 
     array (
-      0 => 'video/x-ms-wvx',
-      1 => 'audio/x-ms-asx',
+      't' => 
+      array (
+        0 => 'video/x-ms-wvx',
+        1 => 'audio/x-ms-asx',
+      ),
     ),
-    'wwf' =>
+    'wwf' => 
     array (
-      0 => 'application/x-wwf',
+      't' => 
+      array (
+        0 => 'application/x-wwf',
+      ),
     ),
-    'x32' =>
+    'x32' => 
     array (
-      0 => 'application/x-authorware-bin',
+      't' => 
+      array (
+        0 => 'application/x-authorware-bin',
+      ),
     ),
-    'x3d' =>
+    'x3d' => 
     array (
-      0 => 'model/x3d+xml',
+      't' => 
+      array (
+        0 => 'model/x3d+xml',
+      ),
     ),
-    'x3db' =>
+    'x3db' => 
     array (
-      0 => 'model/x3d+binary',
+      't' => 
+      array (
+        0 => 'model/x3d+binary',
+      ),
     ),
-    'x3dbz' =>
+    'x3dbz' => 
     array (
-      0 => 'model/x3d+binary',
+      't' => 
+      array (
+        0 => 'model/x3d+binary',
+      ),
     ),
-    'x3dv' =>
+    'x3dv' => 
     array (
-      0 => 'model/x3d+vrml',
+      't' => 
+      array (
+        0 => 'model/x3d+vrml',
+      ),
     ),
-    'x3dvz' =>
+    'x3dvz' => 
     array (
-      0 => 'model/x3d+vrml',
+      't' => 
+      array (
+        0 => 'model/x3d+vrml',
+      ),
     ),
-    'x3dz' =>
+    'x3dz' => 
     array (
-      0 => 'model/x3d+xml',
+      't' => 
+      array (
+        0 => 'model/x3d+xml',
+      ),
     ),
-    'x3f' =>
+    'x3f' => 
     array (
-      0 => 'image/x-sigma-x3f',
+      't' => 
+      array (
+        0 => 'image/x-sigma-x3f',
+      ),
     ),
-    'xac' =>
+    'xac' => 
     array (
-      0 => 'application/x-gnucash',
+      't' => 
+      array (
+        0 => 'application/x-gnucash',
+      ),
     ),
-    'xaml' =>
+    'xaml' => 
     array (
-      0 => 'application/xaml+xml',
+      't' => 
+      array (
+        0 => 'application/xaml+xml',
+      ),
     ),
-    'xap' =>
+    'xap' => 
     array (
-      0 => 'application/x-silverlight-app',
+      't' => 
+      array (
+        0 => 'application/x-silverlight-app',
+      ),
     ),
-    'xar' =>
+    'xar' => 
     array (
-      0 => 'application/vnd.xara',
-      1 => 'application/x-xar',
+      't' => 
+      array (
+        0 => 'application/vnd.xara',
+        1 => 'application/x-xar',
+      ),
     ),
-    'xbap' =>
+    'xbap' => 
     array (
-      0 => 'application/x-ms-xbap',
+      't' => 
+      array (
+        0 => 'application/x-ms-xbap',
+      ),
     ),
-    'xbd' =>
+    'xbd' => 
     array (
-      0 => 'application/vnd.fujixerox.docuworks.binder',
+      't' => 
+      array (
+        0 => 'application/vnd.fujixerox.docuworks.binder',
+      ),
     ),
-    'xbel' =>
+    'xbel' => 
     array (
-      0 => 'application/x-xbel',
+      't' => 
+      array (
+        0 => 'application/x-xbel',
+      ),
     ),
-    'xbl' =>
+    'xbl' => 
     array (
-      0 => 'application/xml',
+      't' => 
+      array (
+        0 => 'application/xml',
+      ),
     ),
-    'xbm' =>
+    'xbm' => 
     array (
-      0 => 'image/x-xbitmap',
+      't' => 
+      array (
+        0 => 'image/x-xbitmap',
+      ),
     ),
-    'xcf' =>
+    'xcf' => 
     array (
-      0 => 'image/x-xcf',
+      't' => 
+      array (
+        0 => 'image/x-xcf',
+      ),
     ),
-    'xcf.bz2' =>
+    'xcf.bz2' => 
     array (
-      0 => 'image/x-compressed-xcf',
+      't' => 
+      array (
+        0 => 'image/x-compressed-xcf',
+      ),
     ),
-    'xcf.gz' =>
+    'xcf.gz' => 
     array (
-      0 => 'image/x-compressed-xcf',
+      't' => 
+      array (
+        0 => 'image/x-compressed-xcf',
+      ),
     ),
-    'xdf' =>
+    'xdf' => 
     array (
-      0 => 'application/xcap-diff+xml',
+      't' => 
+      array (
+        0 => 'application/xcap-diff+xml',
+      ),
     ),
-    'xdgapp' =>
+    'xdgapp' => 
     array (
-      0 => 'application/vnd.flatpak',
+      't' => 
+      array (
+        0 => 'application/vnd.flatpak',
+      ),
     ),
-    'xdm' =>
+    'xdm' => 
     array (
-      0 => 'application/vnd.syncml.dm+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.syncml.dm+xml',
+      ),
     ),
-    'xdp' =>
+    'xdp' => 
     array (
-      0 => 'application/vnd.adobe.xdp+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.adobe.xdp+xml',
+      ),
     ),
-    'xdssc' =>
+    'xdssc' => 
     array (
-      0 => 'application/dssc+xml',
+      't' => 
+      array (
+        0 => 'application/dssc+xml',
+      ),
     ),
-    'xdw' =>
+    'xdw' => 
     array (
-      0 => 'application/vnd.fujixerox.docuworks',
+      't' => 
+      array (
+        0 => 'application/vnd.fujixerox.docuworks',
+      ),
     ),
-    'xenc' =>
+    'xenc' => 
     array (
-      0 => 'application/xenc+xml',
+      't' => 
+      array (
+        0 => 'application/xenc+xml',
+      ),
     ),
-    'xer' =>
+    'xer' => 
     array (
-      0 => 'application/patch-ops-error+xml',
+      't' => 
+      array (
+        0 => 'application/patch-ops-error+xml',
+      ),
     ),
-    'xfdf' =>
+    'xfdf' => 
     array (
-      0 => 'application/vnd.adobe.xfdf',
+      't' => 
+      array (
+        0 => 'application/vnd.adobe.xfdf',
+      ),
     ),
-    'xfdl' =>
+    'xfdl' => 
     array (
-      0 => 'application/vnd.xfdl',
+      't' => 
+      array (
+        0 => 'application/vnd.xfdl',
+      ),
     ),
-    'xhe' =>
+    'xhe' => 
     array (
-      0 => 'audio/usac',
+      't' => 
+      array (
+        0 => 'audio/usac',
+      ),
     ),
-    'xht' =>
+    'xht' => 
     array (
-      0 => 'application/xhtml+xml',
+      't' => 
+      array (
+        0 => 'application/xhtml+xml',
+      ),
     ),
-    'xhtml' =>
+    'xhtml' => 
     array (
-      0 => 'application/xhtml+xml',
+      't' => 
+      array (
+        0 => 'application/xhtml+xml',
+      ),
     ),
-    'xhvml' =>
+    'xhvml' => 
     array (
-      0 => 'application/xv+xml',
+      't' => 
+      array (
+        0 => 'application/xv+xml',
+      ),
     ),
-    'xi' =>
+    'xi' => 
     array (
-      0 => 'audio/x-xi',
+      't' => 
+      array (
+        0 => 'audio/x-xi',
+      ),
     ),
-    'xif' =>
+    'xif' => 
     array (
-      0 => 'image/vnd.xiff',
+      't' => 
+      array (
+        0 => 'image/vnd.xiff',
+      ),
     ),
-    'xla' =>
+    'xla' => 
     array (
-      0 => 'application/vnd.ms-excel',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-excel',
+      ),
     ),
-    'xlam' =>
+    'xlam' => 
     array (
-      0 => 'application/vnd.ms-excel.addin.macroenabled.12',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-excel.addin.macroenabled.12',
+      ),
     ),
-    'xlc' =>
+    'xlc' => 
     array (
-      0 => 'application/vnd.ms-excel',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-excel',
+      ),
     ),
-    'xld' =>
+    'xld' => 
     array (
-      0 => 'application/vnd.ms-excel',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-excel',
+      ),
     ),
-    'xlf' =>
+    'xlf' => 
     array (
-      0 => 'application/x-xliff+xml',
-      1 => 'application/xliff+xml',
+      't' => 
+      array (
+        0 => 'application/x-xliff+xml',
+        1 => 'application/xliff+xml',
+      ),
     ),
-    'xliff' =>
+    'xliff' => 
     array (
-      0 => 'application/xliff+xml',
+      't' => 
+      array (
+        0 => 'application/xliff+xml',
+      ),
     ),
-    'xll' =>
+    'xll' => 
     array (
-      0 => 'application/vnd.ms-excel',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-excel',
+      ),
     ),
-    'xlm' =>
+    'xlm' => 
     array (
-      0 => 'application/vnd.ms-excel',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-excel',
+      ),
     ),
-    'xlr' =>
+    'xlr' => 
     array (
-      0 => 'application/vnd.ms-works',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-works',
+      ),
     ),
-    'xls' =>
+    'xls' => 
     array (
-      0 => 'application/vnd.ms-excel',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-excel',
+      ),
     ),
-    'xlsb' =>
+    'xlsb' => 
     array (
-      0 => 'application/vnd.ms-excel.sheet.binary.macroenabled.12',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-excel.sheet.binary.macroenabled.12',
+      ),
     ),
-    'xlsm' =>
+    'xlsm' => 
     array (
-      0 => 'application/vnd.ms-excel.sheet.macroenabled.12',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-excel.sheet.macroenabled.12',
+      ),
     ),
-    'xlsx' =>
+    'xlsx' => 
     array (
-      0 => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      't' => 
+      array (
+        0 => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      ),
     ),
-    'xlt' =>
+    'xlt' => 
     array (
-      0 => 'application/vnd.ms-excel',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-excel',
+      ),
     ),
-    'xltm' =>
+    'xltm' => 
     array (
-      0 => 'application/vnd.ms-excel.template.macroenabled.12',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-excel.template.macroenabled.12',
+      ),
     ),
-    'xltx' =>
+    'xltx' => 
     array (
-      0 => 'application/vnd.openxmlformats-officedocument.spreadsheetml.template',
+      't' => 
+      array (
+        0 => 'application/vnd.openxmlformats-officedocument.spreadsheetml.template',
+      ),
     ),
-    'xlw' =>
+    'xlw' => 
     array (
-      0 => 'application/vnd.ms-excel',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-excel',
+      ),
     ),
-    'xm' =>
+    'xm' => 
     array (
-      0 => 'audio/xm',
-      1 => 'audio/x-xm',
+      't' => 
+      array (
+        0 => 'audio/xm',
+        1 => 'audio/x-xm',
+      ),
     ),
-    'xmf' =>
+    'xmf' => 
     array (
-      0 => 'audio/x-xmf',
+      't' => 
+      array (
+        0 => 'audio/x-xmf',
+      ),
     ),
-    'xmi' =>
+    'xmi' => 
     array (
-      0 => 'text/x-xmi',
+      't' => 
+      array (
+        0 => 'text/x-xmi',
+      ),
     ),
-    'xml' =>
+    'xml' => 
     array (
-      0 => 'application/xml',
+      't' => 
+      array (
+        0 => 'application/xml',
+      ),
     ),
-    'xo' =>
+    'xo' => 
     array (
-      0 => 'application/vnd.olpc-sugar',
+      't' => 
+      array (
+        0 => 'application/vnd.olpc-sugar',
+      ),
     ),
-    'xop' =>
+    'xop' => 
     array (
-      0 => 'application/xop+xml',
+      't' => 
+      array (
+        0 => 'application/xop+xml',
+      ),
     ),
-    'xpi' =>
+    'xpi' => 
     array (
-      0 => 'application/x-xpinstall',
+      't' => 
+      array (
+        0 => 'application/x-xpinstall',
+      ),
     ),
-    'xpl' =>
+    'xpl' => 
     array (
-      0 => 'application/xproc+xml',
+      't' => 
+      array (
+        0 => 'application/xproc+xml',
+      ),
     ),
-    'xpm' =>
+    'xpm' => 
     array (
-      0 => 'image/x-xpixmap',
+      't' => 
+      array (
+        0 => 'image/x-xpixmap',
+      ),
     ),
-    'xpr' =>
+    'xpr' => 
     array (
-      0 => 'application/vnd.is-xpr',
+      't' => 
+      array (
+        0 => 'application/vnd.is-xpr',
+      ),
     ),
-    'xps' =>
+    'xps' => 
     array (
-      0 => 'application/vnd.ms-xpsdocument',
-      1 => 'application/oxps',
+      't' => 
+      array (
+        0 => 'application/vnd.ms-xpsdocument',
+        1 => 'application/oxps',
+      ),
     ),
-    'xpw' =>
+    'xpw' => 
     array (
-      0 => 'application/vnd.intercon.formnet',
+      't' => 
+      array (
+        0 => 'application/vnd.intercon.formnet',
+      ),
     ),
-    'xpx' =>
+    'xpx' => 
     array (
-      0 => 'application/vnd.intercon.formnet',
+      't' => 
+      array (
+        0 => 'application/vnd.intercon.formnet',
+      ),
     ),
-    'xsd' =>
+    'xsd' => 
     array (
-      0 => 'application/xml',
+      't' => 
+      array (
+        0 => 'application/xml',
+      ),
     ),
-    'xsl' =>
+    'xsl' => 
     array (
-      0 => 'application/xml',
-      1 => 'application/xslt+xml',
+      't' => 
+      array (
+        0 => 'application/xml',
+        1 => 'application/xslt+xml',
+      ),
     ),
-    'xslfo' =>
+    'xslfo' => 
     array (
-      0 => 'text/x-xslfo',
+      't' => 
+      array (
+        0 => 'text/x-xslfo',
+      ),
     ),
-    'xslt' =>
+    'xslt' => 
     array (
-      0 => 'application/xslt+xml',
+      't' => 
+      array (
+        0 => 'application/xslt+xml',
+      ),
     ),
-    'xsm' =>
+    'xsm' => 
     array (
-      0 => 'application/vnd.syncml+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.syncml+xml',
+      ),
     ),
-    'xspf' =>
+    'xspf' => 
     array (
-      0 => 'application/xspf+xml',
+      't' => 
+      array (
+        0 => 'application/xspf+xml',
+      ),
     ),
-    'xul' =>
+    'xul' => 
     array (
-      0 => 'application/vnd.mozilla.xul+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.mozilla.xul+xml',
+      ),
     ),
-    'xvm' =>
+    'xvm' => 
     array (
-      0 => 'application/xv+xml',
+      't' => 
+      array (
+        0 => 'application/xv+xml',
+      ),
     ),
-    'xvml' =>
+    'xvml' => 
     array (
-      0 => 'application/xv+xml',
+      't' => 
+      array (
+        0 => 'application/xv+xml',
+      ),
     ),
-    'xwd' =>
+    'xwd' => 
     array (
-      0 => 'image/x-xwindowdump',
+      't' => 
+      array (
+        0 => 'image/x-xwindowdump',
+      ),
     ),
-    'xyz' =>
+    'xyz' => 
     array (
-      0 => 'chemical/x-xyz',
+      't' => 
+      array (
+        0 => 'chemical/x-xyz',
+      ),
     ),
-    'xz' =>
+    'xz' => 
     array (
-      0 => 'application/x-xz',
+      't' => 
+      array (
+        0 => 'application/x-xz',
+      ),
     ),
-    'yaml' =>
+    'yaml' => 
     array (
-      0 => 'application/x-yaml',
+      't' => 
+      array (
+        0 => 'application/x-yaml',
+      ),
     ),
-    'yang' =>
+    'yang' => 
     array (
-      0 => 'application/yang',
+      't' => 
+      array (
+        0 => 'application/yang',
+      ),
     ),
-    'yin' =>
+    'yin' => 
     array (
-      0 => 'application/yin+xml',
+      't' => 
+      array (
+        0 => 'application/yin+xml',
+      ),
     ),
-    'yml' =>
+    'yml' => 
     array (
-      0 => 'application/x-yaml',
+      't' => 
+      array (
+        0 => 'application/x-yaml',
+      ),
     ),
-    'yt' =>
+    'yt' => 
     array (
-      0 => 'application/vnd.youtube.yt',
+      't' => 
+      array (
+        0 => 'application/vnd.youtube.yt',
+      ),
     ),
-    'z' =>
+    'z' => 
     array (
-      0 => 'application/x-compress',
+      't' => 
+      array (
+        0 => 'application/x-compress',
+      ),
     ),
-    'z1' =>
+    'z1' => 
     array (
-      0 => 'application/x-zmachine',
+      't' => 
+      array (
+        0 => 'application/x-zmachine',
+      ),
     ),
-    'z2' =>
+    'z2' => 
     array (
-      0 => 'application/x-zmachine',
+      't' => 
+      array (
+        0 => 'application/x-zmachine',
+      ),
     ),
-    'z3' =>
+    'z3' => 
     array (
-      0 => 'application/x-zmachine',
+      't' => 
+      array (
+        0 => 'application/x-zmachine',
+      ),
     ),
-    'z4' =>
+    'z4' => 
     array (
-      0 => 'application/x-zmachine',
+      't' => 
+      array (
+        0 => 'application/x-zmachine',
+      ),
     ),
-    'z5' =>
+    'z5' => 
     array (
-      0 => 'application/x-zmachine',
+      't' => 
+      array (
+        0 => 'application/x-zmachine',
+      ),
     ),
-    'z6' =>
+    'z6' => 
     array (
-      0 => 'application/x-zmachine',
+      't' => 
+      array (
+        0 => 'application/x-zmachine',
+      ),
     ),
-    'z64' =>
+    'z64' => 
     array (
-      0 => 'application/x-n64-rom',
+      't' => 
+      array (
+        0 => 'application/x-n64-rom',
+      ),
     ),
-    'z7' =>
+    'z7' => 
     array (
-      0 => 'application/x-zmachine',
+      't' => 
+      array (
+        0 => 'application/x-zmachine',
+      ),
     ),
-    'z8' =>
+    'z8' => 
     array (
-      0 => 'application/x-zmachine',
+      't' => 
+      array (
+        0 => 'application/x-zmachine',
+      ),
     ),
-    'zabw' =>
+    'zabw' => 
     array (
-      0 => 'application/x-abiword',
+      't' => 
+      array (
+        0 => 'application/x-abiword',
+      ),
     ),
-    'zaz' =>
+    'zaz' => 
     array (
-      0 => 'application/vnd.zzazz.deck+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.zzazz.deck+xml',
+      ),
     ),
-    'zip' =>
+    'zip' => 
     array (
-      0 => 'application/zip',
+      't' => 
+      array (
+        0 => 'application/zip',
+      ),
     ),
-    'zir' =>
+    'zir' => 
     array (
-      0 => 'application/vnd.zul',
+      't' => 
+      array (
+        0 => 'application/vnd.zul',
+      ),
     ),
-    'zirz' =>
+    'zirz' => 
     array (
-      0 => 'application/vnd.zul',
+      't' => 
+      array (
+        0 => 'application/vnd.zul',
+      ),
     ),
-    'zmm' =>
+    'zmm' => 
     array (
-      0 => 'application/vnd.handheld-entertainment+xml',
+      't' => 
+      array (
+        0 => 'application/vnd.handheld-entertainment+xml',
+      ),
     ),
-    'zoo' =>
+    'zoo' => 
     array (
-      0 => 'application/x-zoo',
+      't' => 
+      array (
+        0 => 'application/x-zoo',
+      ),
     ),
-    'zsav' =>
+    'zsav' => 
     array (
-      0 => 'application/x-spss-sav',
+      't' => 
+      array (
+        0 => 'application/x-spss-sav',
+      ),
     ),
-    'zz' =>
+    'zz' => 
     array (
-      0 => 'application/zlib',
+      't' => 
+      array (
+        0 => 'application/zlib',
+      ),
     ),
-    123 =>
+    123 => 
     array (
-      0 => 'application/vnd.lotus-1-2-3',
+      't' => 
+      array (
+        0 => 'application/vnd.lotus-1-2-3',
+      ),
     ),
-    602 =>
+    602 => 
     array (
-      0 => 'application/x-t602',
+      't' => 
+      array (
+        0 => 'application/x-t602',
+      ),
     ),
-    669 =>
+    669 => 
     array (
-      0 => 'audio/x-mod',
+      't' => 
+      array (
+        0 => 'audio/x-mod',
+      ),
     ),
   ),
 );
