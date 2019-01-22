@@ -70,14 +70,14 @@ class UpdateCommand extends Command
         // Check if anything got changed.
         $write = false;
         try {
-            $this->compareMaps($current_map, $new_map, 'types');
+            $this->compareMaps($current_map, $new_map, 't');
         } catch (\RuntimeException $e) {
             $output->writeln('<comment>Changes to MIME types mapping</comment>');
             $output->writeln($e->getMessage());
             $write = true;
         }
         try {
-            $this->compareMaps($current_map, $new_map, 'extensions');
+            $this->compareMaps($current_map, $new_map, 'e');
         } catch (\RuntimeException $e) {
             $output->writeln('<comment>Changes to extensions mapping</comment>');
             $output->writeln($e->getMessage());
