@@ -51,11 +51,12 @@ abstract class AbstractMap
      */
     public function sort()
     {
-        if (isset(static::$map['types'])) {
-            ksort(static::$map['types']);
+        // xx dynamic
+        if (isset(static::$map['t'])) {
+            ksort(static::$map['t']);
         }
-        if (isset(static::$map['extensions'])) {
-            ksort(static::$map['extensions']);
+        if (isset(static::$map['e'])) {
+            ksort(static::$map['e']);
         }
         return $this;
     }
@@ -69,6 +70,7 @@ abstract class AbstractMap
      */
     public function listTypes($match = null)
     {
+        // xx manage aliases
         return $this->listEntries('types', $match);
     }
 
@@ -180,22 +182,24 @@ abstract class AbstractMap
      *
      * Checks that no duplicate entries are made.
      *
-     * @param string $key
-     *   The main array key.
      * @param string $entry
-     *   The sub array key.
+     *   The main array entry.
+     * @param string $entry_key
+     *   The main entry value.
+     * @param string $sub_entry
+     *   The sub entry.
      * @param string $value
      *   The value to add.
      *
      * @return $this
      */
-    protected function addMapEntry($key, $entry, $value)
+    protected function addMapEntry($entry, $entry_key, $sub_entry, $value)
     {
-        if (!isset(static::$map[$key][$entry])) {
-            static::$map[$key][$entry] = [$value];
+        if (!isset(static::$map[$entry][$entry_key][$sub_entry])) {
+            static::$map[$entry][$entry_key][$sub_entry] = [$value];
         } else {
-            if (array_search($value, static::$map[$key][$entry]) === false) {
-                static::$map[$key][$entry][] = $value;
+            if (array_search($value, static::$map[$entry][$entry_key][$sub_entry]) === false) {
+                static::$map[$entry][$entry_key][$sub_entry][] = $value;
             }
         }
         return $this;
@@ -248,39 +252,41 @@ abstract class AbstractMap
     /**
      * Sets a value as the default for an entry.
      *
-     * @param string $key
-     *   The main array key.
      * @param string $entry
-     *   The sub array key.
+     *   The main array entry.
+     * @param string $entry_key
+     *   The main entry value.
+     * @param string $sub_entry
+     *   The sub entry.
      * @param string $value
-     *   The value.
+     *   The value to add.
      *
      * @throws MappingException if no mapping found.
      *
      * @return $this
      */
-    protected function setValueAsDefault($key, $entry, $value)
+    protected function setValueAsDefault($entry, $entry_key, $sub_entry, $value)
     {
         // Throw exception if no entry.
-        if (!isset(static::$map[$key][$entry])) {
-            throw new MappingException("Cannot set '{$value}' as default for '{$entry}', '{$entry}' not defined");
+        if (!isset(static::$map[$entry][$entry_key][$sub_entry])) {
+            throw new MappingException("Cannot set '{$value}' as default for '{$entry_key}', '{$entry_key}' not defined");
         }
 
         // Throw exception if no entry-value pair.
-        $k = array_search($value, static::$map[$key][$entry]);
+        $k = array_search($value, static::$map[$entry][$entry_key][$sub_entry]);
         if ($k === false) {
-            throw new MappingException("Cannot set '{$value}' as default for '{$entry}', '{$value}' not associated to '{$entry}'");
+            throw new MappingException("Cannot set '{$value}' as default for '{$entry_key}', '{$value}' not associated to '{$entry_key}'");
         }
 
         // Move value to top of array and resequence the rest.
         $tmp = [$value];
-        foreach (static::$map[$key][$entry] as $kk => $v) {
+        foreach (static::$map[$entry][$entry_key][$sub_entry] as $kk => $v) {
             if ($kk === $k) {
                 continue;
             }
             $tmp[] = $v;
         }
-        static::$map[$key][$entry] = $tmp;
+        static::$map[$entry][$entry_key][$sub_entry] = $tmp;
 
         return $this;
     }
@@ -301,10 +307,10 @@ abstract class AbstractMap
         $extension = (string) strtolower($extension);
 
         // Add entry to 'types'.
-        $this->addMapEntry('types', $type, $extension);
+        $this->addMapEntry('t', $type, 'e', $extension);
 
         // Add entry to 'extensions'.
-        $this->addMapEntry('extensions', $extension, $type);
+        $this->addMapEntry('e', $extension, 't', $type);
 
         return $this;
     }
@@ -378,7 +384,7 @@ abstract class AbstractMap
         $type = strtolower($type);
         $extension = (string) strtolower($extension);
 
-        return $this->setValueAsDefault('types', $type, $extension);
+        return $this->setValueAsDefault('t', $type, 'e', $extension);
     }
 
     /**

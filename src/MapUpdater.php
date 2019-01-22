@@ -108,7 +108,7 @@ class MapUpdater
                 $aliasx[$mt][] = $al;
             }
         }
-        dump($aliasx);
+        //dump($aliasx);
         $this->map->sort();
         return $this;
     }
