@@ -71,7 +71,7 @@ abstract class AbstractMap
     public function listTypes($match = null)
     {
         // xx manage aliases
-        return $this->listEntries('types', $match);
+        return $this->listEntries('t', $match);
     }
 
     /**
@@ -83,23 +83,23 @@ abstract class AbstractMap
      */
     public function listExtensions($match = null)
     {
-        return $this->listEntries('extensions', $match);
+        return $this->listEntries('e', $match);
     }
 
     /**
      * Gets a list of entries of the map.
      *
-     * @param string $key
-     *   The main array key.
+     * @param string $entry
+     *   The main array entry.
      * @param string $match
      *   (Optional) a match wildcard to limit the list.
      *
      * @return mixed|null
      *   The value of the entry, or null if missing.
      */
-    protected function listEntries($key, $match = null)
+    protected function listEntries($entry, $match = null)
     {
-        $list = array_keys(static::$map[$key]);
+        $list = array_keys(static::$map[$entry]);
 
         if (is_null($match)) {
             return $list;
