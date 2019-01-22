@@ -138,7 +138,7 @@ abstract class AbstractMap
     }
 
     /**
-     * Determines if an entry exists form the 'extensions' array.
+     * Determines if an entry exists from the 'extensions' array.
      *
      * @param string $extension The extension to be found.
      *
@@ -146,7 +146,7 @@ abstract class AbstractMap
      */
     public function hasExtension($extension)
     {
-        return (bool) $this->getExtension($extension);
+        return (bool) $this->getMapEntry('e', $extension);
     }
 
     /**
@@ -156,9 +156,9 @@ abstract class AbstractMap
      *
      * @return string[] The mapped MIME types.
      */
-    public function getExtension($extension)
+    public function getExtensionTypes($extension)
     {
-        $res = $this->getMapEntry('e', $extension);
+        $res = $this->getMapSubEntry('e', $extension, 't');
         return $res ?: [];
     }
 
@@ -176,6 +176,24 @@ abstract class AbstractMap
     protected function getMapEntry($entry, $entry_key)
     {
         return isset(static::$map[$entry][$entry_key]) ? static::$map[$entry][$entry_key] : null;
+    }
+
+    /**
+     * Gets the content of a subentry of the map.
+     *
+     * @param string $entry
+     *   The main array entry.
+     * @param string $entry_key
+     *   The main entry value.
+     * @param string $sub_entry
+     *   The sub entry.
+     *
+     * @return mixed|null
+     *   The value of the entry, or null if missing.
+     */
+    protected function getMapSubEntry($entry, $entry_key, $sub_entry)
+    {
+        return isset(static::$map[$entry][$entry_key][$sub_entry]) ? static::$map[$entry][$entry_key][$sub_entry] : null;
     }
 
     /**
