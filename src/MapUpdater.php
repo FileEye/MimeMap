@@ -88,7 +88,6 @@ class MapUpdater
         $aliasx = [];
         $xx = 0;
         foreach ($xml as $node) {
-if ($xx < 5) { dump($node); $xx++; }
             $exts = [];
             foreach ($node->glob as $glob) {
                 $pattern = (string) $glob['pattern'];

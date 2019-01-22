@@ -54,9 +54,15 @@ abstract class AbstractMap
         // xx dynamic
         if (isset(static::$map['t'])) {
             ksort(static::$map['t']);
+            foreach (static::$map['t'] as $t) {
+                ksort($t);
+            }
         }
         if (isset(static::$map['e'])) {
             ksort(static::$map['e']);
+            foreach (static::$map['e'] as $e) {
+                ksort($e);
+            }
         }
         return $this;
     }
