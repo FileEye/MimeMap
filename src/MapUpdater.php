@@ -108,9 +108,9 @@ class MapUpdater
             if (isset($node->acronym)) {
                 $this->map->addTypeDescription($type, (string) $node->acronym);
             }
-            if (isset($node->expanded-acronym)) {
+/*            if (isset($node->expanded-acronym)) {
                 $this->map->addTypeDescription($type, (string) $node->expanded-acronym);
-            }
+            }*/
 
             // Add extensions.
             foreach ($exts as $ext) {
