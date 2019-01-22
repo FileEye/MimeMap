@@ -132,7 +132,8 @@ abstract class AbstractMap
      */
     public function getType($type)
     {
-        $res = $this->getMapEntry('types', $type);
+        // xx manage aliases
+        $res = $this->getMapEntry('t', $type);
         return $res ?: [];
     }
 
@@ -157,24 +158,24 @@ abstract class AbstractMap
      */
     public function getExtension($extension)
     {
-        $res = $this->getMapEntry('extensions', $extension);
+        $res = $this->getMapEntry('e', $extension);
         return $res ?: [];
     }
 
     /**
      * Gets the content of an entry of the map.
      *
-     * @param string $key
-     *   The main array key.
      * @param string $entry
-     *   The sub array key.
+     *   The main array entry.
+     * @param string $entry_key
+     *   The main entry value.
      *
      * @return mixed|null
      *   The value of the entry, or null if missing.
      */
-    protected function getMapEntry($key, $entry)
+    protected function getMapEntry($entry, $entry_key)
     {
-        return isset(static::$map[$key][$entry]) ? static::$map[$key][$entry] : null;
+        return isset(static::$map[$entry][$entry_key]) ? static::$map[$entry][$entry_key] : null;
     }
 
     /**
