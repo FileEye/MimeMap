@@ -108,11 +108,12 @@ if ($xx < 5) { dump($node); $xx++; }
                 $this->map->addTypeDescription($type, (string) $node->comment[0]);
             }
             if (isset($node->acronym)) {
-                $this->map->addTypeDescription($type, (string) $node->acronym);
+                $acronym = (string) $node->acronym;
+                if (isset($node->{'expanded-acronym'})) {
+                    $acronym .= ': ' . (string) $node->{'expanded-acronym'};
+                }
+                $this->map->addTypeDescription($type, $acronym);
             }
-/*            if (isset($node->expanded-acronym)) {
-                $this->map->addTypeDescription($type, (string) $node->expanded-acronym);
-            }*/
 
             // Add extensions.
             foreach ($exts as $ext) {
