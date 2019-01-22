@@ -1,18 +1,27 @@
 <?php
 
-namespace FileEye\MimeMap;
+namespace FileEye\MimeMap\Map;
 
 /**
  * Class for mapping file extensions to MIME types.
+ *
+ * This is the default map, taken from the Apache HTTPD documentation website.
  */
-class TypeExtensionMap
+class ApacheMap extends AbstractMap
 {
     /**
-     * Returns this file's full qualified filename.
+     * Singleton instance.
+     *
+     * @var AbstractMap
+     */
+    protected static $instance;
+
+    /**
+     * Returns this file's fully qualified filename.
      *
      * @return string
      */
-    public static function getFileName()
+    public function getFileName()
     {
         return __FILE__;
     }
@@ -37,7 +46,7 @@ class TypeExtensionMap
      * @var array
      */
     // phpcs:disable
-    public static $map = array (
+    protected static $map = array (
   'types' =>
   array (
     'application/andrew-inset' =>

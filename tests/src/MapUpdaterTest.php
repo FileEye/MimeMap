@@ -37,9 +37,10 @@ class MapUpdaterTest extends TestCase
                 'txt' => ['text/plain'],
             ],
         ];
-        $this->assertSame($expected, $map->get());
+        $this->assertSame($expected, $map->getMapArray());
         $this->assertSame(['image/jpeg', 'text/plain'], $map->listTypes());
         $this->assertSame(['jpeg', 'jpg', 'jpe', 'txt'], $map->listExtensions());
+        $map->reset();
     }
 
     /**
@@ -48,45 +49,41 @@ class MapUpdaterTest extends TestCase
     public function testCreateMapFromSourceFileZeroLines()
     {
         $map = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/zero.mime-types.txt');
-        $this->assertNull($map->get());
-    }
-
-    public function testCompareMapsEqual()
-    {
-        $map_a = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
-        $map_b = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
-        $this->assertTrue($this->updater->compareMaps($map_a, $map_b, 'types'));
-        $this->assertTrue($this->updater->compareMaps($map_a, $map_b, 'extensions'));
+        $this->assertNull($map->getMapArray());
+        $map->reset();
     }
 
     /**
-     * @expectedException \RuntimeException
+     * @expectedException \LogicException
      */
-    public function testCompareMapsNotEqual()
+    public function testEmptyMapNotWriteable()
     {
-        $map_a = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
-        $map_b = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/some.mime-types.txt');
-        $this->updater->compareMaps($map_a, $map_b, 'types');
+        $map = MapHandler::map('\FileEye\MimeMap\Map\EmptyMap');
+        $this->assertNull($map->getFileName());
+        $map->reset();
     }
 
-    public function testWriteMapToCodeFile()
+    public function testWriteMapToPhpClassFile()
     {
-        $this->fileSystem->copy(__DIR__ . '/../../src/Tests/MiniMap.php.test', __DIR__ . '/../../src/Tests/MiniMap.php');
-        MapHandler::setDefaultMapClass('\FileEye\MimeMap\Tests\MiniMap');
-        $map_a = new MapHandler();
-        $this->assertNotContains('text/plain', file_get_contents($map_a->getMapFileName()));
+        $this->fileSystem->copy(__DIR__ . '/../../src/Map/MiniMap.php.test', __DIR__ . '/../../src/Map/MiniMap.php');
+        MapHandler::setDefaultMapClass('\FileEye\MimeMap\Map\MiniMap');
+        $map_a = MapHandler::map();
+        $this->assertContains('src/Map/MiniMap.php', $map_a->getFileName());
+        $content = file_get_contents($map_a->getFileName());
+        $this->assertNotContains('text/plain', $content);
         $map_b = $this->updater->createMapFromSourceFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
         $this->updater->applyOverrides($map_b, [['addMapping', ['bing/bong', 'binbon']]]);
-        $this->updater->writeMapToCodeFile($map_b, $map_a->getMapFileName());
-        $content = file_get_contents($map_a->getMapFileName());
+        $this->updater->writeMapToPhpClassFile($map_b, $map_a->getFileName());
+        $content = file_get_contents($map_a->getFileName());
         $this->assertContains('text/plain', $content);
         $this->assertContains('bing/bong', $content);
         $this->assertContains('binbon', $content);
-        $this->fileSystem->remove(__DIR__ . '/../../src/Tests/MiniMap.php');
+        $this->fileSystem->remove(__DIR__ . '/../../src/Map/MiniMap.php');
+        $map_b->reset();
     }
 
     public function testGetDefaultOverrideFile()
     {
-        $this->assertContains('overrides.yml', MapUpdater::getDefaultOverrideFile());
+        $this->assertContains('apache_overrides.yml', MapUpdater::getDefaultOverrideFile());
     }
 }
