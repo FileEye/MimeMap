@@ -404,6 +404,6 @@ abstract class AbstractMap
         $type = strtolower($type);
         $extension = (string) strtolower($extension);
 
-        return $this->setValueAsDefault('extensions', $extension, $type);
+        return $this->setValueAsDefault('e', $extension, 't', $type);
     }
 }
