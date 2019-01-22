@@ -85,6 +85,7 @@ class MapUpdater
     public function loadMapFromFreedesktopFile($source_file)
     {
         $xml = simplexml_load_string(file_get_contents($source_file));
+dump($xml);
         $aliasx = [];
         foreach ($xml as $node) {
             $exts = [];
