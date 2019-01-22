@@ -103,7 +103,7 @@ class MapUpdater
 
             // Add description.
             if (isset($node->comment)) {
-                $this->map->addTypeDescription($type, $node->comment);
+                $this->map->addTypeDescription($type, $node->comment[0]);
             }
 
             // Add extensions.
