@@ -315,6 +315,58 @@ class Type
     }
 
     /**
+     * Returns all the aliases related to the MIME type(s).
+     *
+     * If the current type is a wildcard, than all aliases of all the
+     * types matching the wildcard will be returned.
+     *
+     * @param bool $strict
+     *   (Optional) if true a MappingException is thrown when no mapping is
+     *   found, if false it returns an empty array as a default.
+     *   Defaults to true.
+     *
+     * @throws MappingException if no mapping found and $strict is true.
+     *
+     * @return string[]
+     */
+    public function getAliases($strict = true)
+    {
+        $map = MapHandler::map();
+        $subject = $this->toString(static::SHORT_TEXT);
+
+        // Find all types.
+        $types = [];
+        if (!$this->isWildcard()) {
+            if ($map->hasType($subject)) {
+                $types[] = $subject;
+            }
+        } else {
+            foreach ($map->listTypes($subject) as $t) {
+                $types[] = $t;
+            }
+        }
+
+        // No types found, throw exception or return emtpy array.
+        if (empty($types)) {
+            if ($strict) {
+                throw new MappingException('No MIME type found for ' . $subject . ' in map');
+            } else {
+                return [];
+            }
+        }
+
+        // Build the array of extensions.
+        $aliases = [];
+        foreach ($types as $t) {
+            foreach ($map->getTypeAliases($t) as $a) {
+                $aliases[$a] = $a;
+            }
+        }
+
+        return array_keys($aliases);
+    }
+
+    /**
      * Returns the MIME type's preferred file extension.
      *
      * @param bool $strict

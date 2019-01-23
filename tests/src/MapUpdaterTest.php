@@ -49,6 +49,7 @@ class MapUpdaterTest extends TestCase
         $this->assertSame($expected, $this->newMap->getMapArray());
         $this->assertSame(['image/jpeg', 'text/plain'], $this->newMap->listTypes());
         $this->assertSame(['jpe', 'jpeg', 'jpg', 'txt'], $this->newMap->listExtensions());
+        $this->assertSame([], $this->newMap->listAliases());
     }
 
     public function testLoadMapFromApacheFileZeroLines()
@@ -92,6 +93,7 @@ class MapUpdaterTest extends TestCase
         $this->assertSame($expected, $this->newMap->getMapArray());
         $this->assertSame(['application/pdf', 'application/x-atari-2600-rom', 'text/plain'], $this->newMap->listTypes());
         $this->assertSame(['a26', 'asc', 'pdf', 'txt'], $this->newMap->listExtensions());
+        $this->assertSame(['application/acrobat', 'application/nappdf', 'application/x-pdf', 'image/pdf'], $this->newMap->listAliases());
     }
 
     public function testLoadMapFromFreedesktopFileZeroLines()

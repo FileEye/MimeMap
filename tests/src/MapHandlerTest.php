@@ -73,6 +73,15 @@ class MapHandlerTest extends TestCase
         // Try removing a non-existing extension.
         $this->assertFalse($this->map->removeTypeExtensionMapping('text/plain', 'axx'));
 
+        // Remove an existing alias.
+        $this->assertSame(['application/x-pdf', 'image/pdf', 'application/acrobat', 'application/nappdf'], (new Type('application/pdf'))->getAliases());
+        $this->assertTrue($this->map->removeTypeAlias('application/pdf', 'application/x-pdf'));
+        $this->assertSame(['image/pdf', 'application/acrobat', 'application/nappdf'], (new Type('application/pdf'))->getAliases());
+
+        // Try removing a non-existing alias.
+        $this->assertFalse($this->map->removeTypeAlias('application/pdf', 'foo/bar'));
+        $this->assertSame(['image/pdf', 'application/acrobat', 'application/nappdf'], (new Type('application/pdf'))->getAliases());
+
         // Remove an existing type.
         $this->assertTrue($this->map->removeType('text/plain'));
         $this->assertSame([], (new Type('text/plain'))->getExtensions(false));
@@ -88,6 +97,12 @@ class MapHandlerTest extends TestCase
     {
         $this->assertTrue($this->map->hasType('text/plain'));
         $this->assertFalse($this->map->hasType('foo/bar'));
+    }
+
+    public function testHasAlias()
+    {
+        $this->assertTrue($this->map->hasAlias('application/acrobat'));
+        $this->assertFalse($this->map->hasAlias('foo/bar'));
     }
 
     public function testHasExtension()
