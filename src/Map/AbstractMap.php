@@ -184,6 +184,8 @@ abstract class AbstractMap
      */
     public function addTypeAlias($type, $alias)
     {
+        $alias = strtolower($alias);
+
         // Consistency checks.
         if (!$this->hasType($type)) {
             throw new MappingException("Cannot set '{$alias}' as alias for '{$type}', '{$type}' not defined");
@@ -211,6 +213,8 @@ abstract class AbstractMap
      */
     public function addTypeExtensionMapping($type, $extension)
     {
+        $extension = strtolower($extension);
+
         // Consistency checks.
         if ($this->hasAlias($type)) {
             throw new MappingException("Cannot map '{$extension}' to '{$type}', '{$type}' is an alias");
@@ -445,7 +449,8 @@ abstract class AbstractMap
     protected function removeMapEntry($key, $entry, $value)
     {
         $entry = strtolower($entry);
-        $entry_key = strtolower($entry_key);
+        $key = strtolower($key);
+        //$entry_key = strtolower($entry_key);
         //$sub_entry = strtolower($sub_entry);
 
         // Return false if no entry.

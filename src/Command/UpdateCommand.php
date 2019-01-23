@@ -42,6 +42,12 @@ class UpdateCommand extends Command
                 'The fully qualified class name of the PHP class storing the map.',
                 MapHandler::DEFAULT_MAP_CLASS
             )
+            ->addOption(
+                'diff',
+                null,
+                InputOption::VALUE_NONE,
+                'Report updates.'
+            )
         ;
     }
 
@@ -74,31 +80,34 @@ class UpdateCommand extends Command
         $current_map = MapHandler::map();
 
         // Check if anything got changed.
-        $write = false;
-        try {
-            $output->writeln("<info>Checking changes to MIME types ...</info>");
-            $this->compareMaps($current_map, $new_map, 't');
-        } catch (\RuntimeException $e) {
-            $output->writeln('<comment>Changes to MIME types mapping:</comment>');
-            $output->writeln($e->getMessage());
-            $write = true;
-        }
-        $write = false;
-        try {
-            $output->writeln("<info>Checking changes to MIME type aliases ...</info>");
-            $this->compareMaps($current_map, $new_map, 'a');
-        } catch (\RuntimeException $e) {
-            $output->writeln('<comment>Changes to MIME types aliases:</comment>');
-            $output->writeln($e->getMessage());
-            $write = true;
-        }
-        try {
-            $output->writeln("<info>Checking changes to extensions ...</info>");
-            $this->compareMaps($current_map, $new_map, 'e');
-        } catch (\RuntimeException $e) {
-            $output->writeln('<comment>Changes to extensions mapping</comment>');
-            $output->writeln($e->getMessage());
-            $write = true;
+        $write = true;
+        if ($input->getOption('diff')) {
+          $write = false;
+          try {
+              $output->writeln("<info>Checking changes to MIME types ...</info>");
+              $this->compareMaps($current_map, $new_map, 't');
+          } catch (\RuntimeException $e) {
+              $output->writeln('<comment>Changes to MIME types mapping:</comment>');
+              $output->writeln($e->getMessage());
+              $write = true;
+          }
+          $write = false;
+          try {
+              $output->writeln("<info>Checking changes to MIME type aliases ...</info>");
+              $this->compareMaps($current_map, $new_map, 'a');
+          } catch (\RuntimeException $e) {
+              $output->writeln('<comment>Changes to MIME types aliases:</comment>');
+              $output->writeln($e->getMessage());
+              $write = true;
+          }
+          try {
+              $output->writeln("<info>Checking changes to extensions ...</info>");
+              $this->compareMaps($current_map, $new_map, 'e');
+          } catch (\RuntimeException $e) {
+              $output->writeln('<comment>Changes to extensions mapping</comment>');
+              $output->writeln($e->getMessage());
+              $write = true;
+          }
         }
 
         // If changed, save the new map to the PHP file.

@@ -62,8 +62,8 @@ class MapUpdaterTest extends TestCase
         $this->updater->loadMapFromFreedesktopFile(dirname(__FILE__) . '/../fixtures/min.freedesktop.xml');
         $expected = [
             't' => [
-                'application/x-atari-2600-rom' => ['e' => ['a26']],
-                'text/plain' => ['e' => ['txt', 'asc']],
+                'application/x-atari-2600-rom' => ['desc' => ['Atari 2600'], 'e' => ['a26']],
+                'text/plain' => ['desc' => ['plain text document'], 'e' => ['txt', 'asc']],
             ],
             'e' => [
                 'a26' => ['t' => ['application/x-atari-2600-rom']],
