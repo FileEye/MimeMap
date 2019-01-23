@@ -303,7 +303,7 @@ abstract class AbstractMap
             $this->removeTypeAlias($type, $alias);
         }
         
-        return $this->removeMapEntry($type);
+        return $this->removeMapEntry('t', $type);
     }
 
     /**
