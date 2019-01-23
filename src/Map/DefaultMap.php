@@ -29,8 +29,8 @@ class DefaultMap extends AbstractMap
     /**
      * Mapping between file extensions and MIME types.
      *
-     * The array has two main keys, 'types' that maps MIME types to file
-     * extensions, and 'extensions' that map file extensions to MIME types.
+     * The array has three main keys, 't' that stores MIME types, 'e' that map
+     * file extensions to MIME types, and 'a' that store MIME type aliases.
      *
      * The entire map is created automatically by running
      *  $ fileye-mimemap update [URL] [YAML] [FILE]

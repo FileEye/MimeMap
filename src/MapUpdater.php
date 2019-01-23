@@ -3,7 +3,6 @@
 namespace FileEye\MimeMap;
 
 use FileEye\MimeMap\Map\AbstractMap;
-use Symfony\Component\Console\Helper\ProgressBar;
 
 /**
  * Compiles the MIME type to file extension map.
@@ -50,18 +49,13 @@ class MapUpdater
      *   source code repository file where MIME types and file extensions are
      *   associated.
      *
-     * @throws \RuntimeException if file I/O error occurs.
-     *
-     * @return $this
+     * @return string[]
+     *   An array of error messages.
      */
-    public function loadMapFromApacheFile($source_file, $output)
+    public function loadMapFromApacheFile($source_file)
     {
+        $errors = [];
         $lines = file($source_file);
-
-        // Creates a progress bar.
-        $progress_bar = new ProgressBar($output, count($lines));
-        $progress_bar->start();
-
         foreach ($lines as $line) {
             $progress_bar->advance();
             if ($line{0} == '#') {
@@ -74,11 +68,8 @@ class MapUpdater
                 $this->map->addTypeExtensionMapping($type, $extension);
             }
         }
-
         $this->map->sort();
-        $progress_bar->finish();
-
-        return $this;
+        return $errors;
     }
 
     /**
@@ -88,22 +79,17 @@ class MapUpdater
      *   The source file. The file must conform to the format in the
      *   Freedesktop.org database.
      *
-     * @throws \RuntimeException if file I/O error occurs.
-     *
-     * @return $this
+     * @return string[]
+     *   An array of error messages.
      */
-    public function loadMapFromFreedesktopFile($source_file, $output)
+    public function loadMapFromFreedesktopFile($source_file)
     {
+        $errors = [];
         $xml = simplexml_load_string(file_get_contents($source_file));
         $aliases = [];
 
-        // Creates a progress bar.
-        $progress_bar = new ProgressBar($output, count($xml));
-        $progress_bar->start();
-
         foreach ($xml as $node) {
             $exts = [];
-            $progress_bar->advance();
             foreach ($node->glob as $glob) {
                 $pattern = (string) $glob['pattern'];
                 if ('*' != $pattern[0] || '.' != $pattern[1]) {
@@ -143,7 +129,6 @@ class MapUpdater
         }
 
         // Add all the aliases, provide logging of errors.
-        $errors = [];
         foreach ($aliases as $type => $a) {
             foreach ($a as $alias) {
                 try {
@@ -155,15 +140,7 @@ class MapUpdater
         }
 
         $this->map->sort();
-        $progress_bar->finish();
-        
-        if (!empty($errors)) {
-            foreach ($errors as $error) {
-                $output->writeln("<comment>$error.</comment>");
-            }
-        }
-
-        return $this;
+        return $errors;
     }
 
     /**
@@ -176,10 +153,11 @@ class MapUpdater
      */
     public function applyOverrides(array $overrides)
     {
+        $errors = [];
         foreach ($overrides as $command) {
             call_user_func_array([$this->map, $command[0]], $command[1]);
         }
-        return $this;
+        return $errors;
     }
 
     /**

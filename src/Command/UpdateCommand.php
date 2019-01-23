@@ -56,9 +56,14 @@ class UpdateCommand extends Command
         // Executes on an emtpy map the script commands.
         $commands = Yaml::parse(file_get_contents($input->getOption('script')));
         foreach ($commands as $command) {
-            $command[1][] = $output;
+            $output->writeln("<info>Processing {$command[0]} ...</info>");
             try {
-                call_user_func_array([$updater, $command[0]], $command[1]);
+                $errors = call_user_func_array([$updater, $command[0]], $command[1]);
+                if (!empty($errors)) {
+                    foreach ($errors as $error) {
+                        $output->writeln("<comment>$error.</comment>");
+                    }
+                }
             } catch (\Exception $e) {
                 $output->writeln('<error>' . $e->getMessage() . '</error>');
                 exit(2);
@@ -71,13 +76,24 @@ class UpdateCommand extends Command
         // Check if anything got changed.
         $write = false;
         try {
+            $output->writeln("<info>Checking changes to MIME types ...</info>");
             $this->compareMaps($current_map, $new_map, 't');
         } catch (\RuntimeException $e) {
-            $output->writeln('<comment>Changes to MIME types mapping</comment>');
+            $output->writeln('<comment>Changes to MIME types mapping:</comment>');
+            $output->writeln($e->getMessage());
+            $write = true;
+        }
+        $write = false;
+        try {
+            $output->writeln("<info>Checking changes to MIME type aliases ...</info>");
+            $this->compareMaps($current_map, $new_map, 'a');
+        } catch (\RuntimeException $e) {
+            $output->writeln('<comment>Changes to MIME types aliases:</comment>');
             $output->writeln($e->getMessage());
             $write = true;
         }
         try {
+            $output->writeln("<info>Checking changes to extensions ...</info>");
             $this->compareMaps($current_map, $new_map, 'e');
         } catch (\RuntimeException $e) {
             $output->writeln('<comment>Changes to extensions mapping</comment>');
@@ -105,7 +121,7 @@ class UpdateCommand extends Command
      * @param AbstractMap $new_map
      *   The second map to compare.
      * @param string $section
-     *   The first-level array key to compare: 'types' or 'extensions'.
+     *   The first-level array key to compare: 't' or 'e' or 'a'.
      *
      * @throws \RuntimeException with diff details if the maps differ.
      *
