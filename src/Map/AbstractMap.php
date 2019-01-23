@@ -64,6 +64,12 @@ abstract class AbstractMap
                 ksort($e);
             }
         }
+        if (isset(static::$map['a'])) {
+            ksort(static::$map['a']);
+            foreach (static::$map['a'] as &$a) {
+                ksort($a);
+            }
+        }
         return $this;
     }
 
@@ -149,11 +155,18 @@ abstract class AbstractMap
      * @param string $description
      *   The description of the MIME type.
      *
+     * @throws MappingException if $type is an alias.
+     *
      * @return $this
      */
     public function addTypeDescription($type, $description)
     {
-        $this->addMapEntry('t', strtolower($type), 'desc', $description);
+        // Consistency checks.
+        if (!$this->hasAlias($type)) {
+          throw new MappingException("Cannot add description for '{$type}', '{$type}' is an alias");
+        }
+
+        $this->addMapEntry('t', $type, 'desc', $description);
         return $this;
     }
 
@@ -171,20 +184,17 @@ abstract class AbstractMap
      */
     public function addTypeAlias($type, $alias)
     {
-        $type = strtolower($type);
-        $alias = strtolower($alias);
-
-        if ($this->hasType($type) && !$this->hasType($alias)) {
-            $this->addMapEntry('t', $type, 'a', $alias);
-            $this->addMapEntry('a', $alias, 't', $type);
-            return $this;
-        }
+        // Consistency checks.
         if (!$this->hasType($type)) {
           throw new MappingException("Cannot set '{$alias}' as alias for '{$type}', '{$type}' not defined");
         }
         if ($this->hasType($alias)) {
           throw new MappingException("Cannot set '{$alias}' as alias for '{$type}', '{$alias}' is already defined as a type");
         }
+
+        $this->addMapEntry('t', $type, 'a', $alias);
+        $this->addMapEntry('a', $alias, 't', $type);
+        return $this;
     }
 
     /**
@@ -195,12 +205,16 @@ abstract class AbstractMap
      * @param string $extension
      *   A file extension.
      *
+     * @throws MappingException if $type is an alias.
+     *
      * @return $this
      */
     public function addTypeExtensionMapping($type, $extension)
     {
-        $type = strtolower($type);
-        $extension = (string) strtolower($extension);
+        // Consistency checks.
+        if (!$this->hasAlias($type)) {
+          throw new MappingException("Cannot map '{$extension}' to '{$type}', '{$type}' is an alias");
+        }
 
         // Add entry to 't'.
         $this->addMapEntry('t', $type, 'e', $extension);
@@ -239,9 +253,6 @@ abstract class AbstractMap
      */
     public function setTypeDefaultExtension($type, $extension)
     {
-        $type = strtolower($type);
-        $extension = (string) strtolower($extension);
-
         return $this->setValueAsDefault('t', $type, 'e', $extension);
     }
 
@@ -256,8 +267,6 @@ abstract class AbstractMap
      */
     public function removeType($type)
     {
-        $type = strtolower($type);
-
         // Return false if type is not found.
         if (!$this->hasType($type)) {
             return false;
@@ -285,9 +294,6 @@ abstract class AbstractMap
      */
     public function removeTypeExtensionMapping($type, $extension)
     {
-        $type = strtolower($type);
-        $extension = (string) strtolower($extension);
-
         // Remove entry from 'types'.
         $type_ret = $this->removeMapEntry('t', $type, 'e', $extension);
 
@@ -324,9 +330,6 @@ abstract class AbstractMap
      */
     public function setExtensionDefaultType($extension, $type)
     {
-        $type = strtolower($type);
-        $extension = (string) strtolower($extension);
-
         return $this->setValueAsDefault('e', $extension, 't', $type);
     }
 
@@ -343,6 +346,7 @@ abstract class AbstractMap
      */
     protected function listEntries($entry, $match = null)
     {
+        $entry = strtolower($entry);
         $list = array_keys(static::$map[$entry]);
 
         if (is_null($match)) {
@@ -368,6 +372,8 @@ abstract class AbstractMap
      */
     protected function getMapEntry($entry, $entry_key)
     {
+        $entry = strtolower($entry);
+        $entry_key = strtolower($entry_key);
         return isset(static::$map[$entry][$entry_key]) ? static::$map[$entry][$entry_key] : null;
     }
 
@@ -386,6 +392,9 @@ abstract class AbstractMap
      */
     protected function getMapSubEntry($entry, $entry_key, $sub_entry)
     {
+        $entry = strtolower($entry);
+        $entry_key = strtolower($entry_key);
+        $sub_entry = strtolower($sub_entry);
         return isset(static::$map[$entry][$entry_key][$sub_entry]) ? static::$map[$entry][$entry_key][$sub_entry] : null;
     }
 
@@ -407,6 +416,9 @@ abstract class AbstractMap
      */
     protected function addMapEntry($entry, $entry_key, $sub_entry, $value)
     {
+        $entry = strtolower($entry);
+        $entry_key = strtolower($entry_key);
+        $sub_entry = strtolower($sub_entry);
         if (!isset(static::$map[$entry][$entry_key][$sub_entry])) {
             static::$map[$entry][$entry_key][$sub_entry] = [$value];
         } else {
@@ -432,6 +444,10 @@ abstract class AbstractMap
      */
     protected function removeMapEntry($key, $entry, $value)
     {
+        $entry = strtolower($entry);
+        $entry_key = strtolower($entry_key);
+        //$sub_entry = strtolower($sub_entry);
+
         // Return false if no entry.
         if (!isset(static::$map[$key][$entry])) {
             return false;
@@ -479,6 +495,10 @@ abstract class AbstractMap
      */
     protected function setValueAsDefault($entry, $entry_key, $sub_entry, $value)
     {
+        $entry = strtolower($entry);
+        $entry_key = strtolower($entry_key);
+        $sub_entry = strtolower($sub_entry);
+
         // Throw exception if no entry.
         if (!isset(static::$map[$entry][$entry_key][$sub_entry])) {
             throw new MappingException("Cannot set '{$value}' as default for '{$entry_key}', '{$entry_key}' not defined");

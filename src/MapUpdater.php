@@ -57,7 +57,6 @@ class MapUpdater
         $errors = [];
         $lines = file($source_file);
         foreach ($lines as $line) {
-            $progress_bar->advance();
             if ($line{0} == '#') {
                 continue;
             }
