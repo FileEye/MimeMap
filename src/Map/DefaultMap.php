@@ -63,6 +63,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/annodex' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-annodex',
+      ),
       'desc' => 
       array (
         0 => 'Annodex exchange format',
@@ -195,6 +199,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/ecmascript' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/ecmascript',
+      ),
       'desc' => 
       array (
         0 => 'ECMAScript program',
@@ -239,6 +247,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/geo+json' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/vnd.geo+json',
+      ),
       'desc' => 
       array (
         0 => 'GeoJSON geospatial data',
@@ -274,6 +286,12 @@ class DefaultMap extends AbstractMap
     ),
     'application/gpx+xml' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/gpx',
+        1 => 'application/x-gpx+xml',
+        2 => 'application/x-gpx',
+      ),
       'desc' => 
       array (
         0 => 'GPX geographic data',
@@ -293,6 +311,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/gzip' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-gzip',
+      ),
       'desc' => 
       array (
         0 => 'Gzip archive',
@@ -311,6 +333,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/illustrator' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/vnd.adobe.illustrator',
+      ),
       'desc' => 
       array (
         0 => 'Adobe Illustrator document',
@@ -358,6 +384,11 @@ class DefaultMap extends AbstractMap
     ),
     'application/javascript' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-javascript',
+        1 => 'text/javascript',
+      ),
       'desc' => 
       array (
         0 => 'JavaScript program',
@@ -468,6 +499,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/mathematica' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-mathematica',
+      ),
       'desc' => 
       array (
         0 => 'Mathematica Notebook',
@@ -481,6 +516,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/mathml+xml' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/mathml',
+      ),
       'desc' => 
       array (
         0 => 'MathML document',
@@ -563,6 +602,12 @@ class DefaultMap extends AbstractMap
     ),
     'application/msword' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/vnd.ms-word',
+        1 => 'application/x-msword',
+        2 => 'zz-application/zz-winassoc-doc',
+      ),
       'desc' => 
       array (
         0 => 'Word document',
@@ -635,6 +680,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/ogg' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-ogg',
+      ),
       'desc' => 
       array (
         0 => 'Ogg multimedia file',
@@ -675,6 +724,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/oxps' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/xps',
+      ),
       'desc' => 
       array (
         0 => 'XPS document',
@@ -695,6 +748,13 @@ class DefaultMap extends AbstractMap
     ),
     'application/pdf' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-pdf',
+        1 => 'image/pdf',
+        2 => 'application/acrobat',
+        3 => 'application/nappdf',
+      ),
       'desc' => 
       array (
         0 => 'PDF document',
@@ -707,6 +767,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/pgp-encrypted' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/pgp',
+      ),
       'desc' => 
       array (
         0 => 'PGP/MIME-encrypted message header',
@@ -936,6 +1000,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/rdf+xml' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/rdf',
+      ),
       'desc' => 
       array (
         0 => 'RDF file',
@@ -957,6 +1025,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/relax-ng-compact-syntax' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-rnc',
+      ),
       'desc' => 
       array (
         0 => 'RELAX NG XML schema',
@@ -1018,6 +1090,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/rss+xml' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/rss',
+      ),
       'desc' => 
       array (
         0 => 'RSS summary',
@@ -1030,6 +1106,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/rtf' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/rtf',
+      ),
       'desc' => 
       array (
         0 => 'RTF document',
@@ -1077,6 +1157,11 @@ class DefaultMap extends AbstractMap
     ),
     'application/sdp' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-sdp',
+        1 => 'application/vnd.sdp',
+      ),
       'desc' => 
       array (
         0 => 'SDP multicast stream file',
@@ -1121,6 +1206,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/smil+xml' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/smil',
+      ),
       'desc' => 
       array (
         0 => 'SMIL document',
@@ -1150,6 +1239,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/sql' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/x-sql',
+      ),
       'desc' => 
       array (
         0 => 'SQL code',
@@ -1218,6 +1311,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/trig' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-trig',
+      ),
       'desc' => 
       array (
         0 => 'TriG RDF document',
@@ -1301,6 +1398,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.adobe.flash.movie' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/futuresplash',
+      ),
       'desc' => 
       array (
         0 => 'Shockwave Flash file',
@@ -1571,6 +1672,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.comicbook+zip' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-cbz',
+      ),
       'desc' => 
       array (
         0 => 'comic book archive',
@@ -1607,6 +1712,16 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.corel-draw' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/cdr',
+        1 => 'application/coreldraw',
+        2 => 'application/x-cdr',
+        3 => 'application/x-coreldraw',
+        4 => 'image/cdr',
+        5 => 'image/x-cdr',
+        6 => 'zz-application/zz-winassoc-cdr',
+      ),
       'desc' => 
       array (
         0 => 'Corel Draw drawing',
@@ -1709,6 +1824,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.debian.binary-package' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-deb',
+      ),
       'desc' => 
       array (
         0 => 'Debian package',
@@ -1922,6 +2041,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.flatpak' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/vnd.xdgapp',
+      ),
       'desc' => 
       array (
         0 => 'Flatpak application bundle',
@@ -1970,6 +2093,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.framemaker' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-frame',
+      ),
       'desc' => 
       array (
         0 => 'Adobe FrameMaker document',
@@ -2574,6 +2701,14 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.lotus-1-2-3' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-lotus123',
+        1 => 'application/x-123',
+        2 => 'application/lotus123',
+        3 => 'application/wk1',
+        4 => 'zz-application/zz-winassoc-123',
+      ),
       'desc' => 
       array (
         0 => 'Lotus 1-2-3 spreadsheet',
@@ -2773,6 +2908,14 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.ms-access' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/msaccess',
+        1 => 'application/vnd.msaccess',
+        2 => 'application/mdb',
+        3 => 'application/x-mdb',
+        4 => 'zz-application/zz-winassoc-mdb',
+      ),
       'desc' => 
       array (
         0 => 'JET database',
@@ -2792,6 +2935,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.ms-asf' => 
     array (
+      'a' => 
+      array (
+        0 => 'video/x-ms-asf-plugin',
+      ),
       'desc' => 
       array (
         0 => 'ASF video',
@@ -2804,6 +2951,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.ms-cab-compressed' => 
     array (
+      'a' => 
+      array (
+        0 => 'zz-application/zz-winassoc-cab',
+      ),
       'desc' => 
       array (
         0 => 'Microsoft Cabinet archive',
@@ -2815,6 +2966,12 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.ms-excel' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/msexcel',
+        1 => 'application/x-msexcel',
+        2 => 'zz-application/zz-winassoc-xls',
+      ),
       'desc' => 
       array (
         0 => 'Excel spreadsheet',
@@ -2884,6 +3041,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.ms-htmlhelp' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-chm',
+      ),
       'desc' => 
       array (
         0 => 'CHM document',
@@ -2931,6 +3092,12 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.ms-powerpoint' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/powerpoint',
+        1 => 'application/mspowerpoint',
+        2 => 'application/x-mspowerpoint',
+      ),
       'desc' => 
       array (
         0 => 'PowerPoint presentation',
@@ -3019,6 +3186,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.ms-tnef' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/ms-tnef',
+      ),
       'desc' => 
       array (
         0 => 'TNEF message',
@@ -3189,6 +3360,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.nintendo.snes.rom' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-snes-rom',
+      ),
       'desc' => 
       array (
         0 => 'Super NES ROM',
@@ -3303,6 +3478,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.oasis.opendocument.database' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/vnd.sun.xml.base',
+      ),
       'desc' => 
       array (
         0 => 'ODB database',
@@ -3661,6 +3840,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.palm' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-palm-database',
+      ),
       'desc' => 
       array (
         0 => 'Palm OS database',
@@ -3764,6 +3947,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.rar' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-rar',
+      ),
       'desc' => 
       array (
         0 => 'RAR archive',
@@ -3959,6 +4146,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.sqlite3' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-sqlite3',
+      ),
       'desc' => 
       array (
         0 => 'SQLite3 database',
@@ -4248,6 +4439,11 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.tcpdump.pcap' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-pcap',
+        1 => 'application/pcap',
+      ),
       'desc' => 
       array (
         0 => 'Network Packet Capture',
@@ -4395,6 +4591,11 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.wordperfect' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-wordperfect',
+        1 => 'application/wordperfect',
+      ),
       'desc' => 
       array (
         0 => 'WordPerfect document',
@@ -4535,6 +4736,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/winhlp' => 
     array (
+      'a' => 
+      array (
+        0 => 'zz-application/zz-winassoc-hlp',
+      ),
       'desc' => 
       array (
         0 => 'WinHelp help file',
@@ -5098,6 +5303,12 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-dbf' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-dbase',
+        1 => 'application/dbf',
+        2 => 'application/dbase',
+      ),
       'desc' => 
       array (
         0 => 'Xbase document',
@@ -5139,6 +5350,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-desktop' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-gnome-app-info',
+      ),
       'desc' => 
       array (
         0 => 'desktop configuration file',
@@ -5195,6 +5410,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-docbook+xml' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/vnd.oasis.docbook+xml',
+      ),
       'desc' => 
       array (
         0 => 'DocBook document',
@@ -5307,6 +5526,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-fictionbook+xml' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-fictionbook',
+      ),
       'desc' => 
       array (
         0 => 'FictionBook document',
@@ -5465,6 +5688,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-gamecube-rom' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-gamecube-iso-image',
+      ),
       'desc' => 
       array (
         0 => 'GameCube disc image',
@@ -5506,6 +5733,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-gedcom' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/gedcom',
+      ),
       'desc' => 
       array (
         0 => 'GEDCOM family history',
@@ -5718,6 +5949,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-hfe-floppy-image' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-hfe-file',
+      ),
       'desc' => 
       array (
         0 => 'HFE floppy disk image',
@@ -5730,6 +5965,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-hwp' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/vnd.haansoft-hwp',
+      ),
       'desc' => 
       array (
         0 => 'Haansoft Hangul document',
@@ -5741,6 +5980,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-hwt' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/vnd.haansoft-hwt',
+      ),
       'desc' => 
       array (
         0 => 'Haansoft Hangul document template',
@@ -5811,6 +6054,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-iwork-keynote-sffkey' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/vnd.apple.keynote',
+      ),
       'desc' => 
       array (
         0 => 'Apple Keynote 5 presentation',
@@ -5822,6 +6069,13 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-java' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/java',
+        1 => 'application/java-byte-code',
+        2 => 'application/x-java-class',
+        3 => 'application/x-java-vm',
+      ),
       'desc' => 
       array (
         0 => 'Java class',
@@ -5833,6 +6087,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-java-archive' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-jar',
+      ),
       'desc' => 
       array (
         0 => 'Java archive',
@@ -5958,6 +6216,11 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-kexiproject-sqlite3' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-vnd.kde.kexi',
+        1 => 'application/x-kexiproject-sqlite',
+      ),
       'desc' => 
       array (
         0 => 'Kexi database file-based project',
@@ -6134,6 +6397,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-lyx' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/x-lyx',
+      ),
       'desc' => 
       array (
         0 => 'LyX document',
@@ -6698,6 +6965,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-perl' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/x-perl',
+      ),
       'desc' => 
       array (
         0 => 'Perl script',
@@ -6838,6 +7109,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-quicktime-media-link' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-quicktimeplayer',
+      ),
       'desc' => 
       array (
         0 => 'QuickTime metalink playlist',
@@ -6891,6 +7166,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-raw-floppy-disk-image' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-fd-file',
+      ),
       'desc' => 
       array (
         0 => 'Floppy disk image',
@@ -6910,6 +7189,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-rpm' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-redhat-package-manager',
+      ),
       'desc' => 
       array (
         0 => 'RPM package',
@@ -7020,6 +7303,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-shellscript' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/x-sh',
+      ),
       'desc' => 
       array (
         0 => 'shell script',
@@ -7038,6 +7325,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-shorten' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/x-shorten',
+      ),
       'desc' => 
       array (
         0 => 'Shorten audio',
@@ -7114,6 +7405,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-spss-sav' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-spss-savefile',
+      ),
       'desc' => 
       array (
         0 => 'SPSS Data File',
@@ -7144,6 +7439,11 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-stuffit' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/stuffit',
+        1 => 'application/x-sit',
+      ),
       'desc' => 
       array (
         0 => 'StuffIt archive',
@@ -7162,6 +7462,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-subrip' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-srt',
+      ),
       'desc' => 
       array (
         0 => 'SubRip subtitles',
@@ -7340,6 +7644,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-thomson-sap-image' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-sap-file',
+      ),
       'desc' => 
       array (
         0 => 'SAP Thomson floppy disk image',
@@ -7433,6 +7741,12 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-wii-rom' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-wii-iso-image',
+        1 => 'application/x-wbfs',
+        2 => 'application/x-wia',
+      ),
       'desc' => 
       array (
         0 => 'Wii disc image',
@@ -7499,6 +7813,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-wwf' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/wwf',
+      ),
       'desc' => 
       array (
         0 => 'WWF document',
@@ -7608,6 +7926,11 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-yaml' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/yaml',
+        1 => 'text/x-yaml',
+      ),
       'desc' => 
       array (
         0 => 'YAML document',
@@ -7691,6 +8014,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/xliff+xml' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-xliff',
+      ),
       'desc' => 
       array (
         0 => 'XLIFF translation file',
@@ -7704,6 +8031,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/xml' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/xml',
+      ),
       'desc' => 
       array (
         0 => 'XML document',
@@ -7720,6 +8051,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/xml-dtd' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/x-dtd',
+      ),
       'desc' => 
       array (
         0 => 'DTD file',
@@ -7732,6 +8067,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/xml-external-parsed-entity' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/xml-external-parsed-entity',
+      ),
       'desc' => 
       array (
         0 => 'XML entities document',
@@ -7771,6 +8110,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/xspf+xml' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-xspf+xml',
+      ),
       'desc' => 
       array (
         0 => 'XSPF playlist',
@@ -7807,6 +8150,11 @@ class DefaultMap extends AbstractMap
     ),
     'application/zip' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-zip-compressed',
+        1 => 'application/x-zip',
+      ),
       'desc' => 
       array (
         0 => 'Zip archive',
@@ -7861,6 +8209,10 @@ class DefaultMap extends AbstractMap
     ),
     'audio/amr' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/amr-encrypted',
+      ),
       'desc' => 
       array (
         0 => 'AMR audio',
@@ -7873,6 +8225,10 @@ class DefaultMap extends AbstractMap
     ),
     'audio/amr-wb' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/amr-wb-encrypted',
+      ),
       'desc' => 
       array (
         0 => 'AMR-WB audio',
@@ -7885,6 +8241,10 @@ class DefaultMap extends AbstractMap
     ),
     'audio/annodex' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/x-annodex',
+      ),
       'desc' => 
       array (
         0 => 'Annodex Audio',
@@ -7919,6 +8279,10 @@ class DefaultMap extends AbstractMap
     ),
     'audio/midi' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/x-midi',
+      ),
       'desc' => 
       array (
         0 => 'MIDI audio',
@@ -7933,6 +8297,10 @@ class DefaultMap extends AbstractMap
     ),
     'audio/mp2' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/x-mp2',
+      ),
       'desc' => 
       array (
         0 => 'MP2 audio',
@@ -7944,6 +8312,11 @@ class DefaultMap extends AbstractMap
     ),
     'audio/mp4' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/x-m4a',
+        1 => 'audio/m4a',
+      ),
       'desc' => 
       array (
         0 => 'MPEG-4 audio',
@@ -7957,6 +8330,13 @@ class DefaultMap extends AbstractMap
     ),
     'audio/mpeg' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/x-mp3',
+        1 => 'audio/x-mpg',
+        2 => 'audio/x-mpeg',
+        3 => 'audio/mp3',
+      ),
       'desc' => 
       array (
         0 => 'MP3 audio',
@@ -7973,6 +8353,10 @@ class DefaultMap extends AbstractMap
     ),
     'audio/ogg' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/x-ogg',
+      ),
       'desc' => 
       array (
         0 => 'Ogg Audio',
@@ -8048,6 +8432,10 @@ class DefaultMap extends AbstractMap
     ),
     'audio/vnd.dts' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/x-dts',
+      ),
       'desc' => 
       array (
         0 => 'DTS audio',
@@ -8059,6 +8447,10 @@ class DefaultMap extends AbstractMap
     ),
     'audio/vnd.dts.hd' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/x-dtshd',
+      ),
       'desc' => 
       array (
         0 => 'DTSHD audio',
@@ -8112,6 +8504,10 @@ class DefaultMap extends AbstractMap
     ),
     'audio/vnd.rn-realaudio' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/vnd.m-realaudio',
+      ),
       'desc' => 
       array (
         0 => 'RealAudio document',
@@ -8138,6 +8534,10 @@ class DefaultMap extends AbstractMap
     ),
     'audio/x-aifc' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/x-aiffc',
+      ),
       'desc' => 
       array (
         0 => 'AIFC audio',
@@ -8201,6 +8601,10 @@ class DefaultMap extends AbstractMap
     ),
     'audio/x-flac+ogg' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/x-oggflac',
+      ),
       'desc' => 
       array (
         0 => 'Ogg FLAC audio',
@@ -8321,6 +8725,14 @@ class DefaultMap extends AbstractMap
     ),
     'audio/x-mpegurl' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/mpegurl',
+        1 => 'application/m3u',
+        2 => 'audio/x-mp3-playlist',
+        3 => 'audio/m3u',
+        4 => 'audio/x-m3u',
+      ),
       'desc' => 
       array (
         0 => 'MP3 audio (streamed)',
@@ -8334,6 +8746,11 @@ class DefaultMap extends AbstractMap
     ),
     'audio/x-ms-asx' => 
     array (
+      'a' => 
+      array (
+        0 => 'video/x-ms-wax',
+        1 => 'application/x-ms-asx',
+      ),
       'desc' => 
       array (
         0 => 'Microsoft ASX playlist',
@@ -8355,6 +8772,10 @@ class DefaultMap extends AbstractMap
     ),
     'audio/x-ms-wma' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/wma',
+      ),
       'desc' => 
       array (
         0 => 'Windows Media audio',
@@ -8390,6 +8811,11 @@ class DefaultMap extends AbstractMap
     ),
     'audio/x-pn-audibleaudio' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/vnd.audible',
+        1 => 'audio/vnd.audible.aax',
+      ),
       'desc' => 
       array (
         0 => 'Audible.Com audio',
@@ -8452,6 +8878,11 @@ class DefaultMap extends AbstractMap
     ),
     'audio/x-scpls' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/pls',
+        1 => 'audio/scpls',
+      ),
       'desc' => 
       array (
         0 => 'MP3 ShoutCast playlist',
@@ -8497,6 +8928,10 @@ class DefaultMap extends AbstractMap
     ),
     'audio/x-tta' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/tta',
+      ),
       'desc' => 
       array (
         0 => 'TrueAudio audio',
@@ -8519,6 +8954,11 @@ class DefaultMap extends AbstractMap
     ),
     'audio/x-vorbis+ogg' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/vorbis',
+        1 => 'audio/x-vorbis',
+      ),
       'desc' => 
       array (
         0 => 'Ogg Vorbis audio',
@@ -8531,6 +8971,11 @@ class DefaultMap extends AbstractMap
     ),
     'audio/x-wav' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/wav',
+        1 => 'audio/vnd.wave',
+      ),
       'desc' => 
       array (
         0 => 'WAV audio',
@@ -8587,6 +9032,11 @@ class DefaultMap extends AbstractMap
     ),
     'audio/x-xmf' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/xmf',
+        1 => 'audio/mobile-xmf',
+      ),
       'desc' => 
       array (
         0 => 'XMF audio',
@@ -8659,6 +9109,10 @@ class DefaultMap extends AbstractMap
     ),
     'font/otf' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-font-otf',
+      ),
       'desc' => 
       array (
         0 => 'OpenType font',
@@ -8670,6 +9124,10 @@ class DefaultMap extends AbstractMap
     ),
     'font/ttf' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-font-ttf',
+      ),
       'desc' => 
       array (
         0 => 'TrueType font',
@@ -8681,6 +9139,10 @@ class DefaultMap extends AbstractMap
     ),
     'font/woff' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/font-woff',
+      ),
       'desc' => 
       array (
         0 => 'WOFF font',
@@ -8703,6 +9165,11 @@ class DefaultMap extends AbstractMap
     ),
     'image/bmp' => 
     array (
+      'a' => 
+      array (
+        0 => 'image/x-bmp',
+        1 => 'image/x-ms-bmp',
+      ),
       'desc' => 
       array (
         0 => 'Windows BMP image',
@@ -8726,6 +9193,12 @@ class DefaultMap extends AbstractMap
     ),
     'image/emf' => 
     array (
+      'a' => 
+      array (
+        0 => 'image/x-emf',
+        1 => 'application/x-emf',
+        2 => 'application/emf',
+      ),
       'desc' => 
       array (
         0 => 'EMF image',
@@ -8749,6 +9222,10 @@ class DefaultMap extends AbstractMap
     ),
     'image/fits' => 
     array (
+      'a' => 
+      array (
+        0 => 'image/x-fits',
+      ),
       'desc' => 
       array (
         0 => 'FITS document',
@@ -8779,6 +9256,12 @@ class DefaultMap extends AbstractMap
     ),
     'image/heif' => 
     array (
+      'a' => 
+      array (
+        0 => 'image/heic',
+        1 => 'image/heic-sequence',
+        2 => 'image/heif-sequence',
+      ),
       'desc' => 
       array (
         0 => 'HEIF image',
@@ -8803,6 +9286,12 @@ class DefaultMap extends AbstractMap
     ),
     'image/jp2' => 
     array (
+      'a' => 
+      array (
+        0 => 'image/jpeg2000',
+        1 => 'image/jpeg2000-image',
+        2 => 'image/x-jpeg2000-image',
+      ),
       'desc' => 
       array (
         0 => 'JPEG-2000 JP2 image',
@@ -8816,6 +9305,10 @@ class DefaultMap extends AbstractMap
     ),
     'image/jpeg' => 
     array (
+      'a' => 
+      array (
+        0 => 'image/pjpeg',
+      ),
       'desc' => 
       array (
         0 => 'JPEG image',
@@ -8951,6 +9444,15 @@ class DefaultMap extends AbstractMap
     ),
     'image/vnd.adobe.photoshop' => 
     array (
+      'a' => 
+      array (
+        0 => 'image/psd',
+        1 => 'image/x-psd',
+        2 => 'image/photoshop',
+        3 => 'image/x-photoshop',
+        4 => 'application/photoshop',
+        5 => 'application/x-photoshop',
+      ),
       'desc' => 
       array (
         0 => 'Photoshop image',
@@ -8972,6 +9474,11 @@ class DefaultMap extends AbstractMap
     ),
     'image/vnd.djvu' => 
     array (
+      'a' => 
+      array (
+        0 => 'image/x-djvu',
+        1 => 'image/x.djvu',
+      ),
       'desc' => 
       array (
         0 => 'DjVu image',
@@ -9060,6 +9567,14 @@ class DefaultMap extends AbstractMap
     ),
     'image/vnd.microsoft.icon' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/ico',
+        1 => 'image/ico',
+        2 => 'image/icon',
+        3 => 'image/x-ico',
+        4 => 'text/ico',
+      ),
       'desc' => 
       array (
         0 => 'Windows icon',
@@ -9150,6 +9665,13 @@ class DefaultMap extends AbstractMap
     ),
     'image/wmf' => 
     array (
+      'a' => 
+      array (
+        0 => 'image/x-wmf',
+        1 => 'image/x-win-metafile',
+        2 => 'application/x-wmf',
+        3 => 'application/wmf',
+      ),
       'desc' => 
       array (
         0 => 'WMF image',
@@ -9386,6 +9908,10 @@ class DefaultMap extends AbstractMap
     ),
     'image/x-ilbm' => 
     array (
+      'a' => 
+      array (
+        0 => 'image/x-iff',
+      ),
       'desc' => 
       array (
         0 => 'ILBM image',
@@ -9549,6 +10075,10 @@ class DefaultMap extends AbstractMap
     ),
     'image/x-panasonic-rw' => 
     array (
+      'a' => 
+      array (
+        0 => 'image/x-panasonic-raw',
+      ),
       'desc' => 
       array (
         0 => 'Panasonic raw image',
@@ -9560,6 +10090,10 @@ class DefaultMap extends AbstractMap
     ),
     'image/x-panasonic-rw2' => 
     array (
+      'a' => 
+      array (
+        0 => 'image/x-panasonic-raw2',
+      ),
       'desc' => 
       array (
         0 => 'Panasonic raw2 image',
@@ -9769,6 +10303,10 @@ class DefaultMap extends AbstractMap
     ),
     'image/x-tga' => 
     array (
+      'a' => 
+      array (
+        0 => 'image/x-icb',
+      ),
       'desc' => 
       array (
         0 => 'TGA image',
@@ -9830,6 +10368,10 @@ class DefaultMap extends AbstractMap
     ),
     'image/x-xpixmap' => 
     array (
+      'a' => 
+      array (
+        0 => 'image/x-xpm',
+      ),
       'desc' => 
       array (
         0 => 'XPM image',
@@ -9887,6 +10429,11 @@ class DefaultMap extends AbstractMap
     ),
     'model/stl' => 
     array (
+      'a' => 
+      array (
+        0 => 'model/x.stl-ascii',
+        1 => 'model/x.stl-binary',
+      ),
       'desc' => 
       array (
         0 => 'STL 3D model',
@@ -9991,6 +10538,10 @@ class DefaultMap extends AbstractMap
     ),
     'text/calendar' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/ics',
+      ),
       'desc' => 
       array (
         0 => 'VCS/ICS calendar',
@@ -10017,6 +10568,11 @@ class DefaultMap extends AbstractMap
     ),
     'text/csv' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/x-comma-separated-values',
+        1 => 'text/x-csv',
+      ),
       'desc' => 
       array (
         0 => 'CSV document',
@@ -10054,6 +10610,10 @@ class DefaultMap extends AbstractMap
     ),
     'text/markdown' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/x-markdown',
+      ),
       'desc' => 
       array (
         0 => 'Markdown document',
@@ -10158,6 +10718,11 @@ class DefaultMap extends AbstractMap
     ),
     'text/troff' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-troff',
+        1 => 'text/x-troff',
+      ),
       'desc' => 
       array (
         0 => 'Troff document',
@@ -10194,6 +10759,10 @@ class DefaultMap extends AbstractMap
     ),
     'text/vcard' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/directory',
+      ),
       'desc' => 
       array (
         0 => 'electronic business card',
@@ -10283,6 +10852,11 @@ class DefaultMap extends AbstractMap
     ),
     'text/vnd.qt.linguist' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-linguist',
+        1 => 'text/vnd.trolltech.linguist',
+      ),
       'desc' => 
       array (
         0 => 'message catalog',
@@ -10590,6 +11164,11 @@ class DefaultMap extends AbstractMap
     ),
     'text/x-gettext-translation' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/x-po',
+        1 => 'application/x-gettext',
+      ),
       'desc' => 
       array (
         0 => 'translation file',
@@ -10601,6 +11180,10 @@ class DefaultMap extends AbstractMap
     ),
     'text/x-gettext-translation-template' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/x-pot',
+      ),
       'desc' => 
       array (
         0 => 'translation template',
@@ -10634,6 +11217,10 @@ class DefaultMap extends AbstractMap
     ),
     'text/x-google-video-pointer' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/google-video-pointer',
+      ),
       'desc' => 
       array (
         0 => 'Google Video Pointer',
@@ -10668,6 +11255,11 @@ class DefaultMap extends AbstractMap
     ),
     'text/x-imelody' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/x-imelody',
+        1 => 'audio/imelody',
+      ),
       'desc' => 
       array (
         0 => 'iMelody ringtone',
@@ -10778,6 +11370,10 @@ class DefaultMap extends AbstractMap
     ),
     'text/x-matlab' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/x-octave',
+      ),
       'desc' => 
       array (
         0 => 'MATLAB script/function',
@@ -10982,6 +11578,10 @@ class DefaultMap extends AbstractMap
     ),
     'text/x-patch' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/x-diff',
+      ),
       'desc' => 
       array (
         0 => 'differences between files',
@@ -11033,6 +11633,10 @@ class DefaultMap extends AbstractMap
     ),
     'text/x-reject' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-reject',
+      ),
       'desc' => 
       array (
         0 => 'rejected patch',
@@ -11293,6 +11897,10 @@ class DefaultMap extends AbstractMap
     ),
     'text/x-uuencode' => 
     array (
+      'a' => 
+      array (
+        0 => 'zz-application/zz-winassoc-uu',
+      ),
       'desc' => 
       array (
         0 => 'uuencoded file',
@@ -11391,6 +11999,17 @@ class DefaultMap extends AbstractMap
     ),
     'video/3gpp' => 
     array (
+      'a' => 
+      array (
+        0 => 'video/3gp',
+        1 => 'audio/3gpp',
+        2 => 'video/3gpp-encrypted',
+        3 => 'audio/3gpp-encrypted',
+        4 => 'audio/x-rn-3gpp-amr',
+        5 => 'audio/x-rn-3gpp-amr-encrypted',
+        6 => 'audio/x-rn-3gpp-amr-wb',
+        7 => 'audio/x-rn-3gpp-amr-wb-encrypted',
+      ),
       'desc' => 
       array (
         0 => '3GPP multimedia file',
@@ -11405,6 +12024,10 @@ class DefaultMap extends AbstractMap
     ),
     'video/3gpp2' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/3gpp2',
+      ),
       'desc' => 
       array (
         0 => '3GPP2 multimedia file',
@@ -11419,6 +12042,10 @@ class DefaultMap extends AbstractMap
     ),
     'video/annodex' => 
     array (
+      'a' => 
+      array (
+        0 => 'video/x-annodex',
+      ),
       'desc' => 
       array (
         0 => 'Annodex Video',
@@ -11512,6 +12139,10 @@ class DefaultMap extends AbstractMap
     ),
     'video/mp4' => 
     array (
+      'a' => 
+      array (
+        0 => 'video/mp4v-es',
+      ),
       'desc' => 
       array (
         0 => 'MPEG-4 video',
@@ -11528,6 +12159,13 @@ class DefaultMap extends AbstractMap
     ),
     'video/mpeg' => 
     array (
+      'a' => 
+      array (
+        0 => 'video/x-mpeg',
+        1 => 'video/mpeg-system',
+        2 => 'video/x-mpeg-system',
+        3 => 'video/x-mpeg2',
+      ),
       'desc' => 
       array (
         0 => 'MPEG video',
@@ -11546,6 +12184,10 @@ class DefaultMap extends AbstractMap
     ),
     'video/ogg' => 
     array (
+      'a' => 
+      array (
+        0 => 'video/x-ogg',
+      ),
       'desc' => 
       array (
         0 => 'Ogg Video',
@@ -11626,6 +12268,10 @@ class DefaultMap extends AbstractMap
     ),
     'video/vnd.mpegurl' => 
     array (
+      'a' => 
+      array (
+        0 => 'video/x-mpegurl',
+      ),
       'desc' => 
       array (
         0 => 'MPEG video (streamed)',
@@ -11646,6 +12292,10 @@ class DefaultMap extends AbstractMap
     ),
     'video/vnd.rn-realvideo' => 
     array (
+      'a' => 
+      array (
+        0 => 'video/x-real-video',
+      ),
       'desc' => 
       array (
         0 => 'RealVideo document',
@@ -11666,6 +12316,10 @@ class DefaultMap extends AbstractMap
     ),
     'video/vnd.vivo' => 
     array (
+      'a' => 
+      array (
+        0 => 'video/vivo',
+      ),
       'desc' => 
       array (
         0 => 'Vivo video',
@@ -11714,6 +12368,10 @@ class DefaultMap extends AbstractMap
     ),
     'video/x-flic' => 
     array (
+      'a' => 
+      array (
+        0 => 'video/fli',
+      ),
       'desc' => 
       array (
         0 => 'FLIC animation',
@@ -11726,6 +12384,12 @@ class DefaultMap extends AbstractMap
     ),
     'video/x-flv' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-flash-video',
+        1 => 'flv-application/octet-stream',
+        2 => 'video/flv',
+      ),
       'desc' => 
       array (
         0 => 'Flash video',
@@ -11851,6 +12515,14 @@ class DefaultMap extends AbstractMap
     ),
     'video/x-msvideo' => 
     array (
+      'a' => 
+      array (
+        0 => 'video/x-avi',
+        1 => 'video/avi',
+        2 => 'video/divx',
+        3 => 'video/msvideo',
+        4 => 'video/vnd.divx',
+      ),
       'desc' => 
       array (
         0 => 'AVI video',
@@ -11876,6 +12548,10 @@ class DefaultMap extends AbstractMap
     ),
     'video/x-ogm+ogg' => 
     array (
+      'a' => 
+      array (
+        0 => 'video/x-ogm',
+      ),
       'desc' => 
       array (
         0 => 'OGM video',
@@ -11905,6 +12581,10 @@ class DefaultMap extends AbstractMap
     ),
     'video/x-theora+ogg' => 
     array (
+      'a' => 
+      array (
+        0 => 'video/x-theora',
+      ),
       'desc' => 
       array (
         0 => 'Ogg Theora video',
@@ -22842,6 +23522,1703 @@ class DefaultMap extends AbstractMap
       't' => 
       array (
         0 => 'audio/x-mod',
+      ),
+    ),
+  ),
+  'a' => 
+  array (
+    'application/acrobat' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/pdf',
+      ),
+    ),
+    'application/cdr' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.corel-draw',
+      ),
+    ),
+    'application/coreldraw' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.corel-draw',
+      ),
+    ),
+    'application/dbase' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-dbf',
+      ),
+    ),
+    'application/dbf' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-dbf',
+      ),
+    ),
+    'application/emf' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/emf',
+      ),
+    ),
+    'application/font-woff' => 
+    array (
+      't' => 
+      array (
+        0 => 'font/woff',
+      ),
+    ),
+    'application/futuresplash' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.adobe.flash.movie',
+      ),
+    ),
+    'application/gpx' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/gpx+xml',
+      ),
+    ),
+    'application/ico' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/vnd.microsoft.icon',
+      ),
+    ),
+    'application/ics' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/calendar',
+      ),
+    ),
+    'application/java' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-java',
+      ),
+    ),
+    'application/java-byte-code' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-java',
+      ),
+    ),
+    'application/lotus123' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.lotus-1-2-3',
+      ),
+    ),
+    'application/m3u' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/x-mpegurl',
+      ),
+    ),
+    'application/mdb' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.ms-access',
+      ),
+    ),
+    'application/ms-tnef' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.ms-tnef',
+      ),
+    ),
+    'application/msaccess' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.ms-access',
+      ),
+    ),
+    'application/msexcel' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.ms-excel',
+      ),
+    ),
+    'application/mspowerpoint' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.ms-powerpoint',
+      ),
+    ),
+    'application/nappdf' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/pdf',
+      ),
+    ),
+    'application/pcap' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.tcpdump.pcap',
+      ),
+    ),
+    'application/pgp' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/pgp-encrypted',
+      ),
+    ),
+    'application/photoshop' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/vnd.adobe.photoshop',
+      ),
+    ),
+    'application/pls' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/x-scpls',
+      ),
+    ),
+    'application/powerpoint' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.ms-powerpoint',
+      ),
+    ),
+    'application/smil' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/smil+xml',
+      ),
+    ),
+    'application/stuffit' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-stuffit',
+      ),
+    ),
+    'application/vnd.adobe.illustrator' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/illustrator',
+      ),
+    ),
+    'application/vnd.apple.keynote' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-iwork-keynote-sffkey',
+      ),
+    ),
+    'application/vnd.geo+json' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/geo+json',
+      ),
+    ),
+    'application/vnd.haansoft-hwp' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-hwp',
+      ),
+    ),
+    'application/vnd.haansoft-hwt' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-hwt',
+      ),
+    ),
+    'application/vnd.ms-word' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/msword',
+      ),
+    ),
+    'application/vnd.msaccess' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.ms-access',
+      ),
+    ),
+    'application/vnd.oasis.docbook+xml' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-docbook+xml',
+      ),
+    ),
+    'application/vnd.sdp' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/sdp',
+      ),
+    ),
+    'application/vnd.sun.xml.base' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.oasis.opendocument.database',
+      ),
+    ),
+    'application/vnd.xdgapp' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.flatpak',
+      ),
+    ),
+    'application/wk1' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.lotus-1-2-3',
+      ),
+    ),
+    'application/wmf' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/wmf',
+      ),
+    ),
+    'application/wordperfect' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.wordperfect',
+      ),
+    ),
+    'application/wwf' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-wwf',
+      ),
+    ),
+    'application/x-123' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.lotus-1-2-3',
+      ),
+    ),
+    'application/x-annodex' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/annodex',
+      ),
+    ),
+    'application/x-cbz' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.comicbook+zip',
+      ),
+    ),
+    'application/x-cdr' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.corel-draw',
+      ),
+    ),
+    'application/x-chm' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.ms-htmlhelp',
+      ),
+    ),
+    'application/x-coreldraw' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.corel-draw',
+      ),
+    ),
+    'application/x-dbase' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-dbf',
+      ),
+    ),
+    'application/x-deb' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.debian.binary-package',
+      ),
+    ),
+    'application/x-emf' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/emf',
+      ),
+    ),
+    'application/x-fd-file' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-raw-floppy-disk-image',
+      ),
+    ),
+    'application/x-fictionbook' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-fictionbook+xml',
+      ),
+    ),
+    'application/x-flash-video' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/x-flv',
+      ),
+    ),
+    'application/x-font-otf' => 
+    array (
+      't' => 
+      array (
+        0 => 'font/otf',
+      ),
+    ),
+    'application/x-font-ttf' => 
+    array (
+      't' => 
+      array (
+        0 => 'font/ttf',
+      ),
+    ),
+    'application/x-frame' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.framemaker',
+      ),
+    ),
+    'application/x-gamecube-iso-image' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-gamecube-rom',
+      ),
+    ),
+    'application/x-gettext' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/x-gettext-translation',
+      ),
+    ),
+    'application/x-gnome-app-info' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-desktop',
+      ),
+    ),
+    'application/x-gpx' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/gpx+xml',
+      ),
+    ),
+    'application/x-gpx+xml' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/gpx+xml',
+      ),
+    ),
+    'application/x-gzip' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/gzip',
+      ),
+    ),
+    'application/x-hfe-file' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-hfe-floppy-image',
+      ),
+    ),
+    'application/x-jar' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-java-archive',
+      ),
+    ),
+    'application/x-java-class' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-java',
+      ),
+    ),
+    'application/x-java-vm' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-java',
+      ),
+    ),
+    'application/x-javascript' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/javascript',
+      ),
+    ),
+    'application/x-kexiproject-sqlite' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-kexiproject-sqlite3',
+      ),
+    ),
+    'application/x-linguist' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/vnd.qt.linguist',
+      ),
+    ),
+    'application/x-lotus123' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.lotus-1-2-3',
+      ),
+    ),
+    'application/x-mathematica' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/mathematica',
+      ),
+    ),
+    'application/x-mdb' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.ms-access',
+      ),
+    ),
+    'application/x-ms-asx' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/x-ms-asx',
+      ),
+    ),
+    'application/x-msexcel' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.ms-excel',
+      ),
+    ),
+    'application/x-mspowerpoint' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.ms-powerpoint',
+      ),
+    ),
+    'application/x-msword' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/msword',
+      ),
+    ),
+    'application/x-ogg' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/ogg',
+      ),
+    ),
+    'application/x-palm-database' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.palm',
+      ),
+    ),
+    'application/x-pcap' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.tcpdump.pcap',
+      ),
+    ),
+    'application/x-pdf' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/pdf',
+      ),
+    ),
+    'application/x-photoshop' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/vnd.adobe.photoshop',
+      ),
+    ),
+    'application/x-quicktimeplayer' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-quicktime-media-link',
+      ),
+    ),
+    'application/x-rar' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.rar',
+      ),
+    ),
+    'application/x-redhat-package-manager' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-rpm',
+      ),
+    ),
+    'application/x-reject' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/x-reject',
+      ),
+    ),
+    'application/x-rnc' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/relax-ng-compact-syntax',
+      ),
+    ),
+    'application/x-sap-file' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-thomson-sap-image',
+      ),
+    ),
+    'application/x-sdp' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/sdp',
+      ),
+    ),
+    'application/x-sit' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-stuffit',
+      ),
+    ),
+    'application/x-snes-rom' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.nintendo.snes.rom',
+      ),
+    ),
+    'application/x-spss-savefile' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-spss-sav',
+      ),
+    ),
+    'application/x-sqlite3' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.sqlite3',
+      ),
+    ),
+    'application/x-srt' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-subrip',
+      ),
+    ),
+    'application/x-trig' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/trig',
+      ),
+    ),
+    'application/x-troff' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/troff',
+      ),
+    ),
+    'application/x-vnd.kde.kexi' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-kexiproject-sqlite3',
+      ),
+    ),
+    'application/x-wbfs' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-wii-rom',
+      ),
+    ),
+    'application/x-wia' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-wii-rom',
+      ),
+    ),
+    'application/x-wii-iso-image' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-wii-rom',
+      ),
+    ),
+    'application/x-wmf' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/wmf',
+      ),
+    ),
+    'application/x-wordperfect' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.wordperfect',
+      ),
+    ),
+    'application/x-xliff' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/xliff+xml',
+      ),
+    ),
+    'application/x-xspf+xml' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/xspf+xml',
+      ),
+    ),
+    'application/x-zip' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/zip',
+      ),
+    ),
+    'application/x-zip-compressed' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/zip',
+      ),
+    ),
+    'application/xps' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/oxps',
+      ),
+    ),
+    'audio/3gpp' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/3gpp',
+      ),
+    ),
+    'audio/3gpp-encrypted' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/3gpp',
+      ),
+    ),
+    'audio/3gpp2' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/3gpp2',
+      ),
+    ),
+    'audio/amr-encrypted' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/amr',
+      ),
+    ),
+    'audio/amr-wb-encrypted' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/amr-wb',
+      ),
+    ),
+    'audio/imelody' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/x-imelody',
+      ),
+    ),
+    'audio/m3u' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/x-mpegurl',
+      ),
+    ),
+    'audio/m4a' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/mp4',
+      ),
+    ),
+    'audio/mobile-xmf' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/x-xmf',
+      ),
+    ),
+    'audio/mp3' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/mpeg',
+      ),
+    ),
+    'audio/mpegurl' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/x-mpegurl',
+      ),
+    ),
+    'audio/scpls' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/x-scpls',
+      ),
+    ),
+    'audio/tta' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/x-tta',
+      ),
+    ),
+    'audio/vnd.audible' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/x-pn-audibleaudio',
+      ),
+    ),
+    'audio/vnd.audible.aax' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/x-pn-audibleaudio',
+      ),
+    ),
+    'audio/vnd.m-realaudio' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/vnd.rn-realaudio',
+      ),
+    ),
+    'audio/vnd.wave' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/x-wav',
+      ),
+    ),
+    'audio/vorbis' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/x-vorbis+ogg',
+      ),
+    ),
+    'audio/wav' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/x-wav',
+      ),
+    ),
+    'audio/wma' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/x-ms-wma',
+      ),
+    ),
+    'audio/x-aiffc' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/x-aifc',
+      ),
+    ),
+    'audio/x-annodex' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/annodex',
+      ),
+    ),
+    'audio/x-dts' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/vnd.dts',
+      ),
+    ),
+    'audio/x-dtshd' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/vnd.dts.hd',
+      ),
+    ),
+    'audio/x-imelody' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/x-imelody',
+      ),
+    ),
+    'audio/x-m3u' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/x-mpegurl',
+      ),
+    ),
+    'audio/x-m4a' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/mp4',
+      ),
+    ),
+    'audio/x-midi' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/midi',
+      ),
+    ),
+    'audio/x-mp2' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/mp2',
+      ),
+    ),
+    'audio/x-mp3' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/mpeg',
+      ),
+    ),
+    'audio/x-mp3-playlist' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/x-mpegurl',
+      ),
+    ),
+    'audio/x-mpeg' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/mpeg',
+      ),
+    ),
+    'audio/x-mpg' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/mpeg',
+      ),
+    ),
+    'audio/x-ogg' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/ogg',
+      ),
+    ),
+    'audio/x-oggflac' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/x-flac+ogg',
+      ),
+    ),
+    'audio/x-rn-3gpp-amr' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/3gpp',
+      ),
+    ),
+    'audio/x-rn-3gpp-amr-encrypted' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/3gpp',
+      ),
+    ),
+    'audio/x-rn-3gpp-amr-wb' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/3gpp',
+      ),
+    ),
+    'audio/x-rn-3gpp-amr-wb-encrypted' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/3gpp',
+      ),
+    ),
+    'audio/x-shorten' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-shorten',
+      ),
+    ),
+    'audio/x-vorbis' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/x-vorbis+ogg',
+      ),
+    ),
+    'audio/xmf' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/x-xmf',
+      ),
+    ),
+    'flv-application/octet-stream' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/x-flv',
+      ),
+    ),
+    'image/cdr' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.corel-draw',
+      ),
+    ),
+    'image/heic' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/heif',
+      ),
+    ),
+    'image/heic-sequence' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/heif',
+      ),
+    ),
+    'image/heif-sequence' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/heif',
+      ),
+    ),
+    'image/ico' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/vnd.microsoft.icon',
+      ),
+    ),
+    'image/icon' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/vnd.microsoft.icon',
+      ),
+    ),
+    'image/jpeg2000' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/jp2',
+      ),
+    ),
+    'image/jpeg2000-image' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/jp2',
+      ),
+    ),
+    'image/pdf' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/pdf',
+      ),
+    ),
+    'image/photoshop' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/vnd.adobe.photoshop',
+      ),
+    ),
+    'image/pjpeg' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/jpeg',
+      ),
+    ),
+    'image/psd' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/vnd.adobe.photoshop',
+      ),
+    ),
+    'image/x-bmp' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/bmp',
+      ),
+    ),
+    'image/x-cdr' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.corel-draw',
+      ),
+    ),
+    'image/x-djvu' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/vnd.djvu',
+      ),
+    ),
+    'image/x-emf' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/emf',
+      ),
+    ),
+    'image/x-fits' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/fits',
+      ),
+    ),
+    'image/x-icb' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/x-tga',
+      ),
+    ),
+    'image/x-ico' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/vnd.microsoft.icon',
+      ),
+    ),
+    'image/x-iff' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/x-ilbm',
+      ),
+    ),
+    'image/x-jpeg2000-image' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/jp2',
+      ),
+    ),
+    'image/x-ms-bmp' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/bmp',
+      ),
+    ),
+    'image/x-panasonic-raw' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/x-panasonic-rw',
+      ),
+    ),
+    'image/x-panasonic-raw2' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/x-panasonic-rw2',
+      ),
+    ),
+    'image/x-photoshop' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/vnd.adobe.photoshop',
+      ),
+    ),
+    'image/x-psd' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/vnd.adobe.photoshop',
+      ),
+    ),
+    'image/x-win-metafile' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/wmf',
+      ),
+    ),
+    'image/x-wmf' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/wmf',
+      ),
+    ),
+    'image/x-xpm' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/x-xpixmap',
+      ),
+    ),
+    'image/x.djvu' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/vnd.djvu',
+      ),
+    ),
+    'model/x.stl-ascii' => 
+    array (
+      't' => 
+      array (
+        0 => 'model/stl',
+      ),
+    ),
+    'model/x.stl-binary' => 
+    array (
+      't' => 
+      array (
+        0 => 'model/stl',
+      ),
+    ),
+    'text/directory' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/vcard',
+      ),
+    ),
+    'text/ecmascript' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/ecmascript',
+      ),
+    ),
+    'text/gedcom' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-gedcom',
+      ),
+    ),
+    'text/google-video-pointer' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/x-google-video-pointer',
+      ),
+    ),
+    'text/ico' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/vnd.microsoft.icon',
+      ),
+    ),
+    'text/javascript' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/javascript',
+      ),
+    ),
+    'text/mathml' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/mathml+xml',
+      ),
+    ),
+    'text/rdf' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/rdf+xml',
+      ),
+    ),
+    'text/rss' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/rss+xml',
+      ),
+    ),
+    'text/rtf' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/rtf',
+      ),
+    ),
+    'text/vnd.trolltech.linguist' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/vnd.qt.linguist',
+      ),
+    ),
+    'text/x-comma-separated-values' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/csv',
+      ),
+    ),
+    'text/x-csv' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/csv',
+      ),
+    ),
+    'text/x-diff' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/x-patch',
+      ),
+    ),
+    'text/x-dtd' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/xml-dtd',
+      ),
+    ),
+    'text/x-lyx' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-lyx',
+      ),
+    ),
+    'text/x-markdown' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/markdown',
+      ),
+    ),
+    'text/x-octave' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/x-matlab',
+      ),
+    ),
+    'text/x-perl' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-perl',
+      ),
+    ),
+    'text/x-po' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/x-gettext-translation',
+      ),
+    ),
+    'text/x-pot' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/x-gettext-translation-template',
+      ),
+    ),
+    'text/x-sh' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-shellscript',
+      ),
+    ),
+    'text/x-sql' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/sql',
+      ),
+    ),
+    'text/x-troff' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/troff',
+      ),
+    ),
+    'text/x-yaml' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-yaml',
+      ),
+    ),
+    'text/xml' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/xml',
+      ),
+    ),
+    'text/xml-external-parsed-entity' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/xml-external-parsed-entity',
+      ),
+    ),
+    'text/yaml' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-yaml',
+      ),
+    ),
+    'video/3gp' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/3gpp',
+      ),
+    ),
+    'video/3gpp-encrypted' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/3gpp',
+      ),
+    ),
+    'video/avi' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/x-msvideo',
+      ),
+    ),
+    'video/divx' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/x-msvideo',
+      ),
+    ),
+    'video/fli' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/x-flic',
+      ),
+    ),
+    'video/flv' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/x-flv',
+      ),
+    ),
+    'video/mp4v-es' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/mp4',
+      ),
+    ),
+    'video/mpeg-system' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/mpeg',
+      ),
+    ),
+    'video/msvideo' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/x-msvideo',
+      ),
+    ),
+    'video/vivo' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/vnd.vivo',
+      ),
+    ),
+    'video/vnd.divx' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/x-msvideo',
+      ),
+    ),
+    'video/x-annodex' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/annodex',
+      ),
+    ),
+    'video/x-avi' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/x-msvideo',
+      ),
+    ),
+    'video/x-mpeg' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/mpeg',
+      ),
+    ),
+    'video/x-mpeg-system' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/mpeg',
+      ),
+    ),
+    'video/x-mpeg2' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/mpeg',
+      ),
+    ),
+    'video/x-mpegurl' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/vnd.mpegurl',
+      ),
+    ),
+    'video/x-ms-asf-plugin' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.ms-asf',
+      ),
+    ),
+    'video/x-ms-wax' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/x-ms-asx',
+      ),
+    ),
+    'video/x-ogg' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/ogg',
+      ),
+    ),
+    'video/x-ogm' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/x-ogm+ogg',
+      ),
+    ),
+    'video/x-real-video' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/vnd.rn-realvideo',
+      ),
+    ),
+    'video/x-theora' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/x-theora+ogg',
+      ),
+    ),
+    'zz-application/zz-winassoc-123' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.lotus-1-2-3',
+      ),
+    ),
+    'zz-application/zz-winassoc-cab' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.ms-cab-compressed',
+      ),
+    ),
+    'zz-application/zz-winassoc-cdr' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.corel-draw',
+      ),
+    ),
+    'zz-application/zz-winassoc-doc' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/msword',
+      ),
+    ),
+    'zz-application/zz-winassoc-hlp' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/winhlp',
+      ),
+    ),
+    'zz-application/zz-winassoc-mdb' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.ms-access',
+      ),
+    ),
+    'zz-application/zz-winassoc-uu' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/x-uuencode',
+      ),
+    ),
+    'zz-application/zz-winassoc-xls' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.ms-excel',
       ),
     ),
   ),
