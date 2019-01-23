@@ -212,7 +212,7 @@ abstract class AbstractMap
     public function addTypeExtensionMapping($type, $extension)
     {
         // Consistency checks.
-        if (!$this->hasAlias($type)) {
+        if ($this->hasAlias($type)) {
             throw new MappingException("Cannot map '{$extension}' to '{$type}', '{$type}' is an alias");
         }
 
