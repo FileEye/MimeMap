@@ -54,10 +54,16 @@ class MapUpdater
      *
      * @return $this
      */
-    public function loadMapFromApacheFile($source_file)
+    public function loadMapFromApacheFile($source_file, $output)
     {
         $lines = file($source_file);
+
+        // Creates a progress bar.
+        $progress_bar = new ProgressBar($output, count($lines));
+        $progress_bar->start();
+
         foreach ($lines as $line) {
+            $progress_bar->advance();
             if ($line{0} == '#') {
                 continue;
             }
@@ -68,7 +74,10 @@ class MapUpdater
                 $this->map->addTypeExtensionMapping($type, $extension);
             }
         }
+
         $this->map->sort();
+        $progress_bar->finish();
+
         return $this;
     }
 
@@ -144,15 +153,16 @@ class MapUpdater
                 }
             }
         }
+
+        $this->map->sort();
+        $progress_bar->finish();
+        
         if (!empty($errors)) {
             foreach ($errors as $error) {
                 $output->writeln("<comment>$error.</comment>");
             }
         }
 
-        $this->map->sort();
-
-        $progress_bar->finish();
         return $this;
     }
 

@@ -371,6 +371,9 @@ abstract class AbstractMap
      */
     public function addTypeAlias($type, $alias)
     {
+        $type = strtolower($type);
+        $alias = strtolower($alias);
+
         if ($this->hasType($type) && !$this->hasType($alias)) {
             $this->addMapEntry('t', strtolower($type), 'a', strtolower($alias));
             return $this;
