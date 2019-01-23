@@ -3,6 +3,7 @@
 namespace FileEye\MimeMap;
 
 use FileEye\MimeMap\Map\AbstractMap;
+use Symfony\Component\Console\Helper\ProgressBar;
 
 /**
  * Compiles the MIME type to file extension map.
@@ -64,7 +65,7 @@ class MapUpdater
             $parts = explode(' ', $line);
             $type = array_shift($parts);
             foreach ($parts as $extension) {
-                $this->map->addMapping($type, $extension);
+                $this->map->addTypeExtensionMapping($type, $extension);
             }
         }
         $this->map->sort();
@@ -82,11 +83,18 @@ class MapUpdater
      *
      * @return $this
      */
-    public function loadMapFromFreedesktopFile($source_file)
+    public function loadMapFromFreedesktopFile($source_file, $output)
     {
         $xml = simplexml_load_string(file_get_contents($source_file));
+        $aliases = [];
+
+        // Creates a progress bar.
+        $progress_bar = new ProgressBar($output, count($xml));
+        $progress_bar->start();
+
         foreach ($xml as $node) {
             $exts = [];
+            $progress_bar->advance();
             foreach ($node->glob as $glob) {
                 $pattern = (string) $glob['pattern'];
                 if ('*' != $pattern[0] || '.' != $pattern[1]) {
@@ -114,15 +122,27 @@ class MapUpdater
 
             // Add extensions.
             foreach ($exts as $ext) {
-                $this->map->addMapping($type, $ext);
+                $this->map->addTypeExtensionMapping($type, $ext);
             }
 
-            // Add aliases.
+            // All aliases are accumulated and processed at the end of the
+            // cycle to allow proper consistency checking on the completely
+            // developed list of types.
             foreach ($node->alias as $alias) {
-                $this->map->addTypeAlias($type, (string) $alias['type']);
+                $aliases[$type][] = (string) $alias['type'];
             }
         }
+
+        // Add all the aliases.
+        foreach ($aliases as $type => $a) {
+            foreach ($a as $alias) {
+                $this->map->addTypeAlias($type, $alias);
+            }
+        }
+
         $this->map->sort();
+
+        $progress_bar->finish();
         return $this;
     }
 

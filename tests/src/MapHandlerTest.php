@@ -26,7 +26,7 @@ class MapHandlerTest extends TestCase
 
     public function testSort()
     {
-        $this->map->addMapping('aaa/aaa', '000a')->sort();
+        $this->map->addTypeExtensionMapping('aaa/aaa', '000a')->sort();
         $this->assertSame('aaa/aaa', $this->map->listTypes()[0]);
         $this->assertSame('000a', $this->map->listExtensions()[0]);
     }
@@ -34,24 +34,24 @@ class MapHandlerTest extends TestCase
     public function testAdd()
     {
         // Adding a new type with a new extension.
-        $this->map->addMapping('bingo/bongo', 'bngbng');
+        $this->map->addTypeExtensionMapping('bingo/bongo', 'bngbng');
         $this->assertSame(['bngbng'], (new Type('bingo/bongo'))->getExtensions());
         $this->assertSame('bngbng', (new Type('bingo/bongo'))->getDefaultExtension());
         $this->assertSame(['bingo/bongo'], (new Extension('bngbng'))->getTypes());
         $this->assertSame('bingo/bongo', (new Extension('bngbng'))->getDefaultType());
 
         // Adding an already existing mapping should not duplicate entries.
-        $this->map->addMapping('bingo/bongo', 'bngbng');
+        $this->map->addTypeExtensionMapping('bingo/bongo', 'bngbng');
         $this->assertSame(['bngbng'], (new Type('bingo/bongo'))->getExtensions());
         $this->assertSame(['bingo/bongo'], (new Extension('bngbng'))->getTypes());
 
         // Adding another extension to existing type.
-        $this->map->addMapping('bingo/bongo', 'bigbog');
+        $this->map->addTypeExtensionMapping('bingo/bongo', 'bigbog');
         $this->assertSame(['bngbng', 'bigbog'], (new Type('bingo/bongo'))->getExtensions());
         $this->assertSame(['bingo/bongo'], (new Extension('bigbog'))->getTypes());
 
         // Adding another type to existing extension.
-        $this->map->addMapping('boing/being', 'bngbng');
+        $this->map->addTypeExtensionMapping('boing/being', 'bngbng');
         $this->assertSame(['bngbng'], (new Type('boing/being'))->getExtensions());
         $this->assertSame(['bingo/bongo', 'boing/being'], (new Extension('bngbng'))->getTypes());
     }
@@ -64,14 +64,14 @@ class MapHandlerTest extends TestCase
         $this->assertSame('text/plain', (new Extension('txt'))->getDefaultType());
 
         // Remove an existing type-extension pair.
-        $this->assertTrue($this->map->removeMapping('text/plain', 'txt'));
+        $this->assertTrue($this->map->removeTypeExtensionMapping('text/plain', 'txt'));
         $this->assertSame(['text', 'conf', 'def', 'list', 'log', 'in', 'asc'], (new Type('text/plain'))->getExtensions());
         $this->assertSame('text', (new Type('text/plain'))->getDefaultExtension());
         $this->assertSame(['application/octet-stream'], (new Extension('txt'))->getTypes(false));
         $this->assertSame('application/octet-stream', (new Extension('txt'))->getDefaultType(false));
 
         // Try removing a non-existing extension.
-        $this->assertFalse($this->map->removeMapping('text/plain', 'axx'));
+        $this->assertFalse($this->map->removeTypeExtensionMapping('text/plain', 'axx'));
 
         // Remove an existing type.
         $this->assertTrue($this->map->removeType('text/plain'));

@@ -327,7 +327,7 @@ abstract class AbstractMap
      *
      * @return $this
      */
-    public function addMapping($type, $extension)
+    public function addTypeExtensionMapping($type, $extension)
     {
         $type = strtolower($type);
         $extension = (string) strtolower($extension);
@@ -365,12 +365,17 @@ abstract class AbstractMap
      * @param string $alias
      *   An alias of $type.
      *
+     * @throws MappingException if no $type is found.
+     *
      * @return $this
      */
     public function addTypeAlias($type, $alias)
     {
-        $this->addMapEntry('t', strtolower($type), 'a', strtolower($alias));
-        return $this;
+        if ($this->hasType($type) && !$this->hasType($alias)) {
+            $this->addMapEntry('t', strtolower($type), 'a', strtolower($alias));
+            return $this;
+        }
+        throw new MappingException("Cannot set '{$alias}' as alias for '{$type}', '{$type}' not defined");
     }
 
     /**
@@ -384,7 +389,7 @@ abstract class AbstractMap
      * @return bool
      *   true if the mapping was removed, false if the mapping was not present.
      */
-    public function removeMapping($type, $extension)
+    public function removeTypeExtensionMapping($type, $extension)
     {
         $type = strtolower($type);
         $extension = (string) strtolower($extension);
@@ -419,7 +424,7 @@ abstract class AbstractMap
         // Loop through all the associated extensions and remove them. This
         // is also removing the type itself when the last extension is removed.
         foreach ($this->getTypeExtensions($type) as $extension) {
-            $this->removeMapping($type, $extension);
+            $this->removeTypeExtensionMapping($type, $extension);
         }
 
         return true;

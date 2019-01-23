@@ -56,6 +56,7 @@ class UpdateCommand extends Command
         // Executes on an emtpy map the script commands.
         $commands = Yaml::parse(file_get_contents($input->getOption('script')));
         foreach ($commands as $command) {
+            $command[1][] = $output;
             try {
                 call_user_func_array([$updater, $command[0]], $command[1]);
             } catch (\Exception $e) {

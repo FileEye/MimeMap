@@ -99,7 +99,7 @@ class MapUpdaterTest extends TestCase
         $content = file_get_contents($map_a->getFileName());
         $this->assertNotContains('text/plain', $content);
         $this->updater->loadMapFromApacheFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
-        $this->updater->applyOverrides([['addMapping', ['bing/bong', 'binbon']]]);
+        $this->updater->applyOverrides([['addTypeExtensionMapping', ['bing/bong', 'binbon']]]);
         $this->updater->writeMapToPhpClassFile($map_a->getFileName());
         $content = file_get_contents($map_a->getFileName());
         $this->assertContains('text/plain', $content);
