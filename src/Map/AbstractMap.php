@@ -166,7 +166,7 @@ abstract class AbstractMap
             throw new MappingException("Cannot add description for '{$type}', '{$type}' is an alias");
         }
 
-        $this->addMapEntry('t', $type, 'desc', $description);
+        $this->addMapSubEntry('t', $type, 'desc', $description);
         return $this;
     }
 
@@ -195,8 +195,8 @@ abstract class AbstractMap
             throw new MappingException("Cannot set '{$alias}' as alias for '{$type}', '{$alias}' is already defined as a type");
         }
 
-        $this->addMapEntry('t', $type, 'a', $alias);
-        $this->addMapEntry('a', $alias, 't', $type);
+        $this->addMapSubEntry('t', $type, 'a', $alias);
+        $this->addMapSubEntry('a', $alias, 't', $type);
         return $this;
     }
 
@@ -223,18 +223,31 @@ abstract class AbstractMap
         }
 
         // Add entry to 't'.
-        $this->addMapEntry('t', $type, 'e', $extension);
+        $this->addMapSubEntry('t', $type, 'e', $extension);
 
         // Add entry to 'e'.
-        $this->addMapEntry('e', $extension, 't', $type);
+        $this->addMapSubEntry('e', $extension, 't', $type);
 
         return $this;
     }
 
     /**
+     * Gets the aliases of a MIME type.
+     *
+     * @param string $type The type to be found.
+     *
+     * @return string[] The mapped aliases.
+     */
+    public function getTypeAliases($type)
+    {
+        $res = $this->getMapSubEntry('t', $type, 'a');
+        return $res ?: [];
+    }
+
+    /**
      * Gets the content of an entry from the 't' array.
      *
-     * @param string $type The extension to be found.
+     * @param string $type The type to be found.
      *
      * @return string[] The mapped file extensions.
      */
@@ -273,18 +286,46 @@ abstract class AbstractMap
      */
     public function removeType($type)
     {
+        $type = strtolower($type);
+
         // Return false if type is not found.
         if (!$this->hasType($type)) {
             return false;
         }
 
-        // Loop through all the associated extensions and remove them. This
-        // is also removing the type itself when the last extension is removed.
+        // Loop through all the associated extensions and remove them.
         foreach ($this->getTypeExtensions($type) as $extension) {
             $this->removeTypeExtensionMapping($type, $extension);
         }
 
-        return true;
+        // Loop through all the associated aliases and remove them.
+        foreach ($this->getTypeAliases($type) as $alias) {
+            $this->removeTypeAlias($type, $alias);
+        }
+        
+        return $this->removeMapEntry($type);
+    }
+
+    /**
+     * Removes a MIME type alias.
+     *
+     * @param string $type
+     *   A MIME type.
+     * @param string $alias
+     *   The alias to be removed.
+     *
+     * @return bool
+     *   true if the alias was removed, false if the alias was not present.
+     */
+    public function removeTypeAlias($type, $alias)
+    {
+        $type = strtolower($type);
+        $alias = strtolower($alias);
+
+        $type_ret = $this->removeMapSubEntry('t', $type, 'a', $alias);
+        $alias_ret = $this->removeMapSubEntry('a', $alias, 't', $type);
+
+        return $type_ret && $alias_ret;
     }
 
     /**
@@ -293,18 +334,18 @@ abstract class AbstractMap
      * @param string $type
      *   A MIME type.
      * @param string $extension
-     *   A file extension.
+     *   The file extension to be removed.
      *
      * @return bool
      *   true if the mapping was removed, false if the mapping was not present.
      */
     public function removeTypeExtensionMapping($type, $extension)
     {
-        // Remove entry from 'types'.
-        $type_ret = $this->removeMapEntry('t', $type, 'e', $extension);
+        $type = strtolower($type);
+        $extension = strtolower($extension);
 
-        // Remove entry from 'extensions'.
-        $extension_ret = $this->removeMapEntry('e', $extension, 't', $type);
+        $type_ret = $this->removeMapSubEntry('t', $type, 'e', $extension);
+        $extension_ret = $this->removeMapSubEntry('e', $extension, 't', $type);
 
         return $type_ret && $extension_ret;
     }
@@ -384,6 +425,33 @@ abstract class AbstractMap
     }
 
     /**
+     * Removes an entry from the map.
+     *
+     * @param string $entry
+     *   The main array entry.
+     * @param string $entry_key
+     *   The main entry value.
+     *
+     * @return bool
+     *   true if the entry was removed, false if the entry was not present.
+     */
+    protected function removeMapEntry($entry, $entry_key)
+    {
+        $entry = strtolower($entry);
+        $entry_key = strtolower($entry_key);
+
+        // Return false if no entry.
+        if (!isset(static::$map[$entry][$entry_key])) {
+            return false;
+        }
+
+        // Remove the map entry.
+        unset(static::$map[$entry][$entry_key]);
+
+        return true;
+    }
+
+    /**
      * Gets the content of a subentry of the map.
      *
      * @param string $entry
@@ -420,7 +488,7 @@ abstract class AbstractMap
      *
      * @return $this
      */
-    protected function addMapEntry($entry, $entry_key, $sub_entry, $value)
+    protected function addMapSubEntry($entry, $entry_key, $sub_entry, $value)
     {
         $entry = strtolower($entry);
         $entry_key = strtolower($entry_key);
@@ -450,7 +518,7 @@ abstract class AbstractMap
      * @return bool
      *   true if the entry was removed, false if the entry was not present.
      */
-    protected function removeMapEntry($entry, $entry_key, $sub_entry, $value)
+    protected function removeMapSubEntry($entry, $entry_key, $sub_entry, $value)
     {
         $entry = strtolower($entry);
         $entry_key = strtolower($entry_key);
