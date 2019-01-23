@@ -438,47 +438,48 @@ abstract class AbstractMap
     /**
      * Removes an entry from the map.
      *
-     * @param string $key
-     *   The main array key.
      * @param string $entry
-     *   The sub array key.
+     *   The main array entry.
+     * @param string $entry_key
+     *   The main entry value.
+     * @param string $sub_entry
+     *   The sub entry.
      * @param string $value
-     *   The value.
+     *   The value to remove.
      *
      * @return bool
      *   true if the entry was removed, false if the entry was not present.
      */
-    protected function removeMapEntry($key, $entry, $value)
+    protected function removeMapEntry($entry, $entry_key, $sub_entry, $value)
     {
         $entry = strtolower($entry);
-        $key = strtolower($key);
-        //$entry_key = strtolower($entry_key);
-        //$sub_entry = strtolower($sub_entry);
+        $entry_key = strtolower($entry_key);
+        $sub_entry = strtolower($sub_entry);
 
         // Return false if no entry.
-        if (!isset(static::$map[$key][$entry])) {
+        if (!isset(static::$map[$entry][$entry_key][$sub_entry])) {
             return false;
         }
 
         // Return false if no value.
-        $k = array_search($value, static::$map[$key][$entry]);
+        $k = array_search($value, static::$map[$entry][$entry_key][$sub_entry]);
         if ($k === false) {
             return false;
         }
 
         // Remove the map entry.
-        unset(static::$map[$key][$entry][$k]);
+        unset(static::$map[$entry][$entry_key][$sub_entry][$k]);
 
         // Remove the entry itself if no more values.
-        if (empty(static::$map[$key][$entry])) {
-            unset(static::$map[$key][$entry]);
+        if (empty(static::$map[$entry][$entry_key][$sub_entry])) {
+            unset(static::$map[$entry][$entry_key][$sub_entry]);
         } else {
             // Resequence the remaining values.
             $tmp = [];
-            foreach (static::$map[$key][$entry] as $v) {
+            foreach (static::$map[$entry][$entry_key][$sub_entry] as $v) {
                 $tmp[] = $v;
             }
-            static::$map[$key][$entry] = $tmp;
+            static::$map[$entry][$entry_key][$sub_entry] = $tmp;
         }
 
         return true;
