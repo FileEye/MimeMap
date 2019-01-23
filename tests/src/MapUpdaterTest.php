@@ -62,18 +62,36 @@ class MapUpdaterTest extends TestCase
         $this->updater->loadMapFromFreedesktopFile(dirname(__FILE__) . '/../fixtures/min.freedesktop.xml');
         $expected = [
             't' => [
-                'application/x-atari-2600-rom' => ['desc' => ['Atari 2600'], 'e' => ['a26']],
-                'text/plain' => ['desc' => ['plain text document'], 'e' => ['txt', 'asc']],
+                'application/pdf' => [
+                  'a' => ['application/x-pdf', 'image/pdf', 'application/acrobat', 'application/nappdf'],
+                  'desc' => ['PDF document', 'PDF: Portable Document Format'],
+                  'e' => ['pdf']
+                ],
+                'application/x-atari-2600-rom' => [
+                  'desc' => ['Atari 2600'],
+                  'e' => ['a26']
+                ],
+                'text/plain' => [
+                  'desc' => ['plain text document'],
+                  'e' => ['txt', 'asc']
+                ],
             ],
             'e' => [
                 'a26' => ['t' => ['application/x-atari-2600-rom']],
                 'asc' => ['t' => ['text/plain']],
+                'pdf' => ['t' => ['application/pdf']],
                 'txt' => ['t' => ['text/plain']],
+            ],
+            'a' => [
+                'application/acrobat' => ['t' => ['application/pdf']],
+                'application/nappdf' => ['t' => ['application/pdf']],
+                'application/x-pdf' => ['t' => ['application/pdf']],
+                'image/pdf' => ['t' => ['application/pdf']],
             ],
         ];
         $this->assertSame($expected, $this->newMap->getMapArray());
-        $this->assertSame(['application/x-atari-2600-rom', 'text/plain'], $this->newMap->listTypes());
-        $this->assertSame(['a26', 'asc', 'txt'], $this->newMap->listExtensions());
+        $this->assertSame(['application/pdf', 'application/x-atari-2600-rom', 'text/plain'], $this->newMap->listTypes());
+        $this->assertSame(['a26', 'asc', 'pdf', 'txt'], $this->newMap->listExtensions());
     }
 
     public function testLoadMapFromFreedesktopFileZeroLines()
