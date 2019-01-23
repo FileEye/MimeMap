@@ -375,7 +375,12 @@ abstract class AbstractMap
             $this->addMapEntry('t', strtolower($type), 'a', strtolower($alias));
             return $this;
         }
-        throw new MappingException("Cannot set '{$alias}' as alias for '{$type}', '{$type}' not defined");
+        if (!$this->hasType($type)) {
+          throw new MappingException("Cannot set '{$alias}' as alias for '{$type}', '{$type}' not defined");
+        }
+        if ($this->hasType($alias)) {
+          throw new MappingException("Cannot set '{$alias}' as alias for '{$type}', '{$alias}' is already defined as a type");
+        }
     }
 
     /**

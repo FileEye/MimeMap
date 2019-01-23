@@ -133,10 +133,20 @@ class MapUpdater
             }
         }
 
-        // Add all the aliases.
+        // Add all the aliases, provide logging of errors.
+        $errors = [];
         foreach ($aliases as $type => $a) {
             foreach ($a as $alias) {
-                $this->map->addTypeAlias($type, $alias);
+                try {
+                    $this->map->addTypeAlias($type, $alias);
+                } catch (MappingException $e) {
+                    $errors[] = $e->getMessage();
+                }
+            }
+        }
+        if (!empty($errors)) {
+            foreach ($errors as $error) {
+                $output->writeln("<comment>$error.</comment>");
             }
         }
 
