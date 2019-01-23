@@ -289,7 +289,7 @@ abstract class AbstractMap
         foreach ($this->getTypeAliases($type) as $alias) {
             $this->removeTypeAlias($type, $alias);
         }
-        
+
         return $this->removeMapEntry('t', $type);
     }
 
@@ -375,12 +375,17 @@ abstract class AbstractMap
      * @param string $match
      *   (Optional) a match wildcard to limit the list.
      *
-     * @return mixed|null
-     *   The value of the entry, or null if missing.
+     * @return array
+     *   The list of the entries.
      */
     protected function listEntries($entry, $match = null)
     {
         $entry = strtolower($entry);
+
+        if (!isset(static::$map[$entry])) {
+            return [];
+        }
+
         $list = array_keys(static::$map[$entry]);
 
         if (is_null($match)) {
