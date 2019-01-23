@@ -95,7 +95,7 @@ abstract class AbstractMap
      */
     public function hasAlias($alias)
     {
-        return (bool) $this->getMapEntry('a', $type);
+        return (bool) $this->getMapEntry('a', $alias);
     }
 
     /**
@@ -163,7 +163,7 @@ abstract class AbstractMap
     {
         // Consistency checks.
         if (!$this->hasAlias($type)) {
-          throw new MappingException("Cannot add description for '{$type}', '{$type}' is an alias");
+            throw new MappingException("Cannot add description for '{$type}', '{$type}' is an alias");
         }
 
         $this->addMapEntry('t', $type, 'desc', $description);
@@ -186,10 +186,10 @@ abstract class AbstractMap
     {
         // Consistency checks.
         if (!$this->hasType($type)) {
-          throw new MappingException("Cannot set '{$alias}' as alias for '{$type}', '{$type}' not defined");
+            throw new MappingException("Cannot set '{$alias}' as alias for '{$type}', '{$type}' not defined");
         }
         if ($this->hasType($alias)) {
-          throw new MappingException("Cannot set '{$alias}' as alias for '{$type}', '{$alias}' is already defined as a type");
+            throw new MappingException("Cannot set '{$alias}' as alias for '{$type}', '{$alias}' is already defined as a type");
         }
 
         $this->addMapEntry('t', $type, 'a', $alias);
@@ -213,7 +213,7 @@ abstract class AbstractMap
     {
         // Consistency checks.
         if (!$this->hasAlias($type)) {
-          throw new MappingException("Cannot map '{$extension}' to '{$type}', '{$type}' is an alias");
+            throw new MappingException("Cannot map '{$extension}' to '{$type}', '{$type}' is an alias");
         }
 
         // Add entry to 't'.
