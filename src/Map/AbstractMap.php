@@ -184,6 +184,7 @@ abstract class AbstractMap
      */
     public function addTypeAlias($type, $alias)
     {
+        $type = strtolower($type);
         $alias = strtolower($alias);
 
         // Consistency checks.
