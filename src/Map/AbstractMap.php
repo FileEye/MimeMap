@@ -162,7 +162,7 @@ abstract class AbstractMap
     public function addTypeDescription($type, $description)
     {
         // Consistency checks.
-        if (!$this->hasAlias($type)) {
+        if ($this->hasAlias($type)) {
             throw new MappingException("Cannot add description for '{$type}', '{$type}' is an alias");
         }
 

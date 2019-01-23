@@ -16,19 +16,19 @@
 # The Apache httpd project contains the most complete list of file extension to
 # mime type mapping on the planet. We use it to update our own list.
 -
-    - 'Load the map from the svn.apache.org'
+    - 'Loading MIME type information from svn.apache.org'
     - loadMapFromApacheFile
     - [http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=co]
 
 # Extend Apache table with the Freedesktop.org database.
 -
-    - 'Update the map with information from freedesktop.org'
+    - 'Updating with information from freedesktop.org'
     - loadMapFromFreedesktopFile
     - [https://raw.github.com/minad/mimemagic/master/script/freedesktop.org.xml]
 
 # MimeMap overrides.
 -
-    - 'Apply MimeMap overrides'
+    - 'Applying MimeMap overrides'
     - applyOverrides
     -
         -
