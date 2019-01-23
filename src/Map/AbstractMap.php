@@ -213,6 +213,7 @@ abstract class AbstractMap
      */
     public function addTypeExtensionMapping($type, $extension)
     {
+        $type = strtolower($type);
         $extension = strtolower($extension);
 
         // Consistency checks.
