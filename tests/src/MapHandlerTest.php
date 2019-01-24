@@ -120,6 +120,33 @@ class MapHandlerTest extends TestCase
 
     /**
      * @expectedException \FileEye\MimeMap\MappingException
+     * @expectedExceptionMessage Cannot set 'baz/qoo' as alias for 'bar/foo', 'bar/foo' not defined
+     */
+    public function testAddAliasToMissingType()
+    {
+        $this->map->addTypeAlias('bar/foo', 'baz/qoo');
+    }
+
+    /**
+     * @expectedException \FileEye\MimeMap\MappingException
+     * @expectedExceptionMessage Cannot set 'text/plain' as alias for 'text/richtext', 'text/plain' is already defined as a type
+     */
+    public function testAddAliasIsATypeAlready()
+    {
+        $this->map->addTypeAlias('text/richtext', 'text/plain');
+    }
+
+    /**
+     * @expectedException \FileEye\MimeMap\MappingException
+     * @expectedExceptionMessage Cannot add description for 'application/acrobat', 'application/acrobat' is an alias
+     */
+    public function testAddDescriptionToAlias()
+    {
+        $this->map->addTypeDescription('application/acrobat', 'description of alias');
+    }
+
+    /**
+     * @expectedException \FileEye\MimeMap\MappingException
      */
     public function testSetExtensionDefaultTypeNoExtension()
     {
