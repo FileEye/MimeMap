@@ -193,7 +193,6 @@ class MapHandlerTest extends TestCase
     public function testSetTypeDefaultExtensionNoType()
     {
         $this->map->setTypeDefaultExtension('image/bingo', 'jpg');
-
     }
 
     /**

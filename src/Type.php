@@ -107,9 +107,6 @@ class Type
             $tmp = explode('=', $sub['string'], 2);
             $p_name = trim($tmp[0]);
             $p_val = trim($tmp[1]);
-            if ($p_val[0] == '"' && $p_val[strlen($p_val) - 1] == '"') {
-                $p_val = substr($p_val, 1, -1);
-            }
             $p_val = str_replace('\\"', '"', $p_val);
             $this->addParameter($p_name, $p_val, $sub['comment']);
         }
