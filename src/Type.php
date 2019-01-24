@@ -420,10 +420,10 @@ class Type
         $subject = $this->toString(static::SHORT_TEXT);
         $descriptions = $map->getTypeDescriptions($subject);
         $res = null;
-        if (isset($descriptions[0]) {
+        if (isset($descriptions[0])) {
             $res = $descriptions[0];
         }
-        if ($include_acronym && isset($descriptions[1]) {
+        if ($include_acronym && isset($descriptions[1])) {
             $res .= ', ' . $descriptions[1];
         }
         return array_keys($res);
