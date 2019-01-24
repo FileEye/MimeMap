@@ -468,6 +468,13 @@ class TypeTest extends TestCase
         $this->assertNull((new Type('application/x-t3vm-image'))->getDescription());
         $this->assertSame('HTML document', (new Type('text/html'))->getDescription());
         $this->assertSame('HTML document, HTML: HyperText Markup Language', (new Type('text/html'))->getDescription(true));
+
+        $this->assertSame('GPX geographic data', (new Type('application/gpx+xml'))->getDescription());
+        $this->assertSame('GPX geographic data, GPX: GPS Exchange Format', (new Type('application/gpx+xml'))->getDescription(true));
+        $this->assertSame('GPX geographic data', (new Type('application/gpx'))->getDescription());
+        $this->assertSame('GPX geographic data, GPX: GPS Exchange Format', (new Type('application/gpx'))->getDescription(true));
+        $this->assertSame('GPX geographic data', (new Type('application/x-gpx'))->getDescription());
+        $this->assertSame('GPX geographic data, GPX: GPS Exchange Format', (new Type('application/x-gpx'))->getDescription(true));
     }
 
     public function testSetComment()

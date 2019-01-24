@@ -350,6 +350,19 @@ abstract class AbstractMap
     }
 
     /**
+     * Gets the parent types of an alias.
+     *
+     * @param string $alias The alias to be found.
+     *
+     * @return string[]
+     */
+    public function getAliasTypes($alias)
+    {
+        $res = $this->getMapSubEntry('a', $extension, 't');
+        return $res ?: [];
+    }
+
+    /**
      * Gets the content of an entry from the 'extensions' array.
      *
      * @param string $extension The extension to be found.

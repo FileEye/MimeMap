@@ -401,6 +401,24 @@ class Type
     }
 
     /**
+     * Returns the unaliased MIME type.
+     *
+     * @return Type
+     *   $this if the current type is not an alias, the parent type if the
+     *   current type is an alias.
+     */
+    protected function getUnaliasedType() {
+        if (!$this->isAlias()) {
+            return $this;
+        } else {
+            $map = MapHandler::map();
+            $subject = $this->toString(static::SHORT_TEXT);
+            $types = $map->getAliasTypes($subject);
+            return new static($types[0]);
+        }
+    }
+
+    /**
      * Returns a description for the MIME type, if existing in the map.
      *
      * @param bool $include_acronym
@@ -417,7 +435,7 @@ class Type
         }
 
         $map = MapHandler::map();
-        $subject = $this->toString(static::SHORT_TEXT);
+        $subject = $this->getUnaliasedType()->toString(static::SHORT_TEXT);
         $descriptions = $map->getTypeDescriptions($subject);
         $res = null;
         if (isset($descriptions[0])) {

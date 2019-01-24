@@ -8,7 +8,11 @@ build:
         coverage:
           file: build/logs/clover.xml
           format: clover
-
+    nodes:
+        analysis:
+            tests:
+                override:
+                    - php-scrutinizer-run
 checks:
     php:
         code_rating: true
