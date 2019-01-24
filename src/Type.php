@@ -375,6 +375,7 @@ class Type
      */
     public function getAliases($strict = true)
     {
+        $map = MapHandler::map();
         $types = $this->buildTypesList($strict);
 
         // Build the array of aliases.
@@ -439,6 +440,7 @@ class Type
      */
     public function getExtensions($strict = true)
     {
+        $map = MapHandler::map();
         $types = $this->buildTypesList($strict);
 
         // Build the array of extensions.
