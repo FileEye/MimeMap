@@ -209,7 +209,7 @@ class Type
      *
      * @return $this
      */
-    public function getSubTypeComment($comment)
+    public function setSubTypeComment($comment)
     {
         $this->subTypeComment = $comment;
         return $this;
