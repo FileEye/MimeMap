@@ -42,6 +42,12 @@ class UpdateCommand extends Command
                 'The fully qualified class name of the PHP class storing the map.',
                 MapHandler::DEFAULT_MAP_CLASS
             )
+            ->addOption(
+                'diff',
+                null,
+                InputOption::VALUE_NONE,
+                'Report updates.'
+            )
         ;
     }
 
@@ -56,8 +62,14 @@ class UpdateCommand extends Command
         // Executes on an emtpy map the script commands.
         $commands = Yaml::parse(file_get_contents($input->getOption('script')));
         foreach ($commands as $command) {
+            $output->writeln("<info>{$command[0]} ...</info>");
             try {
-                call_user_func_array([$updater, $command[0]], $command[1]);
+                $errors = call_user_func_array([$updater, $command[1]], $command[2]);
+                if (!empty($errors)) {
+                    foreach ($errors as $error) {
+                        $output->writeln("<comment>$error.</comment>");
+                    }
+                }
             } catch (\Exception $e) {
                 $output->writeln('<error>' . $e->getMessage() . '</error>');
                 exit(2);
@@ -68,19 +80,23 @@ class UpdateCommand extends Command
         $current_map = MapHandler::map();
 
         // Check if anything got changed.
-        $write = false;
-        try {
-            $this->compareMaps($current_map, $new_map, 'types');
-        } catch (\RuntimeException $e) {
-            $output->writeln('<comment>Changes to MIME types mapping</comment>');
-            $output->writeln($e->getMessage());
-            $write = true;
-        }
-        try {
-            $this->compareMaps($current_map, $new_map, 'extensions');
-        } catch (\RuntimeException $e) {
-            $output->writeln('<comment>Changes to extensions mapping</comment>');
-            $output->writeln($e->getMessage());
+        if ($input->getOption('diff')) {
+            $write = false;
+            foreach ([
+                't' => 'MIME types',
+                'a' => 'MIME type aliases',
+                'e' => 'extensions',
+            ] as $key => $desc) {
+                try {
+                    $output->writeln("<info>Checking changes to {$desc} ...</info>");
+                    $this->compareMaps($current_map, $new_map, $key);
+                } catch (\RuntimeException $e) {
+                    $output->writeln("<comment>Changes to {$desc} mapping:</comment>");
+                    $output->writeln($e->getMessage());
+                    $write = true;
+                }
+            }
+        } else {
             $write = true;
         }
 
@@ -104,7 +120,7 @@ class UpdateCommand extends Command
      * @param AbstractMap $new_map
      *   The second map to compare.
      * @param string $section
-     *   The first-level array key to compare: 'types' or 'extensions'.
+     *   The first-level array key to compare: 't' or 'e' or 'a'.
      *
      * @throws \RuntimeException with diff details if the maps differ.
      *

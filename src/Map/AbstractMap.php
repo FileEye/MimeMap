@@ -51,13 +51,49 @@ abstract class AbstractMap
      */
     public function sort()
     {
-        if (isset(static::$map['types'])) {
-            ksort(static::$map['types']);
-        }
-        if (isset(static::$map['extensions'])) {
-            ksort(static::$map['extensions']);
+        foreach (array_keys(static::$map) as $k) {
+            ksort(static::$map[$k]);
+            foreach (static::$map[$k] as &$sub) {
+                ksort($sub);
+            }
         }
         return $this;
+    }
+
+    /**
+     * Determines if a MIME type exists.
+     *
+     * @param string $type The type to be found.
+     *
+     * @return bool
+     */
+    public function hasType($type)
+    {
+        return (bool) $this->getMapEntry('t', $type);
+    }
+
+    /**
+     * Determines if a MIME type alias exists.
+     *
+     * @param string $alias The alias to be found.
+     *
+     * @return bool
+     */
+    public function hasAlias($alias)
+    {
+        return (bool) $this->getMapEntry('a', $alias);
+    }
+
+    /**
+     * Determines if an entry exists from the 'extensions' array.
+     *
+     * @param string $extension The extension to be found.
+     *
+     * @return bool
+     */
+    public function hasExtension($extension)
+    {
+        return (bool) $this->getMapEntry('e', $extension);
     }
 
     /**
@@ -69,7 +105,19 @@ abstract class AbstractMap
      */
     public function listTypes($match = null)
     {
-        return $this->listEntries('types', $match);
+        return $this->listEntries('t', $match);
+    }
+
+    /**
+     * Lists all the MIME types aliases defined in the map.
+     *
+     * @param string $match (Optional) a match wildcard to limit the list.
+     *
+     * @return string[]
+     */
+    public function listAliases($match = null)
+    {
+        return $this->listEntries('a', $match);
     }
 
     /**
@@ -81,207 +129,59 @@ abstract class AbstractMap
      */
     public function listExtensions($match = null)
     {
-        return $this->listEntries('extensions', $match);
+        return $this->listEntries('e', $match);
     }
 
     /**
-     * Gets a list of entries of the map.
+     * Adds a description of a MIME type.
      *
-     * @param string $key
-     *   The main array key.
-     * @param string $match
-     *   (Optional) a match wildcard to limit the list.
+     * @param string $type
+     *   A MIME type.
+     * @param string $description
+     *   The description of the MIME type.
      *
-     * @return mixed|null
-     *   The value of the entry, or null if missing.
-     */
-    protected function listEntries($key, $match = null)
-    {
-        $list = array_keys(static::$map[$key]);
-
-        if (is_null($match)) {
-            return $list;
-        } else {
-            $re = strtr($match, ['/' => '\\/', '*' => '.*']);
-            return array_filter($list, function ($v) use ($re) {
-                return preg_match("/$re/", $v) === 1;
-            });
-        }
-    }
-
-    /**
-     * Determines if an entry exists form the 'types' array.
-     *
-     * @param string $type The type to be found.
-     *
-     * @return bool
-     */
-    public function hasType($type)
-    {
-        return (bool) $this->getType($type);
-    }
-
-    /**
-     * Gets the content of an entry from the 'types' array.
-     *
-     * @param string $type The extension to be found.
-     *
-     * @return string[] The mapped file extensions.
-     */
-    public function getType($type)
-    {
-        $res = $this->getMapEntry('types', $type);
-        return $res ?: [];
-    }
-
-    /**
-     * Determines if an entry exists form the 'extensions' array.
-     *
-     * @param string $extension The extension to be found.
-     *
-     * @return bool
-     */
-    public function hasExtension($extension)
-    {
-        return (bool) $this->getExtension($extension);
-    }
-
-    /**
-     * Gets the content of an entry from the 'extensions' array.
-     *
-     * @param string $extension The extension to be found.
-     *
-     * @return string[] The mapped MIME types.
-     */
-    public function getExtension($extension)
-    {
-        $res = $this->getMapEntry('extensions', $extension);
-        return $res ?: [];
-    }
-
-    /**
-     * Gets the content of an entry of the map.
-     *
-     * @param string $key
-     *   The main array key.
-     * @param string $entry
-     *   The sub array key.
-     *
-     * @return mixed|null
-     *   The value of the entry, or null if missing.
-     */
-    protected function getMapEntry($key, $entry)
-    {
-        return isset(static::$map[$key][$entry]) ? static::$map[$key][$entry] : null;
-    }
-
-    /**
-     * Adds an entry to the map.
-     *
-     * Checks that no duplicate entries are made.
-     *
-     * @param string $key
-     *   The main array key.
-     * @param string $entry
-     *   The sub array key.
-     * @param string $value
-     *   The value to add.
+     * @throws MappingException if $type is an alias.
      *
      * @return $this
      */
-    protected function addMapEntry($key, $entry, $value)
+    public function addTypeDescription($type, $description)
     {
-        if (!isset(static::$map[$key][$entry])) {
-            static::$map[$key][$entry] = [$value];
-        } else {
-            if (array_search($value, static::$map[$key][$entry]) === false) {
-                static::$map[$key][$entry][] = $value;
-            }
+        // Consistency checks.
+        if ($this->hasAlias($type)) {
+            throw new MappingException("Cannot add description for '{$type}', '{$type}' is an alias");
         }
+
+        $this->addMapSubEntry('t', $type, 'desc', $description);
         return $this;
     }
 
     /**
-     * Removes an entry from the map.
+     * Adds an alias of a MIME type.
      *
-     * @param string $key
-     *   The main array key.
-     * @param string $entry
-     *   The sub array key.
-     * @param string $value
-     *   The value.
+     * @param string $type
+     *   A MIME type.
+     * @param string $alias
+     *   An alias of $type.
      *
-     * @return bool
-     *   true if the entry was removed, false if the entry was not present.
-     */
-    protected function removeMapEntry($key, $entry, $value)
-    {
-        // Return false if no entry.
-        if (!isset(static::$map[$key][$entry])) {
-            return false;
-        }
-
-        // Return false if no value.
-        $k = array_search($value, static::$map[$key][$entry]);
-        if ($k === false) {
-            return false;
-        }
-
-        // Remove the map entry.
-        unset(static::$map[$key][$entry][$k]);
-
-        // Remove the entry itself if no more values.
-        if (empty(static::$map[$key][$entry])) {
-            unset(static::$map[$key][$entry]);
-        } else {
-            // Resequence the remaining values.
-            $tmp = [];
-            foreach (static::$map[$key][$entry] as $v) {
-                $tmp[] = $v;
-            }
-            static::$map[$key][$entry] = $tmp;
-        }
-
-        return true;
-    }
-
-    /**
-     * Sets a value as the default for an entry.
-     *
-     * @param string $key
-     *   The main array key.
-     * @param string $entry
-     *   The sub array key.
-     * @param string $value
-     *   The value.
-     *
-     * @throws MappingException if no mapping found.
+     * @throws MappingException if no $type is found.
      *
      * @return $this
      */
-    protected function setValueAsDefault($key, $entry, $value)
+    public function addTypeAlias($type, $alias)
     {
-        // Throw exception if no entry.
-        if (!isset(static::$map[$key][$entry])) {
-            throw new MappingException("Cannot set '{$value}' as default for '{$entry}', '{$entry}' not defined");
+        $type = strtolower($type);
+        $alias = strtolower($alias);
+
+        // Consistency checks.
+        if (!$this->hasType($type)) {
+            throw new MappingException("Cannot set '{$alias}' as alias for '{$type}', '{$type}' not defined");
+        }
+        if ($this->hasType($alias)) {
+            throw new MappingException("Cannot set '{$alias}' as alias for '{$type}', '{$alias}' is already defined as a type");
         }
 
-        // Throw exception if no entry-value pair.
-        $k = array_search($value, static::$map[$key][$entry]);
-        if ($k === false) {
-            throw new MappingException("Cannot set '{$value}' as default for '{$entry}', '{$value}' not associated to '{$entry}'");
-        }
-
-        // Move value to top of array and resequence the rest.
-        $tmp = [$value];
-        foreach (static::$map[$key][$entry] as $kk => $v) {
-            if ($kk === $k) {
-                continue;
-            }
-            $tmp[] = $v;
-        }
-        static::$map[$key][$entry] = $tmp;
-
+        $this->addMapSubEntry('t', $type, 'a', $alias);
+        $this->addMapSubEntry('a', $alias, 't', $type);
         return $this;
     }
 
@@ -293,72 +193,66 @@ abstract class AbstractMap
      * @param string $extension
      *   A file extension.
      *
+     * @throws MappingException if $type is an alias.
+     *
      * @return $this
      */
-    public function addMapping($type, $extension)
+    public function addTypeExtensionMapping($type, $extension)
     {
         $type = strtolower($type);
-        $extension = (string) strtolower($extension);
+        $extension = strtolower($extension);
 
-        // Add entry to 'types'.
-        $this->addMapEntry('types', $type, $extension);
+        // Consistency checks.
+        if ($this->hasAlias($type)) {
+            throw new MappingException("Cannot map '{$extension}' to '{$type}', '{$type}' is an alias");
+        }
 
-        // Add entry to 'extensions'.
-        $this->addMapEntry('extensions', $extension, $type);
+        // Add entry to 't'.
+        $this->addMapSubEntry('t', $type, 'e', $extension);
+
+        // Add entry to 'e'.
+        $this->addMapSubEntry('e', $extension, 't', $type);
 
         return $this;
     }
 
     /**
-     * Removes a type-to-extension mapping.
+     * Gets the descriptions of a MIME type.
      *
-     * @param string $type
-     *   A MIME type.
-     * @param string $extension
-     *   A file extension.
+     * @param string $type The type to be found.
      *
-     * @return bool
-     *   true if the mapping was removed, false if the mapping was not present.
+     * @return string[] The mapped descriptions.
      */
-    public function removeMapping($type, $extension)
+    public function getTypeDescriptions($type)
     {
-        $type = strtolower($type);
-        $extension = (string) strtolower($extension);
-
-        // Remove entry from 'types'.
-        $type_ret = $this->removeMapEntry('types', $type, $extension);
-
-        // Remove entry from 'extensions'.
-        $extension_ret = $this->removeMapEntry('extensions', $extension, $type);
-
-        return $type_ret && $extension_ret;
+        $res = $this->getMapSubEntry('t', $type, 'desc');
+        return $res ?: [];
     }
 
     /**
-     * Removes the entire mapping of a type.
+     * Gets the aliases of a MIME type.
      *
-     * @param string $type
-     *   A MIME type.
+     * @param string $type The type to be found.
      *
-     * @return bool
-     *   true if the mapping was removed, false if the type was not present.
+     * @return string[] The mapped aliases.
      */
-    public function removeType($type)
+    public function getTypeAliases($type)
     {
-        $type = strtolower($type);
+        $res = $this->getMapSubEntry('t', $type, 'a');
+        return $res ?: [];
+    }
 
-        // Return false if type is not found.
-        if (!isset(static::$map['types'][$type])) {
-            return false;
-        }
-
-        // Loop through all the associated extensions and remove them. This
-        // is also removing the type itself when the last extension is removed.
-        foreach (static::$map['types'][$type] as $extension) {
-            $this->removeMapping($type, $extension);
-        }
-
-        return true;
+    /**
+     * Gets the content of an entry from the 't' array.
+     *
+     * @param string $type The type to be found.
+     *
+     * @return string[] The mapped file extensions.
+     */
+    public function getTypeExtensions($type)
+    {
+        $res = $this->getMapSubEntry('t', $type, 'e');
+        return $res ?: [];
     }
 
     /**
@@ -375,10 +269,110 @@ abstract class AbstractMap
      */
     public function setTypeDefaultExtension($type, $extension)
     {
-        $type = strtolower($type);
-        $extension = (string) strtolower($extension);
+        return $this->setValueAsDefault('t', $type, 'e', $extension);
+    }
 
-        return $this->setValueAsDefault('types', $type, $extension);
+    /**
+     * Removes the entire mapping of a type.
+     *
+     * @param string $type
+     *   A MIME type.
+     *
+     * @return bool
+     *   true if the mapping was removed, false if the type was not present.
+     */
+    public function removeType($type)
+    {
+        $type = strtolower($type);
+
+        // Return false if type is not found.
+        if (!$this->hasType($type)) {
+            return false;
+        }
+
+        // Loop through all the associated extensions and remove them.
+        foreach ($this->getTypeExtensions($type) as $extension) {
+            $this->removeTypeExtensionMapping($type, $extension);
+        }
+
+        // Loop through all the associated aliases and remove them.
+        foreach ($this->getTypeAliases($type) as $alias) {
+            $this->removeTypeAlias($type, $alias);
+        }
+
+        unset(static::$map['t'][$type]);
+
+        return true;
+    }
+
+    /**
+     * Removes a MIME type alias.
+     *
+     * @param string $type
+     *   A MIME type.
+     * @param string $alias
+     *   The alias to be removed.
+     *
+     * @return bool
+     *   true if the alias was removed, false if the alias was not present.
+     */
+    public function removeTypeAlias($type, $alias)
+    {
+        $type = strtolower($type);
+        $alias = strtolower($alias);
+
+        $type_ret = $this->removeMapSubEntry('t', $type, 'a', $alias);
+        $alias_ret = $this->removeMapSubEntry('a', $alias, 't', $type);
+
+        return $type_ret && $alias_ret;
+    }
+
+    /**
+     * Removes a type-to-extension mapping.
+     *
+     * @param string $type
+     *   A MIME type.
+     * @param string $extension
+     *   The file extension to be removed.
+     *
+     * @return bool
+     *   true if the mapping was removed, false if the mapping was not present.
+     */
+    public function removeTypeExtensionMapping($type, $extension)
+    {
+        $type = strtolower($type);
+        $extension = strtolower($extension);
+
+        $type_ret = $this->removeMapSubEntry('t', $type, 'e', $extension);
+        $extension_ret = $this->removeMapSubEntry('e', $extension, 't', $type);
+
+        return $type_ret && $extension_ret;
+    }
+
+    /**
+     * Gets the parent types of an alias.
+     *
+     * @param string $alias The alias to be found.
+     *
+     * @return string[]
+     */
+    public function getAliasTypes($alias)
+    {
+        $res = $this->getMapSubEntry('a', $alias, 't');
+        return $res ?: [];
+    }
+
+    /**
+     * Gets the content of an entry from the 'extensions' array.
+     *
+     * @param string $extension The extension to be found.
+     *
+     * @return string[] The mapped MIME types.
+     */
+    public function getExtensionTypes($extension)
+    {
+        $res = $this->getMapSubEntry('e', $extension, 't');
+        return $res ?: [];
     }
 
     /**
@@ -395,9 +389,203 @@ abstract class AbstractMap
      */
     public function setExtensionDefaultType($extension, $type)
     {
-        $type = strtolower($type);
-        $extension = (string) strtolower($extension);
+        return $this->setValueAsDefault('e', $extension, 't', $type);
+    }
 
-        return $this->setValueAsDefault('extensions', $extension, $type);
+    /**
+     * Gets a list of entries of the map.
+     *
+     * @param string $entry
+     *   The main array entry.
+     * @param string $match
+     *   (Optional) a match wildcard to limit the list.
+     *
+     * @return array
+     *   The list of the entries.
+     */
+    protected function listEntries($entry, $match = null)
+    {
+        $entry = strtolower($entry);
+
+        if (!isset(static::$map[$entry])) {
+            return [];
+        }
+
+        $list = array_keys(static::$map[$entry]);
+
+        if (is_null($match)) {
+            return $list;
+        } else {
+            $re = strtr($match, ['/' => '\\/', '*' => '.*']);
+            return array_filter($list, function ($v) use ($re) {
+                return preg_match("/$re/", $v) === 1;
+            });
+        }
+    }
+
+    /**
+     * Gets the content of an entry of the map.
+     *
+     * @param string $entry
+     *   The main array entry.
+     * @param string $entry_key
+     *   The main entry value.
+     *
+     * @return mixed|null
+     *   The value of the entry, or null if missing.
+     */
+    protected function getMapEntry($entry, $entry_key)
+    {
+        $entry = strtolower($entry);
+        $entry_key = strtolower($entry_key);
+        return isset(static::$map[$entry][$entry_key]) ? static::$map[$entry][$entry_key] : null;
+    }
+
+    /**
+     * Gets the content of a subentry of the map.
+     *
+     * @param string $entry
+     *   The main array entry.
+     * @param string $entry_key
+     *   The main entry value.
+     * @param string $sub_entry
+     *   The sub entry.
+     *
+     * @return mixed|null
+     *   The value of the entry, or null if missing.
+     */
+    protected function getMapSubEntry($entry, $entry_key, $sub_entry)
+    {
+        $entry = strtolower($entry);
+        $entry_key = strtolower($entry_key);
+        $sub_entry = strtolower($sub_entry);
+        return isset(static::$map[$entry][$entry_key][$sub_entry]) ? static::$map[$entry][$entry_key][$sub_entry] : null;
+    }
+
+    /**
+     * Adds an entry to the map.
+     *
+     * Checks that no duplicate entries are made.
+     *
+     * @param string $entry
+     *   The main array entry.
+     * @param string $entry_key
+     *   The main entry value.
+     * @param string $sub_entry
+     *   The sub entry.
+     * @param string $value
+     *   The value to add.
+     *
+     * @return $this
+     */
+    protected function addMapSubEntry($entry, $entry_key, $sub_entry, $value)
+    {
+        $entry = strtolower($entry);
+        $entry_key = strtolower($entry_key);
+        $sub_entry = strtolower($sub_entry);
+        if (!isset(static::$map[$entry][$entry_key][$sub_entry])) {
+            static::$map[$entry][$entry_key][$sub_entry] = [$value];
+        } else {
+            if (array_search($value, static::$map[$entry][$entry_key][$sub_entry]) === false) {
+                static::$map[$entry][$entry_key][$sub_entry][] = $value;
+            }
+        }
+        return $this;
+    }
+
+    /**
+     * Removes an entry from the map.
+     *
+     * @param string $entry
+     *   The main array entry.
+     * @param string $entry_key
+     *   The main entry value.
+     * @param string $sub_entry
+     *   The sub entry.
+     * @param string $value
+     *   The value to remove.
+     *
+     * @return bool
+     *   true if the entry was removed, false if the entry was not present.
+     */
+    protected function removeMapSubEntry($entry, $entry_key, $sub_entry, $value)
+    {
+        $entry = strtolower($entry);
+        $entry_key = strtolower($entry_key);
+        $sub_entry = strtolower($sub_entry);
+
+        // Return false if no entry.
+        if (!isset(static::$map[$entry][$entry_key][$sub_entry])) {
+            return false;
+        }
+
+        // Return false if no value.
+        $k = array_search($value, static::$map[$entry][$entry_key][$sub_entry]);
+        if ($k === false) {
+            return false;
+        }
+
+        // Remove the map entry.
+        unset(static::$map[$entry][$entry_key][$sub_entry][$k]);
+
+        // Remove the entry itself if no more values.
+        if (empty(static::$map[$entry][$entry_key][$sub_entry])) {
+            unset(static::$map[$entry][$entry_key][$sub_entry]);
+        } else {
+            // Resequence the remaining values.
+            $tmp = [];
+            foreach (static::$map[$entry][$entry_key][$sub_entry] as $v) {
+                $tmp[] = $v;
+            }
+            static::$map[$entry][$entry_key][$sub_entry] = $tmp;
+        }
+
+        return true;
+    }
+
+    /**
+     * Sets a value as the default for an entry.
+     *
+     * @param string $entry
+     *   The main array entry.
+     * @param string $entry_key
+     *   The main entry value.
+     * @param string $sub_entry
+     *   The sub entry.
+     * @param string $value
+     *   The value to add.
+     *
+     * @throws MappingException if no mapping found.
+     *
+     * @return $this
+     */
+    protected function setValueAsDefault($entry, $entry_key, $sub_entry, $value)
+    {
+        $entry = strtolower($entry);
+        $entry_key = strtolower($entry_key);
+        $sub_entry = strtolower($sub_entry);
+
+        // Throw exception if no entry.
+        if (!isset(static::$map[$entry][$entry_key][$sub_entry])) {
+            throw new MappingException("Cannot set '{$value}' as default for '{$entry_key}', '{$entry_key}' not defined");
+        }
+
+        // Throw exception if no entry-value pair.
+        $k = array_search($value, static::$map[$entry][$entry_key][$sub_entry]);
+        if ($k === false) {
+            throw new MappingException("Cannot set '{$value}' as default for '{$entry_key}', '{$value}' not associated to '{$entry_key}'");
+        }
+
+        // Move value to top of array and resequence the rest.
+        $tmp = [$value];
+        foreach (static::$map[$entry][$entry_key][$sub_entry] as $kk => $v) {
+            if ($kk === $k) {
+                continue;
+            }
+            $tmp[] = $v;
+        }
+        static::$map[$entry][$entry_key][$sub_entry] = $tmp;
+
+        return $this;
     }
 }

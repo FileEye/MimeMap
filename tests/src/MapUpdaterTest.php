@@ -35,20 +35,21 @@ class MapUpdaterTest extends TestCase
     {
         $this->updater->loadMapFromApacheFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
         $expected = [
-            'types' => [
-                'image/jpeg' => ['jpeg', 'jpg', 'jpe'],
-                'text/plain' => ['txt'],
+            't' => [
+                'image/jpeg' => ['e' => ['jpeg', 'jpg', 'jpe']],
+                'text/plain' => ['e' => ['txt']],
             ],
-            'extensions' => [
-                'jpe' => ['image/jpeg'],
-                'jpeg' => ['image/jpeg'],
-                'jpg' => ['image/jpeg'],
-                'txt' => ['text/plain'],
+            'e' => [
+                'jpe' => ['t' => ['image/jpeg']],
+                'jpeg' => ['t' => ['image/jpeg']],
+                'jpg' => ['t' => ['image/jpeg']],
+                'txt' => ['t' => ['text/plain']],
             ],
         ];
         $this->assertSame($expected, $this->newMap->getMapArray());
         $this->assertSame(['image/jpeg', 'text/plain'], $this->newMap->listTypes());
         $this->assertSame(['jpe', 'jpeg', 'jpg', 'txt'], $this->newMap->listExtensions());
+        $this->assertSame([], $this->newMap->listAliases());
     }
 
     public function testLoadMapFromApacheFileZeroLines()
@@ -59,21 +60,44 @@ class MapUpdaterTest extends TestCase
 
     public function testLoadMapFromFreedesktopFile()
     {
-        $this->updater->loadMapFromFreedesktopFile(dirname(__FILE__) . '/../fixtures/min.freedesktop.xml');
+        $this->updater->applyOverrides([['addTypeExtensionMapping', ['application/x-pdf', 'pdf']]]);
+        $errors = $this->updater->loadMapFromFreedesktopFile(dirname(__FILE__) . '/../fixtures/min.freedesktop.xml');
+        $this->assertSame(["Cannot set 'application/x-pdf' as alias for 'application/pdf', 'application/x-pdf' is already defined as a type"], $errors);
         $expected = [
-            'types' => [
-                'application/x-atari-2600-rom' => ['a26'],
-                'text/plain' => ['txt', 'asc'],
+            't' => [
+                'application/pdf' => [
+                  'a' => ['image/pdf', 'application/acrobat', 'application/nappdf'],
+                  'desc' => ['PDF document', 'PDF: Portable Document Format'],
+                  'e' => ['pdf']
+                ],
+                'application/x-atari-2600-rom' => [
+                  'desc' => ['Atari 2600'],
+                  'e' => ['a26']
+                ],
+                'application/x-pdf' => [
+                  'e' => ['pdf']
+                ],
+                'text/plain' => [
+                  'desc' => ['plain text document'],
+                  'e' => ['txt', 'asc']
+                ],
             ],
-            'extensions' => [
-                'a26' => ['application/x-atari-2600-rom'],
-                'asc' => ['text/plain'],
-                'txt' => ['text/plain'],
+            'e' => [
+                'a26' => ['t' => ['application/x-atari-2600-rom']],
+                'asc' => ['t' => ['text/plain']],
+                'pdf' => ['t' => ['application/x-pdf', 'application/pdf']],
+                'txt' => ['t' => ['text/plain']],
+            ],
+            'a' => [
+                'application/acrobat' => ['t' => ['application/pdf']],
+                'application/nappdf' => ['t' => ['application/pdf']],
+                'image/pdf' => ['t' => ['application/pdf']],
             ],
         ];
         $this->assertSame($expected, $this->newMap->getMapArray());
-        $this->assertSame(['application/x-atari-2600-rom', 'text/plain'], $this->newMap->listTypes());
-        $this->assertSame(['a26', 'asc', 'txt'], $this->newMap->listExtensions());
+        $this->assertSame(['application/pdf', 'application/x-atari-2600-rom', 'application/x-pdf', 'text/plain'], $this->newMap->listTypes());
+        $this->assertSame(['a26', 'asc', 'pdf', 'txt'], $this->newMap->listExtensions());
+        $this->assertSame(['application/acrobat', 'application/nappdf', 'image/pdf'], $this->newMap->listAliases());
     }
 
     public function testLoadMapFromFreedesktopFileZeroLines()
@@ -99,7 +123,7 @@ class MapUpdaterTest extends TestCase
         $content = file_get_contents($map_a->getFileName());
         $this->assertNotContains('text/plain', $content);
         $this->updater->loadMapFromApacheFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
-        $this->updater->applyOverrides([['addMapping', ['bing/bong', 'binbon']]]);
+        $this->updater->applyOverrides([['addTypeExtensionMapping', ['bing/bong', 'binbon']]]);
         $this->updater->writeMapToPhpClassFile($map_a->getFileName());
         $content = file_get_contents($map_a->getFileName());
         $this->assertContains('text/plain', $content);

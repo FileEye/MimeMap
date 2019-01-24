@@ -107,9 +107,6 @@ class Type
             $tmp = explode('=', $sub['string'], 2);
             $p_name = trim($tmp[0]);
             $p_val = trim($tmp[1]);
-            if ($p_val[0] == '"' && $p_val[strlen($p_val) - 1] == '"') {
-                $p_val = substr($p_val, 1, -1);
-            }
             $p_val = str_replace('\\"', '"', $p_val);
             $this->addParameter($p_name, $p_val, $sub['comment']);
         }
@@ -148,7 +145,7 @@ class Type
     }
 
     /**
-     * Get a MIME type's media.
+     * Gets a MIME type's media.
      *
      * Note: 'media' refers to the portion before the first slash.
      *
@@ -160,7 +157,7 @@ class Type
     }
 
     /**
-     * Get a MIME type's media comment.
+     * Gets a MIME type's media comment.
      *
      * @return string Type's media comment.
      */
@@ -170,7 +167,20 @@ class Type
     }
 
     /**
-     * Get a MIME type's subtype.
+     * Sets a MIME type's media comment.
+     *
+     * @param string Type's media comment.
+     *
+     * @return $this
+     */
+    public function setMediaComment($comment)
+    {
+        $this->mediaComment = $comment;
+        return $this;
+    }
+
+    /**
+     * Gets a MIME type's subtype.
      *
      * @return string Type's subtype, null if invalid mime type.
      */
@@ -180,13 +190,26 @@ class Type
     }
 
     /**
-     * Get a MIME type's subtype comment.
+     * Gets a MIME type's subtype comment.
      *
      * @return string Type's subtype comment, null if invalid mime type.
      */
     public function getSubTypeComment()
     {
         return $this->subTypeComment;
+    }
+
+    /**
+     * Sets a MIME type's subtype comment.
+     *
+     * @param string Type's subtype comment.
+     *
+     * @return $this
+     */
+    public function setSubTypeComment($comment)
+    {
+        $this->subTypeComment = $comment;
+        return $this;
     }
 
     /**
@@ -250,7 +273,7 @@ class Type
     /**
      * Is this a wildcard type?
      *
-     * @return boolean true if type is a wildcard, false otherwise
+     * @return boolean true if type is a wildcard, false otherwise.
      */
     public function isWildcard()
     {
@@ -258,6 +281,22 @@ class Type
             return true;
         }
         return false;
+    }
+
+    /**
+     * Is this an alias?
+     *
+     * @return boolean true if type is an alias, false otherwise.
+     */
+    public function isAlias()
+    {
+        if ($this->isWildcard()) {
+            return false;
+        }
+
+        $map = MapHandler::map();
+        $subject = $this->toString(static::SHORT_TEXT);
+        return $map->hasAlias($subject);
     }
 
     /**
@@ -315,47 +354,13 @@ class Type
     }
 
     /**
-     * Returns the MIME type's preferred file extension.
+     * Builds a list of MIME types existing in the map.
+     *
+     * If the current type is a wildcard, than all the types matching the
+     * wildcard will be returned.
      *
      * @param bool $strict
-     *   (Optional) if true a MappingException is thrown when no mapping is
-     *   found, if false it returns null as a default.
-     *   Defaults to true.
-     *
-     * @throws MappingException if no mapping found and $strict is true.
-     *
-     * @return string
-     */
-    public function getDefaultExtension($strict = true)
-    {
-        $map = MapHandler::map();
-        $subject = $this->toString(static::SHORT_TEXT);
-
-        if (!$this->isWildcard()) {
-            $proceed = $map->hasType($subject);
-        } else {
-            $proceed = count($map->listTypes($subject)) === 1;
-        }
-
-        if (!$proceed) {
-            if ($strict) {
-                throw new MappingException('Cannot determine default extension for type: ' . $this->toString(static::SHORT_TEXT));
-            } else {
-                return null;
-            }
-        }
-
-        return $this->getExtensions()[0];
-    }
-
-    /**
-     * Returns all the file extensions related to the MIME type(s).
-     *
-     * If the current type is a wildcard, than all extensions of all the
-     * types matching the wildcard will be returned.
-     *
-     * @param bool $strict
-     *   (Optional) if true a MappingException is thrown when no mapping is
+     *   (Optional) if true a MappingException is thrown when no type is
      *   found, if false it returns an empty array as a default.
      *   Defaults to true.
      *
@@ -363,7 +368,7 @@ class Type
      *
      * @return string[]
      */
-    public function getExtensions($strict = true)
+    protected function buildTypesList($strict = true)
     {
         $map = MapHandler::map();
         $subject = $this->toString(static::SHORT_TEXT);
@@ -389,10 +394,157 @@ class Type
             }
         }
 
+        return $types;
+    }
+
+    /**
+     * Returns the unaliased MIME type.
+     *
+     * @return Type
+     *   $this if the current type is not an alias, the parent type if the
+     *   current type is an alias.
+     */
+    protected function getUnaliasedType()
+    {
+        if (!$this->isAlias()) {
+            return $this;
+        } else {
+            $map = MapHandler::map();
+            $subject = $this->toString(static::SHORT_TEXT);
+            $types = $map->getAliasTypes($subject);
+            return new static($types[0]);
+        }
+    }
+
+    /**
+     * Returns a description for the MIME type, if existing in the map.
+     *
+     * @param bool $include_acronym
+     *   (Optional) if true and an acronym description exists for the type,
+     *   the returned description will contain the acronym and its description,
+     *   appended with a comma. Defaults to false.
+     *
+     * @return string|null
+     */
+    public function getDescription($include_acronym = false)
+    {
+        if ($this->isWildcard()) {
+            return null;
+        }
+
+        $map = MapHandler::map();
+        $subject = $this->getUnaliasedType()->toString(static::SHORT_TEXT);
+        $descriptions = $map->getTypeDescriptions($subject);
+        $res = null;
+        if (isset($descriptions[0])) {
+            $res = $descriptions[0];
+        }
+        if ($include_acronym && isset($descriptions[1])) {
+            $res .= ', ' . $descriptions[1];
+        }
+        return $res;
+    }
+
+    /**
+     * Returns all the aliases related to the MIME type(s).
+     *
+     * If the current type is a wildcard, than all aliases of all the
+     * types matching the wildcard will be returned.
+     *
+     * @param bool $strict
+     *   (Optional) if true a MappingException is thrown when no mapping is
+     *   found, if false it returns an empty array as a default.
+     *   Defaults to true.
+     *
+     * @throws MappingException if error and $strict is true.
+     *
+     * @return string[]
+     */
+    public function getAliases($strict = true)
+    {
+        // Fail if the current type is an alias already.
+        if ($this->isAlias()) {
+            if ($strict) {
+                $subject = $this->toString(static::SHORT_TEXT);
+                throw new MappingException("Cannot get aliases for '{$subject}', it is an alias itself");
+            } else {
+                return [];
+            }
+        }
+
+        $map = MapHandler::map();
+        $types = $this->buildTypesList($strict);
+
+        // Build the array of aliases.
+        $aliases = [];
+        foreach ($types as $t) {
+            foreach ($map->getTypeAliases($t) as $a) {
+                $aliases[$a] = $a;
+            }
+        }
+
+        return array_keys($aliases);
+    }
+
+    /**
+     * Returns the MIME type's preferred file extension.
+     *
+     * @param bool $strict
+     *   (Optional) if true a MappingException is thrown when no mapping is
+     *   found, if false it returns null as a default.
+     *   Defaults to true.
+     *
+     * @throws MappingException if no mapping found and $strict is true.
+     *
+     * @return string
+     */
+    public function getDefaultExtension($strict = true)
+    {
+        $map = MapHandler::map();
+        $unaliased_type = $this->getUnaliasedType();
+        $subject = $unaliased_type->toString(static::SHORT_TEXT);
+
+        if (!$unaliased_type->isWildcard()) {
+            $proceed = $map->hasType($subject);
+        } else {
+            $proceed = count($map->listTypes($subject)) === 1;
+        }
+
+        if (!$proceed) {
+            if ($strict) {
+                throw new MappingException('Cannot determine default extension for type: ' . $unaliased_type->toString(static::SHORT_TEXT));
+            } else {
+                return null;
+            }
+        }
+
+        return $unaliased_type->getExtensions()[0];
+    }
+
+    /**
+     * Returns all the file extensions related to the MIME type(s).
+     *
+     * If the current type is a wildcard, than all extensions of all the
+     * types matching the wildcard will be returned.
+     *
+     * @param bool $strict
+     *   (Optional) if true a MappingException is thrown when no mapping is
+     *   found, if false it returns an empty array as a default.
+     *   Defaults to true.
+     *
+     * @throws MappingException if no mapping found and $strict is true.
+     *
+     * @return string[]
+     */
+    public function getExtensions($strict = true)
+    {
+        $map = MapHandler::map();
+        $types = $this->getUnaliasedType()->buildTypesList($strict);
+
         // Build the array of extensions.
         $extensions = [];
         foreach ($types as $t) {
-            foreach ($map->getType($t) as $e) {
+            foreach ($map->getTypeExtensions($t) as $e) {
                 $extensions[$e] = $e;
             }
         }

@@ -49,12 +49,12 @@ class MapUpdater
      *   source code repository file where MIME types and file extensions are
      *   associated.
      *
-     * @throws \RuntimeException if file I/O error occurs.
-     *
-     * @return $this
+     * @return string[]
+     *   An array of error messages.
      */
     public function loadMapFromApacheFile($source_file)
     {
+        $errors = [];
         $lines = file($source_file);
         foreach ($lines as $line) {
             if ($line{0} == '#') {
@@ -64,11 +64,11 @@ class MapUpdater
             $parts = explode(' ', $line);
             $type = array_shift($parts);
             foreach ($parts as $extension) {
-                $this->map->addMapping($type, $extension);
+                $this->map->addTypeExtensionMapping($type, $extension);
             }
         }
         $this->map->sort();
-        return $this;
+        return $errors;
     }
 
     /**
@@ -78,13 +78,15 @@ class MapUpdater
      *   The source file. The file must conform to the format in the
      *   Freedesktop.org database.
      *
-     * @throws \RuntimeException if file I/O error occurs.
-     *
-     * @return $this
+     * @return string[]
+     *   An array of error messages.
      */
     public function loadMapFromFreedesktopFile($source_file)
     {
+        $errors = [];
         $xml = simplexml_load_string(file_get_contents($source_file));
+        $aliases = [];
+
         foreach ($xml as $node) {
             $exts = [];
             foreach ($node->glob as $glob) {
@@ -97,13 +99,47 @@ class MapUpdater
             if (empty($exts)) {
                 continue;
             }
-            $mt = (string) $node['type'];
+
+            $type = (string) $node['type'];
+
+            // Add description.
+            if (isset($node->comment)) {
+                $this->map->addTypeDescription($type, (string) $node->comment[0]);
+            }
+            if (isset($node->acronym)) {
+                $acronym = (string) $node->acronym;
+                if (isset($node->{'expanded-acronym'})) {
+                    $acronym .= ': ' . (string) $node->{'expanded-acronym'};
+                }
+                $this->map->addTypeDescription($type, $acronym);
+            }
+
+            // Add extensions.
             foreach ($exts as $ext) {
-                $this->map->addMapping($mt, $ext);
+                $this->map->addTypeExtensionMapping($type, $ext);
+            }
+
+            // All aliases are accumulated and processed at the end of the
+            // cycle to allow proper consistency checking on the completely
+            // developed list of types.
+            foreach ($node->alias as $alias) {
+                $aliases[$type][] = (string) $alias['type'];
             }
         }
+
+        // Add all the aliases, provide logging of errors.
+        foreach ($aliases as $type => $a) {
+            foreach ($a as $alias) {
+                try {
+                    $this->map->addTypeAlias($type, $alias);
+                } catch (MappingException $e) {
+                    $errors[] = $e->getMessage();
+                }
+            }
+        }
+
         $this->map->sort();
-        return $this;
+        return $errors;
     }
 
     /**
@@ -116,10 +152,11 @@ class MapUpdater
      */
     public function applyOverrides(array $overrides)
     {
+        $errors = [];
         foreach ($overrides as $command) {
             call_user_func_array([$this->map, $command[0]], $command[1]);
         }
-        return $this;
+        return $errors;
     }
 
     /**

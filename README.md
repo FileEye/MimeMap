@@ -96,6 +96,25 @@ use FileEye\MimeMap\Type;
     // will print 'text/plain (Unstructured text); charset="utf-8" (UTF8, not ASCII), lang="it" (Italian)'
 ```
 
+4. You have a MIME Content-Type string and want to the type's description as a comment:
+
+```php
+use FileEye\MimeMap\Type;
+...
+
+    $type = new Type('text/html');
+
+    $type_desc = $type->getDescription();
+    $type->setSubTypeComment($type_desc);
+    echo $type->toString(Type::FULL_TEXT_WITH_COMMENTS);
+    // will print 'text/html (HTML document)'
+
+    $type_desc = $type->getDescription(true);
+    $type->setSubTypeComment($type_desc);
+    echo $type->toString(Type::FULL_TEXT_WITH_COMMENTS);
+    // will print 'text/html (HTML document, HTML: HyperText Markup Language)'
+```
+
 ## Development
 
 
