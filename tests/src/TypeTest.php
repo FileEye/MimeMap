@@ -460,6 +460,19 @@ class TypeTest extends TestCase
         $this->assertSame(1, count($mt->getParameters()));
     }
 
+    public function testSetComment()
+    {
+        $type = new Type('text/x-test');
+        $type->setMediaComment('media comment');
+        $this->assertSame('text (media comment)/x-test', $type->toString(Type::FULL_TEXT_WITH_COMMENTS));
+        $type->setSubTypeComment('subtype comment');
+        $this->assertSame('text (media comment)/x-test (subtype comment)', $type->toString(Type::FULL_TEXT_WITH_COMMENTS));
+        $type->setMediaComment(null);
+        $this->assertSame('text/x-test (subtype comment)', $type->toString(Type::FULL_TEXT_WITH_COMMENTS));
+        $type->setSubTypeComment(null);
+        $this->assertSame('text/x-test', $type->toString(Type::FULL_TEXT_WITH_COMMENTS));
+    }
+
     public function testIsExperimental()
     {
         $this->assertTrue((new Type('text/x-test'))->isExperimental());
@@ -482,6 +495,15 @@ class TypeTest extends TestCase
 
         $this->assertTrue((new Type('application/java*'))->isWildcard());
         $this->assertTrue((new Type('application/java-*'))->isWildcard());
+    }
+
+    public function testIsAlias()
+    {
+        $this->assertFalse((new Type('*/*'))->isAlias());
+        $this->assertFalse((new Type('image/*'))->isAlias());
+        $this->assertFalse((new Type('text/plain'))->isAlias());
+        $this->assertFalse((new Type('application/java*'))->isAlias());
+        $this->assertTrue((new Type('text/x-markdown'))->isAlias());
     }
 
     public function testWildcardMatch()

@@ -69,7 +69,6 @@ abstract class AbstractMap
      */
     public function hasType($type)
     {
-        // xx manage aliases
         return (bool) $this->getMapEntry('t', $type);
     }
 
@@ -106,7 +105,6 @@ abstract class AbstractMap
      */
     public function listTypes($match = null)
     {
-        // xx manage aliases
         return $this->listEntries('t', $match);
     }
 
@@ -240,7 +238,6 @@ abstract class AbstractMap
      */
     public function getTypeExtensions($type)
     {
-        // xx manage aliases
         $res = $this->getMapSubEntry('t', $type, 'e');
         return $res ?: [];
     }

@@ -148,7 +148,7 @@ class Type
     }
 
     /**
-     * Get a MIME type's media.
+     * Gets a MIME type's media.
      *
      * Note: 'media' refers to the portion before the first slash.
      *
@@ -160,7 +160,7 @@ class Type
     }
 
     /**
-     * Get a MIME type's media comment.
+     * Gets a MIME type's media comment.
      *
      * @return string Type's media comment.
      */
@@ -170,7 +170,20 @@ class Type
     }
 
     /**
-     * Get a MIME type's subtype.
+     * Sets a MIME type's media comment.
+     *
+     * @param string Type's media comment.
+     *
+     * @return $this
+     */
+    public function setMediaComment($comment)
+    {
+        $this->mediaComment = $comment;
+        return $this;
+    }
+
+    /**
+     * Gets a MIME type's subtype.
      *
      * @return string Type's subtype, null if invalid mime type.
      */
@@ -180,13 +193,26 @@ class Type
     }
 
     /**
-     * Get a MIME type's subtype comment.
+     * Gets a MIME type's subtype comment.
      *
      * @return string Type's subtype comment, null if invalid mime type.
      */
     public function getSubTypeComment()
     {
         return $this->subTypeComment;
+    }
+
+    /**
+     * Sets a MIME type's subtype comment.
+     *
+     * @param string Type's subtype comment.
+     *
+     * @return $this
+     */
+    public function getSubTypeComment($comment)
+    {
+        $this->subTypeComment = $comment;
+        return $this;
     }
 
     /**
@@ -250,7 +276,7 @@ class Type
     /**
      * Is this a wildcard type?
      *
-     * @return boolean true if type is a wildcard, false otherwise
+     * @return boolean true if type is a wildcard, false otherwise.
      */
     public function isWildcard()
     {
@@ -258,6 +284,22 @@ class Type
             return true;
         }
         return false;
+    }
+
+    /**
+     * Is this an alias?
+     *
+     * @return boolean true if type is an alias, false otherwise.
+     */
+    public function isAlias()
+    {
+        if ($this->isWildcard) {
+            return false;
+        }
+
+        $map = MapHandler::map();
+        $subject = $this->toString(static::SHORT_TEXT);
+        return $map->hasAlias($subject);
     }
 
     /**
@@ -354,7 +396,7 @@ class Type
                 return [];
             }
         }
-        
+
         return $types;
     }
 
