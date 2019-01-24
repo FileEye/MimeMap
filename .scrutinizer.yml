@@ -1,6 +1,11 @@
 build:
   environment:
     php: '7.1'
+  nodes:
+    analysis:
+      tests:
+        override:
+          - php-scrutinizer-run
   tests:
     override:
       -
@@ -8,11 +13,6 @@ build:
         coverage:
           file: build/logs/clover.xml
           format: clover
-    nodes:
-        analysis:
-            tests:
-                override:
-                    - php-scrutinizer-run
 checks:
     php:
         code_rating: true
