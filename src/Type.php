@@ -426,7 +426,7 @@ class Type
         if ($include_acronym && isset($descriptions[1])) {
             $res .= ', ' . $descriptions[1];
         }
-        return array_keys($res);
+        return $res;
     }
 
     /**
