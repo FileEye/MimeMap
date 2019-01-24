@@ -89,6 +89,17 @@ class MapHandlerTest extends TestCase
         $this->assertSame(['application/octet-stream'], (new Extension('DEf'))->getTypes(false));
         $this->assertSame('application/octet-stream', (new Extension('DeF'))->getDefaultType(false));
 
+        // Remove an existing type with aliases.
+        $this->assertTrue($this->map->hasAlias('text/x-markdown'));
+        $this->assertTrue($this->map->removeType('text/markdown'));
+        $this->assertFalse($this->map->hasAlias('text/x-markdown'));
+        $this->assertSame([], (new Type('text/markdown'))->getExtensions(false));
+        $this->assertSame(null, (new Type('text/markdown'))->getDefaultExtension(false));
+        $this->assertSame([], (new Type('text/x-markdown'))->getExtensions(false));
+        $this->assertSame(null, (new Type('text/x-markdown'))->getDefaultExtension(false));
+        $this->assertSame(['application/octet-stream'], (new Extension('MD'))->getTypes(false));
+        $this->assertSame('application/octet-stream', (new Extension('md'))->getDefaultType(false));
+
         // Try removing a non-existing type.
         $this->assertFalse($this->map->removeType('axx/axx'));
     }
@@ -182,5 +193,14 @@ class MapHandlerTest extends TestCase
     public function testSetTypeDefaultExtensionNoType()
     {
         $this->map->setTypeDefaultExtension('image/bingo', 'jpg');
+
+        }
+    /**
+     * @expectedException \FileEye\MimeMap\MappingException
+     * @expectedExceptionMessage Cannot map 'pdf' to 'application/acrobat', 'application/acrobat' is an alias
+     */
+    public function testAddExtensionToAlias()
+    {
+        $this->map->addTypeExtensionMapping('application/acrobat', 'pdf');
     }
 }

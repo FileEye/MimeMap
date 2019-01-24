@@ -290,7 +290,9 @@ abstract class AbstractMap
             $this->removeTypeAlias($type, $alias);
         }
 
-        return $this->removeMapEntry('t', $type);
+        unset(static::$map['t'][$type]);
+
+        return true;
     }
 
     /**
@@ -414,33 +416,6 @@ abstract class AbstractMap
         $entry = strtolower($entry);
         $entry_key = strtolower($entry_key);
         return isset(static::$map[$entry][$entry_key]) ? static::$map[$entry][$entry_key] : null;
-    }
-
-    /**
-     * Removes an entry from the map.
-     *
-     * @param string $entry
-     *   The main array entry.
-     * @param string $entry_key
-     *   The main entry value.
-     *
-     * @return bool
-     *   true if the entry was removed, false if the entry was not present.
-     */
-    protected function removeMapEntry($entry, $entry_key)
-    {
-        $entry = strtolower($entry);
-        $entry_key = strtolower($entry_key);
-
-        // Return false if no entry.
-        if (!isset(static::$map[$entry][$entry_key])) {
-            return false;
-        }
-
-        // Remove the map entry.
-        unset(static::$map[$entry][$entry_key]);
-
-        return true;
     }
 
     /**
