@@ -194,7 +194,8 @@ class MapHandlerTest extends TestCase
     {
         $this->map->setTypeDefaultExtension('image/bingo', 'jpg');
 
-        }
+    }
+
     /**
      * @expectedException \FileEye\MimeMap\MappingException
      * @expectedExceptionMessage Cannot map 'pdf' to 'application/acrobat', 'application/acrobat' is an alias

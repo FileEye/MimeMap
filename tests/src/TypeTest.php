@@ -566,6 +566,9 @@ class TypeTest extends TestCase
         $this->assertEquals(['jar', 'ser', 'class'], (new Type('application/java-*'))->getExtensions());
         $this->assertEquals([], (new Type('application/a000'))->getExtensions(false));
         $this->assertEquals([], (new Type('application/a000-*'))->getExtensions(false));
+
+        $this->assertSame(['smi', 'smil', 'sml', 'kino'], (new Type('application/smil+xml'))->getExtensions());
+        $this->assertSame(['smi', 'smil', 'sml', 'kino'], (new Type('application/smil'))->getExtensions());
     }
 
     /**

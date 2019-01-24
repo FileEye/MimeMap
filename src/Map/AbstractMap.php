@@ -358,7 +358,7 @@ abstract class AbstractMap
      */
     public function getAliasTypes($alias)
     {
-        $res = $this->getMapSubEntry('a', $extension, 't');
+        $res = $this->getMapSubEntry('a', $alias, 't');
         return $res ?: [];
     }
 

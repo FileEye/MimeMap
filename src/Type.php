@@ -357,7 +357,7 @@ class Type
     }
 
     /**
-     * Builds a list of MIME types.
+     * Builds a list of MIME types existing in the map.
      *
      * If the current type is a wildcard, than all the types matching the
      * wildcard will be returned.
@@ -371,7 +371,7 @@ class Type
      *
      * @return string[]
      */
-    public function buildTypesList($strict = true)
+    protected function buildTypesList($strict = true)
     {
         $map = MapHandler::map();
         $subject = $this->toString(static::SHORT_TEXT);
@@ -407,7 +407,8 @@ class Type
      *   $this if the current type is not an alias, the parent type if the
      *   current type is an alias.
      */
-    protected function getUnaliasedType() {
+    protected function getUnaliasedType()
+    {
         if (!$this->isAlias()) {
             return $this;
         } else {
@@ -458,12 +459,22 @@ class Type
      *   found, if false it returns an empty array as a default.
      *   Defaults to true.
      *
-     * @throws MappingException if no mapping found and $strict is true.
+     * @throws MappingException if error and $strict is true.
      *
      * @return string[]
      */
     public function getAliases($strict = true)
     {
+        // Fail if the current type is an alias already.
+        if ($this->isAlias()) {
+            if ($strict) {
+                $subject = $this->toString(static::SHORT_TEXT);
+                throw new MappingException("Cannot get aliases for '{$subject}', it is an alias itself");
+            } else {
+                return [];
+            }
+        }
+
         $map = MapHandler::map();
         $types = $this->buildTypesList($strict);
 
@@ -530,7 +541,7 @@ class Type
     public function getExtensions($strict = true)
     {
         $map = MapHandler::map();
-        $types = $this->buildTypesList($strict);
+        $types = $this->getUnaliasedType()->buildTypesList($strict);
 
         // Build the array of extensions.
         $extensions = [];

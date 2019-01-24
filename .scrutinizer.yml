@@ -6,13 +6,12 @@ build:
       tests:
         override:
           - php-scrutinizer-run
-  tests:
-    override:
-      -
-        command: ./vendor/bin/phpunit --coverage-clover build/logs/clover.xml
-        coverage:
-          file: build/logs/clover.xml
-          format: clover
+          -
+            command: ./vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+            coverage:
+              file: build/logs/clover.xml
+              format: clover
+
 checks:
     php:
         code_rating: true
