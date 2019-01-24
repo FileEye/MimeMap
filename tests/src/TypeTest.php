@@ -559,6 +559,22 @@ class TypeTest extends TestCase
         $this->assertSame('image/png; baz="val" (this is a comment)', $res);
     }
 
+    public function testGetAliases()
+    {
+        $this->assertSame(['image/x-wmf', 'image/x-win-metafile', 'application/x-wmf', 'application/wmf'], (new Type('image/wmf'))->getAliases());
+        $this->assertSame([], (new Type('foo/bar'))->getAliases());
+        $this->assertSame([], (new Type('image/x-wmf'))->getAliases(false));
+    }
+
+    /**
+     * @expectedException \FileEye\MimeMap\MappingException
+     * @expectedExceptionMessage Cannot get aliases for 'image/x-wmf', it is an alias itself
+     */
+    public function testGetAliasesOnAliasStrict()
+    {
+        $this->assertSame([], (new Type('image/x-wmf'))->getAliases());
+    }
+
     public function testGetExtensions()
     {
         $this->assertEquals(['atom'], (new Type('application/atom+xml'))->getExtensions());
@@ -583,6 +599,9 @@ class TypeTest extends TestCase
     {
         $this->assertEquals('atom', (new Type('application/atom+xml'))->getDefaultExtension());
         $this->assertEquals('csv', (new Type('text/csv'))->getDefaultExtension());
+
+        $this->assertSame('smi', (new Type('application/smil+xml'))->getDefaultExtension());
+        $this->assertSame('smi', (new Type('application/smil'))->getDefaultExtension());
     }
 
     /**
