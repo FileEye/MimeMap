@@ -217,6 +217,19 @@ abstract class AbstractMap
     }
 
     /**
+     * Gets the descriptions of a MIME type.
+     *
+     * @param string $type The type to be found.
+     *
+     * @return string[] The mapped descriptions.
+     */
+    public function getTypeDescriptions($type)
+    {
+        $res = $this->getMapSubEntry('t', $type, 'desc');
+        return $res ?: [];
+    }
+
+    /**
      * Gets the aliases of a MIME type.
      *
      * @param string $type The type to be found.

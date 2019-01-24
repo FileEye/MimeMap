@@ -460,6 +460,16 @@ class TypeTest extends TestCase
         $this->assertSame(1, count($mt->getParameters()));
     }
 
+    public function testGetDescription()
+    {
+        $this->assertNull((new Type('*/*'))->getDescription());
+        $this->assertNull((new Type('image/*'))->getDescription());
+        $this->assertNull((new Type('application/java*'))->getDescription());
+        $this->assertNull((new Type('application/x-t3vm-image'))->getDescription());
+        $this->assertSame('HTML document', (new Type('text/html'))->getDescription());
+        $this->assertSame('HTML document, HTML: HyperText Markup Language', (new Type('text/html'))->getDescription(true));
+    }
+
     public function testSetComment()
     {
         $type = new Type('text/x-test');

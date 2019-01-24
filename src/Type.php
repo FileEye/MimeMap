@@ -293,7 +293,7 @@ class Type
      */
     public function isAlias()
     {
-        if ($this->isWildcard) {
+        if ($this->isWildcard()) {
             return false;
         }
 
@@ -398,6 +398,35 @@ class Type
         }
 
         return $types;
+    }
+
+    /**
+     * Returns a description for the MIME type, if existing in the map.
+     *
+     * @param bool $include_acronym
+     *   (Optional) if true and an acronym description exists for the type,
+     *   the returned description will contain the acronym and its description,
+     *   appended with a comma. Defaults to false.
+     *
+     * @return string|null
+     */
+    public function getDescription($include_acronym = false)
+    {
+        if ($this->isWildcard()) {
+            return null;
+        }
+
+        $map = MapHandler::map();
+        $subject = $this->toString(static::SHORT_TEXT);
+        $descriptions = $map->getTypeDescriptions($subject);
+        $res = null;
+        if (isset($descriptions[0]) {
+            $res = $descriptions[0];
+        }
+        if ($include_acronym && isset($descriptions[1]) {
+            $res .= ', ' . $descriptions[1];
+        }
+        return array_keys($res);
     }
 
     /**
