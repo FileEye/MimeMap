@@ -259,6 +259,21 @@ class TypeTest extends TestCase
                   'two' => ['three', null],
                 ],
             ],
+            'text/xml;one="test";two="three"' => [
+                'text/xml;one="test";two="three"',
+                [
+                  'text/xml',
+                  'text/xml; one="test"; two="three"',
+                  'text/xml; one="test"; two="three"',
+                ],
+                ['text', null],
+                ['xml', null],
+                true,
+                [
+                  'one' => ['test', null],
+                  'two' => ['three', null],
+                ],
+            ],
             'text/xml; this="is"; a="parameter" (with a comment)' => [
                 'text/xml; this="is"; a="parameter" (with a comment)',
                 [
@@ -562,7 +577,7 @@ class TypeTest extends TestCase
     public function testGetAliases()
     {
         $this->assertSame(['image/x-wmf', 'image/x-win-metafile', 'application/x-wmf', 'application/wmf'], (new Type('image/wmf'))->getAliases());
-        $this->assertSame([], (new Type('foo/bar'))->getAliases());
+        $this->assertSame([], (new Type('foo/bar'))->getAliases(false));
         $this->assertSame([], (new Type('image/x-wmf'))->getAliases(false));
     }
 
@@ -573,6 +588,15 @@ class TypeTest extends TestCase
     public function testGetAliasesOnAliasStrict()
     {
         $this->assertSame([], (new Type('image/x-wmf'))->getAliases());
+    }
+
+    /**
+     * @expectedException \FileEye\MimeMap\MappingException
+     * @expectedExceptionMessage No MIME type found for foo/bar in map
+     */
+    public function testGetAliasesOnMissingTypeStrict()
+    {
+        $this->assertSame([], (new Type('foo/bar'))->getAliases());
     }
 
     public function testGetExtensions()

@@ -504,9 +504,10 @@ class Type
     public function getDefaultExtension($strict = true)
     {
         $map = MapHandler::map();
-        $subject = $this->toString(static::SHORT_TEXT);
+        $unaliased_type = $this->getUnaliasedType();
+        $subject = $unaliased_type->toString(static::SHORT_TEXT);
 
-        if (!$this->isWildcard()) {
+        if (!$unaliased_type->isWildcard()) {
             $proceed = $map->hasType($subject);
         } else {
             $proceed = count($map->listTypes($subject)) === 1;
@@ -514,13 +515,13 @@ class Type
 
         if (!$proceed) {
             if ($strict) {
-                throw new MappingException('Cannot determine default extension for type: ' . $this->toString(static::SHORT_TEXT));
+                throw new MappingException('Cannot determine default extension for type: ' . $unaliased_type->toString(static::SHORT_TEXT));
             } else {
                 return null;
             }
         }
 
-        return $this->getExtensions()[0];
+        return $unaliased_type->getExtensions()[0];
     }
 
     /**
