@@ -18,7 +18,8 @@ A PHP library to handle MIME Content-Type fields and their related file extensio
 - Provides utility functions for working with and determining info about types
 - Map file extensions to MIME types and vice-versa
 - Automatically update the mapping between MIME types and file extensions from the
-  most [authoritative source](http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=co)
+  most authoritative sources available, [Apache's documentation](http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=log)
+  and the [freedesktop.org project](http://freedesktop.org).
 
 
 ## Credits
@@ -95,25 +96,47 @@ use FileEye\MimeMap\Type;
     // will print 'text/plain (Unstructured text); charset="utf-8" (UTF8, not ASCII), lang="it" (Italian)'
 ```
 
+4. You have a MIME Content-Type string and want to the type's description as a comment:
+
+```php
+use FileEye\MimeMap\Type;
+...
+
+    $type = new Type('text/html');
+
+    $type_desc = $type->getDescription();
+    $type->setSubTypeComment($type_desc);
+    echo $type->toString(Type::FULL_TEXT_WITH_COMMENTS);
+    // will print 'text/html (HTML document)'
+
+    $type_desc = $type->getDescription(true);
+    $type->setSubTypeComment($type_desc);
+    echo $type->toString(Type::FULL_TEXT_WITH_COMMENTS);
+    // will print 'text/html (HTML document, HTML: HyperText Markup Language)'
+```
+
 ## Development
 
 
-### Updating extension mapping
+### Updating the extension mapping code
 
-The built-in extension-to-type mapping list can be updated from Apache's source
-code repository, using the `fileeye-mimemap` utility:
+The built-in extension-to-type mapping list can be updated from the sources'
+code repositories, using the `fileeye-mimemap` utility:
 
 ```
 $ cd [project_directory]/vendor/bin
 $ fileeye-mimemap update
 ```
 
-By default, the utility fetches the map from the Apache's documentation website,
-integrates it with any overrides specified in the `resources/apache_overrides.yml`
-file, and updates the default map stored in the file that is storing the `\FileEye\MimeMap\Map\ApacheMap` PHP class.
+By default, the utility fetches a mapping source available from the [Apache's documentation](http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=co)
+website, merges it with another mapping source from the [freedesktop.org project](https://raw.github.com/minad/mimemagic/master/script/freedesktop.org.xml),
+then integrates the result with any overrides specified in the
+`resources/default_map_build.yml` file, and finally updates the PHP file where
+the `\FileEye\MimeMap\Map\DefaultMap` class is stored.
 
-Type
+The `--script` and `--class` options allow specifying a different update logic
+and a different class file to update. Type
 ```
 $ fileeye-mimemap update --help
 ```
-to get information on the command line options that can override the default.
+to get more information.

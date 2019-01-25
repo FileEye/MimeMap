@@ -14,7 +14,6 @@ php:
 env:
   global:
     - FILEEYE_STAGING_DIR="$HOME/fileeye_staging"
-    - APACHE_MIMETYPE_URL="http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=co"
 
 matrix:
   fast_finish: true
@@ -43,12 +42,10 @@ before_install:
   - cd $TRAVIS_BUILD_DIR
 
 install:
-  - php bin/fileeye-mimemap --version
+  # Let TravisCI re-compile the PHP map file.
+  - php bin/fileeye-mimemap update --diff
 
 script:
-  # Let TravisCI re-compile the PHP map file.
-  - php bin/fileeye-mimemap update --source=$APACHE_MIMETYPE_URL
-
   - if [ "$TRAVIS_PHP_VERSION" == "7.1" ]; then ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1; fi
   - ./vendor/bin/phpunit
 

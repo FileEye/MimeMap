@@ -27,27 +27,26 @@ class UpdateCommand extends Command
     {
         $this
             ->setName('update')
-            ->setDescription('Updates the MIME-type-to-extension map. Reads the source file specified by --source, applies any overrides specified in the file at --override, then writes the map to the PHP file where the PHP --class is defined.')
+            ->setDescription('Updates the MIME-type-to-extension map. Executes the commands in the script file specified by --script, then writes the map to the PHP file where the PHP --class is defined.')
             ->addOption(
-                'source',
+                'script',
                 null,
                 InputOption::VALUE_REQUIRED,
-                'URL or filename of the source map',
-                MapUpdater::DEFAULT_SOURCE_FILE
-            )
-            ->addOption(
-                'override',
-                null,
-                InputOption::VALUE_REQUIRED,
-                'URL or filename of the override commands to execute',
-                MapUpdater::getDefaultOverrideFile()
+                'File name of the script containing the sequence of commands to execute to build the default map.',
+                MapUpdater::getDefaultMapBuildFile()
             )
             ->addOption(
                 'class',
                 null,
                 InputOption::VALUE_REQUIRED,
-                'The Fully Qualified Class Name of the PHP class storing the map',
+                'The fully qualified class name of the PHP class storing the map.',
                 MapHandler::DEFAULT_MAP_CLASS
+            )
+            ->addOption(
+                'diff',
+                null,
+                InputOption::VALUE_NONE,
+                'Report updates.'
             )
         ;
     }
@@ -57,47 +56,53 @@ class UpdateCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $new_map = MapHandler::map('\FileEye\MimeMap\Map\EmptyMap');
+        $updater = new MapUpdater($new_map);
+
+        // Executes on an emtpy map the script commands.
+        $commands = Yaml::parse(file_get_contents($input->getOption('script')));
+        foreach ($commands as $command) {
+            $output->writeln("<info>{$command[0]} ...</info>");
+            try {
+                $errors = call_user_func_array([$updater, $command[1]], $command[2]);
+                if (!empty($errors)) {
+                    foreach ($errors as $error) {
+                        $output->writeln("<comment>$error.</comment>");
+                    }
+                }
+            } catch (\Exception $e) {
+                $output->writeln('<error>' . $e->getMessage() . '</error>');
+                exit(2);
+            }
+        }
+
         MapHandler::setDefaultMapClass($input->getOption('class'));
         $current_map = MapHandler::map();
-        $updater = new MapUpdater();
-
-        // Loads the map from the source file.
-        try {
-            $new_map = $updater->createMapFromSourceFile($input->getOption('source'));
-        } catch (\RuntimeException $e) {
-            $output->writeln('<error>' . $e->getMessage() . '</error>');
-            exit(2);
-        }
-
-        // Applies the overrides.
-        try {
-            $content = file_get_contents($input->getOption('override'));
-            $updater->applyOverrides($new_map, Yaml::parse($content));
-        } catch (\Exception $e) {
-            $output->writeln('<error>' . $e->getMessage() . '</error>');
-            exit(2);
-        }
 
         // Check if anything got changed.
-        $write = false;
-        try {
-            $this->compareMaps($current_map, $new_map, 'types');
-        } catch (\RuntimeException $e) {
-            $output->writeln('<comment>Changes to MIME types mapping</comment>');
-            $output->writeln($e->getMessage());
-            $write = true;
-        }
-        try {
-            $this->compareMaps($current_map, $new_map, 'extensions');
-        } catch (\RuntimeException $e) {
-            $output->writeln('<comment>Changes to extensions mapping</comment>');
-            $output->writeln($e->getMessage());
+        if ($input->getOption('diff')) {
+            $write = false;
+            foreach ([
+                't' => 'MIME types',
+                'a' => 'MIME type aliases',
+                'e' => 'extensions',
+            ] as $key => $desc) {
+                try {
+                    $output->writeln("<info>Checking changes to {$desc} ...</info>");
+                    $this->compareMaps($current_map, $new_map, $key);
+                } catch (\RuntimeException $e) {
+                    $output->writeln("<comment>Changes to {$desc} mapping:</comment>");
+                    $output->writeln($e->getMessage());
+                    $write = true;
+                }
+            }
+        } else {
             $write = true;
         }
 
         // If changed, save the new map to the PHP file.
         if ($write) {
-            $updater->writeMapToPhpClassFile($new_map, $current_map->getFileName());
+            $updater->writeMapToPhpClassFile($current_map->getFileName());
             $output->writeln('<comment>Code updated.</comment>');
         } else {
             $output->writeln('<info>No changes to mapping.</info>');
@@ -115,7 +120,7 @@ class UpdateCommand extends Command
      * @param AbstractMap $new_map
      *   The second map to compare.
      * @param string $section
-     *   The first-level array key to compare: 'types' or 'extensions'.
+     *   The first-level array key to compare: 't' or 'e' or 'a'.
      *
      * @throws \RuntimeException with diff details if the maps differ.
      *

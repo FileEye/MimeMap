@@ -259,6 +259,21 @@ class TypeTest extends TestCase
                   'two' => ['three', null],
                 ],
             ],
+            'text/xml;one="test";two="three"' => [
+                'text/xml;one="test";two="three"',
+                [
+                  'text/xml',
+                  'text/xml; one="test"; two="three"',
+                  'text/xml; one="test"; two="three"',
+                ],
+                ['text', null],
+                ['xml', null],
+                true,
+                [
+                  'one' => ['test', null],
+                  'two' => ['three', null],
+                ],
+            ],
             'text/xml; this="is"; a="parameter" (with a comment)' => [
                 'text/xml; this="is"; a="parameter" (with a comment)',
                 [
@@ -460,6 +475,36 @@ class TypeTest extends TestCase
         $this->assertSame(1, count($mt->getParameters()));
     }
 
+    public function testGetDescription()
+    {
+        $this->assertNull((new Type('*/*'))->getDescription());
+        $this->assertNull((new Type('image/*'))->getDescription());
+        $this->assertNull((new Type('application/java*'))->getDescription());
+        $this->assertNull((new Type('application/x-t3vm-image'))->getDescription());
+        $this->assertSame('HTML document', (new Type('text/html'))->getDescription());
+        $this->assertSame('HTML document, HTML: HyperText Markup Language', (new Type('text/html'))->getDescription(true));
+
+        $this->assertSame('GPX geographic data', (new Type('application/gpx+xml'))->getDescription());
+        $this->assertSame('GPX geographic data, GPX: GPS Exchange Format', (new Type('application/gpx+xml'))->getDescription(true));
+        $this->assertSame('GPX geographic data', (new Type('application/gpx'))->getDescription());
+        $this->assertSame('GPX geographic data, GPX: GPS Exchange Format', (new Type('application/gpx'))->getDescription(true));
+        $this->assertSame('GPX geographic data', (new Type('application/x-gpx'))->getDescription());
+        $this->assertSame('GPX geographic data, GPX: GPS Exchange Format', (new Type('application/x-gpx'))->getDescription(true));
+    }
+
+    public function testSetComment()
+    {
+        $type = new Type('text/x-test');
+        $type->setMediaComment('media comment');
+        $this->assertSame('text (media comment)/x-test', $type->toString(Type::FULL_TEXT_WITH_COMMENTS));
+        $type->setSubTypeComment('subtype comment');
+        $this->assertSame('text (media comment)/x-test (subtype comment)', $type->toString(Type::FULL_TEXT_WITH_COMMENTS));
+        $type->setMediaComment(null);
+        $this->assertSame('text/x-test (subtype comment)', $type->toString(Type::FULL_TEXT_WITH_COMMENTS));
+        $type->setSubTypeComment(null);
+        $this->assertSame('text/x-test', $type->toString(Type::FULL_TEXT_WITH_COMMENTS));
+    }
+
     public function testIsExperimental()
     {
         $this->assertTrue((new Type('text/x-test'))->isExperimental());
@@ -482,6 +527,15 @@ class TypeTest extends TestCase
 
         $this->assertTrue((new Type('application/java*'))->isWildcard());
         $this->assertTrue((new Type('application/java-*'))->isWildcard());
+    }
+
+    public function testIsAlias()
+    {
+        $this->assertFalse((new Type('*/*'))->isAlias());
+        $this->assertFalse((new Type('image/*'))->isAlias());
+        $this->assertFalse((new Type('text/plain'))->isAlias());
+        $this->assertFalse((new Type('application/java*'))->isAlias());
+        $this->assertTrue((new Type('text/x-markdown'))->isAlias());
     }
 
     public function testWildcardMatch()
@@ -520,13 +574,41 @@ class TypeTest extends TestCase
         $this->assertSame('image/png; baz="val" (this is a comment)', $res);
     }
 
+    public function testGetAliases()
+    {
+        $this->assertSame(['image/x-wmf', 'image/x-win-metafile', 'application/x-wmf', 'application/wmf'], (new Type('image/wmf'))->getAliases());
+        $this->assertSame([], (new Type('foo/bar'))->getAliases(false));
+        $this->assertSame([], (new Type('image/x-wmf'))->getAliases(false));
+    }
+
+    /**
+     * @expectedException \FileEye\MimeMap\MappingException
+     * @expectedExceptionMessage Cannot get aliases for 'image/x-wmf', it is an alias itself
+     */
+    public function testGetAliasesOnAliasStrict()
+    {
+        $this->assertSame([], (new Type('image/x-wmf'))->getAliases());
+    }
+
+    /**
+     * @expectedException \FileEye\MimeMap\MappingException
+     * @expectedExceptionMessage No MIME type found for foo/bar in map
+     */
+    public function testGetAliasesOnMissingTypeStrict()
+    {
+        $this->assertSame([], (new Type('foo/bar'))->getAliases());
+    }
+
     public function testGetExtensions()
     {
         $this->assertEquals(['atom'], (new Type('application/atom+xml'))->getExtensions());
-        $this->assertEquals(['jar', 'ser', 'class', 'js'], (new Type('application/java*'))->getExtensions());
+        $this->assertEquals(['jar', 'ser', 'class', 'js', 'jsm', 'mjs'], (new Type('application/java*'))->getExtensions());
         $this->assertEquals(['jar', 'ser', 'class'], (new Type('application/java-*'))->getExtensions());
         $this->assertEquals([], (new Type('application/a000'))->getExtensions(false));
         $this->assertEquals([], (new Type('application/a000-*'))->getExtensions(false));
+
+        $this->assertSame(['smi', 'smil', 'sml', 'kino'], (new Type('application/smil+xml'))->getExtensions());
+        $this->assertSame(['smi', 'smil', 'sml', 'kino'], (new Type('application/smil'))->getExtensions());
     }
 
     /**
@@ -541,6 +623,9 @@ class TypeTest extends TestCase
     {
         $this->assertEquals('atom', (new Type('application/atom+xml'))->getDefaultExtension());
         $this->assertEquals('csv', (new Type('text/csv'))->getDefaultExtension());
+
+        $this->assertSame('smi', (new Type('application/smil+xml'))->getDefaultExtension());
+        $this->assertSame('smi', (new Type('application/smil'))->getDefaultExtension());
     }
 
     /**
