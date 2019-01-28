@@ -77,7 +77,7 @@ class Type
     public function __construct($type_string = null, $map_class = null)
     {
         if (!is_null($type_string)) {
-            TypeParser::parse($type, $this);
+            TypeParser::parse($type_string, $this);
         }
         $this->map = MapHandler::map($map_class);
     }
