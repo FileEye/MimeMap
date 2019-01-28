@@ -66,50 +66,107 @@ class Type
      */
     public function __construct($type)
     {
-        $this->parse($type);
+        TypeParser::parse($type, $this);
     }
 
     /**
-     * Parse a mime-type and set the class variables.
+     * Gets a MIME type's media.
      *
-     * @param string $type MIME type to parse
+     * Note: 'media' refers to the portion before the first slash.
      *
-     * @return void
+     * @return string
+     *   Type's media.
      */
-    protected function parse($type)
+    public function getMedia()
     {
-        // Media and SubType are separated by a slash '/'.
-        $media = TypeParser::parseStringPart($type, 0, '/');
+        return $this->media;
+    }
 
-        if (!$media['string']) {
-            throw new MalformedTypeException('Media type not found');
-        }
-        if (!$media['delimiter_matched']) {
-            throw new MalformedTypeException('Slash \'/\' to separate media type and subtype not found');
-        }
+    /**
+     * Sets a MIME type's media.
+     *
+     * @param string $media
+     *   Type's media.
+     *
+     * @return $this
+     */
+    public function setMedia($media)
+    {
+        $this->media = $media;
+        return $this;
+    }
 
-        $this->media = strtolower($media['string']);
-        $this->mediaComment = $media['comment'];
+    /**
+     * Gets a MIME type's media comment.
+     *
+     * @return string Type's media comment.
+     */
+    public function getMediaComment()
+    {
+        return $this->mediaComment;
+    }
 
-        // SubType and Parameters are separated by semicolons ';'.
-        $sub = TypeParser::parseStringPart($type, $media['end_offset'] + 1, ';');
+    /**
+     * Sets a MIME type's media comment.
+     *
+     * @param string Type's media comment.
+     *
+     * @return $this
+     */
+    public function setMediaComment($comment)
+    {
+        $this->mediaComment = $comment;
+        return $this;
+    }
 
-        if (!$sub['string']) {
-            throw new MalformedTypeException('Media subtype not found');
-        }
+    /**
+     * Gets a MIME type's subtype.
+     *
+     * @return string
+     *   Type's subtype, null if invalid mime type.
+     */
+    public function getSubType()
+    {
+        return $this->subType;
+    }
 
-        $this->subType = strtolower($sub['string']);
-        $this->subTypeComment = $sub['comment'];
+    /**
+     * Sets a MIME type's subtype.
+     *
+     * @param string $sub_type
+     *   Type's subtype.
+     *
+     * @return $this
+     */
+    public function setSubType($sub_type)
+    {
+        $this->subType = $sub_type;
+        return $this;
+    }
 
-        // Loops through the parameter.
-        while ($sub['delimiter_matched']) {
-            $sub = TypeParser::parseStringPart($type, $sub['end_offset'] + 1, ';');
-            $tmp = explode('=', $sub['string'], 2);
-            $p_name = trim($tmp[0]);
-            $p_val = trim($tmp[1]);
-            $p_val = str_replace('\\"', '"', $p_val);
-            $this->addParameter($p_name, $p_val, $sub['comment']);
-        }
+    /**
+     * Gets a MIME type's subtype comment.
+     *
+     * @return string
+     *   Type's subtype comment, null if invalid mime type.
+     */
+    public function getSubTypeComment()
+    {
+        return $this->subTypeComment;
+    }
+
+    /**
+     * Sets a MIME type's subtype comment.
+     *
+     * @param string $comment
+     *   Type's subtype comment.
+     *
+     * @return $this
+     */
+    public function setSubTypeComment($comment)
+    {
+        $this->subTypeComment = $comment;
+        return $this;
     }
 
     /**
@@ -145,71 +202,29 @@ class Type
     }
 
     /**
-     * Gets a MIME type's media.
+     * Add a parameter to this type
      *
-     * Note: 'media' refers to the portion before the first slash.
+     * @param string $name    Parameter name
+     * @param string $value   Parameter value
+     * @param string $comment Comment for this parameter
      *
-     * @return string Type's media.
+     * @return void
      */
-    public function getMedia()
+    public function addParameter($name, $value, $comment = null)
     {
-        return $this->media;
+        $this->parameters[$name] = new TypeParameter($name, $value, $comment);
     }
 
     /**
-     * Gets a MIME type's media comment.
+     * Remove a parameter from this type
      *
-     * @return string Type's media comment.
+     * @param string $name Parameter name
+     *
+     * @return void
      */
-    public function getMediaComment()
+    public function removeParameter($name)
     {
-        return $this->mediaComment;
-    }
-
-    /**
-     * Sets a MIME type's media comment.
-     *
-     * @param string Type's media comment.
-     *
-     * @return $this
-     */
-    public function setMediaComment($comment)
-    {
-        $this->mediaComment = $comment;
-        return $this;
-    }
-
-    /**
-     * Gets a MIME type's subtype.
-     *
-     * @return string Type's subtype, null if invalid mime type.
-     */
-    public function getSubType()
-    {
-        return $this->subType;
-    }
-
-    /**
-     * Gets a MIME type's subtype comment.
-     *
-     * @return string Type's subtype comment, null if invalid mime type.
-     */
-    public function getSubTypeComment()
-    {
-        return $this->subTypeComment;
-    }
-
-    /**
-     * Sets a MIME type's subtype comment.
-     *
-     * @param string Type's subtype comment.
-     *
-     * @return $this
-     */
-    public function setSubTypeComment($comment)
-    {
-        $this->subTypeComment = $comment;
-        return $this;
+        unset($this->parameters[$name]);
     }
 
     /**
@@ -325,32 +340,6 @@ class Type
         $subject = $this->toString(static::SHORT_TEXT);
 
         return preg_match("/$wildcard_re/", $subject) === 1;
-    }
-
-    /**
-     * Add a parameter to this type
-     *
-     * @param string $name    Parameter name
-     * @param string $value   Parameter value
-     * @param string $comment Comment for this parameter
-     *
-     * @return void
-     */
-    public function addParameter($name, $value, $comment = null)
-    {
-        $this->parameters[$name] = new TypeParameter($name, $value, $comment);
-    }
-
-    /**
-     * Remove a parameter from this type
-     *
-     * @param string $name Parameter name
-     *
-     * @return void
-     */
-    public function removeParameter($name)
-    {
-        unset($this->parameters[$name]);
     }
 
     /**

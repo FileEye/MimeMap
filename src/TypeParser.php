@@ -8,6 +8,52 @@ namespace FileEye\MimeMap;
 class TypeParser
 {
     /**
+     * Parse a mime-type and set the class variables.
+     *
+     * @param string $type_string
+     *   MIME type string to parse.
+     * @param Type $type
+     *   The Type object to receive the components.
+     *
+     * @return void
+     */
+    protected function parse($type_string, Type $type)
+    {
+        // Media and SubType are separated by a slash '/'.
+        $media = static::parseStringPart($type_string, 0, '/');
+
+        if (!$media['string']) {
+            throw new MalformedTypeException('Media type not found');
+        }
+        if (!$media['delimiter_matched']) {
+            throw new MalformedTypeException('Slash \'/\' to separate media type and subtype not found');
+        }
+
+        $type->setMedia(strtolower($media['string']));
+        $type->setMediaComment($media['comment']);
+
+        // SubType and Parameters are separated by semicolons ';'.
+        $sub = static::parseStringPart($type_string, $media['end_offset'] + 1, ';');
+
+        if (!$sub['string']) {
+            throw new MalformedTypeException('Media subtype not found');
+        }
+
+        $type->setSubType(strtolower($sub['string']));
+        $type->setSubTypeComment($sub['comment']);
+
+        // Loops through the parameter.
+        while ($sub['delimiter_matched']) {
+            $sub = static::parseStringPart($type_string, $sub['end_offset'] + 1, ';');
+            $tmp = explode('=', $sub['string'], 2);
+            $p_name = trim($tmp[0]);
+            $p_val = trim($tmp[1]);
+            $p_val = str_replace('\\"', '"', $p_val);
+            $type->addParameter($p_name, $p_val, $sub['comment']);
+        }
+    }
+
+    /**
      * Parses a part of the content MIME type string.
      *
      * Splits string and comment until a delimiter is found.
