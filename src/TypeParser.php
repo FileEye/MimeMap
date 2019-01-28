@@ -58,11 +58,15 @@ class TypeParser
      *
      * Splits string and comment until a delimiter is found.
      *
-     * @param string $string     Input string.
-     * @param int $offset        Offset to start parsing from.
-     * @param string $delimiter  Stop parsing when delimiter found.
+     * @param string $string
+     *   Input string.
+     * @param int $offset
+     *   Offset to start parsing from.
+     * @param string $delimiter
+     *   Stop parsing when delimiter found.
      *
-     * @return array An array with the following keys:
+     * @return array
+     *   An array with the following keys:
      *   'string' - the uncommented part of $string
      *   'comment' - the comment part of $string
      *   'delimiter_matched' - true if a $delimiter stopped the parsing, false

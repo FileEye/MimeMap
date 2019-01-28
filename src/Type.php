@@ -51,7 +51,7 @@ class Type
     protected $subTypeComment;
 
     /**
-     * Optional MIME parameters
+     * Optional MIME parameters.
      *
      * @var TypeParameter[]
      */
@@ -172,7 +172,8 @@ class Type
     /**
      * Does this type have any parameters?
      *
-     * @return boolean true if type has parameters, false otherwise
+     * @return boolean
+     *   True if type has parameters, false otherwise.
      */
     public function hasParameters()
     {
@@ -180,9 +181,9 @@ class Type
     }
 
     /**
-     * Get a MIME type's parameters
+     * Get a MIME type's parameters.
      *
-     * @return TypeParameter[] Type's parameters
+     * @return TypeParameter[]
      */
     public function getParameters()
     {
@@ -190,9 +191,10 @@ class Type
     }
 
     /**
-     * Get a MIME type's parameter
+     * Get a MIME type's parameter.
      *
-     * @param string $name Parameter name
+     * @param string $name
+     *   Parameter name
      *
      * @return TypeParameter|null
      */
@@ -204,9 +206,12 @@ class Type
     /**
      * Add a parameter to this type
      *
-     * @param string $name    Parameter name
-     * @param string $value   Parameter value
-     * @param string $comment Comment for this parameter
+     * @param string $name
+     *   Parameter name.
+     * @param string $value
+     *   Parameter value.
+     * @param string $comment
+     *   Comment for this parameter.
      *
      * @return void
      */
@@ -216,9 +221,10 @@ class Type
     }
 
     /**
-     * Remove a parameter from this type
+     * Remove a parameter from this type.
      *
-     * @param string $name Parameter name
+     * @param string $name
+     *   Parameter name.
      *
      * @return void
      */
@@ -228,13 +234,15 @@ class Type
     }
 
     /**
-     * Create a textual MIME type from object values
+     * Create a textual MIME type from object values.
      *
      * This function performs the opposite function of parse().
      *
-     * @param int $format The format of the output string.
+     * @param int $format
+     *   The format of the output string.
      *
-     * @return string MIME type string
+     * @return string
+     *   MIME type string.
      */
     public function toString($format = Type::FULL_TEXT)
     {
@@ -260,7 +268,8 @@ class Type
      * Note: Experimental types are denoted by a leading 'x-' in the media or
      *       subtype, e.g. text/x-vcard or x-world/x-vrml.
      *
-     * @return boolean true if type is experimental, false otherwise
+     * @return boolean
+     *   True if type is experimental, false otherwise.
      */
     public function isExperimental()
     {
@@ -275,7 +284,8 @@ class Type
      *
      * Note: Vendor types are denoted with a leading 'vnd. in the subtype.
      *
-     * @return boolean true if type is a vendor type, false otherwise
+     * @return boolean
+     *   True if type is a vendor type, false otherwise.
      */
     public function isVendor()
     {
@@ -288,7 +298,8 @@ class Type
     /**
      * Is this a wildcard type?
      *
-     * @return boolean true if type is a wildcard, false otherwise.
+     * @return boolean
+     *   True if type is a wildcard, false otherwise.
      */
     public function isWildcard()
     {
@@ -301,7 +312,8 @@ class Type
     /**
      * Is this an alias?
      *
-     * @return boolean true if type is an alias, false otherwise.
+     * @return boolean
+     *   True if type is an alias, false otherwise.
      */
     public function isAlias()
     {
@@ -321,9 +333,11 @@ class Type
      * $type = new Type('image/png');
      * $type->wildcardMatch('image/*');
      *
-     * @param string $wildcard Wildcard to check against
+     * @param string $wildcard
+     *   Wildcard to check against.
      *
-     * @return boolean true if there was a match, false otherwise
+     * @return boolean
+     *   True if there was a match, false otherwise.
      */
     public function wildcardMatch($wildcard)
     {
