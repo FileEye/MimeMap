@@ -58,6 +58,13 @@ class Type
     protected $parameters = [];
 
     /**
+     * The MIME types map.
+     *
+     * @var Map/AbstractMap
+     */
+    protected $map;
+
+    /**
      * Constructor.
      *
      * The type string will be parsed and the appropriate class vars set.
@@ -67,6 +74,7 @@ class Type
     public function __construct($type)
     {
         TypeParser::parse($type, $this);
+        $this->map = MapHandler::map();
     }
 
     /**
@@ -99,7 +107,8 @@ class Type
     /**
      * Gets a MIME type's media comment.
      *
-     * @return string Type's media comment.
+     * @return string
+     *   Type's media comment.
      */
     public function getMediaComment()
     {
@@ -109,7 +118,8 @@ class Type
     /**
      * Sets a MIME type's media comment.
      *
-     * @param string Type's media comment.
+     * @param string $comment
+     *   Type's media comment.
      *
      * @return $this
      */
@@ -273,10 +283,7 @@ class Type
      */
     public function isExperimental()
     {
-        if (substr($this->getMedia(), 0, 2) == 'x-' || substr($this->getSubType(), 0, 2) == 'x-') {
-            return true;
-        }
-        return false;
+        return substr($this->getMedia(), 0, 2) == 'x-' || substr($this->getSubType(), 0, 2) == 'x-';
     }
 
     /**
@@ -289,10 +296,7 @@ class Type
      */
     public function isVendor()
     {
-        if (substr($this->getSubType(), 0, 4) == 'vnd.') {
-            return true;
-        }
-        return false;
+        return substr($this->getSubType(), 0, 4) == 'vnd.';
     }
 
     /**
@@ -303,10 +307,7 @@ class Type
      */
     public function isWildcard()
     {
-        if (($this->getMedia() === '*' && $this->getSubtype() === '*') || strpos($this->getSubtype(), '*') !== false) {
-            return true;
-        }
-        return false;
+        return ($this->getMedia() === '*' && $this->getSubtype() === '*') || strpos($this->getSubtype(), '*') !== false;
     }
 
     /**
@@ -317,13 +318,7 @@ class Type
      */
     public function isAlias()
     {
-        if ($this->isWildcard()) {
-            return false;
-        }
-
-        $map = MapHandler::map();
-        $subject = $this->toString(static::SHORT_TEXT);
-        return $map->hasAlias($subject);
+        return $this->map->hasAlias($this->toString(static::SHORT_TEXT));
     }
 
     /**
@@ -373,17 +368,16 @@ class Type
      */
     protected function buildTypesList($strict = true)
     {
-        $map = MapHandler::map();
         $subject = $this->toString(static::SHORT_TEXT);
 
         // Find all types.
         $types = [];
         if (!$this->isWildcard()) {
-            if ($map->hasType($subject)) {
+            if ($this->map->hasType($subject)) {
                 $types[] = $subject;
             }
         } else {
-            foreach ($map->listTypes($subject) as $t) {
+            foreach ($this->map->listTypes($subject) as $t) {
                 $types[] = $t;
             }
         }
@@ -409,14 +403,7 @@ class Type
      */
     protected function getUnaliasedType()
     {
-        if (!$this->isAlias()) {
-            return $this;
-        } else {
-            $map = MapHandler::map();
-            $subject = $this->toString(static::SHORT_TEXT);
-            $types = $map->getAliasTypes($subject);
-            return new static($types[0]);
-        }
+        return $this->isAlias() ? new static($this->map->getAliasTypes($this->toString(static::SHORT_TEXT))[0]) : $this;
     }
 
     /**
@@ -431,13 +418,7 @@ class Type
      */
     public function getDescription($include_acronym = false)
     {
-        if ($this->isWildcard()) {
-            return null;
-        }
-
-        $map = MapHandler::map();
-        $subject = $this->getUnaliasedType()->toString(static::SHORT_TEXT);
-        $descriptions = $map->getTypeDescriptions($subject);
+        $descriptions = $this->map->getTypeDescriptions($this->getUnaliasedType()->toString(static::SHORT_TEXT));
         $res = null;
         if (isset($descriptions[0])) {
             $res = $descriptions[0];
@@ -475,13 +456,10 @@ class Type
             }
         }
 
-        $map = MapHandler::map();
-        $types = $this->buildTypesList($strict);
-
         // Build the array of aliases.
         $aliases = [];
-        foreach ($types as $t) {
-            foreach ($map->getTypeAliases($t) as $a) {
+        foreach ($this->buildTypesList($strict) as $t) {
+            foreach ($this->map->getTypeAliases($t) as $a) {
                 $aliases[$a] = $a;
             }
         }
@@ -503,14 +481,13 @@ class Type
      */
     public function getDefaultExtension($strict = true)
     {
-        $map = MapHandler::map();
         $unaliased_type = $this->getUnaliasedType();
         $subject = $unaliased_type->toString(static::SHORT_TEXT);
 
         if (!$unaliased_type->isWildcard()) {
-            $proceed = $map->hasType($subject);
+            $proceed = $this->map->hasType($subject);
         } else {
-            $proceed = count($map->listTypes($subject)) === 1;
+            $proceed = count($this->map->listTypes($subject)) === 1;
         }
 
         if (!$proceed) {
@@ -541,17 +518,13 @@ class Type
      */
     public function getExtensions($strict = true)
     {
-        $map = MapHandler::map();
-        $types = $this->getUnaliasedType()->buildTypesList($strict);
-
         // Build the array of extensions.
         $extensions = [];
-        foreach ($types as $t) {
-            foreach ($map->getTypeExtensions($t) as $e) {
+        foreach ($this->getUnaliasedType()->buildTypesList($strict) as $t) {
+            foreach ($this->map->getTypeExtensions($t) as $e) {
                 $extensions[$e] = $e;
             }
         }
-
         return array_keys($extensions);
     }
 }
