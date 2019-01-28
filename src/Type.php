@@ -261,6 +261,9 @@ class Type
      */
     public function toString($format = Type::FULL_TEXT)
     {
+        if (is_null($this->media) || is_null($this->subType)) {
+            return null;
+        }
         $type = strtolower($this->media);
         if ($format > Type::FULL_TEXT && isset($this->mediaComment)) {
             $type .= ' (' .  $this->mediaComment . ')';
