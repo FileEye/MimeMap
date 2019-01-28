@@ -484,21 +484,13 @@ class Type
         $unaliased_type = $this->getUnaliasedType();
         $subject = $unaliased_type->toString(static::SHORT_TEXT);
 
-        if (!$unaliased_type->isWildcard()) {
-            $proceed = $this->map->hasType($subject);
-        } else {
-            $proceed = count($this->map->listTypes($subject)) === 1;
+        $extensions = !$unaliased_type->isWildcard() || (($unaliased_type->isWildcard() && count($this->map->listTypes($subject)) === 1)) ? $unaliased_type->getExtensions() : [];
+
+        if (empty($extensions) && $strict) {
+            throw new MappingException('Cannot determine default extension for type: ' . $unaliased_type->toString(static::SHORT_TEXT));
         }
 
-        if (!$proceed) {
-            if ($strict) {
-                throw new MappingException('Cannot determine default extension for type: ' . $unaliased_type->toString(static::SHORT_TEXT));
-            } else {
-                return null;
-            }
-        }
-
-        return $unaliased_type->getExtensions()[0];
+        return isset($extensions[0]) ? $extensions[0] : null;
     }
 
     /**
