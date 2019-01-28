@@ -8,15 +8,65 @@ namespace FileEye\MimeMap;
 class TypeParser
 {
     /**
+     * Parse a mime-type and set the class variables.
+     *
+     * @param string $type_string
+     *   MIME type string to parse.
+     * @param Type $type
+     *   The Type object to receive the components.
+     *
+     * @return void
+     */
+    public static function parse($type_string, Type $type)
+    {
+        // Media and SubType are separated by a slash '/'.
+        $media = static::parseStringPart($type_string, 0, '/');
+
+        if (!$media['string']) {
+            throw new MalformedTypeException('Media type not found');
+        }
+        if (!$media['delimiter_matched']) {
+            throw new MalformedTypeException('Slash \'/\' to separate media type and subtype not found');
+        }
+
+        $type->setMedia(strtolower($media['string']));
+        $type->setMediaComment($media['comment']);
+
+        // SubType and Parameters are separated by semicolons ';'.
+        $sub = static::parseStringPart($type_string, $media['end_offset'] + 1, ';');
+
+        if (!$sub['string']) {
+            throw new MalformedTypeException('Media subtype not found');
+        }
+
+        $type->setSubType(strtolower($sub['string']));
+        $type->setSubTypeComment($sub['comment']);
+
+        // Loops through the parameter.
+        while ($sub['delimiter_matched']) {
+            $sub = static::parseStringPart($type_string, $sub['end_offset'] + 1, ';');
+            $tmp = explode('=', $sub['string'], 2);
+            $p_name = trim($tmp[0]);
+            $p_val = trim($tmp[1]);
+            $p_val = str_replace('\\"', '"', $p_val);
+            $type->addParameter($p_name, $p_val, $sub['comment']);
+        }
+    }
+
+    /**
      * Parses a part of the content MIME type string.
      *
      * Splits string and comment until a delimiter is found.
      *
-     * @param string $string     Input string.
-     * @param int $offset        Offset to start parsing from.
-     * @param string $delimiter  Stop parsing when delimiter found.
+     * @param string $string
+     *   Input string.
+     * @param int $offset
+     *   Offset to start parsing from.
+     * @param string $delimiter
+     *   Stop parsing when delimiter found.
      *
-     * @return array An array with the following keys:
+     * @return array
+     *   An array with the following keys:
      *   'string' - the uncommented part of $string
      *   'comment' - the comment part of $string
      *   'delimiter_matched' - true if a $delimiter stopped the parsing, false
