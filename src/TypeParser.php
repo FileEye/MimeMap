@@ -17,7 +17,7 @@ class TypeParser
      *
      * @return void
      */
-    protected function parse($type_string, Type $type)
+    public static function parse($type_string, Type $type)
     {
         // Media and SubType are separated by a slash '/'.
         $media = static::parseStringPart($type_string, 0, '/');
