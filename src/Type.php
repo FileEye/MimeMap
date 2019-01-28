@@ -60,7 +60,7 @@ class Type
     /**
      * The MIME types map.
      *
-     * @var Map/AbstractMap
+     * @var Map\AbstractMap
      */
     protected $map;
 
@@ -69,12 +69,17 @@ class Type
      *
      * The type string will be parsed and the appropriate class vars set.
      *
-     * @param string $type MIME type
+     * @param string $type_string
+     *   (Optional) MIME type string to be parsed.
+     * @param string $map_class
+     *   (Optional) The FQCN of the map class to use.
      */
-    public function __construct($type)
+    public function __construct($type_string = null, $map_class = null)
     {
-        TypeParser::parse($type, $this);
-        $this->map = MapHandler::map();
+        if (!is_null($type_string)) {
+            TypeParser::parse($type, $this);
+        }
+        $this->map = MapHandler::map($map_class);
     }
 
     /**
@@ -484,13 +489,21 @@ class Type
         $unaliased_type = $this->getUnaliasedType();
         $subject = $unaliased_type->toString(static::SHORT_TEXT);
 
-        $extensions = !$unaliased_type->isWildcard() || (($unaliased_type->isWildcard() && count($this->map->listTypes($subject)) === 1)) ? $unaliased_type->getExtensions() : [];
-
-        if (empty($extensions) && $strict) {
-            throw new MappingException('Cannot determine default extension for type: ' . $unaliased_type->toString(static::SHORT_TEXT));
+        if (!$unaliased_type->isWildcard()) {
+            $proceed = $this->map->hasType($subject);
+        } else {
+            $proceed = count($this->map->listTypes($subject)) === 1;
         }
 
-        return isset($extensions[0]) ? $extensions[0] : null;
+        if (!$proceed) {
+            if ($strict) {
+                throw new MappingException('Cannot determine default extension for type: ' . $unaliased_type->toString(static::SHORT_TEXT));
+            } else {
+                return null;
+            }
+        }
+
+        return $unaliased_type->getExtensions()[0];
     }
 
     /**

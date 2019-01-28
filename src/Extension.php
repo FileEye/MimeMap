@@ -15,13 +15,24 @@ class Extension
     protected $extension;
 
     /**
+     * The MIME types map.
+     *
+     * @var Map\AbstractMap
+     */
+    protected $map;
+
+    /**
      * Constructor.
      *
-     * @param string $extension A file extension.
+     * @param string $extension
+     *   A file extension.
+     * @param string $map_class
+     *   (Optional) The FQCN of the map class to use.
      */
-    public function __construct($extension)
+    public function __construct($extension, $map_class = null)
     {
         $this->extension = strtolower($extension);
+        $this->map = MapHandler::map($map_class);
     }
 
     /**
@@ -55,7 +66,7 @@ class Extension
      */
     public function getTypes($strict = true)
     {
-        $types = MapHandler::map()->getExtensionTypes($this->extension);
+        $types = $this->map->getExtensionTypes($this->extension);
         if (empty($types)) {
             if ($strict) {
                 throw new MappingException('No MIME type mapped to extension ' . $this->extension);
