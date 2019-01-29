@@ -76,7 +76,9 @@ class Type
      */
     public function __construct($type_string = null, $map_class = null)
     {
-        TypeParser::parse($type_string, $this);
+        if ($type_string !== null) {
+            TypeParser::parse($type_string, $this);
+        }
         $this->map = MapHandler::map($map_class);
     }
 
@@ -259,11 +261,14 @@ class Type
      */
     public function toString($format = Type::FULL_TEXT)
     {
-        $type = strtolower($this->media ?: '*');
+        if (!isset($this->media) || !isset($this->subType)) {
+            return null;
+        }
+        $type = strtolower($this->media);
         if ($format > Type::FULL_TEXT && isset($this->mediaComment)) {
             $type .= ' (' .  $this->mediaComment . ')';
         }
-        $type .= '/' . strtolower($this->subType ?: '*');
+        $type .= '/' . strtolower($this->subType);
         if ($format > Type::FULL_TEXT && isset($this->subTypeComment)) {
             $type .= ' (' .  $this->subTypeComment . ')';
         }
