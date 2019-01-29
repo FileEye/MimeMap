@@ -148,7 +148,8 @@ class MapUpdater
      * @param array $overrides
      *   The overrides to be applied.
      *
-     * @return $this
+     * @return string[]
+     *   An array of error messages.
      */
     public function applyOverrides(array $overrides)
     {
