@@ -29,7 +29,7 @@ class TypeParser
             throw new MalformedTypeException('Slash \'/\' to separate media type and subtype not found');
         }
 
-        $type->setMedia(strtolower($media['string']));
+        $type->setMedia(strtolower((string) $media['string']));
         $type->setMediaComment($media['comment']);
 
         // SubType and Parameters are separated by semicolons ';'.

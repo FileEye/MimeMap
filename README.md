@@ -45,6 +45,20 @@ $ composer require fileeye/mimemap
 
 ## Usage
 
+
+### Basic
+
+The package comes with a default map that describes MIME types and the file
+extensions normally associated to each MIME type. The map also stores
+information about MIME type _aliases_, i.e. alternative _media/subtype_
+combinations that describe the same MIME type, and descriptions of most
+MIME types and of the acronyms used. For example, _application/pdf_ has
+a description _PDF document_ and an acronym is described as _PDF: Portable Document Format_,
+is normally using a file extension _pdf_ and has aliases such as _application/x-pdf_,
+_image/pdf_ etc.
+The API the package implements is pretty straightforward:
+
+
 1. You have a MIME type, and want to get the file extensions normally associated
 to it:
 
@@ -59,6 +73,14 @@ use FileEye\MimeMap\Type;
 
     $default_extension = $type->getDefaultExtension();
     // will return 'jpeg'
+
+    // When passing an alias to a MIME type, the API will
+    // return the extensions to the parent type:
+    $type = new Type('image/pdf');
+
+    $default_extension = $type->getDefaultExtension();
+    // will return 'pdf' which is the default extension for 'application/pdf'
+
 ```
 
 2. Viceversa, you have a file extensions, and want to get the MIME type normally
@@ -109,18 +131,74 @@ use FileEye\MimeMap\Type;
     echo $type->toString(Type::FULL_TEXT_WITH_COMMENTS);
     // will print 'text/html (HTML document)'
 
+    // Setting the $strict parameter of getDescription to true
+    // will extend the description to include the meaning of the acronym
     $type_desc = $type->getDescription(true);
     $type->setSubTypeComment($type_desc);
     echo $type->toString(Type::FULL_TEXT_WITH_COMMENTS);
     // will print 'text/html (HTML document, HTML: HyperText Markup Language)'
 ```
 
+
+### Specify alternative MIME type mapping
+
+
+You can also alter the default map at runtime, either by adding or removing
+mappings or to indicate to MimeMap to use a totally different map. The
+alternative map must be stored in a PHP class that extends from
+`\FileEye\MimeMap\Map\AbstractMap`.
+
+1. You want to add an additional MIME type to extension mapping to the
+default class:
+
+```php
+use FileEye\MimeMap\Extension;
+use FileEye\MimeMap\MapHandler;
+use FileEye\MimeMap\Type;
+...
+    $map = MapHandler::map();
+    $map->addTypeExtensionMapping('foo/bar', 'baz');
+
+    $type = new Type('foo/bar');
+    $default_extension = $type->getDefaultExtension();
+    // will return 'baz'
+
+    $ext = new Extension('baz');
+    $default_type = $ext->getDefaultExtension();
+    // will return 'foo/bar'
+
+```
+
+2. You want to set an alternative map class as default:
+
+```php
+use FileEye\MimeMap\Extension;
+use FileEye\MimeMap\MapHandler;
+use FileEye\MimeMap\Type;
+...
+    MapHandler::setDefaultMapClass('MyProject\MyMap');
+
+    ...
+```
+
+3. You can also use the alternative map just for a single Type or Extension
+object:
+
+```php
+use FileEye\MimeMap\Extension;
+use FileEye\MimeMap\Type;
+...
+    $type = new Type('foo/bar', 'MyProject\MyMap');
+    $ext = new Extension('baz', 'MyProject\MyMap');
+```
+
+
 ## Development
 
 
 ### Updating the extension mapping code
 
-The built-in extension-to-type mapping list can be updated from the sources'
+The default extension-to-type mapping class can be updated from the sources'
 code repositories, using the `fileeye-mimemap` utility:
 
 ```
