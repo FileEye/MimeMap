@@ -39,7 +39,7 @@ class TypeParser
             throw new MalformedTypeException('Media subtype not found');
         }
 
-        $type->setSubType(strtolower($sub['string']));
+        $type->setSubType(strtolower((string) $sub['string']));
         $type->setSubTypeComment($sub['comment']);
 
         // Loops through the parameter.
