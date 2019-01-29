@@ -290,6 +290,18 @@ class TypeTest extends TestCase
                 ],
             ],
             // Various edge cases.
+            'null' => [
+                null,
+                [
+                  null,
+                  null,
+                  null,
+                ],
+                [null, null],
+                [null, null],
+                false,
+                [],
+            ],
             'text/plain; charset="utf-8" (UTF/8)' => [
                 'text/plain; charset="utf-8" (UTF/8)',
                 [
@@ -447,7 +459,6 @@ class TypeTest extends TestCase
     public function parseMalformedProvider()
     {
         return [
-            'null' => [null],
             'empty string' => [''],
             'n' => ['n'],
             'no media' => ['/n'],
