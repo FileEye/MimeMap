@@ -8,7 +8,7 @@
         "php": ">=5.4"
     },
     "require-dev": {
-        "phpunit/phpunit": "*",
+        "phpunit/phpunit": "<8",
         "squizlabs/php_codesniffer": "*",
         "sebastian/comparator": "*",
         "sebastian/diff": "*",
