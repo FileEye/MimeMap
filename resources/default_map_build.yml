@@ -22,6 +22,46 @@
 
 # Extend Apache table with the Freedesktop.org database.
 -
+    - 'Removing redundant svn.apache.org types'
+    - applyOverrides
+    -
+        -
+            - [removeType, [application/x-msaccess]]
+            - [removeType, [application/vnd.ms-xpsdocument]]
+            - [removeType, [application/vnd.stardivision.writer-global]]
+            - [removeType, [application/x-bzip2]]
+            - [removeType, [application/x-cbr]]
+            - [removeType, [application/x-iso9660-image]]
+            - [removeType, [application/x-chess-pgn]]
+            - [removeType, [application/x-debian-package]]
+            - [removeType, [application/java-archive]]
+            - [removeType, [application/java-vm]]
+            - [removeType, [application/x-lzh-compressed]]
+            - [removeType, [application/x-pkcs12]]
+            - [removeType, [application/x-rar-compressed]]
+            - [removeType, [application/x-shockwave-flash]]
+            - [removeType, [application/vnd.smaf]]
+            - [removeType, [application/x-gtar]]
+            - [removeType, [audio/x-flac]]
+            - [removeType, [audio/x-aac]]
+            - [removeType, [video/x-m4v]]
+            - [removeType, [video/x-ms-wvx]]
+            - [removeType, [video/x-ms-wmx]]
+            - [removeType, [audio/x-pn-realaudio]]
+            - [removeType, [application/vnd.rn-realmedia-vbr]]
+            - [removeType, [application/docbook+xml]]
+            - [removeType, [image/x-icon]]
+            - [removeType, [image/x-pcx]]
+            - [removeType, [application/x-msmetafile]]
+            - [removeType, [text/x-vcalendar]]
+            - [removeType, [text/x-vcard]]
+            - [removeType, [text/x-opml]]
+            - [removeType, [text/x-c]]
+            - [removeType, [application/x-tex]]
+            - [removeType, [video/x-fli]]
+            - [removeType, [video/x-ms-wm]]
+            - [removeType, [video/x-ms-asf]]
+-
     - 'Updating with information from freedesktop.org'
     - loadMapFromFreedesktopFile
     - [https://raw.github.com/minad/mimemagic/master/script/freedesktop.org.xml]
