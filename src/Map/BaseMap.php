@@ -198,8 +198,10 @@ abstract class BaseMap
 
         // Remove the entry itself if no more values.
         if (empty(static::$map[$entry][$entry_key][$sub_entry])) {
+dump('empty', $entry, $entry_key, $sub_entry);
             unset(static::$map[$entry][$entry_key][$sub_entry]);
         } else {
+dump('non - empty', $entry, $entry_key, $sub_entry);
             // Resequence the remaining values.
             $tmp = [];
             foreach (static::$map[$entry][$entry_key][$sub_entry] as $v) {
