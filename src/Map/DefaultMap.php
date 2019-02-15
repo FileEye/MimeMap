@@ -176,13 +176,6 @@ class DefaultMap extends AbstractMap
         0 => 'dcm',
       ),
     ),
-    'application/docbook+xml' => 
-    array (
-      'e' => 
-      array (
-        0 => 'dbk',
-      ),
-    ),
     'application/dssc+der' => 
     array (
       'e' => 
@@ -361,25 +354,11 @@ class DefaultMap extends AbstractMap
         0 => 'ipfix',
       ),
     ),
-    'application/java-archive' => 
-    array (
-      'e' => 
-      array (
-        0 => 'jar',
-      ),
-    ),
     'application/java-serialized-object' => 
     array (
       'e' => 
       array (
         0 => 'ser',
-      ),
-    ),
-    'application/java-vm' => 
-    array (
-      'e' => 
-      array (
-        0 => 'class',
       ),
     ),
     'application/javascript' => 
@@ -726,7 +705,8 @@ class DefaultMap extends AbstractMap
     array (
       'a' => 
       array (
-        0 => 'application/xps',
+        0 => 'application/vnd.ms-xpsdocument',
+        1 => 'application/xps',
       ),
       'desc' => 
       array (
@@ -833,6 +813,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/pkcs12' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-pkcs12',
+      ),
       'desc' => 
       array (
         0 => 'PKCS#12 certificate bundle',
@@ -1400,7 +1384,8 @@ class DefaultMap extends AbstractMap
     array (
       'a' => 
       array (
-        0 => 'application/futuresplash',
+        0 => 'application/x-shockwave-flash',
+        1 => 'application/futuresplash',
       ),
       'desc' => 
       array (
@@ -1596,6 +1581,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.chess-pgn' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-chess-pgn',
+      ),
       'desc' => 
       array (
         0 => 'PGN chess game notation',
@@ -1687,6 +1676,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.comicbook-rar' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-cbr',
+      ),
       'desc' => 
       array (
         0 => 'comic book archive',
@@ -1694,6 +1687,7 @@ class DefaultMap extends AbstractMap
       'e' => 
       array (
         0 => 'cbr',
+        1 => 'cba',
       ),
     ),
     'application/vnd.commonspace' => 
@@ -1827,6 +1821,7 @@ class DefaultMap extends AbstractMap
       'a' => 
       array (
         0 => 'application/x-deb',
+        1 => 'application/x-debian-package',
       ),
       'desc' => 
       array (
@@ -2910,11 +2905,12 @@ class DefaultMap extends AbstractMap
     array (
       'a' => 
       array (
-        0 => 'application/msaccess',
-        1 => 'application/vnd.msaccess',
-        2 => 'application/mdb',
-        3 => 'application/x-mdb',
-        4 => 'zz-application/zz-winassoc-mdb',
+        0 => 'application/x-msaccess',
+        1 => 'application/msaccess',
+        2 => 'application/vnd.msaccess',
+        3 => 'application/mdb',
+        4 => 'application/x-mdb',
+        5 => 'zz-application/zz-winassoc-mdb',
       ),
       'desc' => 
       array (
@@ -2937,7 +2933,9 @@ class DefaultMap extends AbstractMap
     array (
       'a' => 
       array (
-        0 => 'video/x-ms-asf-plugin',
+        0 => 'video/x-ms-wm',
+        1 => 'video/x-ms-asf',
+        2 => 'video/x-ms-asf-plugin',
       ),
       'desc' => 
       array (
@@ -2947,6 +2945,7 @@ class DefaultMap extends AbstractMap
       'e' => 
       array (
         0 => 'asf',
+        1 => 'wm',
       ),
     ),
     'application/vnd.ms-cab-compressed' => 
@@ -3314,13 +3313,6 @@ class DefaultMap extends AbstractMap
       'e' => 
       array (
         0 => 'wpl',
-      ),
-    ),
-    'application/vnd.ms-xpsdocument' => 
-    array (
-      'e' => 
-      array (
-        0 => 'xps',
       ),
     ),
     'application/vnd.mseq' => 
@@ -3950,6 +3942,7 @@ class DefaultMap extends AbstractMap
       'a' => 
       array (
         0 => 'application/x-rar',
+        1 => 'application/x-rar-compressed',
       ),
       'desc' => 
       array (
@@ -3998,6 +3991,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.rn-realmedia' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/vnd.rn-realmedia-vbr',
+      ),
       'desc' => 
       array (
         0 => 'RealMedia document',
@@ -4010,13 +4007,6 @@ class DefaultMap extends AbstractMap
         3 => 'rms',
         4 => 'rmx',
         5 => 'rmvb',
-      ),
-    ),
-    'application/vnd.rn-realmedia-vbr' => 
-    array (
-      'e' => 
-      array (
-        0 => 'rmvb',
       ),
     ),
     'application/vnd.route66.link66+xml' => 
@@ -4095,13 +4085,6 @@ class DefaultMap extends AbstractMap
       array (
         0 => 'twd',
         1 => 'twds',
-      ),
-    ),
-    'application/vnd.smaf' => 
-    array (
-      'e' => 
-      array (
-        0 => 'mmf',
       ),
     ),
     'application/vnd.smart.teacher' => 
@@ -4239,6 +4222,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.stardivision.writer' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/vnd.stardivision.writer-global',
+      ),
       'desc' => 
       array (
         0 => 'StarWriter document',
@@ -4248,13 +4235,6 @@ class DefaultMap extends AbstractMap
         0 => 'sdw',
         1 => 'vor',
         2 => 'sgl',
-      ),
-    ),
-    'application/vnd.stardivision.writer-global' => 
-    array (
-      'e' => 
-      array (
-        0 => 'sgl',
       ),
     ),
     'application/vnd.stepmania.package' => 
@@ -5055,6 +5035,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-bzip' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-bzip2',
+      ),
       'desc' => 
       array (
         0 => 'Bzip archive',
@@ -5063,6 +5047,7 @@ class DefaultMap extends AbstractMap
       array (
         0 => 'bz',
         1 => 'bz2',
+        2 => 'boz',
       ),
     ),
     'application/x-bzip-compressed-tar' => 
@@ -5078,14 +5063,6 @@ class DefaultMap extends AbstractMap
         2 => 'tbz2',
         3 => 'tbz',
         4 => 'tb2',
-      ),
-    ),
-    'application/x-bzip2' => 
-    array (
-      'e' => 
-      array (
-        0 => 'bz2',
-        1 => 'boz',
       ),
     ),
     'application/x-bzpdf' => 
@@ -5121,17 +5098,6 @@ class DefaultMap extends AbstractMap
         0 => 'cb7',
       ),
     ),
-    'application/x-cbr' => 
-    array (
-      'e' => 
-      array (
-        0 => 'cbr',
-        1 => 'cba',
-        2 => 'cbt',
-        3 => 'cbz',
-        4 => 'cb7',
-      ),
-    ),
     'application/x-cbt' => 
     array (
       'desc' => 
@@ -5156,6 +5122,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-cd-image' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-iso9660-image',
+      ),
       'desc' => 
       array (
         0 => 'raw CD image',
@@ -5196,13 +5166,6 @@ class DefaultMap extends AbstractMap
       'e' => 
       array (
         0 => 'chat',
-      ),
-    ),
-    'application/x-chess-pgn' => 
-    array (
-      'e' => 
-      array (
-        0 => 'pgn',
       ),
     ),
     'application/x-cisco-vpn-settings' => 
@@ -5329,14 +5292,6 @@ class DefaultMap extends AbstractMap
         0 => 'dc',
       ),
     ),
-    'application/x-debian-package' => 
-    array (
-      'e' => 
-      array (
-        0 => 'deb',
-        1 => 'udeb',
-      ),
-    ),
     'application/x-designer' => 
     array (
       'desc' => 
@@ -5412,7 +5367,8 @@ class DefaultMap extends AbstractMap
     array (
       'a' => 
       array (
-        0 => 'application/vnd.oasis.docbook+xml',
+        0 => 'application/docbook+xml',
+        1 => 'application/vnd.oasis.docbook+xml',
       ),
       'desc' => 
       array (
@@ -5869,13 +5825,6 @@ class DefaultMap extends AbstractMap
         0 => 'gra',
       ),
     ),
-    'application/x-gtar' => 
-    array (
-      'e' => 
-      array (
-        0 => 'gtar',
-      ),
-    ),
     'application/x-gtk-builder' => 
     array (
       'desc' => 
@@ -6034,13 +5983,6 @@ class DefaultMap extends AbstractMap
         0 => 'appimage',
       ),
     ),
-    'application/x-iso9660-image' => 
-    array (
-      'e' => 
-      array (
-        0 => 'iso',
-      ),
-    ),
     'application/x-it87' => 
     array (
       'desc' => 
@@ -6073,8 +6015,9 @@ class DefaultMap extends AbstractMap
       array (
         0 => 'application/java',
         1 => 'application/java-byte-code',
-        2 => 'application/x-java-class',
-        3 => 'application/x-java-vm',
+        2 => 'application/java-vm',
+        3 => 'application/x-java-class',
+        4 => 'application/x-java-vm',
       ),
       'desc' => 
       array (
@@ -6090,6 +6033,7 @@ class DefaultMap extends AbstractMap
       'a' => 
       array (
         0 => 'application/x-jar',
+        1 => 'application/java-archive',
       ),
       'desc' => 
       array (
@@ -6351,6 +6295,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-lha' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-lzh-compressed',
+      ),
       'desc' => 
       array (
         0 => 'LHA archive',
@@ -6430,14 +6378,6 @@ class DefaultMap extends AbstractMap
       'e' => 
       array (
         0 => 'tar.lz4',
-      ),
-    ),
-    'application/x-lzh-compressed' => 
-    array (
-      'e' => 
-      array (
-        0 => 'lzh',
-        1 => 'lha',
       ),
     ),
     'application/x-lzip' => 
@@ -6644,13 +6584,6 @@ class DefaultMap extends AbstractMap
         0 => 'xbap',
       ),
     ),
-    'application/x-msaccess' => 
-    array (
-      'e' => 
-      array (
-        0 => 'mdb',
-      ),
-    ),
     'application/x-msbinder' => 
     array (
       'e' => 
@@ -6701,16 +6634,6 @@ class DefaultMap extends AbstractMap
         0 => 'mvb',
         1 => 'm13',
         2 => 'm14',
-      ),
-    ),
-    'application/x-msmetafile' => 
-    array (
-      'e' => 
-      array (
-        0 => 'wmf',
-        1 => 'wmz',
-        2 => 'emf',
-        3 => 'emz',
       ),
     ),
     'application/x-msmoney' => 
@@ -6998,14 +6921,6 @@ class DefaultMap extends AbstractMap
         4 => 'phps',
       ),
     ),
-    'application/x-pkcs12' => 
-    array (
-      'e' => 
-      array (
-        0 => 'p12',
-        1 => 'pfx',
-      ),
-    ),
     'application/x-pkcs7-certificates' => 
     array (
       'desc' => 
@@ -7131,13 +7046,6 @@ class DefaultMap extends AbstractMap
       'e' => 
       array (
         0 => 'qif',
-      ),
-    ),
-    'application/x-rar-compressed' => 
-    array (
-      'e' => 
-      array (
-        0 => 'rar',
       ),
     ),
     'application/x-raw-disk-image' => 
@@ -7316,13 +7224,6 @@ class DefaultMap extends AbstractMap
         0 => 'sh',
       ),
     ),
-    'application/x-shockwave-flash' => 
-    array (
-      'e' => 
-      array (
-        0 => 'swf',
-      ),
-    ),
     'application/x-shorten' => 
     array (
       'a' => 
@@ -7358,6 +7259,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-smaf' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/vnd.smaf',
+      ),
       'desc' => 
       array (
         0 => 'SMAF audio',
@@ -7524,6 +7429,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-tar' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-gtar',
+      ),
       'desc' => 
       array (
         0 => 'Tar archive',
@@ -7552,13 +7461,6 @@ class DefaultMap extends AbstractMap
       'e' => 
       array (
         0 => 'tcl',
-      ),
-    ),
-    'application/x-tex' => 
-    array (
-      'e' => 
-      array (
-        0 => 'tex',
       ),
     ),
     'application/x-tex-gf' => 
@@ -8177,6 +8079,10 @@ class DefaultMap extends AbstractMap
     ),
     'audio/aac' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/x-aac',
+      ),
       'desc' => 
       array (
         0 => 'AAC audio',
@@ -8268,6 +8174,10 @@ class DefaultMap extends AbstractMap
     ),
     'audio/flac' => 
     array (
+      'a' => 
+      array (
+        0 => 'audio/x-flac',
+      ),
       'desc' => 
       array (
         0 => 'FLAC audio',
@@ -8506,7 +8416,8 @@ class DefaultMap extends AbstractMap
     array (
       'a' => 
       array (
-        0 => 'audio/vnd.m-realaudio',
+        0 => 'audio/x-pn-realaudio',
+        1 => 'audio/vnd.m-realaudio',
       ),
       'desc' => 
       array (
@@ -8523,13 +8434,6 @@ class DefaultMap extends AbstractMap
       'e' => 
       array (
         0 => 'weba',
-      ),
-    ),
-    'audio/x-aac' => 
-    array (
-      'e' => 
-      array (
-        0 => 'aac',
       ),
     ),
     'audio/x-aifc' => 
@@ -8590,13 +8494,6 @@ class DefaultMap extends AbstractMap
       'e' => 
       array (
         0 => 'caf',
-      ),
-    ),
-    'audio/x-flac' => 
-    array (
-      'e' => 
-      array (
-        0 => 'flac',
       ),
     ),
     'audio/x-flac+ogg' => 
@@ -8748,8 +8645,10 @@ class DefaultMap extends AbstractMap
     array (
       'a' => 
       array (
-        0 => 'video/x-ms-wax',
-        1 => 'application/x-ms-asx',
+        0 => 'video/x-ms-wvx',
+        1 => 'video/x-ms-wax',
+        2 => 'video/x-ms-wmx',
+        3 => 'application/x-ms-asx',
       ),
       'desc' => 
       array (
@@ -8824,14 +8723,6 @@ class DefaultMap extends AbstractMap
       array (
         0 => 'aa',
         1 => 'aax',
-      ),
-    ),
-    'audio/x-pn-realaudio' => 
-    array (
-      'e' => 
-      array (
-        0 => 'ram',
-        1 => 'ra',
       ),
     ),
     'audio/x-pn-realaudio-plugin' => 
@@ -9573,7 +9464,8 @@ class DefaultMap extends AbstractMap
         1 => 'image/ico',
         2 => 'image/icon',
         3 => 'image/x-ico',
-        4 => 'text/ico',
+        4 => 'image/x-icon',
+        5 => 'text/ico',
       ),
       'desc' => 
       array (
@@ -9642,6 +9534,10 @@ class DefaultMap extends AbstractMap
     ),
     'image/vnd.zbrush.pcx' => 
     array (
+      'a' => 
+      array (
+        0 => 'image/x-pcx',
+      ),
       'desc' => 
       array (
         0 => 'PCX image',
@@ -9671,6 +9567,7 @@ class DefaultMap extends AbstractMap
         1 => 'image/x-win-metafile',
         2 => 'application/x-wmf',
         3 => 'application/wmf',
+        4 => 'application/x-msmetafile',
       ),
       'desc' => 
       array (
@@ -9680,6 +9577,7 @@ class DefaultMap extends AbstractMap
       'e' => 
       array (
         0 => 'wmf',
+        1 => 'emz',
       ),
     ),
     'image/x-3ds' => 
@@ -9899,13 +9797,6 @@ class DefaultMap extends AbstractMap
         0 => 'icns',
       ),
     ),
-    'image/x-icon' => 
-    array (
-      'e' => 
-      array (
-        0 => 'ico',
-      ),
-    ),
     'image/x-ilbm' => 
     array (
       'a' => 
@@ -10101,13 +9992,6 @@ class DefaultMap extends AbstractMap
       'e' => 
       array (
         0 => 'rw2',
-      ),
-    ),
-    'image/x-pcx' => 
-    array (
-      'e' => 
-      array (
-        0 => 'pcx',
       ),
     ),
     'image/x-pentax-pef' => 
@@ -10540,7 +10424,8 @@ class DefaultMap extends AbstractMap
     array (
       'a' => 
       array (
-        0 => 'application/ics',
+        0 => 'text/x-vcalendar',
+        1 => 'application/ics',
       ),
       'desc' => 
       array (
@@ -10762,6 +10647,7 @@ class DefaultMap extends AbstractMap
       'a' => 
       array (
         0 => 'text/directory',
+        1 => 'text/x-vcard',
       ),
       'desc' => 
       array (
@@ -10955,19 +10841,6 @@ class DefaultMap extends AbstractMap
         0 => 'bib',
       ),
     ),
-    'text/x-c' => 
-    array (
-      'e' => 
-      array (
-        0 => 'c',
-        1 => 'cc',
-        2 => 'cxx',
-        3 => 'cpp',
-        4 => 'h',
-        5 => 'hh',
-        6 => 'dic',
-      ),
-    ),
     'text/x-c++hdr' => 
     array (
       'desc' => 
@@ -11046,6 +10919,10 @@ class DefaultMap extends AbstractMap
     ),
     'text/x-csrc' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/x-c',
+      ),
       'desc' => 
       array (
         0 => 'C source code',
@@ -11053,6 +10930,7 @@ class DefaultMap extends AbstractMap
       'e' => 
       array (
         0 => 'c',
+        1 => 'dic',
       ),
     ),
     'text/x-dbus-service' => 
@@ -11546,15 +11424,12 @@ class DefaultMap extends AbstractMap
         0 => 'cl',
       ),
     ),
-    'text/x-opml' => 
-    array (
-      'e' => 
-      array (
-        0 => 'opml',
-      ),
-    ),
     'text/x-opml+xml' => 
     array (
+      'a' => 
+      array (
+        0 => 'text/x-opml',
+      ),
       'desc' => 
       array (
         0 => 'OPML syndication feed',
@@ -11802,6 +11677,10 @@ class DefaultMap extends AbstractMap
     ),
     'text/x-tex' => 
     array (
+      'a' => 
+      array (
+        0 => 'application/x-tex',
+      ),
       'desc' => 
       array (
         0 => 'TeX document',
@@ -11921,20 +11800,6 @@ class DefaultMap extends AbstractMap
       array (
         0 => 'vala',
         1 => 'vapi',
-      ),
-    ),
-    'text/x-vcalendar' => 
-    array (
-      'e' => 
-      array (
-        0 => 'vcs',
-      ),
-    ),
-    'text/x-vcard' => 
-    array (
-      'e' => 
-      array (
-        0 => 'vcf',
       ),
     ),
     'text/x-verilog' => 
@@ -12142,6 +12007,7 @@ class DefaultMap extends AbstractMap
       'a' => 
       array (
         0 => 'video/mp4v-es',
+        1 => 'video/x-m4v',
       ),
       'desc' => 
       array (
@@ -12359,18 +12225,12 @@ class DefaultMap extends AbstractMap
         0 => 'f4v',
       ),
     ),
-    'video/x-fli' => 
-    array (
-      'e' => 
-      array (
-        0 => 'fli',
-      ),
-    ),
     'video/x-flic' => 
     array (
       'a' => 
       array (
         0 => 'video/fli',
+        1 => 'video/x-fli',
       ),
       'desc' => 
       array (
@@ -12408,13 +12268,6 @@ class DefaultMap extends AbstractMap
       'e' => 
       array (
         0 => 'fxm',
-      ),
-    ),
-    'video/x-m4v' => 
-    array (
-      'e' => 
-      array (
-        0 => 'm4v',
       ),
     ),
     'video/x-matroska' => 
@@ -12466,26 +12319,11 @@ class DefaultMap extends AbstractMap
         0 => 'mng',
       ),
     ),
-    'video/x-ms-asf' => 
-    array (
-      'e' => 
-      array (
-        0 => 'asf',
-        1 => 'asx',
-      ),
-    ),
     'video/x-ms-vob' => 
     array (
       'e' => 
       array (
         0 => 'vob',
-      ),
-    ),
-    'video/x-ms-wm' => 
-    array (
-      'e' => 
-      array (
-        0 => 'wm',
       ),
     ),
     'video/x-ms-wmv' => 
@@ -12497,20 +12335,6 @@ class DefaultMap extends AbstractMap
       'e' => 
       array (
         0 => 'wmv',
-      ),
-    ),
-    'video/x-ms-wmx' => 
-    array (
-      'e' => 
-      array (
-        0 => 'wmx',
-      ),
-    ),
-    'video/x-ms-wvx' => 
-    array (
-      'e' => 
-      array (
-        0 => 'wvx',
       ),
     ),
     'video/x-msvideo' => 
@@ -12725,8 +12549,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'audio/x-aac',
-        1 => 'audio/aac',
+        0 => 'audio/aac',
       ),
     ),
     'aam' => 
@@ -13091,8 +12914,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'video/x-ms-asf',
-        1 => 'application/vnd.ms-asf',
+        0 => 'application/vnd.ms-asf',
       ),
     ),
     'asm' => 
@@ -13128,8 +12950,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'video/x-ms-asf',
-        1 => 'audio/x-ms-asx',
+        0 => 'audio/x-ms-asx',
       ),
     ),
     'atc' => 
@@ -13381,13 +13202,6 @@ class DefaultMap extends AbstractMap
         0 => 'application/vnd.previewsystems.box',
       ),
     ),
-    'boz' => 
-    array (
-      't' => 
-      array (
-        0 => 'application/x-bzip2',
-      ),
-    ),
     'bpk' => 
     array (
       't' => 
@@ -13420,17 +13234,15 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/x-bzip2',
-        1 => 'application/x-bzip',
+        0 => 'application/x-bzip',
       ),
     ),
     'c' => 
     array (
       't' => 
       array (
-        0 => 'text/x-c',
-        1 => 'text/x-c++src',
-        2 => 'text/x-csrc',
+        0 => 'text/x-c++src',
+        1 => 'text/x-csrc',
       ),
     ),
     'c++' => 
@@ -13528,15 +13340,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/x-cbr',
-        1 => 'application/x-cb7',
-      ),
-    ),
-    'cba' => 
-    array (
-      't' => 
-      array (
-        0 => 'application/x-cbr',
+        0 => 'application/x-cb7',
       ),
     ),
     'cbl' => 
@@ -13550,32 +13354,28 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/x-cbr',
-        1 => 'application/vnd.comicbook-rar',
+        0 => 'application/vnd.comicbook-rar',
       ),
     ),
     'cbt' => 
     array (
       't' => 
       array (
-        0 => 'application/x-cbr',
-        1 => 'application/x-cbt',
+        0 => 'application/x-cbt',
       ),
     ),
     'cbz' => 
     array (
       't' => 
       array (
-        0 => 'application/x-cbr',
-        1 => 'application/vnd.comicbook+zip',
+        0 => 'application/vnd.comicbook+zip',
       ),
     ),
     'cc' => 
     array (
       't' => 
       array (
-        0 => 'text/x-c',
-        1 => 'text/x-c++src',
+        0 => 'text/x-c++src',
       ),
     ),
     'ccmx' => 
@@ -13779,8 +13579,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/java-vm',
-        1 => 'application/x-java',
+        0 => 'application/x-java',
       ),
     ),
     'clkk' => 
@@ -13941,8 +13740,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'text/x-c',
-        1 => 'text/x-c++src',
+        0 => 'text/x-c++src',
       ),
     ),
     'cpt' => 
@@ -14103,8 +13901,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'text/x-c',
-        1 => 'text/x-c++src',
+        0 => 'text/x-c++src',
       ),
     ),
     'd' => 
@@ -14167,8 +13964,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/docbook+xml',
-        1 => 'application/x-docbook+xml',
+        0 => 'application/x-docbook+xml',
       ),
     ),
     'dc' => 
@@ -14232,8 +14028,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/x-debian-package',
-        1 => 'application/vnd.debian.binary-package',
+        0 => 'application/vnd.debian.binary-package',
       ),
     ),
     'def' => 
@@ -14304,13 +14099,6 @@ class DefaultMap extends AbstractMap
       't' => 
       array (
         0 => 'image/bmp',
-      ),
-    ),
-    'dic' => 
-    array (
-      't' => 
-      array (
-        0 => 'text/x-c',
       ),
     ),
     'diff' => 
@@ -14713,8 +14501,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/x-msmetafile',
-        1 => 'image/emf',
+        0 => 'image/emf',
       ),
     ),
     'eml' => 
@@ -14736,13 +14523,6 @@ class DefaultMap extends AbstractMap
       't' => 
       array (
         0 => 'application/vnd.emusic-emusic_package',
-      ),
-    ),
-    'emz' => 
-    array (
-      't' => 
-      array (
-        0 => 'application/x-msmetafile',
       ),
     ),
     'ent' => 
@@ -15152,8 +14932,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'audio/x-flac',
-        1 => 'audio/flac',
+        0 => 'audio/flac',
       ),
     ),
     'flatpak' => 
@@ -15188,8 +14967,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'video/x-fli',
-        1 => 'video/x-flic',
+        0 => 'video/x-flic',
       ),
     ),
     'flo' => 
@@ -15755,8 +15533,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/x-gtar',
-        1 => 'application/x-tar',
+        0 => 'application/x-tar',
       ),
     ),
     'gtm' => 
@@ -15812,8 +15589,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'text/x-c',
-        1 => 'text/x-chdr',
+        0 => 'text/x-chdr',
       ),
     ),
     'h++' => 
@@ -15918,8 +15694,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'text/x-c',
-        1 => 'text/x-c++hdr',
+        0 => 'text/x-c++hdr',
       ),
     ),
     'hlp' => 
@@ -16094,8 +15869,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'image/x-icon',
-        1 => 'image/vnd.microsoft.icon',
+        0 => 'image/vnd.microsoft.icon',
       ),
     ),
     'ics' => 
@@ -16319,12 +16093,11 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/x-iso9660-image',
-        1 => 'application/x-cd-image',
-        2 => 'application/x-sega-cd-rom',
-        3 => 'application/x-saturn-rom',
-        4 => 'application/x-wii-rom',
-        5 => 'application/x-gamecube-rom',
+        0 => 'application/x-cd-image',
+        1 => 'application/x-sega-cd-rom',
+        2 => 'application/x-saturn-rom',
+        3 => 'application/x-wii-rom',
+        4 => 'application/x-gamecube-rom',
       ),
     ),
     'iso9660' => 
@@ -16401,8 +16174,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/java-archive',
-        1 => 'application/x-java-archive',
+        0 => 'application/x-java-archive',
       ),
     ),
     'java' => 
@@ -16892,8 +16664,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/x-lzh-compressed',
-        1 => 'application/x-lha',
+        0 => 'application/x-lha',
       ),
     ),
     'lhs' => 
@@ -17090,8 +16861,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/x-lzh-compressed',
-        1 => 'application/x-lha',
+        0 => 'application/x-lha',
       ),
     ),
     'lzma' => 
@@ -17248,8 +17018,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'video/x-m4v',
-        1 => 'video/mp4',
+        0 => 'video/mp4',
       ),
     ),
     'm7' => 
@@ -17390,8 +17159,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/x-msaccess',
-        1 => 'application/vnd.ms-access',
+        0 => 'application/vnd.ms-access',
       ),
     ),
     'mdi' => 
@@ -17654,8 +17422,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/vnd.smaf',
-        1 => 'application/x-smaf',
+        0 => 'application/x-smaf',
       ),
     ),
     'mml' => 
@@ -18568,8 +18335,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'text/x-opml',
-        1 => 'text/x-opml+xml',
+        0 => 'text/x-opml+xml',
       ),
     ),
     'oprc' => 
@@ -18725,8 +18491,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/x-pkcs12',
-        1 => 'application/pkcs12',
+        0 => 'application/pkcs12',
       ),
     ),
     'p65' => 
@@ -18937,8 +18702,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'image/x-pcx',
-        1 => 'image/vnd.zbrush.pcx',
+        0 => 'image/vnd.zbrush.pcx',
       ),
     ),
     'pdb' => 
@@ -19044,8 +18808,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/x-pkcs12',
-        1 => 'application/pkcs12',
+        0 => 'application/pkcs12',
       ),
     ),
     'pgm' => 
@@ -19059,8 +18822,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/x-chess-pgn',
-        1 => 'application/vnd.chess-pgn',
+        0 => 'application/vnd.chess-pgn',
       ),
     ),
     'pgp' => 
@@ -19750,8 +19512,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'audio/x-pn-realaudio',
-        1 => 'audio/vnd.rn-realaudio',
+        0 => 'audio/vnd.rn-realaudio',
       ),
     ),
     'raf' => 
@@ -19765,8 +19526,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'audio/x-pn-realaudio',
-        1 => 'application/ram',
+        0 => 'application/ram',
       ),
     ),
     'raml' => 
@@ -19780,8 +19540,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/x-rar-compressed',
-        1 => 'application/vnd.rar',
+        0 => 'application/vnd.rar',
       ),
     ),
     'ras' => 
@@ -19985,8 +19744,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/vnd.rn-realmedia-vbr',
-        1 => 'application/vnd.rn-realmedia',
+        0 => 'application/vnd.rn-realmedia',
       ),
     ),
     'rmx' => 
@@ -20440,8 +20198,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/vnd.stardivision.writer-global',
-        1 => 'application/vnd.stardivision.writer',
+        0 => 'application/vnd.stardivision.writer',
       ),
     ),
     'sgm' => 
@@ -21149,8 +20906,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/x-shockwave-flash',
-        1 => 'application/vnd.adobe.flash.movie',
+        0 => 'application/vnd.adobe.flash.movie',
       ),
     ),
     'swi' => 
@@ -21404,8 +21160,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/x-tex',
-        1 => 'text/x-tex',
+        0 => 'text/x-tex',
       ),
     ),
     'texi' => 
@@ -21730,8 +21485,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/x-debian-package',
-        1 => 'application/vnd.debian.binary-package',
+        0 => 'application/vnd.debian.binary-package',
       ),
     ),
     'ufd' => 
@@ -22131,8 +21885,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'text/x-vcard',
-        1 => 'text/vcard',
+        0 => 'text/vcard',
       ),
     ),
     'vcg' => 
@@ -22146,8 +21899,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'text/x-vcalendar',
-        1 => 'text/calendar',
+        0 => 'text/calendar',
       ),
     ),
     'vct' => 
@@ -22527,13 +22279,6 @@ class DefaultMap extends AbstractMap
         1 => 'application/vnd.lotus-1-2-3',
       ),
     ),
-    'wm' => 
-    array (
-      't' => 
-      array (
-        0 => 'video/x-ms-wm',
-      ),
-    ),
     'wma' => 
     array (
       't' => 
@@ -22552,8 +22297,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/x-msmetafile',
-        1 => 'image/wmf',
+        0 => 'image/wmf',
       ),
     ),
     'wml' => 
@@ -22595,16 +22339,14 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'video/x-ms-wmx',
-        1 => 'audio/x-ms-asx',
+        0 => 'audio/x-ms-asx',
       ),
     ),
     'wmz' => 
     array (
       't' => 
       array (
-        0 => 'application/x-msmetafile',
-        1 => 'application/x-ms-wmz',
+        0 => 'application/x-ms-wmz',
       ),
     ),
     'woff' => 
@@ -22773,8 +22515,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'video/x-ms-wvx',
-        1 => 'audio/x-ms-asx',
+        0 => 'audio/x-ms-asx',
       ),
     ),
     'wwf' => 
@@ -23232,8 +22973,7 @@ class DefaultMap extends AbstractMap
     array (
       't' => 
       array (
-        0 => 'application/vnd.ms-xpsdocument',
-        1 => 'application/oxps',
+        0 => 'application/oxps',
       ),
     ),
     'xpw' => 
@@ -23524,6 +23264,41 @@ class DefaultMap extends AbstractMap
         0 => 'audio/x-mod',
       ),
     ),
+    'boz' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-bzip',
+      ),
+    ),
+    'cba' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.comicbook-rar',
+      ),
+    ),
+    'dic' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/x-csrc',
+      ),
+    ),
+    'emz' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/wmf',
+      ),
+    ),
+    'wm' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.ms-asf',
+      ),
+    ),
   ),
   'a' => 
   array (
@@ -23560,6 +23335,13 @@ class DefaultMap extends AbstractMap
       't' => 
       array (
         0 => 'application/x-dbf',
+      ),
+    ),
+    'application/docbook+xml' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-docbook+xml',
       ),
     ),
     'application/emf' => 
@@ -23611,7 +23393,21 @@ class DefaultMap extends AbstractMap
         0 => 'application/x-java',
       ),
     ),
+    'application/java-archive' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-java-archive',
+      ),
+    ),
     'application/java-byte-code' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-java',
+      ),
+    ),
+    'application/java-vm' => 
     array (
       't' => 
       array (
@@ -23765,6 +23561,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/msword',
       ),
     ),
+    'application/vnd.ms-xpsdocument' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/oxps',
+      ),
+    ),
     'application/vnd.msaccess' => 
     array (
       't' => 
@@ -23779,11 +23582,32 @@ class DefaultMap extends AbstractMap
         0 => 'application/x-docbook+xml',
       ),
     ),
+    'application/vnd.rn-realmedia-vbr' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.rn-realmedia',
+      ),
+    ),
     'application/vnd.sdp' => 
     array (
       't' => 
       array (
         0 => 'application/sdp',
+      ),
+    ),
+    'application/vnd.smaf' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-smaf',
+      ),
+    ),
+    'application/vnd.stardivision.writer-global' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.stardivision.writer',
       ),
     ),
     'application/vnd.sun.xml.base' => 
@@ -23842,6 +23666,20 @@ class DefaultMap extends AbstractMap
         0 => 'application/annodex',
       ),
     ),
+    'application/x-bzip2' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-bzip',
+      ),
+    ),
+    'application/x-cbr' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.comicbook-rar',
+      ),
+    ),
     'application/x-cbz' => 
     array (
       't' => 
@@ -23854,6 +23692,13 @@ class DefaultMap extends AbstractMap
       't' => 
       array (
         0 => 'application/vnd.corel-draw',
+      ),
+    ),
+    'application/x-chess-pgn' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.chess-pgn',
       ),
     ),
     'application/x-chm' => 
@@ -23878,6 +23723,13 @@ class DefaultMap extends AbstractMap
       ),
     ),
     'application/x-deb' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.debian.binary-package',
+      ),
+    ),
+    'application/x-debian-package' => 
     array (
       't' => 
       array (
@@ -23968,6 +23820,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/gpx+xml',
       ),
     ),
+    'application/x-gtar' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-tar',
+      ),
+    ),
     'application/x-gzip' => 
     array (
       't' => 
@@ -23980,6 +23839,13 @@ class DefaultMap extends AbstractMap
       't' => 
       array (
         0 => 'application/x-hfe-floppy-image',
+      ),
+    ),
+    'application/x-iso9660-image' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-cd-image',
       ),
     ),
     'application/x-jar' => 
@@ -24031,6 +23897,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/vnd.lotus-1-2-3',
       ),
     ),
+    'application/x-lzh-compressed' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-lha',
+      ),
+    ),
     'application/x-mathematica' => 
     array (
       't' => 
@@ -24052,11 +23925,25 @@ class DefaultMap extends AbstractMap
         0 => 'audio/x-ms-asx',
       ),
     ),
+    'application/x-msaccess' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.ms-access',
+      ),
+    ),
     'application/x-msexcel' => 
     array (
       't' => 
       array (
         0 => 'application/vnd.ms-excel',
+      ),
+    ),
+    'application/x-msmetafile' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/wmf',
       ),
     ),
     'application/x-mspowerpoint' => 
@@ -24108,6 +23995,13 @@ class DefaultMap extends AbstractMap
         0 => 'image/vnd.adobe.photoshop',
       ),
     ),
+    'application/x-pkcs12' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/pkcs12',
+      ),
+    ),
     'application/x-quicktimeplayer' => 
     array (
       't' => 
@@ -24116,6 +24010,13 @@ class DefaultMap extends AbstractMap
       ),
     ),
     'application/x-rar' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.rar',
+      ),
+    ),
+    'application/x-rar-compressed' => 
     array (
       't' => 
       array (
@@ -24157,6 +24058,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/sdp',
       ),
     ),
+    'application/x-shockwave-flash' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.adobe.flash.movie',
+      ),
+    ),
     'application/x-sit' => 
     array (
       't' => 
@@ -24190,6 +24098,13 @@ class DefaultMap extends AbstractMap
       't' => 
       array (
         0 => 'application/x-subrip',
+      ),
+    ),
+    'application/x-tex' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/x-tex',
       ),
     ),
     'application/x-trig' => 
@@ -24423,6 +24338,13 @@ class DefaultMap extends AbstractMap
         0 => 'audio/x-ms-wma',
       ),
     ),
+    'audio/x-aac' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/aac',
+      ),
+    ),
     'audio/x-aiffc' => 
     array (
       't' => 
@@ -24449,6 +24371,13 @@ class DefaultMap extends AbstractMap
       't' => 
       array (
         0 => 'audio/vnd.dts.hd',
+      ),
+    ),
+    'audio/x-flac' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/flac',
       ),
     ),
     'audio/x-imelody' => 
@@ -24526,6 +24455,13 @@ class DefaultMap extends AbstractMap
       't' => 
       array (
         0 => 'audio/x-flac+ogg',
+      ),
+    ),
+    'audio/x-pn-realaudio' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/vnd.rn-realaudio',
       ),
     ),
     'audio/x-rn-3gpp-amr' => 
@@ -24717,6 +24653,13 @@ class DefaultMap extends AbstractMap
         0 => 'image/vnd.microsoft.icon',
       ),
     ),
+    'image/x-icon' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/vnd.microsoft.icon',
+      ),
+    ),
     'image/x-iff' => 
     array (
       't' => 
@@ -24750,6 +24693,13 @@ class DefaultMap extends AbstractMap
       't' => 
       array (
         0 => 'image/x-panasonic-rw2',
+      ),
+    ),
+    'image/x-pcx' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/vnd.zbrush.pcx',
       ),
     ),
     'image/x-photoshop' => 
@@ -24885,6 +24835,13 @@ class DefaultMap extends AbstractMap
         0 => 'text/vnd.qt.linguist',
       ),
     ),
+    'text/x-c' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/x-csrc',
+      ),
+    ),
     'text/x-comma-separated-values' => 
     array (
       't' => 
@@ -24934,6 +24891,13 @@ class DefaultMap extends AbstractMap
         0 => 'text/x-matlab',
       ),
     ),
+    'text/x-opml' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/x-opml+xml',
+      ),
+    ),
     'text/x-perl' => 
     array (
       't' => 
@@ -24974,6 +24938,20 @@ class DefaultMap extends AbstractMap
       't' => 
       array (
         0 => 'text/troff',
+      ),
+    ),
+    'text/x-vcalendar' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/calendar',
+      ),
+    ),
+    'text/x-vcard' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/vcard',
       ),
     ),
     'text/x-yaml' => 
@@ -25095,6 +25073,20 @@ class DefaultMap extends AbstractMap
         0 => 'video/x-msvideo',
       ),
     ),
+    'video/x-fli' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/x-flic',
+      ),
+    ),
+    'video/x-m4v' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/mp4',
+      ),
+    ),
     'video/x-mpeg' => 
     array (
       't' => 
@@ -25123,6 +25115,13 @@ class DefaultMap extends AbstractMap
         0 => 'video/vnd.mpegurl',
       ),
     ),
+    'video/x-ms-asf' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.ms-asf',
+      ),
+    ),
     'video/x-ms-asf-plugin' => 
     array (
       't' => 
@@ -25131,6 +25130,27 @@ class DefaultMap extends AbstractMap
       ),
     ),
     'video/x-ms-wax' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/x-ms-asx',
+      ),
+    ),
+    'video/x-ms-wm' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.ms-asf',
+      ),
+    ),
+    'video/x-ms-wmx' => 
+    array (
+      't' => 
+      array (
+        0 => 'audio/x-ms-asx',
+      ),
+    ),
+    'video/x-ms-wvx' => 
     array (
       't' => 
       array (

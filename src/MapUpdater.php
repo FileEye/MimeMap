@@ -155,7 +155,11 @@ class MapUpdater
     {
         $errors = [];
         foreach ($overrides as $command) {
-            call_user_func_array([$this->map, $command[0]], $command[1]);
+            try {
+                call_user_func_array([$this->map, $command[0]], $command[1]);
+            } catch (MappingException $e) {
+                $errors[] = $e->getMessage();
+            }
         }
         return $errors;
     }

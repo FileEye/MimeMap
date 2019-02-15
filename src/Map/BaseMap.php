@@ -193,10 +193,10 @@ abstract class BaseMap
             return false;
         }
 
-        // Remove the map entry.
+        // Remove the map sub entry key.
         unset(static::$map[$entry][$entry_key][$sub_entry][$k]);
 
-        // Remove the entry itself if no more values.
+        // Remove the sub entry if no more values.
         if (empty(static::$map[$entry][$entry_key][$sub_entry])) {
             unset(static::$map[$entry][$entry_key][$sub_entry]);
         } else {
@@ -206,6 +206,11 @@ abstract class BaseMap
                 $tmp[] = $v;
             }
             static::$map[$entry][$entry_key][$sub_entry] = $tmp;
+        }
+
+        // Remove the entry if no more values.
+        if (empty(static::$map[$entry][$entry_key])) {
+            unset(static::$map[$entry][$entry_key]);
         }
 
         return true;
