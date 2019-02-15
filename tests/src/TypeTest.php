@@ -587,7 +587,7 @@ class TypeTest extends TestCase
 
     public function testGetAliases()
     {
-        $this->assertSame(['image/x-wmf', 'image/x-win-metafile', 'application/x-wmf', 'application/wmf'], (new Type('image/wmf'))->getAliases());
+        $this->assertSame(['image/x-wmf', 'image/x-win-metafile', 'application/x-wmf', 'application/wmf', 'application/x-msmetafile'], (new Type('image/wmf'))->getAliases());
         $this->assertSame([], (new Type('foo/bar'))->getAliases(false));
         $this->assertSame([], (new Type('image/x-wmf'))->getAliases(false));
     }
@@ -613,8 +613,8 @@ class TypeTest extends TestCase
     public function testGetExtensions()
     {
         $this->assertEquals(['atom'], (new Type('application/atom+xml'))->getExtensions());
-        $this->assertEquals(['jar', 'ser', 'class', 'js', 'jsm', 'mjs'], (new Type('application/java*'))->getExtensions());
-        $this->assertEquals(['jar', 'ser', 'class'], (new Type('application/java-*'))->getExtensions());
+        $this->assertEquals(['ser', 'js', 'jsm', 'mjs'], (new Type('application/java*'))->getExtensions());
+        $this->assertEquals(['ser'], (new Type('application/java-*'))->getExtensions());
         $this->assertEquals([], (new Type('application/a000'))->getExtensions(false));
         $this->assertEquals([], (new Type('application/a000-*'))->getExtensions(false));
 
