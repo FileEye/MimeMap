@@ -65,6 +65,16 @@
     - 'Updating with information from freedesktop.org'
     - loadMapFromFreedesktopFile
     - [https://raw.github.com/minad/mimemagic/master/script/freedesktop.org.xml]
+-
+    - 'Adding back selected svn.apache.org mappings'
+    - applyOverrides
+    -
+        -
+            - [addTypeExtensionMapping, [application/x-bzip, boz]]
+            - [addTypeExtensionMapping, [application/vnd.comicbook-rar, cba]]
+            - [addTypeExtensionMapping, [text/x-csrc, dic]]
+            - [addTypeExtensionMapping, [image/wmf, emz]]
+            - [addTypeExtensionMapping, [application/vnd.ms-asf, wm]]
 
 # MimeMap overrides.
 -
@@ -73,4 +83,3 @@
     -
         -
             - [setExtensionDefaultType, [sub, text/vnd.dvb.subtitle]]
-            - [setExtensionDefaultType, [wmz, application/x-msmetafile]]
