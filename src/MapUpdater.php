@@ -67,7 +67,7 @@ class MapUpdater
                 $this->map->addTypeExtensionMapping($type, $extension);
             }
         }
-        $this->map->sort();
+
         return $errors;
     }
 
@@ -138,7 +138,6 @@ class MapUpdater
             }
         }
 
-        $this->map->sort();
         return $errors;
     }
 
@@ -154,6 +153,7 @@ class MapUpdater
     public function applyOverrides(array $overrides)
     {
         $errors = [];
+
         foreach ($overrides as $command) {
             try {
                 call_user_func_array([$this->map, $command[0]], $command[1]);
@@ -161,6 +161,7 @@ class MapUpdater
                 $errors[] = $e->getMessage();
             }
         }
+
         return $errors;
     }
 
