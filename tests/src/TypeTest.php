@@ -578,8 +578,8 @@ class TypeTest extends MimeMapTestBase
         $mt = new Type('image/png; foo=bar;baz=val(this is a comment)');
         $mt->removeParameter('foo');
         $res = $mt->toString(Type::FULL_TEXT_WITH_COMMENTS);
-        $this->assertNotContains('foo=', $res);
-        $this->assertNotContains('bar', $res);
+        $this->assertStringNotContainsString('foo=', $res);
+        $this->assertStringNotContainsString('bar', $res);
         $this->assertStringContainsString('baz=', $res);
         $this->assertSame('image/png; baz="val" (this is a comment)', $res);
     }

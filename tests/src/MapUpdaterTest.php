@@ -118,7 +118,7 @@ class MapUpdaterTest extends MimeMapTestBase
         $map_a = MapHandler::map();
         $this->assertStringContainsString('src/Map/MiniMap.php', $map_a->getFileName());
         $content = file_get_contents($map_a->getFileName());
-        $this->assertNotContains('text/plain', $content);
+        $this->assertStringNotContainsString('text/plain', $content);
         $this->updater->loadMapFromApacheFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
         $this->updater->applyOverrides([['addTypeExtensionMapping', ['bing/bong', 'binbon']]]);
         $this->updater->writeMapToPhpClassFile($map_a->getFileName());

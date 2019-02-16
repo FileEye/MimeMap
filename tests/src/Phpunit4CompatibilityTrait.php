@@ -23,7 +23,7 @@ trait Phpunit4CompatibilityTrait
 
     public function expectException($exception)
     {
-        if (method_exists(parent, 'expectException')) {
+        if (method_exists(get_parent_class($this), 'expectException')) {
             parent::expectException($exception);
         } else {
             parent::setExpectedException($exception);
@@ -37,6 +37,6 @@ trait Phpunit4CompatibilityTrait
 
     public function assertStringNotContainsString($needle, $haystack, $message = '')
     {
-        parent::assertNotContains($needle, $haystack, $message);
+        parent::assertStringNotContainsString($needle, $haystack, $message);
     }
 }
