@@ -591,21 +591,15 @@ class TypeTest extends MimeMapTestBase
         $this->assertSame([], (new Type('image/x-wmf'))->getAliases(false));
     }
 
-    /**
-     * @expectedException \FileEye\MimeMap\MappingException
-     * @expectedExceptionMessage Cannot get aliases for 'image/x-wmf', it is an alias itself
-     */
     public function testGetAliasesOnAliasStrict()
     {
+        $this->bcSetExpectedException('FileEye\MimeMap\MappingException', "Cannot get aliases for 'image/x-wmf', it is an alias itself");
         $this->assertSame([], (new Type('image/x-wmf'))->getAliases());
     }
 
-    /**
-     * @expectedException \FileEye\MimeMap\MappingException
-     * @expectedExceptionMessage No MIME type found for foo/bar in map
-     */
     public function testGetAliasesOnMissingTypeStrict()
     {
+        $this->bcSetExpectedException('FileEye\MimeMap\MappingException', "No MIME type found for foo/bar in map");
         $this->assertSame([], (new Type('foo/bar'))->getAliases());
     }
 
