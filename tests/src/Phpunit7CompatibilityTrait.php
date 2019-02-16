@@ -2,7 +2,7 @@
 
 namespace FileEye\MimeMap\Test;
 
-// PHPUnit compatibility trait for PHPUnit 4.
+// PHPUnit compatibility trait for PHPUnit 7.
 trait Phpunit7CompatibilityTrait
 {
     public function setUp()
