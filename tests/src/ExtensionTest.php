@@ -14,11 +14,9 @@ class ExtensionTest extends MimeMapTestBase
         $this->assertSame('application/vnd.oasis.opendocument.text', (new Extension('odt'))->getDefaultType());
     }
 
-    /**
-     * @expectedException \FileEye\MimeMap\MappingException
-     */
     public function testGetStrictDefaultTypeUnknownExtension()
     {
+        $this->expectException('FileEye\MimeMap\MappingException');
         $this->assertSame('application/octet-stream', (new Extension('ohmygodthatisnoextension'))->getDefaultType());
     }
 
@@ -33,11 +31,9 @@ class ExtensionTest extends MimeMapTestBase
         $this->assertSame(['text/vnd.dvb.subtitle', 'image/vnd.dvb.subtitle', 'text/x-microdvd', 'text/x-mpsub', 'text/x-subviewer'], (new Extension('sUb'))->getTypes());
     }
 
-    /**
-     * @expectedException \FileEye\MimeMap\MappingException
-     */
     public function testGetStrictTypesUnknownExtension()
     {
+        $this->expectException('FileEye\MimeMap\MappingException');
         $this->assertSame(['application/octet-stream'], (new Extension('ohmygodthatisnoextension'))->getTypes());
     }
 

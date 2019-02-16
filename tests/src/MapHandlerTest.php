@@ -20,7 +20,7 @@ class MapHandlerTest extends MimeMapTestBase
 
     public function testMap()
     {
-        $this->fcAssertContains('DefaultMap.php', $this->map->getFileName());
+        $this->assertStringContainsString('DefaultMap.php', $this->map->getFileName());
     }
 
     public function testSort()
@@ -155,19 +155,15 @@ class MapHandlerTest extends MimeMapTestBase
         $this->map->addTypeDescription('application/acrobat', 'description of alias');
     }
 
-    /**
-     * @expectedException \FileEye\MimeMap\MappingException
-     */
     public function testSetExtensionDefaultTypeNoExtension()
     {
+        $this->expectException('FileEye\MimeMap\MappingException');
         $this->map->setExtensionDefaultType('zxzx', 'image/vnd.dvb.subtitle');
     }
 
-    /**
-     * @expectedException \FileEye\MimeMap\MappingException
-     */
     public function testSetExtensionDefaultTypeNoType()
     {
+        $this->expectException('FileEye\MimeMap\MappingException');
         $this->map->setExtensionDefaultType('sub', 'image/bingo');
     }
 
@@ -178,19 +174,15 @@ class MapHandlerTest extends MimeMapTestBase
         $this->assertSame(['jpg', 'jpeg', 'jpe'], (new Type('image/JPEG'))->getExtensions());
     }
 
-    /**
-     * @expectedException \FileEye\MimeMap\MappingException
-     */
     public function testSetTypeDefaultExtensionNoExtension()
     {
+        $this->expectException('FileEye\MimeMap\MappingException');
         $this->map->setTypeDefaultExtension('image/jpeg', 'zxzx');
     }
 
-    /**
-     * @expectedException \FileEye\MimeMap\MappingException
-     */
     public function testSetTypeDefaultExtensionNoType()
     {
+        $this->expectException('FileEye\MimeMap\MappingException');
         $this->map->setTypeDefaultExtension('image/bingo', 'jpg');
     }
 

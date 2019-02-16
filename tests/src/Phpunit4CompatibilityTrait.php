@@ -21,8 +21,8 @@ trait Phpunit4CompatibilityTrait
         parent::tearDown();
     }
 
-    public function fcAssertContains($needle, $haystack, $message = '', $ignoreCase = false)
+/*    public function fcAssertContains($needle, $haystack, $message = '', $ignoreCase = false)
     {
         parent::assertContains($needle, $haystack, $message, $ignoreCase);
-    }
+    }*/
 }
