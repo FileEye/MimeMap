@@ -58,7 +58,7 @@ $type->setSubTypeComment($type_desc);
 echo $type->toString(Type::FULL_TEXT_WITH_COMMENTS);
 // will print 'text/html (HTML document)'
 
-// Setting the $strict parameter of getDescription to true
+// Setting the $include_acronym parameter of getDescription to true
 // will extend the description to include the meaning of the acronym
 $type_desc = $type->getDescription(true);
 $type->setSubTypeComment($type_desc);
