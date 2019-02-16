@@ -21,8 +21,22 @@ trait Phpunit4CompatibilityTrait
         parent::tearDown();
     }
 
-/*    public function fcAssertContains($needle, $haystack, $message = '', $ignoreCase = false)
+    public function expectException($exception)
     {
-        parent::assertContains($needle, $haystack, $message, $ignoreCase);
-    }*/
+        if (method_exists(parent, 'expectException')) {
+            parent::expectException($exception);
+        } else {
+            parent::setExpectedException($exception);
+        }
+    }
+
+    public function assertStringContainsString($needle, $haystack, $message = '')
+    {
+        parent::assertContains($needle, $haystack, $message);
+    }
+
+    public function assertStringNotContainsString($needle, $haystack, $message = '')
+    {
+        parent::assertNotContains($needle, $haystack, $message);
+    }
 }
