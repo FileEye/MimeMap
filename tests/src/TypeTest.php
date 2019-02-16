@@ -469,10 +469,10 @@ class TypeTest extends MimeMapTestBase
 
     /**
      * @dataProvider parseMalformedProvider
-     * @expectedException \FileEye\MimeMap\MalformedTypeException
      */
     public function testParseMalformed($type)
     {
+        $this->expectException('FileEye\MimeMap\MalformedTypeException');
         new Type($type);
     }
 
@@ -565,11 +565,11 @@ class TypeTest extends MimeMapTestBase
         $mt = new Type('image/png; foo=bar');
         $mt->addParameter('baz', 'val', 'this is a comment');
         $res = $mt->toString(Type::FULL_TEXT_WITH_COMMENTS);
-        $this->assertContains('foo=', $res);
-        $this->assertContains('bar', $res);
-        $this->assertContains('baz=', $res);
-        $this->assertContains('val', $res);
-        $this->assertContains('(this is a comment)', $res);
+        $this->assertStringContainsString('foo=', $res);
+        $this->assertStringContainsString('bar', $res);
+        $this->assertStringContainsString('baz=', $res);
+        $this->assertStringContainsString('val', $res);
+        $this->assertStringContainsString('(this is a comment)', $res);
         $this->assertSame('image/png; foo="bar"; baz="val" (this is a comment)', $res);
     }
 
@@ -578,9 +578,9 @@ class TypeTest extends MimeMapTestBase
         $mt = new Type('image/png; foo=bar;baz=val(this is a comment)');
         $mt->removeParameter('foo');
         $res = $mt->toString(Type::FULL_TEXT_WITH_COMMENTS);
-        $this->assertNotContains('foo=', $res);
-        $this->assertNotContains('bar', $res);
-        $this->assertContains('baz=', $res);
+        $this->assertStringNotContainsString('foo=', $res);
+        $this->assertStringNotContainsString('bar', $res);
+        $this->assertStringContainsString('baz=', $res);
         $this->assertSame('image/png; baz="val" (this is a comment)', $res);
     }
 
@@ -591,21 +591,15 @@ class TypeTest extends MimeMapTestBase
         $this->assertSame([], (new Type('image/x-wmf'))->getAliases(false));
     }
 
-    /**
-     * @expectedException \FileEye\MimeMap\MappingException
-     * @expectedExceptionMessage Cannot get aliases for 'image/x-wmf', it is an alias itself
-     */
     public function testGetAliasesOnAliasStrict()
     {
+        $this->bcSetExpectedException('FileEye\MimeMap\MappingException', "Cannot get aliases for 'image/x-wmf', it is an alias itself");
         $this->assertSame([], (new Type('image/x-wmf'))->getAliases());
     }
 
-    /**
-     * @expectedException \FileEye\MimeMap\MappingException
-     * @expectedExceptionMessage No MIME type found for foo/bar in map
-     */
     public function testGetAliasesOnMissingTypeStrict()
     {
+        $this->bcSetExpectedException('FileEye\MimeMap\MappingException', "No MIME type found for foo/bar in map");
         $this->assertSame([], (new Type('foo/bar'))->getAliases());
     }
 
@@ -621,11 +615,9 @@ class TypeTest extends MimeMapTestBase
         $this->assertSame(['smi', 'smil', 'sml', 'kino'], (new Type('application/smil'))->getExtensions());
     }
 
-    /**
-     * @expectedException \FileEye\MimeMap\MappingException
-     */
     public function testGetExtensionsFail()
     {
+        $this->expectException('FileEye\MimeMap\MappingException');
         $this->assertEquals([], (new Type('application/a000'))->getExtensions());
     }
 
@@ -652,11 +644,11 @@ class TypeTest extends MimeMapTestBase
     }
 
     /**
-     * @expectedException \FileEye\MimeMap\MappingException
      * @dataProvider getDefaultExtensionFailProvider
      */
     public function testGetDefaultExtensionFail($type)
     {
+        $this->expectException('FileEye\MimeMap\MappingException');
         $this->assertNull((new Type($type))->getDefaultExtension());
     }
 }

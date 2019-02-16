@@ -2,10 +2,10 @@
 
 namespace FileEye\MimeMap\Test;
 
-// PHPUnit compatibility trait for PHPUnit 8.
-trait Phpunit8CompatibilityTrait
+// PHPUnit compatibility trait for PHPUnit 7.
+trait Phpunit7CompatibilityTrait
 {
-    public function setUp(): void
+    public function setUp()
     {
         parent::setUp();
         if (method_exists($this, 'fcSetUp')) {
@@ -13,7 +13,7 @@ trait Phpunit8CompatibilityTrait
         }
     }
 
-    public function tearDown(): void
+    public function tearDown()
     {
         if (method_exists($this, 'fcTearDown')) {
             $this->fcTearDown();
