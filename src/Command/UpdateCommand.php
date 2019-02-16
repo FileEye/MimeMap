@@ -75,7 +75,6 @@ class UpdateCommand extends Command
                 exit(2);
             }
         }
-        $new_map->sort();
 
         // Load the map to be changed.
         MapHandler::setDefaultMapClass($input->getOption('class'));

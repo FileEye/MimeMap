@@ -75,6 +75,7 @@
             - [addTypeExtensionMapping, [text/x-csrc, dic]]
             - [addTypeExtensionMapping, [image/wmf, emz]]
             - [addTypeExtensionMapping, [application/vnd.ms-asf, wm]]
+            - [addTypeExtensionMapping, [a/a, aaa]]
 
 # MimeMap overrides.
 -

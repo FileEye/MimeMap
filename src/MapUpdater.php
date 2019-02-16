@@ -55,6 +55,7 @@ class MapUpdater
     public function loadMapFromApacheFile($source_file)
     {
         $errors = [];
+
         $lines = file($source_file);
         foreach ($lines as $line) {
             if ($line{0} == '#') {
@@ -67,6 +68,7 @@ class MapUpdater
                 $this->map->addTypeExtensionMapping($type, $extension);
             }
         }
+        $this->map->sort();
 
         return $errors;
     }
@@ -137,6 +139,7 @@ class MapUpdater
                 }
             }
         }
+        $this->map->sort();
 
         return $errors;
     }
@@ -161,6 +164,7 @@ class MapUpdater
                 $errors[] = $e->getMessage();
             }
         }
+        $this->map->sort();
 
         return $errors;
     }
