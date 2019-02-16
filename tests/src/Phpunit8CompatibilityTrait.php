@@ -21,7 +21,7 @@ trait Phpunit8CompatibilityTrait
         parent::tearDown();
     }
 
-    public function fcAssertContains(string $needle, string $haystack, string $message = '', boolean $ignoreCase = false)
+    public function fcAssertContains(string $needle, string $haystack, string $message = '', bool $ignoreCase = false)
     {
         if ($ignoreCase) {
             parent::assertStringContainsStringIgnoringCase($needle, $haystack, $message);
