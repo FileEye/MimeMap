@@ -1,6 +1,6 @@
 <?php
 
-namespace FileEye\MimeMap\test;
+namespace FileEye\MimeMap\Test;
 
 // PHPUnit compatibility trait for PHPUnit 4.
 trait Phpunit4CompatibilityTrait

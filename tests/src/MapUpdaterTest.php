@@ -1,6 +1,6 @@
 <?php
 
-namespace FileEye\MimeMap\test;
+namespace FileEye\MimeMap\Test;
 
 use Symfony\Component\Filesystem\Filesystem;
 use FileEye\MimeMap\MapHandler;

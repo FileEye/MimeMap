@@ -1,6 +1,6 @@
 <?php
 
-namespace FileEye\MimeMap\test;
+namespace FileEye\MimeMap\Test;
 
 use FileEye\MimeMap\Type;
 
