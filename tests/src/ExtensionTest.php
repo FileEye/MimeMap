@@ -1,11 +1,10 @@
 <?php
 
-namespace FileEye\MimeMap\test;
+namespace FileEye\MimeMap\Test;
 
 use FileEye\MimeMap\Extension;
-use PHPUnit\Framework\TestCase;
 
-class ExtensionTest extends TestCase
+class ExtensionTest extends MimeMapTestBase
 {
     public function testGetDefaultType()
     {

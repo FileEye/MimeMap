@@ -13202,6 +13202,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/vnd.previewsystems.box',
       ),
     ),
+    'boz' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/x-bzip',
+      ),
+    ),
     'bpk' => 
     array (
       't' => 
@@ -13341,6 +13348,13 @@ class DefaultMap extends AbstractMap
       't' => 
       array (
         0 => 'application/x-cb7',
+      ),
+    ),
+    'cba' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.comicbook-rar',
       ),
     ),
     'cbl' => 
@@ -14101,6 +14115,13 @@ class DefaultMap extends AbstractMap
         0 => 'image/bmp',
       ),
     ),
+    'dic' => 
+    array (
+      't' => 
+      array (
+        0 => 'text/x-csrc',
+      ),
+    ),
     'diff' => 
     array (
       't' => 
@@ -14523,6 +14544,13 @@ class DefaultMap extends AbstractMap
       't' => 
       array (
         0 => 'application/vnd.emusic-emusic_package',
+      ),
+    ),
+    'emz' => 
+    array (
+      't' => 
+      array (
+        0 => 'image/wmf',
       ),
     ),
     'ent' => 
@@ -22279,6 +22307,13 @@ class DefaultMap extends AbstractMap
         1 => 'application/vnd.lotus-1-2-3',
       ),
     ),
+    'wm' => 
+    array (
+      't' => 
+      array (
+        0 => 'application/vnd.ms-asf',
+      ),
+    ),
     'wma' => 
     array (
       't' => 
@@ -23262,41 +23297,6 @@ class DefaultMap extends AbstractMap
       't' => 
       array (
         0 => 'audio/x-mod',
-      ),
-    ),
-    'boz' => 
-    array (
-      't' => 
-      array (
-        0 => 'application/x-bzip',
-      ),
-    ),
-    'cba' => 
-    array (
-      't' => 
-      array (
-        0 => 'application/vnd.comicbook-rar',
-      ),
-    ),
-    'dic' => 
-    array (
-      't' => 
-      array (
-        0 => 'text/x-csrc',
-      ),
-    ),
-    'emz' => 
-    array (
-      't' => 
-      array (
-        0 => 'image/wmf',
-      ),
-    ),
-    'wm' => 
-    array (
-      't' => 
-      array (
-        0 => 'application/vnd.ms-asf',
       ),
     ),
   ),

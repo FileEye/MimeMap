@@ -55,6 +55,7 @@ class MapUpdater
     public function loadMapFromApacheFile($source_file)
     {
         $errors = [];
+
         $lines = file($source_file);
         foreach ($lines as $line) {
             if ($line{0} == '#') {
@@ -68,6 +69,7 @@ class MapUpdater
             }
         }
         $this->map->sort();
+
         return $errors;
     }
 
@@ -137,8 +139,8 @@ class MapUpdater
                 }
             }
         }
-
         $this->map->sort();
+
         return $errors;
     }
 
@@ -154,6 +156,7 @@ class MapUpdater
     public function applyOverrides(array $overrides)
     {
         $errors = [];
+
         foreach ($overrides as $command) {
             try {
                 call_user_func_array([$this->map, $command[0]], $command[1]);
@@ -161,6 +164,8 @@ class MapUpdater
                 $errors[] = $e->getMessage();
             }
         }
+        $this->map->sort();
+
         return $errors;
     }
 

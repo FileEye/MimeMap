@@ -1,23 +1,22 @@
 <?php
 
-namespace FileEye\MimeMap\test;
+namespace FileEye\MimeMap\Test;
 
 use Symfony\Component\Filesystem\Filesystem;
 use FileEye\MimeMap\MapHandler;
 use FileEye\MimeMap\MapUpdater;
-use PHPUnit\Framework\TestCase;
 
 /**
  * @coversDefaultClass \FileEye\MimeMap\MapUpdater
  * @backupStaticAttributes enabled
  */
-class MapUpdaterTest extends TestCase
+class MapUpdaterTest extends MimeMapTestBase
 {
     protected $newMap;
     protected $updater;
     protected $fileSystem;
 
-    public function setUp()
+    public function fcSetUp()
     {
         $this->newMap = MapHandler::map('\FileEye\MimeMap\Map\EmptyMap');
         $this->assertInstanceOf('\FileEye\MimeMap\Map\EmptyMap', $this->newMap);
@@ -25,7 +24,7 @@ class MapUpdaterTest extends TestCase
         $this->fileSystem = new Filesystem();
     }
 
-    public function tearDown()
+    public function fcTearDown()
     {
         $this->assertInstanceOf('\FileEye\MimeMap\Map\EmptyMap', $this->newMap);
         $this->newMap->reset();

@@ -76,6 +76,7 @@ class UpdateCommand extends Command
             }
         }
 
+        // Load the map to be changed.
         MapHandler::setDefaultMapClass($input->getOption('class'));
         $current_map = MapHandler::map();
 

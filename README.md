@@ -8,17 +8,19 @@
 [![Latest Unstable Version](https://poser.pugx.org/fileeye/mimemap/v/unstable)](https://packagist.org/packages/fileeye/mimemap)
 [![License](https://poser.pugx.org/fileeye/mimemap/license)](https://packagist.org/packages/fileeye/mimemap)
 
-A PHP library to handle MIME Content-Type fields and their related file extensions.
+A PHP library to handle MIME Content-Type fields and their related file
+extensions.
 
 
 ## Features
 
-- Parse MIME types
-- Supports full [RFC 2045](https://www.ietf.org/rfc/rfc2045.txt) specification
-- Provides utility functions for working with and determining info about types
+- Parses MIME Content-Type fields
+- Supports the [RFC 2045](https://www.ietf.org/rfc/rfc2045.txt) specification
+- Provides utility functions for working with and determining info about MIME
+  types
 - Map file extensions to MIME types and vice-versa
-- Automatically update the mapping between MIME types and file extensions from the
-  most authoritative sources available, [Apache's documentation](http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=log)
+- Automatically update the mapping between MIME types and file extensions from
+  the most authoritative sources available, [Apache's documentation](http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=log)
   and the [freedesktop.org project](http://freedesktop.org).
 
 
@@ -27,13 +29,21 @@ A PHP library to handle MIME Content-Type fields and their related file extensio
 MimeMap is a fork of PEAR's [MIME_Type](https://github.com/pear/MIME_Type) package.
 See all the [original contributors](https://github.com/pear/MIME_Type/graphs/contributors).
 
-Note that in comparison with PEAR's MIME_Type, this library has a different scope,
-mainly focused on finding the mapping between each MIME type and its generally
-accepted file extensions.
-All the features that allow detecting the MIME type of a file are removed. The
-[symfony/http-foundation](https://github.com/symfony/http-foundation) library and its
-[MimeTypeGuesser](https://api.symfony.com/master/Symfony/Component/HttpFoundation/File/MimeType/MimeTypeGuesser.html)
+Note that in comparison with PEAR's MIME_Type, this library has a different
+scope, mainly focused on finding the mapping between each MIME type and its
+generally accepted file extensions.
+Features to detect the MIME type of a file have been removed. The [symfony/http-foundation](https://github.com/symfony/http-foundation)
+library and its [MimeTypeGuesser](https://api.symfony.com/master/Symfony/Component/HttpFoundation/File/MimeType/MimeTypeGuesser.html)
 API are the suggested components to cover that use case.
+
+
+### Alternative packages
+
+MimeMap's main difference from similar packages is that it provides
+functionalities to use multiple type-to-extension maps and to change the
+mapping either at runtime or statically in PHP classes.
+See [wgenial/php-mimetyper](https://github.com/wgenial/php-mimetyper#other-php-libraries-for-mime-types)
+for a nice list of alternative PHP libraries for MIME type handling.
 
 
 ## Installation
@@ -49,13 +59,17 @@ $ composer require fileeye/mimemap
 ### Basic
 
 The package comes with a default map that describes MIME types and the file
-extensions normally associated to each MIME type. The map also stores
-information about MIME type _aliases_, i.e. alternative _media/subtype_
-combinations that describe the same MIME type, and descriptions of most
-MIME types and of the acronyms used. For example, _application/pdf_ has
-a description _PDF document_ and an acronym is described as _PDF: Portable Document Format_,
-is normally using a file extension _pdf_ and has aliases such as _application/x-pdf_,
-_image/pdf_ etc.
+extensions normally associated to each MIME type.
+The map also stores information about MIME type _aliases_, (alternative
+_media/subtype_ combinations that describe the same MIME type), and the
+descriptions of most MIME types and of the acronyms used.
+
+For example: the MIME type _'application/pdf'_
+* is described as _'PDF document'_
+* the PDF acronym is described as _'PDF: Portable Document Format'_
+* is normally using a file extension _'pdf'_
+* has aliases such as _'application/x-pdf'_, _'image/pdf'_
+
 The API the package implements is pretty straightforward:
 
 
@@ -65,22 +79,20 @@ to it:
 ```php
 use FileEye\MimeMap\Type;
 ...
+$type = new Type('image/jpeg');
 
-    $type = new Type('image/jpeg');
+print_r($type->getExtensions());
+// will print ['jpeg', 'jpg', 'jpe']
 
-    $type_extensions = $type->getExtensions();
-    // will return ['jpeg', 'jpg', 'jpe']
+print_r($type->getDefaultExtension());
+// will print 'jpeg'
 
-    $default_extension = $type->getDefaultExtension();
-    // will return 'jpeg'
+// When passing an alias to a MIME type, the API will
+// return the extensions to the parent type:
+$type = new Type('image/pdf');
 
-    // When passing an alias to a MIME type, the API will
-    // return the extensions to the parent type:
-    $type = new Type('image/pdf');
-
-    $default_extension = $type->getDefaultExtension();
-    // will return 'pdf' which is the default extension for 'application/pdf'
-
+print_r($type->getDefaultExtension());
+// will print 'pdf' which is the default extension for 'application/pdf'
 ```
 
 2. Viceversa, you have a file extensions, and want to get the MIME type normally
@@ -89,14 +101,13 @@ associated to it:
 ```php
 use FileEye\MimeMap\Extension;
 ...
+$ext = new Extension('xar');
 
-    $ext = new Extension('wmz');
+print_r($ext->getTypes());
+// will return ['application/vnd.xara', 'application/x-xar']
 
-    $ext_types = $ext->getTypes();
-    // will return ['application/x-msmetafile', 'application/x-ms-wmz']
-
-    $default_type = $ext->getDefaultExtension();
-    // will return 'application/x-msmetafile'
+print_r($ext->getDefaultType());
+// will return 'application/vnd.xara'
 ```
 
 3. You have a raw MIME Content-Type string and want to add a parameter:
@@ -104,18 +115,17 @@ use FileEye\MimeMap\Extension;
 ```php
 use FileEye\MimeMap\Type;
 ...
+$type = new Type('text / (Unstructured text)  plain  ; charset = (UTF8, not ASCII) utf-8');
+$type->addParameter('lang', 'it', 'Italian');
 
-    $type = new Type('text / (Unstructured text)  plain  ; charset = (UTF8, not ASCII) utf-8');
-    $type->addParameter('lang', 'it', 'Italian');
+echo $type->toString(Type::SHORT_TEXT);
+// will print 'text/plain'
 
-    echo $type->toString(Type::SHORT_TEXT);
-    // will print 'text/plain'
+echo $type->toString(Type::FULL_TEXT);
+// will print 'text/plain; charset="utf-8"; lang="it"'
 
-    echo $type->toString(Type::FULL_TEXT);
-    // will print 'text/plain; charset="utf-8"; lang="it"'
-
-    echo $type->toString(Type::FULL_TEXT_WITH_COMMENTS);
-    // will print 'text/plain (Unstructured text); charset="utf-8" (UTF8, not ASCII), lang="it" (Italian)'
+echo $type->toString(Type::FULL_TEXT_WITH_COMMENTS);
+// will print 'text/plain (Unstructured text); charset="utf-8" (UTF8, not ASCII), lang="it" (Italian)'
 ```
 
 4. You have a MIME Content-Type string and want to the type's description as a comment:
@@ -123,28 +133,27 @@ use FileEye\MimeMap\Type;
 ```php
 use FileEye\MimeMap\Type;
 ...
+$type = new Type('text/html');
 
-    $type = new Type('text/html');
+$type_desc = $type->getDescription();
+$type->setSubTypeComment($type_desc);
+echo $type->toString(Type::FULL_TEXT_WITH_COMMENTS);
+// will print 'text/html (HTML document)'
 
-    $type_desc = $type->getDescription();
-    $type->setSubTypeComment($type_desc);
-    echo $type->toString(Type::FULL_TEXT_WITH_COMMENTS);
-    // will print 'text/html (HTML document)'
-
-    // Setting the $strict parameter of getDescription to true
-    // will extend the description to include the meaning of the acronym
-    $type_desc = $type->getDescription(true);
-    $type->setSubTypeComment($type_desc);
-    echo $type->toString(Type::FULL_TEXT_WITH_COMMENTS);
-    // will print 'text/html (HTML document, HTML: HyperText Markup Language)'
+// Setting the $include_acronym parameter of getDescription to true
+// will extend the description to include the meaning of the acronym
+$type_desc = $type->getDescription(true);
+$type->setSubTypeComment($type_desc);
+echo $type->toString(Type::FULL_TEXT_WITH_COMMENTS);
+// will print 'text/html (HTML document, HTML: HyperText Markup Language)'
 ```
 
 
 ### Specify alternative MIME type mapping
 
 
-You can also alter the default map at runtime, either by adding or removing
-mappings or to indicate to MimeMap to use a totally different map. The
+You can also alter the default map at runtime, either by adding/removing
+mappings, or indicating to MimeMap to use a totally different map. The
 alternative map must be stored in a PHP class that extends from
 `\FileEye\MimeMap\Map\AbstractMap`.
 
@@ -156,17 +165,16 @@ use FileEye\MimeMap\Extension;
 use FileEye\MimeMap\MapHandler;
 use FileEye\MimeMap\Type;
 ...
-    $map = MapHandler::map();
-    $map->addTypeExtensionMapping('foo/bar', 'baz');
+$map = MapHandler::map();
+$map->addTypeExtensionMapping('foo/bar', 'baz');
 
-    $type = new Type('foo/bar');
-    $default_extension = $type->getDefaultExtension();
-    // will return 'baz'
+$type = new Type('foo/bar');
+$default_extension = $type->getDefaultExtension();
+// will return 'baz'
 
-    $ext = new Extension('baz');
-    $default_type = $ext->getDefaultExtension();
-    // will return 'foo/bar'
-
+$ext = new Extension('baz');
+$default_type = $ext->getDefaultExtension();
+// will return 'foo/bar'
 ```
 
 2. You want to set an alternative map class as default:
@@ -176,9 +184,8 @@ use FileEye\MimeMap\Extension;
 use FileEye\MimeMap\MapHandler;
 use FileEye\MimeMap\Type;
 ...
-    MapHandler::setDefaultMapClass('MyProject\MyMap');
-
-    ...
+MapHandler::setDefaultMapClass('MyProject\MyMap');
+...
 ```
 
 3. You can also use the alternative map just for a single Type or Extension
@@ -188,8 +195,8 @@ object:
 use FileEye\MimeMap\Extension;
 use FileEye\MimeMap\Type;
 ...
-    $type = new Type('foo/bar', 'MyProject\MyMap');
-    $ext = new Extension('baz', 'MyProject\MyMap');
+$type = new Type('foo/bar', 'MyProject\MyMap');
+$ext = new Extension('baz', 'MyProject\MyMap');
 ```
 
 

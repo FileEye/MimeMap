@@ -10,7 +10,7 @@
         >
     <testsuites>
         <testsuite name="FileEye Testing Suite">
-            <directory suffix=".php">./tests/</directory>
+            <directory suffix="Test.php">./tests/</directory>
         </testsuite>
     </testsuites>
     <!-- Filter for coverage reports. -->
