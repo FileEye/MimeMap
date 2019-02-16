@@ -14,7 +14,8 @@ trait Phpunit4CompatibilityTrait
      * @return bool
      *   TRUE if the method is supported, FALSE if not.
      */
-    private function supports($method) {
+    private function supports($method)
+    {
         // Get the parent class of the currently running test class.
         $parent = get_parent_class($this);
         // Ensure that the method_exists() check on the createMock method is carried
@@ -44,7 +45,7 @@ trait Phpunit4CompatibilityTrait
         parent::tearDown();
     }
 
-    public function bcSetExpectedException($exceptionName, $exceptionMessage = '', $exceptionCode = NULL)
+    public function bcSetExpectedException($exceptionName, $exceptionMessage = '', $exceptionCode = null)
     {
         if ($this->supports('expectException')) {
             parent::expectException($exceptionName);
