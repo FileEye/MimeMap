@@ -22,6 +22,7 @@ extensions.
 - Automatically update the mapping between MIME types and file extensions from
   the most authoritative sources available, [Apache's documentation](http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=log)
   and the [freedesktop.org project](http://freedesktop.org).
+- PHPUnit tested, 100% test coverage
 
 
 ## Credits
