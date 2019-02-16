@@ -20,4 +20,13 @@ trait Phpunit8CompatibilityTrait
         }
         parent::tearDown();
     }
+
+    public function fcAssertContains(string $needle, string $haystack, string $message = '', boolean $ignoreCase = false)
+    {
+        if ($ignoreCase) {
+            parent::assertStringContainsStringIgnoringCase($needle, $haystack, $message);
+        } else {
+            parent::assertStringContainsString($needle, $haystack, $message);
+        }
+    }
 }

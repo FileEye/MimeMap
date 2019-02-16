@@ -118,21 +118,21 @@ class MapUpdaterTest extends MimeMapTestBase
         $this->fileSystem->copy(__DIR__ . '/../../src/Map/MiniMap.php.test', __DIR__ . '/../../src/Map/MiniMap.php');
         MapHandler::setDefaultMapClass('\FileEye\MimeMap\Map\MiniMap');
         $map_a = MapHandler::map();
-        $this->assertContains('src/Map/MiniMap.php', $map_a->getFileName());
+        $this->fcAssertContains('src/Map/MiniMap.php', $map_a->getFileName());
         $content = file_get_contents($map_a->getFileName());
         $this->assertNotContains('text/plain', $content);
         $this->updater->loadMapFromApacheFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
         $this->updater->applyOverrides([['addTypeExtensionMapping', ['bing/bong', 'binbon']]]);
         $this->updater->writeMapToPhpClassFile($map_a->getFileName());
         $content = file_get_contents($map_a->getFileName());
-        $this->assertContains('text/plain', $content);
-        $this->assertContains('bing/bong', $content);
-        $this->assertContains('binbon', $content);
+        $this->fcAssertContains('text/plain', $content);
+        $this->fcAssertContains('bing/bong', $content);
+        $this->fcAssertContains('binbon', $content);
         $this->fileSystem->remove(__DIR__ . '/../../src/Map/MiniMap.php');
     }
 
     public function testGetDefaultMapBuildFile()
     {
-        $this->assertContains('default_map_build.yml', MapUpdater::getDefaultMapBuildFile());
+        $this->fcAssertContains('default_map_build.yml', MapUpdater::getDefaultMapBuildFile());
     }
 }

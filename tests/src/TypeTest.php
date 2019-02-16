@@ -565,11 +565,11 @@ class TypeTest extends MimeMapTestBase
         $mt = new Type('image/png; foo=bar');
         $mt->addParameter('baz', 'val', 'this is a comment');
         $res = $mt->toString(Type::FULL_TEXT_WITH_COMMENTS);
-        $this->assertContains('foo=', $res);
-        $this->assertContains('bar', $res);
-        $this->assertContains('baz=', $res);
-        $this->assertContains('val', $res);
-        $this->assertContains('(this is a comment)', $res);
+        $this->fcAssertContains('foo=', $res);
+        $this->fcAssertContains('bar', $res);
+        $this->fcAssertContains('baz=', $res);
+        $this->fcAssertContains('val', $res);
+        $this->fcAssertContains('(this is a comment)', $res);
         $this->assertSame('image/png; foo="bar"; baz="val" (this is a comment)', $res);
     }
 
@@ -580,7 +580,7 @@ class TypeTest extends MimeMapTestBase
         $res = $mt->toString(Type::FULL_TEXT_WITH_COMMENTS);
         $this->assertNotContains('foo=', $res);
         $this->assertNotContains('bar', $res);
-        $this->assertContains('baz=', $res);
+        $this->fcAssertContains('baz=', $res);
         $this->assertSame('image/png; baz="val" (this is a comment)', $res);
     }
 

@@ -20,7 +20,7 @@ class MapHandlerTest extends MimeMapTestBase
 
     public function testMap()
     {
-        $this->assertContains('DefaultMap.php', $this->map->getFileName());
+        $this->fcAssertContains('DefaultMap.php', $this->map->getFileName());
     }
 
     public function testSort()
