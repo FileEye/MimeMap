@@ -13,27 +13,27 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $type = new Type('image/jpeg');
 
 print_r($type->getExtensions());
-// will return ['jpeg', 'jpg', 'jpe']
+// will print ['jpeg', 'jpg', 'jpe']
 
 print_r($type->getDefaultExtension());
-// will return 'jpeg'
-
-// -------------------
+// will print 'jpeg'
 
 // When passing an alias to a MIME type, the API will
 // return the extensions to the parent type:
 $type = new Type('image/pdf');
 
 print_r($type->getDefaultExtension());
-// will return 'pdf' which is the default extension for 'application/pdf'
+// will print 'pdf' which is the default extension for 'application/pdf'
 
-$ext = new Extension('wmz');
+// -------------------
+
+$ext = new Extension('xar');
 
 print_r($ext->getTypes());
-// will return ['application/x-msmetafile', 'application/x-ms-wmz']
+// will return ['application/vnd.xara', 'application/x-xar']
 
 print_r($ext->getDefaultType());
-// will return 'application/x-msmetafile'
+// will return 'application/vnd.xara'
 
 // -------------------
 

@@ -100,7 +100,7 @@ class UpdateCommand extends Command
         } else {
             $write = true;
         }
-$write = true;
+
         // If changed, save the new map to the PHP file.
         if ($write) {
             $updater->writeMapToPhpClassFile($current_map->getFileName());
