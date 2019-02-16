@@ -19,7 +19,7 @@ if (!trait_exists('FileEye\MimeMap\test\PhpunitCompatibilityTrait', false)) {
 }
 // phpcs:enable
 
-class MapUpdaterTest extends MimeMapTestBase
+class  MimeMapTestBase extends TestCase
 {
     use PhpunitCompatibilityTrait;
 }
