@@ -21,12 +21,10 @@ trait Phpunit8CompatibilityTrait
         parent::tearDown();
     }
 
-/*    public function fcAssertContains(string $needle, string $haystack, string $message = '', bool $ignoreCase = false)
+    public function bcSetExpectedException($exceptionName, $exceptionMessage = '', $exceptionCode = NULL)
     {
-        if ($ignoreCase) {
-            parent::assertStringContainsStringIgnoringCase($needle, $haystack, $message);
-        } else {
-            parent::assertStringContainsString($needle, $haystack, $message);
-        }
-    }*/
+        parent::expectException($exceptionName);
+        parent::expectExceptionMessage($exceptionMessage);
+        parent::expectExceptionCode($exceptionCode);
+    }
 }

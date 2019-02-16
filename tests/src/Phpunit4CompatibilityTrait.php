@@ -44,6 +44,17 @@ trait Phpunit4CompatibilityTrait
         parent::tearDown();
     }
 
+    public function bcSetExpectedException($exceptionName, $exceptionMessage = '', $exceptionCode = NULL)
+    {
+        if ($this->supports('expectException')) {
+            parent::expectException($exceptionName);
+            parent::expectExceptionMessage($exceptionMessage);
+            parent::expectExceptionCode($exceptionCode);
+        } else {
+            parent::setExpectedException($exceptionName, $exceptionMessage, $exceptionCode);
+        }
+    }
+
     public function expectException($exception)
     {
         if ($this->supports('expectException')) {
@@ -60,6 +71,6 @@ trait Phpunit4CompatibilityTrait
 
     public function assertStringNotContainsString($needle, $haystack, $message = '')
     {
-        parent::assertStringNotContainsString($needle, $haystack, $message);
+        parent::assertNotContains($needle, $haystack, $message);
     }
 }
