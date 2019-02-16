@@ -42,8 +42,8 @@ API are the suggested components to cover that use case.
 MimeMap's main difference from similar packages is that it provides
 functionalities to use multiple type-to-extension maps and to change the
 mapping either at runtime or statically in PHP classes.
-See [wgenial/php-mimetyper](https://github.com/wgenial/php-mimetyper) for a list
-of alternative PHP libraries for MIME type handling.
+See [wgenial/php-mimetyper](https://github.com/wgenial/php-mimetyper#other-php-libraries-for-mime-types)
+for a nice list of alternative PHP libraries for MIME type handling.
 
 
 ## Installation
@@ -63,6 +63,7 @@ extensions normally associated to each MIME type.
 The map also stores information about MIME type _aliases_, (alternative
 _media/subtype_ combinations that describe the same MIME type), and the
 descriptions of most MIME types and of the acronyms used.
+
 For example: the MIME type _'application/pdf'_
 * is described as _'PDF document'_
 * the PDF acronym is described as _'PDF: Portable Document Format'_
@@ -78,7 +79,6 @@ to it:
 ```php
 use FileEye\MimeMap\Type;
 ...
-
 $type = new Type('image/jpeg');
 
 print_r($type->getExtensions());
@@ -101,7 +101,6 @@ associated to it:
 ```php
 use FileEye\MimeMap\Extension;
 ...
-
 $ext = new Extension('xar');
 
 print_r($ext->getTypes());
@@ -116,7 +115,6 @@ print_r($ext->getDefaultType());
 ```php
 use FileEye\MimeMap\Type;
 ...
-
 $type = new Type('text / (Unstructured text)  plain  ; charset = (UTF8, not ASCII) utf-8');
 $type->addParameter('lang', 'it', 'Italian');
 
@@ -135,7 +133,6 @@ echo $type->toString(Type::FULL_TEXT_WITH_COMMENTS);
 ```php
 use FileEye\MimeMap\Type;
 ...
-
 $type = new Type('text/html');
 
 $type_desc = $type->getDescription();

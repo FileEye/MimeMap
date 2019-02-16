@@ -5,16 +5,15 @@ namespace FileEye\MimeMap\test;
 use FileEye\MimeMap\Extension;
 use FileEye\MimeMap\MapHandler;
 use FileEye\MimeMap\Type;
-use PHPUnit\Framework\TestCase;
 
 /**
  * @backupStaticAttributes enabled
  */
-class MapHandlerTest extends TestCase
+class MapHandlerTest extends MimeMapTestBase
 {
     protected $map;
 
-    public function setUp()
+    public function fcSetUp()
     {
         $this->map = MapHandler::map();
     }

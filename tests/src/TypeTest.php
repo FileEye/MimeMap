@@ -3,9 +3,8 @@
 namespace FileEye\MimeMap\test;
 
 use FileEye\MimeMap\Type;
-use PHPUnit\Framework\TestCase;
 
-class TypeTest extends TestCase
+class TypeTest extends MimeMapTestBase
 {
     /**
      * Data provider for testParse.

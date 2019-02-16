@@ -3,9 +3,8 @@
 namespace FileEye\MimeMap\test;
 
 use FileEye\MimeMap\Extension;
-use PHPUnit\Framework\TestCase;
 
-class ExtensionTest extends TestCase
+class ExtensionTest extends MimeMapTestBase
 {
     public function testGetDefaultType()
     {

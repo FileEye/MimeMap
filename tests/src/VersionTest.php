@@ -3,9 +3,8 @@
 namespace FileEye\MimeMap\test;
 
 use FileEye\MimeMap\Version;
-use PHPUnit\Framework\TestCase;
 
-class VersionTest extends TestCase
+class VersionTest extends MimeMapTestBase
 {
     public function testGet()
     {

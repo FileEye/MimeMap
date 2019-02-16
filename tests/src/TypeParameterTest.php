@@ -4,9 +4,8 @@ namespace FileEye\MimeMap\test;
 
 use FileEye\MimeMap\Type;
 use FileEye\MimeMap\TypeParameter;
-use PHPUnit\Framework\TestCase;
 
-class TypeParameterTest extends TestCase
+class TypeParameterTest extends MimeMapTestBase
 {
     public function testHasComment()
     {
