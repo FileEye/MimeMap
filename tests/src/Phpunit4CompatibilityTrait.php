@@ -48,8 +48,12 @@ trait Phpunit4CompatibilityTrait
     {
         if ($this->supports('expectException')) {
             parent::expectException($exceptionName);
-            parent::expectExceptionMessage($exceptionMessage);
-            parent::expectExceptionCode($exceptionCode);
+            if ($exceptionMessage) {
+                parent::expectExceptionMessage($exceptionMessage);
+            }
+            if ($exceptionCode !== null) {
+                parent::expectExceptionCode($exceptionCode);
+            }
         } else {
             parent::setExpectedException($exceptionName, $exceptionMessage, $exceptionCode);
         }

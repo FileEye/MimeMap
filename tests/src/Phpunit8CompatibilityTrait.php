@@ -24,7 +24,11 @@ trait Phpunit8CompatibilityTrait
     public function bcSetExpectedException($exceptionName, $exceptionMessage = '', $exceptionCode = NULL)
     {
         parent::expectException($exceptionName);
-        parent::expectExceptionMessage($exceptionMessage);
-        parent::expectExceptionCode($exceptionCode);
+        if ($exceptionMessage) {
+            parent::expectExceptionMessage($exceptionMessage);
+        }
+        if ($exceptionCode !== null) {
+            parent::expectExceptionCode($exceptionCode);
+        }
     }
 }
