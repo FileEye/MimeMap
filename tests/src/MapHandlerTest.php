@@ -126,6 +126,11 @@ class MapHandlerTest extends MimeMapTestBase
         $this->assertSame(['text/vnd.dvb.subtitle', 'image/vnd.dvb.subtitle', 'text/x-microdvd', 'text/x-mpsub', 'text/x-subviewer'], (new Extension('sub'))->getTypes());
         $this->map->setExtensionDefaultType('SUB', 'image/vnd.dvb.subtitle');
         $this->assertSame(['image/vnd.dvb.subtitle', 'text/vnd.dvb.subtitle', 'text/x-microdvd', 'text/x-mpsub', 'text/x-subviewer'], (new Extension('SUB'))->getTypes());
+        // Check that a type alias can be set as default.
+        $this->assertSame(['application/pdf'], (new Extension('pdf'))->getTypes());
+        $this->map->setExtensionDefaultType('pdf', 'application/x-pdf');
+        $this->assertSame(['application/x-pdf', 'application/pdf'], (new Extension('pdf'))->getTypes());
+        $this->assertSame('application/x-pdf', (new Extension('pdf'))->getDefaultType());
     }
 
     public function testAddAliasToMissingType()
