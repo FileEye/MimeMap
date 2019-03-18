@@ -340,6 +340,13 @@ abstract class AbstractMap extends BaseMap
      */
     public function setExtensionDefaultType($extension, $type)
     {
-        return $this->setValueAsDefault('e', $extension, 't', $type);
+        $type_is_alias = $this->hasAlias($type);
+
+        if (!$type_is_alias) {
+            return $this->setValueAsDefault('e', $extension, 't', $type);
+        } else {
+            // @todo remove any existing entry, check that the alias is referring to an existing type with that extension
+            return $this->addMapSubEntry('e', $extension, 'a', $type);
+        }
     }
 }
