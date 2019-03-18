@@ -272,6 +272,14 @@ abstract class AbstractMap extends BaseMap
         $type = strtolower($type);
         $alias = strtolower($alias);
 
+        // Remove any extension mapped to the alias.
+        if ($extensions = $this->getMapSubEntry('a', $alias, 'e')) {
+            foreach ($extensions as $extension) {
+                $this->removeMapSubEntry('a', $alias, 'e', $extension);
+                $this->removeMapSubEntry('e', $extension, 't', $alias);
+            }
+        }
+
         $type_ret = $this->removeMapSubEntry('t', $type, 'a', $alias);
         $alias_ret = $this->removeMapSubEntry('a', $alias, 't', $type);
 
@@ -296,6 +304,8 @@ abstract class AbstractMap extends BaseMap
 
         $type_ret = $this->removeMapSubEntry('t', $type, 'e', $extension);
         $extension_ret = $this->removeMapSubEntry('e', $extension, 't', $type);
+
+        // @todo remove any alias
 
         return $type_ret && $extension_ret;
     }
@@ -340,14 +350,11 @@ abstract class AbstractMap extends BaseMap
      */
     public function setExtensionDefaultType($extension, $type)
     {
+        $type = strtolower($type);
+        $extension = strtolower($extension);
+
         if ($this->hasAlias($type)) {
             // @todo check that the alias is referring to an existing type with that extension
-/*            if ($aliases = $this->getMapSubEntry('e', $extension, 'a')) {
-                foreach ($aliases as $alias) {
-                    $this->removeMapSubEntry('a', $alias, 'e', $extension);
-                    $this->removeMapSubEntry('e', $extension, 'a', $alias);
-                }
-            }*/
             $this->addMapSubEntry('a', $type, 'e', $extension);
             $this->addMapSubEntry('e', $extension, 't', $type);
         }
