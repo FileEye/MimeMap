@@ -323,8 +323,8 @@ abstract class AbstractMap extends BaseMap
     public function getExtensionTypes($extension)
     {
         $res = $this->getMapSubEntry('e', $extension, 'a') ?: [];
-        $res = array_merge($res, $this->getMapSubEntry('e', $extension, 't'));
-        return $res ?: [];
+        $res = array_merge($res, $this->getMapSubEntry('e', $extension, 't') ?: []);
+        return $res;
     }
 
     /**
