@@ -330,6 +330,8 @@ abstract class AbstractMap extends BaseMap
     /**
      * Changes the default MIME type for a file extension.
      *
+     * Allows a MIME type alias to be set as default for the extension.
+     *
      * @param string $extension
      *   A file extension.
      * @param string $type
@@ -341,13 +343,17 @@ abstract class AbstractMap extends BaseMap
      */
     public function setExtensionDefaultType($extension, $type)
     {
+        $type = strtolower($type);
+        $extension = strtolower($extension);
         $type_is_alias = $this->hasAlias($type);
 
         if (!$type_is_alias) {
             return $this->setValueAsDefault('e', $extension, 't', $type);
         } else {
-            // @todo remove any existing entry, check that the alias is referring to an existing type with that extension
-            return $this->addMapSubEntry('e', $extension, 'a', $type);
+            // @todo check that the alias is referring to an existing type with that extension
+            $this->addMapSubEntry('a', $type, 'e', $extension);
+            $this->addMapSubEntry('e', $extension, 'a', $type);
+            return $this->setValueAsDefault('e', $extension, 'a', $type);
         }
     }
 }
