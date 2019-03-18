@@ -143,7 +143,7 @@ class MapHandlerTest extends MimeMapTestBase
         $this->assertSame(['image/pdf', 'application/x-pdf', 'application/pdf'], (new Extension('pdf'))->getTypes());
         $this->assertSame('image/pdf', (new Extension('pdf'))->getDefaultType());
 
-        // Remove the alias.
+        // Remove the alias, should be removed from extension types.
         $this->assertTrue($this->map->removeTypeAlias('application/pdf', 'application/x-pdf'));
         $this->assertSame(['image/pdf', 'application/pdf'], (new Extension('pdf'))->getTypes());
         $this->assertSame('image/pdf', (new Extension('pdf'))->getDefaultType());
@@ -157,7 +157,7 @@ class MapHandlerTest extends MimeMapTestBase
         $this->assertSame('image/psd', (new Extension('psd'))->getDefaultType());
         $this->map->addTypeExtensionMapping('bingo/bongo', 'psd');
         $this->assertSame(['image/psd', 'image/vnd.adobe.photoshop', 'bingo/bongo'], (new Extension('psd'))->getTypes());
-        $this->map->addTypeAlias('bar/foo', 'bingo/bongo');
+        $this->map->addTypeAlias('bingo/bongo', 'bar/foo');
         $this->assertSame(['image/psd', 'image/vnd.adobe.photoshop', 'bingo/bongo'], (new Extension('psd'))->getTypes());
         $this->map->setExtensionDefaultType('psd', 'bar/foo');
         $this->assertSame(['bar/foo', 'image/psd', 'image/vnd.adobe.photoshop', 'bingo/bongo'], (new Extension('psd'))->getTypes());
