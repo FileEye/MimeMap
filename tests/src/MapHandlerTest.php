@@ -148,8 +148,8 @@ class MapHandlerTest extends MimeMapTestBase
         $this->assertSame(['image/pdf', 'application/pdf'], (new Extension('pdf'))->getTypes());
         $this->assertSame('image/pdf', (new Extension('pdf'))->getDefaultType());
 
-        // Add a fake MIME type to 'psd' and then remove.
-        //        $this->assertSame(['image/vnd.adobe.photoshop', 'image/psd', 'image/x-psd', 'image/photoshop', 'image/x-photoshop', 'application/photoshop', 'application/x-photoshop'], (new Extension('psd'))->getTypes());
+        // Add a fake MIME type to 'psd', an alias to that, then remove
+        // 'image/vnd.adobe.photoshop'.
         $this->assertSame(['image/vnd.adobe.photoshop'], (new Extension('psd'))->getTypes());
         $this->assertSame('image/vnd.adobe.photoshop', (new Extension('psd'))->getDefaultType());
         $this->map->setExtensionDefaultType('psd', 'image/psd');
@@ -157,6 +157,12 @@ class MapHandlerTest extends MimeMapTestBase
         $this->assertSame('image/psd', (new Extension('psd'))->getDefaultType());
         $this->map->addTypeExtensionMapping('bingo/bongo', 'psd');
         $this->assertSame(['image/psd', 'image/vnd.adobe.photoshop', 'bingo/bongo'], (new Extension('psd'))->getTypes());
+        $this->map->addTypeAlias('bar/foo', 'bingo/bongo');
+        $this->assertSame(['image/psd', 'image/vnd.adobe.photoshop', 'bingo/bongo'], (new Extension('psd'))->getTypes());
+        $this->map->setExtensionDefaultType('psd', 'bar/foo');
+        $this->assertSame(['bar/foo', 'image/psd', 'image/vnd.adobe.photoshop', 'bingo/bongo'], (new Extension('psd'))->getTypes());
+        $this->assertTrue($this->map->removeType('image/vnd.adobe.photoshop'));
+        $this->assertSame(['bar/foo', 'bingo/bongo'], (new Extension('psd'))->getTypes());
     }
 
     public function testAddAliasToMissingType()
