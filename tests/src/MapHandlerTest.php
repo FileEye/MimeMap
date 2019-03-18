@@ -129,7 +129,7 @@ class MapHandlerTest extends MimeMapTestBase
     }
 
     /**
-     * Check that a type alias can be set as default.
+     * Check that a type alias can be set as extension default.
      */
     public function testSetExtensionDefaultTypeToAlias()
     {
