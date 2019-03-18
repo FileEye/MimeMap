@@ -176,8 +176,7 @@ abstract class AbstractMap extends BaseMap
      */
     public function getTypeDescriptions($type)
     {
-        $res = $this->getMapSubEntry('t', $type, 'desc');
-        return $res ?: [];
+        return $this->getMapSubEntry('t', $type, 'desc') ?: [];
     }
 
     /**
@@ -189,8 +188,7 @@ abstract class AbstractMap extends BaseMap
      */
     public function getTypeAliases($type)
     {
-        $res = $this->getMapSubEntry('t', $type, 'a');
-        return $res ?: [];
+        return $this->getMapSubEntry('t', $type, 'a') ?: [];
     }
 
     /**
@@ -202,8 +200,7 @@ abstract class AbstractMap extends BaseMap
      */
     public function getTypeExtensions($type)
     {
-        $res = $this->getMapSubEntry('t', $type, 'e');
-        return $res ?: [];
+        return $this->getMapSubEntry('t', $type, 'e') ?: [];
     }
 
     /**
