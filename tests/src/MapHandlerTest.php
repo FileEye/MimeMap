@@ -134,9 +134,14 @@ class MapHandlerTest extends MimeMapTestBase
     public function testSetExtensionDefaultTypeToAlias()
     {
         $this->assertSame(['application/pdf'], (new Extension('pdf'))->getTypes());
+
         $this->map->setExtensionDefaultType('pdf', 'application/x-pdf');
         $this->assertSame(['application/x-pdf', 'application/pdf'], (new Extension('pdf'))->getTypes());
         $this->assertSame('application/x-pdf', (new Extension('pdf'))->getDefaultType());
+
+        $this->map->setExtensionDefaultType('pdf', 'image/pdf');
+        $this->assertSame(['image/pdf', 'application/pdf'], (new Extension('pdf'))->getTypes());
+        $this->assertSame('image/pdf', (new Extension('pdf'))->getDefaultType());
 
         $this->assertTrue($this->map->removeTypeAlias('application/pdf', 'application/x-pdf'));
         $this->assertSame(['application/pdf'], (new Extension('pdf'))->getTypes());
