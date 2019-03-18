@@ -61,7 +61,7 @@ class MapUpdaterTest extends MimeMapTestBase
     {
         $this->updater->loadMapFromFreedesktopFile(dirname(__FILE__) . '/../fixtures/min.freedesktop.xml');
         $errors = $this->updater->applyOverrides([['addTypeExtensionMapping', ['application/x-pdf', 'pdf']]]);
-        $this->assertSame(["Cannot set 'application/x-pdf' as alias for 'application/pdf', 'application/x-pdf' is already defined as a type"], $errors);
+        $this->assertSame(["Cannot map 'pdf' to 'application/x-pdf', 'application/x-pdf' is an alias"], $errors);
     }
 
     public function testLoadMapFromFreedesktopFile()
