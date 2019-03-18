@@ -309,8 +309,7 @@ abstract class AbstractMap extends BaseMap
      */
     public function getAliasTypes($alias)
     {
-        $res = $this->getMapSubEntry('a', $alias, 't');
-        return $res ?: [];
+        return $this->getMapSubEntry('a', $alias, 't') ?: [];
     }
 
     /**
@@ -322,9 +321,7 @@ abstract class AbstractMap extends BaseMap
      */
     public function getExtensionTypes($extension)
     {
-        $res = $this->getMapSubEntry('e', $extension, 'a') ?: [];
-        $res = array_merge($res, $this->getMapSubEntry('e', $extension, 't') ?: []);
-        return $res;
+        return $this->getMapSubEntry('e', $extension, 't') ?: [];
     }
 
     /**
@@ -353,7 +350,6 @@ abstract class AbstractMap extends BaseMap
             }*/
             $this->addMapSubEntry('a', $type, 'e', $extension);
             $this->addMapSubEntry('e', $extension, 't', $type);
-            return $this;
         }
 
         return $this->setValueAsDefault('e', $extension, 't', $type);
