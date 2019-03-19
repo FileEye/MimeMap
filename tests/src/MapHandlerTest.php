@@ -121,17 +121,17 @@ class MapHandlerTest extends MimeMapTestBase
         $this->assertFalse($this->map->hasExtension('jpgjpg'));
     }
 
-    public function testAddAliasToMissingType()
-    {
-        $this->bcSetExpectedException('FileEye\MimeMap\MappingException', "Cannot set 'baz/qoo' as alias for 'bar/foo', 'bar/foo' not defined");
-        $this->map->addTypeAlias('bar/foo', 'baz/qoo');
-    }
-
     public function testSetExtensionDefaultType()
     {
         $this->assertSame(['text/vnd.dvb.subtitle', 'image/vnd.dvb.subtitle', 'text/x-microdvd', 'text/x-mpsub', 'text/x-subviewer'], (new Extension('sub'))->getTypes());
         $this->map->setExtensionDefaultType('SUB', 'image/vnd.dvb.subtitle');
         $this->assertSame(['image/vnd.dvb.subtitle', 'text/vnd.dvb.subtitle', 'text/x-microdvd', 'text/x-mpsub', 'text/x-subviewer'], (new Extension('SUB'))->getTypes());
+    }
+
+    public function testAddAliasToMissingType()
+    {
+        $this->bcSetExpectedException('FileEye\MimeMap\MappingException', "Cannot set 'baz/qoo' as alias for 'bar/foo', 'bar/foo' not defined");
+        $this->map->addTypeAlias('bar/foo', 'baz/qoo');
     }
 
     public function testAddAliasIsATypeAlready()
@@ -199,12 +199,6 @@ class MapHandlerTest extends MimeMapTestBase
     {
         $this->bcSetExpectedException('FileEye\MimeMap\MappingException', "Cannot set 'image/psd' as default type for extension 'pdf', its unaliased type 'image/vnd.adobe.photoshop' is not associated to 'pdf'");
         $this->map->setExtensionDefaultType('pdf', 'image/psd');
-    }
-
-    public function testAddAliasToMissingType()
-    {
-        $this->bcSetExpectedException('FileEye\MimeMap\MappingException', "Cannot set 'baz/qoo' as alias for 'bar/foo', 'bar/foo' not defined");
-        $this->map->addTypeAlias('bar/foo', 'baz/qoo');
     }
 
     public function testSetTypeDefaultExtension()
