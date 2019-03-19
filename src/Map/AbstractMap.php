@@ -304,20 +304,30 @@ abstract class AbstractMap extends BaseMap
             $type_ret = $this->removeMapSubEntry('a', $alias, 'e', $extension);
             $extension_ret = $this->removeMapSubEntry('e', $extension, 't', $alias);
         } else {
-            // Remove any associated aliased type as well.
-            if ($associated_types = $this->getExtensionTypes($extension)) {
-                foreach ($associated_types as $associated_type) {
-                    if ($this->hasAlias($associated_type) && $type === $this->getAliasTypes($associated_type)[0]) {
-                        $this->removeMapSubEntry('a', $associated_type, 'e', $extension);
-                        $this->removeMapSubEntry('e', $extension, 't', $associated_type);
-                    }
-                }
-            }
+            $this->removeAliasedTypesExtensionMapping($type, $extension);
             $type_ret = $this->removeMapSubEntry('t', $type, 'e', $extension);
             $extension_ret = $this->removeMapSubEntry('e', $extension, 't', $type);
         }
 
         return $type_ret && $extension_ret;
+    }
+
+    /**
+     * Removes aliased types extension mapping.
+     *
+     * @param string $type
+     *   A MIME type.
+     * @param string $extension
+     *   The file extension to be removed.
+     */
+    protected function removeAliasedTypesExtensionMapping($type, $extension)
+    {
+        foreach ($this->getExtensionTypes($extension) as $associated_type) {
+            if ($this->hasAlias($associated_type) && $type === $this->getAliasTypes($associated_type)[0]) {
+                $this->removeMapSubEntry('a', $associated_type, 'e', $extension);
+                $this->removeMapSubEntry('e', $extension, 't', $associated_type);
+            }
+        }
     }
 
     /**
