@@ -195,6 +195,23 @@ class MapHandlerTest extends MimeMapTestBase
         $this->assertSame(['bar/foo', 'bingo/bongo'], (new Extension('psd'))->getTypes());
     }
 
+    /**
+     * Check that a removing a type mapping also remove its aliases.
+     */
+    public function testRemoveUnaliasedTypeMapping()
+    {
+        // Add a fake MIME type to 'psd', an alias to that, then remove
+        // 'image/vnd.adobe.photoshop'.
+        $this->map->addTypeExtensionMapping('bingo/bongo', 'psd');
+        $this->assertSame(['image/vnd.adobe.photoshop', 'bingo/bongo'], (new Extension('psd'))->getTypes());
+        $this->map->addTypeAlias('bingo/bongo', 'bar/foo');
+        $this->assertSame(['image/vnd.adobe.photoshop', 'bingo/bongo'], (new Extension('psd'))->getTypes());
+        $this->map->setExtensionDefaultType('psd', 'bar/foo');
+        $this->assertSame(['bar/foo', 'image/vnd.adobe.photoshop', 'bingo/bongo'], (new Extension('psd'))->getTypes());
+        $this->map->removeTypeExtensionMapping('bingo/bongo', 'psd');
+        $this->assertSame(['image/vnd.adobe.photoshop'], (new Extension('psd'))->getTypes());
+    }
+
     public function testSetExtensionDefaultTypeToInvalidAlias()
     {
         $this->bcSetExpectedException('FileEye\MimeMap\MappingException', "Cannot set 'image/psd' as default type for extension 'pdf', its unaliased type 'image/vnd.adobe.photoshop' is not associated to 'pdf'");
