@@ -368,7 +368,7 @@ abstract class AbstractMap extends BaseMap
             $type = $this->getAliasTypes($alias)[0];
             // Check that the alias is referring to a type associated with that
             // extension.
-            $associated_types = $this->getMapSubEntry('e', $extension, 't');
+            $associated_types = $this->getMapSubEntry('e', $extension, 't') ?: [];
             if (!in_array($type, $associated_types)) {
                 throw new MappingException("Cannot set '{$alias}' as default type for extension '{$extension}', its unaliased type '{$type}' is not associated to '{$extension}'");
             }
