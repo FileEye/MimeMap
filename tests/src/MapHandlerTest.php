@@ -196,6 +196,21 @@ class MapHandlerTest extends MimeMapTestBase
     }
 
     /**
+     * Check removing an aliased type mapping.
+     */
+    public function testRemoveAliasedTypeMapping()
+    {
+        $this->map->addTypeExtensionMapping('bingo/bongo', 'psd');
+        $this->assertSame(['image/vnd.adobe.photoshop', 'bingo/bongo'], (new Extension('psd'))->getTypes());
+        $this->map->addTypeAlias('bingo/bongo', 'bar/foo');
+        $this->assertSame(['image/vnd.adobe.photoshop', 'bingo/bongo'], (new Extension('psd'))->getTypes());
+        $this->map->setExtensionDefaultType('psd', 'bar/foo');
+        $this->assertSame(['bar/foo', 'image/vnd.adobe.photoshop', 'bingo/bongo'], (new Extension('psd'))->getTypes());
+        $this->map->removeTypeExtensionMapping('bar/foo', 'psd');
+        $this->assertSame(['image/vnd.adobe.photoshop', 'bingo/bongo'], (new Extension('psd'))->getTypes());
+    }
+
+    /**
      * Check that a removing a type mapping also remove its aliases.
      */
     public function testRemoveUnaliasedTypeMapping()
