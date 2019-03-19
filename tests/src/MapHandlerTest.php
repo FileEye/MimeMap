@@ -198,7 +198,7 @@ class MapHandlerTest extends MimeMapTestBase
     public function testSetExtensionDefaultTypeToInvalidAlias()
     {
         $this->bcSetExpectedException('FileEye\MimeMap\MappingException', "Cannot set 'image/psd' as default type for extension 'pdf', its unaliased type 'image/vnd.adobe.photoshop' is not associated to 'pdf'");
-        $this->map->addTypeExtensionMapping('image/psd', 'pdf');
+        $this->map->setExtensionDefaultType('pdf', 'image/psd');
     }
 
     public function testAddAliasToMissingType()
