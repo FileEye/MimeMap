@@ -299,10 +299,20 @@ abstract class AbstractMap extends BaseMap
         $type = strtolower($type);
         $extension = strtolower($extension);
 
-        $type_ret = $this->removeMapSubEntry('t', $type, 'e', $extension);
-        $extension_ret = $this->removeMapSubEntry('e', $extension, 't', $type);
-
-        // @todo remove any alias
+        if ($this->hasAlias($type)) {
+            $alias = $type;
+            $type_ret = $this->removeMapSubEntry('a', $alias, 'e', $extension);
+            $extension_ret = $this->removeMapSubEntry('e', $extension, 't', $alias);
+        } else {
+            foreach (this->getMapSubEntry('e', $extension, 't') as $associated_type) {
+                if ($this->hasAlias($associated_type) && $type === $this->getAliasTypes($associated_type)[0]) {
+                    $this->removeMapSubEntry('a', $associated_type, 'e', $extension);
+                    $this->removeMapSubEntry('e', $extension, 't', $associated_type);
+                }
+            }
+            $type_ret = $this->removeMapSubEntry('t', $type, 'e', $extension);
+            $extension_ret = $this->removeMapSubEntry('e', $extension, 't', $type);
+        }
 
         return $type_ret && $extension_ret;
     }
