@@ -121,6 +121,12 @@ class MapHandlerTest extends MimeMapTestBase
         $this->assertFalse($this->map->hasExtension('jpgjpg'));
     }
 
+    public function testAddAliasToMissingType()
+    {
+        $this->bcSetExpectedException('FileEye\MimeMap\MappingException', "Cannot set 'baz/qoo' as alias for 'bar/foo', 'bar/foo' not defined");
+        $this->map->addTypeAlias('bar/foo', 'baz/qoo');
+    }
+
     public function testSetExtensionDefaultType()
     {
         $this->assertSame(['text/vnd.dvb.subtitle', 'image/vnd.dvb.subtitle', 'text/x-microdvd', 'text/x-mpsub', 'text/x-subviewer'], (new Extension('sub'))->getTypes());
