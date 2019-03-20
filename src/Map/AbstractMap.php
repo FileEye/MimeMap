@@ -130,6 +130,13 @@ abstract class AbstractMap extends BaseMap
         if ($this->hasType($alias)) {
             throw new MappingException("Cannot set '{$alias}' as alias for '{$type}', '{$alias}' is already defined as a type");
         }
+        if ($this->hasAlias($alias)) {
+            $unaliased_types = $this->getAliasTypes($alias);
+            if (!empty($unaliased_types) && $unaliased_types[0] !== $type) {
+                throw new MappingException("Cannot set '{$alias}' as alias for '{$type}', it is an alias of '{$unaliased_types[0]}' already");
+            }
+            return $this;
+        }
 
         $this->addMapSubEntry('t', $type, 'a', $alias);
         $this->addMapSubEntry('a', $alias, 't', $type);
@@ -332,6 +339,8 @@ abstract class AbstractMap extends BaseMap
 
     /**
      * Gets the parent types of an alias.
+     *
+     * There should not be multiple types for an alias.
      *
      * @param string $alias The alias to be found.
      *
