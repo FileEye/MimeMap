@@ -128,6 +128,21 @@ class MapHandlerTest extends MimeMapTestBase
         $this->assertSame(['image/vnd.dvb.subtitle', 'text/vnd.dvb.subtitle', 'text/x-microdvd', 'text/x-mpsub', 'text/x-subviewer'], (new Extension('SUB'))->getTypes());
     }
 
+    public function testReAddAliasToType()
+    {
+        $this->assertSame(['image/psd', 'image/x-psd', 'image/photoshop', 'image/x-photoshop', 'application/photoshop', 'application/x-photoshop',], (new Type('image/vnd.adobe.photoshop'))->getAliases());
+        $this->map->addTypeAlias('image/vnd.adobe.photoshop', 'application/x-photoshop');
+        $this->assertSame(['image/psd', 'image/x-psd', 'image/photoshop', 'image/x-photoshop', 'application/photoshop', 'application/x-photoshop',], (new Type('image/vnd.adobe.photoshop'))->getAliases());
+    }
+
+    public function testAddAliasToMultipleTypes()
+    {
+        $this->assertSame([], (new Type('text/plain'))->getAliases());
+        $this->bcSetExpectedException('FileEye\MimeMap\MappingException', "Cannot set 'application/x-photoshop' as alias for 'text/plain', it is an alias of 'image/vnd.adobe.photoshop' already");
+        $this->map->addTypeAlias('text/plain', 'application/x-photoshop');
+        $this->assertSame([], (new Type('text/plain'))->getAliases());
+    }
+
     public function testAddAliasToMissingType()
     {
         $this->bcSetExpectedException('FileEye\MimeMap\MappingException', "Cannot set 'baz/qoo' as alias for 'bar/foo', 'bar/foo' not defined");
