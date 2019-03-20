@@ -132,7 +132,7 @@ abstract class AbstractMap extends BaseMap
         }
         if ($this->hasAlias($alias)) {
             $unaliased_types = $this->getAliasTypes($alias);
-            if ($unaliased_types && $unaliased_types[0] !== $type) {
+            if (!empty($unaliased_types) && $unaliased_types[0] !== $type) {
                 throw new MappingException("Cannot set '{$alias}' as alias for '{$type}', it is an alias of '{$unaliased_types[0]}' already");
             }
             return $this;
