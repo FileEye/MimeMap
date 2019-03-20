@@ -2,13 +2,13 @@ language: php
 sudo: false
 
 php:
-  #- 5.4
-  ##- 5.5
-  #-# 5.6
-  #- 7.0
+  - 5.4
+  - 5.5
+  - 5.6
+  - 7.0
   - 7.1
-  #- 7.2
-  #- 7.3
+  - 7.2
+  - 7.3
   #- nightly
 
 env:
@@ -43,7 +43,7 @@ before_install:
 
 install:
   # Let TravisCI re-compile the PHP map file.
-  #- php bin/fileeye-mimemap update --diff
+  - php bin/fileeye-mimemap update --diff
 
 script:
   - if [ "$TRAVIS_PHP_VERSION" == "7.1" ]; then ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1; fi
