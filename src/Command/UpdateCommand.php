@@ -57,7 +57,7 @@ class UpdateCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $updater = new MapUpdater();
-        $updater->selectBaseClass('\FileEye\MimeMap\Map\EmptyMap');
+        $updater->selectBaseMap('\FileEye\MimeMap\Map\EmptyMap');
 
         // Executes on the base map the script commands.
         $commands = Yaml::parse(file_get_contents($input->getOption('script')));
