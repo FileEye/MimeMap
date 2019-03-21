@@ -20,7 +20,7 @@ class MapUpdaterTest extends MimeMapTestBase
     {
         $this->updater = new MapUpdater();
         $this->updater->selectBaseMap('\FileEye\MimeMap\Map\EmptyMap');
-        $this->newMap = $updater->getMap();
+        $this->newMap = $this->updater->getMap();
         $this->assertInstanceOf('\FileEye\MimeMap\Map\EmptyMap', $this->newMap);
         $this->fileSystem = new Filesystem();
     }
