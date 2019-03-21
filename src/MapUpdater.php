@@ -38,6 +38,7 @@ class MapUpdater
     public function selectBaseMap($map_class)
     {
         $this->map = MapHandler::map($map_class);
+        $this->map->backup();
     }
 
     /**
