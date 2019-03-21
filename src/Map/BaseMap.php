@@ -12,6 +12,13 @@ use FileEye\MimeMap\MappingException;
 abstract class BaseMap
 {
     /**
+     * Mapping between file extensions and MIME types.
+     *
+     * @var array
+     */
+    protected static $map = [];
+
+    /**
      * A backup of the mapping between file extensions and MIME types.
      *
      * Used during the map update process.
