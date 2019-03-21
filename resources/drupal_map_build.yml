@@ -8,7 +8,7 @@
 # The Apache httpd project contains the most complete list of file extension to
 # mime type mapping on the planet. We use it to update our own list.
 -
-    - 'Starting from MimeMap's default map'
+    - 'Starting from MimeMap default map'
     - selectBaseMap
     - [\FileEye\MimeMap\Map\DefaultMap]
 
