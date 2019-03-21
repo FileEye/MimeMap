@@ -90,7 +90,7 @@ class UpdateCommand extends Command
             ] as $key => $desc) {
                 try {
                     $output->writeln("<info>Checking changes to {$desc} ...</info>");
-                    $this->compareMaps($current_map, $new_map, $key);
+                    $this->compareMaps($current_map, $updater->getMap(), $key);
                 } catch (\RuntimeException $e) {
                     $output->writeln("<comment>Changes to {$desc} mapping:</comment>");
                     $output->writeln($e->getMessage());
@@ -110,7 +110,7 @@ class UpdateCommand extends Command
         }
 
         // Reset the new map's map array.
-        $new_map->reset();
+        $updater->getMap()->reset();
     }
 
     /**
