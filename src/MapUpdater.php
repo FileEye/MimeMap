@@ -10,6 +10,11 @@ use FileEye\MimeMap\Map\AbstractMap;
 class MapUpdater
 {
     /**
+     * The default, empty, base map to use for update.
+     */
+    const DEFAULT_BASE_MAP_CLASS = '\FileEye\MimeMap\Map\EmptyMap';
+
+    /**
      * The AbstractMap object to update.
      *
      * @var AbstractMap
