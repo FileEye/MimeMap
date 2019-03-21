@@ -30,15 +30,9 @@ class MapUpdater
         return __DIR__ . '/../resources/default_map_build.yml';
     }
 
-    /**
-     * Constructor.
-     *
-     * @param AbstractMap $map
-     *   The map.
-     */
-    public function __construct(AbstractMap $map)
+    public function selectBaseMap($map_class)
     {
-        $this->map = $map;
+        $this->map = MapHandler::map($map_class);
     }
 
     /**
