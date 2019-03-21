@@ -44,7 +44,7 @@ before_install:
 install:
   # Let TravisCI re-compile the PHP map file.
   - php bin/fileeye-mimemap update --diff
-  - php bin/fileeye-mimemap update --class=\FileEye\MimeMap\Map\DrupalMap --script=resources/drupal_map_build.yml --diff
+  - php bin/fileeye-mimemap update --class=\\FileEye\\MimeMap\\Map\\DrupalMap --script=resources/drupal_map_build.yml --diff
 
 script:
   - if [ "$TRAVIS_PHP_VERSION" == "7.1" ]; then ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1; fi
