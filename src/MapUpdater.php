@@ -35,6 +35,11 @@ class MapUpdater
         return __DIR__ . '/../resources/default_map_build.yml';
     }
 
+    /**
+     * The AbstractMap object to update.
+     *
+     * @return AbstractMap
+     */
     public function getMap()
     {
         return $this->map;
