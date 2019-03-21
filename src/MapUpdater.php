@@ -10,6 +10,11 @@ use FileEye\MimeMap\Map\AbstractMap;
 class MapUpdater
 {
     /**
+     * The default, empty, base map to use for update.
+     */
+    const DEFAULT_BASE_MAP_CLASS = '\FileEye\MimeMap\Map\EmptyMap';
+
+    /**
      * The AbstractMap object to update.
      *
      * @var AbstractMap
@@ -31,14 +36,28 @@ class MapUpdater
     }
 
     /**
-     * Constructor.
+     * Returns the AbstractMap object being updated.
      *
-     * @param AbstractMap $map
-     *   The map.
+     * @return AbstractMap
      */
-    public function __construct(AbstractMap $map)
+    public function getMap()
     {
-        $this->map = $map;
+        return $this->map;
+    }
+
+    /**
+     * Sets the AbstractMap object to update.
+     *
+     * @param string $map_class
+     *   The FQCN of the map to be updated.
+     *
+     * @return $this
+     */
+    public function selectBaseMap($map_class)
+    {
+        $this->map = MapHandler::map($map_class);
+        $this->map->backup();
+        return $this;
     }
 
     /**

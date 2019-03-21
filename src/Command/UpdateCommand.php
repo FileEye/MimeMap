@@ -56,10 +56,10 @@ class UpdateCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $new_map = MapHandler::map('\FileEye\MimeMap\Map\EmptyMap');
-        $updater = new MapUpdater($new_map);
+        $updater = new MapUpdater();
+        $updater->selectBaseMap(MapUpdater::DEFAULT_BASE_MAP_CLASS);
 
-        // Executes on an emtpy map the script commands.
+        // Executes on the base map the script commands.
         $commands = Yaml::parse(file_get_contents($input->getOption('script')));
         foreach ($commands as $command) {
             $output->writeln("<info>{$command[0]} ...</info>");
@@ -90,7 +90,7 @@ class UpdateCommand extends Command
             ] as $key => $desc) {
                 try {
                     $output->writeln("<info>Checking changes to {$desc} ...</info>");
-                    $this->compareMaps($current_map, $new_map, $key);
+                    $this->compareMaps($current_map, $updater->getMap(), $key);
                 } catch (\RuntimeException $e) {
                     $output->writeln("<comment>Changes to {$desc} mapping:</comment>");
                     $output->writeln($e->getMessage());
@@ -110,7 +110,7 @@ class UpdateCommand extends Command
         }
 
         // Reset the new map's map array.
-        $new_map->reset();
+        $updater->getMap()->reset();
     }
 
     /**

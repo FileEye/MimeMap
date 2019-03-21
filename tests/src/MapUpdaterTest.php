@@ -18,15 +18,16 @@ class MapUpdaterTest extends MimeMapTestBase
 
     public function fcSetUp()
     {
-        $this->newMap = MapHandler::map('\FileEye\MimeMap\Map\EmptyMap');
-        $this->assertInstanceOf('\FileEye\MimeMap\Map\EmptyMap', $this->newMap);
-        $this->updater = new MapUpdater($this->newMap);
+        $this->updater = new MapUpdater();
+        $this->updater->selectBaseMap(MapUpdater::DEFAULT_BASE_MAP_CLASS);
+        $this->newMap = $this->updater->getMap();
+        $this->assertInstanceOf(MapUpdater::DEFAULT_BASE_MAP_CLASS, $this->newMap);
         $this->fileSystem = new Filesystem();
     }
 
     public function fcTearDown()
     {
-        $this->assertInstanceOf('\FileEye\MimeMap\Map\EmptyMap', $this->newMap);
+        $this->assertInstanceOf(MapUpdater::DEFAULT_BASE_MAP_CLASS, $this->newMap);
         $this->newMap->reset();
     }
 
