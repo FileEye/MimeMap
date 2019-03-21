@@ -30,6 +30,11 @@ class MapUpdater
         return __DIR__ . '/../resources/default_map_build.yml';
     }
 
+    public function getMap($map_class)
+    {
+        return $this->map;
+    }
+
     public function selectBaseMap($map_class)
     {
         $this->map = MapHandler::map($map_class);
