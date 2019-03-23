@@ -45,6 +45,7 @@ abstract class BaseMap
     public function reset()
     {
         static::$map = static::$backupMap;
+        static::$backupMap = null;
     }
 
     /**
