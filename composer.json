@@ -28,5 +28,10 @@
             "FileEye\\MimeMap\\Test\\": "tests/src/"
         }
     },
-    "bin": ["bin/fileeye-mimemap"]
+    "bin": ["bin/fileeye-mimemap"],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    }
 }
