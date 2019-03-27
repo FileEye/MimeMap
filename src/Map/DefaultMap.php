@@ -12215,7 +12215,16 @@ class DefaultMap extends AbstractMap
       ),
       'e' => 
       array (
-        0 => 'anim[1-9j]',
+        0 => 'anim1',
+        1 => 'anim2',
+        2 => 'anim3',
+        3 => 'anim4',
+        4 => 'anim5',
+        5 => 'anim6',
+        6 => 'anim7',
+        7 => 'anim8',
+        8 => 'anim9',
+        9 => 'animj',
       ),
     ),
     'video/x-f4v' => 
@@ -12808,7 +12817,70 @@ class DefaultMap extends AbstractMap
         0 => 'application/x-navi-animation',
       ),
     ),
-    'anim[1-9j]' => 
+    'anim1' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/x-anim',
+      ),
+    ),
+    'anim2' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/x-anim',
+      ),
+    ),
+    'anim3' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/x-anim',
+      ),
+    ),
+    'anim4' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/x-anim',
+      ),
+    ),
+    'anim5' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/x-anim',
+      ),
+    ),
+    'anim6' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/x-anim',
+      ),
+    ),
+    'anim7' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/x-anim',
+      ),
+    ),
+    'anim8' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/x-anim',
+      ),
+    ),
+    'anim9' => 
+    array (
+      't' => 
+      array (
+        0 => 'video/x-anim',
+      ),
+    ),
+    'animj' => 
     array (
       't' => 
       array (

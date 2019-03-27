@@ -66,6 +66,22 @@
     - loadMapFromFreedesktopFile
     - [https://raw.github.com/minad/mimemagic/master/script/freedesktop.org.xml]
 -
+    - 'Cleanup video/x-anim'
+    - applyOverrides
+    -
+        -
+            - [removeTypeExtensionMapping, [video/x-anim, "anim[1-9j]"]]
+            - [addTypeExtensionMapping, [video/x-anim, anim1]]
+            - [addTypeExtensionMapping, [video/x-anim, anim2]]
+            - [addTypeExtensionMapping, [video/x-anim, anim3]]
+            - [addTypeExtensionMapping, [video/x-anim, anim4]]
+            - [addTypeExtensionMapping, [video/x-anim, anim5]]
+            - [addTypeExtensionMapping, [video/x-anim, anim6]]
+            - [addTypeExtensionMapping, [video/x-anim, anim7]]
+            - [addTypeExtensionMapping, [video/x-anim, anim8]]
+            - [addTypeExtensionMapping, [video/x-anim, anim9]]
+            - [addTypeExtensionMapping, [video/x-anim, animj]]
+-
     - 'Adding back selected svn.apache.org mappings'
     - applyOverrides
     -
