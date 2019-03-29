@@ -272,4 +272,28 @@ class MapHandlerTest extends MimeMapTestBase
         $this->bcSetExpectedException('FileEye\MimeMap\MappingException', "Cannot map 'pdf' to 'application/acrobat', 'application/acrobat' is an alias");
         $this->map->addTypeExtensionMapping('application/acrobat', 'pdf');
     }
+
+    /**
+     * Data provider for testAddMalformedTypeExtensionMapping.
+     */
+    public function malformedTypeProvider()
+    {
+        return [
+            'empty string' => [''],
+            'n' => ['n'],
+            'no media' => ['/n'],
+            'no sub type' => ['n/'],
+            'no comment closing bracket a' => ['image (open ()/*'],
+            'no comment closing bracket b' => ['image / * (open (())'],
+        ];
+    }
+
+    /**
+     * @dataProvider malformedTypeProvider
+     */
+    public function testAddMalformedTypeExtensionMapping($type)
+    {
+        $this->expectException('FileEye\MimeMap\MalformedTypeException');
+        $this->map->addTypeExtensionMapping($type, 'xxx');
+    }
 }
