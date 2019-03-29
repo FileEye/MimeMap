@@ -15,6 +15,8 @@ class TypeParser
      * @param Type $type
      *   The Type object to receive the components.
      *
+     * @throws MalformedTypeException when $type_string is malformed.
+     *
      * @return void
      */
     public static function parse($type_string, Type $type)
