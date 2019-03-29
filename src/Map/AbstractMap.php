@@ -2,7 +2,9 @@
 
 namespace FileEye\MimeMap\Map;
 
+use FileEye\MimeMap\MalformedTypeException;
 use FileEye\MimeMap\MappingException;
+use FileEye\MimeMap\TypeParser;
 
 /**
  * Abstract class for mapping file extensions to MIME types.
@@ -12,6 +14,39 @@ use FileEye\MimeMap\MappingException;
 abstract class AbstractMap extends BaseMap
 {
     /**
+     * Normalizes a mime-type string to Media/Subtype.
+     *
+     * @param string $type_string
+     *   MIME type string to parse.
+     *
+     * @throws MalformedTypeException when $type_string is malformed.
+     *
+     * @return string
+     *   A MIME type string in the 'Media/Subtype' format.
+     */
+    protected function normalizeType($type_string)
+    {
+        // Media and SubType are separated by a slash '/'.
+        $media = TypeParser::parseStringPart($type_string, 0, '/');
+
+        if (!$media['string']) {
+            throw new MalformedTypeException('Media type not found');
+        }
+        if (!$media['delimiter_matched']) {
+            throw new MalformedTypeException('Slash \'/\' to separate media type and subtype not found');
+        }
+
+        // SubType and Parameters are separated by semicolons ';'.
+        $sub = TypeParser::parseStringPart($type_string, $media['end_offset'] + 1, ';');
+
+        if (!$sub['string']) {
+            throw new MalformedTypeException('Media subtype not found');
+        }
+
+        return strtolower((string) $media['string']) . '/' . strtolower((string) $sub['string']);
+    }
+
+    /**
      * Determines if a MIME type exists.
      *
      * @param string $type The type to be found.
@@ -20,6 +55,7 @@ abstract class AbstractMap extends BaseMap
      */
     public function hasType($type)
     {
+        $type = $this->normalizeType($type);
         return (bool) $this->getMapEntry('t', $type);
     }
 
@@ -32,6 +68,7 @@ abstract class AbstractMap extends BaseMap
      */
     public function hasAlias($alias)
     {
+        $alias = $this->normalizeType($alias);
         return (bool) $this->getMapEntry('a', $alias);
     }
 
@@ -44,6 +81,7 @@ abstract class AbstractMap extends BaseMap
      */
     public function hasExtension($extension)
     {
+        $extension = strtolower($extension);
         return (bool) $this->getMapEntry('e', $extension);
     }
 
@@ -97,6 +135,8 @@ abstract class AbstractMap extends BaseMap
      */
     public function addTypeDescription($type, $description)
     {
+        $type = $this->normalizeType($type);
+
         // Consistency checks.
         if ($this->hasAlias($type)) {
             throw new MappingException("Cannot add description for '{$type}', '{$type}' is an alias");
@@ -120,8 +160,8 @@ abstract class AbstractMap extends BaseMap
      */
     public function addTypeAlias($type, $alias)
     {
-        $type = strtolower($type);
-        $alias = strtolower($alias);
+        $type = $this->normalizeType($type);
+        $alias = $this->normalizeType($alias);
 
         // Consistency checks.
         if (!$this->hasType($type)) {
@@ -157,7 +197,7 @@ abstract class AbstractMap extends BaseMap
      */
     public function addTypeExtensionMapping($type, $extension)
     {
-        $type = strtolower($type);
+        $type = $this->normalizeType($type);
         $extension = strtolower($extension);
 
         // Consistency checks.
@@ -183,6 +223,7 @@ abstract class AbstractMap extends BaseMap
      */
     public function getTypeDescriptions($type)
     {
+        $type = $this->normalizeType($type);
         return $this->getMapSubEntry('t', $type, 'desc') ?: [];
     }
 
@@ -195,6 +236,7 @@ abstract class AbstractMap extends BaseMap
      */
     public function getTypeAliases($type)
     {
+        $type = $this->normalizeType($type);
         return $this->getMapSubEntry('t', $type, 'a') ?: [];
     }
 
@@ -207,6 +249,7 @@ abstract class AbstractMap extends BaseMap
      */
     public function getTypeExtensions($type)
     {
+        $type = $this->normalizeType($type);
         return $this->getMapSubEntry('t', $type, 'e') ?: [];
     }
 
@@ -224,6 +267,8 @@ abstract class AbstractMap extends BaseMap
      */
     public function setTypeDefaultExtension($type, $extension)
     {
+        $type = $this->normalizeType($type);
+        $extension = strtolower($extension);
         return $this->setValueAsDefault('t', $type, 'e', $extension);
     }
 
@@ -238,7 +283,7 @@ abstract class AbstractMap extends BaseMap
      */
     public function removeType($type)
     {
-        $type = strtolower($type);
+        $type = $this->normalizeType($type);
 
         // Return false if type is not found.
         if (!$this->hasType($type)) {
@@ -273,8 +318,8 @@ abstract class AbstractMap extends BaseMap
      */
     public function removeTypeAlias($type, $alias)
     {
-        $type = strtolower($type);
-        $alias = strtolower($alias);
+        $type = $this->normalizeType($type);
+        $alias = $this->normalizeType($alias);
 
         // Remove any extension mapped to the alias.
         if ($extensions = $this->getMapSubEntry('a', $alias, 'e')) {
@@ -303,7 +348,7 @@ abstract class AbstractMap extends BaseMap
      */
     public function removeTypeExtensionMapping($type, $extension)
     {
-        $type = strtolower($type);
+        $type = $this->normalizeType($type);
         $extension = strtolower($extension);
 
         if ($this->hasAlias($type)) {
@@ -329,6 +374,8 @@ abstract class AbstractMap extends BaseMap
      */
     protected function removeAliasedTypesExtensionMapping($type, $extension)
     {
+        $type = $this->normalizeType($type);
+        $extension = strtolower($extension);
         foreach ($this->getExtensionTypes($extension) as $associated_type) {
             if ($this->hasAlias($associated_type) && $type === $this->getAliasTypes($associated_type)[0]) {
                 $this->removeMapSubEntry('a', $associated_type, 'e', $extension);
@@ -348,6 +395,7 @@ abstract class AbstractMap extends BaseMap
      */
     public function getAliasTypes($alias)
     {
+        $alias = $this->normalizeType($alias);
         return $this->getMapSubEntry('a', $alias, 't') ?: [];
     }
 
@@ -360,6 +408,7 @@ abstract class AbstractMap extends BaseMap
      */
     public function getExtensionTypes($extension)
     {
+        $extension = strtolower($extension);
         return $this->getMapSubEntry('e', $extension, 't') ?: [];
     }
 
@@ -379,7 +428,7 @@ abstract class AbstractMap extends BaseMap
      */
     public function setExtensionDefaultType($extension, $type)
     {
-        $type = strtolower($type);
+        $type = $this->normalizeType($type);
         $extension = strtolower($extension);
 
         if ($this->hasAlias($type)) {
