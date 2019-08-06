@@ -77,7 +77,7 @@ class MapUpdater
 
         $lines = file($source_file);
         foreach ($lines as $line) {
-            if ($line{0} == '#') {
+            if ($line[0] == '#') {
                 continue;
             }
             $line = preg_replace("#\\s+#", ' ', trim($line));
