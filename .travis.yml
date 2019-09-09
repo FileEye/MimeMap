@@ -48,8 +48,6 @@ before_install:
 
 install:
   # Let TravisCI re-compile the PHP map file.
-  - php bin/fileeye-mimemap --version
-  - php bin/fileeye-mimemap update -h
   - php bin/fileeye-mimemap update --diff --fail-on-diff
 
 script:
