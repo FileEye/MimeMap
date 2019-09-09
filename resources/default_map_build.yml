@@ -99,3 +99,4 @@
     -
         -
             - [setExtensionDefaultType, [sub, text/vnd.dvb.subtitle]]
+            - [addTypeExtensionMapping, [video/bong, bing]]
