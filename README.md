@@ -215,7 +215,7 @@ $ fileeye-mimemap update
 ```
 
 By default, the utility fetches a mapping source available from the [Apache's documentation](http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=co)
-website, merges it with another mapping source from the [freedesktop.org project](https://raw.github.com/minad/mimemagic/master/script/freedesktop.org.xml),
+website, merges it with another mapping source from the [freedesktop.org project](https://gitlab.freedesktop.org/xdg/shared-mime-info/blob/master/freedesktop.org.xml.in),
 then integrates the result with any overrides specified in the
 `resources/default_map_build.yml` file, and finally updates the PHP file where
 the `\FileEye\MimeMap\Map\DefaultMap` class is stored.
