@@ -50,6 +50,7 @@
             - [removeType, [audio/x-pn-realaudio]]
             - [removeType, [application/vnd.rn-realmedia-vbr]]
             - [removeType, [application/docbook+xml]]
+            - [removeType, [image/g3fax]]
             - [removeType, [image/x-icon]]
             - [removeType, [image/x-pcx]]
             - [removeType, [application/x-msmetafile]]
