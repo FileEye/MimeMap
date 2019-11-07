@@ -50,6 +50,7 @@
             - [removeType, [audio/x-pn-realaudio]]
             - [removeType, [application/vnd.rn-realmedia-vbr]]
             - [removeType, [application/docbook+xml]]
+            - [removeType, [image/g3fax]]
             - [removeType, [image/x-icon]]
             - [removeType, [image/x-pcx]]
             - [removeType, [application/x-msmetafile]]
@@ -64,7 +65,7 @@
 -
     - 'Updating with information from freedesktop.org'
     - loadMapFromFreedesktopFile
-    - [https://raw.github.com/minad/mimemagic/master/script/freedesktop.org.xml]
+    - [https://gitlab.freedesktop.org/xdg/shared-mime-info/raw/master/freedesktop.org.xml.in]
 -
     - 'Cleanup video/x-anim'
     - applyOverrides
