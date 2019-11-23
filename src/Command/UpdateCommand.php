@@ -78,7 +78,7 @@ class UpdateCommand extends Command
                 }
             } catch (\Exception $e) {
                 $output->writeln('<error>' . $e->getMessage() . '</error>');
-                exit(2);
+                return(1);
             }
         }
 
@@ -121,6 +121,8 @@ class UpdateCommand extends Command
 
         // Reset the new map's map array.
         $updater->getMap()->reset();
+
+        return(0);
     }
 
     /**
