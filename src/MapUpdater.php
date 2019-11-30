@@ -70,12 +70,18 @@ class MapUpdater
      *
      * @return string[]
      *   An array of error messages.
+     *
+     * @throws \RuntimeException
+     *   If it was not possible to access the file.
      */
     public function loadMapFromApacheFile($source_file)
     {
         $errors = [];
 
-        $lines = file($source_file);
+        $lines = @file($source_file);
+        if ($lines === false) {
+            throw new \RuntimeException("Failed accessing {$source_file}");
+        }
         foreach ($lines as $line) {
             if ($line[0] == '#') {
                 continue;

@@ -10,6 +10,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Yaml\Yaml;
 use FileEye\MimeMap\Map\AbstractMap;
 use FileEye\MimeMap\MapHandler;
@@ -62,6 +63,8 @@ class UpdateCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $io = new SymfonyStyle($input, $output);
+
         $updater = new MapUpdater();
         $updater->selectBaseMap(MapUpdater::DEFAULT_BASE_MAP_CLASS);
 
@@ -77,7 +80,7 @@ class UpdateCommand extends Command
                     }
                 }
             } catch (\Exception $e) {
-                $output->writeln('<error>' . $e->getMessage() . '</error>');
+                $io->error($e->getMessage());
                 return(1);
             }
         }
@@ -108,7 +111,8 @@ class UpdateCommand extends Command
 
         // Fail on diff if required.
         if ($write && $input->getOption('diff') && $input->getOption('fail-on-diff')) {
-            throw new \RuntimeException('Changes to mapping detected, aborting.');
+            $io->error('Changes to mapping detected and --fail-on-diff requested, aborting.');
+            return(2);
         }
 
         // If changed, save the new map to the PHP file.
