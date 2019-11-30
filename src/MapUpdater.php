@@ -80,7 +80,7 @@ class MapUpdater
 
         $lines = file($source_file);
         if ($lines === false) {
-          throw new \RuntimeException("Failed accessing {$source_file}");
+            throw new \RuntimeException("Failed accessing {$source_file}");
         }
         foreach ($lines as $line) {
             if ($line[0] == '#') {
