@@ -78,7 +78,7 @@ class MapUpdater
     {
         $errors = [];
 
-        $lines = file($source_file);
+        $lines = @file($source_file);
         if ($lines === false) {
             throw new \RuntimeException("Failed accessing {$source_file}");
         }
