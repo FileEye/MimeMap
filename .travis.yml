@@ -24,7 +24,7 @@ matrix:
   allow_failures:
     - php: 7.4snapshot
     - php: nightly
-          
+
 cache:
   directories:
     #- $FILEEYE_STAGING_DIR
@@ -48,7 +48,7 @@ before_install:
 
 install:
   # Let TravisCI re-compile the PHP map file.
-  - php bin/fileeye-mimemap update --diff
+  - php bin/fileeye-mimemap update --diff --fail-on-diff
 
 script:
   - if [ "$TRAVIS_PHP_VERSION" == "7.1" ]; then ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1; fi

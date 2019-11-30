@@ -100,3 +100,4 @@
     -
         -
             - [setExtensionDefaultType, [sub, text/vnd.dvb.subtitle]]
+            - [removeType, [image/jpeg]]

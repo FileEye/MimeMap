@@ -77,7 +77,7 @@ class UpdateCommand extends Command
                     }
                 }
             } catch (\Exception $e) {
-                $output->writeln('<error>' . $e->getMessage() . '</error>');
+                $output->error($e->getMessage());
                 return(1);
             }
         }
@@ -108,7 +108,8 @@ class UpdateCommand extends Command
 
         // Fail on diff if required.
         if ($write && $input->getOption('diff') && $input->getOption('fail-on-diff')) {
-            throw new \RuntimeException('Changes to mapping detected, aborting.');
+            $output->error('Changes to mapping detected and --fail-on-diff requested, aborting.');
+            return(2);
         }
 
         // If changed, save the new map to the PHP file.
