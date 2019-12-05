@@ -7,7 +7,7 @@ php:
   - 7.1
   - 7.2
   - 7.3
-  - 7.4snapshot
+  - 7.4
   - nightly
 
 env:
@@ -22,7 +22,6 @@ matrix:
       dist: trusty
   fast_finish: true
   allow_failures:
-    - php: 7.4snapshot
     - php: nightly
 
 cache:

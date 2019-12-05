@@ -77,77 +77,77 @@ The API the package implements is pretty straightforward:
 1. You have a MIME type, and want to get the file extensions normally associated
 to it:
 
-```php
-use FileEye\MimeMap\Type;
-...
-$type = new Type('image/jpeg');
+  ```php
+  use FileEye\MimeMap\Type;
+  ...
+  $type = new Type('image/jpeg');
 
-print_r($type->getExtensions());
-// will print ['jpeg', 'jpg', 'jpe']
+  print_r($type->getExtensions());
+  // will print ['jpeg', 'jpg', 'jpe']
 
-print_r($type->getDefaultExtension());
-// will print 'jpeg'
+  print_r($type->getDefaultExtension());
+  // will print 'jpeg'
 
-// When passing an alias to a MIME type, the API will
-// return the extensions to the parent type:
-$type = new Type('image/pdf');
+  // When passing an alias to a MIME type, the API will
+  // return the extensions to the parent type:
+  $type = new Type('image/pdf');
 
-print_r($type->getDefaultExtension());
-// will print 'pdf' which is the default extension for 'application/pdf'
-```
+  print_r($type->getDefaultExtension());
+  // will print 'pdf' which is the default extension for 'application/pdf'
+  ```
 
 2. Viceversa, you have a file extensions, and want to get the MIME type normally
 associated to it:
 
-```php
-use FileEye\MimeMap\Extension;
-...
-$ext = new Extension('xar');
+  ```php
+  use FileEye\MimeMap\Extension;
+  ...
+  $ext = new Extension('xar');
 
-print_r($ext->getTypes());
-// will return ['application/vnd.xara', 'application/x-xar']
+  print_r($ext->getTypes());
+  // will return ['application/vnd.xara', 'application/x-xar']
 
-print_r($ext->getDefaultType());
-// will return 'application/vnd.xara'
-```
+  print_r($ext->getDefaultType());
+  // will return 'application/vnd.xara'
+  ```
 
 3. You have a raw MIME Content-Type string and want to add a parameter:
 
-```php
-use FileEye\MimeMap\Type;
-...
-$type = new Type('text / (Unstructured text)  plain  ; charset = (UTF8, not ASCII) utf-8');
-$type->addParameter('lang', 'it', 'Italian');
+  ```php
+  use FileEye\MimeMap\Type;
+  ...
+  $type = new Type('text / (Unstructured text)  plain  ; charset = (UTF8, not ASCII) utf-8');
+  $type->addParameter('lang', 'it', 'Italian');
 
-echo $type->toString(Type::SHORT_TEXT);
-// will print 'text/plain'
+  echo $type->toString(Type::SHORT_TEXT);
+  // will print 'text/plain'
 
-echo $type->toString(Type::FULL_TEXT);
-// will print 'text/plain; charset="utf-8"; lang="it"'
+  echo $type->toString(Type::FULL_TEXT);
+  // will print 'text/plain; charset="utf-8"; lang="it"'
 
-echo $type->toString(Type::FULL_TEXT_WITH_COMMENTS);
-// will print 'text/plain (Unstructured text); charset="utf-8" (UTF8, not ASCII), lang="it" (Italian)'
-```
+  echo $type->toString(Type::FULL_TEXT_WITH_COMMENTS);
+  // will print 'text/plain (Unstructured text); charset="utf-8" (UTF8, not ASCII), lang="it" (Italian)'
+  ```
 
 4. You have a MIME Content-Type string and want to the type's description as a comment:
 
-```php
-use FileEye\MimeMap\Type;
-...
-$type = new Type('text/html');
+  ```php
+  use FileEye\MimeMap\Type;
+  ...
+  $type = new Type('text/html');
 
-$type_desc = $type->getDescription();
-$type->setSubTypeComment($type_desc);
-echo $type->toString(Type::FULL_TEXT_WITH_COMMENTS);
-// will print 'text/html (HTML document)'
+  $type_desc = $type->getDescription();
+  $type->setSubTypeComment($type_desc);
+  echo $type->toString(Type::FULL_TEXT_WITH_COMMENTS);
+  // will print 'text/html (HTML document)'
 
-// Setting the $include_acronym parameter of getDescription to true
-// will extend the description to include the meaning of the acronym
-$type_desc = $type->getDescription(true);
-$type->setSubTypeComment($type_desc);
-echo $type->toString(Type::FULL_TEXT_WITH_COMMENTS);
-// will print 'text/html (HTML document, HTML: HyperText Markup Language)'
-```
+  // Setting the $include_acronym parameter of getDescription to true
+  // will extend the description to include the meaning of the acronym
+  $type_desc = $type->getDescription(true);
+  $type->setSubTypeComment($type_desc);
+  echo $type->toString(Type::FULL_TEXT_WITH_COMMENTS);
+  // will print 'text/html (HTML document, HTML: HyperText Markup Language)'
+  ```
 
 
 ### Specify alternative MIME type mapping
@@ -161,44 +161,44 @@ alternative map must be stored in a PHP class that extends from
 1. You want to add an additional MIME type to extension mapping to the
 default class:
 
-```php
-use FileEye\MimeMap\Extension;
-use FileEye\MimeMap\MapHandler;
-use FileEye\MimeMap\Type;
-...
-$map = MapHandler::map();
-$map->addTypeExtensionMapping('foo/bar', 'baz');
+  ```php
+  use FileEye\MimeMap\Extension;
+  use FileEye\MimeMap\MapHandler;
+  use FileEye\MimeMap\Type;
+  ...
+  $map = MapHandler::map();
+  $map->addTypeExtensionMapping('foo/bar', 'baz');
 
-$type = new Type('foo/bar');
-$default_extension = $type->getDefaultExtension();
-// will return 'baz'
+  $type = new Type('foo/bar');
+  $default_extension = $type->getDefaultExtension();
+  // will return 'baz'
 
-$ext = new Extension('baz');
-$default_type = $ext->getDefaultExtension();
-// will return 'foo/bar'
-```
+  $ext = new Extension('baz');
+  $default_type = $ext->getDefaultExtension();
+  // will return 'foo/bar'
+  ```
 
 2. You want to set an alternative map class as default:
 
-```php
-use FileEye\MimeMap\Extension;
-use FileEye\MimeMap\MapHandler;
-use FileEye\MimeMap\Type;
-...
-MapHandler::setDefaultMapClass('MyProject\MyMap');
-...
-```
+  ```php
+  use FileEye\MimeMap\Extension;
+  use FileEye\MimeMap\MapHandler;
+  use FileEye\MimeMap\Type;
+  ...
+  MapHandler::setDefaultMapClass('MyProject\MyMap');
+  ...
+  ```
 
 3. You can also use the alternative map just for a single Type or Extension
 object:
 
-```php
-use FileEye\MimeMap\Extension;
-use FileEye\MimeMap\Type;
-...
-$type = new Type('foo/bar', 'MyProject\MyMap');
-$ext = new Extension('baz', 'MyProject\MyMap');
-```
+  ```php
+  use FileEye\MimeMap\Extension;
+  use FileEye\MimeMap\Type;
+  ...
+  $type = new Type('foo/bar', 'MyProject\MyMap');
+  $ext = new Extension('baz', 'MyProject\MyMap');
+  ```
 
 
 ## Development
