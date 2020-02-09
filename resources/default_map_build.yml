@@ -65,7 +65,8 @@
 -
     - 'Updating with information from freedesktop.org'
     - loadMapFromFreedesktopFile
-    - [https://gitlab.freedesktop.org/xdg/shared-mime-info/raw/master/freedesktop.org.xml.in]
+    - [https://gitlab.freedesktop.org/xdg/shared-mime-info/raw/master/data/freedesktop.org.xml.in]
+
 -
     - 'Cleanup video/x-anim'
     - applyOverrides
