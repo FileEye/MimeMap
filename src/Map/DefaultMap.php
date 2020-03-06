@@ -11009,20 +11009,6 @@ class DefaultMap extends AbstractMap
         1 => 'cob',
       ),
     ),
-    'text/x-common-lisp' =>
-    array (
-      'desc' =>
-      array (
-        0 => 'Common Lisp source code',
-      ),
-      'e' =>
-      array (
-        0 => 'asd',
-        1 => 'fasl',
-        2 => 'lisp',
-        3 => 'ros',
-      ),
-    ),
     'text/x-csharp' =>
     array (
       'desc' =>
@@ -13138,13 +13124,6 @@ class DefaultMap extends AbstractMap
         3 => 'text/plain',
       ),
     ),
-    'asd' =>
-    array (
-      't' =>
-      array (
-        0 => 'text/x-common-lisp',
-      ),
-    ),
     'asf' =>
     array (
       't' =>
@@ -15067,13 +15046,6 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'text/x-fortran',
-      ),
-    ),
-    'fasl' =>
-    array (
-      't' =>
-      array (
-        0 => 'text/x-common-lisp',
       ),
     ),
     'fb2' =>
@@ -17026,13 +16998,6 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/vnd.route66.link66+xml',
-      ),
-    ),
-    'lisp' =>
-    array (
-      't' =>
-      array (
-        0 => 'text/x-common-lisp',
       ),
     ),
     'list' =>
@@ -20148,13 +20113,6 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'text/troff',
-      ),
-    ),
-    'ros' =>
-    array (
-      't' =>
-      array (
-        0 => 'text/x-common-lisp',
       ),
     ),
     'rp' =>
