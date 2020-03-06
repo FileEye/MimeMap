@@ -203,7 +203,7 @@ class MapUpdater
     {
         $content = preg_replace(
             '#protected static \$map = (.+?);#s',
-            "protected static \$map = " . var_export($this->map->getMapArray(), true) . ";",
+            "protected static \$map = " . preg_replace('/\s+$/m', '', var_export($this->map->getMapArray(), true)) . ";",
             file_get_contents($file)
         );
         file_put_contents($file, $content);
