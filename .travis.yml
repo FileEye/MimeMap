@@ -1,5 +1,6 @@
+os: linux
+
 language: php
-sudo: false
 
 php:
   - 5.6
@@ -14,15 +15,24 @@ env:
   global:
     - FILEEYE_STAGING_DIR="$HOME/fileeye_staging"
 
-matrix:
+jobs:
   include:
     - php: 5.4
       dist: trusty
     - php: 5.5
       dist: trusty
+    - stage: Mapping test
+      php: 7.2
+      script:
+        - php bin/fileeye-mimemap update --diff --fail-on-diff
+    - stage: Code style test
+      php: 7.2
+      script:
+        - ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1
   fast_finish: true
   allow_failures:
     - php: nightly
+    - stage: Mapping test
 
 cache:
   directories:
@@ -32,6 +42,7 @@ before_install:
   # Remove XDebug.
   - phpenv config-rm xdebug.ini || true
 
+install:
   # Stage MimeMap to get dependencies.
   - |
       if [[ ! -f $FILEEYE_STAGING_DIR/vendor/autoload.php ]]; then
@@ -45,12 +56,7 @@ before_install:
   - cp -r $FILEEYE_STAGING_DIR/MimeMap/vendor $TRAVIS_BUILD_DIR
   - cd $TRAVIS_BUILD_DIR
 
-install:
-  # Let TravisCI re-compile the PHP map file.
-  - php bin/fileeye-mimemap update --diff --fail-on-diff
-
 script:
-  - if [ "$TRAVIS_PHP_VERSION" == "7.1" ]; then ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1; fi
   - ./vendor/bin/phpunit
 
 notifications:
