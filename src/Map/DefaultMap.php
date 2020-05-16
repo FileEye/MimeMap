@@ -4858,6 +4858,17 @@ class DefaultMap extends AbstractMap
         0 => 'dmg',
       ),
     ),
+    'application/x-apple-systemprofiler+xml' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Apple System Profiler',
+      ),
+      'e' =>
+      array (
+        0 => 'spx',
+      ),
+    ),
     'application/x-appleworks-document' =>
     array (
       'desc' =>
@@ -7027,6 +7038,28 @@ class DefaultMap extends AbstractMap
         0 => 'pw',
       ),
     ),
+    'application/x-pyspread-bz-spreadsheet' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Pyspread spreadsheet (bzip-compressed)',
+      ),
+      'e' =>
+      array (
+        0 => 'pys',
+      ),
+    ),
+    'application/x-pyspread-spreadsheet' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Pyspread spreadsheet',
+      ),
+      'e' =>
+      array (
+        0 => 'pysu',
+      ),
+    ),
     'application/x-python-bytecode' =>
     array (
       'desc' =>
@@ -8409,6 +8442,17 @@ class DefaultMap extends AbstractMap
         1 => 'xhe',
       ),
     ),
+    'audio/vnd.audible.aax' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Audible Enhanced audio',
+      ),
+      'e' =>
+      array (
+        0 => 'aax',
+      ),
+    ),
     'audio/vnd.dece.audio' =>
     array (
       'e' =>
@@ -8804,7 +8848,6 @@ class DefaultMap extends AbstractMap
       'a' =>
       array (
         0 => 'audio/vnd.audible',
-        1 => 'audio/vnd.audible.aax',
       ),
       'desc' =>
       array (
@@ -8813,7 +8856,6 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'aa',
-        1 => 'aax',
       ),
     ),
     'audio/x-pn-realaudio-plugin' =>
@@ -8895,6 +8937,7 @@ class DefaultMap extends AbstractMap
       array (
         0 => 'oga',
         1 => 'ogg',
+        2 => 'spx',
       ),
     ),
     'audio/x-stm' =>
@@ -9145,6 +9188,28 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'woff2',
+      ),
+    ),
+    'image/avif' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'AV1 Image File Format (AVIF)',
+      ),
+      'e' =>
+      array (
+        0 => 'avif',
+      ),
+    ),
+    'image/avif-sequence' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'AVIF image sequence',
+      ),
+      'e' =>
+      array (
+        0 => 'avifs',
       ),
     ),
     'image/bmp' =>
@@ -10693,6 +10758,22 @@ class DefaultMap extends AbstractMap
         0 => 'tsv',
       ),
     ),
+    'text/tcl' =>
+    array (
+      'a' =>
+      array (
+        0 => 'text/x-tcl',
+      ),
+      'desc' =>
+      array (
+        0 => 'Tcl script',
+      ),
+      'e' =>
+      array (
+        0 => 'tcl',
+        1 => 'tk',
+      ),
+    ),
     'text/troff' =>
     array (
       'a' =>
@@ -10732,6 +10813,21 @@ class DefaultMap extends AbstractMap
         0 => 'uri',
         1 => 'uris',
         2 => 'urls',
+      ),
+    ),
+    'text/vbscript' =>
+    array (
+      'a' =>
+      array (
+        0 => 'text/vbs',
+      ),
+      'desc' =>
+      array (
+        0 => 'VBScript program',
+      ),
+      'e' =>
+      array (
+        0 => 'vbs',
       ),
     ),
     'text/vcard' =>
@@ -11319,6 +11415,17 @@ class DefaultMap extends AbstractMap
         0 => 'java',
       ),
     ),
+    'text/x-kotlin' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Kotlin source code',
+      ),
+      'e' =>
+      array (
+        0 => 'kt',
+      ),
+    ),
     'text/x-ldif' =>
     array (
       'desc' =>
@@ -11817,18 +11924,6 @@ class DefaultMap extends AbstractMap
         8 => 'swap',
         9 => 'target',
         10 => 'timer',
-      ),
-    ),
-    'text/x-tcl' =>
-    array (
-      'desc' =>
-      array (
-        0 => 'Tcl script',
-      ),
-      'e' =>
-      array (
-        0 => 'tcl',
-        1 => 'tk',
       ),
     ),
     'text/x-tex' =>
@@ -12735,7 +12830,7 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'audio/x-pn-audibleaudio',
+        0 => 'audio/vnd.audible.aax',
       ),
     ),
     'abw' =>
@@ -13249,6 +13344,20 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'video/x-msvideo',
+      ),
+    ),
+    'avif' =>
+    array (
+      't' =>
+      array (
+        0 => 'image/avif',
+      ),
+    ),
+    'avifs' =>
+    array (
+      't' =>
+      array (
+        0 => 'image/avif-sequence',
       ),
     ),
     'aw' =>
@@ -16899,6 +17008,13 @@ class DefaultMap extends AbstractMap
         1 => 'application/x-kspread',
       ),
     ),
+    'kt' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/x-kotlin',
+      ),
+    ),
     'ktr' =>
     array (
       't' =>
@@ -19693,6 +19809,20 @@ class DefaultMap extends AbstractMap
         0 => 'application/x-python-bytecode',
       ),
     ),
+    'pys' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-pyspread-bz-spreadsheet',
+      ),
+    ),
+    'pysu' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-pyspread-spreadsheet',
+      ),
+    ),
     'pyv' =>
     array (
       't' =>
@@ -20987,7 +21117,9 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'audio/ogg',
-        1 => 'audio/x-speex',
+        1 => 'application/x-apple-systemprofiler+xml',
+        2 => 'audio/x-speex+ogg',
+        3 => 'audio/x-speex',
       ),
     ),
     'sql' =>
@@ -21528,7 +21660,7 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-tcl',
-        1 => 'text/x-tcl',
+        1 => 'text/tcl',
       ),
     ),
     'teacher' =>
@@ -21656,7 +21788,7 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'text/x-tcl',
+        0 => 'text/tcl',
       ),
     ),
     'tlrz' =>
@@ -22268,6 +22400,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-virtual-boy-rom',
+      ),
+    ),
+    'vbs' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/vbscript',
       ),
     ),
     'vcard' =>
@@ -24691,13 +24830,6 @@ class DefaultMap extends AbstractMap
         0 => 'audio/x-pn-audibleaudio',
       ),
     ),
-    'audio/vnd.audible.aax' =>
-    array (
-      't' =>
-      array (
-        0 => 'audio/x-pn-audibleaudio',
-      ),
-    ),
     'audio/vnd.m-realaudio' =>
     array (
       't' =>
@@ -25230,6 +25362,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/rtf',
       ),
     ),
+    'text/vbs' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/vbscript',
+      ),
+    ),
     'text/vnd.trolltech.linguist' =>
     array (
       't' =>
@@ -25333,6 +25472,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/sql',
+      ),
+    ),
+    'text/x-tcl' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/tcl',
       ),
     ),
     'text/x-troff' =>
