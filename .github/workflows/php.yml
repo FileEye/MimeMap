@@ -11,8 +11,27 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version:
+          - "7.4"
+
     steps:
+
     - uses: actions/checkout@v2
+
+    - name: Install PHP
+      uses: "shivammathur/setup-php@v2"
+      with:
+        php-version: "${{ matrix.php-version }}"
+        coverage: "none"
+        ini-values: "zend.assertions=1"
+
+    - name: Install Composer dependencies
+      run: |
+        composer install --no-progress --ansi
+
 
     - name: Validate composer.json and composer.lock 1
       run: composer validate
