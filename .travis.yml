@@ -9,7 +9,6 @@ php:
   - 7.2
   - 7.3
   - 7.4
-  - 8.0snapshot
   - 8.0
   - nightly
 
@@ -24,17 +23,16 @@ jobs:
     - php: 5.5
       dist: trusty
     - stage: Mapping test
-      php: 7.2
+      php: 7.4
       script:
         - php bin/fileeye-mimemap update --diff --fail-on-diff
     - stage: Code style test
-      php: 7.2
+      php: 7.4
       script:
         - ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1
   fast_finish: true
   allow_failures:
     - php: nightly
-    - php: 8.0
     - stage: Mapping test
 
 cache:
