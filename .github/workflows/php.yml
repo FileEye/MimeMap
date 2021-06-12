@@ -45,10 +45,12 @@ jobs:
           continue-on-error: true
           run: |
             ls -al
+            ls -al bin
             ls -al vendor
-            ls vendor/bin
+            ls -al vendor/bin
             cp ./bin/fileeye-mimemap ./vendor/bin/fileeye-mimemap
-            php ./vendor/bin/fileeye-mimemap update --diff --fail-on-diff
+            ls -al vendor/bin
+            php ./bin/fileeye-mimemap update --diff --fail-on-diff
 
         - name: Code style test
           if: ${{ matrix.php-version == 7.4 }}
