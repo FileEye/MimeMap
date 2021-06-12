@@ -1,6 +1,6 @@
 # MimeMap
 
-[![Build Status](https://secure.travis-ci.org/FileEye/MimeMap.png?branch=master)](https://travis-ci.org/FileEye/MimeMap)
+[![Tests](https://github.com/FileEye/MimeMap/actions/workflows/php.yml/badge.svg)](https://github.com/FileEye/MimeMap/actions/workflows/php.yml)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/FileEye/MimeMap/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/FileEye/MimeMap/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/FileEye/MimeMap/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/FileEye/MimeMap/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/fileeye/mimemap/v/stable)](https://packagist.org/packages/fileeye/mimemap)
@@ -214,7 +214,7 @@ $ fileeye-mimemap update
 ```
 
 By default, the utility fetches a mapping source available from the [Apache's documentation](http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=co)
-website, merges it with another mapping source from the [freedesktop.org project](https://gitlab.freedesktop.org/xdg/shared-mime-info/blob/master/freedesktop.org.xml.in),
+website, merges it with another mapping source from the [freedesktop.org project](https://gitlab.freedesktop.org/xdg/shared-mime-info/-/blob/master/data/freedesktop.org.xml.in),
 then integrates the result with any overrides specified in the
 `resources/default_map_build.yml` file, and finally updates the PHP file where
 the `\FileEye\MimeMap\Map\DefaultMap` class is stored.
