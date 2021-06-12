@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  php-version:
 
     runs-on: ubuntu-latest
 
@@ -44,12 +44,8 @@ jobs:
           if: ${{ matrix.php-version == 7.4 }}
           continue-on-error: true
           run: |
-            ls -al
-            ls -al bin
-            ls -al vendor
-            ls -al vendor/bin
-            cp ./bin/fileeye-mimemap ./vendor/bin/fileeye-mimemap
-            ls -al vendor/bin
+            php ./bin/fileeye-mimemap --version
+            php ./bin/fileeye-mimemap --help
             php ./bin/fileeye-mimemap update --diff --fail-on-diff
 
         - name: Code style test
