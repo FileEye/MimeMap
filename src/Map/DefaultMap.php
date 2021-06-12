@@ -689,6 +689,22 @@ class DefaultMap extends AbstractMap
         3 => 'onepkg',
       ),
     ),
+    'application/ovf' =>
+    array (
+      'a' =>
+      array (
+        0 => 'application/x-virtualbox-ova',
+      ),
+      'desc' =>
+      array (
+        0 => 'OVF disk image',
+        1 => 'OVF: Open Virtualization Format',
+      ),
+      'e' =>
+      array (
+        0 => 'ova',
+      ),
+    ),
     'application/owl+xml' =>
     array (
       'desc' =>
@@ -1553,6 +1569,36 @@ class DefaultMap extends AbstractMap
       array (
         0 => 'm3u8',
         1 => 'm3u',
+      ),
+    ),
+    'application/vnd.apple.numbers' =>
+    array (
+      'a' =>
+      array (
+        0 => 'application/x-iwork-numbers-sffnumbers',
+      ),
+      'desc' =>
+      array (
+        0 => 'Apple Numbers spreadsheet',
+      ),
+      'e' =>
+      array (
+        0 => 'numbers',
+      ),
+    ),
+    'application/vnd.apple.pages' =>
+    array (
+      'a' =>
+      array (
+        0 => 'application/x-iwork-pages-sffpages',
+      ),
+      'desc' =>
+      array (
+        0 => 'Apple Pages document',
+      ),
+      'e' =>
+      array (
+        0 => 'pages',
       ),
     ),
     'application/vnd.aristanetworks.swi' =>
@@ -4810,6 +4856,7 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => '7z',
+        1 => '7z.001',
       ),
     ),
     'application/x-abiword' =>
@@ -7166,6 +7213,18 @@ class DefaultMap extends AbstractMap
         1 => 'pyo',
       ),
     ),
+    'application/x-qed-disk' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'QEMU QED disk image',
+        1 => 'QED: QEMU Enhanced Disk',
+      ),
+      'e' =>
+      array (
+        0 => 'qed',
+      ),
+    ),
     'application/x-qemu-disk' =>
     array (
       'desc' =>
@@ -7806,6 +7865,55 @@ class DefaultMap extends AbstractMap
         0 => 'ustar',
       ),
     ),
+    'application/x-vdi-disk' =>
+    array (
+      'a' =>
+      array (
+        0 => 'application/x-virtualbox-vdi',
+      ),
+      'desc' =>
+      array (
+        0 => 'VDI disk image',
+        1 => 'VDI: Virtual Disk Image',
+      ),
+      'e' =>
+      array (
+        0 => 'vdi',
+      ),
+    ),
+    'application/x-vhd-disk' =>
+    array (
+      'a' =>
+      array (
+        0 => 'application/x-virtualbox-vhd',
+      ),
+      'desc' =>
+      array (
+        0 => 'VHD disk image',
+        1 => 'VHD: Virtual Hard Disk',
+      ),
+      'e' =>
+      array (
+        0 => 'vhd',
+        1 => 'vpc',
+      ),
+    ),
+    'application/x-vhdx-disk' =>
+    array (
+      'a' =>
+      array (
+        0 => 'application/x-virtualbox-vhdx',
+      ),
+      'desc' =>
+      array (
+        0 => 'VHDX disk image',
+        1 => 'VHDX: Virtual Hard Disk v2',
+      ),
+      'e' =>
+      array (
+        0 => 'vhdx',
+      ),
+    ),
     'application/x-virtual-boy-rom' =>
     array (
       'desc' =>
@@ -7815,6 +7923,22 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'vb',
+      ),
+    ),
+    'application/x-vmdk-disk' =>
+    array (
+      'a' =>
+      array (
+        0 => 'application/x-virtualbox-vmdk',
+      ),
+      'desc' =>
+      array (
+        0 => 'VMDK disk image',
+        1 => 'VMDK: Virtual Machine Disk',
+      ),
+      'e' =>
+      array (
+        0 => 'vmdk',
       ),
     ),
     'application/x-wais-source' =>
@@ -10214,6 +10338,17 @@ class DefaultMap extends AbstractMap
         0 => 'nef',
       ),
     ),
+    'image/x-nikon-nrw' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Nikon NRW raw image',
+      ),
+      'e' =>
+      array (
+        0 => 'nrw',
+      ),
+    ),
     'image/x-olympus-orf' =>
     array (
       'desc' =>
@@ -11255,6 +11390,17 @@ class DefaultMap extends AbstractMap
       array (
         0 => 'c',
         1 => 'dic',
+      ),
+    ),
+    'text/x-dart' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Dart source code',
+      ),
+      'e' =>
+      array (
+        0 => 'dart',
       ),
     ),
     'text/x-dbus-service' =>
@@ -12540,6 +12686,18 @@ class DefaultMap extends AbstractMap
         0 => 'pyv',
       ),
     ),
+    'video/vnd.radgamettools.bink' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Bink Video',
+      ),
+      'e' =>
+      array (
+        0 => 'bik',
+        1 => 'bk2',
+      ),
+    ),
     'video/vnd.rn-realvideo' =>
     array (
       'a' =>
@@ -12905,6 +13063,13 @@ class DefaultMap extends AbstractMap
       ),
     ),
     '7z' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-7z-compressed',
+      ),
+    ),
+    '7z.001' =>
     array (
       't' =>
       array (
@@ -13636,11 +13801,25 @@ class DefaultMap extends AbstractMap
         0 => 'text/x-bibtex',
       ),
     ),
+    'bik' =>
+    array (
+      't' =>
+      array (
+        0 => 'video/vnd.radgamettools.bink',
+      ),
+    ),
     'bin' =>
     array (
       't' =>
       array (
         0 => 'application/octet-stream',
+      ),
+    ),
+    'bk2' =>
+    array (
+      't' =>
+      array (
+        0 => 'video/vnd.radgamettools.bink',
       ),
     ),
     'blb' =>
@@ -14490,6 +14669,7 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/vnd.dart',
+        1 => 'text/x-dart',
       ),
     ),
     'dataless' =>
@@ -18725,6 +18905,13 @@ class DefaultMap extends AbstractMap
         0 => 'image/vnd.net-fpx',
       ),
     ),
+    'nrw' =>
+    array (
+      't' =>
+      array (
+        0 => 'image/x-nikon-nrw',
+      ),
+    ),
     'nsc' =>
     array (
       't' =>
@@ -18752,6 +18939,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/vnd.nitf',
+      ),
+    ),
+    'numbers' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/vnd.apple.numbers',
       ),
     ),
     'nzb' =>
@@ -19107,6 +19301,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/vnd.oasis.opendocument.text-template',
       ),
     ),
+    'ova' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/ovf',
+      ),
+    ),
     'owl' =>
     array (
       't' =>
@@ -19217,6 +19418,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-java-pack200',
+      ),
+    ),
+    'pages' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/vnd.apple.pages',
       ),
     ),
     'pak' =>
@@ -20062,6 +20270,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-raw-floppy-disk-image',
+      ),
+    ),
+    'qed' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-qed-disk',
       ),
     ),
     'qfx' =>
@@ -22664,11 +22879,19 @@ class DefaultMap extends AbstractMap
         0 => 'image/x-tga',
       ),
     ),
+    'vdi' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-vdi-disk',
+      ),
+    ),
     'vhd' =>
     array (
       't' =>
       array (
         0 => 'text/x-vhdl',
+        1 => 'application/x-vhd-disk',
       ),
     ),
     'vhdl' =>
@@ -22676,6 +22899,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'text/x-vhdl',
+      ),
+    ),
+    'vhdx' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-vhdx-disk',
       ),
     ),
     'vis' =>
@@ -22706,6 +22936,13 @@ class DefaultMap extends AbstractMap
         0 => 'audio/x-mpegurl',
       ),
     ),
+    'vmdk' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-vmdk-disk',
+      ),
+    ),
     'vob' =>
     array (
       't' =>
@@ -22733,6 +22970,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-authorware-bin',
+      ),
+    ),
+    'vpc' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-vhd-disk',
       ),
     ),
     'vrm' =>
@@ -24567,6 +24811,20 @@ class DefaultMap extends AbstractMap
         0 => 'application/vnd.apple.keynote',
       ),
     ),
+    'application/x-iwork-numbers-sffnumbers' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/vnd.apple.numbers',
+      ),
+    ),
+    'application/x-iwork-pages-sffpages' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/vnd.apple.pages',
+      ),
+    ),
     'application/x-jar' =>
     array (
       't' =>
@@ -24866,6 +25124,41 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'text/troff',
+      ),
+    ),
+    'application/x-virtualbox-ova' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/ovf',
+      ),
+    ),
+    'application/x-virtualbox-vdi' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-vdi-disk',
+      ),
+    ),
+    'application/x-virtualbox-vhd' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-vhd-disk',
+      ),
+    ),
+    'application/x-virtualbox-vhdx' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-vhdx-disk',
+      ),
+    ),
+    'application/x-virtualbox-vmdk' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-vmdk-disk',
       ),
     ),
     'application/x-vnd.kde.kexi' =>
