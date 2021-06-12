@@ -43,7 +43,9 @@ jobs:
         - name: Mapping test
           if: ${{ matrix.php-version == 7.4 }}
           continue-on-error: true
-          run: php ./vendor/bin/fileeye-mimemap update --diff --fail-on-diff
+          run: |
+            cp ./bin/fileeye-mimemap ./vendor/bin/fileeye-mimemap
+            php ./vendor/bin/fileeye-mimemap update --diff --fail-on-diff
 
         - name: Code style test
           if: ${{ matrix.php-version == 7.4 }}
