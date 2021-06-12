@@ -41,10 +41,10 @@ jobs:
           run: ./vendor/bin/phpunit --color=always
 
         - name: Mapping test
-          if: ${{ matrix.php-version == "7.4" }}
+          if: ${{ matrix.php-version == 7.4 }}
           continue-on-error: true
           run: php ./vendor/bin/fileeye-mimemap update --diff --fail-on-diff
 
         - name: Code style test
-          if: ${{ matrix.php-version == "7.4" }}
+          if: ${{ matrix.php-version == 7.4 }}
           run: ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1
