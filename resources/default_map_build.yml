@@ -73,6 +73,7 @@
     - applyOverrides
     -
         -
+            - [removeTypeExtensionMapping, [application/x-troff-man, "[1-9]"]]
             - [removeTypeExtensionMapping, [video/x-anim, "anim[1-9j]"]]
             - [addTypeExtensionMapping, [video/x-anim, anim1]]
             - [addTypeExtensionMapping, [video/x-anim, anim2]]
