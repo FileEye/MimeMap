@@ -2,6 +2,8 @@
 
 namespace FileEye\MimeMap;
 
+use Composer\InstalledVersions;
+
 /**
  * MimeMap version.
  */
@@ -14,6 +16,6 @@ class Version
      */
     public static function get()
     {
-        return '1.1.6-dev';
+        return InstalledVersions::getPrettyVersion('fileeye/mimemap');
     }
 }
