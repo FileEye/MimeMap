@@ -40,6 +40,10 @@ jobs:
         - name: Install Composer dependencies
           run: composer install --no-progress --ansi
 
+        - name: Update PHPUnit
+          if: ${{ matrix.php-version == 8.1 }}
+          run: composer require phpunit/phpunit:^9
+
         - name: Run tests
           run: ./vendor/bin/phpunit --color=always
 
