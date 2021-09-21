@@ -3,7 +3,9 @@
 namespace FileEye\MimeMap\Test;
 
 use FileEye\MimeMap\Extension;
+use FileEye\MimeMap\MalformedTypeException;
 use FileEye\MimeMap\MapHandler;
+use FileEye\MimeMap\MappingException;
 use FileEye\MimeMap\Type;
 
 /**
@@ -138,38 +140,38 @@ class MapHandlerTest extends MimeMapTestBase
     public function testAddAliasToMultipleTypes()
     {
         $this->assertSame([], (new Type('text/plain'))->getAliases());
-        $this->bcSetExpectedException('FileEye\MimeMap\MappingException', "Cannot set 'application/x-photoshop' as alias for 'text/plain', it is an alias of 'image/vnd.adobe.photoshop' already");
+        $this->bcSetExpectedException(MappingException::class, "Cannot set 'application/x-photoshop' as alias for 'text/plain', it is an alias of 'image/vnd.adobe.photoshop' already");
         $this->map->addTypeAlias('text/plain', 'application/x-photoshop');
         $this->assertSame([], (new Type('text/plain'))->getAliases());
     }
 
     public function testAddAliasToMissingType()
     {
-        $this->bcSetExpectedException('FileEye\MimeMap\MappingException', "Cannot set 'baz/qoo' as alias for 'bar/foo', 'bar/foo' not defined");
+        $this->bcSetExpectedException(MappingException::class, "Cannot set 'baz/qoo' as alias for 'bar/foo', 'bar/foo' not defined");
         $this->map->addTypeAlias('bar/foo', 'baz/qoo');
     }
 
     public function testAddAliasIsATypeAlready()
     {
-        $this->bcSetExpectedException('FileEye\MimeMap\MappingException', "Cannot set 'text/plain' as alias for 'text/richtext', 'text/plain' is already defined as a type");
+        $this->bcSetExpectedException(MappingException::class, "Cannot set 'text/plain' as alias for 'text/richtext', 'text/plain' is already defined as a type");
         $this->map->addTypeAlias('text/richtext', 'text/plain');
     }
 
     public function testAddDescriptionToAlias()
     {
-        $this->bcSetExpectedException('FileEye\MimeMap\MappingException', "Cannot add description for 'application/acrobat', 'application/acrobat' is an alias");
+        $this->bcSetExpectedException(MappingException::class, "Cannot add description for 'application/acrobat', 'application/acrobat' is an alias");
         $this->map->addTypeDescription('application/acrobat', 'description of alias');
     }
 
     public function testSetExtensionDefaultTypeNoExtension()
     {
-        $this->expectException('FileEye\MimeMap\MappingException');
+        $this->expectException(MappingException::class);
         $this->map->setExtensionDefaultType('zxzx', 'image/vnd.dvb.subtitle');
     }
 
     public function testSetExtensionDefaultTypeNoType()
     {
-        $this->expectException('FileEye\MimeMap\MappingException');
+        $this->expectException(MappingException::class);
         $this->map->setExtensionDefaultType('sub', 'image/bingo');
     }
 
@@ -244,7 +246,7 @@ class MapHandlerTest extends MimeMapTestBase
 
     public function testSetExtensionDefaultTypeToInvalidAlias()
     {
-        $this->bcSetExpectedException('FileEye\MimeMap\MappingException', "Cannot set 'image/psd' as default type for extension 'pdf', its unaliased type 'image/vnd.adobe.photoshop' is not associated to 'pdf'");
+        $this->bcSetExpectedException(MappingException::class, "Cannot set 'image/psd' as default type for extension 'pdf', its unaliased type 'image/vnd.adobe.photoshop' is not associated to 'pdf'");
         $this->map->setExtensionDefaultType('pdf', 'image/psd');
     }
 
@@ -257,19 +259,19 @@ class MapHandlerTest extends MimeMapTestBase
 
     public function testSetTypeDefaultExtensionNoExtension()
     {
-        $this->expectException('FileEye\MimeMap\MappingException');
+        $this->expectException(MappingException::class);
         $this->map->setTypeDefaultExtension('image/jpeg', 'zxzx');
     }
 
     public function testSetTypeDefaultExtensionNoType()
     {
-        $this->expectException('FileEye\MimeMap\MappingException');
+        $this->expectException(MappingException::class);
         $this->map->setTypeDefaultExtension('image/bingo', 'jpg');
     }
 
     public function testAddExtensionToAlias()
     {
-        $this->bcSetExpectedException('FileEye\MimeMap\MappingException', "Cannot map 'pdf' to 'application/acrobat', 'application/acrobat' is an alias");
+        $this->bcSetExpectedException(MappingException::class, "Cannot map 'pdf' to 'application/acrobat', 'application/acrobat' is an alias");
         $this->map->addTypeExtensionMapping('application/acrobat', 'pdf');
     }
 
@@ -293,7 +295,7 @@ class MapHandlerTest extends MimeMapTestBase
      */
     public function testAddMalformedTypeExtensionMapping($type)
     {
-        $this->expectException('FileEye\MimeMap\MalformedTypeException');
+        $this->expectException(MalformedTypeException::class);
         $this->map->addTypeExtensionMapping($type, 'xxx');
     }
 }

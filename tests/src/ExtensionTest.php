@@ -3,6 +3,7 @@
 namespace FileEye\MimeMap\Test;
 
 use FileEye\MimeMap\Extension;
+use FileEye\MimeMap\MappingException;
 
 class ExtensionTest extends MimeMapTestBase
 {
@@ -16,7 +17,7 @@ class ExtensionTest extends MimeMapTestBase
 
     public function testGetStrictDefaultTypeUnknownExtension()
     {
-        $this->expectException('FileEye\MimeMap\MappingException');
+        $this->expectException(MappingException::class);
         $this->assertSame('application/octet-stream', (new Extension('ohmygodthatisnoextension'))->getDefaultType());
     }
 
@@ -33,7 +34,7 @@ class ExtensionTest extends MimeMapTestBase
 
     public function testGetStrictTypesUnknownExtension()
     {
-        $this->expectException('FileEye\MimeMap\MappingException');
+        $this->expectException(MappingException::class);
         $this->assertSame(['application/octet-stream'], (new Extension('ohmygodthatisnoextension'))->getTypes());
     }
 
