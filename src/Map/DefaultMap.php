@@ -7041,6 +7041,7 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'o',
+        1 => 'mod',
       ),
     ),
     'application/x-oleo' =>
@@ -10737,6 +10738,30 @@ class DefaultMap extends AbstractMap
       array (
         0 => 'eml',
         1 => 'mime',
+      ),
+    ),
+    'model/gltf+json' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'glTF model',
+        1 => 'glTF: GL Transmission Format',
+      ),
+      'e' =>
+      array (
+        0 => 'gltf',
+      ),
+    ),
+    'model/gltf-binary' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'glTF model',
+        1 => 'glTF: GL Transmission Format',
+      ),
+      'e' =>
+      array (
+        0 => 'glb',
       ),
     ),
     'model/iges' =>
@@ -16230,6 +16255,20 @@ class DefaultMap extends AbstractMap
         0 => 'application/x-glade',
       ),
     ),
+    'glb' =>
+    array (
+      't' =>
+      array (
+        0 => 'model/gltf-binary',
+      ),
+    ),
+    'gltf' =>
+    array (
+      't' =>
+      array (
+        0 => 'model/gltf+json',
+      ),
+    ),
     'gml' =>
     array (
       't' =>
@@ -18469,7 +18508,8 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'audio/x-mod',
+        0 => 'application/x-object',
+        1 => 'audio/x-mod',
       ),
     ),
     'mods' =>
