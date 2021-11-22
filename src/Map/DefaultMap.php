@@ -7055,6 +7055,18 @@ class DefaultMap extends AbstractMap
         0 => 'oleo',
       ),
     ),
+    'application/x-openzim' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'OpenZIM file',
+        1 => 'ZIM: Zeno IMproved',
+      ),
+      'e' =>
+      array (
+        0 => 'zim',
+      ),
+    ),
     'application/x-pagemaker' =>
     array (
       'desc' =>
@@ -8566,6 +8578,22 @@ class DefaultMap extends AbstractMap
         3 => 'rmi',
       ),
     ),
+    'audio/mobile-xmf' =>
+    array (
+      'a' =>
+      array (
+        0 => 'audio/vnd.nokia.mobile-xmf',
+      ),
+      'desc' =>
+      array (
+        0 => 'Mobile XMF audio',
+        1 => 'XMF: eXtensible Music Format',
+      ),
+      'e' =>
+      array (
+        0 => 'mxmf',
+      ),
+    ),
     'audio/mp2' =>
     array (
       'a' =>
@@ -9297,7 +9325,6 @@ class DefaultMap extends AbstractMap
       'a' =>
       array (
         0 => 'audio/xmf',
-        1 => 'audio/mobile-xmf',
       ),
       'desc' =>
       array (
@@ -9447,7 +9474,8 @@ class DefaultMap extends AbstractMap
       ),
       'desc' =>
       array (
-        0 => 'AV1 Image File Format (AVIF)',
+        0 => 'AVIF image',
+        1 => 'AVIF: AV1 Image File Format',
       ),
       'e' =>
       array (
@@ -11932,6 +11960,17 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'mof',
+      ),
+    ),
+    'text/x-mpl2' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'MPlayer2 subtitles',
+      ),
+      'e' =>
+      array (
+        0 => 'mpl',
       ),
     ),
     'text/x-mpsub' =>
@@ -18673,7 +18712,8 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'video/mp2t',
+        0 => 'text/x-mpl2',
+        1 => 'video/mp2t',
       ),
     ),
     'mpls' =>
@@ -18902,6 +18942,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/vnd.recordare.musicxml',
+      ),
+    ),
+    'mxmf' =>
+    array (
+      't' =>
+      array (
+        0 => 'audio/mobile-xmf',
       ),
     ),
     'mxml' =>
@@ -24389,6 +24436,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/vnd.zzazz.deck+xml',
       ),
     ),
+    'zim' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-openzim',
+      ),
+    ),
     'zip' =>
     array (
       't' =>
@@ -25498,13 +25552,6 @@ class DefaultMap extends AbstractMap
         0 => 'audio/mp4',
       ),
     ),
-    'audio/mobile-xmf' =>
-    array (
-      't' =>
-      array (
-        0 => 'audio/x-xmf',
-      ),
-    ),
     'audio/mp3' =>
     array (
       't' =>
@@ -25545,6 +25592,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'audio/vnd.rn-realaudio',
+      ),
+    ),
+    'audio/vnd.nokia.mobile-xmf' =>
+    array (
+      't' =>
+      array (
+        0 => 'audio/mobile-xmf',
       ),
     ),
     'audio/vnd.wave' =>
