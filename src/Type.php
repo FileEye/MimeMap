@@ -256,16 +256,16 @@ class Type
      * @param int $format
      *   The format of the output string.
      *
-     * @return string
+     * @return string|null
      *   MIME type string.
      */
     public function toString($format = Type::FULL_TEXT)
     {
-        if (!isset($this->media) || !isset($this->subType)) {
+        if ($this->getMedia() !== null || $this->getSubType() !== null) {
             return null;
         }
         $type = strtolower($this->media);
-        if ($format > Type::FULL_TEXT && isset($this->mediaComment)) {
+        if ($format > Type::FULL_TEXT && $this->getMediaComment() !== null) {
             $type .= ' (' .  $this->mediaComment . ')';
         }
         $type .= '/' . strtolower($this->subType);
