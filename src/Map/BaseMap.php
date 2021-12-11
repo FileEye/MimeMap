@@ -30,7 +30,9 @@ abstract class BaseMap
     /**
      * Constructor.
      */
-    final public function __construct() {}
+    final public function __construct()
+    {
+    }
 
     /**
      * Backs up the map array.
