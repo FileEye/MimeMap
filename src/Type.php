@@ -344,7 +344,7 @@ class Type
      */
     public function wildcardMatch($wildcard)
     {
-        $wildcard_type = new static($wildcard);
+        $wildcard_type = new self($wildcard);
 
         if (!$wildcard_type->isWildcard()) {
             return false;
@@ -411,7 +411,7 @@ class Type
      */
     protected function getUnaliasedType()
     {
-        return $this->isAlias() ? new static($this->map->getAliasTypes($this->toString(static::SHORT_TEXT))[0]) : $this;
+        return $this->isAlias() ? new self($this->map->getAliasTypes($this->toString(static::SHORT_TEXT))[0]) : $this;
     }
 
     /**
