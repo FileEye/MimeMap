@@ -87,7 +87,7 @@ class Type
      *
      * Note: 'media' refers to the portion before the first slash.
      *
-     * @return string
+     * @return string|null
      *   Type's media.
      */
     public function getMedia()
@@ -112,7 +112,7 @@ class Type
     /**
      * Gets a MIME type's media comment.
      *
-     * @return string
+     * @return string|null
      *   Type's media comment.
      */
     public function getMediaComment()
