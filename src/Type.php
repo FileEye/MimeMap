@@ -269,7 +269,7 @@ class Type
             $type .= ' (' .  $this->mediaComment . ')';
         }
         $type .= '/' . strtolower($this->subType);
-        if ($format > Type::FULL_TEXT && getSubTypeComment() !== null) {
+        if ($format > Type::FULL_TEXT && $this->getSubTypeComment() !== null) {
             $type .= ' (' .  $this->subTypeComment . ')';
         }
         if ($format > Type::SHORT_TEXT && count($this->parameters)) {

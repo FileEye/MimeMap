@@ -23,7 +23,7 @@ abstract class BaseMap
      *
      * Used during the map update process.
      *
-     * @var array
+     * @var array|null
      */
     protected static $backupMap;
 
@@ -58,7 +58,7 @@ abstract class BaseMap
      */
     public static function getInstance()
     {
-        if (!static::$instance) {
+        if (!isset(static::$instance)) {
             static::$instance = new static();
         }
         return static::$instance;
