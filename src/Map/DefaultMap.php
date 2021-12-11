@@ -12,9 +12,9 @@ class DefaultMap extends AbstractMap
     /**
      * Singleton instance.
      *
-     * @var DefaultMap
+     * @var AbstractMap
      */
-    private static $instance;
+    protected static $instance;
 
     /**
      * Returns this file's fully qualified filename.

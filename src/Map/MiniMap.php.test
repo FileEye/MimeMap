@@ -13,9 +13,9 @@ class MiniMap extends AbstractMap
     /**
      * Singleton instance.
      *
-     * @var MiniMap
+     * @var AbstractMap
      */
-    private static $instance;
+    protected static $instance;
 
     /**
      * Returns this file's fully qualified filename.

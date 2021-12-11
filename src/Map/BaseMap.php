@@ -12,13 +12,6 @@ use FileEye\MimeMap\MappingException;
 abstract class BaseMap
 {
     /**
-     * Singleton instance.
-     *
-     * @var BaseMap
-     */
-    private static $instance;
-
-    /**
      * Mapping between file extensions and MIME types.
      *
      * @var array
