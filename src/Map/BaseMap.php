@@ -35,6 +35,11 @@ abstract class BaseMap
     protected static $backupMap;
 
     /**
+     * Constructor.
+     */
+    final public function __construct() {}
+
+    /**
      * Backs up the map array.
      */
     public function backup()
