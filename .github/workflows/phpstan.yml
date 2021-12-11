@@ -32,7 +32,7 @@ jobs:
         uses: "ramsey/composer-install@v1"
 
       - name: "Install PHPStan"
-        run: "composer require-dev phpstan/phpstan:^1.2 --ansi"
+        run: "composer require --dev phpstan/phpstan:^1.2 --ansi"
 
       - name: "Run a static analysis with phpstan/phpstan"
         run: "vendor/bin/phpstan"
