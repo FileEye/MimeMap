@@ -137,7 +137,7 @@ class Type
     /**
      * Gets a MIME type's subtype.
      *
-     * @return string
+     * @return string|null
      *   Type's subtype, null if invalid mime type.
      */
     public function getSubType()
@@ -485,7 +485,7 @@ class Type
      *
      * @throws MappingException if no mapping found and $strict is true.
      *
-     * @return string
+     * @return string|null
      */
     public function getDefaultExtension($strict = true)
     {
