@@ -261,7 +261,7 @@ class Type
      */
     public function toString($format = Type::FULL_TEXT)
     {
-        if ($this->getMedia() !== null || $this->getSubType() !== null) {
+        if ($this->getMedia() === null || $this->getSubType() === null) {
             return null;
         }
         $type = strtolower($this->media);
