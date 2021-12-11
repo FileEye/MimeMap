@@ -12,6 +12,13 @@ use FileEye\MimeMap\MappingException;
 abstract class BaseMap
 {
     /**
+     * Singleton instance.
+     *
+     * @var BaseMap
+     */
+    protected static $instance;
+
+    /**
      * Mapping between file extensions and MIME types.
      *
      * @var array
@@ -29,8 +36,6 @@ abstract class BaseMap
 
     /**
      * Backs up the map array.
-     *
-     * @return array
      */
     public function backup()
     {
@@ -39,8 +44,6 @@ abstract class BaseMap
 
     /**
      * Resets the map array to the backup.
-     *
-     * @return array
      */
     public function reset()
     {
@@ -51,7 +54,7 @@ abstract class BaseMap
     /**
      * Returns the singleton.
      *
-     * @return string
+     * @return BaseMap
      */
     public static function getInstance()
     {
