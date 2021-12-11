@@ -162,7 +162,7 @@ class Type
     /**
      * Gets a MIME type's subtype comment.
      *
-     * @return string
+     * @return string|null
      *   Type's subtype comment, null if invalid mime type.
      */
     public function getSubTypeComment()
@@ -269,7 +269,7 @@ class Type
             $type .= ' (' .  $this->mediaComment . ')';
         }
         $type .= '/' . strtolower($this->subType);
-        if ($format > Type::FULL_TEXT && isset($this->subTypeComment)) {
+        if ($format > Type::FULL_TEXT && getSubTypeComment() !== null) {
             $type .= ' (' .  $this->subTypeComment . ')';
         }
         if ($format > Type::SHORT_TEXT && count($this->parameters)) {
