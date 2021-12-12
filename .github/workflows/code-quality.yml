@@ -1,4 +1,4 @@
-name: PHPStan
+name: Code quality
 
 on:
   push:
@@ -36,4 +36,3 @@ jobs:
 
       - name: "Run a static analysis with phpstan/phpstan"
         run: "vendor/bin/phpstan"
-#        run: "vendor/bin/phpstan --error-format=checkstyle | cs2pr"
