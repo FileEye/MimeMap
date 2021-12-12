@@ -65,14 +65,7 @@ class Type
     protected $map;
 
     /**
-     * Constructor.
-     *
-     * The type string will be parsed and the appropriate class vars set.
-     *
-     * @param string $type_string
-     *   (Optional) MIME type string to be parsed.
-     * @param string $map_class
-     *   (Optional) The FQCN of the map class to use.
+     * {@inheritdoc}
      */
     public function __construct($type_string = null, $map_class = null)
     {
@@ -344,7 +337,7 @@ class Type
      */
     public function wildcardMatch($wildcard)
     {
-        $wildcard_type = new self($wildcard);
+        $wildcard_type = new static($wildcard);
 
         if (!$wildcard_type->isWildcard()) {
             return false;
@@ -411,7 +404,7 @@ class Type
      */
     protected function getUnaliasedType()
     {
-        return $this->isAlias() ? new self($this->map->getAliasTypes($this->toString(static::SHORT_TEXT))[0]) : $this;
+        return $this->isAlias() ? new static($this->map->getAliasTypes($this->toString(static::SHORT_TEXT))[0]) : $this;
     }
 
     /**

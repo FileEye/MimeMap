@@ -9,7 +9,7 @@ use FileEye\MimeMap\MappingException;
  *
  * This class cannot be instantiated; extend from it to implement a map.
  */
-abstract class BaseMap
+abstract class BaseMap implements MapInterface
 {
     /**
      * Singleton instance.
@@ -35,9 +35,9 @@ abstract class BaseMap
     protected static $backupMap;
 
     /**
-     * Constructor.
+     * {@inheritdoc}
      */
-    final public function __construct()
+    public function __construct()
     {
     }
 
