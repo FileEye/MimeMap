@@ -5,7 +5,7 @@ namespace FileEye\MimeMap;
 /**
  * Class for working with MIME types
  */
-class Type
+class Type implements TypeInterface
 {
     /**
      * Short format [e.g. image/jpeg] for strings.
@@ -116,7 +116,7 @@ class Type
     /**
      * Sets a MIME type's media comment.
      *
-     * @param string $comment
+     * @param string|null $comment
      *   Type's media comment.
      *
      * @return $this
@@ -166,7 +166,7 @@ class Type
     /**
      * Sets a MIME type's subtype comment.
      *
-     * @param string $comment
+     * @param string|null $comment
      *   Type's subtype comment.
      *
      * @return $this
