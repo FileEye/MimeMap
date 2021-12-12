@@ -13,7 +13,7 @@ class EmptyMap extends AbstractMap
     /**
      * Singleton instance.
      *
-     * @var AbstractMap
+     * @var EmptyMap
      */
     protected static $instance;
 }
