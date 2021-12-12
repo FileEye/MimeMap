@@ -5,7 +5,7 @@ namespace FileEye\MimeMap;
 /**
  * Class for working with MIME types
  */
-class Type
+class Type implements TypeInterface
 {
     /**
      * Short format [e.g. image/jpeg] for strings.
@@ -65,14 +65,7 @@ class Type
     protected $map;
 
     /**
-     * Constructor.
-     *
-     * The type string will be parsed and the appropriate class vars set.
-     *
-     * @param string $type_string
-     *   (Optional) MIME type string to be parsed.
-     * @param string $map_class
-     *   (Optional) The FQCN of the map class to use.
+     * {@inheritdoc}
      */
     public function __construct($type_string = null, $map_class = null)
     {
@@ -87,7 +80,7 @@ class Type
      *
      * Note: 'media' refers to the portion before the first slash.
      *
-     * @return string
+     * @return string|null
      *   Type's media.
      */
     public function getMedia()
@@ -112,7 +105,7 @@ class Type
     /**
      * Gets a MIME type's media comment.
      *
-     * @return string
+     * @return string|null
      *   Type's media comment.
      */
     public function getMediaComment()
@@ -123,7 +116,7 @@ class Type
     /**
      * Sets a MIME type's media comment.
      *
-     * @param string $comment
+     * @param string|null $comment
      *   Type's media comment.
      *
      * @return $this
@@ -137,7 +130,7 @@ class Type
     /**
      * Gets a MIME type's subtype.
      *
-     * @return string
+     * @return string|null
      *   Type's subtype, null if invalid mime type.
      */
     public function getSubType()
@@ -162,7 +155,7 @@ class Type
     /**
      * Gets a MIME type's subtype comment.
      *
-     * @return string
+     * @return string|null
      *   Type's subtype comment, null if invalid mime type.
      */
     public function getSubTypeComment()
@@ -173,7 +166,7 @@ class Type
     /**
      * Sets a MIME type's subtype comment.
      *
-     * @param string $comment
+     * @param string|null $comment
      *   Type's subtype comment.
      *
      * @return $this
@@ -256,20 +249,20 @@ class Type
      * @param int $format
      *   The format of the output string.
      *
-     * @return string
+     * @return string|null
      *   MIME type string.
      */
     public function toString($format = Type::FULL_TEXT)
     {
-        if (!isset($this->media) || !isset($this->subType)) {
+        if ($this->getMedia() === null || $this->getSubType() === null) {
             return null;
         }
         $type = strtolower($this->media);
-        if ($format > Type::FULL_TEXT && isset($this->mediaComment)) {
+        if ($format > Type::FULL_TEXT && $this->getMediaComment() !== null) {
             $type .= ' (' .  $this->mediaComment . ')';
         }
         $type .= '/' . strtolower($this->subType);
-        if ($format > Type::FULL_TEXT && isset($this->subTypeComment)) {
+        if ($format > Type::FULL_TEXT && $this->getSubTypeComment() !== null) {
             $type .= ' (' .  $this->subTypeComment . ')';
         }
         if ($format > Type::SHORT_TEXT && count($this->parameters)) {
@@ -485,7 +478,7 @@ class Type
      *
      * @throws MappingException if no mapping found and $strict is true.
      *
-     * @return string
+     * @return string|null
      */
     public function getDefaultExtension($strict = true)
     {

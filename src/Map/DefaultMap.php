@@ -12,7 +12,7 @@ class DefaultMap extends AbstractMap
     /**
      * Singleton instance.
      *
-     * @var AbstractMap
+     * @var DefaultMap
      */
     protected static $instance;
 

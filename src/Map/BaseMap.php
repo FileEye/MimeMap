@@ -9,8 +9,15 @@ use FileEye\MimeMap\MappingException;
  *
  * This class cannot be instantiated; extend from it to implement a map.
  */
-abstract class BaseMap
+abstract class BaseMap implements MapInterface
 {
+    /**
+     * Singleton instance.
+     *
+     * @var BaseMap
+     */
+    protected static $instance;
+
     /**
      * Mapping between file extensions and MIME types.
      *
@@ -23,14 +30,19 @@ abstract class BaseMap
      *
      * Used during the map update process.
      *
-     * @var array
+     * @var array|null
      */
     protected static $backupMap;
 
     /**
+     * {@inheritdoc}
+     */
+    public function __construct()
+    {
+    }
+
+    /**
      * Backs up the map array.
-     *
-     * @return array
      */
     public function backup()
     {
@@ -39,8 +51,6 @@ abstract class BaseMap
 
     /**
      * Resets the map array to the backup.
-     *
-     * @return array
      */
     public function reset()
     {
@@ -51,11 +61,11 @@ abstract class BaseMap
     /**
      * Returns the singleton.
      *
-     * @return string
+     * @return BaseMap
      */
     public static function getInstance()
     {
-        if (!static::$instance) {
+        if (static::$instance === null) {
             static::$instance = new static();
         }
         return static::$instance;
