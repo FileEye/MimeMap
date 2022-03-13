@@ -1,4 +1,4 @@
-name: Tests
+name: PHPUnit Tests
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
     branches: [ master ]
 
 jobs:
-  php-version:
+  phpunit:
 
     runs-on: ubuntu-latest
 

@@ -13,7 +13,7 @@ class MiniMap extends AbstractMap
     /**
      * Singleton instance.
      *
-     * @var AbstractMap
+     * @var MiniMap
      */
     protected static $instance;
 
@@ -48,16 +48,16 @@ class MiniMap extends AbstractMap
      */
     // phpcs:disable
     protected static $map = array (
-  't' => 
+  't' =>
   array (
-    'application/andrew-inset' => 
+    'application/andrew-inset' =>
     array (
-      'desc' => 
+      'desc' =>
       array (
         0 => 'ATK inset',
         1 => 'ATK: Andrew Toolkit',
       ),
-      'e' => 
+      'e' =>
       array (
         0 => 'ez',
       ),
@@ -65,9 +65,9 @@ class MiniMap extends AbstractMap
   ),
   'e' =>
   array (
-    'ez' => 
+    'ez' =>
     array (
-      't' => 
+      't' =>
       array (
         0 => 'application/andrew-inset',
       ),
