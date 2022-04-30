@@ -21,7 +21,7 @@ class DefaultMap extends AbstractMap
      *
      * @return string
      */
-    public function getFileName()
+    public function getFileName(): string
     {
         return __FILE__;
     }
