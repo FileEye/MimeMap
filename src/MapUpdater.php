@@ -3,6 +3,7 @@
 namespace FileEye\MimeMap;
 
 use FileEye\MimeMap\Map\AbstractMap;
+use FileEye\MimeMap\Map\EmptyMap;
 
 /**
  * Compiles the MIME type to file extension map.
@@ -12,7 +13,7 @@ class MapUpdater
     /**
      * The default, empty, base map to use for update.
      */
-    const DEFAULT_BASE_MAP_CLASS = '\FileEye\MimeMap\Map\EmptyMap';
+    const DEFAULT_BASE_MAP_CLASS = EmptyMap::class;
 
     /**
      * The AbstractMap object to update.
@@ -30,7 +31,7 @@ class MapUpdater
      *
      * @return string
      */
-    public static function getDefaultMapBuildFile()
+    public static function getDefaultMapBuildFile(): string
     {
         return __DIR__ . '/../resources/default_map_build.yml';
     }
@@ -40,7 +41,7 @@ class MapUpdater
      *
      * @return AbstractMap
      */
-    public function getMap()
+    public function getMap(): AbstractMap
     {
         return $this->map;
     }
@@ -53,7 +54,7 @@ class MapUpdater
      *
      * @return $this
      */
-    public function selectBaseMap($map_class)
+    public function selectBaseMap(string $map_class): static
     {
         $this->map = MapHandler::map($map_class);
         $this->map->backup();
@@ -74,7 +75,7 @@ class MapUpdater
      * @throws \RuntimeException
      *   If it was not possible to access the file.
      */
-    public function loadMapFromApacheFile($source_file)
+    public function loadMapFromApacheFile(string $source_file): array
     {
         $errors = [];
 
@@ -108,7 +109,7 @@ class MapUpdater
      * @return string[]
      *   An array of error messages.
      */
-    public function loadMapFromFreedesktopFile($source_file)
+    public function loadMapFromFreedesktopFile(string $source_file): array
     {
         $errors = [];
         $xml = simplexml_load_string(file_get_contents($source_file));
@@ -178,7 +179,7 @@ class MapUpdater
      * @return string[]
      *   An array of error messages.
      */
-    public function applyOverrides(array $overrides)
+    public function applyOverrides(array $overrides): array
     {
         $errors = [];
 
@@ -199,7 +200,7 @@ class MapUpdater
      *
      * @return $this
      */
-    public function writeMapToPhpClassFile($file)
+    public function writeMapToPhpClassFile(string $file): static
     {
         $content = preg_replace(
             '#protected static \$map = (.+?);#s',

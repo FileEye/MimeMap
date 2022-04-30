@@ -61,7 +61,7 @@ abstract class BaseMap implements MapInterface
     /**
      * Returns the singleton.
      *
-     * @return BaseMap
+     * @return static
      */
     public static function getInstance(): static
     {

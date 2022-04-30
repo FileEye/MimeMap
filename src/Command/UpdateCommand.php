@@ -24,7 +24,7 @@ class UpdateCommand extends Command
     /**
      * {@inheritdoc}
      */
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('update')
@@ -61,7 +61,7 @@ class UpdateCommand extends Command
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
 
@@ -144,7 +144,7 @@ class UpdateCommand extends Command
      * @return bool
      *   True if the maps are equal.
      */
-    protected function compareMaps(AbstractMap $old_map, AbstractMap $new_map, $section)
+    protected function compareMaps(AbstractMap $old_map, AbstractMap $new_map, string $section): bool
     {
         $old_map->sort();
         $new_map->sort();
