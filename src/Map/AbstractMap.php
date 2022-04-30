@@ -1,4 +1,4 @@
-: AbstractMap<?php
+<?php
 
 namespace FileEye\MimeMap\Map;
 
