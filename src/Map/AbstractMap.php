@@ -1,4 +1,4 @@
-<?php
+: AbstractMap<?php
 
 namespace FileEye\MimeMap\Map;
 
@@ -133,7 +133,7 @@ abstract class AbstractMap extends BaseMap
      *
      * @return $this
      */
-    public function addTypeDescription(string $type, string $description): MapInterface
+    public function addTypeDescription(string $type, string $description): AbstractMap
     {
         $type = $this->normalizeType($type);
 
@@ -158,7 +158,7 @@ abstract class AbstractMap extends BaseMap
      *
      * @return $this
      */
-    public function addTypeAlias(string $type, string $alias): MapInterface
+    public function addTypeAlias(string $type, string $alias): AbstractMap
     {
         $type = $this->normalizeType($type);
         $alias = $this->normalizeType($alias);
@@ -195,7 +195,7 @@ abstract class AbstractMap extends BaseMap
      *
      * @return $this
      */
-    public function addTypeExtensionMapping(string $type, string $extension): MapInterface
+    public function addTypeExtensionMapping(string $type, string $extension): AbstractMap
     {
         $type = $this->normalizeType($type);
         $extension = strtolower($extension);
@@ -265,7 +265,7 @@ abstract class AbstractMap extends BaseMap
      *
      * @return $this
      */
-    public function setTypeDefaultExtension(string $type, string $extension): MapInterface
+    public function setTypeDefaultExtension(string $type, string $extension): AbstractMap
     {
         $type = $this->normalizeType($type);
         $extension = strtolower($extension);
@@ -426,7 +426,7 @@ abstract class AbstractMap extends BaseMap
      *
      * @return $this
      */
-    public function setExtensionDefaultType(string $extension, string $type): MapInterface
+    public function setExtensionDefaultType(string $extension, string $type): AbstractMap
     {
         $type = $this->normalizeType($type);
         $extension = strtolower($extension);

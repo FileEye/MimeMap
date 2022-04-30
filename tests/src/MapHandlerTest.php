@@ -4,6 +4,7 @@ namespace FileEye\MimeMap\Test;
 
 use FileEye\MimeMap\Extension;
 use FileEye\MimeMap\MalformedTypeException;
+use FileEye\MimeMap\Map\AbstractMap;
 use FileEye\MimeMap\MapHandler;
 use FileEye\MimeMap\MappingException;
 use FileEye\MimeMap\Type;
@@ -13,6 +14,9 @@ use FileEye\MimeMap\Type;
  */
 class MapHandlerTest extends MimeMapTestBase
 {
+    /**
+     * @var AbstractMap
+     */
     protected $map;
 
     public function setUp(): void
@@ -283,8 +287,10 @@ class MapHandlerTest extends MimeMapTestBase
 
     /**
      * Data provider for testAddMalformedTypeExtensionMapping.
+     *
+     * @return array<string,array<string>>
      */
-    public function malformedTypeProvider()
+    public function malformedTypeProvider(): array
     {
         return [
             'empty string' => [''],
@@ -299,7 +305,7 @@ class MapHandlerTest extends MimeMapTestBase
     /**
      * @dataProvider malformedTypeProvider
      */
-    public function testAddMalformedTypeExtensionMapping($type): void
+    public function testAddMalformedTypeExtensionMapping(string $type): void
     {
         $this->expectException(MalformedTypeException::class);
         $this->map->addTypeExtensionMapping($type, 'xxx');
