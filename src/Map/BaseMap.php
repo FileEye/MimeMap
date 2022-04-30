@@ -63,7 +63,7 @@ abstract class BaseMap implements MapInterface
      *
      * @return static
      */
-    public static function getInstance(): static
+    public static function getInstance(): MapInterface
     {
         if (static::$instance === null) {
             static::$instance = new static();
@@ -96,7 +96,7 @@ abstract class BaseMap implements MapInterface
      *
      * @return $this
      */
-    public function sort(): static
+    public function sort(): MapInterface
     {
         foreach (array_keys(static::$map) as $k) {
             ksort(static::$map[$k]);
@@ -186,7 +186,7 @@ abstract class BaseMap implements MapInterface
      *
      * @return $this
      */
-    protected function addMapSubEntry(string $entry, string $entry_key, string $sub_entry, string $value): static
+    protected function addMapSubEntry(string $entry, string $entry_key, string $sub_entry, string $value): MapInterface
     {
         if (!isset(static::$map[$entry][$entry_key][$sub_entry])) {
             static::$map[$entry][$entry_key][$sub_entry] = [$value];
@@ -265,7 +265,7 @@ abstract class BaseMap implements MapInterface
      *
      * @return $this
      */
-    protected function setValueAsDefault(string $entry, string $entry_key, string $sub_entry, string $value): static
+    protected function setValueAsDefault(string $entry, string $entry_key, string $sub_entry, string $value): MapInterface
     {
         // Throw exception if no entry.
         if (!isset(static::$map[$entry][$entry_key][$sub_entry])) {

@@ -2,8 +2,8 @@
 
 namespace FileEye\MimeMap;
 
-use FileEye\MimeMap\Map\AbstractMap;
 use FileEye\MimeMap\Map\EmptyMap;
+use FileEye\MimeMap\Map\MapInterface;
 
 /**
  * Compiles the MIME type to file extension map.
@@ -16,9 +16,9 @@ class MapUpdater
     const DEFAULT_BASE_MAP_CLASS = EmptyMap::class;
 
     /**
-     * The AbstractMap object to update.
+     * The map object to update.
      *
-     * @var AbstractMap
+     * @var MapInterface
      */
     protected $map;
 
@@ -37,24 +37,24 @@ class MapUpdater
     }
 
     /**
-     * Returns the AbstractMap object being updated.
+     * Returns the map object being updated.
      *
-     * @return AbstractMap
+     * @return MapInterface
      */
-    public function getMap(): AbstractMap
+    public function getMap(): MapInterface
     {
         return $this->map;
     }
 
     /**
-     * Sets the AbstractMap object to update.
+     * Sets the map object to update.
      *
      * @param string $map_class
      *   The FQCN of the map to be updated.
      *
      * @return $this
      */
-    public function selectBaseMap(string $map_class): static
+    public function selectBaseMap(string $map_class): MapUpdater
     {
         $this->map = MapHandler::map($map_class);
         $this->map->backup();
@@ -200,7 +200,7 @@ class MapUpdater
      *
      * @return $this
      */
-    public function writeMapToPhpClassFile(string $file): static
+    public function writeMapToPhpClassFile(string $file): MapUpdater
     {
         $content = preg_replace(
             '#protected static \$map = (.+?);#s',

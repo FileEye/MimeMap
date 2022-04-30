@@ -2,8 +2,8 @@
 
 namespace FileEye\MimeMap;
 
-use FileEye\MimeMap\Map\AbstractMap;
 use FileEye\MimeMap\Map\DefaultMap;
+use FileEye\MimeMap\Map\MapInterface;
 
 /**
  * Class for managing map singletons.
@@ -41,9 +41,9 @@ abstract class MapHandler
      *   (Optional) The map FQCN to be used. If null, the default map will be
      *   used.
      *
-     * @return AbstractMap
+     * @return MapInterface
      */
-    public static function map(string $map_class = null): AbstractMap
+    public static function map(string $map_class = null): MapInterface
     {
         if ($map_class === null) {
             $map_class = static::$defaultMapClass;

@@ -60,7 +60,7 @@ class Type implements TypeInterface
     /**
      * The MIME types map.
      *
-     * @var Map\AbstractMap
+     * @var Map\MapInterface
      */
     protected $map;
 

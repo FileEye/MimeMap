@@ -133,7 +133,7 @@ abstract class AbstractMap extends BaseMap
      *
      * @return $this
      */
-    public function addTypeDescription(string $type, string $description): static
+    public function addTypeDescription(string $type, string $description): MapInterface
     {
         $type = $this->normalizeType($type);
 
@@ -158,7 +158,7 @@ abstract class AbstractMap extends BaseMap
      *
      * @return $this
      */
-    public function addTypeAlias(string $type, string $alias): static
+    public function addTypeAlias(string $type, string $alias): MapInterface
     {
         $type = $this->normalizeType($type);
         $alias = $this->normalizeType($alias);
@@ -195,7 +195,7 @@ abstract class AbstractMap extends BaseMap
      *
      * @return $this
      */
-    public function addTypeExtensionMapping(string $type, string $extension): static
+    public function addTypeExtensionMapping(string $type, string $extension): MapInterface
     {
         $type = $this->normalizeType($type);
         $extension = strtolower($extension);
@@ -265,7 +265,7 @@ abstract class AbstractMap extends BaseMap
      *
      * @return $this
      */
-    public function setTypeDefaultExtension(string $type, string $extension): static
+    public function setTypeDefaultExtension(string $type, string $extension): MapInterface
     {
         $type = $this->normalizeType($type);
         $extension = strtolower($extension);
@@ -426,7 +426,7 @@ abstract class AbstractMap extends BaseMap
      *
      * @return $this
      */
-    public function setExtensionDefaultType(string $extension, string $type): static
+    public function setExtensionDefaultType(string $extension, string $type): MapInterface
     {
         $type = $this->normalizeType($type);
         $extension = strtolower($extension);

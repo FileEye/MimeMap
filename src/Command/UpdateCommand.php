@@ -12,7 +12,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Yaml\Yaml;
-use FileEye\MimeMap\Map\AbstractMap;
+use FileEye\MimeMap\Map\MapInterface;
 use FileEye\MimeMap\MapHandler;
 use FileEye\MimeMap\MapUpdater;
 
@@ -132,9 +132,9 @@ class UpdateCommand extends Command
     /**
      * Compares two type-to-extension maps by section.
      *
-     * @param AbstractMap $old_map
+     * @param MapInterface $old_map
      *   The first map to compare.
-     * @param AbstractMap $new_map
+     * @param MapInterface $new_map
      *   The second map to compare.
      * @param string $section
      *   The first-level array key to compare: 't' or 'e' or 'a'.
@@ -144,7 +144,7 @@ class UpdateCommand extends Command
      * @return bool
      *   True if the maps are equal.
      */
-    protected function compareMaps(AbstractMap $old_map, AbstractMap $new_map, string $section): bool
+    protected function compareMaps(MapInterface $old_map, MapInterface $new_map, string $section): bool
     {
         $old_map->sort();
         $new_map->sort();
