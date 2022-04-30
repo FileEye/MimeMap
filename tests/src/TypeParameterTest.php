@@ -7,7 +7,7 @@ use FileEye\MimeMap\TypeParameter;
 
 class TypeParameterTest extends MimeMapTestBase
 {
-    public function testHasComment()
+    public function testHasComment(): void
     {
         $mt = new Type('image/png; a="parameter" (with a comment)');
         $this->assertSame('a', $mt->getParameter('a')->getName());
@@ -21,7 +21,7 @@ class TypeParameterTest extends MimeMapTestBase
         $this->assertSame('with a comment', $mt->getParameter('param')->getComment());
     }
 
-    public function testHasCommentNegative()
+    public function testHasCommentNegative(): void
     {
         $mt = new Type('image/png; a="parameter"');
         $this->assertSame('a', $mt->getParameter('a')->getName());

@@ -434,7 +434,7 @@ class TypeTest extends MimeMapTestBase
     /**
      * @dataProvider parseProvider
      */
-    public function testParse($type, array $expectedToString, array $expectedMedia, array $expectedSubType, $expectedHasParameters, array $expectedParameters)
+    public function testParse($type, array $expectedToString, array $expectedMedia, array $expectedSubType, $expectedHasParameters, array $expectedParameters): void
     {
         $mt = new Type($type);
         $this->assertSame($expectedMedia[0], $mt->getMedia());
@@ -473,13 +473,13 @@ class TypeTest extends MimeMapTestBase
     /**
      * @dataProvider parseMalformedProvider
      */
-    public function testParseMalformed($type)
+    public function testParseMalformed($type): void
     {
         $this->expectException(MalformedTypeException::class);
         new Type($type);
     }
 
-    public function testParseAgain()
+    public function testParseAgain(): void
     {
         $mt = new Type('application/ogg;description=Hello there!;asd=fgh');
         $this->assertSame(2, count($mt->getParameters()));
@@ -488,7 +488,7 @@ class TypeTest extends MimeMapTestBase
         $this->assertSame(1, count($mt->getParameters()));
     }
 
-    public function testGetDescription()
+    public function testGetDescription(): void
     {
         $this->assertNull((new Type('*/*'))->getDescription());
         $this->assertNull((new Type('image/*'))->getDescription());
@@ -505,7 +505,7 @@ class TypeTest extends MimeMapTestBase
         $this->assertSame('GPX geographic data, GPX: GPS Exchange Format', (new Type('application/x-gpx'))->getDescription(true));
     }
 
-    public function testSetComment()
+    public function testSetComment(): void
     {
         $type = new Type('text/x-test');
         $type->setMediaComment('media comment');
@@ -518,21 +518,21 @@ class TypeTest extends MimeMapTestBase
         $this->assertSame('text/x-test', $type->toString(Type::FULL_TEXT_WITH_COMMENTS));
     }
 
-    public function testIsExperimental()
+    public function testIsExperimental(): void
     {
         $this->assertTrue((new Type('text/x-test'))->isExperimental());
         $this->assertTrue((new Type('image/X-test'))->isExperimental());
         $this->assertFalse((new Type('text/plain'))->isExperimental());
     }
 
-    public function testIsVendor()
+    public function testIsVendor(): void
     {
         $this->assertTrue((new Type('application/vnd.openoffice'))->isVendor());
         $this->assertFalse((new Type('application/vendor.openoffice'))->isVendor());
         $this->assertFalse((new Type('vnd/fsck'))->isVendor());
     }
 
-    public function testIsWildcard()
+    public function testIsWildcard(): void
     {
         $this->assertTrue((new Type('*/*'))->isWildcard());
         $this->assertTrue((new Type('image/*'))->isWildcard());
@@ -542,7 +542,7 @@ class TypeTest extends MimeMapTestBase
         $this->assertTrue((new Type('application/java-*'))->isWildcard());
     }
 
-    public function testIsAlias()
+    public function testIsAlias(): void
     {
         $this->assertFalse((new Type('*/*'))->isAlias());
         $this->assertFalse((new Type('image/*'))->isAlias());
@@ -551,7 +551,7 @@ class TypeTest extends MimeMapTestBase
         $this->assertTrue((new Type('text/x-markdown'))->isAlias());
     }
 
-    public function testWildcardMatch()
+    public function testWildcardMatch(): void
     {
         $this->assertTrue((new Type('image/png'))->wildcardMatch('*/*'));
         $this->assertTrue((new Type('image/png'))->wildcardMatch('image/*'));
@@ -563,7 +563,7 @@ class TypeTest extends MimeMapTestBase
         $this->assertFalse((new Type('application/javascript'))->wildcardMatch('application/java-*'));
     }
 
-    public function testAddParameter()
+    public function testAddParameter(): void
     {
         $mt = new Type('image/png; foo=bar');
         $mt->addParameter('baz', 'val', 'this is a comment');
@@ -576,7 +576,7 @@ class TypeTest extends MimeMapTestBase
         $this->assertSame('image/png; foo="bar"; baz="val" (this is a comment)', $res);
     }
 
-    public function testRemoveParameter()
+    public function testRemoveParameter(): void
     {
         $mt = new Type('image/png; foo=bar;baz=val(this is a comment)');
         $mt->removeParameter('foo');
@@ -587,26 +587,26 @@ class TypeTest extends MimeMapTestBase
         $this->assertSame('image/png; baz="val" (this is a comment)', $res);
     }
 
-    public function testGetAliases()
+    public function testGetAliases(): void
     {
         $this->assertSame(['image/x-wmf', 'image/x-win-metafile', 'application/x-wmf', 'application/wmf', 'application/x-msmetafile'], (new Type('image/wmf'))->getAliases());
         $this->assertSame([], (new Type('foo/bar'))->getAliases(false));
         $this->assertSame([], (new Type('image/x-wmf'))->getAliases(false));
     }
 
-    public function testGetAliasesOnAliasStrict()
+    public function testGetAliasesOnAliasStrict(): void
     {
         $this->bcSetExpectedException(MappingException::class, "Cannot get aliases for 'image/x-wmf', it is an alias itself");
         $this->assertSame([], (new Type('image/x-wmf'))->getAliases());
     }
 
-    public function testGetAliasesOnMissingTypeStrict()
+    public function testGetAliasesOnMissingTypeStrict(): void
     {
         $this->bcSetExpectedException(MappingException::class, "No MIME type found for foo/bar in map");
         $this->assertSame([], (new Type('foo/bar'))->getAliases());
     }
 
-    public function testGetExtensions()
+    public function testGetExtensions(): void
     {
         $this->assertEquals(['atom'], (new Type('application/atom+xml'))->getExtensions());
         $this->assertEquals(['ser', 'js', 'jsm', 'mjs'], (new Type('application/java*'))->getExtensions());
@@ -618,13 +618,13 @@ class TypeTest extends MimeMapTestBase
         $this->assertSame(['smi', 'smil', 'sml', 'kino'], (new Type('application/smil'))->getExtensions());
     }
 
-    public function testGetExtensionsFail()
+    public function testGetExtensionsFail(): void
     {
         $this->expectException(MappingException::class);
         $this->assertEquals([], (new Type('application/a000'))->getExtensions());
     }
 
-    public function testGetDefaultExtension()
+    public function testGetDefaultExtension(): void
     {
         $this->assertEquals('atom', (new Type('application/atom+xml'))->getDefaultExtension());
         $this->assertEquals('csv', (new Type('text/csv'))->getDefaultExtension());
@@ -649,7 +649,7 @@ class TypeTest extends MimeMapTestBase
     /**
      * @dataProvider getDefaultExtensionFailProvider
      */
-    public function testGetDefaultExtensionFail($type)
+    public function testGetDefaultExtensionFail($type): void
     {
         $this->expectException(MappingException::class);
         $this->assertNull((new Type($type))->getDefaultExtension());

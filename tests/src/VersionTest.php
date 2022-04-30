@@ -6,7 +6,7 @@ use FileEye\MimeMap\Version;
 
 class VersionTest extends MimeMapTestBase
 {
-    public function testGet()
+    public function testGet(): void
     {
         $this->assertNotNull(Version::get());
     }

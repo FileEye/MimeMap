@@ -16,7 +16,7 @@ class MapUpdaterTest extends MimeMapTestBase
     protected $updater;
     protected $fileSystem;
 
-    public function fcSetUp()
+    public function setUp(): void
     {
         $this->updater = new MapUpdater();
         $this->updater->selectBaseMap(MapUpdater::DEFAULT_BASE_MAP_CLASS);
@@ -25,13 +25,13 @@ class MapUpdaterTest extends MimeMapTestBase
         $this->fileSystem = new Filesystem();
     }
 
-    public function fcTearDown()
+    public function tearDown(): void
     {
         $this->assertInstanceOf(MapUpdater::DEFAULT_BASE_MAP_CLASS, $this->newMap);
         $this->newMap->reset();
     }
 
-    public function testLoadMapFromApacheFile()
+    public function testLoadMapFromApacheFile(): void
     {
         $this->updater->loadMapFromApacheFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
         $expected = [
@@ -52,20 +52,20 @@ class MapUpdaterTest extends MimeMapTestBase
         $this->assertSame([], $this->newMap->listAliases());
     }
 
-    public function testLoadMapFromApacheFileZeroLines()
+    public function testLoadMapFromApacheFileZeroLines(): void
     {
         $this->updater->loadMapFromApacheFile(dirname(__FILE__) . '/../fixtures/zero.mime-types.txt');
         $this->assertSame([], $this->newMap->getMapArray());
     }
 
-    public function testApplyOverridesFailure()
+    public function testApplyOverridesFailure(): void
     {
         $this->updater->loadMapFromFreedesktopFile(dirname(__FILE__) . '/../fixtures/min.freedesktop.xml');
         $errors = $this->updater->applyOverrides([['addTypeExtensionMapping', ['application/x-pdf', 'pdf']]]);
         $this->assertSame(["Cannot map 'pdf' to 'application/x-pdf', 'application/x-pdf' is an alias"], $errors);
     }
 
-    public function testLoadMapFromFreedesktopFile()
+    public function testLoadMapFromFreedesktopFile(): void
     {
         $this->updater->applyOverrides([['addTypeExtensionMapping', ['application/x-pdf', 'pdf']]]);
         $errors = $this->updater->loadMapFromFreedesktopFile(dirname(__FILE__) . '/../fixtures/min.freedesktop.xml');
@@ -107,19 +107,19 @@ class MapUpdaterTest extends MimeMapTestBase
         $this->assertSame(['application/acrobat', 'application/nappdf', 'image/pdf'], $this->newMap->listAliases());
     }
 
-    public function testLoadMapFromFreedesktopFileZeroLines()
+    public function testLoadMapFromFreedesktopFileZeroLines(): void
     {
         $this->updater->loadMapFromFreedesktopFile(dirname(__FILE__) . '/../fixtures/zero.freedesktop.xml');
         $this->assertSame([], $this->newMap->getMapArray());
     }
 
-    public function testEmptyMapNotWriteable()
+    public function testEmptyMapNotWriteable(): void
     {
         $this->expectException('LogicException');
         $this->assertNull($this->newMap->getFileName());
     }
 
-    public function testWriteMapToPhpClassFile()
+    public function testWriteMapToPhpClassFile(): void
     {
         $this->fileSystem->copy(__DIR__ . '/../../src/Map/MiniMap.php.test', __DIR__ . '/../../src/Map/MiniMap.php');
         MapHandler::setDefaultMapClass('\FileEye\MimeMap\Map\MiniMap');
@@ -137,7 +137,7 @@ class MapUpdaterTest extends MimeMapTestBase
         $this->fileSystem->remove(__DIR__ . '/../../src/Map/MiniMap.php');
     }
 
-    public function testGetDefaultMapBuildFile()
+    public function testGetDefaultMapBuildFile(): void
     {
         $this->assertStringContainsString('default_map_build.yml', MapUpdater::getDefaultMapBuildFile());
     }
