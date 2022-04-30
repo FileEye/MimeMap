@@ -5080,6 +5080,18 @@ class DefaultMap extends AbstractMap
         0 => 'arj',
       ),
     ),
+    'application/x-asar' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Electron Archive (ASAR)',
+        1 => 'ASAR: Atom Shell Archive Format',
+      ),
+      'e' =>
+      array (
+        0 => 'asar',
+      ),
+    ),
     'application/x-asp' =>
     array (
       'desc' =>
@@ -5164,7 +5176,7 @@ class DefaultMap extends AbstractMap
     array (
       'desc' =>
       array (
-        0 => 'BCPIO document',
+        0 => 'BCPIO archive',
         1 => 'BCPIO: Binary CPIO',
       ),
       'e' =>
@@ -7599,6 +7611,7 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'so',
+        1 => 'so.[0-9]*',
       ),
     ),
     'application/x-shellscript' =>
@@ -7954,7 +7967,7 @@ class DefaultMap extends AbstractMap
     array (
       'desc' =>
       array (
-        0 => 'Manpage manual document',
+        0 => 'Manual page',
       ),
       'e' =>
       array (
@@ -8861,8 +8874,8 @@ class DefaultMap extends AbstractMap
       ),
       'desc' =>
       array (
-        0 => 'DTSHD audio',
-        1 => 'DTSHD: Digital Theater Systems High Definition',
+        0 => 'DTS-HD audio',
+        1 => 'DTS-HD: Digital Theater Systems High Definition',
       ),
       'e' =>
       array (
@@ -10892,6 +10905,22 @@ class DefaultMap extends AbstractMap
         1 => 'mime',
       ),
     ),
+    'model/3mf' =>
+    array (
+      'a' =>
+      array (
+        0 => 'application/vnd.ms-3mfdocument',
+      ),
+      'desc' =>
+      array (
+        0 => '3MF document',
+        1 => '3MF: 3D Manufacturing Format',
+      ),
+      'e' =>
+      array (
+        0 => '3mf',
+      ),
+    ),
     'model/gltf+json' =>
     array (
       'desc' =>
@@ -10936,6 +10965,28 @@ class DefaultMap extends AbstractMap
         0 => 'msh',
         1 => 'mesh',
         2 => 'silo',
+      ),
+    ),
+    'model/mtl' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'OBJ 3D model material library',
+      ),
+      'e' =>
+      array (
+        0 => 'mtl',
+      ),
+    ),
+    'model/obj' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'OBJ 3D model',
+      ),
+      'e' =>
+      array (
+        0 => 'obj',
       ),
     ),
     'model/stl' =>
@@ -11855,7 +11906,7 @@ class DefaultMap extends AbstractMap
     array (
       'desc' =>
       array (
-        0 => 'Gradle scripts',
+        0 => 'Gradle script',
       ),
       'e' =>
       array (
@@ -13371,6 +13422,13 @@ class DefaultMap extends AbstractMap
         0 => 'video/3gpp2',
       ),
     ),
+    '3mf' =>
+    array (
+      't' =>
+      array (
+        0 => 'model/3mf',
+      ),
+    ),
     '7z' =>
     array (
       't' =>
@@ -13836,6 +13894,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-applix-spreadsheet',
+      ),
+    ),
+    'asar' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-asar',
       ),
     ),
     'asc' =>
@@ -19091,6 +19156,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/x-msx-rom',
       ),
     ),
+    'mtl' =>
+    array (
+      't' =>
+      array (
+        0 => 'model/mtl',
+      ),
+    ),
     'mtm' =>
     array (
       't' =>
@@ -19434,6 +19506,7 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-tgif',
+        1 => 'model/obj',
       ),
     ),
     'ocl' =>
@@ -21930,6 +22003,13 @@ class DefaultMap extends AbstractMap
       array (
         0 => 'application/octet-stream',
         1 => 'application/x-sharedlib',
+      ),
+    ),
+    'so.[0-9]*' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-sharedlib',
       ),
     ),
     'socket' =>
@@ -25041,6 +25121,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-hwt',
+      ),
+    ),
+    'application/vnd.ms-3mfdocument' =>
+    array (
+      't' =>
+      array (
+        0 => 'model/3mf',
       ),
     ),
     'application/vnd.ms-word' =>
