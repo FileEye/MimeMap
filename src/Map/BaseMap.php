@@ -44,7 +44,7 @@ abstract class BaseMap implements MapInterface
     /**
      * Backs up the map array.
      */
-    public function backup()
+    public function backup(): void
     {
         static::$backupMap = static::$map;
     }
@@ -52,7 +52,7 @@ abstract class BaseMap implements MapInterface
     /**
      * Resets the map array to the backup.
      */
-    public function reset()
+    public function reset(): void
     {
         static::$map = static::$backupMap;
         static::$backupMap = null;
@@ -63,7 +63,7 @@ abstract class BaseMap implements MapInterface
      *
      * @return BaseMap
      */
-    public static function getInstance()
+    public static function getInstance(): static
     {
         if (static::$instance === null) {
             static::$instance = new static();
@@ -76,7 +76,7 @@ abstract class BaseMap implements MapInterface
      *
      * @return string
      */
-    public function getFileName()
+    public function getFileName(): string
     {
         throw new \LogicException(__METHOD__ . ' is not implemented in ' . get_called_class());
     }
@@ -86,7 +86,7 @@ abstract class BaseMap implements MapInterface
      *
      * @return array
      */
-    public function getMapArray()
+    public function getMapArray(): array
     {
         return static::$map;
     }
@@ -96,7 +96,7 @@ abstract class BaseMap implements MapInterface
      *
      * @return $this
      */
-    public function sort()
+    public function sort(): static
     {
         foreach (array_keys(static::$map) as $k) {
             ksort(static::$map[$k]);
@@ -118,7 +118,7 @@ abstract class BaseMap implements MapInterface
      * @return array
      *   The list of the entries.
      */
-    protected function listEntries($entry, $match = null)
+    protected function listEntries(string $entry, string $match = null): array
     {
         if (!isset(static::$map[$entry])) {
             return [];
@@ -147,7 +147,7 @@ abstract class BaseMap implements MapInterface
      * @return mixed|null
      *   The value of the entry, or null if missing.
      */
-    protected function getMapEntry($entry, $entry_key)
+    protected function getMapEntry(string $entry, string $entry_key)
     {
         return isset(static::$map[$entry][$entry_key]) ? static::$map[$entry][$entry_key] : null;
     }
@@ -165,7 +165,7 @@ abstract class BaseMap implements MapInterface
      * @return mixed|null
      *   The value of the entry, or null if missing.
      */
-    protected function getMapSubEntry($entry, $entry_key, $sub_entry)
+    protected function getMapSubEntry(string $entry, string $entry_key, string $sub_entry)
     {
         return isset(static::$map[$entry][$entry_key][$sub_entry]) ? static::$map[$entry][$entry_key][$sub_entry] : null;
     }
@@ -186,7 +186,7 @@ abstract class BaseMap implements MapInterface
      *
      * @return $this
      */
-    protected function addMapSubEntry($entry, $entry_key, $sub_entry, $value)
+    protected function addMapSubEntry(string $entry, string $entry_key, string $sub_entry, string $value): static
     {
         if (!isset(static::$map[$entry][$entry_key][$sub_entry])) {
             static::$map[$entry][$entry_key][$sub_entry] = [$value];
@@ -213,7 +213,7 @@ abstract class BaseMap implements MapInterface
      * @return bool
      *   true if the entry was removed, false if the entry was not present.
      */
-    protected function removeMapSubEntry($entry, $entry_key, $sub_entry, $value)
+    protected function removeMapSubEntry(string $entry, string $entry_key, string $sub_entry, string $value): bool
     {
         // Return false if no entry.
         if (!isset(static::$map[$entry][$entry_key][$sub_entry])) {
@@ -265,7 +265,7 @@ abstract class BaseMap implements MapInterface
      *
      * @return $this
      */
-    protected function setValueAsDefault($entry, $entry_key, $sub_entry, $value)
+    protected function setValueAsDefault(string $entry, string $entry_key, string $sub_entry, string $value): static
     {
         // Throw exception if no entry.
         if (!isset(static::$map[$entry][$entry_key][$sub_entry])) {
