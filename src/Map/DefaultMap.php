@@ -7611,7 +7611,6 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'so',
-        1 => 'so.[0-9]*',
       ),
     ),
     'application/x-shellscript' =>
@@ -22003,13 +22002,6 @@ class DefaultMap extends AbstractMap
       array (
         0 => 'application/octet-stream',
         1 => 'application/x-sharedlib',
-      ),
-    ),
-    'so.[0-9]*' =>
-    array (
-      't' =>
-      array (
-        0 => 'application/x-sharedlib',
       ),
     ),
     'socket' =>
