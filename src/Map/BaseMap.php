@@ -41,17 +41,11 @@ abstract class BaseMap implements MapInterface
     {
     }
 
-    /**
-     * Backs up the map array.
-     */
     public function backup(): void
     {
         static::$backupMap = static::$map;
     }
 
-    /**
-     * Resets the map array to the backup.
-     */
     public function reset(): void
     {
         static::$map = static::$backupMap;
@@ -71,31 +65,16 @@ abstract class BaseMap implements MapInterface
         return static::$instance;
     }
 
-    /**
-     * Returns this file's full qualified filename.
-     *
-     * @return string
-     */
     public function getFileName(): string
     {
         throw new \LogicException(__METHOD__ . ' is not implemented in ' . get_called_class());
     }
 
-    /**
-     * Gets the map array.
-     *
-     * @return array
-     */
     public function getMapArray(): array
     {
         return static::$map;
     }
 
-    /**
-     * Sorts the map.
-     *
-     * @return $this
-     */
     public function sort(): MapInterface
     {
         foreach (array_keys(static::$map) as $k) {
