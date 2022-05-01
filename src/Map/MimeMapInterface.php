@@ -35,7 +35,7 @@ interface MimeMapInterface extends MapInterface
      *
      * @param string $match (Optional) a match wildcard to limit the list.
      *
-     * @return string[]
+     * @return array<int, int|string>
      */
     public function listTypes(string $match = null): array;
 
@@ -44,7 +44,7 @@ interface MimeMapInterface extends MapInterface
      *
      * @param string $match (Optional) a match wildcard to limit the list.
      *
-     * @return string[]
+     * @return array<int, int|string>
      */
     public function listAliases(string $match = null): array;
 
@@ -53,7 +53,7 @@ interface MimeMapInterface extends MapInterface
      *
      * @param string $match (Optional) a match wildcard to limit the list.
      *
-     * @return string[]
+     * @return array<int, int|string>
      */
     public function listExtensions(string $match = null): array;
 

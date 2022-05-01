@@ -30,7 +30,7 @@ abstract class BaseMap implements MapInterface
      *
      * Used during the map update process.
      *
-     * @var array<string, array<int|string, array<string, array<int,string>>>>
+     * @var array<string, array<int|string, array<string, array<int,string>>>>|null
      */
     protected static $backupMap;
 
