@@ -2,6 +2,8 @@
 
 namespace FileEye\MimeMap;
 
+use FileEye\MimeMap\Map\MimeMapInterface;
+
 /**
  * Class for working with MIME types
  */
@@ -60,13 +62,10 @@ class Type implements TypeInterface
     /**
      * The MIME types map.
      *
-     * @var Map\MimeMapInterface
+     * @var MimeMapInterface
      */
     protected $map;
 
-    /**
-     * {@inheritdoc}
-     */
     public function __construct(string $type_string = null, string $map_class = null)
     {
         if ($type_string !== null) {
@@ -75,126 +74,75 @@ class Type implements TypeInterface
         $this->map = MapHandler::map($map_class);
     }
 
-    /**
-     * Gets a MIME type's media.
-     *
-     * Note: 'media' refers to the portion before the first slash.
-     */
     public function getMedia(): ?string
     {
         return $this->media;
     }
 
-    /**
-     * Sets a MIME type's media.
-     */
     public function setMedia(string $media): TypeInterface
     {
         $this->media = $media;
         return $this;
     }
 
-    /**
-     * Gets a MIME type's media comment.
-     */
     public function getMediaComment(): ?string
     {
         return $this->mediaComment;
     }
 
-    /**
-     * Sets a MIME type's media comment.
-     */
     public function setMediaComment(?string $comment): TypeInterface
     {
         $this->mediaComment = $comment;
         return $this;
     }
 
-    /**
-     * Gets a MIME type's subtype.
-     */
     public function getSubType(): ?string
     {
         return $this->subType;
     }
 
-    /**
-     * Sets a MIME type's subtype.
-     */
     public function setSubType(string $sub_type): TypeInterface
     {
         $this->subType = $sub_type;
         return $this;
     }
 
-    /**
-     * Gets a MIME type's subtype comment.
-     */
     public function getSubTypeComment(): ?string
     {
         return $this->subTypeComment;
     }
 
-    /**
-     * Sets a MIME type's subtype comment.
-     */
     public function setSubTypeComment(?string $comment): TypeInterface
     {
         $this->subTypeComment = $comment;
         return $this;
     }
 
-    /**
-     * Does this type have any parameters?
-     */
     public function hasParameters(): bool
     {
         return (bool) $this->parameters;
     }
 
-    /**
-     * Get a MIME type's parameters.
-     *
-     * @return TypeParameter[]
-     */
     public function getParameters(): array
     {
         return $this->parameters;
     }
 
-    /**
-     * Get a MIME type's parameter.
-     */
     public function getParameter(string $name): ?TypeParameter
     {
         return isset($this->parameters[$name]) ? $this->parameters[$name] : null;
     }
 
-    /**
-     * Add a parameter to this type
-     */
     public function addParameter(string $name, string $value, string $comment = null): void
     {
         $this->parameters[$name] = new TypeParameter($name, $value, $comment);
     }
 
-    /**
-     * Remove a parameter from this type.
-     */
     public function removeParameter(string $name): void
     {
         unset($this->parameters[$name]);
     }
 
-    /**
-     * Create a textual MIME type from object values.
-     *
-     * This function performs the opposite function of parse().
-     *
-     * @param int $format
-     *   The format of the output string.
-     */
     public function toString(int $format = Type::FULL_TEXT): ?string
     {
         if ($this->getMedia() === null || $this->getSubType() === null) {
@@ -216,56 +164,26 @@ class Type implements TypeInterface
         return $type;
     }
 
-    /**
-     * Is this type experimental?
-     *
-     * Note: Experimental types are denoted by a leading 'x-' in the media or
-     *       subtype, e.g. text/x-vcard or x-world/x-vrml.
-     */
     public function isExperimental(): bool
     {
         return substr($this->getMedia(), 0, 2) == 'x-' || substr($this->getSubType(), 0, 2) == 'x-';
     }
 
-    /**
-     * Is this a vendor MIME type?
-     *
-     * Note: Vendor types are denoted with a leading 'vnd. in the subtype.
-     */
     public function isVendor(): bool
     {
         return substr($this->getSubType(), 0, 4) == 'vnd.';
     }
 
-    /**
-     * Is this a wildcard type?
-     */
     public function isWildcard(): bool
     {
         return ($this->getMedia() === '*' && $this->getSubtype() === '*') || strpos($this->getSubtype(), '*') !== false;
     }
 
-    /**
-     * Is this an alias?
-     */
     public function isAlias(): bool
     {
         return $this->map->hasAlias($this->toString(static::SHORT_TEXT));
     }
 
-    /**
-     * Perform a wildcard match on a MIME type
-     *
-     * Example:
-     * $type = new Type('image/png');
-     * $type->wildcardMatch('image/*');
-     *
-     * @param string $wildcard
-     *   Wildcard to check against.
-     *
-     * @return bool
-     *   True if there was a match, false otherwise.
-     */
     public function wildcardMatch(string $wildcard): bool
     {
         $wildcard_type = new static($wildcard);
@@ -338,14 +256,6 @@ class Type implements TypeInterface
         return $this->isAlias() ? new static($this->map->getAliasTypes($this->toString(static::SHORT_TEXT))[0]) : $this;
     }
 
-    /**
-     * Returns a description for the MIME type, if existing in the map.
-     *
-     * @param bool $include_acronym
-     *   (Optional) if true and an acronym description exists for the type,
-     *   the returned description will contain the acronym and its description,
-     *   appended with a comma. Defaults to false.
-     */
     public function getDescription(bool $include_acronym = false): ?string
     {
         $descriptions = $this->map->getTypeDescriptions($this->getUnaliasedType()->toString(static::SHORT_TEXT));
@@ -359,21 +269,6 @@ class Type implements TypeInterface
         return $res;
     }
 
-    /**
-     * Returns all the aliases related to the MIME type(s).
-     *
-     * If the current type is a wildcard, than all aliases of all the
-     * types matching the wildcard will be returned.
-     *
-     * @param bool $strict
-     *   (Optional) if true a MappingException is thrown when no mapping is
-     *   found, if false it returns an empty array as a default.
-     *   Defaults to true.
-     *
-     * @throws MappingException if error and $strict is true.
-     *
-     * @return string[]
-     */
     public function getAliases(bool $strict = true): array
     {
         // Fail if the current type is an alias already.
@@ -397,16 +292,6 @@ class Type implements TypeInterface
         return array_keys($aliases);
     }
 
-    /**
-     * Returns the MIME type's preferred file extension.
-     *
-     * @param bool $strict
-     *   (Optional) if true a MappingException is thrown when no mapping is
-     *   found, if false it returns null as a default.
-     *   Defaults to true.
-     *
-     * @throws MappingException if no mapping found and $strict is true.
-     */
     public function getDefaultExtension(bool $strict = true): ?string
     {
         $unaliased_type = $this->getUnaliasedType();
@@ -429,21 +314,6 @@ class Type implements TypeInterface
         return $unaliased_type->getExtensions()[0];
     }
 
-    /**
-     * Returns all the file extensions related to the MIME type(s).
-     *
-     * If the current type is a wildcard, than all extensions of all the
-     * types matching the wildcard will be returned.
-     *
-     * @param bool $strict
-     *   (Optional) if true a MappingException is thrown when no mapping is
-     *   found, if false it returns an empty array as a default.
-     *   Defaults to true.
-     *
-     * @throws MappingException if no mapping found and $strict is true.
-     *
-     * @return string[]
-     */
     public function getExtensions(bool $strict = true): array
     {
         // Build the array of extensions.

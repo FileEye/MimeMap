@@ -36,7 +36,7 @@ class DefaultMap extends AbstractMap
      *
      * @internal
      *
-     * @var array<string,array<string,array<string,list>>>
+     * @var array<string,array<string,array<string,mixed>>>
      */
     // phpcs:disable
     protected static $map = array (
