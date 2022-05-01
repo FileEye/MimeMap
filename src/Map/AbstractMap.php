@@ -79,7 +79,7 @@ abstract class AbstractMap extends BaseMap implements MimeMapInterface
         return $this->listEntries('e', $match);
     }
 
-    public function addTypeDescription(string $type, string $description): AbstractMap
+    public function addTypeDescription(string $type, string $description): MimeMapInterface
     {
         $type = $this->normalizeType($type);
 
@@ -92,7 +92,7 @@ abstract class AbstractMap extends BaseMap implements MimeMapInterface
         return $this;
     }
 
-    public function addTypeAlias(string $type, string $alias): AbstractMap
+    public function addTypeAlias(string $type, string $alias): MimeMapInterface
     {
         $type = $this->normalizeType($type);
         $alias = $this->normalizeType($alias);
@@ -117,7 +117,7 @@ abstract class AbstractMap extends BaseMap implements MimeMapInterface
         return $this;
     }
 
-    public function addTypeExtensionMapping(string $type, string $extension): AbstractMap
+    public function addTypeExtensionMapping(string $type, string $extension): MimeMapInterface
     {
         $type = $this->normalizeType($type);
         $extension = strtolower($extension);
@@ -154,7 +154,7 @@ abstract class AbstractMap extends BaseMap implements MimeMapInterface
         return $this->getMapSubEntry('t', $type, 'e') ?: [];
     }
 
-    public function setTypeDefaultExtension(string $type, string $extension): AbstractMap
+    public function setTypeDefaultExtension(string $type, string $extension): MimeMapInterface
     {
         $type = $this->normalizeType($type);
         $extension = strtolower($extension);
@@ -254,7 +254,7 @@ abstract class AbstractMap extends BaseMap implements MimeMapInterface
         return $this->getMapSubEntry('e', $extension, 't') ?: [];
     }
 
-    public function setExtensionDefaultType(string $extension, string $type): AbstractMap
+    public function setExtensionDefaultType(string $extension, string $type): MimeMapInterface
     {
         $type = $this->normalizeType($type);
         $extension = strtolower($extension);
