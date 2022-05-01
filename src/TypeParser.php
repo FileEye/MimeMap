@@ -65,7 +65,7 @@ class TypeParser
      * @param string $delimiter
      *   Stop parsing when delimiter found.
      *
-     * @return array<string,string|bool|int>
+     * @return array{'string': string, 'comment': string, 'delimiter_matched': bool, 'end_offset': int}
      *   An array with the following keys:
      *   'string' - the uncommented part of $string
      *   'comment' - the comment part of $string

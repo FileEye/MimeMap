@@ -69,7 +69,12 @@ class UpdateCommand extends Command
         $updater->selectBaseMap(MapUpdater::DEFAULT_BASE_MAP_CLASS);
 
         // Executes on the base map the script commands.
-        $commands = Yaml::parse(file_get_contents($input->getOption('script')));
+        $contents = file_get_contents($input->getOption('script'));
+        if ($contents === false) {
+            $io->error('Failed loading update script file ' . $input->getOption('script'));
+            return (2);
+        }
+        $commands = Yaml::parse(file_get_contents($contents));
         foreach ($commands as $command) {
             $output->writeln("<info>{$command[0]} ...</info>");
             try {
