@@ -34,9 +34,6 @@ abstract class BaseMap implements MapInterface
      */
     protected static $backupMap;
 
-    /**
-     * {@inheritdoc}
-     */
     public function __construct()
     {
     }

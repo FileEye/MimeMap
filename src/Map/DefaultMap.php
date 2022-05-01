@@ -10,17 +10,10 @@ namespace FileEye\MimeMap\Map;
 class DefaultMap extends AbstractMap
 {
     /**
-     * Singleton instance.
-     *
      * @var DefaultMap
      */
     protected static $instance;
 
-    /**
-     * Returns this file's fully qualified filename.
-     *
-     * @return string
-     */
     public function getFileName(): string
     {
         return __FILE__;

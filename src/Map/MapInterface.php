@@ -3,7 +3,7 @@
 namespace FileEye\MimeMap\Map;
 
 /**
- * Interface for MimeMap maps.
+ * Interface for maps.
  */
 interface MapInterface
 {

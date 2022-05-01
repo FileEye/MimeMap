@@ -11,8 +11,6 @@ namespace FileEye\MimeMap\Map;
 class EmptyMap extends AbstractMap
 {
     /**
-     * Singleton instance.
-     *
      * @var EmptyMap
      */
     protected static $instance;
