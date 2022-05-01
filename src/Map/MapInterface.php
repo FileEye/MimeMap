@@ -13,6 +13,11 @@ interface MapInterface
     public function __construct();
 
     /**
+     * Returns the singleton.
+     */
+    public static function getInstance(): MapInterface;
+
+    /**
      * Returns the map's class fully qualified filename.
      */
     public function getFileName(): string;
@@ -20,7 +25,7 @@ interface MapInterface
     /**
      * Gets the map array.
      *
-     * @return array<string,array<string,array<string,list>>>
+     * @return array<string,array<string,array<string,mixed>>>
      */
     public function getMapArray(): array;
 

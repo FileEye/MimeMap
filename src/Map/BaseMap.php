@@ -30,7 +30,7 @@ abstract class BaseMap implements MapInterface
      *
      * Used during the map update process.
      *
-     * @var array<string,array<string,array<string,list>>>|null
+     * @var array<string,array<string,array<string,mixed>>>|null
      */
     protected static $backupMap;
 
@@ -49,11 +49,6 @@ abstract class BaseMap implements MapInterface
         static::$backupMap = null;
     }
 
-    /**
-     * Returns the singleton.
-     *
-     * @return static
-     */
     public static function getInstance(): MapInterface
     {
         if (static::$instance === null) {
