@@ -139,6 +139,23 @@ interface TypeInterface
     public function wildcardMatch(string $wildcard): bool;
 
     /**
+     * Builds a list of MIME types existing in the map.
+     *
+     * If the current type is a wildcard, than all the types matching the
+     * wildcard will be returned.
+     *
+     * @param bool $strict
+     *   (Optional) if true a MappingException is thrown when no type is
+     *   found, if false it returns an empty array as a default.
+     *   Defaults to true.
+     *
+     * @throws MappingException if no mapping found and $strict is true.
+     *
+     * @return string[]
+     */
+    public function buildTypesList(bool $strict = true): array;
+
+    /**
      * Returns a description for the MIME type, if existing in the map.
      *
      * @param bool $include_acronym

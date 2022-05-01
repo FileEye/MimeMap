@@ -201,22 +201,7 @@ class Type implements TypeInterface
         return preg_match("/$wildcard_re/", $subject) === 1;
     }
 
-    /**
-     * Builds a list of MIME types existing in the map.
-     *
-     * If the current type is a wildcard, than all the types matching the
-     * wildcard will be returned.
-     *
-     * @param bool $strict
-     *   (Optional) if true a MappingException is thrown when no type is
-     *   found, if false it returns an empty array as a default.
-     *   Defaults to true.
-     *
-     * @throws MappingException if no mapping found and $strict is true.
-     *
-     * @return string[]
-     */
-    protected function buildTypesList(bool $strict = true): array
+    public function buildTypesList(bool $strict = true): array
     {
         $subject = $this->toString(static::SHORT_TEXT);
 
