@@ -3,7 +3,7 @@
 namespace FileEye\MimeMap;
 
 use FileEye\MimeMap\Map\EmptyMap;
-use FileEye\MimeMap\Map\MapInterface;
+use FileEye\MimeMap\Map\MimeMapInterface;
 
 /**
  * Compiles the MIME type to file extension map.

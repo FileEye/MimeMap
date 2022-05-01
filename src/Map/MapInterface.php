@@ -20,7 +20,7 @@ interface MapInterface
     /**
      * Gets the map array.
      *
-     * @var array<string,array<string,array<string,list>>>
+     * @return array<string,array<string,array<string,list>>>
      */
     public function getMapArray(): array;
 
