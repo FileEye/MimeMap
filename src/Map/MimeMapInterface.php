@@ -7,7 +7,7 @@ use FileEye\MimeMap\MappingException;
 /**
  * Interface for MimeMap maps.
  */
-interface MimeMapInterface
+interface MimeMapInterface extends MapInterface
 {
     /**
      * Determines if a MIME type exists.
