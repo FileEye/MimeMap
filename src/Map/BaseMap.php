@@ -101,9 +101,8 @@ abstract class BaseMap implements MapInterface
             return $list;
         } else {
             $re = strtr($match, ['/' => '\\/', '*' => '.*']);
-            assert(is_string($re));
             return array_filter($list, function ($v) use ($re) {
-                return preg_match("/$re/", $v) === 1;
+                return preg_match("/$re/", (string) $v) === 1;
             });
         }
     }

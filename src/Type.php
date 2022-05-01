@@ -269,7 +269,7 @@ class Type implements TypeInterface
         // Build the array of aliases.
         $aliases = [];
         foreach ($this->buildTypesList($strict) as $t) {
-            foreach ($this->map->getTypeAliases($t) as $a) {
+            foreach ($this->map->getTypeAliases((string) $t) as $a) {
                 $aliases[$a] = $a;
             }
         }
@@ -304,7 +304,7 @@ class Type implements TypeInterface
         // Build the array of extensions.
         $extensions = [];
         foreach ($this->getUnaliasedType()->buildTypesList($strict) as $t) {
-            foreach ($this->map->getTypeExtensions($t) as $e) {
+            foreach ($this->map->getTypeExtensions((string) $t) as $e) {
                 $extensions[$e] = $e;
             }
         }
