@@ -151,7 +151,7 @@ interface TypeInterface
      *
      * @throws MappingException if no mapping found and $strict is true.
      *
-     * @return string[]
+     * @return array<int, int|string|null>
      */
     public function buildTypesList(bool $strict = true): array;
 
