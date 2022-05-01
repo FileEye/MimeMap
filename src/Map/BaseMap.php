@@ -7,7 +7,7 @@ use FileEye\MimeMap\MappingException;
 /**
  * Abstract base class for managing MimeMap maps.
  *
- * This class cannot be instantiated; extend from it to implement a map.
+ * This class cannot be instantiated.
  */
 abstract class BaseMap implements MapInterface
 {

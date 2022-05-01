@@ -95,7 +95,7 @@ interface MimeMapInterface
    *
    * @return $this
    */
-  public function addTypeExtensionMapping(string $type, string $extension): MimeMapInterface
+  public function addTypeExtensionMapping(string $type, string $extension): MimeMapInterface;
 
   /**
    * Gets the descriptions of a MIME type.
