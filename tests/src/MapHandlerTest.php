@@ -4,7 +4,7 @@ namespace FileEye\MimeMap\Test;
 
 use FileEye\MimeMap\Extension;
 use FileEye\MimeMap\MalformedTypeException;
-use FileEye\MimeMap\Map\AbstractMap;
+use FileEye\MimeMap\Map\MimeMapInterface;
 use FileEye\MimeMap\MapHandler;
 use FileEye\MimeMap\MappingException;
 use FileEye\MimeMap\Type;
@@ -15,7 +15,7 @@ use FileEye\MimeMap\Type;
 class MapHandlerTest extends MimeMapTestBase
 {
     /**
-     * @var AbstractMap
+     * @var MimeMapInterface
      */
     protected $map;
 

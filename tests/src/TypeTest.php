@@ -294,18 +294,6 @@ class TypeTest extends MimeMapTestBase
                 ],
             ],
             // Various edge cases.
-            'null' => [
-                null,
-                [
-                  null,
-                  null,
-                  null,
-                ],
-                [null, null],
-                [null, null],
-                false,
-                [],
-            ],
             'text/plain; charset="utf-8" (UTF/8)' => [
                 'text/plain; charset="utf-8" (UTF/8)',
                 [

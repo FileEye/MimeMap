@@ -17,5 +17,5 @@ interface TypeInterface
      * @param string $map_class
      *   (Optional) The FQCN of the map class to use.
      */
-    public function __construct($type_string = null, $map_class = null);
+    public function __construct(string $type_string = null, string $map_class = null);
 }

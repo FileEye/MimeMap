@@ -22,7 +22,7 @@ abstract class MapHandler
      *
      * @var string
      */
-    protected static $defaultMapClass = MapHandler::DEFAULT_MAP_CLASS;
+    protected static $defaultMapClass = self::DEFAULT_MAP_CLASS;
 
     /**
      * Sets a map class as default for new instances.

@@ -16,10 +16,8 @@ class TypeParser
      *   The Type object to receive the components.
      *
      * @throws MalformedTypeException when $type_string is malformed.
-     *
-     * @return void
      */
-    public static function parse($type_string, Type $type)
+    public static function parse($type_string, Type $type): void
     {
         // Media and SubType are separated by a slash '/'.
         $media = static::parseStringPart($type_string, 0, '/');
@@ -67,7 +65,7 @@ class TypeParser
      * @param string $delimiter
      *   Stop parsing when delimiter found.
      *
-     * @return array
+     * @return array<string,string|bool|int>
      *   An array with the following keys:
      *   'string' - the uncommented part of $string
      *   'comment' - the comment part of $string
@@ -75,7 +73,7 @@ class TypeParser
      *                         otherwise
      *   'end_offset' - the last position parsed in $string.
      */
-    public static function parseStringPart($string, $offset, $delimiter)
+    public static function parseStringPart(string $string, int $offset, string $delimiter): array
     {
         $inquote   = false;
         $escaped   = false;
