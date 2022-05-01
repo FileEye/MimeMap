@@ -173,7 +173,7 @@ class MapUpdater
     /**
      * Applies to the map an array of overrides.
      *
-     * @param array<int,array<0: string, 1: array<string>> $overrides
+     * @param array<int,array{0: string, 1: array<string>}> $overrides
      *   The overrides to be applied.
      *
      * @return string[]
