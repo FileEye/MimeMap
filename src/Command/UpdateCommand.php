@@ -74,11 +74,13 @@ class UpdateCommand extends Command
             $io->error('Failed loading update script file ' . $input->getOption('script'));
             return (2);
         }
-        $commands = Yaml::parse(file_get_contents($contents));
+        $commands = Yaml::parse($contents);
         foreach ($commands as $command) {
             $output->writeln("<info>{$command[0]} ...</info>");
             try {
-                $errors = call_user_func_array([$updater, $command[1]], $command[2]);
+                $callable = [$updater, $command[1]];
+                assert(is_callable($callable));
+                $errors = call_user_func_array($callable, $command[2]);
                 if (!empty($errors)) {
                     foreach ($errors as $error) {
                         $output->writeln("<comment>$error.</comment>");

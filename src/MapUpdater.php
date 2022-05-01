@@ -120,6 +120,11 @@ class MapUpdater
         }
 
         $xml = simplexml_load_string($contents);
+        if ($xml === false) {
+            $errors[] = 'Malformed XML in file ' . $source_file;
+            return $errors;
+        }
+
         $aliases = [];
 
         foreach ($xml as $node) {
@@ -192,7 +197,9 @@ class MapUpdater
 
         foreach ($overrides as $command) {
             try {
-                call_user_func_array([$this->map, $command[0]], $command[1]);
+                $callable = [$this->map, $command[0]];
+                assert(is_callable($callable));
+                call_user_func_array($callable, $command[1]);
             } catch (MappingException $e) {
                 $errors[] = $e->getMessage();
             }

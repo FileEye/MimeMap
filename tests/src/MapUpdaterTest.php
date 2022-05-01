@@ -139,6 +139,7 @@ class MapUpdaterTest extends MimeMapTestBase
         $this->updater->applyOverrides([['addTypeExtensionMapping', ['bing/bong', 'binbon']]]);
         $this->updater->writeMapToPhpClassFile($map_a->getFileName());
         $content = file_get_contents($map_a->getFileName());
+        assert(is_string($content));
         $this->assertStringContainsString('text/plain', $content);
         $this->assertStringContainsString('bing/bong', $content);
         $this->assertStringContainsString('binbon', $content);
