@@ -25,7 +25,7 @@ interface MapInterface
     /**
      * Gets the map array.
      *
-     * @return array<string,array<int|string,array<int,string>>>
+     * @return array<string, array<int|string, array<string, array<int,string>>>>
      */
     public function getMapArray(): array;
 
