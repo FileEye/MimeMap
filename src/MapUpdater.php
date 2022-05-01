@@ -39,9 +39,9 @@ class MapUpdater
     /**
      * Returns the map object being updated.
      *
-     * @return MapInterface
+     * @return MimeMapInterface
      */
-    public function getMap(): MapInterface
+    public function getMap(): MimeMapInterface
     {
         return $this->map;
     }

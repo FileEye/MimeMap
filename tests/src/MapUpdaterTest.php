@@ -3,6 +3,7 @@
 namespace FileEye\MimeMap\Test;
 
 use Symfony\Component\Filesystem\Filesystem;
+use FileEye\MimeMap\Map\MimeMapInterface;
 use FileEye\MimeMap\MapHandler;
 use FileEye\MimeMap\MapUpdater;
 
@@ -12,8 +13,14 @@ use FileEye\MimeMap\MapUpdater;
  */
 class MapUpdaterTest extends MimeMapTestBase
 {
+
+    /** @var MimeMapInterface */
     protected $newMap;
+
+    /** @var MimeUpdater */
     protected $updater;
+
+    /** @var Filesystem */
     protected $fileSystem;
 
     public function setUp(): void
