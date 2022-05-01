@@ -2,6 +2,8 @@
 
 namespace FileEye\MimeMap;
 
+use FileEye\MimeMap\Map\MimeMapInterface;
+
 /**
  * Class for mapping file extensions to MIME types.
  */
@@ -17,7 +19,7 @@ class Extension
     /**
      * The MIME types map.
      *
-     * @var Map\MimeMapInterface
+     * @var MimeMapInterface
      */
     protected $map;
 
@@ -29,7 +31,7 @@ class Extension
      * @param string $map_class
      *   (Optional) The FQCN of the map class to use.
      */
-    public function __construct($extension, $map_class = null)
+    public function __construct(string $extension, string $map_class = null)
     {
         $this->extension = strtolower($extension);
         $this->map = MapHandler::map($map_class);
@@ -44,10 +46,8 @@ class Extension
      *   Defaults to true.
      *
      * @throws MappingException if no mapping found and $strict is true.
-     *
-     * @return string
      */
-    public function getDefaultType($strict = true)
+    public function getDefaultType(bool $strict = true): string
     {
         return $this->getTypes($strict)[0];
     }
@@ -64,7 +64,7 @@ class Extension
      *
      * @return string[]
      */
-    public function getTypes($strict = true)
+    public function getTypes(bool $strict = true): array
     {
         $types = $this->map->getExtensionTypes($this->extension);
         if (empty($types)) {
