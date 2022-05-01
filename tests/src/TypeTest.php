@@ -11,8 +11,10 @@ class TypeTest extends MimeMapTestBase
 {
     /**
      * Data provider for testParse.
+     *
+     * @return array<string,mixed>
      */
-    public function parseProvider()
+    public function parseProvider(): array
     {
         return [
             'application/ogg;description=Hello there!;asd=fgh' => [
@@ -433,8 +435,15 @@ class TypeTest extends MimeMapTestBase
 
     /**
      * @dataProvider parseProvider
+     *
+     * @param string $type
+     * @param string[] $expectedToString
+     * @param string[] $expectedMedia
+     * @param string[] $expectedSubType
+     * @param bool $expectedHasParameters
+     * @param string[] $expectedParameters
      */
-    public function testParse($type, array $expectedToString, array $expectedMedia, array $expectedSubType, $expectedHasParameters, array $expectedParameters): void
+    public function testParse(string $type, array $expectedToString, array $expectedMedia, array $expectedSubType, bool $expectedHasParameters, array $expectedParameters): void
     {
         $mt = new Type($type);
         $this->assertSame($expectedMedia[0], $mt->getMedia());
@@ -457,6 +466,8 @@ class TypeTest extends MimeMapTestBase
 
     /**
      * Data provider for testParseMalformed.
+     *
+     * @return array<string,array<string>>
      */
     public function parseMalformedProvider()
     {
@@ -473,7 +484,7 @@ class TypeTest extends MimeMapTestBase
     /**
      * @dataProvider parseMalformedProvider
      */
-    public function testParseMalformed($type): void
+    public function testParseMalformed(string $type): void
     {
         $this->expectException(MalformedTypeException::class);
         new Type($type);
@@ -637,6 +648,8 @@ class TypeTest extends MimeMapTestBase
 
     /**
      * Data provider for testGetDefaultExtensionFail.
+     *
+     * @return array<array<string>>
      */
     public function getDefaultExtensionFailProvider()
     {
@@ -651,7 +664,7 @@ class TypeTest extends MimeMapTestBase
     /**
      * @dataProvider getDefaultExtensionFailProvider
      */
-    public function testGetDefaultExtensionFail($type): void
+    public function testGetDefaultExtensionFail(string $type): void
     {
         $this->expectException(MappingException::class);
         $this->assertNull((new Type($type))->getDefaultExtension());

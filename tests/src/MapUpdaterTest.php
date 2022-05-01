@@ -17,7 +17,7 @@ class MapUpdaterTest extends MimeMapTestBase
     /** @var MimeMapInterface */
     protected $newMap;
 
-    /** @var MimeUpdater */
+    /** @var MapUpdater */
     protected $updater;
 
     /** @var Filesystem */
