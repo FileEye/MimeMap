@@ -21,7 +21,7 @@ abstract class BaseMap implements MapInterface
     /**
      * Mapping between file extensions and MIME types.
      *
-     * @var array
+     * @var array<string,array<string,array<string,list>>>
      */
     protected static $map = [];
 
@@ -30,7 +30,7 @@ abstract class BaseMap implements MapInterface
      *
      * Used during the map update process.
      *
-     * @var array|null
+     * @var array<string,array<string,array<string,list>>>|null
      */
     protected static $backupMap;
 

@@ -17,7 +17,7 @@ class Extension
     /**
      * The MIME types map.
      *
-     * @var Map\MapInterface
+     * @var Map\MimeMapInterface
      */
     protected $map;
 

@@ -18,7 +18,7 @@ class MapUpdater
     /**
      * The map object to update.
      *
-     * @var MapInterface
+     * @var MimeMapInterface
      */
     protected $map;
 
