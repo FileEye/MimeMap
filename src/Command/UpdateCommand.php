@@ -124,8 +124,13 @@ class UpdateCommand extends Command
 
         // If changed, save the new map to the PHP file.
         if ($write) {
-            $updater->writeMapToPhpClassFile($current_map->getFileName());
-            $output->writeln('<comment>Code updated.</comment>');
+            try {
+                $updater->writeMapToPhpClassFile($current_map->getFileName());
+                $output->writeln('<comment>Code updated.</comment>');
+            } catch (\RuntimeException $e) {
+                $io->error($e->getMessage() .  '.');
+                return(2);
+            }
         } else {
             $output->writeln('<info>No changes to mapping.</info>');
         }

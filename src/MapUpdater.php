@@ -216,12 +216,18 @@ class MapUpdater
      */
     public function writeMapToPhpClassFile(string $file): MapUpdater
     {
-        $content = preg_replace(
+        $content = file_get_contents($file);
+        if ($content === false) {
+            throw new \RuntimeException('Failed loading file ' . $file);
+        }
+
+        $newContent = preg_replace(
             '#protected static \$map = (.+?);#s',
             "protected static \$map = " . preg_replace('/\s+$/m', '', var_export($this->map->getMapArray(), true)) . ";",
-            file_get_contents($file)
+            $content
         );
-        file_put_contents($file, $content);
+        file_put_contents($file, $newContent);
+        
         return $this;
     }
 }
