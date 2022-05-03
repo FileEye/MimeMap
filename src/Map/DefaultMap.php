@@ -11726,6 +11726,31 @@ class DefaultMap extends AbstractMap
         0 => 'dcl',
       ),
     ),
+    'text/x-devicetree-binary' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Flattened Devicetree',
+        1 => 'DTB: Device Tree Binary',
+      ),
+      'e' =>
+      array (
+        0 => 'dtb',
+      ),
+    ),
+    'text/x-devicetree-source' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Devicetree source code',
+        1 => 'DTS: Device Tree Source',
+      ),
+      'e' =>
+      array (
+        0 => 'dts',
+        1 => 'dtsi',
+      ),
+    ),
     'text/x-dsl' =>
     array (
       'desc' =>
@@ -15433,6 +15458,7 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-dtbook+xml',
+        1 => 'text/x-devicetree-binary',
       ),
     ),
     'dtd' =>
@@ -15447,6 +15473,7 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'audio/vnd.dts',
+        1 => 'text/x-devicetree-source',
       ),
     ),
     'dtshd' =>
@@ -15454,6 +15481,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'audio/vnd.dts.hd',
+      ),
+    ),
+    'dtsi' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/x-devicetree-source',
       ),
     ),
     'dtx' =>
