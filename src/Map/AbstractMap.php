@@ -11,7 +11,7 @@ use FileEye\MimeMap\TypeParser;
  *
  * This class cannot be instantiated; extend from it to implement a map.
  */
-abstract class AbstractMap extends BaseMap
+abstract class AbstractMap extends BaseMap implements MimeMapInterface
 {
     /**
      * Normalizes a mime-type string to Media/Subtype.
@@ -24,7 +24,7 @@ abstract class AbstractMap extends BaseMap
      * @return string
      *   A MIME type string in the 'Media/Subtype' format.
      */
-    protected function normalizeType($type_string)
+    protected function normalizeType(string $type_string): string
     {
         // Media and SubType are separated by a slash '/'.
         $media = TypeParser::parseStringPart($type_string, 0, '/');
@@ -46,94 +46,40 @@ abstract class AbstractMap extends BaseMap
         return strtolower((string) $media['string']) . '/' . strtolower((string) $sub['string']);
     }
 
-    /**
-     * Determines if a MIME type exists.
-     *
-     * @param string $type The type to be found.
-     *
-     * @return bool
-     */
-    public function hasType($type)
+    public function hasType(string $type): bool
     {
         $type = $this->normalizeType($type);
         return (bool) $this->getMapEntry('t', $type);
     }
 
-    /**
-     * Determines if a MIME type alias exists.
-     *
-     * @param string $alias The alias to be found.
-     *
-     * @return bool
-     */
-    public function hasAlias($alias)
+    public function hasAlias(string $alias): bool
     {
         $alias = $this->normalizeType($alias);
         return (bool) $this->getMapEntry('a', $alias);
     }
 
-    /**
-     * Determines if an entry exists from the 'extensions' array.
-     *
-     * @param string $extension The extension to be found.
-     *
-     * @return bool
-     */
-    public function hasExtension($extension)
+    public function hasExtension(string $extension): bool
     {
         $extension = strtolower($extension);
         return (bool) $this->getMapEntry('e', $extension);
     }
 
-    /**
-     * Lists all the MIME types defined in the map.
-     *
-     * @param string $match (Optional) a match wildcard to limit the list.
-     *
-     * @return string[]
-     */
-    public function listTypes($match = null)
+    public function listTypes(string $match = null): array
     {
         return $this->listEntries('t', $match);
     }
 
-    /**
-     * Lists all the MIME types aliases defined in the map.
-     *
-     * @param string $match (Optional) a match wildcard to limit the list.
-     *
-     * @return string[]
-     */
-    public function listAliases($match = null)
+    public function listAliases(string $match = null): array
     {
         return $this->listEntries('a', $match);
     }
 
-    /**
-     * Lists all the extensions defined in the map.
-     *
-     * @param string $match (Optional) a match wildcard to limit the list.
-     *
-     * @return string[]
-     */
-    public function listExtensions($match = null)
+    public function listExtensions(string $match = null): array
     {
         return $this->listEntries('e', $match);
     }
 
-    /**
-     * Adds a description of a MIME type.
-     *
-     * @param string $type
-     *   A MIME type.
-     * @param string $description
-     *   The description of the MIME type.
-     *
-     * @throws MappingException if $type is an alias.
-     *
-     * @return $this
-     */
-    public function addTypeDescription($type, $description)
+    public function addTypeDescription(string $type, string $description): MimeMapInterface
     {
         $type = $this->normalizeType($type);
 
@@ -146,19 +92,7 @@ abstract class AbstractMap extends BaseMap
         return $this;
     }
 
-    /**
-     * Adds an alias of a MIME type.
-     *
-     * @param string $type
-     *   A MIME type.
-     * @param string $alias
-     *   An alias of $type.
-     *
-     * @throws MappingException if no $type is found.
-     *
-     * @return $this
-     */
-    public function addTypeAlias($type, $alias)
+    public function addTypeAlias(string $type, string $alias): MimeMapInterface
     {
         $type = $this->normalizeType($type);
         $alias = $this->normalizeType($alias);
@@ -183,19 +117,7 @@ abstract class AbstractMap extends BaseMap
         return $this;
     }
 
-    /**
-     * Adds a type-to-extension mapping.
-     *
-     * @param string $type
-     *   A MIME type.
-     * @param string $extension
-     *   A file extension.
-     *
-     * @throws MappingException if $type is an alias.
-     *
-     * @return $this
-     */
-    public function addTypeExtensionMapping($type, $extension)
+    public function addTypeExtensionMapping(string $type, string $extension): MimeMapInterface
     {
         $type = $this->normalizeType($type);
         $extension = strtolower($extension);
@@ -214,74 +136,32 @@ abstract class AbstractMap extends BaseMap
         return $this;
     }
 
-    /**
-     * Gets the descriptions of a MIME type.
-     *
-     * @param string $type The type to be found.
-     *
-     * @return string[] The mapped descriptions.
-     */
-    public function getTypeDescriptions($type)
+    public function getTypeDescriptions(string $type): array
     {
         $type = $this->normalizeType($type);
         return $this->getMapSubEntry('t', $type, 'desc') ?: [];
     }
 
-    /**
-     * Gets the aliases of a MIME type.
-     *
-     * @param string $type The type to be found.
-     *
-     * @return string[] The mapped aliases.
-     */
-    public function getTypeAliases($type)
+    public function getTypeAliases(string $type): array
     {
         $type = $this->normalizeType($type);
         return $this->getMapSubEntry('t', $type, 'a') ?: [];
     }
 
-    /**
-     * Gets the content of an entry from the 't' array.
-     *
-     * @param string $type The type to be found.
-     *
-     * @return string[] The mapped file extensions.
-     */
-    public function getTypeExtensions($type)
+    public function getTypeExtensions(string $type): array
     {
         $type = $this->normalizeType($type);
         return $this->getMapSubEntry('t', $type, 'e') ?: [];
     }
 
-    /**
-     * Changes the default extension for a MIME type.
-     *
-     * @param string $type
-     *   A MIME type.
-     * @param string $extension
-     *   A file extension.
-     *
-     * @throws MappingException if no mapping found.
-     *
-     * @return $this
-     */
-    public function setTypeDefaultExtension($type, $extension)
+    public function setTypeDefaultExtension(string $type, string $extension): MimeMapInterface
     {
         $type = $this->normalizeType($type);
         $extension = strtolower($extension);
         return $this->setValueAsDefault('t', $type, 'e', $extension);
     }
 
-    /**
-     * Removes the entire mapping of a type.
-     *
-     * @param string $type
-     *   A MIME type.
-     *
-     * @return bool
-     *   true if the mapping was removed, false if the type was not present.
-     */
-    public function removeType($type)
+    public function removeType(string $type): bool
     {
         $type = $this->normalizeType($type);
 
@@ -305,18 +185,7 @@ abstract class AbstractMap extends BaseMap
         return true;
     }
 
-    /**
-     * Removes a MIME type alias.
-     *
-     * @param string $type
-     *   A MIME type.
-     * @param string $alias
-     *   The alias to be removed.
-     *
-     * @return bool
-     *   true if the alias was removed, false if the alias was not present.
-     */
-    public function removeTypeAlias($type, $alias)
+    public function removeTypeAlias(string $type, string $alias): bool
     {
         $type = $this->normalizeType($type);
         $alias = $this->normalizeType($alias);
@@ -335,18 +204,7 @@ abstract class AbstractMap extends BaseMap
         return $type_ret && $alias_ret;
     }
 
-    /**
-     * Removes a type-to-extension mapping.
-     *
-     * @param string $type
-     *   A MIME type.
-     * @param string $extension
-     *   The file extension to be removed.
-     *
-     * @return bool
-     *   true if the mapping was removed, false if the mapping was not present.
-     */
-    public function removeTypeExtensionMapping($type, $extension)
+    public function removeTypeExtensionMapping(string $type, string $extension): bool
     {
         $type = $this->normalizeType($type);
         $extension = strtolower($extension);
@@ -372,7 +230,7 @@ abstract class AbstractMap extends BaseMap
      * @param string $extension
      *   The file extension to be removed.
      */
-    protected function removeAliasedTypesExtensionMapping($type, $extension)
+    protected function removeAliasedTypesExtensionMapping(string $type, string $extension): void
     {
         $type = $this->normalizeType($type);
         $extension = strtolower($extension);
@@ -384,49 +242,19 @@ abstract class AbstractMap extends BaseMap
         }
     }
 
-    /**
-     * Gets the parent types of an alias.
-     *
-     * There should not be multiple types for an alias.
-     *
-     * @param string $alias The alias to be found.
-     *
-     * @return string[]
-     */
-    public function getAliasTypes($alias)
+    public function getAliasTypes(string $alias): array
     {
         $alias = $this->normalizeType($alias);
         return $this->getMapSubEntry('a', $alias, 't') ?: [];
     }
 
-    /**
-     * Gets the content of an entry from the 'extensions' array.
-     *
-     * @param string $extension The extension to be found.
-     *
-     * @return string[] The mapped MIME types.
-     */
-    public function getExtensionTypes($extension)
+    public function getExtensionTypes(string $extension): array
     {
         $extension = strtolower($extension);
         return $this->getMapSubEntry('e', $extension, 't') ?: [];
     }
 
-    /**
-     * Changes the default MIME type for a file extension.
-     *
-     * Allows a MIME type alias to be set as default for the extension.
-     *
-     * @param string $extension
-     *   A file extension.
-     * @param string $type
-     *   A MIME type.
-     *
-     * @throws MappingException if no mapping found.
-     *
-     * @return $this
-     */
-    public function setExtensionDefaultType($extension, $type)
+    public function setExtensionDefaultType(string $extension, string $type): MimeMapInterface
     {
         $type = $this->normalizeType($type);
         $extension = strtolower($extension);

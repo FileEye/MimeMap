@@ -11,18 +11,11 @@ namespace FileEye\MimeMap\Map;
 class MiniMap extends AbstractMap
 {
     /**
-     * Singleton instance.
-     *
      * @var MiniMap
      */
     protected static $instance;
 
-    /**
-     * Returns this file's fully qualified filename.
-     *
-     * @return string
-     */
-    public function getFileName()
+    public function getFileName(): string
     {
         return __FILE__;
     }

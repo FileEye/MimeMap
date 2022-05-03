@@ -7,7 +7,7 @@ use FileEye\MimeMap\MappingException;
 
 class ExtensionTest extends MimeMapTestBase
 {
-    public function testGetDefaultType()
+    public function testGetDefaultType(): void
     {
         $this->assertSame('text/plain', (new Extension('txt'))->getDefaultType());
         $this->assertSame('text/plain', (new Extension('TXT'))->getDefaultType());
@@ -15,30 +15,30 @@ class ExtensionTest extends MimeMapTestBase
         $this->assertSame('application/vnd.oasis.opendocument.text', (new Extension('odt'))->getDefaultType());
     }
 
-    public function testGetStrictDefaultTypeUnknownExtension()
+    public function testGetStrictDefaultTypeUnknownExtension(): void
     {
         $this->expectException(MappingException::class);
         $this->assertSame('application/octet-stream', (new Extension('ohmygodthatisnoextension'))->getDefaultType());
     }
 
-    public function testGetNoStrictDefaultTypeUnknownExtension()
+    public function testGetNoStrictDefaultTypeUnknownExtension(): void
     {
         $this->assertSame('application/octet-stream', (new Extension('ohmygodthatisnoextension'))->getDefaultType(false));
     }
 
-    public function testGetTypes()
+    public function testGetTypes(): void
     {
         $this->assertSame(['text/vnd.dvb.subtitle', 'image/vnd.dvb.subtitle', 'text/x-microdvd', 'text/x-mpsub', 'text/x-subviewer'], (new Extension('sub'))->getTypes());
         $this->assertSame(['text/vnd.dvb.subtitle', 'image/vnd.dvb.subtitle', 'text/x-microdvd', 'text/x-mpsub', 'text/x-subviewer'], (new Extension('sUb'))->getTypes());
     }
 
-    public function testGetStrictTypesUnknownExtension()
+    public function testGetStrictTypesUnknownExtension(): void
     {
         $this->expectException(MappingException::class);
         $this->assertSame(['application/octet-stream'], (new Extension('ohmygodthatisnoextension'))->getTypes());
     }
 
-    public function testGetNoStrictTypesUnknownExtension()
+    public function testGetNoStrictTypesUnknownExtension(): void
     {
         $this->assertSame(['application/octet-stream'], (new Extension('ohmygodthatisnoextension'))->getTypes(false));
     }

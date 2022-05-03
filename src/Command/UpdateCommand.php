@@ -12,7 +12,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Yaml\Yaml;
-use FileEye\MimeMap\Map\AbstractMap;
+use FileEye\MimeMap\Map\MimeMapInterface;
 use FileEye\MimeMap\MapHandler;
 use FileEye\MimeMap\MapUpdater;
 
@@ -24,7 +24,7 @@ class UpdateCommand extends Command
     /**
      * {@inheritdoc}
      */
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('update')
@@ -61,7 +61,7 @@ class UpdateCommand extends Command
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
 
@@ -69,11 +69,18 @@ class UpdateCommand extends Command
         $updater->selectBaseMap(MapUpdater::DEFAULT_BASE_MAP_CLASS);
 
         // Executes on the base map the script commands.
-        $commands = Yaml::parse(file_get_contents($input->getOption('script')));
+        $contents = file_get_contents($input->getOption('script'));
+        if ($contents === false) {
+            $io->error('Failed loading update script file ' . $input->getOption('script'));
+            return (2);
+        }
+        $commands = Yaml::parse($contents);
         foreach ($commands as $command) {
             $output->writeln("<info>{$command[0]} ...</info>");
             try {
-                $errors = call_user_func_array([$updater, $command[1]], $command[2]);
+                $callable = [$updater, $command[1]];
+                assert(is_callable($callable));
+                $errors = call_user_func_array($callable, $command[2]);
                 if (!empty($errors)) {
                     foreach ($errors as $error) {
                         $output->writeln("<comment>$error.</comment>");
@@ -117,8 +124,13 @@ class UpdateCommand extends Command
 
         // If changed, save the new map to the PHP file.
         if ($write) {
-            $updater->writeMapToPhpClassFile($current_map->getFileName());
-            $output->writeln('<comment>Code updated.</comment>');
+            try {
+                $updater->writeMapToPhpClassFile($current_map->getFileName());
+                $output->writeln('<comment>Code updated.</comment>');
+            } catch (\RuntimeException $e) {
+                $io->error($e->getMessage() .  '.');
+                return(2);
+            }
         } else {
             $output->writeln('<info>No changes to mapping.</info>');
         }
@@ -132,9 +144,9 @@ class UpdateCommand extends Command
     /**
      * Compares two type-to-extension maps by section.
      *
-     * @param AbstractMap $old_map
+     * @param MimeMapInterface $old_map
      *   The first map to compare.
-     * @param AbstractMap $new_map
+     * @param MimeMapInterface $new_map
      *   The second map to compare.
      * @param string $section
      *   The first-level array key to compare: 't' or 'e' or 'a'.
@@ -144,7 +156,7 @@ class UpdateCommand extends Command
      * @return bool
      *   True if the maps are equal.
      */
-    protected function compareMaps(AbstractMap $old_map, AbstractMap $new_map, $section)
+    protected function compareMaps(MimeMapInterface $old_map, MimeMapInterface $new_map, string $section): bool
     {
         $old_map->sort();
         $new_map->sort();

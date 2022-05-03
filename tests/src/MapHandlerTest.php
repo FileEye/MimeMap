@@ -4,6 +4,7 @@ namespace FileEye\MimeMap\Test;
 
 use FileEye\MimeMap\Extension;
 use FileEye\MimeMap\MalformedTypeException;
+use FileEye\MimeMap\Map\MimeMapInterface;
 use FileEye\MimeMap\MapHandler;
 use FileEye\MimeMap\MappingException;
 use FileEye\MimeMap\Type;
@@ -13,26 +14,29 @@ use FileEye\MimeMap\Type;
  */
 class MapHandlerTest extends MimeMapTestBase
 {
+    /**
+     * @var MimeMapInterface
+     */
     protected $map;
 
-    public function fcSetUp()
+    public function setUp(): void
     {
         $this->map = MapHandler::map();
     }
 
-    public function testMap()
+    public function testMap(): void
     {
         $this->assertStringContainsString('DefaultMap.php', $this->map->getFileName());
     }
 
-    public function testSort()
+    public function testSort(): void
     {
         $this->map->addTypeExtensionMapping('aaa/aaa', '000a')->sort();
         $this->assertSame('aaa/aaa', $this->map->listTypes()[0]);
         $this->assertSame('000a', $this->map->listExtensions()[0]);
     }
 
-    public function testAdd()
+    public function testAdd(): void
     {
         // Adding a new type with a new extension.
         $this->map->addTypeExtensionMapping('bingo/bongo', 'bngbng');
@@ -57,7 +61,7 @@ class MapHandlerTest extends MimeMapTestBase
         $this->assertSame(['bingo/bongo', 'boing/being'], (new Extension('bngbng'))->getTypes());
     }
 
-    public function testRemove()
+    public function testRemove(): void
     {
         $this->assertSame(['txt', 'text', 'conf', 'def', 'list', 'log', 'in', 'asc'], (new Type('text/plain'))->getExtensions());
         $this->assertSame('txt', (new Type('text/plain'))->getDefaultExtension());
@@ -105,71 +109,75 @@ class MapHandlerTest extends MimeMapTestBase
         $this->assertFalse($this->map->removeType('axx/axx'));
     }
 
-    public function testHasType()
+    public function testHasType(): void
     {
         $this->assertTrue($this->map->hasType('text/plain'));
         $this->assertFalse($this->map->hasType('foo/bar'));
     }
 
-    public function testHasAlias()
+    public function testHasAlias(): void
     {
         $this->assertTrue($this->map->hasAlias('application/acrobat'));
         $this->assertFalse($this->map->hasAlias('foo/bar'));
     }
 
-    public function testHasExtension()
+    public function testHasExtension(): void
     {
         $this->assertTrue($this->map->hasExtension('jpg'));
         $this->assertFalse($this->map->hasExtension('jpgjpg'));
     }
 
-    public function testSetExtensionDefaultType()
+    public function testSetExtensionDefaultType(): void
     {
         $this->assertSame(['text/vnd.dvb.subtitle', 'image/vnd.dvb.subtitle', 'text/x-microdvd', 'text/x-mpsub', 'text/x-subviewer'], (new Extension('sub'))->getTypes());
         $this->map->setExtensionDefaultType('SUB', 'image/vnd.dvb.subtitle');
         $this->assertSame(['image/vnd.dvb.subtitle', 'text/vnd.dvb.subtitle', 'text/x-microdvd', 'text/x-mpsub', 'text/x-subviewer'], (new Extension('SUB'))->getTypes());
     }
 
-    public function testReAddAliasToType()
+    public function testReAddAliasToType(): void
     {
         $this->assertSame(['image/psd', 'image/x-psd', 'image/photoshop', 'image/x-photoshop', 'application/photoshop', 'application/x-photoshop',], (new Type('image/vnd.adobe.photoshop'))->getAliases());
         $this->map->addTypeAlias('image/vnd.adobe.photoshop', 'application/x-photoshop');
         $this->assertSame(['image/psd', 'image/x-psd', 'image/photoshop', 'image/x-photoshop', 'application/photoshop', 'application/x-photoshop',], (new Type('image/vnd.adobe.photoshop'))->getAliases());
     }
 
-    public function testAddAliasToMultipleTypes()
+    public function testAddAliasToMultipleTypes(): void
     {
         $this->assertSame([], (new Type('text/plain'))->getAliases());
-        $this->bcSetExpectedException(MappingException::class, "Cannot set 'application/x-photoshop' as alias for 'text/plain', it is an alias of 'image/vnd.adobe.photoshop' already");
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage("Cannot set 'application/x-photoshop' as alias for 'text/plain', it is an alias of 'image/vnd.adobe.photoshop' already");
         $this->map->addTypeAlias('text/plain', 'application/x-photoshop');
         $this->assertSame([], (new Type('text/plain'))->getAliases());
     }
 
-    public function testAddAliasToMissingType()
+    public function testAddAliasToMissingType(): void
     {
-        $this->bcSetExpectedException(MappingException::class, "Cannot set 'baz/qoo' as alias for 'bar/foo', 'bar/foo' not defined");
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage("Cannot set 'baz/qoo' as alias for 'bar/foo', 'bar/foo' not defined");
         $this->map->addTypeAlias('bar/foo', 'baz/qoo');
     }
 
-    public function testAddAliasIsATypeAlready()
+    public function testAddAliasIsATypeAlready(): void
     {
-        $this->bcSetExpectedException(MappingException::class, "Cannot set 'text/plain' as alias for 'text/richtext', 'text/plain' is already defined as a type");
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage("Cannot set 'text/plain' as alias for 'text/richtext', 'text/plain' is already defined as a type");
         $this->map->addTypeAlias('text/richtext', 'text/plain');
     }
 
-    public function testAddDescriptionToAlias()
+    public function testAddDescriptionToAlias(): void
     {
-        $this->bcSetExpectedException(MappingException::class, "Cannot add description for 'application/acrobat', 'application/acrobat' is an alias");
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage("Cannot add description for 'application/acrobat', 'application/acrobat' is an alias");
         $this->map->addTypeDescription('application/acrobat', 'description of alias');
     }
 
-    public function testSetExtensionDefaultTypeNoExtension()
+    public function testSetExtensionDefaultTypeNoExtension(): void
     {
         $this->expectException(MappingException::class);
         $this->map->setExtensionDefaultType('zxzx', 'image/vnd.dvb.subtitle');
     }
 
-    public function testSetExtensionDefaultTypeNoType()
+    public function testSetExtensionDefaultTypeNoType(): void
     {
         $this->expectException(MappingException::class);
         $this->map->setExtensionDefaultType('sub', 'image/bingo');
@@ -178,7 +186,7 @@ class MapHandlerTest extends MimeMapTestBase
     /**
      * Check that a type alias can be set as extension default.
      */
-    public function testSetExtensionDefaultTypeToAlias()
+    public function testSetExtensionDefaultTypeToAlias(): void
     {
         $this->assertSame(['application/pdf'], (new Extension('pdf'))->getTypes());
 
@@ -215,7 +223,7 @@ class MapHandlerTest extends MimeMapTestBase
     /**
      * Check removing an aliased type mapping.
      */
-    public function testRemoveAliasedTypeMapping()
+    public function testRemoveAliasedTypeMapping(): void
     {
         $this->map->addTypeExtensionMapping('bingo/bongo', 'psd');
         $this->assertSame(['image/vnd.adobe.photoshop', 'bingo/bongo'], (new Extension('psd'))->getTypes());
@@ -230,7 +238,7 @@ class MapHandlerTest extends MimeMapTestBase
     /**
      * Check that a removing a type mapping also remove its aliases.
      */
-    public function testRemoveUnaliasedTypeMapping()
+    public function testRemoveUnaliasedTypeMapping(): void
     {
         // Add a fake MIME type to 'psd', an alias to that, then remove
         // 'image/vnd.adobe.photoshop'.
@@ -244,41 +252,45 @@ class MapHandlerTest extends MimeMapTestBase
         $this->assertSame(['image/vnd.adobe.photoshop'], (new Extension('psd'))->getTypes());
     }
 
-    public function testSetExtensionDefaultTypeToInvalidAlias()
+    public function testSetExtensionDefaultTypeToInvalidAlias(): void
     {
-        $this->bcSetExpectedException(MappingException::class, "Cannot set 'image/psd' as default type for extension 'pdf', its unaliased type 'image/vnd.adobe.photoshop' is not associated to 'pdf'");
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage("Cannot set 'image/psd' as default type for extension 'pdf', its unaliased type 'image/vnd.adobe.photoshop' is not associated to 'pdf'");
         $this->map->setExtensionDefaultType('pdf', 'image/psd');
     }
 
-    public function testSetTypeDefaultExtension()
+    public function testSetTypeDefaultExtension(): void
     {
         $this->assertSame(['jpeg', 'jpg', 'jpe'], (new Type('image/jpeg'))->getExtensions());
         $this->map->setTypeDefaultExtension('image/jpeg', 'jpg');
         $this->assertSame(['jpg', 'jpeg', 'jpe'], (new Type('image/JPEG'))->getExtensions());
     }
 
-    public function testSetTypeDefaultExtensionNoExtension()
+    public function testSetTypeDefaultExtensionNoExtension(): void
     {
         $this->expectException(MappingException::class);
         $this->map->setTypeDefaultExtension('image/jpeg', 'zxzx');
     }
 
-    public function testSetTypeDefaultExtensionNoType()
+    public function testSetTypeDefaultExtensionNoType(): void
     {
         $this->expectException(MappingException::class);
         $this->map->setTypeDefaultExtension('image/bingo', 'jpg');
     }
 
-    public function testAddExtensionToAlias()
+    public function testAddExtensionToAlias(): void
     {
-        $this->bcSetExpectedException(MappingException::class, "Cannot map 'pdf' to 'application/acrobat', 'application/acrobat' is an alias");
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage("Cannot map 'pdf' to 'application/acrobat', 'application/acrobat' is an alias");
         $this->map->addTypeExtensionMapping('application/acrobat', 'pdf');
     }
 
     /**
      * Data provider for testAddMalformedTypeExtensionMapping.
+     *
+     * @return array<string,array<string>>
      */
-    public function malformedTypeProvider()
+    public function malformedTypeProvider(): array
     {
         return [
             'empty string' => [''],
@@ -293,7 +305,7 @@ class MapHandlerTest extends MimeMapTestBase
     /**
      * @dataProvider malformedTypeProvider
      */
-    public function testAddMalformedTypeExtensionMapping($type)
+    public function testAddMalformedTypeExtensionMapping(string $type): void
     {
         $this->expectException(MalformedTypeException::class);
         $this->map->addTypeExtensionMapping($type, 'xxx');

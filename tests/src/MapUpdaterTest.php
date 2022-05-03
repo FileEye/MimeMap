@@ -3,6 +3,7 @@
 namespace FileEye\MimeMap\Test;
 
 use Symfony\Component\Filesystem\Filesystem;
+use FileEye\MimeMap\Map\MimeMapInterface;
 use FileEye\MimeMap\MapHandler;
 use FileEye\MimeMap\MapUpdater;
 
@@ -12,11 +13,17 @@ use FileEye\MimeMap\MapUpdater;
  */
 class MapUpdaterTest extends MimeMapTestBase
 {
+
+    /** @var MimeMapInterface */
     protected $newMap;
+
+    /** @var MapUpdater */
     protected $updater;
+
+    /** @var Filesystem */
     protected $fileSystem;
 
-    public function fcSetUp()
+    public function setUp(): void
     {
         $this->updater = new MapUpdater();
         $this->updater->selectBaseMap(MapUpdater::DEFAULT_BASE_MAP_CLASS);
@@ -25,13 +32,13 @@ class MapUpdaterTest extends MimeMapTestBase
         $this->fileSystem = new Filesystem();
     }
 
-    public function fcTearDown()
+    public function tearDown(): void
     {
         $this->assertInstanceOf(MapUpdater::DEFAULT_BASE_MAP_CLASS, $this->newMap);
         $this->newMap->reset();
     }
 
-    public function testLoadMapFromApacheFile()
+    public function testLoadMapFromApacheFile(): void
     {
         $this->updater->loadMapFromApacheFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
         $expected = [
@@ -52,20 +59,20 @@ class MapUpdaterTest extends MimeMapTestBase
         $this->assertSame([], $this->newMap->listAliases());
     }
 
-    public function testLoadMapFromApacheFileZeroLines()
+    public function testLoadMapFromApacheFileZeroLines(): void
     {
         $this->updater->loadMapFromApacheFile(dirname(__FILE__) . '/../fixtures/zero.mime-types.txt');
         $this->assertSame([], $this->newMap->getMapArray());
     }
 
-    public function testApplyOverridesFailure()
+    public function testApplyOverridesFailure(): void
     {
         $this->updater->loadMapFromFreedesktopFile(dirname(__FILE__) . '/../fixtures/min.freedesktop.xml');
         $errors = $this->updater->applyOverrides([['addTypeExtensionMapping', ['application/x-pdf', 'pdf']]]);
         $this->assertSame(["Cannot map 'pdf' to 'application/x-pdf', 'application/x-pdf' is an alias"], $errors);
     }
 
-    public function testLoadMapFromFreedesktopFile()
+    public function testLoadMapFromFreedesktopFile(): void
     {
         $this->updater->applyOverrides([['addTypeExtensionMapping', ['application/x-pdf', 'pdf']]]);
         $errors = $this->updater->loadMapFromFreedesktopFile(dirname(__FILE__) . '/../fixtures/min.freedesktop.xml');
@@ -107,37 +114,39 @@ class MapUpdaterTest extends MimeMapTestBase
         $this->assertSame(['application/acrobat', 'application/nappdf', 'image/pdf'], $this->newMap->listAliases());
     }
 
-    public function testLoadMapFromFreedesktopFileZeroLines()
+    public function testLoadMapFromFreedesktopFileZeroLines(): void
     {
         $this->updater->loadMapFromFreedesktopFile(dirname(__FILE__) . '/../fixtures/zero.freedesktop.xml');
         $this->assertSame([], $this->newMap->getMapArray());
     }
 
-    public function testEmptyMapNotWriteable()
+    public function testEmptyMapNotWriteable(): void
     {
         $this->expectException('LogicException');
         $this->assertNull($this->newMap->getFileName());
     }
 
-    public function testWriteMapToPhpClassFile()
+    public function testWriteMapToPhpClassFile(): void
     {
         $this->fileSystem->copy(__DIR__ . '/../../src/Map/MiniMap.php.test', __DIR__ . '/../../src/Map/MiniMap.php');
         MapHandler::setDefaultMapClass('\FileEye\MimeMap\Map\MiniMap');
         $map_a = MapHandler::map();
         $this->assertStringContainsString('src/Map/MiniMap.php', $map_a->getFileName());
         $content = file_get_contents($map_a->getFileName());
+        assert(is_string($content));
         $this->assertStringNotContainsString('text/plain', $content);
         $this->updater->loadMapFromApacheFile(dirname(__FILE__) . '/../fixtures/min.mime-types.txt');
         $this->updater->applyOverrides([['addTypeExtensionMapping', ['bing/bong', 'binbon']]]);
         $this->updater->writeMapToPhpClassFile($map_a->getFileName());
         $content = file_get_contents($map_a->getFileName());
+        assert(is_string($content));
         $this->assertStringContainsString('text/plain', $content);
         $this->assertStringContainsString('bing/bong', $content);
         $this->assertStringContainsString('binbon', $content);
         $this->fileSystem->remove(__DIR__ . '/../../src/Map/MiniMap.php');
     }
 
-    public function testGetDefaultMapBuildFile()
+    public function testGetDefaultMapBuildFile(): void
     {
         $this->assertStringContainsString('default_map_build.yml', MapUpdater::getDefaultMapBuildFile());
     }
