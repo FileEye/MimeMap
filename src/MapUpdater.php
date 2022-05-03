@@ -2,7 +2,8 @@
 
 namespace FileEye\MimeMap;
 
-use FileEye\MimeMap\Map\AbstractMap;
+use FileEye\MimeMap\Map\EmptyMap;
+use FileEye\MimeMap\Map\MimeMapInterface;
 
 /**
  * Compiles the MIME type to file extension map.
@@ -12,12 +13,12 @@ class MapUpdater
     /**
      * The default, empty, base map to use for update.
      */
-    const DEFAULT_BASE_MAP_CLASS = '\FileEye\MimeMap\Map\EmptyMap';
+    const DEFAULT_BASE_MAP_CLASS = EmptyMap::class;
 
     /**
-     * The AbstractMap object to update.
+     * The map object to update.
      *
-     * @var AbstractMap
+     * @var MimeMapInterface
      */
     protected $map;
 
@@ -30,30 +31,30 @@ class MapUpdater
      *
      * @return string
      */
-    public static function getDefaultMapBuildFile()
+    public static function getDefaultMapBuildFile(): string
     {
         return __DIR__ . '/../resources/default_map_build.yml';
     }
 
     /**
-     * Returns the AbstractMap object being updated.
+     * Returns the map object being updated.
      *
-     * @return AbstractMap
+     * @return MimeMapInterface
      */
-    public function getMap()
+    public function getMap(): MimeMapInterface
     {
         return $this->map;
     }
 
     /**
-     * Sets the AbstractMap object to update.
+     * Sets the map object to update.
      *
      * @param string $map_class
      *   The FQCN of the map to be updated.
      *
      * @return $this
      */
-    public function selectBaseMap($map_class)
+    public function selectBaseMap(string $map_class): MapUpdater
     {
         $this->map = MapHandler::map($map_class);
         $this->map->backup();
@@ -74,7 +75,7 @@ class MapUpdater
      * @throws \RuntimeException
      *   If it was not possible to access the file.
      */
-    public function loadMapFromApacheFile($source_file)
+    public function loadMapFromApacheFile(string $source_file): array
     {
         $errors = [];
 
@@ -108,10 +109,22 @@ class MapUpdater
      * @return string[]
      *   An array of error messages.
      */
-    public function loadMapFromFreedesktopFile($source_file)
+    public function loadMapFromFreedesktopFile(string $source_file): array
     {
         $errors = [];
-        $xml = simplexml_load_string(file_get_contents($source_file));
+
+        $contents = file_get_contents($source_file);
+        if ($contents === false) {
+            $errors[] = 'Failed loading file ' . $source_file;
+            return $errors;
+        }
+
+        $xml = simplexml_load_string($contents);
+        if ($xml === false) {
+            $errors[] = 'Malformed XML in file ' . $source_file;
+            return $errors;
+        }
+
         $aliases = [];
 
         foreach ($xml as $node) {
@@ -172,19 +185,21 @@ class MapUpdater
     /**
      * Applies to the map an array of overrides.
      *
-     * @param array $overrides
+     * @param array<int,array{0: string, 1: array<string>}> $overrides
      *   The overrides to be applied.
      *
      * @return string[]
      *   An array of error messages.
      */
-    public function applyOverrides(array $overrides)
+    public function applyOverrides(array $overrides): array
     {
         $errors = [];
 
         foreach ($overrides as $command) {
             try {
-                call_user_func_array([$this->map, $command[0]], $command[1]);
+                $callable = [$this->map, $command[0]];
+                assert(is_callable($callable));
+                call_user_func_array($callable, $command[1]);
             } catch (MappingException $e) {
                 $errors[] = $e->getMessage();
             }
@@ -199,14 +214,20 @@ class MapUpdater
      *
      * @return $this
      */
-    public function writeMapToPhpClassFile($file)
+    public function writeMapToPhpClassFile(string $file): MapUpdater
     {
-        $content = preg_replace(
+        $content = file_get_contents($file);
+        if ($content === false) {
+            throw new \RuntimeException('Failed loading file ' . $file);
+        }
+
+        $newContent = preg_replace(
             '#protected static \$map = (.+?);#s',
             "protected static \$map = " . preg_replace('/\s+$/m', '', var_export($this->map->getMapArray(), true)) . ";",
-            file_get_contents($file)
+            $content
         );
-        file_put_contents($file, $content);
+        file_put_contents($file, $newContent);
+        
         return $this;
     }
 }
