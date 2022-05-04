@@ -185,14 +185,9 @@ interface TypeInterface
     /**
      * Returns the MIME type's preferred file extension.
      *
-     * @param bool $strict
-     *   (Optional) if true a MappingException is thrown when no mapping is
-     *   found, if false it returns null as a default.
-     *   Defaults to true.
-     *
-     * @throws MappingException if no mapping found and $strict is true.
+     * @throws MappingException if no mapping found.
      */
-    public function getDefaultExtension(bool $strict = true): string;
+    public function getDefaultExtension(): string;
 
     /**
      * Returns all the file extensions related to the MIME type(s).

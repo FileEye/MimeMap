@@ -242,7 +242,7 @@ class Type implements TypeInterface
     public function getDescription(bool $include_acronym = false): string
     {
         $descriptions = $this->map->getTypeDescriptions($this->getUnaliasedType()->toString(static::SHORT_TEXT));
-        $res = null;
+        $res = '';
         if (isset($descriptions[0])) {
             $res = $descriptions[0];
         }
@@ -275,7 +275,7 @@ class Type implements TypeInterface
         return array_keys($aliases);
     }
 
-    public function getDefaultExtension(bool $strict = true): string
+    public function getDefaultExtension(): string
     {
         $unaliased_type = $this->getUnaliasedType();
         $subject = $unaliased_type->toString(static::SHORT_TEXT);
@@ -287,11 +287,7 @@ class Type implements TypeInterface
         }
 
         if (!$proceed) {
-            if ($strict) {
-                throw new MappingException('Cannot determine default extension for type: ' . $unaliased_type->toString(static::SHORT_TEXT));
-            } else {
-                return null;
-            }
+            throw new MappingException('Cannot determine default extension for type: ' . $unaliased_type->toString(static::SHORT_TEXT));
         }
 
         return $unaliased_type->getExtensions()[0];
