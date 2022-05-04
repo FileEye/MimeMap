@@ -24,7 +24,7 @@ interface TypeInterface
      *
      * Note: 'media' refers to the portion before the first slash.
      */
-    public function getMedia(): ?string;
+    public function getMedia(): string;
 
     /**
      * Sets a MIME type's media.
@@ -34,17 +34,17 @@ interface TypeInterface
     /**
      * Gets a MIME type's media comment.
      */
-    public function getMediaComment(): ?string;
+    public function getMediaComment(): string;
 
     /**
      * Sets a MIME type's media comment.
      */
-    public function setMediaComment(?string $comment): TypeInterface;
+    public function setMediaComment(string $comment): TypeInterface;
 
     /**
      * Gets a MIME type's subtype.
      */
-    public function getSubType(): ?string;
+    public function getSubType(): string;
 
     /**
      * Sets a MIME type's subtype.
@@ -54,12 +54,12 @@ interface TypeInterface
     /**
      * Gets a MIME type's subtype comment.
      */
-    public function getSubTypeComment(): ?string;
+    public function getSubTypeComment(): string;
 
     /**
      * Sets a MIME type's subtype comment.
      */
-    public function setSubTypeComment(?string $comment): TypeInterface;
+    public function setSubTypeComment(string $comment): TypeInterface;
 
     /**
      * Does this type have any parameters?
@@ -76,7 +76,7 @@ interface TypeInterface
     /**
      * Get a MIME type's parameter.
      */
-    public function getParameter(string $name): ?TypeParameter;
+    public function getParameter(string $name): TypeParameter;
 
     /**
      * Add a parameter to this type
@@ -96,7 +96,7 @@ interface TypeInterface
      * @param int $format
      *   The format of the output string.
      */
-    public function toString(int $format = Type::FULL_TEXT): ?string;
+    public function toString(int $format = Type::FULL_TEXT): string;
 
     /**
      * Is this type experimental?
@@ -163,7 +163,7 @@ interface TypeInterface
      *   the returned description will contain the acronym and its description,
      *   appended with a comma. Defaults to false.
      */
-    public function getDescription(bool $include_acronym = false): ?string;
+    public function getDescription(bool $include_acronym = false): string;
 
     /**
      * Returns all the aliases related to the MIME type(s).
@@ -192,7 +192,7 @@ interface TypeInterface
      *
      * @throws MappingException if no mapping found and $strict is true.
      */
-    public function getDefaultExtension(bool $strict = true): ?string;
+    public function getDefaultExtension(bool $strict = true): string;
 
     /**
      * Returns all the file extensions related to the MIME type(s).

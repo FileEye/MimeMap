@@ -69,7 +69,7 @@ class TypeParameter
     /**
      * Gets the parameter comment.
      */
-    public function getComment(): ?string
+    public function getComment(): string
     {
         return $this->comment;
     }

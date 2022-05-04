@@ -74,7 +74,7 @@ class Type implements TypeInterface
         $this->map = MapHandler::map($map_class);
     }
 
-    public function getMedia(): ?string
+    public function getMedia(): string
     {
         return $this->media;
     }
@@ -85,18 +85,18 @@ class Type implements TypeInterface
         return $this;
     }
 
-    public function getMediaComment(): ?string
+    public function getMediaComment(): string
     {
         return $this->mediaComment;
     }
 
-    public function setMediaComment(?string $comment): TypeInterface
+    public function setMediaComment(string $comment): TypeInterface
     {
         $this->mediaComment = $comment;
         return $this;
     }
 
-    public function getSubType(): ?string
+    public function getSubType(): string
     {
         return $this->subType;
     }
@@ -107,12 +107,12 @@ class Type implements TypeInterface
         return $this;
     }
 
-    public function getSubTypeComment(): ?string
+    public function getSubTypeComment(): string
     {
         return $this->subTypeComment;
     }
 
-    public function setSubTypeComment(?string $comment): TypeInterface
+    public function setSubTypeComment(string $comment): TypeInterface
     {
         $this->subTypeComment = $comment;
         return $this;
@@ -128,7 +128,7 @@ class Type implements TypeInterface
         return $this->parameters;
     }
 
-    public function getParameter(string $name): ?TypeParameter
+    public function getParameter(string $name): TypeParameter
     {
         return isset($this->parameters[$name]) ? $this->parameters[$name] : null;
     }
@@ -143,7 +143,7 @@ class Type implements TypeInterface
         unset($this->parameters[$name]);
     }
 
-    public function toString(int $format = Type::FULL_TEXT): ?string
+    public function toString(int $format = Type::FULL_TEXT): string
     {
         if ($this->getMedia() === null || $this->getSubType() === null) {
             return null;
@@ -241,7 +241,7 @@ class Type implements TypeInterface
         return $this->isAlias() ? new static($this->map->getAliasTypes($this->toString(static::SHORT_TEXT))[0]) : $this;
     }
 
-    public function getDescription(bool $include_acronym = false): ?string
+    public function getDescription(bool $include_acronym = false): string
     {
         $descriptions = $this->map->getTypeDescriptions($this->getUnaliasedType()->toString(static::SHORT_TEXT));
         $res = null;
@@ -277,7 +277,7 @@ class Type implements TypeInterface
         return array_keys($aliases);
     }
 
-    public function getDefaultExtension(bool $strict = true): ?string
+    public function getDefaultExtension(bool $strict = true): string
     {
         $unaliased_type = $this->getUnaliasedType();
         $subject = $unaliased_type->toString(static::SHORT_TEXT);

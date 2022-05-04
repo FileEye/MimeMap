@@ -12,7 +12,7 @@ class Version
     /**
      * Returns the current version of MimeMap.
      */
-    public static function get(): ?string
+    public static function get(): string
     {
         return InstalledVersions::getPrettyVersion('fileeye/mimemap');
     }
