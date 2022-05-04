@@ -13,11 +13,11 @@ interface TypeInterface
      * The type string will be parsed and the appropriate class vars set.
      *
      * @param string $type_string
-     *   (Optional) MIME type string to be parsed.
+     *   MIME type string to be parsed.
      * @param string $map_class
      *   (Optional) The FQCN of the map class to use.
      */
-    public function __construct(string $type_string = null, string $map_class = null);
+    public function __construct(string $type_string, string $map_class = null);
 
     /**
      * Gets a MIME type's media.

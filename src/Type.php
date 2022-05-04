@@ -66,11 +66,9 @@ class Type implements TypeInterface
      */
     protected $map;
 
-    public function __construct(string $type_string = null, string $map_class = null)
+    public function __construct(string $type_string, string $map_class = null)
     {
-        if ($type_string !== null) {
-            TypeParser::parse($type_string, $this);
-        }
+        TypeParser::parse($type_string, $this);
         $this->map = MapHandler::map($map_class);
     }
 
