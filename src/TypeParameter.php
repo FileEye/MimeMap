@@ -70,10 +70,15 @@ class TypeParameter
 
     /**
      * Gets the parameter comment.
+     *
+     * @throws UndefinedException
      */
     public function getComment(): string
     {
-        return $this->comment;
+        if ($this->hasComment()) {
+            return $this->comment;
+        }
+        throw new UndefinedException('Parameter comment is not defined');
     }
 
     /**
