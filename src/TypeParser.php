@@ -21,14 +21,12 @@ class TypeParser
     {
         // Media and SubType are separated by a slash '/'.
         $media = static::parseStringPart($type_string, 0, '/');
-
         if (!$media['string']) {
             throw new MalformedTypeException('Media type not found');
         }
         if (!$media['delimiter_matched']) {
             throw new MalformedTypeException('Slash \'/\' to separate media type and subtype not found');
         }
-
         $type->setMedia(strtolower((string) $media['string']));
         if ($media['comment'] !== null) {
             $type->setMediaComment($media['comment']);
@@ -36,11 +34,9 @@ class TypeParser
 
         // SubType and Parameters are separated by semicolons ';'.
         $sub = static::parseStringPart($type_string, $media['end_offset'] + 1, ';');
-
         if (!$sub['string']) {
             throw new MalformedTypeException('Media subtype not found');
         }
-
         $type->setSubType(strtolower((string) $sub['string']));
         if ($sub['comment'] !== null) {
             $type->setSubTypeComment($sub['comment']);

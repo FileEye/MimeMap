@@ -23,8 +23,6 @@ interface TypeInterface
      * Gets a MIME type's media.
      *
      * Note: 'media' refers to the portion before the first slash.
-     *
-     * @throws UndefinedException
      */
     public function getMedia(): string;
 
@@ -52,8 +50,6 @@ interface TypeInterface
 
     /**
      * Gets a MIME type's subtype.
-     *
-     * @throws UndefinedException
      */
     public function getSubType(): string;
 

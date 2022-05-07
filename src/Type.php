@@ -55,7 +55,7 @@ class Type implements TypeInterface
     /**
      *  MIME type descriptions.
      *
-     * @var strings[]
+     * @var string[]
      */
     protected $descriptions;
 
@@ -81,10 +81,7 @@ class Type implements TypeInterface
 
     public function getMedia(): string
     {
-        if ($this->media !== null) {
-            return $this->media;
-        }
-        throw new UndefinedException('Media is not defined');
+        return $this->media;
     }
 
     public function setMedia(string $media): TypeInterface
@@ -114,10 +111,7 @@ class Type implements TypeInterface
 
     public function getSubType(): string
     {
-        if ($this->subType !== null) {
-            return $this->subType;
-        }
-        throw new UndefinedException('Subtype is not defined');
+        return $this->subType;
     }
 
     public function setSubType(string $sub_type): TypeInterface
