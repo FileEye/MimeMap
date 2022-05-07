@@ -444,7 +444,7 @@ class TypeTest extends MimeMapTestBase
         $this->assertSame($expectedSubType[0], $mt->getSubType());
         if (isset($expectedSubType[1])) {
             $this->assertTrue($mt->hasSubTypeComment());
-            $this->assertSame($expectedMedia[1], $mt->getSubTypeComment());
+            $this->assertSame($expectedSubType[1], $mt->getSubTypeComment());
         } else {
             $this->assertFalse($mt->hasSubTypeComment());
         }
@@ -472,7 +472,7 @@ class TypeTest extends MimeMapTestBase
      *
      * @return array<string,array<string>>
      */
-    public function parseMalformedProvider()
+    public function parseMalformedProvider(): array
     {
         return [
             'empty string' => [''],
@@ -504,10 +504,6 @@ class TypeTest extends MimeMapTestBase
 
     public function testGetDescription(): void
     {
-        $this->assertNull((new Type('*/*'))->getDescription());
-        $this->assertNull((new Type('image/*'))->getDescription());
-        $this->assertNull((new Type('application/java*'))->getDescription());
-        $this->assertNull((new Type('application/x-t3vm-image'))->getDescription());
         $this->assertSame('HTML document', (new Type('text/html'))->getDescription());
         $this->assertSame('HTML document, HTML: HyperText Markup Language', (new Type('text/html'))->getDescription(true));
 
@@ -517,6 +513,33 @@ class TypeTest extends MimeMapTestBase
         $this->assertSame('GPX geographic data, GPX: GPS Exchange Format', (new Type('application/gpx'))->getDescription(true));
         $this->assertSame('GPX geographic data', (new Type('application/x-gpx'))->getDescription());
         $this->assertSame('GPX geographic data, GPX: GPS Exchange Format', (new Type('application/x-gpx'))->getDescription(true));
+    }
+
+    /**
+     * Data provider for testMissingDescription.
+     *
+     * @return array<array<string>>
+     */
+    public function missingDescriptionProvider(): array
+    {
+        return [
+            ['*/*'],
+            ['image/*'],
+            ['application/java*'],
+            ['application/x-t3vm-image'],
+        ];
+    }
+
+    /**
+     * @dataProvider missingDescriptionProvider
+     */
+    public function testMissingDescription(string $type): void
+    {
+        $t = new Type($type);
+        $this->assertFalse($t->hasDescription());
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage("Cannot get aliases for 'image/x-wmf', it is an alias itself");
+        $desc = $$t->getDescription();
     }
 
     public function testSetComment(): void
