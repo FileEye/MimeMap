@@ -144,16 +144,11 @@ interface TypeInterface
      * If the current type is a wildcard, than all the types matching the
      * wildcard will be returned.
      *
-     * @param bool $strict
-     *   (Optional) if true a MappingException is thrown when no type is
-     *   found, if false it returns an empty array as a default.
-     *   Defaults to true.
+     * @throws MappingException if no mapping found.
      *
-     * @throws MappingException if no mapping found and $strict is true.
-     *
-     * @return array<int, int|string|null>
+     * @return array<int, int|string>
      */
-    public function buildTypesList(bool $strict = true): array;
+    public function buildTypesList(): array;
 
     /**
      * Returns a description for the MIME type, if existing in the map.
@@ -192,17 +187,11 @@ interface TypeInterface
     /**
      * Returns all the file extensions related to the MIME type(s).
      *
-     * If the current type is a wildcard, than all extensions of all the
-     * types matching the wildcard will be returned.
+     * If the current type is a wildcard, than all extensions of all the types matching the wildcard will be returned.
      *
-     * @param bool $strict
-     *   (Optional) if true a MappingException is thrown when no mapping is
-     *   found, if false it returns an empty array as a default.
-     *   Defaults to true.
-     *
-     * @throws MappingException if no mapping found and $strict is true.
+     * @throws MappingException if no mapping found.
      *
      * @return string[]
      */
-    public function getExtensions(bool $strict = true): array;
+    public function getExtensions(): array;
 }

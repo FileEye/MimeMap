@@ -199,7 +199,7 @@ class Type implements TypeInterface
         return preg_match("/$wildcard_re/", $subject) === 1;
     }
 
-    public function buildTypesList(bool $strict = true): array
+    public function buildTypesList(): array
     {
         $subject = $this->toString(static::SHORT_TEXT);
 
@@ -215,16 +215,11 @@ class Type implements TypeInterface
             }
         }
 
-        // No types found, throw exception or return emtpy array.
-        if (empty($types)) {
-            if ($strict) {
-                throw new MappingException('No MIME type found for ' . $subject . ' in map');
-            } else {
-                return [];
-            }
+        if (!empty($types)) {
+            return $types;
         }
 
-        return $types;
+        throw new MappingException('No MIME type found for ' . $subject . ' in map');
     }
 
     /**
@@ -286,18 +281,18 @@ class Type implements TypeInterface
             $proceed = count($this->map->listTypes($subject)) === 1;
         }
 
-        if (!$proceed) {
-            throw new MappingException('Cannot determine default extension for type: ' . $unaliased_type->toString(static::SHORT_TEXT));
+        if ($proceed) {
+            return $unaliased_type->getExtensions()[0];
         }
 
-        return $unaliased_type->getExtensions()[0];
+        throw new MappingException('Cannot determine default extension for type: ' . $unaliased_type->toString(static::SHORT_TEXT));
     }
 
     public function getExtensions(bool $strict = true): array
     {
         // Build the array of extensions.
         $extensions = [];
-        foreach ($this->getUnaliasedType()->buildTypesList($strict) as $t) {
+        foreach ($this->getUnaliasedType()->buildTypesList() as $t) {
             foreach ($this->map->getTypeExtensions((string) $t) as $e) {
                 $extensions[$e] = $e;
             }
