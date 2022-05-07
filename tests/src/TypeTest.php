@@ -539,7 +539,7 @@ class TypeTest extends MimeMapTestBase
         $this->assertFalse($t->hasDescription());
         $this->expectException(MappingException::class);
         $this->expectExceptionMessage("Cannot get aliases for 'image/x-wmf', it is an alias itself");
-        $desc = $$t->getDescription();
+        $desc = $t->getDescription();
     }
 
     public function testSetComment(): void
@@ -627,18 +627,16 @@ class TypeTest extends MimeMapTestBase
     public function testGetAliases(): void
     {
         $this->assertSame(['image/x-wmf', 'image/x-win-metafile', 'application/x-wmf', 'application/wmf', 'application/x-msmetafile'], (new Type('image/wmf'))->getAliases());
-        $this->assertSame([], (new Type('foo/bar'))->getAliases(false));
-        $this->assertSame([], (new Type('image/x-wmf'))->getAliases(false));
     }
 
-    public function testGetAliasesOnAliasStrict(): void
+    public function testGetAliasesOnAlias(): void
     {
         $this->expectException(MappingException::class);
         $this->expectExceptionMessage("Cannot get aliases for 'image/x-wmf', it is an alias itself");
         $this->assertSame([], (new Type('image/x-wmf'))->getAliases());
     }
 
-    public function testGetAliasesOnMissingTypeStrict(): void
+    public function testGetAliasesOnMissingType(): void
     {
         $this->expectException(MappingException::class);
         $this->expectExceptionMessage("No MIME type found for foo/bar in map");
