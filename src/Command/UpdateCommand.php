@@ -74,6 +74,17 @@ class UpdateCommand extends Command
             return (2);
         }
 
+        $mapClass = $input->getOption('class');
+        if (!is_string($scriptFile)) {
+            $io->error('Invalid value for --class option.');
+            return (2);
+        }
+
+        $diff = $input->getOption('diff');
+        assert(is_bool($diff));
+        $failOnDiff = $input->getOption('fail-on-diff');
+        assert(is_bool($failOnDiff));
+
         // Executes on the base map the script commands.
         $contents = file_get_contents($scriptFile);
         if ($contents === false) {
@@ -93,6 +104,7 @@ class UpdateCommand extends Command
                 $callable = [$updater, $command[1]];
                 assert(is_callable($callable));
                 $errors = call_user_func_array($callable, $command[2]);
+                assert(is_array($errors));
                 if (!empty($errors)) {
                     foreach ($errors as $error) {
                         $output->writeln("<comment>$error.</comment>");
@@ -105,12 +117,12 @@ class UpdateCommand extends Command
         }
 
         // Load the map to be changed.
-        MapHandler::setDefaultMapClass($input->getOption('class'));
+        MapHandler::setDefaultMapClass($mapClass);
         $current_map = MapHandler::map();
 
         // Check if anything got changed.
         $write = true;
-        if ($input->getOption('diff')) {
+        if ($diff) {
             $write = false;
             foreach ([
                 't' => 'MIME types',
@@ -129,7 +141,7 @@ class UpdateCommand extends Command
         }
 
         // Fail on diff if required.
-        if ($write && $input->getOption('diff') && $input->getOption('fail-on-diff')) {
+        if ($write && $diff && $failOnDiff)) {
             $io->error('Changes to mapping detected and --fail-on-diff requested, aborting.');
             return(2);
         }

@@ -87,12 +87,6 @@ class MapHandlerTest extends MimeMapTestBase
         $this->assertFalse($this->map->removeTypeAlias('application/pdf', 'foo/bar'));
         $this->assertSame(['image/pdf', 'application/acrobat', 'application/nappdf'], (new Type('application/pdf'))->getAliases());
 
-        // Remove an existing type.
-        $this->assertTrue($this->map->removeType('text/plain'));
-        $this->assertSame([], (new Type('text/plain'))->getExtensions(false));
-        $this->assertSame(['application/octet-stream'], (new Extension('DEf'))->getTypes(false));
-        $this->assertSame('application/octet-stream', (new Extension('DeF'))->getDefaultType(false));
-
         // Remove an existing type with aliases.
         $this->assertTrue($this->map->hasAlias('text/x-markdown'));
         $this->assertTrue($this->map->removeType('text/markdown'));
@@ -104,6 +98,30 @@ class MapHandlerTest extends MimeMapTestBase
 
         // Try removing a non-existing type.
         $this->assertFalse($this->map->removeType('axx/axx'));
+    }
+
+    public function testGetTypeExtensionsAfterTypeRemoval(): void
+    {
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage("No MIME type found for text/plain in map");
+        $this->assertTrue($this->map->removeType('text/plain'));
+        $extensions = (new Type('text/plain'))->getExtensions();
+    }
+
+    public function testGetExtensionTypesAfterTypeRemoval(): void
+    {
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage("No MIME type found for text/plain in map");
+        $this->assertTrue($this->map->removeType('text/plain'));
+        $types = (new Extension('DEf'))->getTypes();
+    }
+
+    public function testGetExtensionDefaultTypeAfterTypeRemoval(): void
+    {
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage("No MIME type found for text/plain in map");
+        $this->assertTrue($this->map->removeType('text/plain'));
+        $defaultType = (new Extension('DeF'))->getDefaultType();
     }
 
     public function testHasType(): void
