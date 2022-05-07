@@ -141,7 +141,7 @@ class UpdateCommand extends Command
         }
 
         // Fail on diff if required.
-        if ($write && $diff && $failOnDiff)) {
+        if ($write && $diff && $failOnDiff) {
             $io->error('Changes to mapping detected and --fail-on-diff requested, aborting.');
             return(2);
         }

@@ -87,15 +87,6 @@ class MapHandlerTest extends MimeMapTestBase
         $this->assertFalse($this->map->removeTypeAlias('application/pdf', 'foo/bar'));
         $this->assertSame(['image/pdf', 'application/acrobat', 'application/nappdf'], (new Type('application/pdf'))->getAliases());
 
-        // Remove an existing type with aliases.
-        $this->assertTrue($this->map->hasAlias('text/x-markdown'));
-        $this->assertTrue($this->map->removeType('text/markdown'));
-        $this->assertFalse($this->map->hasAlias('text/x-markdown'));
-        $this->assertSame([], (new Type('text/markdown'))->getExtensions(false));
-        $this->assertSame([], (new Type('text/x-markdown'))->getExtensions(false));
-        $this->assertSame(['application/octet-stream'], (new Extension('MD'))->getTypes(false));
-        $this->assertSame('application/octet-stream', (new Extension('md'))->getDefaultType(false));
-
         // Try removing a non-existing type.
         $this->assertFalse($this->map->removeType('axx/axx'));
     }
@@ -122,6 +113,46 @@ class MapHandlerTest extends MimeMapTestBase
         $this->expectExceptionMessage("No MIME type found for text/plain in map");
         $this->assertTrue($this->map->removeType('text/plain'));
         $defaultType = (new Extension('DeF'))->getDefaultType();
+    }
+
+    public function testGetTypeExtensionsAfterTypeWithAliasRemoval(): void
+    {
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage("No MIME type found for text/plain in map");
+        $this->assertTrue($this->map->hasAlias('text/x-markdown'));
+        $this->assertTrue($this->map->removeType('text/markdown'));
+        $this->assertFalse($this->map->hasAlias('text/x-markdown'));
+        $extensions = (new Type('text/markdown'))->getExtensions();
+    }
+
+    public function testGetAliasExtensionsAfterTypeWithAliasRemoval(): void
+    {
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage("No MIME type found for text/plain in map");
+        $this->assertTrue($this->map->hasAlias('text/x-markdown'));
+        $this->assertTrue($this->map->removeType('text/markdown'));
+        $this->assertFalse($this->map->hasAlias('text/x-markdown'));
+        $extensions = (new Type('text/x-markdown'))->getExtensions();
+    }
+
+    public function testGetExtensionTypesAfterTypeWithAliasRemoval(): void
+    {
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage("No MIME type found for text/plain in map");
+        $this->assertTrue($this->map->hasAlias('text/x-markdown'));
+        $this->assertTrue($this->map->removeType('text/markdown'));
+        $this->assertFalse($this->map->hasAlias('text/x-markdown'));
+        $types = (new Extension('MD'))->getTypes();
+    }
+
+    public function testGetExtensionDefaultTypeAfterTypeWithAliasRemoval(): void
+    {
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage("No MIME type found for text/plain in map");
+        $this->assertTrue($this->map->hasAlias('text/x-markdown'));
+        $this->assertTrue($this->map->removeType('text/markdown'));
+        $this->assertFalse($this->map->hasAlias('text/x-markdown'));
+        $types = (new Extension('md'))->getDefaultType();
     }
 
     public function testHasType(): void
