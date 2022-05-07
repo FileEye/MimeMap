@@ -14,6 +14,9 @@ class Version
      */
     public static function get(): string
     {
-        return InstalledVersions::getPrettyVersion('fileeye/mimemap');
+        if ($version = InstalledVersions::getPrettyVersion('fileeye/mimemap')) {
+            return $version;
+        }
+        throw new \RuntimeException("MimeMap could not determine its own version from Composer");
     }
 }
