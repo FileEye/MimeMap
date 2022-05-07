@@ -65,7 +65,7 @@ interface TypeInterface
     /**
      * Checks if the MIME type has subtype comment.
      */
-    public function hasMediaComment(): bool;
+    public function hasSubTypeComment(): bool;
 
     /**
      * Gets the MIME type's subtype comment.
