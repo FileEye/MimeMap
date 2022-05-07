@@ -166,9 +166,6 @@ class Type implements TypeInterface
 
     public function toString(int $format = Type::FULL_TEXT): string
     {
-        if ($this->getMedia() === null || $this->getSubType() === null) {
-            return '';
-        }
         $type = strtolower($this->media);
         if ($format > Type::FULL_TEXT && $this->hasMediaComment()) {
             $type .= ' (' .  $this->getMediaComment() . ')';
