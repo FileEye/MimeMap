@@ -538,7 +538,7 @@ class TypeTest extends MimeMapTestBase
         $t = new Type($type);
         $this->assertFalse($t->hasDescription());
         $this->expectException(MappingException::class);
-        $this->expectExceptionMessage("Cannot get aliases for 'image/x-wmf', it is an alias itself");
+        $this->expectExceptionMessage('No description available for type: ' . $type);
         $desc = $t->getDescription();
     }
 
