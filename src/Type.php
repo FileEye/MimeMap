@@ -152,8 +152,8 @@ class Type implements TypeInterface
             return null;
         }
         $type = strtolower($this->media);
-        if ($format > Type::FULL_TEXT && $this->getMediaComment() !== null) {
-            $type .= ' (' .  $this->mediaComment . ')';
+        if ($format > Type::FULL_TEXT && $this->hasMediaComment()) {
+            $type .= ' (' .  $this->getMediaComment() . ')';
         }
         $type .= '/' . strtolower($this->subType);
         if ($format > Type::FULL_TEXT && $this->getSubTypeComment() !== null) {

@@ -34,7 +34,7 @@ interface TypeInterface
     /**
      * Checks if the MIME type has media comment.
      */
-    public function hasMediaComment(): string;
+    public function hasMediaComment(): bool;
 
     /**
      * Gets the MIME type's media comment.
