@@ -75,7 +75,7 @@ class UpdateCommand extends Command
         }
 
         $mapClass = $input->getOption('class');
-        if (!is_string($scriptFile)) {
+        if (!is_string($mapClass)) {
             $io->error('Invalid value for --class option.');
             return (2);
         }

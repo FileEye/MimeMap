@@ -24,7 +24,7 @@ class TypeTest extends MimeMapTestBase
                   'application/ogg; description="Hello there!"; asd="fgh"',
                   'application/ogg; description="Hello there!"; asd="fgh"',
                 ],
-                ['application', null],
+                ['application'],
                 ['ogg', null],
                 true,
                 [
@@ -39,7 +39,7 @@ class TypeTest extends MimeMapTestBase
                   'text/plain',
                   'text/plain',
                 ],
-                ['text', null],
+                ['text'],
                 ['plain', null],
                 false,
                 [],
@@ -51,7 +51,7 @@ class TypeTest extends MimeMapTestBase
                   'text/plain; a="b"',
                   'text/plain; a="b"',
                 ],
-                ['text', null],
+                ['text'],
                 ['plain', null],
                 true,
                 [
@@ -65,7 +65,7 @@ class TypeTest extends MimeMapTestBase
                   'application/ogg',
                   'application/ogg',
                 ],
-                ['application', null],
+                ['application'],
                 ['ogg', null],
                 false,
                 [],
@@ -77,7 +77,7 @@ class TypeTest extends MimeMapTestBase
                   '*/*',
                   '*/*',
                 ],
-                ['*', null],
+                ['*'],
                 ['*', null],
                 false,
                 [],
@@ -89,7 +89,7 @@ class TypeTest extends MimeMapTestBase
                   'n/n',
                   'n/n',
                 ],
-                ['n', null],
+                ['n'],
                 ['n', null],
                 false,
                 [],
@@ -129,7 +129,7 @@ class TypeTest extends MimeMapTestBase
                   'text/plain; charset="utf-8"',
                   'text/plain (Plain); charset="utf-8"',
                 ],
-                ['text', null],
+                ['text'],
                 ['plain', 'Plain'],
                 true,
                 [
@@ -143,7 +143,7 @@ class TypeTest extends MimeMapTestBase
                   'text/plain; charset="utf-8"',
                   'text/plain (Plain Text); charset="utf-8"',
                 ],
-                ['text', null],
+                ['text'],
                 ['plain', 'Plain Text'],
                 true,
                 [
@@ -157,7 +157,7 @@ class TypeTest extends MimeMapTestBase
                   'text/plain; charset="utf-8"',
                   'text/plain; charset="utf-8" (Charset=utf-8)',
                 ],
-                ['text', null],
+                ['text'],
                 ['plain', null],
                 true,
                 [
@@ -171,7 +171,7 @@ class TypeTest extends MimeMapTestBase
                   'text/plain; charset="utf-8"',
                   'text/plain; charset="utf-8" (Charset)',
                 ],
-                ['text', null],
+                ['text'],
                 ['plain', null],
                 true,
                 [
@@ -185,7 +185,7 @@ class TypeTest extends MimeMapTestBase
                   'text/plain; charset="utf-8"',
                   'text/plain; charset="utf-8" (UTF8)',
                 ],
-                ['text', null],
+                ['text'],
                 ['plain', null],
                 true,
                 [
@@ -199,7 +199,7 @@ class TypeTest extends MimeMapTestBase
                   'text/plain; charset="utf-8"',
                   'text/plain; charset="utf-8" (UTF-8 Plain Text)',
                 ],
-                ['text', null],
+                ['text'],
                 ['plain', null],
                 true,
                 [
@@ -213,7 +213,7 @@ class TypeTest extends MimeMapTestBase
                   'application/x-foobar; description="bbgh(kdur"',
                   'application/x-foobar; description="bbgh(kdur"',
                 ],
-                ['application', null],
+                ['application'],
                 ['x-foobar', null],
                 true,
                 [
@@ -227,7 +227,7 @@ class TypeTest extends MimeMapTestBase
                   'application/x-foobar; description="a \"quoted string\""',
                   'application/x-foobar; description="a \"quoted string\""',
                 ],
-                ['application', null],
+                ['application'],
                 ['x-foobar', null],
                 true,
                 [
@@ -241,7 +241,7 @@ class TypeTest extends MimeMapTestBase
                   'text/xml; description="test"',
                   'text/xml; description="test"',
                 ],
-                ['text', null],
+                ['text'],
                 ['xml', null],
                 true,
                 [
@@ -255,7 +255,7 @@ class TypeTest extends MimeMapTestBase
                   'text/xml; one="test"; two="three"',
                   'text/xml; one="test"; two="three"',
                 ],
-                ['text', null],
+                ['text'],
                 ['xml', null],
                 true,
                 [
@@ -270,7 +270,7 @@ class TypeTest extends MimeMapTestBase
                   'text/xml; one="test"; two="three"',
                   'text/xml; one="test"; two="three"',
                 ],
-                ['text', null],
+                ['text'],
                 ['xml', null],
                 true,
                 [
@@ -285,7 +285,7 @@ class TypeTest extends MimeMapTestBase
                   'text/xml; this="is"; a="parameter"',
                   'text/xml; this="is"; a="parameter" (with a comment)',
                 ],
-                ['text', null],
+                ['text'],
                 ['xml', null],
                 true,
                 [
@@ -301,7 +301,7 @@ class TypeTest extends MimeMapTestBase
                   'text/plain; charset="utf-8"',
                   'text/plain; charset="utf-8" (UTF/8)',
                 ],
-                ['text', null],
+                ['text'],
                 ['plain', null],
                 true,
                 [
@@ -315,7 +315,7 @@ class TypeTest extends MimeMapTestBase
                   'appf/xml; a="b"; b="parameter"; c="d"; e="f"; g="h"',
                   'appf/xml; a="b"; b="parameter" (with; a comment); c="d"; e="f" (;); g="h"',
                 ],
-                ['appf', null],
+                ['appf'],
                 ['xml', null],
                 true,
                 [
@@ -333,7 +333,7 @@ class TypeTest extends MimeMapTestBase
                   'text/def',
                   'text/def (abc ghi)',
                 ],
-                ['text', null],
+                ['text'],
                 ['def', 'abc ghi'],
                 false,
                 [],
@@ -345,7 +345,7 @@ class TypeTest extends MimeMapTestBase
                   'text/def',
                   'text/def (abc)',
                 ],
-                ['text', null],
+                ['text'],
                 ['def', 'abc'],
                 false,
                 [],
@@ -357,7 +357,7 @@ class TypeTest extends MimeMapTestBase
                   'text/def',
                   'text/def (ghi)',
                 ],
-                ['text', null],
+                ['text'],
                 ['def', 'ghi'],
                 false,
                 [],
@@ -369,7 +369,7 @@ class TypeTest extends MimeMapTestBase
                   'text/plain; a="def"',
                   'text/plain; a="def" (\)abc \()',
                 ],
-                ['text', null],
+                ['text'],
                 ['plain', null],
                 true,
                 [
@@ -383,7 +383,7 @@ class TypeTest extends MimeMapTestBase
                   'text/plain; a="foo"',
                   'text/plain; a="foo" (abc)',
                 ],
-                ['text', null],
+                ['text'],
                 ['plain', null],
                 true,
                 [
@@ -397,7 +397,7 @@ class TypeTest extends MimeMapTestBase
                   'text/plain; a="def"',
                   'text/plain; a="def" (a"bc\)def")',
                 ],
-                ['text', null],
+                ['text'],
                 ['plain', null],
                 true,
                 [
@@ -411,7 +411,7 @@ class TypeTest extends MimeMapTestBase
                   'text/plain; a="(abc)def"',
                   'text/plain; a="(abc)def"',
                 ],
-                ['text', null],
+                ['text'],
                 ['plain', null],
                 true,
                 [
@@ -435,7 +435,12 @@ class TypeTest extends MimeMapTestBase
     {
         $mt = new Type($type);
         $this->assertSame($expectedMedia[0], $mt->getMedia());
-        $this->assertSame($expectedMedia[1], $mt->getMediaComment());
+        if (isset($expectedMedia[1])) {
+            $this->assertTrue($mt->hasMediaComment());
+            $this->assertSame($expectedMedia[1], $mt->getMediaComment());
+        } else {
+            $this->assertFalse($mt->hasMediaComment());
+        }
         $this->assertSame($expectedSubType[0], $mt->getSubType());
         $this->assertSame($expectedSubType[1], $mt->getSubTypeComment());
         $this->assertSame($expectedHasParameters, $mt->hasParameters());

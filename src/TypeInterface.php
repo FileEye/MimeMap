@@ -32,12 +32,17 @@ interface TypeInterface
     public function setMedia(string $media): TypeInterface;
 
     /**
-     * Gets a MIME type's media comment.
+     * Checks if the MIME type has media comment.
+     */
+    public function hasMediaComment(): string;
+
+    /**
+     * Gets the MIME type's media comment.
      */
     public function getMediaComment(): string;
 
     /**
-     * Sets a MIME type's media comment.
+     * Sets the MIME type's media comment.
      */
     public function setMediaComment(string $comment): TypeInterface;
 
@@ -166,16 +171,11 @@ interface TypeInterface
      * If the current type is a wildcard, than all aliases of all the
      * types matching the wildcard will be returned.
      *
-     * @param bool $strict
-     *   (Optional) if true a MappingException is thrown when no mapping is
-     *   found, if false it returns an empty array as a default.
-     *   Defaults to true.
-     *
-     * @throws MappingException if error and $strict is true.
+     * @throws MappingException on error.
      *
      * @return string[]
      */
-    public function getAliases(bool $strict = true): array;
+    public function getAliases(): array;
 
     /**
      * Returns the MIME type's preferred file extension.

@@ -83,6 +83,11 @@ class Type implements TypeInterface
         return $this;
     }
 
+    public function hasMediaComment(): bool
+    {
+        return $this->mediaComment !== null;
+    }
+
     public function getMediaComment(): string
     {
         return $this->mediaComment;
@@ -247,21 +252,17 @@ class Type implements TypeInterface
         return $res;
     }
 
-    public function getAliases(bool $strict = true): array
+    public function getAliases(): array
     {
         // Fail if the current type is an alias already.
         if ($this->isAlias()) {
-            if ($strict) {
-                $subject = $this->toString(static::SHORT_TEXT);
-                throw new MappingException("Cannot get aliases for '{$subject}', it is an alias itself");
-            } else {
-                return [];
-            }
+            $subject = $this->toString(static::SHORT_TEXT);
+            throw new MappingException("Cannot get aliases for '{$subject}', it is an alias itself");
         }
 
         // Build the array of aliases.
         $aliases = [];
-        foreach ($this->buildTypesList($strict) as $t) {
+        foreach ($this->buildTypesList() as $t) {
             foreach ($this->map->getTypeAliases((string) $t) as $a) {
                 $aliases[$a] = $a;
             }
