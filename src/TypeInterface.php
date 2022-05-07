@@ -169,12 +169,19 @@ interface TypeInterface
     public function buildTypesList(): array;
 
     /**
+     * Checks if a description for the MIME type exists.
+     */
+    public function hasDescription(): bool;
+
+    /**
      * Returns a description for the MIME type, if existing in the map.
      *
      * @param bool $include_acronym
      *   (Optional) if true and an acronym description exists for the type,
      *   the returned description will contain the acronym and its description,
      *   appended with a comma. Defaults to false.
+     *
+     * @throws MappingException if no description found.
      */
     public function getDescription(bool $include_acronym = false): string;
 

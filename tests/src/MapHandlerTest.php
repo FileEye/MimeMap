@@ -91,7 +91,7 @@ class MapHandlerTest extends MimeMapTestBase
     public function testGetExtensionTypesAfterTypeExtensionMappingRemoval(): void
     {
         $this->expectException(MappingException::class);
-        $this->expectExceptionMessage("No MIME type found for text/plain in map");
+        $this->expectExceptionMessage("No MIME type mapped to extension txt");
         $this->assertTrue($this->map->removeTypeExtensionMapping('text/plain', 'txt'));
         $types = (new Extension('txt'))->getTypes();
     }
@@ -99,7 +99,7 @@ class MapHandlerTest extends MimeMapTestBase
     public function testGetExtensionDefaultTypeAfterTypeExtensionMappingRemoval(): void
     {
         $this->expectException(MappingException::class);
-        $this->expectExceptionMessage("No MIME type found for text/plain in map");
+        $this->expectExceptionMessage("No MIME type mapped to extension txt");
         $this->assertTrue($this->map->removeTypeExtensionMapping('text/plain', 'txt'));
         $this->assertSame('application/octet-stream', (new Extension('txt'))->getDefaultType(false));
         $defaultType = (new Extension('txt'))->getDefaultExtension();

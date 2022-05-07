@@ -53,6 +53,13 @@ class Type implements TypeInterface
     protected $subTypeComment;
 
     /**
+     *  MIME type descriptions.
+     *
+     * @var strings[]
+     */
+    protected $descriptions;
+
+    /**
      * Optional MIME parameters.
      *
      * @var TypeParameter[]
@@ -256,16 +263,25 @@ class Type implements TypeInterface
         return $this->isAlias() ? new static($this->map->getAliasTypes($this->toString(static::SHORT_TEXT))[0]) : $this;
     }
 
+    public function hasDescription(): bool
+    {
+        if ($this->descriptions === null) {
+            $this->descriptions = $this->map->getTypeDescriptions($this->getUnaliasedType()->toString(static::SHORT_TEXT));
+        }
+        return isset($this->descriptions[0]);
+    }
+
     public function getDescription(bool $include_acronym = false): string
     {
-        $descriptions = $this->map->getTypeDescriptions($this->getUnaliasedType()->toString(static::SHORT_TEXT));
-        $res = '';
-        if (isset($descriptions[0])) {
-            $res = $descriptions[0];
+        if (!$this->hasDescription()) {
+            throw new MappingException('No description available for type: ' . $this->toString(static::SHORT_TEXT));
         }
-        if ($include_acronym && isset($descriptions[1])) {
-            $res .= ', ' . $descriptions[1];
+
+        $res = $this->descriptions[0];
+        if ($include_acronym && isset($this->descriptions[1])) {
+            $res .= ', ' . $this->descriptions[1];
         }
+
         return $res;
     }
 
