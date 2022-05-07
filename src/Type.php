@@ -288,7 +288,7 @@ class Type implements TypeInterface
         throw new MappingException('Cannot determine default extension for type: ' . $unaliased_type->toString(static::SHORT_TEXT));
     }
 
-    public function getExtensions(bool $strict = true): array
+    public function getExtensions(): array
     {
         // Build the array of extensions.
         $extensions = [];

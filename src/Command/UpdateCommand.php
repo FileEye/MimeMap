@@ -68,16 +68,22 @@ class UpdateCommand extends Command
         $updater = new MapUpdater();
         $updater->selectBaseMap(MapUpdater::DEFAULT_BASE_MAP_CLASS);
 
+        $scriptFile = $input->getOption('script');
+        if (!is_string($scriptFile)) {
+            $io->error('Invalid value for --script option.');
+            return (2);
+        }
+
         // Executes on the base map the script commands.
-        $contents = file_get_contents((string) $input->getOption('script'));
+        $contents = file_get_contents($scriptFile);
         if ($contents === false) {
-            $io->error('Failed loading update script file ' . $input->getOption('script'));
+            $io->error('Failed loading update script file ' . $scriptFile);
             return (2);
         }
 
         $commands = Yaml::parse($contents);
         if (!is_array($commands)) {
-            $io->error('Invalid update script file ' . $input->getOption('script'));
+            $io->error('Invalid update script file ' . $scriptFile);
             return (2);
         }
 

@@ -90,7 +90,6 @@ class MapHandlerTest extends MimeMapTestBase
         // Remove an existing type.
         $this->assertTrue($this->map->removeType('text/plain'));
         $this->assertSame([], (new Type('text/plain'))->getExtensions(false));
-        $this->assertSame(null, (new Type('text/plain'))->getDefaultExtension(false));
         $this->assertSame(['application/octet-stream'], (new Extension('DEf'))->getTypes(false));
         $this->assertSame('application/octet-stream', (new Extension('DeF'))->getDefaultType(false));
 
@@ -99,9 +98,7 @@ class MapHandlerTest extends MimeMapTestBase
         $this->assertTrue($this->map->removeType('text/markdown'));
         $this->assertFalse($this->map->hasAlias('text/x-markdown'));
         $this->assertSame([], (new Type('text/markdown'))->getExtensions(false));
-        $this->assertSame(null, (new Type('text/markdown'))->getDefaultExtension(false));
         $this->assertSame([], (new Type('text/x-markdown'))->getExtensions(false));
-        $this->assertSame(null, (new Type('text/x-markdown'))->getDefaultExtension(false));
         $this->assertSame(['application/octet-stream'], (new Extension('MD'))->getTypes(false));
         $this->assertSame('application/octet-stream', (new Extension('md'))->getDefaultType(false));
 
