@@ -32,7 +32,7 @@ class TypeParser
         $type->setMedia(strtolower((string) $media['string']));
         if ($media['comment'] !== null) {
             $type->setMediaComment($media['comment']);
-        }        
+        }
 
         // SubType and Parameters are separated by semicolons ';'.
         $sub = static::parseStringPart($type_string, $media['end_offset'] + 1, ';');
@@ -42,7 +42,9 @@ class TypeParser
         }
 
         $type->setSubType(strtolower((string) $sub['string']));
-        $type->setSubTypeComment($sub['comment']);
+        if ($sub['comment'] !== null) {
+            $type->setSubTypeComment($sub['comment']);
+        }        
 
         // Loops through the parameter.
         while ($sub['delimiter_matched']) {
