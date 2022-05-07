@@ -77,7 +77,7 @@ class Type implements TypeInterface
         if ($this->media !== null) {
             return $this->media;
         }
-        throw new UndefinedException('Media is not defined')
+        throw new UndefinedException('Media is not defined');
     }
 
     public function setMedia(string $media): TypeInterface
@@ -96,7 +96,7 @@ class Type implements TypeInterface
         if ($this->hasMediaComment()) {
             return $this->mediaComment;
         }
-        throw new UndefinedException('Media comment is not defined')
+        throw new UndefinedException('Media comment is not defined');
     }
 
     public function setMediaComment(string $comment): TypeInterface
@@ -110,7 +110,7 @@ class Type implements TypeInterface
         if ($this->subType !== null) {
             return $this->subType;
         }
-        throw new UndefinedException('Subtype is not defined')
+        throw new UndefinedException('Subtype is not defined');
     }
 
     public function setSubType(string $sub_type): TypeInterface
@@ -129,7 +129,7 @@ class Type implements TypeInterface
         if ($this->hasSubTypeComment()) {
             return $this->subTypeComment;
         }
-        throw new UndefinedException('Subtype comment is not defined')
+        throw new UndefinedException('Subtype comment is not defined');
     }
 
     public function setSubTypeComment(string $comment): TypeInterface
