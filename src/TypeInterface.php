@@ -23,6 +23,8 @@ interface TypeInterface
      * Gets a MIME type's media.
      *
      * Note: 'media' refers to the portion before the first slash.
+     *
+     * @throws UndefinedException
      */
     public function getMedia(): string;
 
@@ -38,6 +40,8 @@ interface TypeInterface
 
     /**
      * Gets the MIME type's media comment.
+     *
+     * @throws UndefinedException
      */
     public function getMediaComment(): string;
 
@@ -48,6 +52,8 @@ interface TypeInterface
 
     /**
      * Gets a MIME type's subtype.
+     *
+     * @throws UndefinedException
      */
     public function getSubType(): string;
 
@@ -57,12 +63,19 @@ interface TypeInterface
     public function setSubType(string $sub_type): TypeInterface;
 
     /**
-     * Gets a MIME type's subtype comment.
+     * Checks if the MIME type has subtype comment.
+     */
+    public function hasMediaComment(): bool;
+
+    /**
+     * Gets the MIME type's subtype comment.
+     *
+     * @throws UndefinedException
      */
     public function getSubTypeComment(): string;
 
     /**
-     * Sets a MIME type's subtype comment.
+     * Sets the MIME type's subtype comment.
      */
     public function setSubTypeComment(string $comment): TypeInterface;
 

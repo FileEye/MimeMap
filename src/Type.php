@@ -74,7 +74,10 @@ class Type implements TypeInterface
 
     public function getMedia(): string
     {
-        return $this->media;
+        if ($this->media !== null) {
+            return $this->media;
+        }
+        throw new UndefinedException('Media is not defined')
     }
 
     public function setMedia(string $media): TypeInterface
@@ -90,7 +93,10 @@ class Type implements TypeInterface
 
     public function getMediaComment(): string
     {
-        return $this->mediaComment;
+        if ($this->hasMediaComment()) {
+            return $this->mediaComment;
+        }
+        throw new UndefinedException('Media comment is not defined')
     }
 
     public function setMediaComment(string $comment): TypeInterface
@@ -101,7 +107,10 @@ class Type implements TypeInterface
 
     public function getSubType(): string
     {
-        return $this->subType;
+        if ($this->subType !== null) {
+            return $this->subType;
+        }
+        throw new UndefinedException('Subtype is not defined')
     }
 
     public function setSubType(string $sub_type): TypeInterface
@@ -110,9 +119,17 @@ class Type implements TypeInterface
         return $this;
     }
 
+    public function hasSubTypeComment(): bool
+    {
+        return $this->subTypeComment !== null;
+    }
+
     public function getSubTypeComment(): string
     {
-        return $this->subTypeComment;
+        if ($this->hasSubTypeComment()) {
+            return $this->subTypeComment;
+        }
+        throw new UndefinedException('Subtype comment is not defined')
     }
 
     public function setSubTypeComment(string $comment): TypeInterface
@@ -149,15 +166,15 @@ class Type implements TypeInterface
     public function toString(int $format = Type::FULL_TEXT): string
     {
         if ($this->getMedia() === null || $this->getSubType() === null) {
-            return null;
+            return '';
         }
         $type = strtolower($this->media);
         if ($format > Type::FULL_TEXT && $this->hasMediaComment()) {
             $type .= ' (' .  $this->getMediaComment() . ')';
         }
         $type .= '/' . strtolower($this->subType);
-        if ($format > Type::FULL_TEXT && $this->getSubTypeComment() !== null) {
-            $type .= ' (' .  $this->subTypeComment . ')';
+        if ($format > Type::FULL_TEXT && $this->hasSubTypeComment()) {
+            $type .= ' (' .  $this->getSubTypeComment() . ')';
         }
         if ($format > Type::SHORT_TEXT && count($this->parameters)) {
             foreach ($this->parameters as $parameter) {
