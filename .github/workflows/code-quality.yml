@@ -34,14 +34,8 @@ jobs:
       - name: "Run static analysis with phpstan/phpstan"
         run: "vendor/bin/phpstan"
 
-      - name: "Run static analysis with phpstan/phpstan"
-        run: |
-          composer require --dev vimeo/psalm
-          ./vendor/bin/psalm --init
-          git config user.email "a@a.com"
-          git config user.name "Aa Aa"
-          git add .
-          git diff --cached          
+      - name: "Run static analysis with vimeo/psalm"
+        run: ./vendor/bin/psalm
 
       - name: "Run code style check with squizlabs/php_codesniffer"
         run: ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1
