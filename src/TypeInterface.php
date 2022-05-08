@@ -76,19 +76,30 @@ interface TypeInterface
     public function setSubTypeComment(string $comment): TypeInterface;
 
     /**
-     * Does this type have any parameters?
+     * Checks if the MIME type has any parameter.
      */
     public function hasParameters(): bool;
 
     /**
-     * Get a MIME type's parameters.
+     * Get the MIME type's parameters.
      *
      * @return TypeParameter[]
+     *
+     * @throws UndefinedException
      */
     public function getParameters(): array;
 
     /**
+     * Checks if the MIME type has a parameter.
+     *
+     * @throws UndefinedException
+     */
+    public function hasParameter(string $name): bool;
+
+    /**
      * Get a MIME type's parameter.
+     *
+     * @throws UndefinedException
      */
     public function getParameter(string $name): TypeParameter;
 

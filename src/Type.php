@@ -146,12 +146,23 @@ class Type implements TypeInterface
 
     public function getParameters(): array
     {
-        return $this->parameters;
+        if ($this->hasParameters()) {
+            return $this->parameters;
+        }
+        throw new UndefinedException("No parameters defined");
+    }
+
+    public function hasParameter(string $name): bool
+    {
+        return isset($this->parameters[$name]);
     }
 
     public function getParameter(string $name): TypeParameter
     {
-        return isset($this->parameters[$name]) ? $this->parameters[$name] : null;
+        if ($this->hasParameter($name)) {
+            return $this->parameters[$name];
+        }
+        throw new UndefinedException("Parameter $name is not defined");
     }
 
     public function addParameter(string $name, string $value, string $comment = null): void
