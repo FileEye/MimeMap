@@ -105,7 +105,11 @@ class Type implements TypeInterface
 
     public function setMediaComment(string $comment): TypeInterface
     {
-        $this->mediaComment = $comment;
+        if ($comment !== '') {
+            $this->mediaComment = $comment;
+        } else {
+            unset($this->mediaComment);
+        }
         return $this;
     }
 
@@ -135,7 +139,11 @@ class Type implements TypeInterface
 
     public function setSubTypeComment(string $comment): TypeInterface
     {
-        $this->subTypeComment = $comment;
+        if ($comment !== '') {
+            $this->subTypeComment = $comment;
+        } else {
+            unset($this->subTypeComment);
+        }
         return $this;
     }
 

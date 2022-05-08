@@ -45,6 +45,8 @@ interface TypeInterface
 
     /**
      * Sets the MIME type's media comment.
+     *
+     * @param string $comment The comment; empty string removes any existing comment.
      */
     public function setMediaComment(string $comment): TypeInterface;
 
@@ -72,6 +74,8 @@ interface TypeInterface
 
     /**
      * Sets the MIME type's subtype comment.
+     *
+     * @param string $comment The comment; empty string removes any existing comment.
      */
     public function setSubTypeComment(string $comment): TypeInterface;
 
