@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace FileEye\MimeMap;
 
@@ -88,10 +88,14 @@ class MapUpdater
                 continue;
             }
             $line = preg_replace("#\\s+#", ' ', trim($line));
-            $parts = explode(' ', $line);
-            $type = array_shift($parts);
-            foreach ($parts as $extension) {
-                $this->map->addTypeExtensionMapping($type, $extension);
+            if (is_string($line)) {
+                $parts = explode(' ', $line);
+                $type = array_shift($parts);
+                foreach ($parts as $extension) {
+                    $this->map->addTypeExtensionMapping($type, $extension);
+                }
+            } else {
+                $errors[] = "Error processing line: $line";
             }
         }
         $this->map->sort();
@@ -227,7 +231,7 @@ class MapUpdater
             $content
         );
         file_put_contents($file, $newContent);
-        
+
         return $this;
     }
 }

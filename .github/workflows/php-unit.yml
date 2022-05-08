@@ -45,7 +45,3 @@ jobs:
           run: |
             php ./bin/fileeye-mimemap --version
             php ./bin/fileeye-mimemap update --diff --fail-on-diff --ansi
-
-        - name: Code style test
-          if: ${{ matrix.php-version == 7.4 }}
-          run: ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1

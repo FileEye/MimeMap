@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace FileEye\MimeMap;
 
@@ -13,18 +13,18 @@ interface TypeInterface
      * The type string will be parsed and the appropriate class vars set.
      *
      * @param string $type_string
-     *   (Optional) MIME type string to be parsed.
+     *   MIME type string to be parsed.
      * @param string $map_class
      *   (Optional) The FQCN of the map class to use.
      */
-    public function __construct(string $type_string = null, string $map_class = null);
+    public function __construct(string $type_string, string $map_class = null);
 
     /**
      * Gets a MIME type's media.
      *
      * Note: 'media' refers to the portion before the first slash.
      */
-    public function getMedia(): ?string;
+    public function getMedia(): string;
 
     /**
      * Sets a MIME type's media.
@@ -32,19 +32,28 @@ interface TypeInterface
     public function setMedia(string $media): TypeInterface;
 
     /**
-     * Gets a MIME type's media comment.
+     * Checks if the MIME type has media comment.
      */
-    public function getMediaComment(): ?string;
+    public function hasMediaComment(): bool;
 
     /**
-     * Sets a MIME type's media comment.
+     * Gets the MIME type's media comment.
+     *
+     * @throws UndefinedException
      */
-    public function setMediaComment(?string $comment): TypeInterface;
+    public function getMediaComment(): string;
+
+    /**
+     * Sets the MIME type's media comment.
+     *
+     * @param string $comment (optional) a comment; when missing any existing comment is removed.
+     */
+    public function setMediaComment(string $comment = null): TypeInterface;
 
     /**
      * Gets a MIME type's subtype.
      */
-    public function getSubType(): ?string;
+    public function getSubType(): string;
 
     /**
      * Sets a MIME type's subtype.
@@ -52,31 +61,51 @@ interface TypeInterface
     public function setSubType(string $sub_type): TypeInterface;
 
     /**
-     * Gets a MIME type's subtype comment.
+     * Checks if the MIME type has subtype comment.
      */
-    public function getSubTypeComment(): ?string;
+    public function hasSubTypeComment(): bool;
 
     /**
-     * Sets a MIME type's subtype comment.
+     * Gets the MIME type's subtype comment.
+     *
+     * @throws UndefinedException
      */
-    public function setSubTypeComment(?string $comment): TypeInterface;
+    public function getSubTypeComment(): string;
 
     /**
-     * Does this type have any parameters?
+     * Sets the MIME type's subtype comment.
+     *
+     * @param string $comment (optional) a comment; when missing any existing comment is removed.
+     */
+    public function setSubTypeComment(string $comment = null): TypeInterface;
+
+    /**
+     * Checks if the MIME type has any parameter.
      */
     public function hasParameters(): bool;
 
     /**
-     * Get a MIME type's parameters.
+     * Get the MIME type's parameters.
      *
      * @return TypeParameter[]
+     *
+     * @throws UndefinedException
      */
     public function getParameters(): array;
 
     /**
-     * Get a MIME type's parameter.
+     * Checks if the MIME type has a parameter.
+     *
+     * @throws UndefinedException
      */
-    public function getParameter(string $name): ?TypeParameter;
+    public function hasParameter(string $name): bool;
+
+    /**
+     * Get a MIME type's parameter.
+     *
+     * @throws UndefinedException
+     */
+    public function getParameter(string $name): TypeParameter;
 
     /**
      * Add a parameter to this type
@@ -96,7 +125,7 @@ interface TypeInterface
      * @param int $format
      *   The format of the output string.
      */
-    public function toString(int $format = Type::FULL_TEXT): ?string;
+    public function toString(int $format = Type::FULL_TEXT): string;
 
     /**
      * Is this type experimental?
@@ -144,16 +173,16 @@ interface TypeInterface
      * If the current type is a wildcard, than all the types matching the
      * wildcard will be returned.
      *
-     * @param bool $strict
-     *   (Optional) if true a MappingException is thrown when no type is
-     *   found, if false it returns an empty array as a default.
-     *   Defaults to true.
+     * @throws MappingException if no mapping found.
      *
-     * @throws MappingException if no mapping found and $strict is true.
-     *
-     * @return array<int, int|string|null>
+     * @return array<int, int|string>
      */
-    public function buildTypesList(bool $strict = true): array;
+    public function buildTypesList(): array;
+
+    /**
+     * Checks if a description for the MIME type exists.
+     */
+    public function hasDescription(): bool;
 
     /**
      * Returns a description for the MIME type, if existing in the map.
@@ -162,8 +191,10 @@ interface TypeInterface
      *   (Optional) if true and an acronym description exists for the type,
      *   the returned description will contain the acronym and its description,
      *   appended with a comma. Defaults to false.
+     *
+     * @throws MappingException if no description found.
      */
-    public function getDescription(bool $include_acronym = false): ?string;
+    public function getDescription(bool $include_acronym = false): string;
 
     /**
      * Returns all the aliases related to the MIME type(s).
@@ -171,43 +202,27 @@ interface TypeInterface
      * If the current type is a wildcard, than all aliases of all the
      * types matching the wildcard will be returned.
      *
-     * @param bool $strict
-     *   (Optional) if true a MappingException is thrown when no mapping is
-     *   found, if false it returns an empty array as a default.
-     *   Defaults to true.
-     *
-     * @throws MappingException if error and $strict is true.
+     * @throws MappingException on error.
      *
      * @return string[]
      */
-    public function getAliases(bool $strict = true): array;
+    public function getAliases(): array;
 
     /**
      * Returns the MIME type's preferred file extension.
      *
-     * @param bool $strict
-     *   (Optional) if true a MappingException is thrown when no mapping is
-     *   found, if false it returns null as a default.
-     *   Defaults to true.
-     *
-     * @throws MappingException if no mapping found and $strict is true.
+     * @throws MappingException if no mapping found.
      */
-    public function getDefaultExtension(bool $strict = true): ?string;
+    public function getDefaultExtension(): string;
 
     /**
      * Returns all the file extensions related to the MIME type(s).
      *
-     * If the current type is a wildcard, than all extensions of all the
-     * types matching the wildcard will be returned.
+     * If the current type is a wildcard, than all extensions of all the types matching the wildcard will be returned.
      *
-     * @param bool $strict
-     *   (Optional) if true a MappingException is thrown when no mapping is
-     *   found, if false it returns an empty array as a default.
-     *   Defaults to true.
-     *
-     * @throws MappingException if no mapping found and $strict is true.
+     * @throws MappingException if no mapping found.
      *
      * @return string[]
      */
-    public function getExtensions(bool $strict = true): array;
+    public function getExtensions(): array;
 }

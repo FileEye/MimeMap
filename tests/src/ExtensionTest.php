@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace FileEye\MimeMap\Test;
 
@@ -18,12 +18,8 @@ class ExtensionTest extends MimeMapTestBase
     public function testGetStrictDefaultTypeUnknownExtension(): void
     {
         $this->expectException(MappingException::class);
+        $this->expectExceptionMessage("No MIME type mapped to extension ohmygodthatisnoextension");
         $this->assertSame('application/octet-stream', (new Extension('ohmygodthatisnoextension'))->getDefaultType());
-    }
-
-    public function testGetNoStrictDefaultTypeUnknownExtension(): void
-    {
-        $this->assertSame('application/octet-stream', (new Extension('ohmygodthatisnoextension'))->getDefaultType(false));
     }
 
     public function testGetTypes(): void
@@ -35,11 +31,7 @@ class ExtensionTest extends MimeMapTestBase
     public function testGetStrictTypesUnknownExtension(): void
     {
         $this->expectException(MappingException::class);
+        $this->expectExceptionMessage("No MIME type mapped to extension ohmygodthatisnoextension");
         $this->assertSame(['application/octet-stream'], (new Extension('ohmygodthatisnoextension'))->getTypes());
-    }
-
-    public function testGetNoStrictTypesUnknownExtension(): void
-    {
-        $this->assertSame(['application/octet-stream'], (new Extension('ohmygodthatisnoextension'))->getTypes(false));
     }
 }

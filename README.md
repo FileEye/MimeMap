@@ -1,7 +1,7 @@
 # MimeMap
 
 [![Tests](https://github.com/FileEye/MimeMap/actions/workflows/php-unit.yml/badge.svg)](https://github.com/FileEye/MimeMap/actions/workflows/php-unit.yml)
-[![PHPStan](https://img.shields.io/badge/PHPStan-level%207-brightgreen.svg?style=flat)](https://github.com/FileEye/MimeMap/actions/workflows/code-quality.yml)
+[![PHPStan](https://img.shields.io/badge/PHPStan-level%20max-brightgreen.svg?style=flat)](https://github.com/FileEye/MimeMap/actions/workflows/code-quality.yml)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/FileEye/MimeMap/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/FileEye/MimeMap/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/FileEye/MimeMap/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/FileEye/MimeMap/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/fileeye/mimemap/v/stable)](https://packagist.org/packages/fileeye/mimemap)

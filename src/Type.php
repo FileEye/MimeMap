@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace FileEye\MimeMap;
 
@@ -34,7 +34,7 @@ class Type implements TypeInterface
     /**
      * The MIME media type comment.
      *
-     * @var string
+     * @var string|null
      */
     protected $mediaComment;
 
@@ -48,9 +48,16 @@ class Type implements TypeInterface
     /**
      * The MIME media sub-type comment.
      *
-     * @var string
+     * @var string|null
      */
     protected $subTypeComment;
+
+    /**
+     *  MIME type descriptions.
+     *
+     * @var string[]
+     */
+    protected $descriptions;
 
     /**
      * Optional MIME parameters.
@@ -66,15 +73,13 @@ class Type implements TypeInterface
      */
     protected $map;
 
-    public function __construct(string $type_string = null, string $map_class = null)
+    public function __construct(string $type_string, string $map_class = null)
     {
-        if ($type_string !== null) {
-            TypeParser::parse($type_string, $this);
-        }
+        TypeParser::parse($type_string, $this);
         $this->map = MapHandler::map($map_class);
     }
 
-    public function getMedia(): ?string
+    public function getMedia(): string
     {
         return $this->media;
     }
@@ -85,18 +90,27 @@ class Type implements TypeInterface
         return $this;
     }
 
-    public function getMediaComment(): ?string
+    public function hasMediaComment(): bool
     {
-        return $this->mediaComment;
+        return $this->mediaComment !== null;
     }
 
-    public function setMediaComment(?string $comment): TypeInterface
+    public function getMediaComment(): string
+    {
+        if ($this->hasMediaComment()) {
+            assert(is_string($this->mediaComment));
+            return $this->mediaComment;
+        }
+        throw new UndefinedException('Media comment is not defined');
+    }
+
+    public function setMediaComment(string $comment = null): TypeInterface
     {
         $this->mediaComment = $comment;
         return $this;
     }
 
-    public function getSubType(): ?string
+    public function getSubType(): string
     {
         return $this->subType;
     }
@@ -107,12 +121,21 @@ class Type implements TypeInterface
         return $this;
     }
 
-    public function getSubTypeComment(): ?string
+    public function hasSubTypeComment(): bool
     {
-        return $this->subTypeComment;
+        return $this->subTypeComment !== null;
     }
 
-    public function setSubTypeComment(?string $comment): TypeInterface
+    public function getSubTypeComment(): string
+    {
+        if ($this->hasSubTypeComment()) {
+            assert(is_string($this->subTypeComment));
+            return $this->subTypeComment;
+        }
+        throw new UndefinedException('Subtype comment is not defined');
+    }
+
+    public function setSubTypeComment(string $comment = null): TypeInterface
     {
         $this->subTypeComment = $comment;
         return $this;
@@ -125,12 +148,23 @@ class Type implements TypeInterface
 
     public function getParameters(): array
     {
-        return $this->parameters;
+        if ($this->hasParameters()) {
+            return $this->parameters;
+        }
+        throw new UndefinedException("No parameters defined");
     }
 
-    public function getParameter(string $name): ?TypeParameter
+    public function hasParameter(string $name): bool
     {
-        return isset($this->parameters[$name]) ? $this->parameters[$name] : null;
+        return isset($this->parameters[$name]);
+    }
+
+    public function getParameter(string $name): TypeParameter
+    {
+        if ($this->hasParameter($name)) {
+            return $this->parameters[$name];
+        }
+        throw new UndefinedException("Parameter $name is not defined");
     }
 
     public function addParameter(string $name, string $value, string $comment = null): void
@@ -143,18 +177,15 @@ class Type implements TypeInterface
         unset($this->parameters[$name]);
     }
 
-    public function toString(int $format = Type::FULL_TEXT): ?string
+    public function toString(int $format = Type::FULL_TEXT): string
     {
-        if ($this->getMedia() === null || $this->getSubType() === null) {
-            return null;
-        }
         $type = strtolower($this->media);
-        if ($format > Type::FULL_TEXT && $this->getMediaComment() !== null) {
-            $type .= ' (' .  $this->mediaComment . ')';
+        if ($format > Type::FULL_TEXT && $this->hasMediaComment()) {
+            $type .= ' (' .  $this->getMediaComment() . ')';
         }
         $type .= '/' . strtolower($this->subType);
-        if ($format > Type::FULL_TEXT && $this->getSubTypeComment() !== null) {
-            $type .= ' (' .  $this->subTypeComment . ')';
+        if ($format > Type::FULL_TEXT && $this->hasSubTypeComment()) {
+            $type .= ' (' .  $this->getSubTypeComment() . ')';
         }
         if ($format > Type::SHORT_TEXT && count($this->parameters)) {
             foreach ($this->parameters as $parameter) {
@@ -201,7 +232,7 @@ class Type implements TypeInterface
         return preg_match("/$wildcard_re/", $subject) === 1;
     }
 
-    public function buildTypesList(bool $strict = true): array
+    public function buildTypesList(): array
     {
         $subject = $this->toString(static::SHORT_TEXT);
 
@@ -217,16 +248,11 @@ class Type implements TypeInterface
             }
         }
 
-        // No types found, throw exception or return emtpy array.
-        if (empty($types)) {
-            if ($strict) {
-                throw new MappingException('No MIME type found for ' . $subject . ' in map');
-            } else {
-                return [];
-            }
+        if (!empty($types)) {
+            return $types;
         }
 
-        return $types;
+        throw new MappingException('No MIME type found for ' . $subject . ' in map');
     }
 
     /**
@@ -241,34 +267,39 @@ class Type implements TypeInterface
         return $this->isAlias() ? new static($this->map->getAliasTypes($this->toString(static::SHORT_TEXT))[0]) : $this;
     }
 
-    public function getDescription(bool $include_acronym = false): ?string
+    public function hasDescription(): bool
     {
-        $descriptions = $this->map->getTypeDescriptions($this->getUnaliasedType()->toString(static::SHORT_TEXT));
-        $res = null;
-        if (isset($descriptions[0])) {
-            $res = $descriptions[0];
+        if ($this->descriptions === null) {
+            $this->descriptions = $this->map->getTypeDescriptions($this->getUnaliasedType()->toString(static::SHORT_TEXT));
         }
-        if ($include_acronym && isset($descriptions[1])) {
-            $res .= ', ' . $descriptions[1];
+        return isset($this->descriptions[0]);
+    }
+
+    public function getDescription(bool $include_acronym = false): string
+    {
+        if (!$this->hasDescription()) {
+            throw new MappingException('No description available for type: ' . $this->toString(static::SHORT_TEXT));
         }
+
+        $res = $this->descriptions[0];
+        if ($include_acronym && isset($this->descriptions[1])) {
+            $res .= ', ' . $this->descriptions[1];
+        }
+
         return $res;
     }
 
-    public function getAliases(bool $strict = true): array
+    public function getAliases(): array
     {
         // Fail if the current type is an alias already.
         if ($this->isAlias()) {
-            if ($strict) {
-                $subject = $this->toString(static::SHORT_TEXT);
-                throw new MappingException("Cannot get aliases for '{$subject}', it is an alias itself");
-            } else {
-                return [];
-            }
+            $subject = $this->toString(static::SHORT_TEXT);
+            throw new MappingException("Cannot get aliases for '{$subject}', it is an alias itself");
         }
 
         // Build the array of aliases.
         $aliases = [];
-        foreach ($this->buildTypesList($strict) as $t) {
+        foreach ($this->buildTypesList() as $t) {
             foreach ($this->map->getTypeAliases((string) $t) as $a) {
                 $aliases[$a] = $a;
             }
@@ -277,7 +308,7 @@ class Type implements TypeInterface
         return array_keys($aliases);
     }
 
-    public function getDefaultExtension(bool $strict = true): ?string
+    public function getDefaultExtension(): string
     {
         $unaliased_type = $this->getUnaliasedType();
         $subject = $unaliased_type->toString(static::SHORT_TEXT);
@@ -288,22 +319,18 @@ class Type implements TypeInterface
             $proceed = count($this->map->listTypes($subject)) === 1;
         }
 
-        if (!$proceed) {
-            if ($strict) {
-                throw new MappingException('Cannot determine default extension for type: ' . $unaliased_type->toString(static::SHORT_TEXT));
-            } else {
-                return null;
-            }
+        if ($proceed) {
+            return $unaliased_type->getExtensions()[0];
         }
 
-        return $unaliased_type->getExtensions()[0];
+        throw new MappingException('Cannot determine default extension for type: ' . $unaliased_type->toString(static::SHORT_TEXT));
     }
 
-    public function getExtensions(bool $strict = true): array
+    public function getExtensions(): array
     {
         // Build the array of extensions.
         $extensions = [];
-        foreach ($this->getUnaliasedType()->buildTypesList($strict) as $t) {
+        foreach ($this->getUnaliasedType()->buildTypesList() as $t) {
             foreach ($this->map->getTypeExtensions((string) $t) as $e) {
                 $extensions[$e] = $e;
             }

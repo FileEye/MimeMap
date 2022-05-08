@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace FileEye\MimeMap;
 
@@ -12,8 +12,11 @@ class Version
     /**
      * Returns the current version of MimeMap.
      */
-    public static function get(): ?string
+    public static function get(): string
     {
-        return InstalledVersions::getPrettyVersion('fileeye/mimemap');
+        if ($version = InstalledVersions::getPrettyVersion('fileeye/mimemap')) {
+            return $version;
+        }
+        throw new \RuntimeException("MimeMap could not determine its own version from Composer");
     }
 }
