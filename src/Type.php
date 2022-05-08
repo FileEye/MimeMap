@@ -98,6 +98,7 @@ class Type implements TypeInterface
     public function getMediaComment(): string
     {
         if ($this->hasMediaComment()) {
+            assert(is_string($this->mediaComment));
             return $this->mediaComment;
         }
         throw new UndefinedException('Media comment is not defined');
@@ -128,6 +129,7 @@ class Type implements TypeInterface
     public function getSubTypeComment(): string
     {
         if ($this->hasSubTypeComment()) {
+            assert(is_string($this->subTypeComment));
             return $this->subTypeComment;
         }
         throw new UndefinedException('Subtype comment is not defined');

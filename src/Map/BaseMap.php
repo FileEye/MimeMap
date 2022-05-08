@@ -45,7 +45,9 @@ abstract class BaseMap implements MapInterface
 
     public function reset(): void
     {
-        static::$map = static::$backupMap;
+        if (isset(static::$backupMap)) {
+            static::$map = static::$backupMap;
+        }
         static::$backupMap = null;
     }
 
