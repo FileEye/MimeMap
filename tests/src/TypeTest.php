@@ -449,7 +449,9 @@ class TypeTest extends MimeMapTestBase
             $this->assertFalse($mt->hasSubTypeComment());
         }
         $this->assertSame($expectedHasParameters, $mt->hasParameters());
-        $this->assertSame(count($expectedParameters), count($mt->getParameters()));
+        if ($expectedHasParameters) {
+            $this->assertSameSize($expectedParameters, $mt->getParameters());
+        }
         foreach ($expectedParameters as $name => $param) {
             $this->assertTrue(isset($mt->getParameters()[$name]));
             $this->assertInstanceOf(TypeParameter::class, $mt->getParameter($name));
@@ -648,8 +650,6 @@ class TypeTest extends MimeMapTestBase
         $this->assertEquals(['atom'], (new Type('application/atom+xml'))->getExtensions());
         $this->assertEquals(['ser', 'js', 'jsm', 'mjs'], (new Type('application/java*'))->getExtensions());
         $this->assertEquals(['ser'], (new Type('application/java-*'))->getExtensions());
-        $this->assertEquals([], (new Type('application/a000'))->getExtensions(false));
-        $this->assertEquals([], (new Type('application/a000-*'))->getExtensions(false));
 
         $this->assertSame(['smi', 'smil', 'sml', 'kino'], (new Type('application/smil+xml'))->getExtensions());
         $this->assertSame(['smi', 'smil', 'sml', 'kino'], (new Type('application/smil'))->getExtensions());
@@ -658,7 +658,8 @@ class TypeTest extends MimeMapTestBase
     public function testGetExtensionsFail(): void
     {
         $this->expectException(MappingException::class);
-        $this->assertEquals([], (new Type('application/a000'))->getExtensions());
+        $this->expectExceptionMessage("No MIME type found for application/a000 in map");
+        $extensions = (new Type('application/a000'))->getExtensions();
     }
 
     public function testGetDefaultExtension(): void
