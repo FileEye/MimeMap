@@ -39,12 +39,11 @@ jobs:
         - name: Run tests
           run: ./vendor/bin/phpunit --color=always --coverage-clover=coverage.xml
 
-        - name: Upload coverage file
-          uses: "actions/upload-artifact@v2"
+        - name: Send code coverage report to Codecov.io
+          uses: codecov/codecov-action@v2
           with:
-            name: "${{ github.job }}-${{ matrix.php-version }}.coverage"
-            path: "coverage.xml"
-
+            files: coverage.xml
+            
         - name: Mapping test
           if: ${{ matrix.php-version == 7.4 }}
           continue-on-error: true
