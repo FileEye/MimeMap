@@ -94,8 +94,7 @@ class MapUpdater
                 foreach ($parts as $extension) {
                     $this->map->addTypeExtensionMapping($type, $extension);
                 }
-            }
-            else {
+            } else {
                 $errors[] = "Error processing line: $line";
             }
         }
