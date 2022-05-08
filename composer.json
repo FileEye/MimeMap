@@ -17,7 +17,8 @@
         "symfony/filesystem": ">=5.4",
         "symfony/console": ">=5.4",
         "symfony/var-dumper": ">=5.4",
-        "symfony/yaml": ">=5.4"
+        "symfony/yaml": ">=5.4",
+        "phpstan/phpstan": "^1.2"
     },
     "autoload": {
         "psr-4": {

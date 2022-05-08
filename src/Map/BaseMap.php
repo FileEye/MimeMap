@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace FileEye\MimeMap\Map;
 
@@ -45,7 +45,9 @@ abstract class BaseMap implements MapInterface
 
     public function reset(): void
     {
-        static::$map = static::$backupMap;
+        if (isset(static::$backupMap)) {
+            static::$map = static::$backupMap;
+        }
         static::$backupMap = null;
     }
 
@@ -115,12 +117,12 @@ abstract class BaseMap implements MapInterface
      * @param string $entry_key
      *   The main entry value.
      *
-     * @return mixed|null
-     *   The value of the entry, or null if missing.
+     * @return array<string|int,array<string>>
+     *   The values of the entry, or empty array if missing.
      */
-    protected function getMapEntry(string $entry, string $entry_key)
+    protected function getMapEntry(string $entry, string $entry_key): array
     {
-        return isset(static::$map[$entry][$entry_key]) ? static::$map[$entry][$entry_key] : null;
+        return isset(static::$map[$entry][$entry_key]) ? static::$map[$entry][$entry_key] : [];
     }
 
     /**
@@ -133,12 +135,12 @@ abstract class BaseMap implements MapInterface
      * @param string $sub_entry
      *   The sub entry.
      *
-     * @return mixed|null
-     *   The value of the entry, or null if missing.
+     * @return string[]
+     *   The values of the subentry, or empty array if missing.
      */
-    protected function getMapSubEntry(string $entry, string $entry_key, string $sub_entry)
+    protected function getMapSubEntry(string $entry, string $entry_key, string $sub_entry): array
     {
-        return isset(static::$map[$entry][$entry_key][$sub_entry]) ? static::$map[$entry][$entry_key][$sub_entry] : null;
+        return isset(static::$map[$entry][$entry_key][$sub_entry]) ? static::$map[$entry][$entry_key][$sub_entry] : [];
     }
 
     /**

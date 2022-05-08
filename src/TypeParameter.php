@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace FileEye\MimeMap;
 
@@ -39,7 +39,9 @@ class TypeParameter
     {
         $this->name = $name;
         $this->value = $value;
-        $this->comment = $comment;
+        if ($comment !== null) {
+            $this->comment = $comment;
+        }
     }
 
     /**
@@ -68,10 +70,15 @@ class TypeParameter
 
     /**
      * Gets the parameter comment.
+     *
+     * @throws UndefinedException
      */
-    public function getComment(): ?string
+    public function getComment(): string
     {
-        return $this->comment;
+        if ($this->hasComment()) {
+            return $this->comment;
+        }
+        throw new UndefinedException('Parameter comment is not defined');
     }
 
     /**
@@ -82,8 +89,8 @@ class TypeParameter
     public function toString(int $format = Type::FULL_TEXT): string
     {
         $val = $this->name . '="' . str_replace('"', '\\"', $this->value) . '"';
-        if ($format > Type::FULL_TEXT && $this->comment) {
-            $val .= ' (' . $this->comment . ')';
+        if ($format > Type::FULL_TEXT && $this->hasComment()) {
+            $val .= ' (' . $this->getComment() . ')';
         }
         return $val;
     }

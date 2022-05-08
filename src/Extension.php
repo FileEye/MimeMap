@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace FileEye\MimeMap;
 
@@ -29,21 +29,17 @@ class Extension implements ExtensionInterface
         $this->map = MapHandler::map($map_class);
     }
 
-    public function getDefaultType(bool $strict = true): string
+    public function getDefaultType(): string
     {
-        return $this->getTypes($strict)[0];
+        return $this->getTypes()[0];
     }
 
-    public function getTypes(bool $strict = true): array
+    public function getTypes(): array
     {
         $types = $this->map->getExtensionTypes($this->extension);
-        if (empty($types)) {
-            if ($strict) {
-                throw new MappingException('No MIME type mapped to extension ' . $this->extension);
-            } else {
-                return ['application/octet-stream'];
-            }
+        if (!empty($types)) {
+            return $types;
         }
-        return $types;
+        throw new MappingException('No MIME type mapped to extension ' . $this->extension);
     }
 }

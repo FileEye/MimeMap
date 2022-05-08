@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace FileEye\MimeMap\Test;
 
@@ -71,9 +71,6 @@ class MapHandlerTest extends MimeMapTestBase
         // Remove an existing type-extension pair.
         $this->assertTrue($this->map->removeTypeExtensionMapping('text/plain', 'txt'));
         $this->assertSame(['text', 'conf', 'def', 'list', 'log', 'in', 'asc'], (new Type('text/plain'))->getExtensions());
-        $this->assertSame('text', (new Type('text/plain'))->getDefaultExtension());
-        $this->assertSame(['application/octet-stream'], (new Extension('txt'))->getTypes(false));
-        $this->assertSame('application/octet-stream', (new Extension('txt'))->getDefaultType(false));
 
         // Try removing a non-existing extension.
         $this->assertFalse($this->map->removeTypeExtensionMapping('text/plain', 'axx'));
@@ -87,26 +84,88 @@ class MapHandlerTest extends MimeMapTestBase
         $this->assertFalse($this->map->removeTypeAlias('application/pdf', 'foo/bar'));
         $this->assertSame(['image/pdf', 'application/acrobat', 'application/nappdf'], (new Type('application/pdf'))->getAliases());
 
-        // Remove an existing type.
-        $this->assertTrue($this->map->removeType('text/plain'));
-        $this->assertSame([], (new Type('text/plain'))->getExtensions(false));
-        $this->assertSame(null, (new Type('text/plain'))->getDefaultExtension(false));
-        $this->assertSame(['application/octet-stream'], (new Extension('DEf'))->getTypes(false));
-        $this->assertSame('application/octet-stream', (new Extension('DeF'))->getDefaultType(false));
+        // Try removing a non-existing type.
+        $this->assertFalse($this->map->removeType('axx/axx'));
+    }
 
-        // Remove an existing type with aliases.
+    public function testGetExtensionTypesAfterTypeExtensionMappingRemoval(): void
+    {
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage("No MIME type mapped to extension txt");
+        $this->assertTrue($this->map->removeTypeExtensionMapping('text/plain', 'txt'));
+        $types = (new Extension('txt'))->getTypes();
+    }
+
+    public function testGetExtensionDefaultTypeAfterTypeExtensionMappingRemoval(): void
+    {
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage("No MIME type mapped to extension txt");
+        $this->assertTrue($this->map->removeTypeExtensionMapping('text/plain', 'txt'));
+        $defaultType = (new Extension('txt'))->getDefaultType();
+    }
+
+    public function testGetTypeExtensionsAfterTypeRemoval(): void
+    {
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage("No MIME type found for text/plain in map");
+        $this->assertTrue($this->map->removeType('text/plain'));
+        $extensions = (new Type('text/plain'))->getExtensions();
+    }
+
+    public function testGetExtensionTypesAfterTypeRemoval(): void
+    {
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage('No MIME type mapped to extension def');
+        $this->assertTrue($this->map->removeType('text/plain'));
+        $types = (new Extension('DEf'))->getTypes();
+    }
+
+    public function testGetExtensionDefaultTypeAfterTypeRemoval(): void
+    {
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage('No MIME type mapped to extension def');
+        $this->assertTrue($this->map->removeType('text/plain'));
+        $defaultType = (new Extension('DeF'))->getDefaultType();
+    }
+
+    public function testGetTypeExtensionsAfterTypeWithAliasRemoval(): void
+    {
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage('No MIME type found for text/markdown in map');
         $this->assertTrue($this->map->hasAlias('text/x-markdown'));
         $this->assertTrue($this->map->removeType('text/markdown'));
         $this->assertFalse($this->map->hasAlias('text/x-markdown'));
-        $this->assertSame([], (new Type('text/markdown'))->getExtensions(false));
-        $this->assertSame(null, (new Type('text/markdown'))->getDefaultExtension(false));
-        $this->assertSame([], (new Type('text/x-markdown'))->getExtensions(false));
-        $this->assertSame(null, (new Type('text/x-markdown'))->getDefaultExtension(false));
-        $this->assertSame(['application/octet-stream'], (new Extension('MD'))->getTypes(false));
-        $this->assertSame('application/octet-stream', (new Extension('md'))->getDefaultType(false));
+        $extensions = (new Type('text/markdown'))->getExtensions();
+    }
 
-        // Try removing a non-existing type.
-        $this->assertFalse($this->map->removeType('axx/axx'));
+    public function testGetAliasExtensionsAfterTypeWithAliasRemoval(): void
+    {
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage("No MIME type found for text/x-markdown in map");
+        $this->assertTrue($this->map->hasAlias('text/x-markdown'));
+        $this->assertTrue($this->map->removeType('text/markdown'));
+        $this->assertFalse($this->map->hasAlias('text/x-markdown'));
+        $extensions = (new Type('text/x-markdown'))->getExtensions();
+    }
+
+    public function testGetExtensionTypesAfterTypeWithAliasRemoval(): void
+    {
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage("No MIME type mapped to extension md");
+        $this->assertTrue($this->map->hasAlias('text/x-markdown'));
+        $this->assertTrue($this->map->removeType('text/markdown'));
+        $this->assertFalse($this->map->hasAlias('text/x-markdown'));
+        $types = (new Extension('MD'))->getTypes();
+    }
+
+    public function testGetExtensionDefaultTypeAfterTypeWithAliasRemoval(): void
+    {
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage("No MIME type mapped to extension md");
+        $this->assertTrue($this->map->hasAlias('text/x-markdown'));
+        $this->assertTrue($this->map->removeType('text/markdown'));
+        $this->assertFalse($this->map->hasAlias('text/x-markdown'));
+        $defaultType = (new Extension('md'))->getDefaultType();
     }
 
     public function testHasType(): void
