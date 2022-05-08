@@ -34,7 +34,7 @@ class Type implements TypeInterface
     /**
      * The MIME media type comment.
      *
-     * @var string
+     * @var string|null
      */
     protected $mediaComment;
 
@@ -48,7 +48,7 @@ class Type implements TypeInterface
     /**
      * The MIME media sub-type comment.
      *
-     * @var string
+     * @var string|null
      */
     protected $subTypeComment;
 
@@ -103,13 +103,9 @@ class Type implements TypeInterface
         throw new UndefinedException('Media comment is not defined');
     }
 
-    public function setMediaComment(string $comment): TypeInterface
+    public function setMediaComment(string $comment = null): TypeInterface
     {
-        if ($comment !== '') {
-            $this->mediaComment = $comment;
-        } else {
-            $this->mediaComment = null;
-        }
+        $this->mediaComment = $comment;
         return $this;
     }
 
@@ -137,13 +133,9 @@ class Type implements TypeInterface
         throw new UndefinedException('Subtype comment is not defined');
     }
 
-    public function setSubTypeComment(string $comment): TypeInterface
+    public function setSubTypeComment(string $comment = null): TypeInterface
     {
-        if ($comment !== '') {
-            $this->subTypeComment = $comment;
-        } else {
-            $this->subTypeComment = null;
-        }
+        $this->subTypeComment = $comment;
         return $this;
     }
 

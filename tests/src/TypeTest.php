@@ -551,9 +551,9 @@ class TypeTest extends MimeMapTestBase
         $this->assertSame('text (media comment)/x-test', $type->toString(Type::FULL_TEXT_WITH_COMMENTS));
         $type->setSubTypeComment('subtype comment');
         $this->assertSame('text (media comment)/x-test (subtype comment)', $type->toString(Type::FULL_TEXT_WITH_COMMENTS));
-        $type->setMediaComment('');
+        $type->setMediaComment();
         $this->assertSame('text/x-test (subtype comment)', $type->toString(Type::FULL_TEXT_WITH_COMMENTS));
-        $type->setSubTypeComment('');
+        $type->setSubTypeComment();
         $this->assertSame('text/x-test', $type->toString(Type::FULL_TEXT_WITH_COMMENTS));
     }
 
