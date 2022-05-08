@@ -108,7 +108,7 @@ class Type implements TypeInterface
         if ($comment !== '') {
             $this->mediaComment = $comment;
         } else {
-            unset($this->mediaComment);
+            $this->mediaComment = null;
         }
         return $this;
     }
@@ -142,7 +142,7 @@ class Type implements TypeInterface
         if ($comment !== '') {
             $this->subTypeComment = $comment;
         } else {
-            unset($this->subTypeComment);
+            $this->subTypeComment = null;
         }
         return $this;
     }
