@@ -139,7 +139,7 @@ class MapUpdaterTest extends MimeMapTestBase
     public function testLoadMapFromFreedesktopInvalidFile(): void
     {
         $this->assertSame(
-            ["Failed loading file certainly_missing.xml"],
+            ['Malformed XML in file ' . dirname(__FILE__) . '/../fixtures/invalid.freedesktop.xml'],
             $this->updater->loadMapFromFreedesktopFile(dirname(__FILE__) . '/../fixtures/invalid.freedesktop.xml')
         );
     }
