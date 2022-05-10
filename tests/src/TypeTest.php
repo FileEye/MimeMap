@@ -539,7 +539,7 @@ class TypeTest extends MimeMapTestBase
     {
         $t = new Type($type);
         $this->assertFalse($t->hasDescription());
-        $this->expectException(MappingException::class);
+        $this->expectException(UndefinedException::class);
         $this->expectExceptionMessage('No description available for type: ' . $type);
         $desc = $t->getDescription();
     }
@@ -548,8 +548,8 @@ class TypeTest extends MimeMapTestBase
     {
         $t = new Type('text/plain');
         $this->assertFalse($t->hasMediaComment());
-        $this->expectException(MappingException::class);
-        $this->expectExceptionMessage('No description available for type');
+        $this->expectException(UndefinedException::class);
+        $this->expectExceptionMessage('Media comment is not defined');
         $comment = $t->getMediaComment();
     }
 
@@ -557,8 +557,8 @@ class TypeTest extends MimeMapTestBase
     {
         $t = new Type('text/plain');
         $this->assertFalse($t->hasSubTypeComment());
-        $this->expectException(MappingException::class);
-        $this->expectExceptionMessage('No description available for type');
+        $this->expectException(UndefinedException::class);
+        $this->expectExceptionMessage('Subtype comment is not defined');
         $comment = $t->getSubTypeComment();
     }
 
@@ -566,8 +566,8 @@ class TypeTest extends MimeMapTestBase
     {
         $t = new Type('text/plain');
         $this->assertFalse($t->hasParameters());
-        $this->expectException(MappingException::class);
-        $this->expectExceptionMessage('No description available for type');
+        $this->expectException(UndefinedException::class);
+        $this->expectExceptionMessage('No parameters defined');
         $parameters = $t->getParameters();
     }
 
@@ -575,8 +575,8 @@ class TypeTest extends MimeMapTestBase
     {
         $t = new Type('text/plain');
         $this->assertFalse($t->hasParameter('foo'));
-        $this->expectException(MappingException::class);
-        $this->expectExceptionMessage('No description available for type');
+        $this->expectException(UndefinedException::class);
+        $this->expectExceptionMessage('Parameter foo is not defined');
         $parameters = $t->getParameter('foo');
     }
 
