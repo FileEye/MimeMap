@@ -80,11 +80,14 @@ class MapUpdater
         $errors = [];
 
         $lines = @file($source_file);
-        if ($lines === false) {
-            throw new \RuntimeException("Failed accessing {$source_file}");
+        if ($lines == false) {
+            $errors[] = "Failed accessing {$source_file}";
+            return $errors;
         }
+        $i = 1;
         foreach ($lines as $line) {
             if ($line[0] == '#') {
+                $i++;
                 continue;
             }
             $line = preg_replace("#\\s+#", ' ', trim($line));
@@ -95,8 +98,9 @@ class MapUpdater
                     $this->map->addTypeExtensionMapping($type, $extension);
                 }
             } else {
-                $errors[] = "Error processing line: $line";
+                $errors[] = "Error processing line $i";
             }
+            $i++;
         }
         $this->map->sort();
 
@@ -117,14 +121,14 @@ class MapUpdater
     {
         $errors = [];
 
-        $contents = file_get_contents($source_file);
-        if ($contents === false) {
+        $contents = @file_get_contents($source_file);
+        if ($contents == false) {
             $errors[] = 'Failed loading file ' . $source_file;
             return $errors;
         }
 
-        $xml = simplexml_load_string($contents);
-        if ($xml === false) {
+        $xml = @simplexml_load_string($contents);
+        if ($xml == false) {
             $errors[] = 'Malformed XML in file ' . $source_file;
             return $errors;
         }
@@ -220,8 +224,8 @@ class MapUpdater
      */
     public function writeMapToPhpClassFile(string $file): MapUpdater
     {
-        $content = file_get_contents($file);
-        if ($content === false) {
+        $content = @file_get_contents($file);
+        if ($content == false) {
             throw new \RuntimeException('Failed loading file ' . $file);
         }
 
