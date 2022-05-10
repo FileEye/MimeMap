@@ -544,6 +544,42 @@ class TypeTest extends MimeMapTestBase
         $desc = $t->getDescription();
     }
 
+    public function testMissingMediaComment(): void
+    {
+        $t = new Type('text/plain');
+        $this->assertFalse($t->hasMediaComment());
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage('No description available for type');
+        $comment = $t->getMediaComment();
+    }
+
+    public function testMissingSubTypeComment(): void
+    {
+        $t = new Type('text/plain');
+        $this->assertFalse($t->hasSubTypeComment());
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage('No description available for type');
+        $comment = $t->getSubTypeComment();
+    }
+
+    public function testMissingParameters(): void
+    {
+        $t = new Type('text/plain');
+        $this->assertFalse($t->hasParameters());
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage('No description available for type');
+        $parameters = $t->getParameters();
+    }
+
+    public function testMissingParameter(): void
+    {
+        $t = new Type('text/plain');
+        $this->assertFalse($t->hasParameter('foo'));
+        $this->expectException(MappingException::class);
+        $this->expectExceptionMessage('No description available for type');
+        $parameters = $t->getParameter('foo');
+    }
+
     public function testSetComment(): void
     {
         $type = new Type('text/x-test');
