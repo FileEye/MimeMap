@@ -540,7 +540,7 @@ class TypeTest extends MimeMapTestBase
     {
         $t = new Type($type);
         $this->assertFalse($t->hasDescription());
-        $this->expectException(UndefinedException::class);
+        $this->expectException(MappingException::class);
         $this->expectExceptionMessage('No description available for type: ' . $type);
         $desc = $t->getDescription();
     }
