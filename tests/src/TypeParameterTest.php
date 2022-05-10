@@ -4,6 +4,7 @@ namespace FileEye\MimeMap\Test;
 
 use FileEye\MimeMap\Type;
 use FileEye\MimeMap\TypeParameter;
+use FileEye\MimeMap\UndefinedException;
 
 class TypeParameterTest extends MimeMapTestBase
 {
@@ -31,5 +32,8 @@ class TypeParameterTest extends MimeMapTestBase
         $this->assertSame('foo', $mt->getParameter('foo')->getName());
         $this->assertSame('bar', $mt->getParameter('foo')->getValue());
         $this->assertFalse($mt->getParameter('foo')->hasComment());
+        $this->expectException(UndefinedException::class);
+        $this->expectExceptionMessage('Parameter comment is not defined');
+        $comment = $mt->getParameter('foo')->getComment();
     }
 }
