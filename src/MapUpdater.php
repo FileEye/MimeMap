@@ -81,7 +81,8 @@ class MapUpdater
 
         $lines = @file($source_file);
         if ($lines == false) {
-            throw new \RuntimeException("Failed accessing {$source_file}");
+            $errors[] = "Failed accessing {$source_file}";
+            return $errors;
         }
         foreach ($lines as $line) {
             if ($line[0] == '#') {
@@ -123,8 +124,8 @@ class MapUpdater
             return $errors;
         }
 
-        $xml = simplexml_load_string($contents);
-        if ($xml === false) {
+        $xml = @simplexml_load_string($contents);
+        if ($xml == false) {
             $errors[] = 'Malformed XML in file ' . $source_file;
             return $errors;
         }
