@@ -65,6 +65,14 @@ class MapUpdaterTest extends MimeMapTestBase
         $this->assertSame([], $this->newMap->getMapArray());
     }
 
+    public function testLoadMapFromApacheMissingFile(): void
+    {
+        $this->assertSame(
+            ["Failed accessing certainly_missing.xml"],
+            $this->updater->loadMapFromApacheFile('certainly_missing.xml')
+        );
+    }
+
     public function testApplyOverridesFailure(): void
     {
         $this->updater->loadMapFromFreedesktopFile(dirname(__FILE__) . '/../fixtures/min.freedesktop.xml');
@@ -118,6 +126,22 @@ class MapUpdaterTest extends MimeMapTestBase
     {
         $this->updater->loadMapFromFreedesktopFile(dirname(__FILE__) . '/../fixtures/zero.freedesktop.xml');
         $this->assertSame([], $this->newMap->getMapArray());
+    }
+
+    public function testLoadMapFromFreedesktopMissingFile(): void
+    {
+        $this->assertSame(
+            ["Failed loading file certainly_missing.xml"],
+            $this->updater->loadMapFromFreedesktopFile('certainly_missing.xml')
+        );
+    }
+
+    public function testLoadMapFromFreedesktopInvalidFile(): void
+    {
+        $this->assertSame(
+            ['Malformed XML in file ' . dirname(__FILE__) . '/../fixtures/invalid.freedesktop.xml'],
+            $this->updater->loadMapFromFreedesktopFile(dirname(__FILE__) . '/../fixtures/invalid.freedesktop.xml')
+        );
     }
 
     public function testEmptyMapNotWriteable(): void

@@ -6,6 +6,7 @@ use FileEye\MimeMap\MalformedTypeException;
 use FileEye\MimeMap\MappingException;
 use FileEye\MimeMap\Type;
 use FileEye\MimeMap\TypeParameter;
+use FileEye\MimeMap\UndefinedException;
 
 class TypeTest extends MimeMapTestBase
 {
@@ -542,6 +543,42 @@ class TypeTest extends MimeMapTestBase
         $this->expectException(MappingException::class);
         $this->expectExceptionMessage('No description available for type: ' . $type);
         $desc = $t->getDescription();
+    }
+
+    public function testMissingMediaComment(): void
+    {
+        $t = new Type('text/plain');
+        $this->assertFalse($t->hasMediaComment());
+        $this->expectException(UndefinedException::class);
+        $this->expectExceptionMessage('Media comment is not defined');
+        $comment = $t->getMediaComment();
+    }
+
+    public function testMissingSubTypeComment(): void
+    {
+        $t = new Type('text/plain');
+        $this->assertFalse($t->hasSubTypeComment());
+        $this->expectException(UndefinedException::class);
+        $this->expectExceptionMessage('Subtype comment is not defined');
+        $comment = $t->getSubTypeComment();
+    }
+
+    public function testMissingParameters(): void
+    {
+        $t = new Type('text/plain');
+        $this->assertFalse($t->hasParameters());
+        $this->expectException(UndefinedException::class);
+        $this->expectExceptionMessage('No parameters defined');
+        $parameters = $t->getParameters();
+    }
+
+    public function testMissingParameter(): void
+    {
+        $t = new Type('text/plain');
+        $this->assertFalse($t->hasParameter('foo'));
+        $this->expectException(UndefinedException::class);
+        $this->expectExceptionMessage('Parameter foo is not defined');
+        $parameters = $t->getParameter('foo');
     }
 
     public function testSetComment(): void
