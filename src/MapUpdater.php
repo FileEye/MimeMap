@@ -121,6 +121,7 @@ class MapUpdater
 dump('*************', $contents, $contents == false);
         if ($contents == false) {
             $errors[] = 'Failed loading file ' . $source_file;
+dump('*****errors********', $errors);
             return $errors;
         }
 
