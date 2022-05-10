@@ -117,7 +117,7 @@ class MapUpdater
     {
         $errors = [];
 
-        $contents = file_get_contents($source_file);
+        $contents = @file_get_contents($source_file);
         if ($contents === false) {
             $errors[] = 'Failed loading file ' . $source_file;
             return $errors;
