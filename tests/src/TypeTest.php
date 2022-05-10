@@ -6,6 +6,7 @@ use FileEye\MimeMap\MalformedTypeException;
 use FileEye\MimeMap\MappingException;
 use FileEye\MimeMap\Type;
 use FileEye\MimeMap\TypeParameter;
+use FileEye\MimeMap\UndefinedException;
 
 class TypeTest extends MimeMapTestBase
 {
