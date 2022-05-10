@@ -118,6 +118,7 @@ class MapUpdater
         $errors = [];
 
         $contents = @file_get_contents($source_file);
+dump($contents);
         if ($contents == false) {
             $errors[] = 'Failed loading file ' . $source_file;
             return $errors;
@@ -220,8 +221,8 @@ class MapUpdater
      */
     public function writeMapToPhpClassFile(string $file): MapUpdater
     {
-        $content = file_get_contents($file);
-        if ($content === false) {
+        $content = @file_get_contents($file);
+        if ($content == false) {
             throw new \RuntimeException('Failed loading file ' . $file);
         }
 
