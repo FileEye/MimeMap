@@ -120,6 +120,12 @@ class MapUpdaterTest extends MimeMapTestBase
         $this->assertSame([], $this->newMap->getMapArray());
     }
 
+    public function testLoadMapFromFreedesktopInvalidFile(): void
+    {
+        $this->updater->loadMapFromFreedesktopFile('certainly_missing.xml');
+        $this->assertSame(["Failed accessing certainly_missing.xml"], $this->newMap->getMapArray());
+    }
+
     public function testEmptyMapNotWriteable(): void
     {
         $this->expectException('LogicException');
