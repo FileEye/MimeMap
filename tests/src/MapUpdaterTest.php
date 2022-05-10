@@ -123,7 +123,7 @@ class MapUpdaterTest extends MimeMapTestBase
     public function testLoadMapFromFreedesktopInvalidFile(): void
     {
         $this->assertSame(
-            ["Failed accessing certainly_missing.xml"],
+            ["Failed loading file certainly_missing.xml"],
             $this->updater->loadMapFromFreedesktopFile('certainly_missing.xml')
         );
     }
