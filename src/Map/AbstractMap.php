@@ -14,6 +14,13 @@ use FileEye\MimeMap\TypeParser;
 abstract class AbstractMap extends BaseMap implements MimeMapInterface
 {
     /**
+     * Singleton instance.
+     *
+     * @var MimeMapInterface
+     */
+    protected static $instance;
+
+    /**
      * Normalizes a mime-type string to Media/Subtype.
      *
      * @param string $type_string
