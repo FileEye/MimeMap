@@ -53,7 +53,7 @@ abstract class BaseMap implements MapInterface
 
     public static function getInstance(): MapInterface
     {
-        if (!isset(static::$instance)) {
+        if (empty(static::$instance)) {
             static::$instance = new static();
         }
         return static::$instance;
