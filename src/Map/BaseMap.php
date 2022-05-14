@@ -14,7 +14,7 @@ abstract class BaseMap implements MapInterface
     /**
      * Singleton instance.
      *
-     * @var MapInterface
+     * @var MapInterface|null
      */
     protected static $instance;
 
@@ -53,7 +53,7 @@ abstract class BaseMap implements MapInterface
 
     public static function getInstance(): MapInterface
     {
-        if (static::$instance == null) {
+        if (static::$instance === null) {
             static::$instance = new static();
         }
         return static::$instance;
