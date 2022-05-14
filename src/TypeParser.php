@@ -27,7 +27,7 @@ class TypeParser
         if (!$media['delimiter_matched']) {
             throw new MalformedTypeException('Slash \'/\' to separate media type and subtype not found');
         }
-        $type->setMedia(strtolower((string) $media['string']));
+        $type->setMedia(strtolower($media['string']));
         if ($media['comment'] !== null) {
             $type->setMediaComment($media['comment']);
         }
@@ -37,7 +37,7 @@ class TypeParser
         if (!$sub['string']) {
             throw new MalformedTypeException('Media subtype not found');
         }
-        $type->setSubType(strtolower((string) $sub['string']));
+        $type->setSubType(strtolower($sub['string']));
         if ($sub['comment'] !== null) {
             $type->setSubTypeComment($sub['comment']);
         }
