@@ -13,7 +13,7 @@ class MiniMap extends AbstractMap
     /**
      * @var MiniMap
      */
-    private static $instance;
+    protected static $instance;
 
     public function getFileName(): string
     {

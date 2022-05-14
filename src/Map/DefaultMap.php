@@ -12,7 +12,7 @@ class DefaultMap extends AbstractMap
     /**
      * @var DefaultMap
      */
-    private static $instance;
+    protected static $instance;
 
     public function getFileName(): string
     {
