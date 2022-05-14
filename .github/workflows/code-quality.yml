@@ -35,7 +35,7 @@ jobs:
         run: "vendor/bin/phpstan"
 
       - name: "Run static analysis with vimeo/psalm"
-        run: ./vendor/bin/psalm
+        run: ./vendor/bin/psalm --shepherd
 
       - name: "Run code style check with squizlabs/php_codesniffer"
         run: ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1

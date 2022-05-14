@@ -2,6 +2,7 @@
 
 [![Tests](https://github.com/FileEye/MimeMap/actions/workflows/php-unit.yml/badge.svg)](https://github.com/FileEye/MimeMap/actions/workflows/php-unit.yml)
 [![PHPStan](https://img.shields.io/badge/PHPStan-level%20max-brightgreen.svg?style=flat)](https://github.com/FileEye/MimeMap/actions/workflows/code-quality.yml)
+https://shepherd.dev/github/FileEye/MimeMap/coverage.svg
 [![codecov](https://codecov.io/gh/FileEye/MimeMap/branch/master/graph/badge.svg?token=SUAMNKZLEW)](https://codecov.io/gh/FileEye/MimeMap)
 [![Latest Stable Version](https://poser.pugx.org/fileeye/mimemap/v/stable)](https://packagist.org/packages/fileeye/mimemap)
 [![Total Downloads](https://poser.pugx.org/fileeye/mimemap/downloads)](https://packagist.org/packages/fileeye/mimemap)
@@ -22,6 +23,8 @@ extensions.
   the most authoritative sources available, [Apache's documentation](http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=log)
   and the [freedesktop.org project](http://freedesktop.org).
 - PHPUnit tested, 100% test coverage
+- PHPStan level 8
+- Psalm level 2
 
 
 ## Credits
@@ -128,7 +131,7 @@ associated to it:
   // will print 'text/plain (Unstructured text); charset="utf-8" (UTF8, not ASCII), lang="it" (Italian)'
   ```
 
-4. You have a MIME Content-Type string and want to the type's description as a comment:
+4. You have a MIME Content-Type string and want to add the type's description as a comment:
 
   ```php
   use FileEye\MimeMap\Type;
