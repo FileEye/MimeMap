@@ -11,7 +11,7 @@ namespace FileEye\MimeMap\Map;
 class MiniMap extends AbstractMap
 {
     /**
-     * @var MiniMap
+     * @var MapInterface
      */
     protected static $instance;
 

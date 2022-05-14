@@ -4,6 +4,7 @@
  * A Symfony CLI utility application for MimeMap.
  */
 
+use Composer\InstalledVersions;
 use FileEye\MimeMap\Command\UpdateCommand;
 use FileEye\MimeMap\Version;
 use Symfony\Component\Console\Application;
@@ -16,6 +17,9 @@ if (file_exists($packageAutoloader)) {
     require_once $standaloneAutoloader;
 }
 
-$application = new Application('fileeye-mimemap', Version::get());
+$application = new Application(
+    'fileeye-mimemap',
+    InstalledVersions::getPrettyVersion('fileeye/mimemap') ?? 'n/a'
+);
 $application->add(new UpdateCommand());
 $application->run();
