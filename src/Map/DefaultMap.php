@@ -10,7 +10,7 @@ namespace FileEye\MimeMap\Map;
 class DefaultMap extends AbstractMap
 {
     /**
-     * @var MapInterface
+     * @var MapInterface|null
      */
     protected static $instance;
 

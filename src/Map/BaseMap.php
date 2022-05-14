@@ -14,7 +14,7 @@ abstract class BaseMap implements MapInterface
     /**
      * Singleton instance.
      *
-     * @var MapInterface
+     * @var MapInterface|null
      */
     protected static $instance;
 

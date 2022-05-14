@@ -43,7 +43,7 @@ abstract class AbstractMap extends BaseMap implements MimeMapInterface
             throw new MalformedTypeException('Media subtype not found');
         }
 
-        return strtolower((string) $media['string']) . '/' . strtolower((string) $sub['string']);
+        return strtolower($media['string']) . '/' . strtolower($sub['string']);
     }
 
     public function hasType(string $type): bool
