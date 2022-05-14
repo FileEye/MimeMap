@@ -18,7 +18,8 @@
         "symfony/console": ">=5.4",
         "symfony/var-dumper": ">=5.4",
         "symfony/yaml": ">=5.4",
-        "phpstan/phpstan": "^1.2"
+        "phpstan/phpstan": "^1.2",
+        "vimeo/psalm": "^4.23"
     },
     "autoload": {
         "psr-4": {

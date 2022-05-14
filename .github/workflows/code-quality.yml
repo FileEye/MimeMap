@@ -8,14 +8,14 @@ on:
 
 jobs:
 
-  static-analysis-phpstan:
-    name: "Static Analysis with PHPStan"
+  static-analysis:
+    name: "Code quality checks"
     runs-on: "ubuntu-20.04"
 
     strategy:
       matrix:
         php-version:
-          - "8.0"
+          - "8.1"
 
     steps:
       - name: "Checkout code"
@@ -33,6 +33,9 @@ jobs:
 
       - name: "Run static analysis with phpstan/phpstan"
         run: "vendor/bin/phpstan"
+
+      - name: "Run static analysis with vimeo/psalm"
+        run: ./vendor/bin/psalm
 
       - name: "Run code style check with squizlabs/php_codesniffer"
         run: ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1
