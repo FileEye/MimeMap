@@ -13,5 +13,5 @@ class EmptyMap extends AbstractMap
     /**
      * @var EmptyMap
      */
-    protected static $instance;
+    private static $instance;
 }
