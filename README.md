@@ -1,11 +1,13 @@
 # MimeMap
 
+[![PHP Version Require](http://poser.pugx.org/fileeye/mimemap/require/php)](https://packagist.org/packages/fileeye/mimemap)
 [![Tests](https://github.com/FileEye/MimeMap/actions/workflows/php-unit.yml/badge.svg)](https://github.com/FileEye/MimeMap/actions/workflows/php-unit.yml)
 [![PHPStan](https://img.shields.io/badge/PHPStan-level%20max-brightgreen.svg?style=flat)](https://github.com/FileEye/MimeMap/actions/workflows/code-quality.yml)
 [![Psalm coverage](https://shepherd.dev/github/FileEye/MimeMap/coverage.svg?)](https://shepherd.dev/github/FileEye/MimeMap)
 [![Psalm level](https://shepherd.dev/github/FileEye/MimeMap/level.svg?)](https://psalm.dev/)
 [![codecov](https://codecov.io/gh/FileEye/MimeMap/branch/master/graph/badge.svg?token=SUAMNKZLEW)](https://codecov.io/gh/FileEye/MimeMap)
 [![Latest Stable Version](https://poser.pugx.org/fileeye/mimemap/v/stable)](https://packagist.org/packages/fileeye/mimemap)
+[![Latest Unstable Version](http://poser.pugx.org/fileeye/mimemap/v/unstable)](https://packagist.org/packages/fileeye/mimemap)
 [![Total Downloads](https://poser.pugx.org/fileeye/mimemap/downloads)](https://packagist.org/packages/fileeye/mimemap)
 [![License](https://poser.pugx.org/fileeye/mimemap/license)](https://packagist.org/packages/fileeye/mimemap)
 
