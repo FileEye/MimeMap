@@ -373,24 +373,6 @@ class DefaultMap extends AbstractMap
         0 => 'ser',
       ),
     ),
-    'application/javascript' =>
-    array (
-      'a' =>
-      array (
-        0 => 'application/x-javascript',
-        1 => 'text/javascript',
-      ),
-      'desc' =>
-      array (
-        0 => 'JavaScript program',
-      ),
-      'e' =>
-      array (
-        0 => 'js',
-        1 => 'jsm',
-        2 => 'mjs',
-      ),
-    ),
     'application/jrd+json' =>
     array (
       'desc' =>
@@ -11164,6 +11146,24 @@ class DefaultMap extends AbstractMap
         1 => 'htm',
       ),
     ),
+    'text/javascript' =>
+    array (
+      'a' =>
+      array (
+        0 => 'application/x-javascript',
+        1 => 'application/javascript',
+      ),
+      'desc' =>
+      array (
+        0 => 'JavaScript program',
+      ),
+      'e' =>
+      array (
+        0 => 'js',
+        1 => 'mjs',
+        2 => 'jsm',
+      ),
+    ),
     'text/markdown' =>
     array (
       'a' =>
@@ -17652,14 +17652,14 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'application/javascript',
+        0 => 'text/javascript',
       ),
     ),
     'jsm' =>
     array (
       't' =>
       array (
-        0 => 'application/javascript',
+        0 => 'text/javascript',
       ),
     ),
     'json' =>
@@ -18715,7 +18715,7 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'application/javascript',
+        0 => 'text/javascript',
       ),
     ),
     'mk' =>
@@ -25025,6 +25025,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/x-java',
       ),
     ),
+    'application/javascript' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/javascript',
+      ),
+    ),
     'application/lotus123' =>
     array (
       't' =>
@@ -25505,7 +25512,7 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'application/javascript',
+        0 => 'text/javascript',
       ),
     ),
     'application/x-kexiproject-sqlite' =>
@@ -26556,13 +26563,6 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'image/vnd.microsoft.icon',
-      ),
-    ),
-    'text/javascript' =>
-    array (
-      't' =>
-      array (
-        0 => 'application/javascript',
       ),
     ),
     'text/mathml' =>

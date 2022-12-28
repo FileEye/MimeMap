@@ -685,8 +685,8 @@ class TypeTest extends MimeMapTestBase
     public function testGetExtensions(): void
     {
         $this->assertEquals(['atom'], (new Type('application/atom+xml'))->getExtensions());
-        $this->assertEquals(['ser', 'js', 'jsm', 'mjs'], (new Type('application/java*'))->getExtensions());
-        $this->assertEquals(['ser'], (new Type('application/java-*'))->getExtensions());
+        $this->assertEquals(['pgp', 'gpg', 'asc', 'skr', 'pkr', 'key', 'sig'], (new Type('application/pgp*'))->getExtensions());
+        $this->assertEquals(['asc', 'sig', 'pgp', 'gpg'], (new Type('application/pgp-s*'))->getExtensions());
 
         $this->assertSame(['smi', 'smil', 'sml', 'kino'], (new Type('application/smil+xml'))->getExtensions());
         $this->assertSame(['smi', 'smil', 'sml', 'kino'], (new Type('application/smil'))->getExtensions());
@@ -719,7 +719,7 @@ class TypeTest extends MimeMapTestBase
             ['*/*'],
             ['n/n'],
             ['image/*'],
-            ['application/java*'],
+            ['application/pgp*'],
         ];
     }
 

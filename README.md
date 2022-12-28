@@ -2,12 +2,11 @@
 
 [![PHP Version Require](http://poser.pugx.org/fileeye/mimemap/require/php)](https://packagist.org/packages/fileeye/mimemap)
 [![Tests](https://github.com/FileEye/MimeMap/actions/workflows/php-unit.yml/badge.svg)](https://github.com/FileEye/MimeMap/actions/workflows/php-unit.yml)
-[![PHPStan](https://img.shields.io/badge/PHPStan-level%20max-brightgreen.svg?style=flat)](https://github.com/FileEye/MimeMap/actions/workflows/code-quality.yml)
+[![PHPStan level](https://img.shields.io/badge/PHPStan%20level-max-brightgreen.svg?style=flat)](https://github.com/FileEye/MimeMap/actions/workflows/code-quality.yml)
 [![Psalm coverage](https://shepherd.dev/github/FileEye/MimeMap/coverage.svg?)](https://shepherd.dev/github/FileEye/MimeMap)
 [![Psalm level](https://shepherd.dev/github/FileEye/MimeMap/level.svg?)](https://psalm.dev/)
 [![codecov](https://codecov.io/gh/FileEye/MimeMap/branch/master/graph/badge.svg?token=SUAMNKZLEW)](https://codecov.io/gh/FileEye/MimeMap)
 [![Latest Stable Version](https://poser.pugx.org/fileeye/mimemap/v/stable)](https://packagist.org/packages/fileeye/mimemap)
-[![Latest Unstable Version](http://poser.pugx.org/fileeye/mimemap/v/unstable)](https://packagist.org/packages/fileeye/mimemap)
 [![Total Downloads](https://poser.pugx.org/fileeye/mimemap/downloads)](https://packagist.org/packages/fileeye/mimemap)
 [![License](https://poser.pugx.org/fileeye/mimemap/license)](https://packagist.org/packages/fileeye/mimemap)
 
@@ -26,7 +25,7 @@ extensions.
   the most authoritative sources available, [Apache's documentation](http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=log)
   and the [freedesktop.org project](http://freedesktop.org).
 - PHPUnit tested, 100% test coverage
-- PHPStan tested
+- PHPStan tested, level 9
 - Psalm tested
 
 
