@@ -366,6 +366,22 @@ class DefaultMap extends AbstractMap
         0 => 'ipfix',
       ),
     ),
+    'application/java-archive' =>
+    array (
+      'a' =>
+      array (
+        0 => 'application/x-jar',
+        1 => 'application/x-java-archive',
+      ),
+      'desc' =>
+      array (
+        0 => 'Java archive',
+      ),
+      'e' =>
+      array (
+        0 => 'jar',
+      ),
+    ),
     'application/java-serialized-object' =>
     array (
       'e' =>
@@ -6291,22 +6307,6 @@ class DefaultMap extends AbstractMap
         0 => 'class',
       ),
     ),
-    'application/x-java-archive' =>
-    array (
-      'a' =>
-      array (
-        0 => 'application/x-jar',
-        1 => 'application/java-archive',
-      ),
-      'desc' =>
-      array (
-        0 => 'Java archive',
-      ),
-      'e' =>
-      array (
-        0 => 'jar',
-      ),
-    ),
     'application/x-java-jce-keystore' =>
     array (
       'desc' =>
@@ -11162,6 +11162,17 @@ class DefaultMap extends AbstractMap
         0 => 'js',
         1 => 'mjs',
         2 => 'jsm',
+      ),
+    ),
+    'text/julia' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Julia source code',
+      ),
+      'e' =>
+      array (
+        0 => 'jl',
       ),
     ),
     'text/markdown' =>
@@ -17494,7 +17505,7 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'application/x-java-archive',
+        0 => 'application/java-archive',
       ),
     ),
     'java' =>
@@ -17524,6 +17535,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-java-keystore',
+      ),
+    ),
+    'jl' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/julia',
       ),
     ),
     'jlt' =>
@@ -25004,13 +25022,6 @@ class DefaultMap extends AbstractMap
         0 => 'application/x-java',
       ),
     ),
-    'application/java-archive' =>
-    array (
-      't' =>
-      array (
-        0 => 'application/x-java-archive',
-      ),
-    ),
     'application/java-byte-code' =>
     array (
       't' =>
@@ -25491,7 +25502,14 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'application/x-java-archive',
+        0 => 'application/java-archive',
+      ),
+    ),
+    'application/x-java-archive' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/java-archive',
       ),
     ),
     'application/x-java-class' =>
