@@ -349,7 +349,7 @@ class MapHandlerTest extends MimeMapTestBase
      *
      * @return array<string,array<string>>
      */
-    public function malformedTypeProvider(): array
+    public static function malformedTypeProvider(): array
     {
         return [
             'empty string' => [''],
