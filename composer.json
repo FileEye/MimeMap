@@ -19,7 +19,7 @@
         "symfony/var-dumper": ">=5.4",
         "symfony/yaml": ">=5.4",
         "phpstan/phpstan": "^1.2",
-        "vimeo/psalm": "^4.23"
+        "vimeo/psalm": "^4.23 | ^5"
     },
     "autoload": {
         "psr-4": {
