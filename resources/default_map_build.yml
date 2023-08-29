@@ -62,6 +62,8 @@
             - [removeType, [video/x-fli]]
             - [removeType, [video/x-ms-wm]]
             - [removeType, [video/x-ms-asf]]
+            - [removeType, [audio/x-wav]]
+            - [removeType, [video/x-msvideo]]
 
 -
     - 'Updating with information from freedesktop.org'
