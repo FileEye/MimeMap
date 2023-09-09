@@ -257,6 +257,15 @@ class DefaultMap extends AbstractMap
     ),
     'application/font-tdpfr' =>
     array (
+      'a' =>
+      array (
+        0 => 'application/vnd.truedoc',
+      ),
+      'desc' =>
+      array (
+        0 => 'TDPFR font',
+        1 => 'TDPFR: TrueDoc Portable Font Resource',
+      ),
       'e' =>
       array (
         0 => 'pfr',
@@ -2075,6 +2084,39 @@ class DefaultMap extends AbstractMap
         0 => 'mag',
       ),
     ),
+    'application/vnd.efi.img' =>
+    array (
+      'a' =>
+      array (
+        0 => 'application/x-raw-disk-image',
+      ),
+      'desc' =>
+      array (
+        0 => 'Raw disk image',
+      ),
+      'e' =>
+      array (
+        0 => 'raw-disk-image',
+        1 => 'img',
+      ),
+    ),
+    'application/vnd.efi.iso' =>
+    array (
+      'a' =>
+      array (
+        0 => 'application/x-cd-image',
+        1 => 'application/x-iso9660-image',
+      ),
+      'desc' =>
+      array (
+        0 => 'Raw CD image',
+      ),
+      'e' =>
+      array (
+        0 => 'iso',
+        1 => 'iso9660',
+      ),
+    ),
     'application/vnd.emusic-emusic_package' =>
     array (
       'desc' =>
@@ -3216,6 +3258,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.ms-officetheme' =>
     array (
+      'desc' =>
+      array (
+        0 => 'Microsoft Office 2007 theme',
+      ),
       'e' =>
       array (
         0 => 'thmx',
@@ -5178,6 +5224,21 @@ class DefaultMap extends AbstractMap
         0 => 'awk',
       ),
     ),
+    'application/x-bat' =>
+    array (
+      'a' =>
+      array (
+        0 => 'application/bat',
+      ),
+      'desc' =>
+      array (
+        0 => 'DOS/Windows batch file',
+      ),
+      'e' =>
+      array (
+        0 => 'bat',
+      ),
+    ),
     'application/x-bcpio' =>
     array (
       'desc' =>
@@ -5341,22 +5402,6 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'ccmx',
-      ),
-    ),
-    'application/x-cd-image' =>
-    array (
-      'a' =>
-      array (
-        0 => 'application/x-iso9660-image',
-      ),
-      'desc' =>
-      array (
-        0 => 'Raw CD image',
-      ),
-      'e' =>
-      array (
-        0 => 'iso',
-        1 => 'iso9660',
       ),
     ),
     'application/x-cdlink' =>
@@ -6637,6 +6682,19 @@ class DefaultMap extends AbstractMap
         0 => 'lhz',
       ),
     ),
+    'application/x-lmdb' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'LMDB database',
+        1 => 'LMDB: Lightning Memory-Mapped Database',
+      ),
+      'e' =>
+      array (
+        0 => 'mdb',
+        1 => 'lmdb',
+      ),
+    ),
     'application/x-lrzip' =>
     array (
       'desc' =>
@@ -7498,18 +7556,6 @@ class DefaultMap extends AbstractMap
         0 => 'qif',
       ),
     ),
-    'application/x-raw-disk-image' =>
-    array (
-      'desc' =>
-      array (
-        0 => 'Raw disk image',
-      ),
-      'e' =>
-      array (
-        0 => 'raw-disk-image',
-        1 => 'img',
-      ),
-    ),
     'application/x-raw-disk-image-xz-compressed' =>
     array (
       'desc' =>
@@ -7804,6 +7850,14 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-stuffitx' =>
     array (
+      'a' =>
+      array (
+        0 => 'application/x-sitx',
+      ),
+      'desc' =>
+      array (
+        0 => 'StuffIt X archive',
+      ),
       'e' =>
       array (
         0 => 'sitx',
@@ -11700,6 +11754,17 @@ class DefaultMap extends AbstractMap
         0 => 'bib',
       ),
     ),
+    'text/x-blueprint' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Blueprint source code',
+      ),
+      'e' =>
+      array (
+        0 => 'blp',
+      ),
+    ),
     'text/x-c++hdr' =>
     array (
       'desc' =>
@@ -12371,6 +12436,29 @@ class DefaultMap extends AbstractMap
         0 => 'nfo',
       ),
     ),
+    'text/x-nim' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Nim source code',
+      ),
+      'e' =>
+      array (
+        0 => 'nim',
+      ),
+    ),
+    'text/x-nimscript' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Nimscript source code',
+      ),
+      'e' =>
+      array (
+        0 => 'nims',
+        1 => 'nimble',
+      ),
+    ),
     'text/x-objc++src' =>
     array (
       'desc' =>
@@ -12793,6 +12881,17 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 't2t',
+      ),
+    ),
+    'text/x-typst' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Typst document',
+      ),
+      'e' =>
+      array (
+        0 => 'typ',
       ),
     ),
     'text/x-uil' =>
@@ -14320,6 +14419,7 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-msdownload',
+        1 => 'application/x-bat',
       ),
     ),
     'bcpio' =>
@@ -14419,6 +14519,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-blorb',
+      ),
+    ),
+    'blp' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/x-blueprint',
       ),
     ),
     'bmi' =>
@@ -17477,7 +17584,7 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'application/x-raw-disk-image',
+        0 => 'application/vnd.efi.img',
       ),
     ),
     'img.xz' =>
@@ -17603,7 +17710,7 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'application/x-cd-image',
+        0 => 'application/vnd.efi.iso',
         1 => 'application/x-sega-cd-rom',
         2 => 'application/x-sega-pico-rom',
         3 => 'application/x-saturn-rom',
@@ -17616,7 +17723,7 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'application/x-cd-image',
+        0 => 'application/vnd.efi.iso',
       ),
     ),
     'it' =>
@@ -18279,6 +18386,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/vnd.ibm.modcap',
       ),
     ),
+    'lmdb' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-lmdb',
+      ),
+    ),
     'lnk' =>
     array (
       't' =>
@@ -18736,7 +18850,8 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'application/vnd.ms-access',
+        0 => 'application/x-lmdb',
+        1 => 'application/vnd.ms-access',
       ),
     ),
     'mdi' =>
@@ -19606,6 +19721,27 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-neo-geo-pocket-rom',
+      ),
+    ),
+    'nim' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/x-nim',
+      ),
+    ),
+    'nimble' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/x-nimscript',
+      ),
+    ),
+    'nims' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/x-nimscript',
       ),
     ),
     'nitf' =>
@@ -21276,7 +21412,7 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'application/x-raw-disk-image',
+        0 => 'application/vnd.efi.img',
       ),
     ),
     'raw-disk-image.xz' =>
@@ -23270,6 +23406,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/x-xz-compressed-tar',
       ),
     ),
+    'typ' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/x-typst',
+      ),
+    ),
     'tzo' =>
     array (
       't' =>
@@ -25140,6 +25283,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/pdf',
       ),
     ),
+    'application/bat' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-bat',
+      ),
+    ),
     'application/bzip2' =>
     array (
       't' =>
@@ -25448,6 +25598,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/vnd.oasis.opendocument.database',
       ),
     ),
+    'application/vnd.truedoc' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/font-tdpfr',
+      ),
+    ),
     'application/vnd.xdgapp' =>
     array (
       't' =>
@@ -25523,6 +25680,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/vnd.comicbook+zip',
+      ),
+    ),
+    'application/x-cd-image' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/vnd.efi.iso',
       ),
     ),
     'application/x-cdr' =>
@@ -25683,7 +25847,7 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'application/x-cd-image',
+        0 => 'application/vnd.efi.iso',
       ),
     ),
     'application/x-iwork-keynote-sffkey' =>
@@ -25896,6 +26060,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/vnd.rar',
       ),
     ),
+    'application/x-raw-disk-image' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/vnd.efi.img',
+      ),
+    ),
     'application/x-redhat-package-manager' =>
     array (
       't' =>
@@ -25943,6 +26114,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-stuffit',
+      ),
+    ),
+    'application/x-sitx' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-stuffitx',
       ),
     ),
     'application/x-smaf' =>
