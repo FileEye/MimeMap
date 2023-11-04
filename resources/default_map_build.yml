@@ -64,6 +64,7 @@
             - [removeType, [video/x-ms-asf]]
             - [removeType, [audio/x-wav]]
             - [removeType, [video/x-msvideo]]
+            - [removeType, [image/vnd.ms-photo]]
 
 -
     - 'Updating with information from freedesktop.org'
