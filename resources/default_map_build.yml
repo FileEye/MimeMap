@@ -65,6 +65,7 @@
             - [removeType, [audio/x-wav]]
             - [removeType, [video/x-msvideo]]
             - [removeType, [image/vnd.ms-photo]]
+            - [removeType, [application/x-bzip]]
 
 -
     - 'Updating with information from freedesktop.org'
@@ -95,7 +96,7 @@
     - applyOverrides
     -
         -
-            - [addTypeExtensionMapping, [application/x-bzip, boz]]
+            - [addTypeExtensionMapping, [application/x-bzip2, boz]]
             - [addTypeExtensionMapping, [application/vnd.comicbook-rar, cba]]
             - [addTypeExtensionMapping, [text/x-csrc, dic]]
             - [addTypeExtensionMapping, [image/wmf, emz]]

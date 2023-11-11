@@ -5470,14 +5470,6 @@ class DefaultMap extends AbstractMap
         0 => 'dvi.bz2',
       ),
     ),
-    'application/x-bzip' =>
-    array (
-      'e' =>
-      array (
-        0 => 'bz',
-        1 => 'boz',
-      ),
-    ),
     'application/x-bzip1' =>
     array (
       'desc' =>
@@ -5506,6 +5498,7 @@ class DefaultMap extends AbstractMap
       'a' =>
       array (
         0 => 'application/bzip2',
+        1 => 'application/x-bzip',
       ),
       'desc' =>
       array (
@@ -5514,6 +5507,7 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'bz2',
+        1 => 'boz',
       ),
     ),
     'application/x-bzip2-compressed-tar' =>
@@ -14975,7 +14969,7 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'application/x-bzip',
+        0 => 'application/x-bzip2',
       ),
     ),
     'bpk' =>
@@ -15017,8 +15011,7 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'application/x-bzip',
-        1 => 'application/x-bzip1',
+        0 => 'application/x-bzip1',
       ),
     ),
     'bz2' =>
@@ -26278,6 +26271,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/annodex',
+      ),
+    ),
+    'application/x-bzip' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-bzip2',
       ),
     ),
     'application/x-bzip-compressed-tar' =>
