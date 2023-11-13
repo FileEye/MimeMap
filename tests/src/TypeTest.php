@@ -15,7 +15,7 @@ class TypeTest extends MimeMapTestBase
      *
      * @return array<string,mixed>
      */
-    public function parseProvider(): array
+    public static function parseProvider(): array
     {
         return [
             'application/ogg;description=Hello there!;asd=fgh' => [
@@ -475,7 +475,7 @@ class TypeTest extends MimeMapTestBase
      *
      * @return array<string,array<string>>
      */
-    public function parseMalformedProvider(): array
+    public static function parseMalformedProvider(): array
     {
         return [
             'empty string' => [''],
@@ -523,7 +523,7 @@ class TypeTest extends MimeMapTestBase
      *
      * @return array<array<string>>
      */
-    public function missingDescriptionProvider(): array
+    public static function missingDescriptionProvider(): array
     {
         return [
             ['*/*'],
@@ -713,7 +713,7 @@ class TypeTest extends MimeMapTestBase
      *
      * @return array<array<string>>
      */
-    public function getDefaultExtensionFailProvider()
+    public static function getDefaultExtensionFailProvider()
     {
         return [
             ['*/*'],

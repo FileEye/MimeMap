@@ -320,9 +320,9 @@ class MapHandlerTest extends MimeMapTestBase
 
     public function testSetTypeDefaultExtension(): void
     {
-        $this->assertSame(['jpeg', 'jpg', 'jpe'], (new Type('image/jpeg'))->getExtensions());
+        $this->assertSame(['jpeg', 'jpg', 'jpe', 'jfif'], (new Type('image/jpeg'))->getExtensions());
         $this->map->setTypeDefaultExtension('image/jpeg', 'jpg');
-        $this->assertSame(['jpg', 'jpeg', 'jpe'], (new Type('image/JPEG'))->getExtensions());
+        $this->assertSame(['jpg', 'jpeg', 'jpe', 'jfif'], (new Type('image/JPEG'))->getExtensions());
     }
 
     public function testSetTypeDefaultExtensionNoExtension(): void
@@ -349,7 +349,7 @@ class MapHandlerTest extends MimeMapTestBase
      *
      * @return array<string,array<string>>
      */
-    public function malformedTypeProvider(): array
+    public static function malformedTypeProvider(): array
     {
         return [
             'empty string' => [''],
