@@ -47,8 +47,7 @@ class TypeParser
             $sub = static::parseStringPart($type_string, $sub['end_offset'] + 1, ';');
             $tmp = explode('=', $sub['string'], 2);
             $p_name = trim($tmp[0]);
-            $p_val = trim($tmp[1]);
-            $p_val = str_replace('\\"', '"', $p_val);
+            $p_val = str_replace('\\"', '"', trim($tmp[1] ?? ''));
             $type->addParameter($p_name, $p_val, $sub['comment']);
         }
     }
