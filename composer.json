@@ -10,7 +10,7 @@
     },
     "require-dev": {
         "composer-runtime-api": "^2.0.0",
-        "phpunit/phpunit": "^9 | ^10 | ^11",
+        "phpunit/phpunit": "^11",
         "squizlabs/php_codesniffer": ">=3.7",
         "sebastian/comparator": ">=4",
         "sebastian/diff": ">=4",
