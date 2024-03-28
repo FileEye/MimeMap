@@ -37,6 +37,10 @@ jobs:
         - name: Install Composer dependencies
           run: composer install --no-progress --ansi
 
+        - name: "Require tools"
+          continue-on-error: true
+          run: composer require --ansi --dev "phpunit/phpunit:^9 | ^10 | ^11"
+      
         - name: Run tests
           run: ./vendor/bin/phpunit --color=always --coverage-clover=coverage.xml
 

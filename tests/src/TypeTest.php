@@ -7,6 +7,7 @@ use FileEye\MimeMap\MappingException;
 use FileEye\MimeMap\Type;
 use FileEye\MimeMap\TypeParameter;
 use FileEye\MimeMap\UndefinedException;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class TypeTest extends MimeMapTestBase
 {
@@ -432,6 +433,7 @@ class TypeTest extends MimeMapTestBase
      * @param bool $expectedHasParameters
      * @param string[] $expectedParameters
      */
+    #[DataProvider('parseProvider')]
     public function testParse(string $type, array $expectedToString, array $expectedMedia, array $expectedSubType, bool $expectedHasParameters, array $expectedParameters): void
     {
         $mt = new Type($type);
@@ -490,6 +492,7 @@ class TypeTest extends MimeMapTestBase
     /**
      * @dataProvider parseMalformedProvider
      */
+    #[DataProvider('parseMalformedProvider')]
     public function testParseMalformed(string $type): void
     {
         $this->expectException(MalformedTypeException::class);
@@ -536,6 +539,7 @@ class TypeTest extends MimeMapTestBase
     /**
      * @dataProvider missingDescriptionProvider
      */
+    #[DataProvider('missingDescriptionProvider')]
     public function testMissingDescription(string $type): void
     {
         $t = new Type($type);
@@ -726,6 +730,7 @@ class TypeTest extends MimeMapTestBase
     /**
      * @dataProvider getDefaultExtensionFailProvider
      */
+    #[DataProvider('getDefaultExtensionFailProvider')]
     public function testGetDefaultExtensionFail(string $type): void
     {
         $this->expectException(MappingException::class);
