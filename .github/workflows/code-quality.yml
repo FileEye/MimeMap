@@ -33,7 +33,7 @@ jobs:
 
       - name: "Require Psalm"
         continue-on-error: true
-        run: "composer require --ansi --dev vimeo/psalm"
+        run: composer require --ansi --dev "vimeo/psalm:^5.15"
 
       - name: "Run static analysis with phpstan/phpstan"
         run: "vendor/bin/phpstan"
