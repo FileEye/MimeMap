@@ -31,9 +31,10 @@ jobs:
       - name: "Install dependencies with Composer"
         uses: "ramsey/composer-install@v2"
 
-      - name: "Require Psalm"
+      - name: "Require tools"
         continue-on-error: true
-        run: composer require --ansi --dev "vimeo/psalm:^5.15"
+        run: composer why nikic/php-parser
+       # run: composer require --ansi --dev "vimeo/psalm:^5.15"
 
       - name: "Run static analysis with phpstan/phpstan"
         run: "vendor/bin/phpstan"
