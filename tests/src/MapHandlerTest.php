@@ -8,10 +8,12 @@ use FileEye\MimeMap\Map\MimeMapInterface;
 use FileEye\MimeMap\MapHandler;
 use FileEye\MimeMap\MappingException;
 use FileEye\MimeMap\Type;
+use PHPUnit\Framework\Attributes\BackupStaticProperties;
 
 /**
  * @backupStaticAttributes enabled
  */
+#[BackupStaticProperties]
 class MapHandlerTest extends MimeMapTestBase
 {
     /**
