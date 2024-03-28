@@ -13,7 +13,7 @@ use PHPUnit\Framework\Attributes\BackupStaticProperties;
 /**
  * @backupStaticAttributes enabled
  */
-#[BackupStaticProperties]
+#[BackupStaticProperties(true)]
 class MapHandlerTest extends MimeMapTestBase
 {
     /**
