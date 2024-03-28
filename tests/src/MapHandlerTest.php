@@ -9,6 +9,7 @@ use FileEye\MimeMap\MapHandler;
 use FileEye\MimeMap\MappingException;
 use FileEye\MimeMap\Type;
 use PHPUnit\Framework\Attributes\BackupStaticProperties;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @backupStaticAttributes enabled
@@ -366,6 +367,7 @@ class MapHandlerTest extends MimeMapTestBase
     /**
      * @dataProvider malformedTypeProvider
      */
+    #[DataProvider('malformedTypeProvider')]
     public function testAddMalformedTypeExtensionMapping(string $type): void
     {
         $this->expectException(MalformedTypeException::class);
