@@ -6,11 +6,15 @@ use Symfony\Component\Filesystem\Filesystem;
 use FileEye\MimeMap\Map\MimeMapInterface;
 use FileEye\MimeMap\MapHandler;
 use FileEye\MimeMap\MapUpdater;
+use PHPUnit\Framework\Attributes\BackupStaticProperties;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * @coversDefaultClass \FileEye\MimeMap\MapUpdater
  * @backupStaticAttributes enabled
  */
+#[CoversClass(MapUpdater::class)]
+#[BackupStaticProperties(true)]
 class MapUpdaterTest extends MimeMapTestBase
 {
 
