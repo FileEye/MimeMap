@@ -16,16 +16,21 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version:
-          - "7.4"
-          - "8.0"
-          - "8.1"
-          - "8.2"
-          - "8.3"
+        include:
+          - php-version: "7.4"
+            php-unit-args: "-c phpunit-10.xml"
+          - php-version: "8.0"
+            php-unit-args: "-c phpunit-10.xml"
+          - php-version: "8.1"
+            php-unit-args: "-c phpunit.xml"
+          - php-version: "8.2"
+            php-unit-args: "-c phpunit.xml"
+          - php-version: "8.3"
+            php-unit-args: "-c phpunit.xml"
 
     steps:
 
-        - uses: actions/checkout@v3
+        - uses: actions/checkout@v4
 
         - name: Install PHP
           uses: "shivammathur/setup-php@v2"
@@ -40,15 +45,15 @@ jobs:
         - name: "Require tools"
           continue-on-error: true
           run: composer require --ansi --dev "phpunit/phpunit:^9 | ^10 | ^11"
-      
+
         - name: Run tests
-          run: ./vendor/bin/phpunit --color=always --coverage-clover=coverage.xml
+          run: ./vendor/bin/phpunit --color=always --coverage-clover=coverage.xml ${{ matrix.php-unit-args }}
 
         - name: Send code coverage report to Codecov.io
-          uses: codecov/codecov-action@v3
+          uses: codecov/codecov-action@v4
           with:
             files: coverage.xml
-            
+
         - name: Mapping test
           if: ${{ matrix.php-version == 8.1 }}
           continue-on-error: true
