@@ -19458,8 +19458,8 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'application/x-genesis-rom',
-        1 => 'text/markdown',
+        0 => 'text/markdown',
+        1 => 'application/x-genesis-rom',
       ),
     ),
     'mdb' =>
