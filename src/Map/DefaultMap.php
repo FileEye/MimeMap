@@ -383,6 +383,18 @@ class DefaultMap extends AbstractMap
         0 => 'gz',
       ),
     ),
+    'application/hta' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Windows HTML desktop application',
+        1 => 'HTML: HyperText Markup Language',
+      ),
+      'e' =>
+      array (
+        0 => 'hta',
+      ),
+    ),
     'application/hyperstudio' =>
     array (
       'e' =>
@@ -647,6 +659,28 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'mets',
+      ),
+    ),
+    'application/microsoftpatch' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Windows Installer patch',
+      ),
+      'e' =>
+      array (
+        0 => 'msp',
+      ),
+    ),
+    'application/microsoftupdate' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Windows Update package',
+      ),
+      'e' =>
+      array (
+        0 => 'msu',
       ),
     ),
     'application/mods+xml' =>
@@ -6258,7 +6292,8 @@ class DefaultMap extends AbstractMap
       array (
         0 => 'gen',
         1 => 'smd',
-        2 => 'sgd',
+        2 => 'md',
+        3 => 'sgd',
       ),
     ),
     'application/x-gerber-job' =>
@@ -7775,6 +7810,7 @@ class DefaultMap extends AbstractMap
         0 => 'wb1',
         1 => 'wb2',
         2 => 'wb3',
+        3 => 'qpw',
       ),
     ),
     'application/x-quicktime-media-link' =>
@@ -7862,6 +7898,29 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'rb',
+      ),
+    ),
+    'application/x-rzip' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Rzip archive',
+      ),
+      'e' =>
+      array (
+        0 => 'rz',
+      ),
+    ),
+    'application/x-rzip-compressed-tar' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Tar archive (rzip-compressed)',
+      ),
+      'e' =>
+      array (
+        0 => 'tar.rz',
+        1 => 'trz',
       ),
     ),
     'application/x-sami' =>
@@ -10165,6 +10224,17 @@ class DefaultMap extends AbstractMap
         2 => 'hif',
       ),
     ),
+    'image/hej2k' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'JPEG 2000 image encapsulated in HEIF',
+      ),
+      'e' =>
+      array (
+        0 => 'hej2',
+      ),
+    ),
     'image/ief' =>
     array (
       'desc' =>
@@ -11444,6 +11514,10 @@ class DefaultMap extends AbstractMap
     ),
     'model/obj' =>
     array (
+      'a' =>
+      array (
+        0 => 'application/prs.wavefront-obj',
+      ),
       'desc' =>
       array (
         0 => 'OBJ 3D model',
@@ -11451,6 +11525,18 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'obj',
+      ),
+    ),
+    'model/step' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'STEP 3D model',
+      ),
+      'e' =>
+      array (
+        0 => 'step',
+        1 => 'stp',
       ),
     ),
     'model/stl' =>
@@ -11496,13 +11582,6 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'gtw',
-      ),
-    ),
-    'model/vnd.mts' =>
-    array (
-      'e' =>
-      array (
-        0 => 'mts',
       ),
     ),
     'model/vnd.vtu' =>
@@ -13495,9 +13574,9 @@ class DefaultMap extends AbstractMap
       ),
       'e' =>
       array (
-        0 => 'm2t',
-        1 => 'm2ts',
-        2 => 'ts',
+        0 => 'ts',
+        1 => 'm2t',
+        2 => 'm2ts',
         3 => 'mts',
         4 => 'cpi',
         5 => 'clpi',
@@ -17757,6 +17836,13 @@ class DefaultMap extends AbstractMap
         0 => 'image/heif',
       ),
     ),
+    'hej2' =>
+    array (
+      't' =>
+      array (
+        0 => 'image/hej2k',
+      ),
+    ),
     'hfe' =>
     array (
       't' =>
@@ -17832,6 +17918,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'text/x-haskell',
+      ),
+    ),
+    'hta' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/hta',
       ),
     ),
     'htc' =>
@@ -19366,6 +19459,7 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'text/markdown',
+        1 => 'application/x-genesis-rom',
       ),
     ),
     'mdb' =>
@@ -20041,11 +20135,25 @@ class DefaultMap extends AbstractMap
         0 => 'image/x-msod',
       ),
     ),
+    'msp' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/microsoftpatch',
+      ),
+    ),
     'msty' =>
     array (
       't' =>
       array (
         0 => 'application/vnd.muvee.style',
+      ),
+    ),
+    'msu' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/microsoftupdate',
       ),
     ),
     'msx' =>
@@ -20073,8 +20181,7 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'model/vnd.mts',
-        1 => 'video/mp2t',
+        0 => 'video/mp2t',
       ),
     ),
     'mup' =>
@@ -21821,6 +21928,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/vnd.publishare-delta-tree',
       ),
     ),
+    'qpw' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-quattropro',
+      ),
+    ),
     'qs' =>
     array (
       't' =>
@@ -22305,6 +22419,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'image/x-panasonic-rw2',
+      ),
+    ),
+    'rz' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-rzip',
       ),
     ),
     's' =>
@@ -23208,6 +23329,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/vnd.sun.xml.draw.template',
       ),
     ),
+    'step' =>
+    array (
+      't' =>
+      array (
+        0 => 'model/step',
+      ),
+    ),
     'stf' =>
     array (
       't' =>
@@ -23242,6 +23370,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'audio/x-stm',
+      ),
+    ),
+    'stp' =>
+    array (
+      't' =>
+      array (
+        0 => 'model/step',
       ),
     ),
     'str' =>
@@ -23563,6 +23698,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-tzo',
+      ),
+    ),
+    'tar.rz' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-rzip-compressed-tar',
       ),
     ),
     'tar.xz' =>
@@ -23890,12 +24032,19 @@ class DefaultMap extends AbstractMap
         0 => 'application/x-msterminal',
       ),
     ),
+    'trz' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-rzip-compressed-tar',
+      ),
+    ),
     'ts' =>
     array (
       't' =>
       array (
-        0 => 'text/vnd.trolltech.linguist',
-        1 => 'video/mp2t',
+        0 => 'video/mp2t',
+        1 => 'text/vnd.trolltech.linguist',
       ),
     ),
     'tscn' =>
@@ -26103,6 +26252,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/vnd.ms-powerpoint',
+      ),
+    ),
+    'application/prs.wavefront-obj' =>
+    array (
+      't' =>
+      array (
+        0 => 'model/obj',
       ),
     ),
     'application/smil' =>

@@ -109,3 +109,4 @@
     -
         -
             - [setExtensionDefaultType, [sub, text/vnd.dvb.subtitle]]
+            - [setExtensionDefaultType, [md, text/markdown]]
