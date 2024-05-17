@@ -15,7 +15,7 @@ interface ExtensionInterface
      * @param string $map_class
      *   (Optional) The FQCN of the map class to use.
      */
-    public function __construct(string $extension, string $map_class = null);
+    public function __construct(string $extension, ?string $map_class = null);
 
     /**
      * Returns the file extension's preferred MIME type.

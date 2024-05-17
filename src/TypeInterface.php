@@ -17,7 +17,7 @@ interface TypeInterface
      * @param string $map_class
      *   (Optional) The FQCN of the map class to use.
      */
-    public function __construct(string $type_string, string $map_class = null);
+    public function __construct(string $type_string, ?string $map_class = null);
 
     /**
      * Gets a MIME type's media.
@@ -48,7 +48,7 @@ interface TypeInterface
      *
      * @param string $comment (optional) a comment; when missing any existing comment is removed.
      */
-    public function setMediaComment(string $comment = null): TypeInterface;
+    public function setMediaComment(?string $comment = null): TypeInterface;
 
     /**
      * Gets a MIME type's subtype.
@@ -77,7 +77,7 @@ interface TypeInterface
      *
      * @param string $comment (optional) a comment; when missing any existing comment is removed.
      */
-    public function setSubTypeComment(string $comment = null): TypeInterface;
+    public function setSubTypeComment(?string $comment = null): TypeInterface;
 
     /**
      * Checks if the MIME type has any parameter.
@@ -110,7 +110,7 @@ interface TypeInterface
     /**
      * Add a parameter to this type
      */
-    public function addParameter(string $name, string $value, string $comment = null): void;
+    public function addParameter(string $name, string $value, ?string $comment = null): void;
 
     /**
      * Remove a parameter from this type.

@@ -23,7 +23,7 @@ class Extension implements ExtensionInterface
      */
     protected $map;
 
-    public function __construct(string $extension, string $map_class = null)
+    public function __construct(string $extension, ?string $map_class = null)
     {
         $this->extension = strtolower($extension);
         $this->map = MapHandler::map($map_class);

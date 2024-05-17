@@ -35,7 +35,7 @@ class TypeParameter
      * @param string $value   Parameter value.
      * @param string $comment Comment for this parameter.
      */
-    public function __construct(string $name, string $value, string $comment = null)
+    public function __construct(string $name, string $value, ?string $comment = null)
     {
         $this->name = $name;
         $this->value = $value;

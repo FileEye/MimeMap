@@ -91,7 +91,7 @@ abstract class BaseMap implements MapInterface
      * @return array<int, int|string>
      *   The list of the entries.
      */
-    protected function listEntries(string $entry, string $match = null): array
+    protected function listEntries(string $entry, ?string $match = null): array
     {
         if (!isset(static::$map[$entry])) {
             return [];
