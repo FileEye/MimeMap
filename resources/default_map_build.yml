@@ -66,6 +66,7 @@
             - [removeType, [video/x-msvideo]]
             - [removeType, [image/vnd.ms-photo]]
             - [removeType, [application/x-bzip]]
+            - [removeType, [application/vnd.oasis.opendocument.database]]
 
 -
     - 'Updating with information from freedesktop.org'
