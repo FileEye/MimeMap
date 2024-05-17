@@ -73,7 +73,7 @@ class Type implements TypeInterface
      */
     protected $map;
 
-    public function __construct(string $type_string, string $map_class = null)
+    public function __construct(string $type_string, ?string $map_class = null)
     {
         TypeParser::parse($type_string, $this);
         $this->map = MapHandler::map($map_class);
@@ -104,7 +104,7 @@ class Type implements TypeInterface
         throw new UndefinedException('Media comment is not defined');
     }
 
-    public function setMediaComment(string $comment = null): TypeInterface
+    public function setMediaComment(?string $comment = null): TypeInterface
     {
         $this->mediaComment = $comment;
         return $this;
@@ -135,7 +135,7 @@ class Type implements TypeInterface
         throw new UndefinedException('Subtype comment is not defined');
     }
 
-    public function setSubTypeComment(string $comment = null): TypeInterface
+    public function setSubTypeComment(?string $comment = null): TypeInterface
     {
         $this->subTypeComment = $comment;
         return $this;
@@ -167,7 +167,7 @@ class Type implements TypeInterface
         throw new UndefinedException("Parameter $name is not defined");
     }
 
-    public function addParameter(string $name, string $value, string $comment = null): void
+    public function addParameter(string $name, string $value, ?string $comment = null): void
     {
         $this->parameters[$name] = new TypeParameter($name, $value, $comment);
     }

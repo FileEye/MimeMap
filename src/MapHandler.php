@@ -41,7 +41,7 @@ abstract class MapHandler
      *   (Optional) The map FQCN to be used. If null, the default map will be
      *   used.
      */
-    public static function map(string $map_class = null): MimeMapInterface
+    public static function map(?string $map_class = null): MimeMapInterface
     {
         if ($map_class === null) {
             $map_class = static::$defaultMapClass;

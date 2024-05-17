@@ -37,7 +37,7 @@ interface MimeMapInterface extends MapInterface
      *
      * @return array<int, int|string>
      */
-    public function listTypes(string $match = null): array;
+    public function listTypes(?string $match = null): array;
 
     /**
      * Lists all the MIME types aliases defined in the map.
@@ -46,7 +46,7 @@ interface MimeMapInterface extends MapInterface
      *
      * @return array<int, int|string>
      */
-    public function listAliases(string $match = null): array;
+    public function listAliases(?string $match = null): array;
 
     /**
      * Lists all the extensions defined in the map.
@@ -55,7 +55,7 @@ interface MimeMapInterface extends MapInterface
      *
      * @return array<int, int|string>
      */
-    public function listExtensions(string $match = null): array;
+    public function listExtensions(?string $match = null): array;
 
     /**
      * Adds a description of a MIME type.
