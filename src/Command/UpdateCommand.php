@@ -104,8 +104,7 @@ class UpdateCommand extends Command
                 $callable = [$updater, $command[1]];
                 assert(is_callable($callable));
                 $errors = call_user_func_array($callable, $command[2]);
-                assert(is_array($errors));
-                if (!empty($errors)) {
+                if (is_array($errors) && !empty($errors)) {
                     foreach ($errors as $error) {
                         $output->writeln("<comment>$error.</comment>");
                     }
