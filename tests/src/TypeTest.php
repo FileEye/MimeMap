@@ -692,6 +692,9 @@ class TypeTest extends MimeMapTestBase
         $this->assertEquals(['pgp', 'gpg', 'asc', 'skr', 'pkr', 'key', 'sig'], (new Type('application/pgp*'))->getExtensions());
         $this->assertEquals(['asc', 'sig', 'pgp', 'gpg'], (new Type('application/pgp-s*'))->getExtensions());
 
+        $this->assertEquals(['123', 'wk1', 'wk3', 'wk4', 'wks'], (new Type('application/vnd.lotus-1-2-3'))->getExtensions());
+        $this->assertEquals(['602'], (new Type('application/x-t602'))->getExtensions());
+
         $this->assertSame(['smi', 'smil', 'sml', 'kino'], (new Type('application/smil+xml'))->getExtensions());
         $this->assertSame(['smi', 'smil', 'sml', 'kino'], (new Type('application/smil'))->getExtensions());
     }
