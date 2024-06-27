@@ -335,6 +335,6 @@ class Type implements TypeInterface
                 $extensions[$e] = $e;
             }
         }
-        return array_keys($extensions);
+        return array_values($extensions);
     }
 }
