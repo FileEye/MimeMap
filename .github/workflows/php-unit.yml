@@ -42,7 +42,7 @@ jobs:
 
         - name: "Require tools"
           continue-on-error: true
-          run: composer require --ansi --dev "phpunit/phpunit:^9 | ^10 | ^11"
+          run: composer require --ansi --dev "phpunit/phpunit:>=10"
 
         - name: Run tests
           run: ./vendor/bin/phpunit --color=always --testdox --coverage-clover=coverage.xml ${{ matrix.php-unit-args }}
