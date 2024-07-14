@@ -17,10 +17,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - php-version: "7.4"
-            php-unit-args: "-c phpunit-10.xml"
-          - php-version: "8.0"
-            php-unit-args: "-c phpunit-10.xml"
           - php-version: "8.1"
             php-unit-args: "-c phpunit.xml"
           - php-version: "8.2"
@@ -49,7 +45,7 @@ jobs:
           run: composer require --ansi --dev "phpunit/phpunit:^9 | ^10 | ^11"
 
         - name: Run tests
-          run: ./vendor/bin/phpunit --color=always --coverage-clover=coverage.xml ${{ matrix.php-unit-args }}
+          run: ./vendor/bin/phpunit --color=always --testdox --coverage-clover=coverage.xml ${{ matrix.php-unit-args }}
 
         - name: Send code coverage report to Codecov.io
           uses: codecov/codecov-action@v4
