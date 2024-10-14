@@ -51,6 +51,7 @@ class TypeParameter
     public function getComment(): string
     {
         if ($this->hasComment()) {
+            assert(is_string($this->comment));
             return $this->comment;
         }
         throw new UndefinedException('Parameter comment is not defined');
