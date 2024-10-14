@@ -16,18 +16,18 @@ abstract class AbstractMap extends BaseMap implements MimeMapInterface
     /**
      * Normalizes a mime-type string to Media/Subtype.
      *
-     * @param string $type_string
+     * @param string $typeString
      *   MIME type string to parse.
      *
-     * @throws MalformedTypeException when $type_string is malformed.
+     * @throws MalformedTypeException when $typeString is malformed.
      *
      * @return string
      *   A MIME type string in the 'Media/Subtype' format.
      */
-    protected function normalizeType(string $type_string): string
+    protected function normalizeType(string $typeString): string
     {
         // Media and SubType are separated by a slash '/'.
-        $media = TypeParser::parseStringPart($type_string, 0, '/');
+        $media = TypeParser::parseStringPart($typeString, 0, '/');
 
         if (!$media['string']) {
             throw new MalformedTypeException('Media type not found');
@@ -37,7 +37,7 @@ abstract class AbstractMap extends BaseMap implements MimeMapInterface
         }
 
         // SubType and Parameters are separated by semicolons ';'.
-        $sub = TypeParser::parseStringPart($type_string, $media['end_offset'] + 1, ';');
+        $sub = TypeParser::parseStringPart($typeString, $media['end_offset'] + 1, ';');
 
         if (!$sub['string']) {
             throw new MalformedTypeException('Media subtype not found');
