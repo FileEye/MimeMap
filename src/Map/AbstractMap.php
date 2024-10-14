@@ -275,4 +275,10 @@ abstract class AbstractMap extends BaseMap implements MimeMapInterface
             return $this->setValueAsDefault('e', $extension, 't', $type);
         }
     }
+
+    protected function setValueAsDefault(string $entry, string $entryKey, string $subEntry, string $value): MimeMapInterface
+    {
+        parent::setValueAsDefault($entry, $entryKey, $subEntry, $value);
+        return $this;
+    }
 }

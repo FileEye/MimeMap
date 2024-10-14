@@ -21,7 +21,7 @@ abstract class BaseMap implements MapInterface
      *
      * @var array<string, array<int|string, array<string, array<int,string>>>>
      */
-    protected static array $map = [];
+    protected static $map = [];
 
     /**
      * A backup of the mapping between file extensions and MIME types.
@@ -86,7 +86,7 @@ abstract class BaseMap implements MapInterface
      * @param string|null $match
      *   (Optional) a match wildcard to limit the list.
      *
-     * @return list<string>
+     * @return list<int|string>
      *   The list of the entries.
      */
     protected function listEntries(string $entry, ?string $match = null): array
