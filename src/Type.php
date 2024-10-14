@@ -32,7 +32,7 @@ class Type implements TypeInterface
     /**
      * The MIME media type comment.
      */
-    protected ?string $mediaComment;
+    protected ?string $mediaComment = null;
 
     /**
      * The MIME media sub-type.
@@ -42,7 +42,7 @@ class Type implements TypeInterface
     /**
      * The MIME media sub-type comment.
      */
-    protected ?string $subTypeComment;
+    protected ?string $subTypeComment = null;
 
     /**
      *  MIME type descriptions.

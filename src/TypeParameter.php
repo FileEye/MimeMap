@@ -8,11 +8,6 @@ namespace FileEye\MimeMap;
 class TypeParameter
 {
     /**
-     * Parameter comment.
-     */
-    protected readonly ?string $comment;
-
-    /**
      * @param string      $name    Parameter name.
      * @param string      $value   Parameter value.
      * @param string|null $comment Comment for this parameter.
@@ -20,12 +15,8 @@ class TypeParameter
     public function __construct(
         protected readonly string $name, 
         protected readonly string $value,
-        ?string $comment = null,
-    )
-    {
-        if ($comment !== null) {
-            $this->comment = $comment;
-        }
+        protected readonly ?string $comment = null,
+    ) {
     }
 
     /**
