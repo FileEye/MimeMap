@@ -17,10 +17,8 @@ class MapUpdater
 
     /**
      * The map object to update.
-     *
-     * @var MimeMapInterface
      */
-    protected $map;
+    protected MimeMapInterface $map;
 
     /**
      * Returns the default file with override commands to be executed.
@@ -28,8 +26,6 @@ class MapUpdater
      * The YAML file provides an array of calls to MapHandler methods to be
      * executed sequentially. Each entry indicates the method to be invoked and
      * the arguments to be passed in.
-     *
-     * @return string
      */
     public static function getDefaultMapBuildFile(): string
     {
@@ -38,8 +34,6 @@ class MapUpdater
 
     /**
      * Returns the map object being updated.
-     *
-     * @return MimeMapInterface
      */
     public function getMap(): MimeMapInterface
     {
@@ -49,14 +43,12 @@ class MapUpdater
     /**
      * Sets the map object to update.
      *
-     * @param string $map_class
+     * @param class-string $mapClass
      *   The FQCN of the map to be updated.
-     *
-     * @return $this
      */
-    public function selectBaseMap(string $map_class): MapUpdater
+    public function selectBaseMap(string $mapClass): MapUpdater
     {
-        $this->map = MapHandler::map($map_class);
+        $this->map = MapHandler::map($mapClass);
         $this->map->backup();
         return $this;
     }
@@ -69,8 +61,8 @@ class MapUpdater
      *   source code repository file where MIME types and file extensions are
      *   associated.
      *
-     * @return string[]
-     *   An array of error messages.
+     * @return list<string>
+     *   A list of error messages.
      *
      * @throws \RuntimeException
      *   If it was not possible to access the file.
@@ -114,8 +106,8 @@ class MapUpdater
      *   The source file. The file must conform to the format in the
      *   Freedesktop.org database.
      *
-     * @return string[]
-     *   An array of error messages.
+     * @return list<string>
+     *   A list of error messages.
      */
     public function loadMapFromFreedesktopFile(string $source_file): array
     {
@@ -196,8 +188,8 @@ class MapUpdater
      * @param array<int,array{0: string, 1: array<string>}> $overrides
      *   The overrides to be applied.
      *
-     * @return string[]
-     *   An array of error messages.
+     * @return list<string>
+     *   A list of error messages.
      */
     public function applyOverrides(array $overrides): array
     {
@@ -219,14 +211,12 @@ class MapUpdater
 
     /**
      * Updates the map at a destination PHP file.
-     *
-     * @return $this
      */
-    public function writeMapToPhpClassFile(string $file): MapUpdater
+    public function writeMapToPhpClassFile(string $destinationFile): MapUpdater
     {
-        $content = @file_get_contents($file);
+        $content = @file_get_contents($destinationFile);
         if ($content == false) {
-            throw new \RuntimeException('Failed loading file ' . $file);
+            throw new \RuntimeException('Failed loading file ' . $destinationFile);
         }
 
         $newContent = preg_replace(
@@ -234,7 +224,7 @@ class MapUpdater
             "protected static \$map = " . preg_replace('/\s+$/m', '', var_export($this->map->getMapArray(), true)) . ";",
             $content
         );
-        file_put_contents($file, $newContent);
+        file_put_contents($destinationFile, $newContent);
 
         return $this;
     }

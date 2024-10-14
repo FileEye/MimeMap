@@ -12,10 +12,10 @@ interface ExtensionInterface
      *
      * @param string $extension
      *   A file extension.
-     * @param string $map_class
+     * @param class-string|null $mapClass
      *   (Optional) The FQCN of the map class to use.
      */
-    public function __construct(string $extension, ?string $map_class = null);
+    public function __construct(string $extension, ?string $mapClass = null);
 
     /**
      * Returns the file extension's preferred MIME type.
@@ -29,7 +29,7 @@ interface ExtensionInterface
      *
      * @throws MappingException if no mapping found.
      *
-     * @return string[]
+     * @return list<string>
      */
     public function getTypes(): array;
 }
