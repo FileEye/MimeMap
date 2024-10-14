@@ -26,57 +26,47 @@ class Type implements TypeInterface
 
     /**
      * The MIME media type.
-     *
-     * @var string
      */
-    protected $media;
+    protected string $media;
 
     /**
      * The MIME media type comment.
-     *
-     * @var string|null
      */
-    protected $mediaComment;
+    protected ?string $mediaComment;
 
     /**
      * The MIME media sub-type.
-     *
-     * @var string
      */
-    protected $subType;
+    protected string $subType;
 
     /**
      * The MIME media sub-type comment.
-     *
-     * @var string|null
      */
-    protected $subTypeComment;
+    protected ?string $subTypeComment;
 
     /**
      *  MIME type descriptions.
      *
-     * @var string[]
+     * @var list<string>
      */
-    protected $descriptions;
+    protected array $descriptions;
 
     /**
      * Optional MIME parameters.
      *
-     * @var TypeParameter[]
+     * @var array<string,TypeParameter>
      */
-    protected $parameters = [];
+    protected array $parameters = [];
 
     /**
      * The MIME types map.
-     *
-     * @var MimeMapInterface
      */
-    protected $map;
+    protected readonly MimeMapInterface $map;
 
-    public function __construct(string $type_string, ?string $map_class = null)
+    public function __construct(string $typeString, ?string $mapClass = null)
     {
-        TypeParser::parse($type_string, $this);
-        $this->map = MapHandler::map($map_class);
+        TypeParser::parse($typeString, $this);
+        $this->map = MapHandler::map($mapClass);
     }
 
     public function getMedia(): string
@@ -275,14 +265,14 @@ class Type implements TypeInterface
         return isset($this->descriptions[0]);
     }
 
-    public function getDescription(bool $include_acronym = false): string
+    public function getDescription(bool $includeAcronym = false): string
     {
         if (!$this->hasDescription()) {
             throw new MappingException('No description available for type: ' . $this->toString(static::SHORT_TEXT));
         }
 
         $res = $this->descriptions[0];
-        if ($include_acronym && isset($this->descriptions[1])) {
+        if ($includeAcronym && isset($this->descriptions[1])) {
             $res .= ', ' . $this->descriptions[1];
         }
 

@@ -4,6 +4,7 @@ namespace FileEye\MimeMap\Test;
 
 use Symfony\Component\Filesystem\Filesystem;
 use FileEye\MimeMap\Map\MimeMapInterface;
+use FileEye\MimeMap\Map\MiniMap;
 use FileEye\MimeMap\MapHandler;
 use FileEye\MimeMap\MapUpdater;
 use PHPUnit\Framework\Attributes\BackupStaticProperties;
@@ -157,7 +158,7 @@ class MapUpdaterTest extends MimeMapTestBase
     public function testWriteMapToPhpClassFile(): void
     {
         $this->fileSystem->copy(__DIR__ . '/../../src/Map/MiniMap.php.test', __DIR__ . '/../../src/Map/MiniMap.php');
-        MapHandler::setDefaultMapClass('\FileEye\MimeMap\Map\MiniMap');
+        MapHandler::setDefaultMapClass(MiniMap::class);
         $map_a = MapHandler::map();
         $this->assertStringContainsString('src/Map/MiniMap.php', $map_a->getFileName());
         $content = file_get_contents($map_a->getFileName());

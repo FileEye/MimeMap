@@ -10,17 +10,17 @@ class TypeParser
     /**
      * Parse a mime-type and set the class variables.
      *
-     * @param string $type_string
+     * @param string $typeString
      *   MIME type string to parse.
      * @param Type $type
      *   The Type object to receive the components.
      *
-     * @throws MalformedTypeException when $type_string is malformed.
+     * @throws MalformedTypeException when $typeString is malformed.
      */
-    public static function parse(string $type_string, Type $type): void
+    public static function parse(string $typeString, Type $type): void
     {
         // Media and SubType are separated by a slash '/'.
-        $media = static::parseStringPart($type_string, 0, '/');
+        $media = static::parseStringPart($typeString, 0, '/');
         if (!$media['string']) {
             throw new MalformedTypeException('Media type not found');
         }
@@ -33,7 +33,7 @@ class TypeParser
         }
 
         // SubType and Parameters are separated by semicolons ';'.
-        $sub = static::parseStringPart($type_string, $media['end_offset'] + 1, ';');
+        $sub = static::parseStringPart($typeString, $media['end_offset'] + 1, ';');
         if (!$sub['string']) {
             throw new MalformedTypeException('Media subtype not found');
         }
@@ -44,7 +44,7 @@ class TypeParser
 
         // Loops through the parameter.
         while ($sub['delimiter_matched']) {
-            $sub = static::parseStringPart($type_string, $sub['end_offset'] + 1, ';');
+            $sub = static::parseStringPart($typeString, $sub['end_offset'] + 1, ';');
             $tmp = explode('=', $sub['string'], 2);
             $p_name = trim($tmp[0]);
             $p_val = str_replace('\\"', '"', trim($tmp[1] ?? ''));

@@ -12,12 +12,12 @@ interface TypeInterface
      *
      * The type string will be parsed and the appropriate class vars set.
      *
-     * @param string $type_string
+     * @param string $typeString
      *   MIME type string to be parsed.
-     * @param string $map_class
+     * @param class-string|null $mapClass
      *   (Optional) The FQCN of the map class to use.
      */
-    public function __construct(string $type_string, ?string $map_class = null);
+    public function __construct(string $typeString, ?string $mapClass = null);
 
     /**
      * Gets a MIME type's media.
@@ -131,7 +131,7 @@ interface TypeInterface
      * Is this type experimental?
      *
      * Note: Experimental types are denoted by a leading 'x-' in the media or
-     *       subtype, e.g. text/x-vcard or x-world/x-vrml.
+     * subtype, e.g. text/x-vcard or x-world/x-vrml.
      */
     public function isExperimental(): bool;
 
@@ -175,7 +175,7 @@ interface TypeInterface
      *
      * @throws MappingException if no mapping found.
      *
-     * @return array<int, int|string>
+     * @return array<int,int|string>
      */
     public function buildTypesList(): array;
 
@@ -204,7 +204,7 @@ interface TypeInterface
      *
      * @throws MappingException on error.
      *
-     * @return string[]
+     * @return list<string>
      */
     public function getAliases(): array;
 
@@ -222,7 +222,7 @@ interface TypeInterface
      *
      * @throws MappingException if no mapping found.
      *
-     * @return string[]
+     * @return list<string>
      */
     public function getExtensions(): array;
 }
