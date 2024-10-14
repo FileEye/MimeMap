@@ -157,7 +157,8 @@ class MapUpdaterTest extends MimeMapTestBase
 
     public function testWriteMapToPhpClassFile(): void
     {
-        $this->fileSystem->copy(__DIR__ . '/../../src/Map/MiniMap.php.test', __DIR__ . '/../../src/Map/MiniMap.php');
+        $this->fileSystem->copy(__DIR__ . '/../fixtures/MiniMap.php.test', __DIR__ . '/../fixtures/MiniMap.php');
+        include_once(__DIR__ . '/../fixtures/MiniMap.php');
         MapHandler::setDefaultMapClass(MiniMap::class);
         $map_a = MapHandler::map();
         $this->assertStringContainsString('src/Map/MiniMap.php', $map_a->getFileName());
@@ -172,7 +173,7 @@ class MapUpdaterTest extends MimeMapTestBase
         $this->assertStringContainsString('text/plain', $content);
         $this->assertStringContainsString('bing/bong', $content);
         $this->assertStringContainsString('binbon', $content);
-        $this->fileSystem->remove(__DIR__ . '/../../src/Map/MiniMap.php');
+        $this->fileSystem->remove(__DIR__ . '/../fixtures/MiniMap.php');
     }
 
     public function testGetDefaultMapBuildFile(): void
