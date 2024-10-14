@@ -105,9 +105,9 @@ class Type implements TypeInterface
         return $this->subType;
     }
 
-    public function setSubType(string $sub_type): TypeInterface
+    public function setSubType(string $subType): TypeInterface
     {
-        $this->subType = $sub_type;
+        $this->subType = $subType;
         return $this;
     }
 
@@ -207,19 +207,19 @@ class Type implements TypeInterface
 
     public function wildcardMatch(string $wildcard): bool
     {
-        $wildcard_type = new static($wildcard);
+        $wildcardType = new static($wildcard);
 
-        if (!$wildcard_type->isWildcard()) {
+        if (!$wildcardType->isWildcard()) {
             return false;
         }
 
-        $wildcard_re = strtr($wildcard_type->toString(static::SHORT_TEXT), [
+        $wildcardRe = strtr($wildcardType->toString(static::SHORT_TEXT), [
             '/' => '\\/',
             '*' => '.*',
         ]);
         $subject = $this->toString(static::SHORT_TEXT);
 
-        return preg_match("/$wildcard_re/", $subject) === 1;
+        return preg_match("/{$wildcardRe}/", $subject) === 1;
     }
 
     public function buildTypesList(): array
@@ -300,20 +300,20 @@ class Type implements TypeInterface
 
     public function getDefaultExtension(): string
     {
-        $unaliased_type = $this->getUnaliasedType();
-        $subject = $unaliased_type->toString(static::SHORT_TEXT);
+        $unaliasedType = $this->getUnaliasedType();
+        $subject = $unaliasedType->toString(static::SHORT_TEXT);
 
-        if (!$unaliased_type->isWildcard()) {
+        if (!$unaliasedType->isWildcard()) {
             $proceed = $this->map->hasType($subject);
         } else {
             $proceed = count($this->map->listTypes($subject)) === 1;
         }
 
         if ($proceed) {
-            return $unaliased_type->getExtensions()[0];
+            return $unaliasedType->getExtensions()[0];
         }
 
-        throw new MappingException('Cannot determine default extension for type: ' . $unaliased_type->toString(static::SHORT_TEXT));
+        throw new MappingException('Cannot determine default extension for type: ' . $unaliasedType->toString(static::SHORT_TEXT));
     }
 
     public function getExtensions(): array

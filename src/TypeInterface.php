@@ -58,7 +58,7 @@ interface TypeInterface
     /**
      * Sets a MIME type's subtype.
      */
-    public function setSubType(string $sub_type): TypeInterface;
+    public function setSubType(string $subType): TypeInterface;
 
     /**
      * Checks if the MIME type has subtype comment.
@@ -75,7 +75,7 @@ interface TypeInterface
     /**
      * Sets the MIME type's subtype comment.
      *
-     * @param string $comment (optional) a comment; when missing any existing comment is removed.
+     * @param string|null $comment (optional) a comment; when missing any existing comment is removed.
      */
     public function setSubTypeComment(?string $comment = null): TypeInterface;
 
@@ -187,14 +187,14 @@ interface TypeInterface
     /**
      * Returns a description for the MIME type, if existing in the map.
      *
-     * @param bool $include_acronym
+     * @param bool $includeAcronym
      *   (Optional) if true and an acronym description exists for the type,
      *   the returned description will contain the acronym and its description,
      *   appended with a comma. Defaults to false.
      *
      * @throws MappingException if no description found.
      */
-    public function getDescription(bool $include_acronym = false): string;
+    public function getDescription(bool $includeAcronym = false): string;
 
     /**
      * Returns all the aliases related to the MIME type(s).

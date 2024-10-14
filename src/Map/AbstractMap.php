@@ -71,12 +71,12 @@ abstract class AbstractMap extends BaseMap implements MimeMapInterface
 
     public function listAliases(?string $match = null): array
     {
-        return $this->listEntries('a', $match);
+        return array_map('strval', $this->listEntries('a', $match));
     }
 
     public function listExtensions(?string $match = null): array
     {
-        return $this->listEntries('e', $match);
+        return array_map('strval', $this->listEntries('e', $match));
     }
 
     public function addTypeDescription(string $type, string $description): MimeMapInterface
