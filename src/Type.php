@@ -49,7 +49,7 @@ class Type implements TypeInterface
      *
      * @var list<string>
      */
-    protected array $descriptions;
+    protected array $descriptions = [];
 
     /**
      * Optional MIME parameters.
@@ -259,7 +259,7 @@ class Type implements TypeInterface
 
     public function hasDescription(): bool
     {
-        if ($this->descriptions === null) {
+        if ($this->descriptions === []) {
             $this->descriptions = $this->map->getTypeDescriptions($this->getUnaliasedType()->toString(static::SHORT_TEXT));
         }
         return isset($this->descriptions[0]);
