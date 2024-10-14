@@ -159,9 +159,10 @@ class MapUpdaterTest extends MimeMapTestBase
     {
         $this->fileSystem->copy(__DIR__ . '/../fixtures/MiniMap.php.test', __DIR__ . '/../fixtures/MiniMap.php');
         include_once(__DIR__ . '/../fixtures/MiniMap.php');
+        // @phpstan-ignore class.notFound
         MapHandler::setDefaultMapClass(MiniMap::class);
         $map_a = MapHandler::map();
-        $this->assertStringContainsString('src/Map/MiniMap.php', $map_a->getFileName());
+        $this->assertStringContainsString('fixtures/MiniMap.php', $map_a->getFileName());
         $content = file_get_contents($map_a->getFileName());
         assert(is_string($content));
         $this->assertStringNotContainsString('text/plain', $content);
