@@ -13,7 +13,7 @@ class TypeParameter
      * @param string|null $comment Comment for this parameter.
      */
     public function __construct(
-        protected readonly string $name, 
+        protected readonly string $name,
         protected readonly string $value,
         protected readonly ?string $comment = null,
     ) {
