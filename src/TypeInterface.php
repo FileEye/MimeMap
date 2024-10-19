@@ -2,6 +2,8 @@
 
 namespace FileEye\MimeMap;
 
+use FileEye\MimeMap\Map\MimeMapInterface,
+
 /**
  * Interface for Type objects.
  */
@@ -14,7 +16,7 @@ interface TypeInterface
      *
      * @param string $typeString
      *   MIME type string to be parsed.
-     * @param class-string|null $mapClass
+     * @param class-string<MimeMapInterface>|null $mapClass
      *   (Optional) The FQCN of the map class to use.
      */
     public function __construct(string $typeString, ?string $mapClass = null);

@@ -74,7 +74,7 @@ class UpdateCommand extends Command
             return (2);
         }
 
-        /** @var class-string $mapClass */
+        /** @var class-string<MimeMapInterface> $mapClass */
         $mapClass = $input->getOption('class');
         if (!is_string($mapClass)) {
             $io->error('Invalid value for --class option.');

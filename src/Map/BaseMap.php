@@ -86,7 +86,7 @@ abstract class BaseMap implements MapInterface
      * @param string|null $match
      *   (Optional) a match wildcard to limit the list.
      *
-     * @return list<int|string>
+     * @return array<int<0, max>, int|string>
      *   The list of the entries.
      */
     protected function listEntries(string $entry, ?string $match = null): array
@@ -101,7 +101,7 @@ abstract class BaseMap implements MapInterface
             return $list;
         } else {
             $re = strtr($match, ['/' => '\\/', '*' => '.*']);
-            return array_filter($list, function ($v) use ($re) {
+            return array_filter($list, function (int|string $v) use ($re): bool {
                 return preg_match("/$re/", (string) $v) === 1;
             });
         }

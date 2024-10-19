@@ -2,6 +2,8 @@
 
 namespace FileEye\MimeMap;
 
+use FileEye\MimeMap\Map\MimeMapInterface,
+
 /**
  * Interface for Extension objects.
  */
@@ -12,7 +14,7 @@ interface ExtensionInterface
      *
      * @param string $extension
      *   A file extension.
-     * @param class-string|null $mapClass
+     * @param class-string<MimeMapInterface>|null $mapClass
      *   (Optional) The FQCN of the map class to use.
      */
     public function __construct(string $extension, ?string $mapClass = null);

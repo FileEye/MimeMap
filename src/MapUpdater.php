@@ -43,7 +43,7 @@ class MapUpdater
     /**
      * Sets the map object to update.
      *
-     * @param class-string $mapClass
+     * @param class-string<MimeMapInterface> $mapClass
      *   The FQCN of the map to be updated.
      */
     public function selectBaseMap(string $mapClass): MapUpdater
