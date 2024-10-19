@@ -2,7 +2,7 @@
 
 namespace FileEye\MimeMap;
 
-use FileEye\MimeMap\Map\MimeMapInterface,
+use FileEye\MimeMap\Map\MimeMapInterface;
 
 /**
  * Interface for Type objects.
