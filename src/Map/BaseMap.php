@@ -86,7 +86,7 @@ abstract class BaseMap implements MapInterface
      * @param string|null $match
      *   (Optional) a match wildcard to limit the list.
      *
-     * @return array<int<0, max>, int|string>
+     * @return list<int|string>
      *   The list of the entries.
      */
     protected function listEntries(string $entry, ?string $match = null): array

@@ -13,6 +13,13 @@ use FileEye\MimeMap\TypeParser;
  */
 abstract class AbstractMap extends BaseMap implements MimeMapInterface
 {
+    public static function getInstance(): MimeMapInterface
+    {
+        $instance = parent::getInstance();
+        assert($instance instanceof MimeMapInterface);
+        return $instance;
+    }
+
     /**
      * Normalizes a mime-type string to Media/Subtype.
      *

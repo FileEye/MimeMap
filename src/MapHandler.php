@@ -46,6 +46,8 @@ abstract class MapHandler
         if ($mapClass === null) {
             $mapClass = static::$defaultMapClass;
         }
-        return $mapClass::getInstance();
+        $instance = $mapClass::getInstance();
+        assert($instance instanceof MimeMapInterface);
+        return $instance;
     }
 }
