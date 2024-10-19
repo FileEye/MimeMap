@@ -2,6 +2,8 @@
 
 namespace FileEye\MimeMap;
 
+use FileEye\MimeMap\Map\MimeMapInterface;
+
 /**
  * Interface for Type objects.
  */
@@ -12,12 +14,12 @@ interface TypeInterface
      *
      * The type string will be parsed and the appropriate class vars set.
      *
-     * @param string $type_string
+     * @param string $typeString
      *   MIME type string to be parsed.
-     * @param string $map_class
+     * @param class-string<MimeMapInterface>|null $mapClass
      *   (Optional) The FQCN of the map class to use.
      */
-    public function __construct(string $type_string, ?string $map_class = null);
+    public function __construct(string $typeString, ?string $mapClass = null);
 
     /**
      * Gets a MIME type's media.
@@ -58,7 +60,7 @@ interface TypeInterface
     /**
      * Sets a MIME type's subtype.
      */
-    public function setSubType(string $sub_type): TypeInterface;
+    public function setSubType(string $subType): TypeInterface;
 
     /**
      * Checks if the MIME type has subtype comment.
@@ -75,7 +77,7 @@ interface TypeInterface
     /**
      * Sets the MIME type's subtype comment.
      *
-     * @param string $comment (optional) a comment; when missing any existing comment is removed.
+     * @param string|null $comment (optional) a comment; when missing any existing comment is removed.
      */
     public function setSubTypeComment(?string $comment = null): TypeInterface;
 
@@ -131,7 +133,7 @@ interface TypeInterface
      * Is this type experimental?
      *
      * Note: Experimental types are denoted by a leading 'x-' in the media or
-     *       subtype, e.g. text/x-vcard or x-world/x-vrml.
+     * subtype, e.g. text/x-vcard or x-world/x-vrml.
      */
     public function isExperimental(): bool;
 
@@ -175,7 +177,7 @@ interface TypeInterface
      *
      * @throws MappingException if no mapping found.
      *
-     * @return array<int, int|string>
+     * @return array<int,int|string>
      */
     public function buildTypesList(): array;
 
@@ -187,14 +189,14 @@ interface TypeInterface
     /**
      * Returns a description for the MIME type, if existing in the map.
      *
-     * @param bool $include_acronym
+     * @param bool $includeAcronym
      *   (Optional) if true and an acronym description exists for the type,
      *   the returned description will contain the acronym and its description,
      *   appended with a comma. Defaults to false.
      *
      * @throws MappingException if no description found.
      */
-    public function getDescription(bool $include_acronym = false): string;
+    public function getDescription(bool $includeAcronym = false): string;
 
     /**
      * Returns all the aliases related to the MIME type(s).
@@ -204,7 +206,7 @@ interface TypeInterface
      *
      * @throws MappingException on error.
      *
-     * @return string[]
+     * @return list<string>
      */
     public function getAliases(): array;
 
@@ -222,7 +224,7 @@ interface TypeInterface
      *
      * @throws MappingException if no mapping found.
      *
-     * @return string[]
+     * @return list<string>
      */
     public function getExtensions(): array;
 }

@@ -20,32 +20,34 @@ abstract class MapHandler
      *
      * It can be overridden by ::setDefaultMapClass.
      *
-     * @var string
+     * @var class-string<MimeMapInterface>
      */
-    protected static $defaultMapClass = self::DEFAULT_MAP_CLASS;
+    protected static string $defaultMapClass = self::DEFAULT_MAP_CLASS;
 
     /**
      * Sets a map class as default for new instances.
      *
-     * @param string $map_class A FQCN.
+     * @param class-string<MimeMapInterface> $mapClass A FQCN.
      */
-    public static function setDefaultMapClass(string $map_class): void
+    public static function setDefaultMapClass(string $mapClass): void
     {
-        static::$defaultMapClass = $map_class;
+        static::$defaultMapClass = $mapClass;
     }
 
     /**
      * Returns the map instance.
      *
-     * @param string|null $map_class
+     * @param class-string<MimeMapInterface>|null $mapClass
      *   (Optional) The map FQCN to be used. If null, the default map will be
      *   used.
      */
-    public static function map(?string $map_class = null): MimeMapInterface
+    public static function map(?string $mapClass = null): MimeMapInterface
     {
-        if ($map_class === null) {
-            $map_class = static::$defaultMapClass;
+        if ($mapClass === null) {
+            $mapClass = static::$defaultMapClass;
         }
-        return $map_class::getInstance();
+        $instance = $mapClass::getInstance();
+        assert($instance instanceof MimeMapInterface);
+        return $instance;
     }
 }

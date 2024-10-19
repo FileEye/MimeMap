@@ -26,57 +26,47 @@ class Type implements TypeInterface
 
     /**
      * The MIME media type.
-     *
-     * @var string
      */
-    protected $media;
+    protected string $media;
 
     /**
      * The MIME media type comment.
-     *
-     * @var string|null
      */
-    protected $mediaComment;
+    protected ?string $mediaComment = null;
 
     /**
      * The MIME media sub-type.
-     *
-     * @var string
      */
-    protected $subType;
+    protected string $subType;
 
     /**
      * The MIME media sub-type comment.
-     *
-     * @var string|null
      */
-    protected $subTypeComment;
+    protected ?string $subTypeComment = null;
 
     /**
      *  MIME type descriptions.
      *
-     * @var string[]
+     * @var list<string>
      */
-    protected $descriptions;
+    protected array $descriptions = [];
 
     /**
      * Optional MIME parameters.
      *
-     * @var TypeParameter[]
+     * @var array<string,TypeParameter>
      */
-    protected $parameters = [];
+    protected array $parameters = [];
 
     /**
      * The MIME types map.
-     *
-     * @var MimeMapInterface
      */
-    protected $map;
+    protected readonly MimeMapInterface $map;
 
-    public function __construct(string $type_string, ?string $map_class = null)
+    public function __construct(string $typeString, ?string $mapClass = null)
     {
-        TypeParser::parse($type_string, $this);
-        $this->map = MapHandler::map($map_class);
+        TypeParser::parse($typeString, $this);
+        $this->map = MapHandler::map($mapClass);
     }
 
     public function getMedia(): string
@@ -115,9 +105,9 @@ class Type implements TypeInterface
         return $this->subType;
     }
 
-    public function setSubType(string $sub_type): TypeInterface
+    public function setSubType(string $subType): TypeInterface
     {
-        $this->subType = $sub_type;
+        $this->subType = $subType;
         return $this;
     }
 
@@ -217,19 +207,19 @@ class Type implements TypeInterface
 
     public function wildcardMatch(string $wildcard): bool
     {
-        $wildcard_type = new static($wildcard);
+        $wildcardType = new static($wildcard);
 
-        if (!$wildcard_type->isWildcard()) {
+        if (!$wildcardType->isWildcard()) {
             return false;
         }
 
-        $wildcard_re = strtr($wildcard_type->toString(static::SHORT_TEXT), [
+        $wildcardRe = strtr($wildcardType->toString(static::SHORT_TEXT), [
             '/' => '\\/',
             '*' => '.*',
         ]);
         $subject = $this->toString(static::SHORT_TEXT);
 
-        return preg_match("/$wildcard_re/", $subject) === 1;
+        return preg_match("/{$wildcardRe}/", $subject) === 1;
     }
 
     public function buildTypesList(): array
@@ -269,20 +259,20 @@ class Type implements TypeInterface
 
     public function hasDescription(): bool
     {
-        if ($this->descriptions === null) {
+        if ($this->descriptions === []) {
             $this->descriptions = $this->map->getTypeDescriptions($this->getUnaliasedType()->toString(static::SHORT_TEXT));
         }
         return isset($this->descriptions[0]);
     }
 
-    public function getDescription(bool $include_acronym = false): string
+    public function getDescription(bool $includeAcronym = false): string
     {
         if (!$this->hasDescription()) {
             throw new MappingException('No description available for type: ' . $this->toString(static::SHORT_TEXT));
         }
 
         $res = $this->descriptions[0];
-        if ($include_acronym && isset($this->descriptions[1])) {
+        if ($includeAcronym && isset($this->descriptions[1])) {
             $res .= ', ' . $this->descriptions[1];
         }
 
@@ -310,20 +300,20 @@ class Type implements TypeInterface
 
     public function getDefaultExtension(): string
     {
-        $unaliased_type = $this->getUnaliasedType();
-        $subject = $unaliased_type->toString(static::SHORT_TEXT);
+        $unaliasedType = $this->getUnaliasedType();
+        $subject = $unaliasedType->toString(static::SHORT_TEXT);
 
-        if (!$unaliased_type->isWildcard()) {
+        if (!$unaliasedType->isWildcard()) {
             $proceed = $this->map->hasType($subject);
         } else {
             $proceed = count($this->map->listTypes($subject)) === 1;
         }
 
         if ($proceed) {
-            return $unaliased_type->getExtensions()[0];
+            return $unaliasedType->getExtensions()[0];
         }
 
-        throw new MappingException('Cannot determine default extension for type: ' . $unaliased_type->toString(static::SHORT_TEXT));
+        throw new MappingException('Cannot determine default extension for type: ' . $unaliasedType->toString(static::SHORT_TEXT));
     }
 
     public function getExtensions(): array

@@ -3,3 +3,10 @@ parameters:
     paths:
         - src
         - tests
+
+    ignoreErrors:
+        # This is due to the test fixture MiniMap class not being autoloadable for PHPStan.
+        -
+            message: "#^Parameter \\#1 \\$mapClass of static method FileEye\\\\MimeMap\\\\MapHandler\\:\\:setDefaultMapClass\\(\\) expects class\\-string\\<FileEye\\\\MimeMap\\\\Map\\\\MimeMapInterface\\>, string given\\.$#"
+            count: 1
+            path: tests/src/MapUpdaterTest.php

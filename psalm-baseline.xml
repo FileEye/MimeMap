@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.23.0@f1fe6ff483bf325c803df9f510d09a03fd796f88">
-  <file src="src/Command/UpdateCommand.php">
-    <ReservedWord occurrences="1">
-      <code>Yaml::parse($contents)</code>
-    </ReservedWord>
+<files psalm-version="5.26.1@d747f6500b38ac4f7dfc5edbcae6e4b637d7add0">
+  <file src="src/Map/BaseMap.php">
+    <LessSpecificReturnStatement>
+      <code><![CDATA[array_filter($list, function (int|string $v) use ($re): bool {
+                return preg_match("/$re/", (string) $v) === 1;
+            })]]></code>
+      <code><![CDATA[isset(static::$map[$entry][$entryKey][$subEntry]) ? static::$map[$entry][$entryKey][$subEntry] : []]]></code>
+    </LessSpecificReturnStatement>
+    <MoreSpecificReturnType>
+      <code><![CDATA[list<int|string>]]></code>
+      <code><![CDATA[list<string>]]></code>
+    </MoreSpecificReturnType>
   </file>
 </files>

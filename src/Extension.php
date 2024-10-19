@@ -11,22 +11,18 @@ class Extension implements ExtensionInterface
 {
     /**
      * The file extension.
-     *
-     * @var string
      */
-    protected $extension;
+    protected readonly string $extension;
 
     /**
      * The MIME types map.
-     *
-     * @var MimeMapInterface
      */
-    protected $map;
+    protected readonly MimeMapInterface $map;
 
-    public function __construct(string $extension, ?string $map_class = null)
+    public function __construct(string $extension, ?string $mapClass = null)
     {
         $this->extension = strtolower($extension);
-        $this->map = MapHandler::map($map_class);
+        $this->map = MapHandler::map($mapClass);
     }
 
     public function getDefaultType(): string

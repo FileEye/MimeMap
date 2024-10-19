@@ -5,15 +5,11 @@ namespace FileEye\MimeMap\Map;
 /**
  * Class for mapping file extensions to MIME types.
  *
- * This class has minimum mapping defined, and is by defualt not autoloadable
- * (it has a .php.test extension). It is used for testing purposes.
+ * This class has minimum mapping defined. It is used for testing purposes.
  */
 class MiniMap extends AbstractMap
 {
-    /**
-     * @var MapInterface|null
-     */
-    protected static $instance;
+    protected static ?MapInterface $instance;
 
     public function getFileName(): string
     {
@@ -37,7 +33,7 @@ class MiniMap extends AbstractMap
      *
      * @internal
      *
-     * @var array
+     * @var array<string, array<int|string, array<string, array<int,string>>>>
      */
     // phpcs:disable
     protected static $map = array (
