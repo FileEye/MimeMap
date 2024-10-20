@@ -6,8 +6,6 @@ use FileEye\MimeMap\Map\MimeMapInterface;
 
 /**
  * Interface for Extension objects.
- *
- * @api
  */
 interface ExtensionInterface
 {
@@ -18,6 +16,8 @@ interface ExtensionInterface
      *   A file extension.
      * @param class-string<MimeMapInterface>|null $mapClass
      *   (Optional) The FQCN of the map class to use.
+     *
+     * @api
      */
     public function __construct(string $extension, ?string $mapClass = null);
 
@@ -25,6 +25,8 @@ interface ExtensionInterface
      * Returns the file extension's preferred MIME type.
      *
      * @throws MappingException if no mapping found.
+     *
+     * @api
      */
     public function getDefaultType(): string;
 
@@ -34,6 +36,8 @@ interface ExtensionInterface
      * @throws MappingException if no mapping found.
      *
      * @return list<string>
+     *
+     * @api
      */
     public function getTypes(): array;
 }

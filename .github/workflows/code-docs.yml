@@ -3,8 +3,6 @@ name: Code documentation
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 # Allow running the workflow manually from the Actions tab
 #workflow_dispatch:
@@ -37,7 +35,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-phpdocumentor-
       - name: Build with phpDocumentor
-        run: docker run --rm --volume "$(pwd):/data" phpdoc/phpdoc:3 -vv -d src --target docs --cache-folder .phpdoc/cache --template default --visibility api --title MimeMap
+        run: docker run --rm --volume "$(pwd):/data" phpdoc/phpdoc:3 -vv -d src --target docs --cache-folder .phpdoc/cache --template default --title MimeMap
       - name: Upload artifact to GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
