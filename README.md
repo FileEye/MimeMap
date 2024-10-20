@@ -7,9 +7,7 @@
 [![codecov](https://codecov.io/gh/FileEye/MimeMap/branch/master/graph/badge.svg?token=SUAMNKZLEW)](https://codecov.io/gh/FileEye/MimeMap)
 [![Latest Stable Version](https://poser.pugx.org/fileeye/mimemap/v/stable)](https://packagist.org/packages/fileeye/mimemap)
 [![Total Downloads](https://poser.pugx.org/fileeye/mimemap/downloads)](https://packagist.org/packages/fileeye/mimemap)
-[![Monthly Downloads](http://poser.pugx.org/fileeye/mimemap/d/monthly)](https://packagist.org/packages/fileeye/mimemap)
 [![License](https://poser.pugx.org/fileeye/mimemap/license)](https://packagist.org/packages/fileeye/mimemap)
-[![PHP Version Require](http://poser.pugx.org/fileeye/mimemap/require/php)](https://packagist.org/packages/fileeye/mimemap)
 
 A PHP library to handle MIME Content-Type fields and their related file
 extensions.
