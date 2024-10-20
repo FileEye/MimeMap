@@ -2,7 +2,7 @@ name: Code documentation
 
 on:
   push:
-    branches: [master]
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -27,7 +27,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Configure GitHub Pages
-        uses: actions/configure-pages@v1
+        uses: actions/configure-pages@v5
       - name: Cache phpDocumentor build files
         id: phpdocumentor-cache
         uses: actions/cache@v3
@@ -39,7 +39,7 @@ jobs:
       - name: Build with phpDocumentor
         run: docker run --rm --volume "$(pwd):/data" phpdoc/phpdoc:3 -vv --target docs --cache-folder .phpdoc/cache --template default
       - name: Upload artifact to GitHub Pages
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: docs
 
@@ -52,4 +52,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
