@@ -9,7 +9,7 @@ namespace FileEye\MimeMap\Map;
  */
 class DefaultMap extends AbstractMap
 {
-    protected static ?MapInterface $instance;
+    protected static $instance;
 
     public function getFileName(): string
     {
