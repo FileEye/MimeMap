@@ -6,6 +6,8 @@ use FileEye\MimeMap\Map\MimeMapInterface;
 
 /**
  * Interface for Type objects.
+ *
+ * @api
  */
 interface TypeInterface
 {

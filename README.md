@@ -59,6 +59,7 @@ $ composer require fileeye/mimemap
 
 ## Usage
 
+See latest documentation [here](https://fileeye.github.io/MimeMap/), automated with phpDocumentor.
 
 ### Basic
 

@@ -11,6 +11,8 @@ class TypeParameter
      * @param string      $name    Parameter name.
      * @param string      $value   Parameter value.
      * @param string|null $comment Comment for this parameter.
+     *
+     * @api
      */
     public function __construct(
         protected readonly string $name,
@@ -21,6 +23,8 @@ class TypeParameter
 
     /**
      * Gets the parameter name.
+     *
+     * @api
      */
     public function getName(): string
     {
@@ -29,6 +33,8 @@ class TypeParameter
 
     /**
      * Gets the parameter value.
+     *
+     * @api
      */
     public function getValue(): string
     {
@@ -37,6 +43,8 @@ class TypeParameter
 
     /**
      * Does this parameter have a comment?
+     *
+     * @api
      */
     public function hasComment(): bool
     {
@@ -47,6 +55,8 @@ class TypeParameter
      * Gets the parameter comment.
      *
      * @throws UndefinedException
+     *
+     * @api
      */
     public function getComment(): string
     {
@@ -61,6 +71,8 @@ class TypeParameter
      * Gets a string representation of this parameter.
      *
      * @param int $format The format of the output string.
+     *
+     * @api
      */
     public function toString(int $format = Type::FULL_TEXT): string
     {
