@@ -6,6 +6,8 @@ use FileEye\MimeMap\Map\MimeMapInterface;
 
 /**
  * Interface for Extension objects.
+ *
+ * @api
  */
 interface ExtensionInterface
 {
