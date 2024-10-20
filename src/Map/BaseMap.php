@@ -13,8 +13,10 @@ abstract class BaseMap implements MapInterface
 {
     /**
      * Singleton instance.
+     *
+     * @var ?MapInterface
      */
-    protected static ?MapInterface $instance;
+    protected static $instance;
 
     /**
      * Mapping between file extensions and MIME types.

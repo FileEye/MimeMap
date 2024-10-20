@@ -10,5 +10,5 @@ namespace FileEye\MimeMap\Map;
  */
 class EmptyMap extends AbstractMap
 {
-    protected static ?MapInterface $instance;
+    protected static $instance;
 }
