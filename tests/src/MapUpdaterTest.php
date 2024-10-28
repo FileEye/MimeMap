@@ -10,23 +10,13 @@ use FileEye\MimeMap\MapUpdater;
 use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
 
-/**
- * @coversDefaultClass \FileEye\MimeMap\MapUpdater
- * @backupStaticAttributes enabled
- */
 #[CoversClass(MapUpdater::class)]
 #[BackupStaticProperties(true)]
 class MapUpdaterTest extends MimeMapTestBase
 {
-
-    /** @var MimeMapInterface */
-    protected $newMap;
-
-    /** @var MapUpdater */
-    protected $updater;
-
-    /** @var Filesystem */
-    protected $fileSystem;
+    protected readonly MimeMapInterface $newMap;
+    protected readonly MapUpdater $updater;
+    protected readonly Filesystem $fileSystem;
 
     public function setUp(): void
     {

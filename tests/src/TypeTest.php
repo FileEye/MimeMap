@@ -424,8 +424,6 @@ class TypeTest extends MimeMapTestBase
     }
 
     /**
-     * @dataProvider parseProvider
-     *
      * @param string $type
      * @param string[] $expectedToString
      * @param string[] $expectedMedia
@@ -489,9 +487,6 @@ class TypeTest extends MimeMapTestBase
         ];
     }
 
-    /**
-     * @dataProvider parseMalformedProvider
-     */
     #[DataProvider('parseMalformedProvider')]
     public function testParseMalformed(string $type): void
     {
@@ -536,9 +531,6 @@ class TypeTest extends MimeMapTestBase
         ];
     }
 
-    /**
-     * @dataProvider missingDescriptionProvider
-     */
     #[DataProvider('missingDescriptionProvider')]
     public function testMissingDescription(string $type): void
     {
@@ -730,9 +722,6 @@ class TypeTest extends MimeMapTestBase
         ];
     }
 
-    /**
-     * @dataProvider getDefaultExtensionFailProvider
-     */
     #[DataProvider('getDefaultExtensionFailProvider')]
     public function testGetDefaultExtensionFail(string $type): void
     {
