@@ -11,16 +11,10 @@ use FileEye\MimeMap\Type;
 use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\DataProvider;
 
-/**
- * @backupStaticAttributes enabled
- */
 #[BackupStaticProperties(true)]
 class MapHandlerTest extends MimeMapTestBase
 {
-    /**
-     * @var MimeMapInterface
-     */
-    protected $map;
+    protected readonly MimeMapInterface $map;
 
     public function setUp(): void
     {
@@ -364,9 +358,6 @@ class MapHandlerTest extends MimeMapTestBase
         ];
     }
 
-    /**
-     * @dataProvider malformedTypeProvider
-     */
     #[DataProvider('malformedTypeProvider')]
     public function testAddMalformedTypeExtensionMapping(string $type): void
     {
