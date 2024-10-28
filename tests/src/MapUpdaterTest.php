@@ -142,7 +142,7 @@ class MapUpdaterTest extends MimeMapTestBase
     public function testEmptyMapNotWriteable(): void
     {
         $this->expectException('LogicException');
-        $this->assertNull($this->newMap->getFileName());
+        $this->assertSame('', $this->newMap->getFileName());
     }
 
     public function testWriteMapToPhpClassFile(): void

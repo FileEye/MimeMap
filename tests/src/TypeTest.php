@@ -497,10 +497,10 @@ class TypeTest extends MimeMapTestBase
     public function testParseAgain(): void
     {
         $mt = new Type('application/ogg;description=Hello there!;asd=fgh');
-        $this->assertSame(2, count($mt->getParameters()));
+        $this->assertCount(2, $mt->getParameters());
 
         $mt = new Type('text/plain;hello=there!');
-        $this->assertSame(1, count($mt->getParameters()));
+        $this->assertCount(1, $mt->getParameters());
     }
 
     public function testGetDescription(): void
@@ -726,6 +726,6 @@ class TypeTest extends MimeMapTestBase
     public function testGetDefaultExtensionFail(string $type): void
     {
         $this->expectException(MappingException::class);
-        $this->assertNull((new Type($type))->getDefaultExtension());
+        $this->assertSame('', (new Type($type))->getDefaultExtension());
     }
 }
