@@ -64,7 +64,7 @@ jobs:
 
         - name: Map artifact
           if: ${{ matrix.php-version == 8.1 }}
-          uses: actions/upload-artifact@v3
+          uses: actions/upload-artifact@v4
           with:
             name: map
             path: src/Map/DefaultMap.php
