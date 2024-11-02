@@ -24,9 +24,9 @@ jobs:
           - php-version: "8.3"
             php-unit-args: "-c phpunit.xml"
           - php-version: "8.4"
-            php-unit-args: "-c phpunit.xml --display-deprecations"
+            php-unit-args: "-c phpunit.xml"
           - php-version: "8.5"
-            php-unit-args: "-c phpunit.xml --display-deprecations"
+            php-unit-args: "-c phpunit.xml --fail-on-deprecation --fail-on-phpunit-deprecation"
 
     steps:
 
@@ -55,9 +55,16 @@ jobs:
             token: ${{ secrets.CODECOV_TOKEN }}
             files: coverage.xml
 
-        - name: Mapping test
+        - name: Map update
           if: ${{ matrix.php-version == 8.1 }}
           continue-on-error: true
           run: |
             php ./bin/fileeye-mimemap --version
-            php ./bin/fileeye-mimemap update --diff --fail-on-diff --ansi
+            php ./bin/fileeye-mimemap update --diff --ansi
+
+        - name: Map artifact
+          if: ${{ matrix.php-version == 8.1 }}
+          uses: actions/upload-artifact@v3
+          with:
+            name: map
+            path: src/Map/DefaultMap.php
