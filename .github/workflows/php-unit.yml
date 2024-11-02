@@ -55,12 +55,17 @@ jobs:
             token: ${{ secrets.CODECOV_TOKEN }}
             files: coverage.xml
 
-        - name: Map update
+        - name: Mapping test
+          id: mapTest
           if: ${{ matrix.php-version == 8.1 }}
           continue-on-error: true
           run: |
             php ./bin/fileeye-mimemap --version
-            php ./bin/fileeye-mimemap update --diff --ansi
+            php ./bin/fileeye-mimemap update --diff --fail-on-diff --ansi
+
+        - name: Map update
+          if: ${{ failure() && steps.mapTest.conclusion == 'failure' }}
+          run: php ./bin/fileeye-mimemap update --ansi
 
         - name: Map artifact
           if: ${{ matrix.php-version == 8.1 }}
