@@ -64,11 +64,12 @@ jobs:
             php ./bin/fileeye-mimemap update --diff --fail-on-diff --ansi
 
         - name: Map update
+          id: mapUpdate
           if: ${{ steps.mapTest.outcome == 'failure' }}
           run: php ./bin/fileeye-mimemap update --ansi
 
         - name: Map artifact
-          if: ${{ matrix.php-version == 8.1 }}
+          if: ${{ steps.mapTest.outcome == 'failure' && steps.mapTest.outcome == 'success' }}
           uses: actions/upload-artifact@v4
           with:
             name: map
