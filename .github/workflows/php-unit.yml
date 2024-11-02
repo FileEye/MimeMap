@@ -57,13 +57,14 @@ jobs:
 
         - name: Mapping test
           id: mapTest
+          continue-on-error: true
           if: ${{ matrix.php-version == 8.1 }}
           run: |
             php ./bin/fileeye-mimemap --version
             php ./bin/fileeye-mimemap update --diff --fail-on-diff --ansi
 
         - name: Map update
-          if: ${{ failure() && steps.mapTest.conclusion == 'failure' }}
+          if: ${{ steps.mapTest.outcome == 'failure' }}
           run: php ./bin/fileeye-mimemap update --ansi
 
         - name: Map artifact
