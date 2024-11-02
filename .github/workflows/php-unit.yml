@@ -58,7 +58,6 @@ jobs:
         - name: Mapping test
           id: mapTest
           if: ${{ matrix.php-version == 8.1 }}
-          continue-on-error: true
           run: |
             php ./bin/fileeye-mimemap --version
             php ./bin/fileeye-mimemap update --diff --fail-on-diff --ansi
