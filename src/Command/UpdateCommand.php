@@ -74,6 +74,7 @@ class UpdateCommand extends Command
             return (2);
         }
 
+        /** @var class-string<MimeMapInterface> $mapClass */
         $mapClass = $input->getOption('class');
         if (!is_string($mapClass)) {
             $io->error('Invalid value for --class option.');
@@ -92,7 +93,6 @@ class UpdateCommand extends Command
             return (2);
         }
 
-        /** @var array<list<string>> $commands */
         $commands = Yaml::parse($contents);
         if (!is_array($commands)) {
             $io->error('Invalid update script file ' . $scriptFile);
@@ -104,7 +104,6 @@ class UpdateCommand extends Command
             try {
                 $callable = [$updater, $command[1]];
                 assert(is_callable($callable));
-                /** @var list<string> $errors */
                 $errors = call_user_func_array($callable, $command[2]);
                 if (is_array($errors) && !empty($errors)) {
                     foreach ($errors as $error) {
