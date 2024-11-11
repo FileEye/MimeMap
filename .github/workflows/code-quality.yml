@@ -35,7 +35,7 @@ jobs:
         continue-on-error: true
         run: |
           composer config --no-plugins allow-plugins.phpstan/extension-installer true
-          composer require --ansi --dev "vimeo/psalm:^5.15" "phpstan/phpstan:>=1.10" "phpstan/extension-installer:>=1.4" "phpstan/phpstan-phpunit:>=1.4" "squizlabs/php_codesniffer:>=3.7" "phpunit/phpunit:>=10"
+          composer require --ansi --dev "vimeo/psalm:^5.15" "phpstan/phpstan:>=2" "phpstan/extension-installer:>=1.4" "phpstan/phpstan-phpunit:>=1.4" "squizlabs/php_codesniffer:>=3.7" "phpunit/phpunit:>=10"
 
       - name: "Run static analysis with phpstan/phpstan"
         run: "vendor/bin/phpstan"
