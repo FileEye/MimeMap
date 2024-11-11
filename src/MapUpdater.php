@@ -148,8 +148,9 @@ class MapUpdater
             }
             if (isset($node->acronym)) {
                 $acronym = (string) $node->acronym;
-                if (isset($node->{'expanded-acronym'})) {
-                    $acronym .= ': ' . (string) $node->{'expanded-acronym'};
+                $expandedAcronym = $node->{'expanded-acronym'} ?? NULL;
+                if (isset($expandedAcronym) && is_string($expandedAcronym)) {
+                    $acronym .= ': ' . $expandedAcronym;
                 }
                 $this->map->addTypeDescription($type, $acronym);
             }

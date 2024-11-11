@@ -34,26 +34,26 @@ class UpdateCommand extends Command
                 null,
                 InputOption::VALUE_REQUIRED,
                 'File name of the script containing the sequence of commands to execute to build the default map.',
-                MapUpdater::getDefaultMapBuildFile()
+                MapUpdater::getDefaultMapBuildFile(),
             )
             ->addOption(
                 'class',
                 null,
                 InputOption::VALUE_REQUIRED,
                 'The fully qualified class name of the PHP class storing the map.',
-                MapHandler::DEFAULT_MAP_CLASS
+                MapHandler::DEFAULT_MAP_CLASS,
             )
             ->addOption(
                 'diff',
                 null,
                 InputOption::VALUE_NONE,
-                'Report updates.'
+                'Report updates.',
             )
             ->addOption(
                 'fail-on-diff',
                 null,
                 InputOption::VALUE_NONE,
-                'Exit with an error when a difference is found. Map will not be updated.'
+                'Exit with an error when a difference is found. Map will not be updated.',
             )
         ;
     }
@@ -74,7 +74,6 @@ class UpdateCommand extends Command
             return (2);
         }
 
-        /** @var class-string<MimeMapInterface> $mapClass */
         $mapClass = $input->getOption('class');
         if (!is_string($mapClass)) {
             $io->error('Invalid value for --class option.');
@@ -93,6 +92,7 @@ class UpdateCommand extends Command
             return (2);
         }
 
+        /** @var array<list<string>> $commands */
         $commands = Yaml::parse($contents);
         if (!is_array($commands)) {
             $io->error('Invalid update script file ' . $scriptFile);
@@ -104,6 +104,7 @@ class UpdateCommand extends Command
             try {
                 $callable = [$updater, $command[1]];
                 assert(is_callable($callable));
+                /** @var list<string> $errors */
                 $errors = call_user_func_array($callable, $command[2]);
                 if (is_array($errors) && !empty($errors)) {
                     foreach ($errors as $error) {
