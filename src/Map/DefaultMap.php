@@ -11374,6 +11374,17 @@ class DefaultMap extends AbstractMap
         0 => 'pef',
       ),
     ),
+    'image/x-pfm' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Portable FloatMap',
+      ),
+      'e' =>
+      array (
+        0 => 'pfm',
+      ),
+    ),
     'image/x-photo-cd' =>
     array (
       'desc' =>
@@ -11449,6 +11460,17 @@ class DefaultMap extends AbstractMap
         0 => 'ppm',
       ),
     ),
+    'image/x-pxr' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Pixar raster',
+      ),
+      'e' =>
+      array (
+        0 => 'pxr',
+      ),
+    ),
     'image/x-quicktime' =>
     array (
       'desc' =>
@@ -11470,6 +11492,18 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'rgb',
+      ),
+    ),
+    'image/x-sct' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Scitex CT',
+        1 => 'CT: Continuous Tone',
+      ),
+      'e' =>
+      array (
+        0 => 'sct',
       ),
     ),
     'image/x-sgi' =>
@@ -14324,13 +14358,6 @@ class DefaultMap extends AbstractMap
   ),
   'e' =>
   array (
-    123 =>
-    array (
-      't' =>
-      array (
-        0 => 'application/vnd.lotus-1-2-3',
-      ),
-    ),
     '32x' =>
     array (
       't' =>
@@ -14407,20 +14434,6 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'model/3mf',
-      ),
-    ),
-    602 =>
-    array (
-      't' =>
-      array (
-        0 => 'application/x-t602',
-      ),
-    ),
-    669 =>
-    array (
-      't' =>
-      array (
-        0 => 'audio/x-mod',
       ),
     ),
     '7z' =>
@@ -21544,6 +21557,7 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-font-type1',
+        1 => 'image/x-pfm',
       ),
     ),
     'pfr' =>
@@ -22072,6 +22086,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'text/x-cython',
+      ),
+    ),
+    'pxr' =>
+    array (
+      't' =>
+      array (
+        0 => 'image/x-pxr',
       ),
     ),
     'py' =>
@@ -22909,6 +22930,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'text/x-scss',
+      ),
+    ),
+    'sct' =>
+    array (
+      't' =>
+      array (
+        0 => 'image/x-sct',
       ),
     ),
     'scurl' =>
@@ -26407,6 +26435,27 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/zlib',
+      ),
+    ),
+    123 =>
+    array (
+      't' =>
+      array (
+        0 => 'application/vnd.lotus-1-2-3',
+      ),
+    ),
+    602 =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-t602',
+      ),
+    ),
+    669 =>
+    array (
+      't' =>
+      array (
+        0 => 'audio/x-mod',
       ),
     ),
   ),
