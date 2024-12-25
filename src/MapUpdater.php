@@ -148,6 +148,7 @@ class MapUpdater
             }
             if (isset($node->acronym)) {
                 $acronym = (string) $node->acronym;
+                /** @var ?string $expandedAcronym */
                 $expandedAcronym = $node->{'expanded-acronym'} ?? null;
                 if (isset($expandedAcronym)) {
                     $acronym .= ': ' . $expandedAcronym;
