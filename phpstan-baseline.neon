@@ -1,48 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: '#^Call to function is_string\(\) with class\-string\<FileEye\\MimeMap\\Map\\MimeMapInterface\> will always evaluate to true\.$#'
-			identifier: function.alreadyNarrowedType
-			count: 1
-			path: src/Command/UpdateCommand.php
-
-		-
-			message: '#^Cannot access offset 0 on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Command/UpdateCommand.php
-
-		-
-			message: '#^Cannot access offset 1 on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Command/UpdateCommand.php
-
-		-
-			message: '#^Cannot access offset 2 on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Command/UpdateCommand.php
-
-		-
-			message: '#^Parameter \#2 \$args of function call_user_func_array expects array\<int\|string, mixed\>, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Command/UpdateCommand.php
-
-		-
-			message: '#^Part \$command\[0\] \(mixed\) of encapsed string cannot be cast to string\.$#'
-			identifier: encapsedStringPart.nonString
-			count: 1
-			path: src/Command/UpdateCommand.php
-
-		-
-			message: '#^Part \$error \(mixed\) of encapsed string cannot be cast to string\.$#'
-			identifier: encapsedStringPart.nonString
-			count: 1
-			path: src/Command/UpdateCommand.php
-
-		-
 			message: '#^Method FileEye\\MimeMap\\Map\\BaseMap\:\:getMapSubEntry\(\) should return list\<string\> but returns array\<int, string\>\.$#'
 			identifier: return.type
 			count: 1
@@ -53,27 +11,3 @@ parameters:
 			identifier: return.type
 			count: 1
 			path: src/Map/BaseMap.php
-
-		-
-			message: '#^Binary operation "\." between ''\: '' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/MapUpdater.php
-
-		-
-			message: '#^Parameter \#1 \$format of method FileEye\\MimeMap\\Type\:\:toString\(\) expects int, mixed given\.$#'
-			identifier: argument.type
-			count: 7
-			path: src/Type.php
-
-		-
-			message: '#^Parameter \#1 \$format of method FileEye\\MimeMap\\TypeInterface\:\:toString\(\) expects int, mixed given\.$#'
-			identifier: argument.type
-			count: 3
-			path: src/Type.php
-
-		-
-			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''FileEye\\\\MimeMap\\\\TypeParameter'' and FileEye\\MimeMap\\TypeParameter will always evaluate to true\.$#'
-			identifier: method.alreadyNarrowedType
-			count: 1
-			path: tests/src/TypeTest.php

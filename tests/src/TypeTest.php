@@ -455,7 +455,6 @@ class TypeTest extends MimeMapTestBase
         }
         foreach ($expectedParameters as $name => $param) {
             $this->assertTrue(isset($mt->getParameters()[$name]));
-            $this->assertInstanceOf(TypeParameter::class, $mt->getParameter($name));
             $this->assertSame($name, $mt->getParameter($name)->getName());
             $this->assertSame($param[0], $mt->getParameter($name)->getValue());
             if (isset($param[1])) {

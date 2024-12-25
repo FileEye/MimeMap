@@ -74,7 +74,6 @@ class UpdateCommand extends Command
             return (2);
         }
 
-        /** @var class-string<MimeMapInterface> $mapClass */
         $mapClass = $input->getOption('class');
         if (!is_string($mapClass)) {
             $io->error('Invalid value for --class option.');
@@ -99,6 +98,7 @@ class UpdateCommand extends Command
             return (2);
         }
 
+        /** @var list<array{0: string, 1: string, 2: array<mixed>}> $commands */
         foreach ($commands as $command) {
             $output->writeln("<info>{$command[0]} ...</info>");
             try {
@@ -106,6 +106,7 @@ class UpdateCommand extends Command
                 assert(is_callable($callable));
                 $errors = call_user_func_array($callable, $command[2]);
                 if (is_array($errors) && !empty($errors)) {
+                    /** @var list<string> $errors */
                     foreach ($errors as $error) {
                         $output->writeln("<comment>$error.</comment>");
                     }
@@ -117,6 +118,7 @@ class UpdateCommand extends Command
         }
 
         // Load the map to be changed.
+        /** @var class-string<MimeMapInterface> $mapClass */
         MapHandler::setDefaultMapClass($mapClass);
         $current_map = MapHandler::map();
 
