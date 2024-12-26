@@ -48,6 +48,7 @@ class MapUpdaterTest extends MimeMapTestBase
                 'txt' => ['t' => ['text/plain']],
             ],
         ];
+        // @phpstan-ignore method.impossibleType
         $this->assertSame($expected, $this->newMap->getMapArray());
         $this->assertSame(['image/jpeg', 'text/plain'], $this->newMap->listTypes());
         $this->assertSame(['jpe', 'jpeg', 'jpg', 'txt'], $this->newMap->listExtensions());
@@ -57,6 +58,7 @@ class MapUpdaterTest extends MimeMapTestBase
     public function testLoadMapFromApacheFileZeroLines(): void
     {
         $this->updater->loadMapFromApacheFile(dirname(__FILE__) . '/../fixtures/zero.mime-types.txt');
+        // @phpstan-ignore method.impossibleType
         $this->assertSame([], $this->newMap->getMapArray());
     }
 
@@ -111,6 +113,7 @@ class MapUpdaterTest extends MimeMapTestBase
                 'image/pdf' => ['t' => ['application/pdf']],
             ],
         ];
+        // @phpstan-ignore method.impossibleType
         $this->assertSame($expected, $this->newMap->getMapArray());
         $this->assertSame(['application/pdf', 'application/x-atari-2600-rom', 'application/x-pdf', 'text/plain'], $this->newMap->listTypes());
         $this->assertSame(['a26', 'asc', 'pdf', 'txt'], $this->newMap->listExtensions());
@@ -120,6 +123,7 @@ class MapUpdaterTest extends MimeMapTestBase
     public function testLoadMapFromFreedesktopFileZeroLines(): void
     {
         $this->updater->loadMapFromFreedesktopFile(dirname(__FILE__) . '/../fixtures/zero.freedesktop.xml');
+        // @phpstan-ignore method.impossibleType
         $this->assertSame([], $this->newMap->getMapArray());
     }
 
@@ -149,7 +153,7 @@ class MapUpdaterTest extends MimeMapTestBase
     {
         $this->fileSystem->copy(__DIR__ . '/../fixtures/MiniMap.php.test', __DIR__ . '/../fixtures/MiniMap.php');
         include_once(__DIR__ . '/../fixtures/MiniMap.php');
-        // @phpstan-ignore class.notFound
+        // @phpstan-ignore class.notFound, argument.type
         MapHandler::setDefaultMapClass(MiniMap::class);
         $map_a = MapHandler::map();
         $this->assertStringContainsString('fixtures/MiniMap.php', $map_a->getFileName());

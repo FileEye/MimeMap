@@ -4,6 +4,8 @@ namespace FileEye\MimeMap\Map;
 
 /**
  * Interface for maps.
+ *
+ * @template TMap of GenericMap
  */
 interface MapInterface
 {
@@ -14,6 +16,8 @@ interface MapInterface
 
     /**
      * Returns the singleton.
+     *
+     * @return MapInterface<TMap>
      */
     public static function getInstance(): MapInterface;
 
@@ -25,12 +29,14 @@ interface MapInterface
     /**
      * Gets the map array.
      *
-     * @return array<string, array<int|string, array<string, array<int,string>>>>
+     * @return TMap
      */
     public function getMapArray(): array;
 
     /**
      * Sorts the map.
+     *
+     * @return MapInterface<TMap>
      */
     public function sort(): MapInterface;
 

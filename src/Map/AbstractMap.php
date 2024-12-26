@@ -10,6 +10,8 @@ use FileEye\MimeMap\TypeParser;
  * Abstract class for mapping file extensions to MIME types.
  *
  * This class cannot be instantiated; extend from it to implement a map.
+ *
+ * @extends BaseMap<MimeMap>
  */
 abstract class AbstractMap extends BaseMap implements MimeMapInterface
 {
@@ -145,20 +147,20 @@ abstract class AbstractMap extends BaseMap implements MimeMapInterface
 
     public function getTypeDescriptions(string $type): array
     {
-        $type = $this->normalizeType($type);
-        return $this->getMapSubEntry('t', $type, 'desc') ?: [];
+        $descriptions = $this->getMapSubEntry('t', $this->normalizeType($type), 'desc') ?: [];
+        return array_values($descriptions);
     }
 
     public function getTypeAliases(string $type): array
     {
-        $type = $this->normalizeType($type);
-        return $this->getMapSubEntry('t', $type, 'a') ?: [];
+        $aliases = $this->getMapSubEntry('t', $this->normalizeType($type), 'a') ?: [];
+        return array_values($aliases);
     }
 
     public function getTypeExtensions(string $type): array
     {
-        $type = $this->normalizeType($type);
-        return $this->getMapSubEntry('t', $type, 'e') ?: [];
+        $extensions = $this->getMapSubEntry('t', $this->normalizeType($type), 'e') ?: [];
+        return array_values($extensions);
     }
 
     public function setTypeDefaultExtension(string $type, string $extension): MimeMapInterface
@@ -251,14 +253,14 @@ abstract class AbstractMap extends BaseMap implements MimeMapInterface
 
     public function getAliasTypes(string $alias): array
     {
-        $alias = $this->normalizeType($alias);
-        return $this->getMapSubEntry('a', $alias, 't') ?: [];
+        $types = $this->getMapSubEntry('a', $this->normalizeType($alias), 't') ?: [];
+        return array_values($types);
     }
 
     public function getExtensionTypes(string $extension): array
     {
-        $extension = strtolower($extension);
-        return $this->getMapSubEntry('e', $extension, 't') ?: [];
+        $types = $this->getMapSubEntry('e', strtolower($extension), 't') ?: [];
+        return array_values($types);
     }
 
     public function setExtensionDefaultType(string $extension, string $type): MimeMapInterface

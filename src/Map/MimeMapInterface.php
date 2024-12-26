@@ -6,6 +6,8 @@ use FileEye\MimeMap\MappingException;
 
 /**
  * Interface for MimeMap maps.
+ *
+ * @extends MapInterface<MimeMap>
  */
 interface MimeMapInterface extends MapInterface
 {

@@ -1,6 +1,3 @@
-includes:
-    - phpstan-baseline.neon
-
 parameters:
     level: max
 
@@ -8,9 +5,14 @@ parameters:
         - src
         - tests
 
-    ignoreErrors:
-        # This is due to the test fixture MiniMap class not being autoloadable for PHPStan.
-        -
-            message: "#^Parameter \\#1 \\$mapClass of static method FileEye\\\\MimeMap\\\\MapHandler\\:\\:setDefaultMapClass\\(\\) expects class\\-string\\<FileEye\\\\MimeMap\\\\Map\\\\MimeMapInterface\\>, string given\\.$#"
-            count: 1
-            path: tests/src/MapUpdaterTest.php
+    typeAliases:
+        GenericMap: """
+          array<string,array<string,array<string,array<int<0,max>,string>>>>
+        """
+        MimeMap: """
+          array{
+            't': array<'e'|'desc'|'a',array<string,array<int<0,max>,string>>>,
+            'e': array<'t',array<string,array<int<0,max>,string>>>,
+            'a': array<'t',array<string,array<int<0,max>,string>>>
+          }
+        """

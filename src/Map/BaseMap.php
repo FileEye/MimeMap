@@ -8,20 +8,23 @@ use FileEye\MimeMap\MappingException;
  * Abstract base class for managing MimeMap maps.
  *
  * This class cannot be instantiated.
+ *
+ * @template TMap of GenericMap
+ * @implements MapInterface<TMap>
  */
 abstract class BaseMap implements MapInterface
 {
     /**
      * Singleton instance.
      *
-     * @var ?MapInterface
+     * @var MapInterface<TMap>|null
      */
     protected static $instance;
 
     /**
      * Mapping between file extensions and MIME types.
      *
-     * @var array<string, array<int|string, array<string, array<int,string>>>>
+     * @var TMap
      */
     protected static $map = [];
 
@@ -30,7 +33,7 @@ abstract class BaseMap implements MapInterface
      *
      * Used during the map update process.
      *
-     * @var array<string, array<int|string, array<string, array<int,string>>>>|null
+     * @var TMap|null
      */
     protected static ?array $backupMap;
 
@@ -103,9 +106,9 @@ abstract class BaseMap implements MapInterface
             return $list;
         } else {
             $re = strtr($match, ['/' => '\\/', '*' => '.*']);
-            return array_filter($list, function (int|string $v) use ($re): bool {
+            return array_values(array_filter($list, function (int|string $v) use ($re): bool {
                 return preg_match("/$re/", (string) $v) === 1;
-            });
+            }));
         }
     }
 
@@ -122,7 +125,7 @@ abstract class BaseMap implements MapInterface
      */
     protected function getMapEntry(string $entry, string $entryKey): array
     {
-        return isset(static::$map[$entry][$entryKey]) ? static::$map[$entry][$entryKey] : [];
+        return static::$map[$entry][$entryKey] ?? [];
     }
 
     /**
@@ -135,12 +138,12 @@ abstract class BaseMap implements MapInterface
      * @param string $subEntry
      *   The sub entry.
      *
-     * @return list<string>
+     * @return array<int<0,max>,string>
      *   The values of the subentry, or empty array if missing.
      */
     protected function getMapSubEntry(string $entry, string $entryKey, string $subEntry): array
     {
-        return isset(static::$map[$entry][$entryKey][$subEntry]) ? static::$map[$entry][$entryKey][$subEntry] : [];
+        return static::$map[$entry][$entryKey][$subEntry] ?? [];
     }
 
     /**
@@ -156,13 +159,17 @@ abstract class BaseMap implements MapInterface
      *   The sub entry.
      * @param string $value
      *   The value to add.
+     *
+     * @return MapInterface<TMap>
      */
     protected function addMapSubEntry(string $entry, string $entryKey, string $subEntry, string $value): MapInterface
     {
         if (!isset(static::$map[$entry][$entryKey][$subEntry])) {
+            // @phpstan-ignore assign.propertyType
             static::$map[$entry][$entryKey][$subEntry] = [$value];
         } else {
             if (array_search($value, static::$map[$entry][$entryKey][$subEntry]) === false) {
+                // @phpstan-ignore assign.propertyType
                 static::$map[$entry][$entryKey][$subEntry][] = $value;
             }
         }
@@ -198,10 +205,12 @@ abstract class BaseMap implements MapInterface
         }
 
         // Remove the map sub entry key.
+        // @phpstan-ignore assign.propertyType
         unset(static::$map[$entry][$entryKey][$subEntry][$k]);
 
         // Remove the sub entry if no more values.
         if (empty(static::$map[$entry][$entryKey][$subEntry])) {
+            // @phpstan-ignore assign.propertyType
             unset(static::$map[$entry][$entryKey][$subEntry]);
         } else {
             // Resequence the remaining values.
@@ -209,11 +218,13 @@ abstract class BaseMap implements MapInterface
             foreach (static::$map[$entry][$entryKey][$subEntry] as $v) {
                 $tmp[] = $v;
             }
+            // @phpstan-ignore assign.propertyType
             static::$map[$entry][$entryKey][$subEntry] = $tmp;
         }
 
         // Remove the entry if no more values.
         if (empty(static::$map[$entry][$entryKey])) {
+            // @phpstan-ignore assign.propertyType
             unset(static::$map[$entry][$entryKey]);
         }
 
@@ -233,6 +244,8 @@ abstract class BaseMap implements MapInterface
      *   The value to add.
      *
      * @throws MappingException if no mapping found.
+     *
+     * @return MapInterface<TMap>
      */
     protected function setValueAsDefault(string $entry, string $entryKey, string $subEntry, string $value): MapInterface
     {
@@ -255,6 +268,7 @@ abstract class BaseMap implements MapInterface
             }
             $tmp[] = $v;
         }
+        // @phpstan-ignore assign.propertyType
         static::$map[$entry][$entryKey][$subEntry] = $tmp;
 
         return $this;

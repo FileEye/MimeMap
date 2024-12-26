@@ -34,6 +34,8 @@ class MapUpdater
 
     /**
      * Returns the map object being updated.
+     *
+     * @return MimeMapInterface
      */
     public function getMap(): MimeMapInterface
     {
