@@ -118,7 +118,7 @@ class UpdateCommand extends Command
         }
 
         // Load the map to be changed.
-        /** @var class-string<MimeMapInterface> $mapClass */
+        /** @var class-string<MimeMapInterface<MimeMap>> $mapClass */
         MapHandler::setDefaultMapClass($mapClass);
         $current_map = MapHandler::map();
 
@@ -170,9 +170,9 @@ class UpdateCommand extends Command
     /**
      * Compares two type-to-extension maps by section.
      *
-     * @param MimeMapInterface $old_map
+     * @param MimeMapInterface<MimeMap> $old_map
      *   The first map to compare.
-     * @param MimeMapInterface $new_map
+     * @param MimeMapInterface<MimeMap> $new_map
      *   The second map to compare.
      * @param string $section
      *   The first-level array key to compare: 't' or 'e' or 'a'.

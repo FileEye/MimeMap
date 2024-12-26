@@ -17,6 +17,8 @@ class MapUpdater
 
     /**
      * The map object to update.
+     *
+     * @var MimeMapInterface<MimeMap>
      */
     protected MimeMapInterface $map;
 
@@ -34,6 +36,8 @@ class MapUpdater
 
     /**
      * Returns the map object being updated.
+     *
+     * @return MimeMapInterface<MimeMap>
      */
     public function getMap(): MimeMapInterface
     {
@@ -43,7 +47,7 @@ class MapUpdater
     /**
      * Sets the map object to update.
      *
-     * @param class-string<MimeMapInterface> $mapClass
+     * @param class-string<MimeMapInterface<MimeMap>> $mapClass
      *   The FQCN of the map to be updated.
      */
     public function selectBaseMap(string $mapClass): MapUpdater

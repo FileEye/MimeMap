@@ -14,7 +14,7 @@ interface ExtensionInterface
      *
      * @param string $extension
      *   A file extension.
-     * @param class-string<MimeMapInterface>|null $mapClass
+     * @param class-string<MimeMapInterface<MimeMap>>|null $mapClass
      *   (Optional) The FQCN of the map class to use.
      *
      * @api

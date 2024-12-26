@@ -5,7 +5,7 @@ namespace FileEye\MimeMap\Map;
 /**
  * Interface for maps.
  *
- * @phpstan-type MapArray array<string,array<string,array<string,array<int<0,max>,string>>>>
+ * @template TMap of GenericMap
  */
 interface MapInterface
 {
@@ -16,6 +16,8 @@ interface MapInterface
 
     /**
      * Returns the singleton.
+     *
+     * @return MapInterface<TMap>
      */
     public static function getInstance(): MapInterface;
 
@@ -27,12 +29,14 @@ interface MapInterface
     /**
      * Gets the map array.
      *
-     * @return MapArray
+     * @return TMap
      */
     public function getMapArray(): array;
 
     /**
      * Sorts the map.
+     *
+     * @return MapInterface<TMap>
      */
     public function sort(): MapInterface;
 
