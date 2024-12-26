@@ -8,20 +8,22 @@ use FileEye\MimeMap\MappingException;
  * Abstract base class for managing MimeMap maps.
  *
  * This class cannot be instantiated.
+ *
+ * @phpstan-import-type MapArray from MapInterface
  */
 abstract class BaseMap implements MapInterface
 {
     /**
      * Singleton instance.
      *
-     * @var ?MapInterface
+     * @var MapInterface|null
      */
     protected static $instance;
 
     /**
      * Mapping between file extensions and MIME types.
      *
-     * @var array<string, array<int|string, array<string, array<int,string>>>>
+     * @var MapArray
      */
     protected static $map = [];
 
@@ -30,7 +32,7 @@ abstract class BaseMap implements MapInterface
      *
      * Used during the map update process.
      *
-     * @var array<string, array<int|string, array<string, array<int,string>>>>|null
+     * @var MapArray|null
      */
     protected static ?array $backupMap;
 
@@ -103,9 +105,9 @@ abstract class BaseMap implements MapInterface
             return $list;
         } else {
             $re = strtr($match, ['/' => '\\/', '*' => '.*']);
-            return array_filter($list, function (int|string $v) use ($re): bool {
+            return array_values(array_filter($list, function (int|string $v) use ($re): bool {
                 return preg_match("/$re/", (string) $v) === 1;
-            });
+            }));
         }
     }
 
@@ -122,7 +124,7 @@ abstract class BaseMap implements MapInterface
      */
     protected function getMapEntry(string $entry, string $entryKey): array
     {
-        return isset(static::$map[$entry][$entryKey]) ? static::$map[$entry][$entryKey] : [];
+        return static::$map[$entry][$entryKey] ?? [];
     }
 
     /**
@@ -135,12 +137,12 @@ abstract class BaseMap implements MapInterface
      * @param string $subEntry
      *   The sub entry.
      *
-     * @return list<string>
+     * @return array<int<0,max>,string>
      *   The values of the subentry, or empty array if missing.
      */
     protected function getMapSubEntry(string $entry, string $entryKey, string $subEntry): array
     {
-        return isset(static::$map[$entry][$entryKey][$subEntry]) ? static::$map[$entry][$entryKey][$subEntry] : [];
+        return static::$map[$entry][$entryKey][$subEntry] ?? [];
     }
 
     /**

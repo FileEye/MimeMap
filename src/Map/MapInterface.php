@@ -4,6 +4,8 @@ namespace FileEye\MimeMap\Map;
 
 /**
  * Interface for maps.
+ *
+ * @phpstan-type MapArray array<string,array<string,array<string,array<int<0,max>,string>>>>
  */
 interface MapInterface
 {
@@ -25,7 +27,7 @@ interface MapInterface
     /**
      * Gets the map array.
      *
-     * @return array<string, array<int|string, array<string, array<int,string>>>>
+     * @return MapArray
      */
     public function getMapArray(): array;
 
