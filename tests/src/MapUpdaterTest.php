@@ -14,11 +14,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[BackupStaticProperties(true)]
 class MapUpdaterTest extends MimeMapTestBase
 {
-    /**
-     * @var MimeMapInterface<MimeMap>
-     */
     protected readonly MimeMapInterface $newMap;
-
     protected readonly MapUpdater $updater;
     protected readonly Filesystem $fileSystem;
 

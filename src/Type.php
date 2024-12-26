@@ -67,7 +67,7 @@ class Type implements TypeInterface
     /**
      * The MIME types map.
      *
-     * @var MimeMapInterface<MimeMap>
+     * @var MimeMapInterface
      */
     protected readonly MimeMapInterface $map;
 

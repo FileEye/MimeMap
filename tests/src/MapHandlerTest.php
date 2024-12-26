@@ -14,9 +14,6 @@ use PHPUnit\Framework\Attributes\DataProvider;
 #[BackupStaticProperties(true)]
 class MapHandlerTest extends MimeMapTestBase
 {
-    /**
-     * @var MimeMapInterface<MimeMap>
-     */
     protected readonly MimeMapInterface $map;
 
     public function setUp(): void

@@ -16,8 +16,6 @@ class Extension implements ExtensionInterface
 
     /**
      * The MIME types map.
-     *
-     * @var MimeMapInterface<MimeMap>
      */
     protected readonly MimeMapInterface $map;
 

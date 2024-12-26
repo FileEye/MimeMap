@@ -12,13 +12,9 @@ use FileEye\MimeMap\TypeParser;
  * This class cannot be instantiated; extend from it to implement a map.
  *
  * @extends BaseMap<MimeMap>
- * @implements MimeMapInterface<MimeMap>
  */
 abstract class AbstractMap extends BaseMap implements MimeMapInterface
 {
-    /**
-     * @return MimeMapInterface<MimeMap>
-     */
     public static function getInstance(): MimeMapInterface
     {
         $instance = parent::getInstance();
@@ -289,9 +285,6 @@ abstract class AbstractMap extends BaseMap implements MimeMapInterface
         }
     }
 
-    /**
-     * @return MimeMapInterface<MimeMap>
-     */
     protected function setValueAsDefault(string $entry, string $entryKey, string $subEntry, string $value): MimeMapInterface
     {
         parent::setValueAsDefault($entry, $entryKey, $subEntry, $value);

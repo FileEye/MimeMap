@@ -7,8 +7,7 @@ use FileEye\MimeMap\MappingException;
 /**
  * Interface for MimeMap maps.
  *
- * @template TMimeMap of MimeMap
- * @extends MapInterface<TMimeMap>
+ * @extends MapInterface<MimeMap>
  */
 interface MimeMapInterface extends MapInterface
 {
@@ -68,8 +67,6 @@ interface MimeMapInterface extends MapInterface
      * @param string $description
      *   The description of the MIME type.
      *
-     * @return MimeMapInterface<TMimeMap>
-     *
      * @throws MappingException if $type is an alias.
      */
     public function addTypeDescription(string $type, string $description): MimeMapInterface;
@@ -82,8 +79,6 @@ interface MimeMapInterface extends MapInterface
      * @param string $alias
      *   An alias of $type.
      *
-     * @return MimeMapInterface<TMimeMap>
-     *
      * @throws MappingException if no $type is found.
      */
     public function addTypeAlias(string $type, string $alias): MimeMapInterface;
@@ -95,8 +90,6 @@ interface MimeMapInterface extends MapInterface
      *   A MIME type.
      * @param string $extension
      *   A file extension.
-     *
-     * @return MimeMapInterface<TMimeMap>
      *
      * @throws MappingException if $type is an alias.
      */
@@ -136,8 +129,6 @@ interface MimeMapInterface extends MapInterface
      *   A MIME type.
      * @param string $extension
      *   A file extension.
-     *
-     * @return MimeMapInterface<TMimeMap>
      *
      * @throws MappingException if no mapping found.
      */
@@ -209,8 +200,6 @@ interface MimeMapInterface extends MapInterface
      *   A file extension.
      * @param string $type
      *   A MIME type.
-     *
-     * @return MimeMapInterface<TMimeMap>
      *
      * @throws MappingException if no mapping found.
      */

@@ -16,7 +16,7 @@ interface TypeInterface
      *
      * @param string $typeString
      *   MIME type string to be parsed.
-     * @param class-string<MimeMapInterface<MimeMap>>|null $mapClass
+     * @param class-string<MimeMapInterface>|null $mapClass
      *   (Optional) The FQCN of the map class to use.
      *
      * @api
