@@ -182,6 +182,8 @@ class MapUpdaterTest extends MimeMapTestBase
         $content = file_get_contents($map_a->getFileName());
         assert(is_string($content));
         $this->assertStringNotContainsString('text/plain', $content);
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage("Failed loading file foo://bar.stub");
         $this->updater->writeMapToPhpClassFile("foo://bar.stub");
     }
 
