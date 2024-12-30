@@ -171,6 +171,22 @@ class MapUpdaterTest extends MimeMapTestBase
         $this->fileSystem->remove(__DIR__ . '/../fixtures/MiniMap.php');
     }
 
+    public function testWriteMapToPhpClassFileFailure(): void
+    {
+        $this->fileSystem->copy(__DIR__ . '/../fixtures/MiniMap.php.test', __DIR__ . '/../fixtures/MiniMap.php');
+        include_once(__DIR__ . '/../fixtures/MiniMap.php');
+        // @phpstan-ignore class.notFound, argument.type
+        MapHandler::setDefaultMapClass(MiniMap::class);
+        $map_a = MapHandler::map();
+        $this->assertStringContainsString('fixtures/MiniMap.php', $map_a->getFileName());
+        $content = file_get_contents($map_a->getFileName());
+        assert(is_string($content));
+        $this->assertStringNotContainsString('text/plain', $content);
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage("Failed loading file foo://bar.stub");
+        $this->updater->writeMapToPhpClassFile("foo://bar.stub");
+    }
+
     public function testGetDefaultMapBuildFile(): void
     {
         $this->assertStringContainsString('default_map_build.yml', MapUpdater::getDefaultMapBuildFile());

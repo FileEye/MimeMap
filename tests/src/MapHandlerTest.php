@@ -4,6 +4,8 @@ namespace FileEye\MimeMap\Test;
 
 use FileEye\MimeMap\Extension;
 use FileEye\MimeMap\MalformedTypeException;
+use FileEye\MimeMap\Map\DefaultMap;
+use FileEye\MimeMap\Map\EmptyMap;
 use FileEye\MimeMap\Map\MimeMapInterface;
 use FileEye\MimeMap\MapHandler;
 use FileEye\MimeMap\MappingException;
@@ -19,6 +21,15 @@ class MapHandlerTest extends MimeMapTestBase
     public function setUp(): void
     {
         $this->map = MapHandler::map();
+    }
+
+    public function testSetDefaultMapClass(): void
+    {
+        MapHandler::setDefaultMapClass(EmptyMap::class);
+        $this->assertInstanceOf(EmptyMap::class, MapHandler::map());
+        MapHandler::setDefaultMapClass(DefaultMap::class);
+        // @phpstan-ignore method.impossibleType
+        $this->assertInstanceOf(DefaultMap::class, MapHandler::map());
     }
 
     public function testMap(): void
@@ -37,8 +48,10 @@ class MapHandlerTest extends MimeMapTestBase
     {
         // Adding a new type with a new extension.
         $this->map->addTypeExtensionMapping('bingo/bongo', 'bngbng');
+        $this->map->addTypeDescription('bingo/bongo', 'Bingo, Bongo!');
         $this->assertSame(['bngbng'], (new Type('bingo/bongo'))->getExtensions());
         $this->assertSame('bngbng', (new Type('bingo/bongo'))->getDefaultExtension());
+        $this->assertSame('Bingo, Bongo!', (new Type('bingo/bongo'))->getDescription());
         $this->assertSame(['bingo/bongo'], (new Extension('bngbng'))->getTypes());
         $this->assertSame('bingo/bongo', (new Extension('bngbng'))->getDefaultType());
 
@@ -188,6 +201,14 @@ class MapHandlerTest extends MimeMapTestBase
         $this->assertSame(['text/vnd.dvb.subtitle', 'image/vnd.dvb.subtitle', 'text/x-microdvd', 'text/x-mpsub', 'text/x-subviewer'], (new Extension('sub'))->getTypes());
         $this->map->setExtensionDefaultType('SUB', 'image/vnd.dvb.subtitle');
         $this->assertSame(['image/vnd.dvb.subtitle', 'text/vnd.dvb.subtitle', 'text/x-microdvd', 'text/x-mpsub', 'text/x-subviewer'], (new Extension('SUB'))->getTypes());
+    }
+
+    public function testAddAliasToType(): void
+    {
+        $this->assertSame(['image/psd', 'image/x-psd', 'image/photoshop', 'image/x-photoshop', 'application/photoshop', 'application/x-photoshop',], (new Type('image/vnd.adobe.photoshop'))->getAliases());
+        $this->map->addTypeAlias('image/vnd.adobe.photoshop', 'application/x-foo-bar');
+        $this->assertSame(['image/psd', 'image/x-psd', 'image/photoshop', 'image/x-photoshop', 'application/photoshop', 'application/x-photoshop', 'application/x-foo-bar',], (new Type('image/vnd.adobe.photoshop'))->getAliases());
+        $this->assertContains('application/x-foo-bar', $this->map->listAliases());
     }
 
     public function testReAddAliasToType(): void
