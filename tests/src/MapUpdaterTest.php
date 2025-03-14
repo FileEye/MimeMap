@@ -7,6 +7,7 @@ use FileEye\MimeMap\Map\MimeMapInterface;
 use FileEye\MimeMap\Map\MiniMap;
 use FileEye\MimeMap\MapHandler;
 use FileEye\MimeMap\MapUpdater;
+use FileEye\MimeMap\SourceUpdateException;
 use PHPUnit\Framework\Attributes\BackupStaticProperties;
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -57,17 +58,14 @@ class MapUpdaterTest extends MimeMapTestBase
 
     public function testLoadMapFromApacheFileZeroLines(): void
     {
+        $this->expectException(SourceUpdateException::class);
         $this->updater->loadMapFromApacheFile(dirname(__FILE__) . '/../fixtures/zero.mime-types.txt');
-        // @phpstan-ignore method.impossibleType
-        $this->assertSame([], $this->newMap->getMapArray());
     }
 
     public function testLoadMapFromApacheMissingFile(): void
     {
-        $this->assertSame(
-            ["Failed accessing certainly_missing.xml"],
-            $this->updater->loadMapFromApacheFile('certainly_missing.xml')
-        );
+        $this->expectException(SourceUpdateException::class);
+        $this->updater->loadMapFromApacheFile('certainly_missing.txt');
     }
 
     public function testApplyOverridesFailure(): void
@@ -129,10 +127,8 @@ class MapUpdaterTest extends MimeMapTestBase
 
     public function testLoadMapFromFreedesktopMissingFile(): void
     {
-        $this->assertSame(
-            ["Failed loading file certainly_missing.xml"],
-            $this->updater->loadMapFromFreedesktopFile('certainly_missing.xml')
-        );
+        $this->expectException(SourceUpdateException::class);
+        $this->updater->loadMapFromFreedesktopFile('certainly_missing.xml');
     }
 
     public function testLoadMapFromFreedesktopInvalidFile(): void
