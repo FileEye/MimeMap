@@ -18,7 +18,7 @@
 -
     - 'Loading MIME type information from svn.apache.org'
     - loadMapFromApacheFile
-    - [http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=co]
+    - [https://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types]
 
 # Extend Apache table with the Freedesktop.org database.
 -
