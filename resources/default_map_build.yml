@@ -15,6 +15,11 @@
 
 # The Apache httpd project contains the most complete list of file extension to
 # mime type mapping on the planet. We use it to update our own list.
+# Alternative URLs:
+# http://svn.apache.org/viewvc/httpd/httpd/trunk/docs/conf/mime.types?view=co 
+#  (no longer working, ViewC subversion was disabled Feb 2025, status @ https://status.apache.org/)
+# https://raw.githubusercontent.com/apache/httpd/refs/heads/trunk/docs/conf/mime.types
+#  (GitHub mirror)
 -
     - 'Loading MIME type information from svn.apache.org'
     - loadMapFromApacheFile
