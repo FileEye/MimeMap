@@ -1427,6 +1427,18 @@ class DefaultMap extends AbstractMap
         0 => 'srx',
       ),
     ),
+    'application/spdx+json' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'SPDX SBOM document',
+        1 => 'SPDX SBOM: Software Package Data Exchange Software Bill Of Materials',
+      ),
+      'e' =>
+      array (
+        0 => 'spdx.json',
+      ),
+    ),
     'application/sql' =>
     array (
       'a' =>
@@ -2133,6 +2145,30 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'pcurl',
+      ),
+    ),
+    'application/vnd.cyclonedx+json' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'CycloneDX BOM document',
+        1 => 'BOM: Bill Of Materials',
+      ),
+      'e' =>
+      array (
+        0 => 'cdx.json',
+      ),
+    ),
+    'application/vnd.cyclonedx+xml' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'CycloneDX BOM document',
+        1 => 'BOM: Bill Of Materials',
+      ),
+      'e' =>
+      array (
+        0 => 'cdx.xml',
       ),
     ),
     'application/vnd.dart' =>
@@ -10894,6 +10930,10 @@ class DefaultMap extends AbstractMap
     ),
     'image/vnd.radiance' =>
     array (
+      'a' =>
+      array (
+        0 => 'image/x-hdr',
+      ),
       'desc' =>
       array (
         0 => 'Radiance HDR image',
@@ -12194,6 +12234,18 @@ class DefaultMap extends AbstractMap
         1 => 'sgm',
       ),
     ),
+    'text/spdx' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'SPDX document',
+        1 => 'SPDX: Software Package Data Exchange',
+      ),
+      'e' =>
+      array (
+        0 => 'spdx',
+      ),
+    ),
     'text/tab-separated-values' =>
     array (
       'desc' =>
@@ -13345,11 +13397,27 @@ class DefaultMap extends AbstractMap
         0 => 'ooc',
       ),
     ),
-    'text/x-opencl-src' =>
+    'text/x-opencl-c++src' =>
     array (
       'desc' =>
       array (
-        0 => 'OpenCL source code',
+        0 => 'C++ for OpenCL source code',
+        1 => 'OpenCL: Open Computing Language',
+      ),
+      'e' =>
+      array (
+        0 => 'clcpp',
+      ),
+    ),
+    'text/x-opencl-csrc' =>
+    array (
+      'a' =>
+      array (
+        0 => 'text/x-opencl-src',
+      ),
+      'desc' =>
+      array (
+        0 => 'OpenCL C source code',
         1 => 'OpenCL: Open Computing Language',
       ),
       'e' =>
@@ -15757,6 +15825,20 @@ class DefaultMap extends AbstractMap
         0 => 'chemical/x-cdx',
       ),
     ),
+    'cdx.json' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/vnd.cyclonedx+json',
+      ),
+    ),
+    'cdx.xml' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/vnd.cyclonedx+xml',
+      ),
+    ),
     'cdxml' =>
     array (
       't' =>
@@ -15874,7 +15956,7 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'text/x-opencl-src',
+        0 => 'text/x-opencl-csrc',
       ),
     ),
     'cla' =>
@@ -15889,6 +15971,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-java',
+      ),
+    ),
+    'clcpp' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/x-opencl-c++src',
       ),
     ),
     'clkk' =>
@@ -23701,6 +23790,20 @@ class DefaultMap extends AbstractMap
         0 => 'application/x-font-speedo',
       ),
     ),
+    'spdx' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/spdx',
+      ),
+    ),
+    'spdx.json' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/spdx+json',
+      ),
+    ),
     'spec' =>
     array (
       't' =>
@@ -28278,6 +28381,13 @@ class DefaultMap extends AbstractMap
         0 => 'image/vnd.fpx',
       ),
     ),
+    'image/x-hdr' =>
+    array (
+      't' =>
+      array (
+        0 => 'image/vnd.radiance',
+      ),
+    ),
     'image/x-icb' =>
     array (
       't' =>
@@ -28577,6 +28687,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'text/x-matlab',
+      ),
+    ),
+    'text/x-opencl-src' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/x-opencl-csrc',
       ),
     ),
     'text/x-opml' =>
