@@ -28,7 +28,6 @@ class MapHandlerTest extends MimeMapTestBase
         MapHandler::setDefaultMapClass(EmptyMap::class);
         $this->assertInstanceOf(EmptyMap::class, MapHandler::map());
         MapHandler::setDefaultMapClass(DefaultMap::class);
-        // @phpstan-ignore method.impossibleType
         $this->assertInstanceOf(DefaultMap::class, MapHandler::map());
     }
 
