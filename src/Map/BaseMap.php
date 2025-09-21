@@ -75,6 +75,7 @@ abstract class BaseMap implements MapInterface
     public function sort(): MapInterface
     {
         foreach (array_keys(static::$map) as $k) {
+            // @phpstan-ignore assign.propertyType
             ksort(static::$map[$k]);
             foreach (static::$map[$k] as &$sub) {
                 ksort($sub);
