@@ -408,6 +408,17 @@ class DefaultMap extends AbstractMap
         0 => 'gz',
       ),
     ),
+    'application/har+json' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'HTTP archive',
+      ),
+      'e' =>
+      array (
+        0 => 'har',
+      ),
+    ),
     'application/hta' =>
     array (
       'desc' =>
@@ -5332,6 +5343,17 @@ class DefaultMap extends AbstractMap
         0 => 'ace',
       ),
     ),
+    'application/x-alpine-package-keeper-package' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Alpine Package Keeper package',
+      ),
+      'e' =>
+      array (
+        0 => 'apk',
+      ),
+    ),
     'application/x-alz' =>
     array (
       'desc' =>
@@ -5341,6 +5363,18 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'alz',
+      ),
+    ),
+    'application/x-amf' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'AMF 3D model',
+        1 => 'AMF: Additive Manufacturing File',
+      ),
+      'e' =>
+      array (
+        0 => 'amf',
       ),
     ),
     'application/x-amiga-disk-format' =>
@@ -8062,6 +8096,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/x-ruby' =>
     array (
+      'a' =>
+      array (
+        0 => 'text/x-ruby',
+      ),
       'desc' =>
       array (
         0 => 'Ruby script',
@@ -9061,6 +9099,58 @@ class DefaultMap extends AbstractMap
       array (
         0 => 'tar.zst',
         1 => 'tzst',
+      ),
+    ),
+    'application/x.sf3-archive' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'SF3 Archive',
+        1 => 'SF3: Simple File Format Family',
+      ),
+      'e' =>
+      array (
+        0 => 'ar.sf3',
+        1 => 'sf3',
+      ),
+    ),
+    'application/x.sf3-log' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'SF3 Log File',
+        1 => 'SF3: Simple File Format Family',
+      ),
+      'e' =>
+      array (
+        0 => 'log.sf3',
+        1 => 'sf3',
+      ),
+    ),
+    'application/x.sf3-table' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'SF3 Table',
+        1 => 'SF3: Simple File Format Family',
+      ),
+      'e' =>
+      array (
+        0 => 'tab.sf3',
+        1 => 'sf3',
+      ),
+    ),
+    'application/x.sf3-text' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'SF3 Rich Text',
+        1 => 'SF3: Simple File Format Family',
+      ),
+      'e' =>
+      array (
+        0 => 'txt.sf3',
+        1 => 'sf3',
       ),
     ),
     'application/xaml+xml' =>
@@ -10238,6 +10328,19 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'xmf',
+      ),
+    ),
+    'audio/x.sf3' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'SF3 Audio',
+        1 => 'SF3: Simple File Format Family',
+      ),
+      'e' =>
+      array (
+        0 => 'au.sf3',
+        1 => 'sf3',
       ),
     ),
     'audio/xm' =>
@@ -11809,6 +11912,32 @@ class DefaultMap extends AbstractMap
         0 => 'xwd',
       ),
     ),
+    'image/x.sf3' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'SF3 Image',
+        1 => 'SF3: Simple File Format Family',
+      ),
+      'e' =>
+      array (
+        0 => 'img.sf3',
+        1 => 'sf3',
+      ),
+    ),
+    'image/x.sf3-vector' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'SF3 Vector Graphic',
+        1 => 'SF3: Simple File Format Family',
+      ),
+      'e' =>
+      array (
+        0 => 'vec.sf3',
+        1 => 'sf3',
+      ),
+    ),
     'message/rfc822' =>
     array (
       'desc' =>
@@ -11985,6 +12114,32 @@ class DefaultMap extends AbstractMap
         0 => 'wrl',
         1 => 'vrml',
         2 => 'vrm',
+      ),
+    ),
+    'model/x.sf3' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'SF3 3D Model',
+        1 => 'SF3: Simple File Format Family',
+      ),
+      'e' =>
+      array (
+        0 => 'mod.sf3',
+        1 => 'sf3',
+      ),
+    ),
+    'model/x.sf3-physics' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'SF3 Physics Model',
+        1 => 'SF3: Simple File Format Family',
+      ),
+      'e' =>
+      array (
+        0 => 'phys.sf3',
+        1 => 'sf3',
       ),
     ),
     'model/x3d+binary' =>
@@ -13280,6 +13435,28 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'reg',
+      ),
+    ),
+    'text/x-ms-visualstudio.project' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Visual Studio Project',
+      ),
+      'e' =>
+      array (
+        0 => 'dsp',
+      ),
+    ),
+    'text/x-ms-visualstudio.workspace' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Visual Studio Workspace',
+      ),
+      'e' =>
+      array (
+        0 => 'dsw',
       ),
     ),
     'text/x-mup' =>
@@ -14906,6 +15083,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/x-alz',
       ),
     ),
+    'amf' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-amf',
+      ),
+    ),
     'ami' =>
     array (
       't' =>
@@ -15023,6 +15207,7 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/vnd.android.package-archive',
+        1 => 'application/x-alpine-package-keeper-package',
       ),
     ),
     'apng' =>
@@ -15087,6 +15272,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-archive',
+      ),
+    ),
+    'ar.sf3' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x.sf3-archive',
       ),
     ),
     'arc' =>
@@ -15231,6 +15423,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'audio/basic',
+      ),
+    ),
+    'au.sf3' =>
+    array (
+      't' =>
+      array (
+        0 => 'audio/x.sf3',
       ),
     ),
     'automount' =>
@@ -16768,11 +16967,25 @@ class DefaultMap extends AbstractMap
         0 => 'text/x-dsl',
       ),
     ),
+    'dsp' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/x-ms-visualstudio.project',
+      ),
+    ),
     'dssc' =>
     array (
       't' =>
       array (
         0 => 'application/dssc+der',
+      ),
+    ),
+    'dsw' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/x-ms-visualstudio.workspace',
       ),
     ),
     'dtb' =>
@@ -18294,6 +18507,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/vnd.hal+xml',
       ),
     ),
+    'har' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/har+json',
+      ),
+    ),
     'hbci' =>
     array (
       't' =>
@@ -18679,6 +18899,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/vnd.efi.img',
+      ),
+    ),
+    'img.sf3' =>
+    array (
+      't' =>
+      array (
+        0 => 'image/x.sf3',
       ),
     ),
     'img.xz' =>
@@ -19565,6 +19792,13 @@ class DefaultMap extends AbstractMap
         1 => 'text/x-log',
       ),
     ),
+    'log.sf3' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x.sf3-log',
+      ),
+    ),
     'lostxml' =>
     array (
       't' =>
@@ -20327,6 +20561,13 @@ class DefaultMap extends AbstractMap
       array (
         0 => 'application/x-object',
         1 => 'audio/x-mod',
+      ),
+    ),
+    'mod.sf3' =>
+    array (
+      't' =>
+      array (
+        0 => 'model/x.sf3',
       ),
     ),
     'mods' =>
@@ -21890,6 +22131,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/x-php',
       ),
     ),
+    'phys.sf3' =>
+    array (
+      't' =>
+      array (
+        0 => 'model/x.sf3-physics',
+      ),
+    ),
     'pic' =>
     array (
       't' =>
@@ -23360,6 +23608,21 @@ class DefaultMap extends AbstractMap
         0 => 'application/set-registration-initiation',
       ),
     ),
+    'sf3' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x.sf3-archive',
+        1 => 'audio/x.sf3',
+        2 => 'image/x.sf3',
+        3 => 'application/x.sf3-log',
+        4 => 'model/x.sf3',
+        5 => 'model/x.sf3-physics',
+        6 => 'application/x.sf3-table',
+        7 => 'application/x.sf3-text',
+        8 => 'image/x.sf3-vector',
+      ),
+    ),
     'sfc' =>
     array (
       't' =>
@@ -24299,6 +24562,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/x-t3vm-image',
       ),
     ),
+    'tab.sf3' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x.sf3-table',
+      ),
+    ),
     'taglet' =>
     array (
       't' =>
@@ -24843,6 +25113,13 @@ class DefaultMap extends AbstractMap
         0 => 'text/plain',
       ),
     ),
+    'txt.sf3' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x.sf3-text',
+      ),
+    ),
     'txz' =>
     array (
       't' =>
@@ -25340,6 +25617,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-vdi-disk',
+      ),
+    ),
+    'vec.sf3' =>
+    array (
+      't' =>
+      array (
+        0 => 'image/x.sf3-vector',
       ),
     ),
     'vhd' =>
@@ -28722,6 +29006,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'text/x-gettext-translation-template',
+      ),
+    ),
+    'text/x-ruby' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-ruby',
       ),
     ),
     'text/x-sh' =>
