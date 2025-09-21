@@ -7,7 +7,7 @@ parameters:
 
     typeAliases:
         GenericMap: """
-          non-empty-array<string,array<string,array<string,array<int<0,max>,string>>>>
+          array<string,array<string,array<string,array<int<0,max>,string>>>>
         """
         MimeMap: """
           array{
