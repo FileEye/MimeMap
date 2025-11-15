@@ -6326,6 +6326,29 @@ class DefaultMap extends AbstractMap
         0 => 'arc',
       ),
     ),
+    'application/x-freedesktop-appstream-component' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'AppStream software component',
+      ),
+      'e' =>
+      array (
+        0 => 'metainfo.xml',
+        1 => 'appdata.xml',
+      ),
+    ),
+    'application/x-freedesktop-appstream-releases' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'AppStream releases information',
+      ),
+      'e' =>
+      array (
+        0 => 'releases.xml',
+      ),
+    ),
     'application/x-futuresplash' =>
     array (
       'e' =>
@@ -9892,6 +9915,18 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'dsf',
+      ),
+    ),
+    'audio/x-dsp' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Dynamic Studio module audio',
+      ),
+      'e' =>
+      array (
+        0 => 'dsm',
+        1 => 'dsp',
       ),
     ),
     'audio/x-flac+ogg' =>
@@ -13516,6 +13551,19 @@ class DefaultMap extends AbstractMap
         0 => 'nix',
       ),
     ),
+    'text/x-nsis' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'NSIS Script',
+        1 => 'NSIS: Nullsoft Scriptable Install System',
+      ),
+      'e' =>
+      array (
+        0 => 'nsi',
+        1 => 'nsh',
+      ),
+    ),
     'text/x-objc++src' =>
     array (
       'desc' =>
@@ -15222,6 +15270,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'text/cache-manifest',
+      ),
+    ),
+    'appdata.xml' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-freedesktop-appstream-component',
       ),
     ),
     'appimage' =>
@@ -16967,11 +17022,19 @@ class DefaultMap extends AbstractMap
         0 => 'text/x-dsl',
       ),
     ),
+    'dsm' =>
+    array (
+      't' =>
+      array (
+        0 => 'audio/x-dsp',
+      ),
+    ),
     'dsp' =>
     array (
       't' =>
       array (
-        0 => 'text/x-ms-visualstudio.project',
+        0 => 'audio/x-dsp',
+        1 => 'text/x-ms-visualstudio.project',
       ),
     ),
     'dssc' =>
@@ -20277,6 +20340,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/metalink4+xml',
       ),
     ),
+    'metainfo.xml' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-freedesktop-appstream-component',
+      ),
+    ),
     'metalink' =>
     array (
       't' =>
@@ -21242,6 +21312,20 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/vnd.lotus-notes',
+      ),
+    ),
+    'nsh' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/x-nsis',
+      ),
+    ),
+    'nsi' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/x-nsis',
       ),
     ),
     'nsv' =>
@@ -23017,6 +23101,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'text/x-reject',
+      ),
+    ),
+    'releases.xml' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-freedesktop-appstream-releases',
       ),
     ),
     'rep' =>
