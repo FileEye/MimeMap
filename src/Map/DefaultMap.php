@@ -4675,7 +4675,8 @@ class DefaultMap extends AbstractMap
       ),
       'e' =>
       array (
-        0 => 'sqlite3',
+        0 => 'sqlite',
+        1 => 'sqlite3',
       ),
     ),
     'application/vnd.squashfs' =>
@@ -24231,6 +24232,13 @@ class DefaultMap extends AbstractMap
       array (
         0 => 'application/x-sql',
         1 => 'application/sql',
+      ),
+    ),
+    'sqlite' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/vnd.sqlite3',
       ),
     ),
     'sqlite2' =>
