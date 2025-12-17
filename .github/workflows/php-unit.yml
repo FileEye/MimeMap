@@ -26,6 +26,8 @@ jobs:
           - php-version: "8.4"
             php-unit-args: "-c phpunit.xml"
           - php-version: "8.5"
+            php-unit-args: "-c phpunit.xml"
+          - php-version: "8.6"
             php-unit-args: "-c phpunit.xml --fail-on-deprecation --fail-on-phpunit-deprecation"
 
     steps:
