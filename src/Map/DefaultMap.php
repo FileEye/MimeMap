@@ -10641,14 +10641,22 @@ class DefaultMap extends AbstractMap
         0 => 'gif',
       ),
     ),
+    'image/heic' =>
+    array (
+      'e' =>
+      array (
+        0 => 'heic',
+      ),
+    ),
+    'image/heic-sequence' =>
+    array (
+      'e' =>
+      array (
+        0 => 'heics',
+      ),
+    ),
     'image/heif' =>
     array (
-      'a' =>
-      array (
-        0 => 'image/heic',
-        1 => 'image/heic-sequence',
-        2 => 'image/heif-sequence',
-      ),
       'desc' =>
       array (
         0 => 'HEIF image',
@@ -10656,9 +10664,16 @@ class DefaultMap extends AbstractMap
       ),
       'e' =>
       array (
-        0 => 'heic',
-        1 => 'heif',
+        0 => 'heif',
+        1 => 'heic',
         2 => 'hif',
+      ),
+    ),
+    'image/heif-sequence' =>
+    array (
+      'e' =>
+      array (
+        0 => 'heifs',
       ),
     ),
     'image/hej2k' =>
@@ -18624,7 +18639,15 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'image/heif',
+        0 => 'image/heic',
+        1 => 'image/heif',
+      ),
+    ),
+    'heics' =>
+    array (
+      't' =>
+      array (
+        0 => 'image/heic-sequence',
       ),
     ),
     'heif' =>
@@ -18632,6 +18655,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'image/heif',
+      ),
+    ),
+    'heifs' =>
+    array (
+      't' =>
+      array (
+        0 => 'image/heif-sequence',
       ),
     ),
     'hej2' =>
@@ -28615,27 +28645,6 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/fits',
-      ),
-    ),
-    'image/heic' =>
-    array (
-      't' =>
-      array (
-        0 => 'image/heif',
-      ),
-    ),
-    'image/heic-sequence' =>
-    array (
-      't' =>
-      array (
-        0 => 'image/heif',
-      ),
-    ),
-    'image/heif-sequence' =>
-    array (
-      't' =>
-      array (
-        0 => 'image/heif',
       ),
     ),
     'image/ico' =>
