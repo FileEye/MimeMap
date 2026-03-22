@@ -1508,6 +1508,22 @@ class DefaultMap extends AbstractMap
         1 => 'teicorpus',
       ),
     ),
+    'application/texinfo' =>
+    array (
+      'a' =>
+      array (
+        0 => 'text/x-texinfo',
+      ),
+      'desc' =>
+      array (
+        0 => 'TeXInfo document',
+      ),
+      'e' =>
+      array (
+        0 => 'texi',
+        1 => 'texinfo',
+      ),
+    ),
     'application/thraud+xml' =>
     array (
       'e' =>
@@ -1922,6 +1938,21 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'rep',
+      ),
+    ),
+    'application/vnd.bzip3' =>
+    array (
+      'a' =>
+      array (
+        0 => 'application/x-bzip3',
+      ),
+      'desc' =>
+      array (
+        0 => 'Bzip3 archive',
+      ),
+      'e' =>
+      array (
+        0 => 'bz3',
       ),
     ),
     'application/vnd.chemdraw+xml' =>
@@ -5765,17 +5796,6 @@ class DefaultMap extends AbstractMap
         2 => 'tb2',
       ),
     ),
-    'application/x-bzip3' =>
-    array (
-      'desc' =>
-      array (
-        0 => 'Bzip3 archive',
-      ),
-      'e' =>
-      array (
-        0 => 'bz3',
-      ),
-    ),
     'application/x-bzip3-compressed-tar' =>
     array (
       'desc' =>
@@ -5873,6 +5893,30 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'chat',
+      ),
+    ),
+    'application/x-chip8-octo-source' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'CHIP-8 Octo source',
+      ),
+      'e' =>
+      array (
+        0 => '8o',
+      ),
+    ),
+    'application/x-chip8-program' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'CHIP-8 program',
+      ),
+      'e' =>
+      array (
+        0 => 'ch8',
+        1 => 'sc8',
+        2 => 'xo8',
       ),
     ),
     'application/x-cisco-vpn-settings' =>
@@ -7261,6 +7305,17 @@ class DefaultMap extends AbstractMap
         1 => 'lmdb',
       ),
     ),
+    'application/x-lowresnx-program' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'LowRes NX program',
+      ),
+      'e' =>
+      array (
+        0 => 'nx',
+      ),
+    ),
     'application/x-lrzip' =>
     array (
       'desc' =>
@@ -8037,6 +8092,28 @@ class DefaultMap extends AbstractMap
         2 => 'php4',
         3 => 'php5',
         4 => 'phps',
+      ),
+    ),
+    'application/x-pico8-rom' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'PICO-8 binary code',
+      ),
+      'e' =>
+      array (
+        0 => 'p8.rom',
+      ),
+    ),
+    'application/x-pico8-source' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'PICO-8 editable code',
+      ),
+      'e' =>
+      array (
+        0 => 'p8',
       ),
     ),
     'application/x-pkcs7-certificates' =>
@@ -9013,6 +9090,18 @@ class DefaultMap extends AbstractMap
         0 => 'sap',
       ),
     ),
+    'application/x-tic80-item' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'TIC-80 cartridge',
+        1 => 'TIC: TIny Computer',
+      ),
+      'e' =>
+      array (
+        0 => 'tic',
+      ),
+    ),
     'application/x-tiled-tmx' =>
     array (
       'desc' =>
@@ -9820,6 +9909,17 @@ class DefaultMap extends AbstractMap
         0 => 'flac',
       ),
     ),
+    'audio/matroska' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Matroska audio',
+      ),
+      'e' =>
+      array (
+        0 => 'mka',
+      ),
+    ),
     'audio/midi' =>
     array (
       'a' =>
@@ -10323,10 +10423,6 @@ class DefaultMap extends AbstractMap
     ),
     'audio/x-matroska' =>
     array (
-      'desc' =>
-      array (
-        0 => 'Matroska audio',
-      ),
       'e' =>
       array (
         0 => 'mka',
@@ -14505,18 +14601,6 @@ class DefaultMap extends AbstractMap
         6 => 'latex',
       ),
     ),
-    'text/x-texinfo' =>
-    array (
-      'desc' =>
-      array (
-        0 => 'TeXInfo document',
-      ),
-      'e' =>
-      array (
-        0 => 'texi',
-        1 => 'texinfo',
-      ),
-    ),
     'text/x-troff-me' =>
     array (
       'desc' =>
@@ -14786,6 +14870,32 @@ class DefaultMap extends AbstractMap
       array (
         0 => 'jpm',
         1 => 'jpgm',
+      ),
+    ),
+    'video/matroska' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Matroska video',
+      ),
+      'e' =>
+      array (
+        0 => 'mkv',
+      ),
+    ),
+    'video/matroska-3d' =>
+    array (
+      'a' =>
+      array (
+        0 => 'video/x-matroska-3d',
+      ),
+      'desc' =>
+      array (
+        0 => 'Matroska 3D video',
+      ),
+      'e' =>
+      array (
+        0 => 'mk3d',
       ),
     ),
     'video/mj2' =>
@@ -15163,26 +15273,11 @@ class DefaultMap extends AbstractMap
     ),
     'video/x-matroska' =>
     array (
-      'desc' =>
-      array (
-        0 => 'Matroska video',
-      ),
       'e' =>
       array (
         0 => 'mkv',
         1 => 'mk3d',
         2 => 'mks',
-      ),
-    ),
-    'video/x-matroska-3d' =>
-    array (
-      'desc' =>
-      array (
-        0 => 'Matroska 3D video',
-      ),
-      'e' =>
-      array (
-        0 => 'mk3d',
       ),
     ),
     'video/x-mjpeg' =>
@@ -15406,6 +15501,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-7z-compressed',
+      ),
+    ),
+    '8o' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-chip8-octo-source',
       ),
     ),
     'a' =>
@@ -16379,7 +16481,7 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'application/x-bzip3',
+        0 => 'application/vnd.bzip3',
       ),
     ),
     'c' =>
@@ -16710,6 +16812,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'image/cgm',
+      ),
+    ),
+    'ch8' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-chip8-program',
       ),
     ),
     'chat' =>
@@ -21198,7 +21307,7 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'video/x-matroska',
-        1 => 'video/x-matroska-3d',
+        1 => 'video/matroska-3d',
       ),
     ),
     'mka' =>
@@ -21206,6 +21315,7 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'audio/x-matroska',
+        1 => 'audio/matroska',
       ),
     ),
     'mkd' =>
@@ -21227,6 +21337,7 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'video/x-matroska',
+        1 => 'video/matroska',
       ),
     ),
     'ml' =>
@@ -22088,6 +22199,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/vnd.apple.numbers',
       ),
     ),
+    'nx' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-lowresnx-program',
+      ),
+    ),
     'nzb' =>
     array (
       't' =>
@@ -22574,6 +22692,14 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/pkcs8',
+        1 => 'application/x-pico8-source',
+      ),
+    ),
+    'p8.rom' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-pico8-rom',
       ),
     ),
     'p8e' =>
@@ -24233,6 +24359,13 @@ class DefaultMap extends AbstractMap
         1 => 'text/x-scala',
       ),
     ),
+    'sc8' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-chip8-program',
+      ),
+    ),
     'scala' =>
     array (
       't' =>
@@ -25691,7 +25824,7 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-texinfo',
-        1 => 'text/x-texinfo',
+        1 => 'application/texinfo',
       ),
     ),
     'texinfo' =>
@@ -25699,7 +25832,7 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-texinfo',
-        1 => 'text/x-texinfo',
+        1 => 'application/texinfo',
       ),
     ),
     'text' =>
@@ -25756,6 +25889,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/vnd.ms-officetheme',
+      ),
+    ),
+    'tic' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-tic80-item',
       ),
     ),
     'tif' =>
@@ -27622,6 +27762,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/vnd.olpc-sugar',
       ),
     ),
+    'xo8' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-chip8-program',
+      ),
+    ),
     'xop' =>
     array (
       't' =>
@@ -28415,6 +28562,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-bzip2-compressed-tar',
+      ),
+    ),
+    'application/x-bzip3' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/vnd.bzip3',
       ),
     ),
     'application/x-cbr' =>
@@ -30020,6 +30174,13 @@ class DefaultMap extends AbstractMap
         0 => 'text/tcl',
       ),
     ),
+    'text/x-texinfo' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/texinfo',
+      ),
+    ),
     'text/x-troff' =>
     array (
       't' =>
@@ -30179,6 +30340,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'video/mp4',
+      ),
+    ),
+    'video/x-matroska-3d' =>
+    array (
+      't' =>
+      array (
+        0 => 'video/matroska-3d',
       ),
     ),
     'video/x-mpeg' =>
