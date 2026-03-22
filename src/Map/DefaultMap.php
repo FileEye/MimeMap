@@ -3005,6 +3005,18 @@ class DefaultMap extends AbstractMap
         0 => 'qfx',
       ),
     ),
+    'application/vnd.ipld.car' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Archive used for storing and transporting IPLD (InterPlanetary Linked Data)',
+        1 => 'CAR: Content Addressable aRchive',
+      ),
+      'e' =>
+      array (
+        0 => 'car',
+      ),
+    ),
     'application/vnd.ipunplugged.rcprofile' =>
     array (
       'e' =>
@@ -11665,6 +11677,19 @@ class DefaultMap extends AbstractMap
         0 => 'ag',
       ),
     ),
+    'image/x-aseprite' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Aseprite image',
+        1 => 'ASE: Allegro Sprite Editor',
+      ),
+      'e' =>
+      array (
+        0 => 'ase',
+        1 => 'aseprite',
+      ),
+    ),
     'image/x-bzeps' =>
     array (
       'desc' =>
@@ -12444,6 +12469,17 @@ class DefaultMap extends AbstractMap
         4 => 'vst',
       ),
     ),
+    'image/x-tim' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'PlayStation graphics',
+      ),
+      'e' =>
+      array (
+        0 => 'tim',
+      ),
+    ),
     'image/x-win-bitmap' =>
     array (
       'desc' =>
@@ -12978,6 +13014,18 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'rs',
+      ),
+    ),
+    'text/scriptlet' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Windows scriptlet',
+      ),
+      'e' =>
+      array (
+        0 => 'sct',
+        1 => 'wsc',
       ),
     ),
     'text/sgml' =>
@@ -15232,6 +15280,7 @@ class DefaultMap extends AbstractMap
       array (
         0 => 'video/fli',
         1 => 'video/x-fli',
+        2 => 'video/x-flc',
       ),
       'desc' =>
       array (
@@ -16044,6 +16093,20 @@ class DefaultMap extends AbstractMap
         0 => 'text/x-common-lisp',
       ),
     ),
+    'ase' =>
+    array (
+      't' =>
+      array (
+        0 => 'image/x-aseprite',
+      ),
+    ),
+    'aseprite' =>
+    array (
+      't' =>
+      array (
+        0 => 'image/x-aseprite',
+      ),
+    ),
     'asf' =>
     array (
       't' =>
@@ -16574,6 +16637,7 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/vnd.curl.car',
+        1 => 'application/vnd.ipld.car',
       ),
     ),
     'cat' =>
@@ -24443,7 +24507,8 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'image/x-sct',
+        0 => 'text/scriptlet',
+        1 => 'image/x-sct',
       ),
     ),
     'scurl' =>
@@ -25912,6 +25977,13 @@ class DefaultMap extends AbstractMap
         0 => 'image/tiff',
       ),
     ),
+    'tim' =>
+    array (
+      't' =>
+      array (
+        0 => 'image/x-tim',
+      ),
+    ),
     'timer' =>
     array (
       't' =>
@@ -27273,7 +27345,8 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'application/x-wonderswan-color-rom',
+        0 => 'text/scriptlet',
+        1 => 'application/x-wonderswan-color-rom',
       ),
     ),
     'wsdl' =>
@@ -30326,6 +30399,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'video/vnd.avi',
+      ),
+    ),
+    'video/x-flc' =>
+    array (
+      't' =>
+      array (
+        0 => 'video/x-flic',
       ),
     ),
     'video/x-fli' =>
