@@ -75,7 +75,6 @@ abstract class BaseMap implements MapInterface
     public function sort(): MapInterface
     {
         foreach (array_keys(static::$map) as $k) {
-            // @phpstan-ignore assign.propertyType
             ksort(static::$map[$k]);
             foreach (static::$map[$k] as &$sub) {
                 ksort($sub);
@@ -166,11 +165,9 @@ abstract class BaseMap implements MapInterface
     protected function addMapSubEntry(string $entry, string $entryKey, string $subEntry, string $value): MapInterface
     {
         if (!isset(static::$map[$entry][$entryKey][$subEntry])) {
-            // @phpstan-ignore assign.propertyType
             static::$map[$entry][$entryKey][$subEntry] = [$value];
         } else {
             if (array_search($value, static::$map[$entry][$entryKey][$subEntry]) === false) {
-                // @phpstan-ignore assign.propertyType
                 static::$map[$entry][$entryKey][$subEntry][] = $value;
             }
         }
@@ -206,12 +203,10 @@ abstract class BaseMap implements MapInterface
         }
 
         // Remove the map sub entry key.
-        // @phpstan-ignore assign.propertyType
         unset(static::$map[$entry][$entryKey][$subEntry][$k]);
 
         // Remove the sub entry if no more values.
         if (empty(static::$map[$entry][$entryKey][$subEntry])) {
-            // @phpstan-ignore assign.propertyType
             unset(static::$map[$entry][$entryKey][$subEntry]);
         } else {
             // Resequence the remaining values.
@@ -219,13 +214,11 @@ abstract class BaseMap implements MapInterface
             foreach (static::$map[$entry][$entryKey][$subEntry] as $v) {
                 $tmp[] = $v;
             }
-            // @phpstan-ignore assign.propertyType
             static::$map[$entry][$entryKey][$subEntry] = $tmp;
         }
 
         // Remove the entry if no more values.
         if (empty(static::$map[$entry][$entryKey])) {
-            // @phpstan-ignore assign.propertyType
             unset(static::$map[$entry][$entryKey]);
         }
 
@@ -269,7 +262,6 @@ abstract class BaseMap implements MapInterface
             }
             $tmp[] = $v;
         }
-        // @phpstan-ignore assign.propertyType
         static::$map[$entry][$entryKey][$subEntry] = $tmp;
 
         return $this;
