@@ -204,10 +204,12 @@ abstract class BaseMap implements MapInterface
         }
 
         // Remove the map sub entry key.
+        // @phpstan-ignore assign.propertyType
         unset(static::$map[$entry][$entryKey][$subEntry][$k]);
 
         // Remove the sub entry if no more values.
         if (empty(static::$map[$entry][$entryKey][$subEntry])) {
+            // @phpstan-ignore assign.propertyType
             unset(static::$map[$entry][$entryKey][$subEntry]);
         } else {
             // Resequence the remaining values.
@@ -220,6 +222,7 @@ abstract class BaseMap implements MapInterface
 
         // Remove the entry if no more values.
         if (empty(static::$map[$entry][$entryKey])) {
+            // @phpstan-ignore assign.propertyType
             unset(static::$map[$entry][$entryKey]);
         }
 
