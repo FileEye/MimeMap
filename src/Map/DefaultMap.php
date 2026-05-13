@@ -5942,6 +5942,18 @@ class DefaultMap extends AbstractMap
         0 => 'pcf',
       ),
     ),
+    'application/x-coff' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Windows object code',
+      ),
+      'e' =>
+      array (
+        0 => 'o',
+        1 => 'obj',
+      ),
+    ),
     'application/x-commodore-crt' =>
     array (
       'desc' =>
@@ -6677,9 +6689,21 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'gen',
-        1 => 'smd',
-        2 => 'md',
+        1 => 'md',
+        2 => '68k',
         3 => 'sgd',
+      ),
+    ),
+    'application/x-genesis-rom-smd' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Genesis ROM (SMD dump)',
+        1 => 'SMD: Super Magic Drive',
+      ),
+      'e' =>
+      array (
+        0 => 'smd',
       ),
     ),
     'application/x-gerber-job' =>
@@ -8456,7 +8480,7 @@ class DefaultMap extends AbstractMap
       ),
       'e' =>
       array (
-        0 => 'iso',
+        0 => 'md',
       ),
     ),
     'application/x-sg1000-rom' =>
@@ -11528,6 +11552,21 @@ class DefaultMap extends AbstractMap
         0 => 'ico',
       ),
     ),
+    'image/vnd.ms-dds' =>
+    array (
+      'a' =>
+      array (
+        0 => 'image/x-dds',
+      ),
+      'desc' =>
+      array (
+        0 => 'DirectDraw Surface',
+      ),
+      'e' =>
+      array (
+        0 => 'dds',
+      ),
+    ),
     'image/vnd.ms-modi' =>
     array (
       'desc' =>
@@ -11769,17 +11808,6 @@ class DefaultMap extends AbstractMap
         1 => 'xcf.bz2',
       ),
     ),
-    'image/x-dds' =>
-    array (
-      'desc' =>
-      array (
-        0 => 'DirectDraw surface',
-      ),
-      'e' =>
-      array (
-        0 => 'dds',
-      ),
-    ),
     'image/x-eps' =>
     array (
       'desc' =>
@@ -11814,6 +11842,17 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'exr',
+      ),
+    ),
+    'image/x-farbfeld' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Farbfeld',
+      ),
+      'e' =>
+      array (
+        0 => 'ff',
       ),
     ),
     'image/x-freehand' =>
@@ -12953,6 +12992,10 @@ class DefaultMap extends AbstractMap
     ),
     'text/n3' =>
     array (
+      'desc' =>
+      array (
+        0 => 'Notation3 document',
+      ),
       'e' =>
       array (
         0 => 'n3',
@@ -13269,6 +13312,17 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'spot',
+      ),
+    ),
+    'text/vnd.plantuml' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'PlantUML Diagram',
+      ),
+      'e' =>
+      array (
+        0 => 'puml',
       ),
     ),
     'text/vnd.rn-realtext' =>
@@ -13854,6 +13908,17 @@ class DefaultMap extends AbstractMap
         0 => 'gradle',
       ),
     ),
+    'text/x-gradle-kts' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Kotlin Gradle script',
+      ),
+      'e' =>
+      array (
+        0 => 'gradle.kts',
+      ),
+    ),
     'text/x-groovy' =>
     array (
       'desc' =>
@@ -14003,6 +14068,17 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'log',
+      ),
+    ),
+    'text/x-lrc' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Song lyrics',
+      ),
+      'e' =>
+      array (
+        0 => 'lrc',
       ),
     ),
     'text/x-lua' =>
@@ -14514,6 +14590,18 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'scss',
+      ),
+    ),
+    'text/x-sed' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'sed script',
+        1 => 'SED: Stream EDitor',
+      ),
+      'e' =>
+      array (
+        0 => 'sed',
       ),
     ),
     'text/x-setext' =>
@@ -15536,6 +15624,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'model/3mf',
+      ),
+    ),
+    '68k' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-genesis-rom',
       ),
     ),
     '7z' =>
@@ -17498,7 +17593,7 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'image/x-dds',
+        0 => 'image/vnd.ms-dds',
       ),
     ),
     'deb' =>
@@ -18478,6 +18573,13 @@ class DefaultMap extends AbstractMap
         0 => 'text/x-gherkin',
       ),
     ),
+    'ff' =>
+    array (
+      't' =>
+      array (
+        0 => 'image/x-farbfeld',
+      ),
+    ),
     'fff' =>
     array (
       't' =>
@@ -19190,6 +19292,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'text/x-gradle',
+      ),
+    ),
+    'gradle.kts' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/x-gradle-kts',
       ),
     ),
     'gram' =>
@@ -19945,11 +20054,10 @@ class DefaultMap extends AbstractMap
       array (
         0 => 'application/vnd.efi.iso',
         1 => 'application/x-sega-cd-rom',
-        2 => 'application/x-sega-pico-rom',
-        3 => 'application/x-saturn-rom',
-        4 => 'application/x-dreamcast-rom',
-        5 => 'application/x-wii-rom',
-        6 => 'application/x-gamecube-rom',
+        2 => 'application/x-saturn-rom',
+        3 => 'application/x-dreamcast-rom',
+        4 => 'application/x-wii-rom',
+        5 => 'application/x-gamecube-rom',
       ),
     ),
     'iso9660' =>
@@ -20718,6 +20826,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/lost+xml',
       ),
     ),
+    'lrc' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/x-lrc',
+      ),
+    ),
     'lrf' =>
     array (
       't' =>
@@ -21135,7 +21250,8 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'text/markdown',
-        1 => 'application/x-genesis-rom',
+        1 => 'application/x-sega-pico-rom',
+        2 => 'application/x-genesis-rom',
       ),
     ),
     'mdb' =>
@@ -22281,7 +22397,8 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'application/x-object',
+        0 => 'application/x-coff',
+        1 => 'application/x-object',
       ),
     ),
     'oa2' =>
@@ -22317,7 +22434,8 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-tgif',
-        1 => 'model/obj',
+        1 => 'application/x-coff',
+        2 => 'model/obj',
       ),
     ),
     'ocl' =>
@@ -23567,6 +23685,13 @@ class DefaultMap extends AbstractMap
         2 => 'text/x-ssh-public-key',
       ),
     ),
+    'puml' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/vnd.plantuml',
+      ),
+    ),
     'pvb' =>
     array (
       't' =>
@@ -24587,6 +24712,13 @@ class DefaultMap extends AbstractMap
         1 => 'application/x-starwriter',
       ),
     ),
+    'sed' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/x-sed',
+      ),
+    ),
     'see' =>
     array (
       't' =>
@@ -24993,7 +25125,7 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-starmail',
-        1 => 'application/x-genesis-rom',
+        1 => 'application/x-genesis-rom-smd',
       ),
     ),
     'smf' =>
@@ -29846,6 +29978,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/vnd.corel-draw',
+      ),
+    ),
+    'image/x-dds' =>
+    array (
+      't' =>
+      array (
+        0 => 'image/vnd.ms-dds',
       ),
     ),
     'image/x-djvu' =>
