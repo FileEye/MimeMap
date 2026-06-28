@@ -1004,6 +1004,9 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'p10',
+        1 => 'csr',
+        2 => 'der',
+        3 => 'pem',
       ),
     ),
     'application/pkcs12' =>
@@ -1019,8 +1022,10 @@ class DefaultMap extends AbstractMap
       ),
       'e' =>
       array (
-        0 => 'p12',
-        1 => 'pfx',
+        0 => 'der',
+        1 => 'p12',
+        2 => 'pem',
+        3 => 'pfx',
       ),
     ),
     'application/pkcs7-mime' =>
@@ -1034,6 +1039,9 @@ class DefaultMap extends AbstractMap
       array (
         0 => 'p7m',
         1 => 'p7c',
+        2 => 'der',
+        3 => 'p7z',
+        4 => 'pem',
       ),
     ),
     'application/pkcs7-signature' =>
@@ -1046,6 +1054,8 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'p7s',
+        1 => 'der',
+        2 => 'pem',
       ),
     ),
     'application/pkcs8' =>
@@ -1058,6 +1068,9 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'p8',
+        1 => 'der',
+        2 => 'key',
+        3 => 'pem',
       ),
     ),
     'application/pkcs8-encrypted' =>
@@ -1069,7 +1082,9 @@ class DefaultMap extends AbstractMap
       ),
       'e' =>
       array (
-        0 => 'p8e',
+        0 => 'der',
+        1 => 'p8e',
+        2 => 'pem',
       ),
     ),
     'application/pkix-attr-cert' =>
@@ -1088,6 +1103,10 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'cer',
+        1 => 'cert',
+        2 => 'crt',
+        3 => 'der',
+        4 => 'pem',
       ),
     ),
     'application/pkix-crl' =>
@@ -1099,6 +1118,8 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'crl',
+        1 => 'der',
+        2 => 'pem',
       ),
     ),
     'application/pkix-pkipath' =>
@@ -1752,6 +1773,17 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'ami',
+      ),
+    ),
+    'application/vnd.android.app-bundle' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Android App Bundle',
+      ),
+      'e' =>
+      array (
+        0 => 'aab',
       ),
     ),
     'application/vnd.android.package-archive' =>
@@ -3605,6 +3637,10 @@ class DefaultMap extends AbstractMap
     ),
     'application/vnd.ms-pki.seccat' =>
     array (
+      'desc' =>
+      array (
+        0 => 'Windows security catalog',
+      ),
       'e' =>
       array (
         0 => 'cat',
@@ -5637,6 +5673,8 @@ class DefaultMap extends AbstractMap
       'a' =>
       array (
         0 => 'application/bat',
+        1 => 'application/x-msdos-program',
+        2 => 'text/x-msdos-batch',
       ),
       'desc' =>
       array (
@@ -5645,6 +5683,7 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'bat',
+        1 => 'cmd',
       ),
     ),
     'application/x-bcpio' =>
@@ -6729,6 +6768,19 @@ class DefaultMap extends AbstractMap
         1 => 'mo',
       ),
     ),
+    'application/x-git-bundle' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Git bundle',
+      ),
+      'e' =>
+      array (
+        0 => 'bundle',
+        1 => 'gitbundle',
+        2 => 'bdl',
+      ),
+    ),
     'application/x-glade' =>
     array (
       'desc' =>
@@ -6946,11 +6998,28 @@ class DefaultMap extends AbstractMap
       ),
       'desc' =>
       array (
-        0 => 'Haansoft Hangul document',
+        0 => 'Hancom HWP document',
       ),
       'e' =>
       array (
         0 => 'hwp',
+      ),
+    ),
+    'application/x-hwpx' =>
+    array (
+      'a' =>
+      array (
+        0 => 'application/hwp+zip',
+        1 => 'application/vnd.hancom.hwpx',
+        2 => 'application/x-hwp+zip',
+      ),
+      'desc' =>
+      array (
+        0 => 'Hancom HWPX document',
+      ),
+      'e' =>
+      array (
+        0 => 'hwpx',
       ),
     ),
     'application/x-hwt' =>
@@ -6961,7 +7030,7 @@ class DefaultMap extends AbstractMap
       ),
       'desc' =>
       array (
-        0 => 'Haansoft Hangul document template',
+        0 => 'Hancom HWP document template',
       ),
       'e' =>
       array (
@@ -8163,6 +8232,8 @@ class DefaultMap extends AbstractMap
       array (
         0 => 'p7b',
         1 => 'spc',
+        2 => 'der',
+        3 => 'pem',
       ),
     ),
     'application/x-pkcs7-certreqresp' =>
@@ -9399,14 +9470,16 @@ class DefaultMap extends AbstractMap
     array (
       'desc' =>
       array (
-        0 => 'DER/PEM/Netscape-encoded X.509 certificate',
+        0 => 'X.509 CA certificate',
+        1 => 'CA: Certificate Authority',
       ),
       'e' =>
       array (
         0 => 'der',
         1 => 'crt',
-        2 => 'cert',
-        3 => 'pem',
+        2 => 'cer',
+        3 => 'cert',
+        4 => 'pem',
       ),
     ),
     'application/x-xar' =>
@@ -15687,6 +15760,7 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-authorware-bin',
+        1 => 'application/vnd.android.app-bundle',
       ),
     ),
     'aac' =>
@@ -16445,6 +16519,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/x-font-bdf',
       ),
     ),
+    'bdl' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-git-bundle',
+      ),
+    ),
     'bdm' =>
     array (
       't' =>
@@ -16619,6 +16700,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'image/prs.btif',
+      ),
+    ),
+    'bundle' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-git-bundle',
       ),
     ),
     'bz' =>
@@ -16943,13 +17031,15 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/pkix-cert',
+        1 => 'application/x-x509-ca-cert',
       ),
     ),
     'cert' =>
     array (
       't' =>
       array (
-        0 => 'application/x-x509-ca-cert',
+        0 => 'application/pkix-cert',
+        1 => 'application/x-x509-ca-cert',
       ),
     ),
     'cfs' =>
@@ -17135,6 +17225,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/vnd.cosmocaller',
       ),
     ),
+    'cmd' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-bat',
+      ),
+    ),
     'cmdf' =>
     array (
       't' =>
@@ -17289,7 +17386,8 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-x509-ca-cert',
-        1 => 'application/x-commodore-crt',
+        1 => 'application/pkix-cert',
+        2 => 'application/x-commodore-crt',
       ),
     ),
     'crw' =>
@@ -17340,6 +17438,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/vnd.commonspace',
+      ),
+    ),
+    'csr' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/pkcs10',
       ),
     ),
     'css' =>
@@ -17622,6 +17727,15 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-x509-ca-cert',
+        1 => 'application/pkcs7-mime',
+        2 => 'application/pkcs7-signature',
+        3 => 'application/pkcs8',
+        4 => 'application/pkcs8-encrypted',
+        5 => 'application/pkcs10',
+        6 => 'application/pkix-cert',
+        7 => 'application/pkix-crl',
+        8 => 'application/x-pkcs7-certificates',
+        9 => 'application/pkcs12',
       ),
     ),
     'desktop' =>
@@ -19145,6 +19259,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/vnd.groove-identity-message',
       ),
     ),
+    'gitbundle' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-git-bundle',
+      ),
+    ),
     'glade' =>
     array (
       't' =>
@@ -19731,6 +19852,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-hwp',
+      ),
+    ),
+    'hwpx' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-hwpx',
       ),
     ),
     'hwt' =>
@@ -20457,7 +20585,8 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/pgp-keys',
-        1 => 'application/vnd.apple.keynote',
+        1 => 'application/pkcs8',
+        2 => 'application/vnd.apple.keynote',
       ),
     ),
     'kfo' =>
@@ -22869,6 +22998,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/pkcs7-signature',
       ),
     ),
+    'p7z' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/pkcs7-mime',
+      ),
+    ),
     'p8' =>
     array (
       't' =>
@@ -23137,7 +23273,16 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'application/x-x509-ca-cert',
+        0 => 'application/pkcs7-mime',
+        1 => 'application/pkcs7-signature',
+        2 => 'application/pkcs8',
+        3 => 'application/pkcs8-encrypted',
+        4 => 'application/pkcs10',
+        5 => 'application/pkix-cert',
+        6 => 'application/pkix-crl',
+        7 => 'application/x-pkcs7-certificates',
+        8 => 'application/pkcs12',
+        9 => 'application/x-x509-ca-cert',
       ),
     ),
     'perl' =>
@@ -28447,6 +28592,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/gpx+xml',
       ),
     ),
+    'application/hwp+zip' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-hwpx',
+      ),
+    ),
     'application/ico' =>
     array (
       't' =>
@@ -28634,6 +28786,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-hwt',
+      ),
+    ),
+    'application/vnd.hancom.hwpx' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-hwpx',
       ),
     ),
     'application/vnd.ms-3mfdocument' =>
@@ -28979,6 +29138,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/x-hfe-floppy-image',
       ),
     ),
+    'application/x-hwp+zip' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-hwpx',
+      ),
+    ),
     'application/x-iso9660-image' =>
     array (
       't' =>
@@ -29110,6 +29276,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/vnd.ms-access',
+      ),
+    ),
+    'application/x-msdos-program' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-bat',
       ),
     ),
     'application/x-msexcel' =>
@@ -30307,6 +30480,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'text/markdown',
+      ),
+    ),
+    'text/x-msdos-batch' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-bat',
       ),
     ),
     'text/x-nushell' =>
