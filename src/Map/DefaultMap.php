@@ -12369,6 +12369,18 @@ class DefaultMap extends AbstractMap
         0 => 'pnm',
       ),
     ),
+    'image/x-portable-arbitrarymap' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'PAM image',
+        1 => 'PAM: Portable Arbitrary Map',
+      ),
+      'e' =>
+      array (
+        0 => 'pam',
+      ),
+    ),
     'image/x-portable-bitmap' =>
     array (
       'desc' =>
@@ -12651,6 +12663,18 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'xpm',
+      ),
+    ),
+    'image/x-xv-thumbnail' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'xv thumbnail',
+        1 => 'XV: XV image viewer',
+      ),
+      'e' =>
+      array (
+        0 => 'p7',
       ),
     ),
     'image/x-xwindowdump' =>
@@ -22963,6 +22987,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/x-pagemaker',
       ),
     ),
+    'p7' =>
+    array (
+      't' =>
+      array (
+        0 => 'image/x-xv-thumbnail',
+      ),
+    ),
     'p7b' =>
     array (
       't' =>
@@ -23053,6 +23084,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-pak',
+      ),
+    ),
+    'pam' =>
+    array (
+      't' =>
+      array (
+        0 => 'image/x-portable-arbitrarymap',
       ),
     ),
     'par2' =>
