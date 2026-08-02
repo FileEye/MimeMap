@@ -10328,6 +10328,23 @@ class DefaultMap extends AbstractMap
         0 => 'wav',
       ),
     ),
+    'audio/vorbis' =>
+    array (
+      'a' =>
+      array (
+        0 => 'audio/x-vorbis+ogg',
+        1 => 'audio/x-vorbis',
+      ),
+      'desc' =>
+      array (
+        0 => 'Ogg Vorbis audio',
+      ),
+      'e' =>
+      array (
+        0 => 'oga',
+        1 => 'ogg',
+      ),
+    ),
     'audio/webm' =>
     array (
       'e' =>
@@ -10848,23 +10865,6 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'voc',
-      ),
-    ),
-    'audio/x-vorbis+ogg' =>
-    array (
-      'a' =>
-      array (
-        0 => 'audio/vorbis',
-        1 => 'audio/x-vorbis',
-      ),
-      'desc' =>
-      array (
-        0 => 'Ogg Vorbis audio',
-      ),
-      'e' =>
-      array (
-        0 => 'oga',
-        1 => 'ogg',
       ),
     ),
     'audio/x-wavpack' =>
@@ -22687,7 +22687,7 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'audio/ogg',
-        1 => 'audio/x-vorbis+ogg',
+        1 => 'audio/vorbis',
         2 => 'audio/x-flac+ogg',
         3 => 'audio/x-speex+ogg',
       ),
@@ -22698,7 +22698,7 @@ class DefaultMap extends AbstractMap
       array (
         0 => 'audio/ogg',
         1 => 'video/ogg',
-        2 => 'audio/x-vorbis+ogg',
+        2 => 'audio/vorbis',
         3 => 'audio/x-flac+ogg',
         4 => 'audio/x-speex+ogg',
         5 => 'video/x-theora+ogg',
@@ -29827,13 +29827,6 @@ class DefaultMap extends AbstractMap
         0 => 'audio/mobile-xmf',
       ),
     ),
-    'audio/vorbis' =>
-    array (
-      't' =>
-      array (
-        0 => 'audio/x-vorbis+ogg',
-      ),
-    ),
     'audio/wav' =>
     array (
       't' =>
@@ -30041,7 +30034,14 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'audio/x-vorbis+ogg',
+        0 => 'audio/vorbis',
+      ),
+    ),
+    'audio/x-vorbis+ogg' =>
+    array (
+      't' =>
+      array (
+        0 => 'audio/vorbis',
       ),
     ),
     'audio/x-wav' =>
