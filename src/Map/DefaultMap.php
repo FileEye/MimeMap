@@ -7201,6 +7201,30 @@ class DefaultMap extends AbstractMap
         0 => 'chrt',
       ),
     ),
+    'application/x-keepass' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'KeePass v1.x KDB database',
+        1 => 'KDB: Keepass DataBase',
+      ),
+      'e' =>
+      array (
+        0 => 'kdb',
+      ),
+    ),
+    'application/x-keepass2' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'KeePass v2.x KDBX database',
+        1 => 'KDBX: Keepass DataBase eXtensible markup language',
+      ),
+      'e' =>
+      array (
+        0 => 'kdbx',
+      ),
+    ),
     'application/x-kexi-connectiondata' =>
     array (
       'desc' =>
@@ -8285,6 +8309,28 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'pw',
+      ),
+    ),
+    'application/x-pwsafe3' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Password Safe V3 database',
+      ),
+      'e' =>
+      array (
+        0 => 'psafe3',
+      ),
+    ),
+    'application/x-pwsafe4' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Password Safe V4 database',
+      ),
+      'e' =>
+      array (
+        0 => 'psafe4',
       ),
     ),
     'application/x-pyspread-bz-spreadsheet' =>
@@ -20568,6 +20614,20 @@ class DefaultMap extends AbstractMap
         0 => 'image/x-kiss-cel',
       ),
     ),
+    'kdb' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-keepass',
+      ),
+    ),
+    'kdbx' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-keepass2',
+      ),
+    ),
     'kdc' =>
     array (
       't' =>
@@ -23793,6 +23853,20 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-powershell',
+      ),
+    ),
+    'psafe3' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-pwsafe3',
+      ),
+    ),
+    'psafe4' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-pwsafe4',
       ),
     ),
     'psb' =>
