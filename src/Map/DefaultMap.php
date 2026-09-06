@@ -6376,6 +6376,18 @@ class DefaultMap extends AbstractMap
         0 => 'etheme',
       ),
     ),
+    'application/x-efi-linux-kernel' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Linux kernel with EFI stub',
+        1 => 'EFI: Extensible Firmware Interface',
+      ),
+      'e' =>
+      array (
+        0 => 'efi',
+      ),
+    ),
     'application/x-egon' =>
     array (
       'desc' =>
@@ -10210,6 +10222,23 @@ class DefaultMap extends AbstractMap
         0 => 'sil',
       ),
     ),
+    'audio/soundfont' =>
+    array (
+      'a' =>
+      array (
+        0 => 'audio/x-soundfont',
+        1 => 'audio/x-sf2',
+        2 => 'application/x-sf2',
+      ),
+      'desc' =>
+      array (
+        0 => 'SoundFont 2 audio',
+      ),
+      'e' =>
+      array (
+        0 => 'sf2',
+      ),
+    ),
     'audio/usac' =>
     array (
       'desc' =>
@@ -10823,6 +10852,32 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'pls',
+      ),
+    ),
+    'audio/x-sf1' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'SoundFont 1 audio',
+      ),
+      'e' =>
+      array (
+        0 => 'sbk',
+      ),
+    ),
+    'audio/x-sf3' =>
+    array (
+      'a' =>
+      array (
+        0 => 'application/x-sf3',
+      ),
+      'desc' =>
+      array (
+        0 => 'SoundFont 3 audio',
+      ),
+      'e' =>
+      array (
+        0 => 'sf3',
       ),
     ),
     'audio/x-speex' =>
@@ -14405,6 +14460,7 @@ class DefaultMap extends AbstractMap
       'desc' =>
       array (
         0 => 'NFO document',
+        1 => 'NFO: iNFOrmation',
       ),
       'e' =>
       array (
@@ -18301,6 +18357,7 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/vnd.microsoft.portable-executable',
+        1 => 'application/x-efi-linux-kernel',
       ),
     ),
     'efif' =>
@@ -24790,6 +24847,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/x-spss-sav',
       ),
     ),
+    'sbk' =>
+    array (
+      't' =>
+      array (
+        0 => 'audio/x-sf1',
+      ),
+    ),
     'sbml' =>
     array (
       't' =>
@@ -25040,19 +25104,27 @@ class DefaultMap extends AbstractMap
         0 => 'application/set-registration-initiation',
       ),
     ),
+    'sf2' =>
+    array (
+      't' =>
+      array (
+        0 => 'audio/soundfont',
+      ),
+    ),
     'sf3' =>
     array (
       't' =>
       array (
-        0 => 'application/x.sf3-archive',
-        1 => 'audio/x.sf3',
-        2 => 'image/x.sf3',
-        3 => 'application/x.sf3-log',
-        4 => 'model/x.sf3',
-        5 => 'model/x.sf3-physics',
-        6 => 'application/x.sf3-table',
-        7 => 'application/x.sf3-text',
-        8 => 'image/x.sf3-vector',
+        0 => 'audio/x-sf3',
+        1 => 'application/x.sf3-archive',
+        2 => 'audio/x.sf3',
+        3 => 'image/x.sf3',
+        4 => 'application/x.sf3-log',
+        5 => 'model/x.sf3',
+        6 => 'model/x.sf3-physics',
+        7 => 'application/x.sf3-table',
+        8 => 'application/x.sf3-text',
+        9 => 'image/x.sf3-vector',
       ),
     ),
     'sfc' =>
@@ -29551,6 +29623,20 @@ class DefaultMap extends AbstractMap
         0 => 'application/sdp',
       ),
     ),
+    'application/x-sf2' =>
+    array (
+      't' =>
+      array (
+        0 => 'audio/soundfont',
+      ),
+    ),
+    'application/x-sf3' =>
+    array (
+      't' =>
+      array (
+        0 => 'audio/x-sf3',
+      ),
+    ),
     'application/x-shellscript' =>
     array (
       't' =>
@@ -30097,11 +30183,25 @@ class DefaultMap extends AbstractMap
         0 => 'video/3gpp',
       ),
     ),
+    'audio/x-sf2' =>
+    array (
+      't' =>
+      array (
+        0 => 'audio/soundfont',
+      ),
+    ),
     'audio/x-shorten' =>
     array (
       't' =>
       array (
         0 => 'application/x-shorten',
+      ),
+    ),
+    'audio/x-soundfont' =>
+    array (
+      't' =>
+      array (
+        0 => 'audio/soundfont',
       ),
     ),
     'audio/x-vorbis' =>
