@@ -5622,6 +5622,17 @@ class DefaultMap extends AbstractMap
         0 => 'a26',
       ),
     ),
+    'application/x-atari-5200-rom' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Atari 5200 ROM',
+      ),
+      'e' =>
+      array (
+        0 => 'a52',
+      ),
+    ),
     'application/x-atari-7800-rom' =>
     array (
       'desc' =>
@@ -9068,6 +9079,7 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'sv4cpio',
+        1 => 'cpio',
       ),
     ),
     'application/x-sv4crc' =>
@@ -9079,6 +9091,7 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'sv4crc',
+        1 => 'cpio',
       ),
     ),
     'application/x-sylk' =>
@@ -12993,6 +13006,18 @@ class DefaultMap extends AbstractMap
         2 => 'vrm',
       ),
     ),
+    'model/x-brep' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'BREP 3D model',
+        1 => 'BREP: Boundary REPresentation',
+      ),
+      'e' =>
+      array (
+        0 => 'brep',
+      ),
+    ),
     'model/x.sf3' =>
     array (
       'desc' =>
@@ -15867,6 +15892,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/x-atari-2600-rom',
       ),
     ),
+    'a52' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-atari-5200-rom',
+      ),
+    ),
     'a78' =>
     array (
       't' =>
@@ -16800,6 +16832,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/x-brotli',
       ),
     ),
+    'brep' =>
+    array (
+      't' =>
+      array (
+        0 => 'model/x-brep',
+      ),
+    ),
     'brk' =>
     array (
       't' =>
@@ -17433,6 +17472,8 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/x-cpio',
+        1 => 'application/x-sv4cpio',
+        2 => 'application/x-sv4crc',
       ),
     ),
     'cpio.gz' =>
