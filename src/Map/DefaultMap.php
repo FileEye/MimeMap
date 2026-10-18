@@ -2364,6 +2364,17 @@ class DefaultMap extends AbstractMap
         0 => 'dpg',
       ),
     ),
+    'application/vnd.drawoble.drawing+zip' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Drawoble drawing',
+      ),
+      'e' =>
+      array (
+        0 => 'drawo',
+      ),
+    ),
     'application/vnd.dreamfactory' =>
     array (
       'e' =>
@@ -9354,7 +9365,7 @@ class DefaultMap extends AbstractMap
     array (
       'desc' =>
       array (
-        0 => 'Ustar archive',
+        0 => 'Tar archive (POSIX-compliant)',
       ),
       'e' =>
       array (
@@ -18148,6 +18159,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'audio/vnd.dra',
+      ),
+    ),
+    'drawo' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/vnd.drawoble.drawing+zip',
       ),
     ),
     'drl' =>
