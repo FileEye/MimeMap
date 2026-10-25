@@ -2364,6 +2364,17 @@ class DefaultMap extends AbstractMap
         0 => 'dpg',
       ),
     ),
+    'application/vnd.drawoble.drawing+zip' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Drawoble drawing',
+      ),
+      'e' =>
+      array (
+        0 => 'drawo',
+      ),
+    ),
     'application/vnd.dreamfactory' =>
     array (
       'e' =>
@@ -9354,7 +9365,7 @@ class DefaultMap extends AbstractMap
     array (
       'desc' =>
       array (
-        0 => 'Ustar archive',
+        0 => 'Tar archive (POSIX-compliant)',
       ),
       'e' =>
       array (
@@ -14719,6 +14730,22 @@ class DefaultMap extends AbstractMap
         2 => 'qmlproject',
       ),
     ),
+    'text/x-r' =>
+    array (
+      'a' =>
+      array (
+        0 => 'text/x-rsrc',
+        1 => 'text/x-r-source',
+      ),
+      'desc' =>
+      array (
+        0 => 'R script',
+      ),
+      'e' =>
+      array (
+        0 => 'r',
+      ),
+    ),
     'text/x-reject' =>
     array (
       'a' =>
@@ -14919,6 +14946,17 @@ class DefaultMap extends AbstractMap
         0 => 'sv',
       ),
     ),
+    'text/x-swift' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Swift source code',
+      ),
+      'e' =>
+      array (
+        0 => 'swift',
+      ),
+    ),
     'text/x-systemd-unit' =>
     array (
       'desc' =>
@@ -15113,6 +15151,17 @@ class DefaultMap extends AbstractMap
       array (
         0 => 'fo',
         1 => 'xslfo',
+      ),
+    ),
+    'text/x-zig' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Zig source code',
+      ),
+      'e' =>
+      array (
+        0 => 'zig',
       ),
     ),
     'text/x.gcode' =>
@@ -18148,6 +18197,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'audio/vnd.dra',
+      ),
+    ),
+    'drawo' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/vnd.drawoble.drawing+zip',
       ),
     ),
     'drl' =>
@@ -24386,6 +24442,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/vnd.quark.quarkxpress',
       ),
     ),
+    'r' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/x-r',
+      ),
+    ),
     'ra' =>
     array (
       't' =>
@@ -26051,6 +26114,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/vnd.aristanetworks.swi',
+      ),
+    ),
+    'swift' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/x-swift',
       ),
     ),
     'swm' =>
@@ -28618,6 +28688,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/vnd.zzazz.deck+xml',
       ),
     ),
+    'zig' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/x-zig',
+      ),
+    ),
     'zim' =>
     array (
       't' =>
@@ -30789,6 +30866,20 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'text/x-gettext-translation-template',
+      ),
+    ),
+    'text/x-r-source' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/x-r',
+      ),
+    ),
+    'text/x-rsrc' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/x-r',
       ),
     ),
     'text/x-ruby' =>
