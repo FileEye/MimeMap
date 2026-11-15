@@ -5936,6 +5936,23 @@ class DefaultMap extends AbstractMap
         0 => 'ccmx',
       ),
     ),
+    'application/x-cdf' =>
+    array (
+      'a' =>
+      array (
+        0 => 'application/x-cda',
+        1 => 'audio/x-cda',
+      ),
+      'desc' =>
+      array (
+        0 => 'Audio CD track information',
+        1 => 'CD: Compact Disc',
+      ),
+      'e' =>
+      array (
+        0 => 'cda',
+      ),
+    ),
     'application/x-cdlink' =>
     array (
       'e' =>
@@ -6855,6 +6872,17 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'gnumeric',
+      ),
+    ),
+    'application/x-gnupg-private-key' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'GnuPG private key',
+      ),
+      'e' =>
+      array (
+        0 => 'key',
       ),
     ),
     'application/x-gnuplot' =>
@@ -7912,7 +7940,7 @@ class DefaultMap extends AbstractMap
     array (
       'desc' =>
       array (
-        0 => 'WRI document',
+        0 => 'Microsoft Write document',
       ),
       'e' =>
       array (
@@ -9446,6 +9474,17 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'vmdk',
+      ),
+    ),
+    'application/x-vnd.corel.zcf.draw.document+zip' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'Corel Draw 14.0+ drawing',
+      ),
+      'e' =>
+      array (
+        0 => 'cdr',
       ),
     ),
     'application/x-wais-source' =>
@@ -13152,6 +13191,19 @@ class DefaultMap extends AbstractMap
         0 => 'csvs',
       ),
     ),
+    'text/gff3' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'GFF3 genomic data',
+        1 => 'GFF3: Generic Feature Format version 3',
+      ),
+      'e' =>
+      array (
+        0 => 'gff',
+        1 => 'gff3',
+      ),
+    ),
     'text/html' =>
     array (
       'desc' =>
@@ -13194,6 +13246,18 @@ class DefaultMap extends AbstractMap
       'e' =>
       array (
         0 => 'jse',
+      ),
+    ),
+    'text/jsx' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'JavaScript with embedded XML',
+        1 => 'XML: eXtensible Markup Language',
+      ),
+      'e' =>
+      array (
+        0 => 'jsx',
       ),
     ),
     'text/julia' =>
@@ -13388,6 +13452,18 @@ class DefaultMap extends AbstractMap
         3 => 'man',
         4 => 'me',
         5 => 'ms',
+      ),
+    ),
+    'text/tsx' =>
+    array (
+      'desc' =>
+      array (
+        0 => 'TypeScript with embedded XML',
+        1 => 'XML: eXtensible Markup Language',
+      ),
+      'e' =>
+      array (
+        0 => 'tsx',
       ),
     ),
     'text/turtle' =>
@@ -17128,6 +17204,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/ccxml+xml',
       ),
     ),
+    'cda' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-cdf',
+      ),
+    ),
     'cdbcmsg' =>
     array (
       't' =>
@@ -17196,6 +17279,7 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'application/vnd.corel-draw',
+        1 => 'application/x-vnd.corel.zcf.draw.document+zip',
       ),
     ),
     'cdx' =>
@@ -19427,6 +19511,20 @@ class DefaultMap extends AbstractMap
         0 => 'application/x-tex-gf',
       ),
     ),
+    'gff' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/gff3',
+      ),
+    ),
+    'gff3' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/gff3',
+      ),
+    ),
     'gg' =>
     array (
       't' =>
@@ -20718,6 +20816,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/jsonml+json',
       ),
     ),
+    'jsx' =>
+    array (
+      't' =>
+      array (
+        0 => 'text/jsx',
+      ),
+    ),
     'jxl' =>
     array (
       't' =>
@@ -20824,7 +20929,8 @@ class DefaultMap extends AbstractMap
       array (
         0 => 'application/pgp-keys',
         1 => 'application/pkcs8',
-        2 => 'application/vnd.apple.keynote',
+        2 => 'application/x-gnupg-private-key',
+        3 => 'application/vnd.apple.keynote',
       ),
     ),
     'kfo' =>
@@ -26730,7 +26836,8 @@ class DefaultMap extends AbstractMap
     array (
       't' =>
       array (
-        0 => 'application/x-tiled-tsx',
+        0 => 'text/tsx',
+        1 => 'application/x-tiled-tsx',
       ),
     ),
     'tta' =>
@@ -29258,6 +29365,13 @@ class DefaultMap extends AbstractMap
         0 => 'application/vnd.efi.iso',
       ),
     ),
+    'application/x-cda' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-cdf',
+      ),
+    ),
     'application/x-cdr' =>
     array (
       't' =>
@@ -30145,6 +30259,13 @@ class DefaultMap extends AbstractMap
       't' =>
       array (
         0 => 'audio/annodex',
+      ),
+    ),
+    'audio/x-cda' =>
+    array (
+      't' =>
+      array (
+        0 => 'application/x-cdf',
       ),
     ),
     'audio/x-dsd' =>
